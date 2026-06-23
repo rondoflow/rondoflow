@@ -16,15 +16,7 @@ machine, with your files.
 
 <img width="1022" height="716" alt="obrázok" src="https://github.com/user-attachments/assets/47b99c9b-a107-403f-894d-087190222b05" />
 
-
 </div>
-
-> **Project status:** RondoFlow is **pre-1.0 (0.1.x)** and under active development. It is
-> **local-first** with **role-based access control** for a shared team workspace (admin / editor
-> / viewer) - solid for individual, team, and self-hosted use, but not yet hardened as a
-> multi-tenant or public-facing service (one shared workspace, no per-tenant isolation). Expect
-> some rough edges.
-
 
 ## What is RondoFlow?
 
