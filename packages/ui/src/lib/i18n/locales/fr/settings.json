@@ -1,0 +1,211 @@
+{
+  "language": {
+    "section": "Langue",
+    "label": "Langue d'affichage"
+  },
+  "panel": {
+    "title": "Paramètres",
+    "ariaLabel": "Paramètres",
+    "description": "Configurez les préférences de rondoflow. Les modifications sont enregistrées automatiquement."
+  },
+  "appearance": {
+    "section": "Apparence"
+  },
+  "theme": {
+    "label": "Thème",
+    "ariaLabel": "Thème",
+    "option": {
+      "system": "Système",
+      "light": "Clair",
+      "dark": "Sombre"
+    }
+  },
+  "apiKeys": {
+    "section": "Clés API et intégrations"
+  },
+  "connection": {
+    "section": "Connexion",
+    "serverUrl": "URL du serveur",
+    "serverUrlPlaceholder": "http://localhost:3001",
+    "testAriaLabel": "Tester la connexion",
+    "status": {
+      "checking": "Vérification…",
+      "connected": "Connecté",
+      "unreachable": "Inaccessible"
+    }
+  },
+  "safety": {
+    "section": "Sécurité",
+    "globalLevel": "Niveau de sécurité global",
+    "level": {
+      "cautious": {
+        "label": "Prudent",
+        "description": "Approuver chaque appel d'outil. Idéal pour les environnements sensibles."
+      },
+      "balanced": {
+        "label": "Équilibré",
+        "description": "Approuver les opérations risquées ; autoriser automatiquement les opérations sûres."
+      },
+      "autonomous": {
+        "label": "Autonome",
+        "description": "Les assistants agissent sans approbation. À utiliser uniquement avec des workflows de confiance."
+      }
+    }
+  },
+  "models": {
+    "section": "Modèles",
+    "default": "Modèle par défaut",
+    "option": {
+      "deepThinker": {
+        "label": "Penseur approfondi",
+        "description": "Opus — meilleur raisonnement, coût plus élevé."
+      },
+      "allRounder": {
+        "label": "Polyvalent",
+        "description": "Sonnet — équilibre entre rapidité et capacité."
+      },
+      "quickHelper": {
+        "label": "Assistant rapide",
+        "description": "Haiku — rapide et économique."
+      }
+    }
+  },
+  "advanced": {
+    "section": "Avancé",
+    "agentTeams": {
+      "label": "Équipes d'assistants",
+      "description": "Permettre aux assistants de lancer des sous-assistants et de se coordonner en équipe.",
+      "warning": "Les équipes d'assistants augmentent considérablement l'utilisation de jetons et le coût par session."
+    },
+    "maxConcurrent": "Nombre maximal d'assistants simultanés — {{count}}",
+    "maxBudget": {
+      "label": "Budget maximal par session ($)",
+      "placeholder": "Aucune limite",
+      "description": "Plafond de dépenses global transmis à chaque exécution. Une exécution s'arrête avec une erreur de budget lorsqu'elle dépasse ce montant. Laissez vide pour aucune limite."
+    },
+    "directorBudget": {
+      "label": "Budget du directeur par évaluation ($)",
+      "placeholder": "Par défaut (0,05)",
+      "description": "Plafond de dépenses pour chaque évaluation du directeur entre les étapes du workflow. Augmentez-le pour les longs workflows avec de gros historiques d'étapes qui atteignent une erreur de budget. Laissez vide pour la valeur par défaut."
+    },
+    "directorTimeout": {
+      "label": "Délai d'expiration du directeur par évaluation (s)",
+      "placeholder": "Par défaut (90)",
+      "description": "Limite de temps réel pour chaque évaluation du directeur entre les étapes du workflow. En cas d'expiration, la sortie de l'étape est transmise sans révision. Augmentez-le pour les longs workflows qui atteignent une erreur d'expiration. Laissez vide pour la valeur par défaut."
+    }
+  },
+  "mode": {
+    "ariaLabel": "Mode d'autorisation",
+    "option": {
+      "plan": "Plan",
+      "default": "Par défaut",
+      "edit": "Modification",
+      "full": "Complet"
+    },
+    "editConfirm": {
+      "warning": "Le mode modification permet à cet assistant de modifier des fichiers."
+    }
+  },
+  "globalSafety": {
+    "title": "Règles de sécurité globales",
+    "defaultLevel": {
+      "title": "Niveau de sécurité par défaut",
+      "description": "S'applique à tous les assistants sauf remplacement.",
+      "cautious": {
+        "label": "Prudent",
+        "description": "Demander avant chaque action"
+      },
+      "balanced": {
+        "label": "Équilibré",
+        "description": "Demander uniquement avant les actions risquées"
+      },
+      "autonomous": {
+        "label": "Autonome",
+        "description": "Travailler de façon indépendante"
+      }
+    },
+    "blocked": {
+      "title": "Commandes bloquées",
+      "description": "Ces commandes sont toujours bloquées, quel que soit le niveau de sécurité.",
+      "placeholder": "Ajouter une commande bloquée..."
+    },
+    "approval": {
+      "title": "Exiger une approbation",
+      "description": "Ces commandes nécessitent votre approbation avant de s'exécuter.",
+      "placeholder": "Ajouter un motif de commande..."
+    },
+    "timeout": {
+      "title": "Délai d'expiration par défaut",
+      "hint": "secondes (par défaut : 300)"
+    }
+  },
+  "context": {
+    "title": "Contexte de l'espace de travail",
+    "description": "Ce document est injecté dans chaque consigne d'assistant de cet espace de travail. Utilisez-le pour des instructions partagées, le contexte du projet ou des normes de codage.",
+    "placeholder": "# Contexte de l'espace de travail\n\nDécrivez le projet, les conventions ou les instructions que tous les assistants doivent suivre...",
+    "workingDir": {
+      "title": "Répertoire de travail",
+      "saved": "Enregistré",
+      "description": "Définissez le répertoire où s'exécutent les assistants et les opérations git. Laissez vide pour utiliser le répertoire par défaut du serveur.",
+      "placeholder": "C:\\Users\\me\\my-project ou /home/me/my-project",
+      "saveError": "Échec de l'enregistrement"
+    }
+  },
+  "plan": {
+    "title": "Plan de l'espace de travail",
+    "description": "Définissez les objectifs, les jalons et les tâches de cet espace de travail. Ce document est pour votre référence — il n'est pas injecté dans les consignes des assistants.",
+    "placeholder": "# Plan de l'espace de travail\n\nDéfinissez les objectifs, les jalons et les tâches de cet espace de travail..."
+  },
+  "credentials": {
+    "loading": "Chargement des identifiants…",
+    "intro": "Stockés chiffrés sur le serveur. Les secrets ne sont jamais affichés — uniquement un aperçu masqué.",
+    "state": {
+      "notSet": "Non défini",
+      "saved": "Enregistré",
+      "fromEnv": "Depuis .env",
+      "set": "Défini",
+      "withPreview": "{{source}} · {{preview}}",
+      "willClear": "Sera effacé à l'enregistrement"
+    },
+    "input": {
+      "keepCurrent": "Laisser vide pour conserver la valeur actuelle",
+      "notSet": "Non défini"
+    },
+    "reveal": {
+      "show": "Afficher {{label}}",
+      "hide": "Masquer {{label}}"
+    },
+    "clear": "Effacer",
+    "undo": "Annuler",
+    "save": "Enregistrer les identifiants",
+    "savedState": "Enregistré",
+    "loadError": "Échec du chargement des identifiants",
+    "saveError": "Échec de l'enregistrement des identifiants",
+    "group": {
+      "anthropic": {
+        "title": "Accès Claude",
+        "hint": "Les assistants s'exécutent via la CLI Claude Code. Fournissez soit une clé API, soit un jeton de configuration depuis `claude setup-token` (utilise votre abonnement Claude). Si les deux sont définis, le jeton de configuration l'emporte. S'applique immédiatement à l'enregistrement."
+      },
+      "openai": {
+        "title": "Accès OpenAI",
+        "hint": "Utilisé par les assistants OpenAI. Créez une clé sur platform.openai.com/api-keys. S'applique immédiatement à l'enregistrement."
+      },
+      "perplexity": {
+        "title": "Accès Perplexity",
+        "hint": "Utilisé par les assistants Perplexity. Créez une clé sur perplexity.ai/settings/api. S'applique immédiatement à l'enregistrement."
+      },
+      "github": {
+        "title": "OAuth GitHub",
+        "hint": "Active « Se connecter avec GitHub ». Créez une application OAuth dans GitHub → Developer settings."
+      },
+      "google": {
+        "title": "OAuth Google",
+        "hint": "Active « Se connecter avec Google ». Créez des identifiants OAuth dans la console Google Cloud."
+      },
+      "smtp": {
+        "title": "E-mail (SMTP)",
+        "hint": "Utilisé par la carte E-mail de l'espace de travail pour envoyer la sortie du workflow. SMTP sécurisé : « true » pour le port 465 (TLS implicite), « false » pour 587 (STARTTLS). S'applique immédiatement à l'enregistrement ; laissez l'hôte SMTP vide pour désactiver."
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-slack-messages-via-cli-2",
+  "name": "manage-slack-messages-via-cli-2",
+  "description": "Read, send, search, and manage Slack messages and DMs via the slk CLI. Use when the user asks to check Slack, read channels or DMs, send Slack messages, search Slack, check unreads, manage drafts, view saved items, or interact with Slack workspace. Also use for heartbeat Slack c…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

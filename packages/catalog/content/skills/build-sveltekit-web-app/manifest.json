@@ -1,0 +1,10 @@
+{
+  "id": "build-sveltekit-web-app",
+  "name": "build-sveltekit-web-app",
+  "description": "Scaffold and configure a production-ready SvelteKit PWA with opinionated defaults. Use when: creating a new web application, setting up a SvelteKit project, building a PWA, or when a user asks to \"build me an app/site/webapp\". Handles full setup including TypeScript, Tailwind, S…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-productboard-releases-roadmaps",
+  "name": "manage-productboard-releases-roadmaps",
+  "description": "Manage ProductBoard releases and roadmap planning",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-cloud-model-provider-setup",
+  "name": "alibaba-cloud-model-provider-setup",
+  "description": "Configure OpenClaw to use Alibaba Cloud Bailian provider (Pay-As-You-Go or Coding Plan) through a strict interactive flow. Supports 5 site options and flagship model series. Use this skill when a user asks to add, switch, or repair Alibaba Cloud/Qwen provider configuration in Op…",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "code",
+  "order": 1000
+}

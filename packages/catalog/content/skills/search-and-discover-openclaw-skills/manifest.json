@@ -1,0 +1,10 @@
+{
+  "id": "search-and-discover-openclaw-skills",
+  "name": "search-and-discover-openclaw-skills",
+  "description": "Search and discover OpenClaw skills from various sources. Use when: user wants to find available skills, search for specific functionality, or discover new skills to install.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

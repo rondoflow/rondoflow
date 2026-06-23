@@ -1,0 +1,10 @@
+{
+  "id": "interactive-crypto-deep-research",
+  "name": "interactive-crypto-deep-research",
+  "description": "Interactive crypto deep-research framework with human-AI collaboration for superior research outcomes",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

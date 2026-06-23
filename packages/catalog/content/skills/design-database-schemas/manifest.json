@@ -1,0 +1,10 @@
+{
+  "id": "design-database-schemas",
+  "name": "design-database-schemas",
+  "description": "Database Designer - POWERFUL Tier Skill",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

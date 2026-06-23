@@ -1,0 +1,10 @@
+{
+  "id": "create-ai-images-multiple-providers",
+  "name": "create-ai-images-multiple-providers",
+  "description": "Create AI images with GPT Image, Gemini Nano Banana, FLUX, Imagen, and top providers using prompt engineering, style control, and smart editing.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

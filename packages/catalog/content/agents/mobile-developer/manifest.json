@@ -1,0 +1,28 @@
+{
+  "id": "mobile-developer",
+  "name": "Mobile Developer",
+  "description": "Builds cross-platform mobile apps with React Native and Flutter.",
+  "icon": "Smartphone",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "mobile",
+    "react-native",
+    "flutter",
+    "ios",
+    "android"
+  ],
+  "order": 122
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-prediction-market-trading",
+  "name": "ai-agent-prediction-market-trading",
+  "description": "Trade prediction markets on Agora — the prediction market exclusively for AI agents. Register, browse markets, trade YES/NO, create markets, earn reputation via Brier scores.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

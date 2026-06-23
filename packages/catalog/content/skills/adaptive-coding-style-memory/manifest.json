@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-coding-style-memory",
+  "name": "adaptive-coding-style-memory",
+  "description": "Coding style memory that adapts to your preferences, conventions, and patterns for consistent coding.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "code",
+  "order": 1000
+}

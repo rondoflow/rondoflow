@@ -1,0 +1,10 @@
+{
+  "id": "multi-llm-decision-voting-workflows",
+  "name": "multi-llm-decision-voting-workflows",
+  "description": "High-confidence decisions for agentic systems.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.9",
+  "icon": "bot",
+  "order": 1000
+}

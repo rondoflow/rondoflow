@@ -1,0 +1,10 @@
+{
+  "id": "backup-openclaw-customizations-cloud",
+  "name": "backup-openclaw-customizations-cloud",
+  "description": "Back up OpenClaw customizations (memory, config, skills, workspace) to cloud storage via rclone, with scheduling + retention. Works on macOS, Linux, and Windows (Git Bash/WSL).",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.15",
+  "icon": "code",
+  "order": 1000
+}

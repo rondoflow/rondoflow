@@ -1,0 +1,10 @@
+{
+  "id": "write-viral-tweets-and-threads",
+  "name": "write-viral-tweets-and-threads",
+  "description": "Write viral, persuasive, engaging tweets and threads. Uses web research to find viral examples in your niche, then models writing based on proven formulas and X algorithm optimization. Use when creating tweets, threads, or X content strategy.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

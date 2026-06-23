@@ -1,0 +1,10 @@
+{
+  "id": "process-organize-shared-screenshots",
+  "name": "process-organize-shared-screenshots",
+  "description": "Process screenshots Enzo shares with comments. Save to reference library, extract content, categorize, set reminders, and log patterns. Use when Enzo sends an image with context like \"save this\", shares a screenshot of content (LinkedIn posts, tweets, articles), or sends ideas/f…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

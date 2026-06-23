@@ -1,0 +1,10 @@
+{
+  "id": "ai-news-daily-briefing",
+  "name": "ai-news-daily-briefing",
+  "description": "AI news intelligence and daily briefing powered by CellCog. News digests, competitive intelligence, market updates, trend monitoring, industry reports, current events research. Multi-source synthesis for accurate, comprehensive briefs.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.9",
+  "icon": "server",
+  "order": 1000
+}

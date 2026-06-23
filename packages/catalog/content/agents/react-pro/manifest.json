@@ -1,0 +1,28 @@
+{
+  "id": "react-pro",
+  "name": "React Pro",
+  "description": "Builds modern, performant, scalable React applications.",
+  "icon": "Atom",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "react",
+    "frontend",
+    "hooks",
+    "performance",
+    "state-management"
+  ],
+  "order": 130
+}

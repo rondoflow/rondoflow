@@ -1,0 +1,10 @@
+{
+  "id": "imessage-sms-command-line-tool",
+  "name": "imessage-sms-command-line-tool",
+  "description": "iMessage/SMS CLI for listing chats, history, watch, and sending.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

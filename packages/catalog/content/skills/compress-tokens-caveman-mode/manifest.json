@@ -1,0 +1,10 @@
+{
+  "id": "compress-tokens-caveman-mode",
+  "name": "compress-tokens-caveman-mode",
+  "description": "Respond like smart caveman. Cut articles, filler, pleasantries. Keep substance.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

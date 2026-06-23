@@ -1,0 +1,10 @@
+{
+  "id": "send-emails-via-smtp",
+  "name": "send-emails-via-smtp",
+  "description": "A skill to send emails with support for markdown, HTML text, and attachments, leveraging existing SMTP configuration in `/home/bb/.openclaw/smtp-config.json`. Includes retry logic and logging.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

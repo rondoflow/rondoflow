@@ -1,0 +1,10 @@
+{
+  "id": "bitcoin-lightning-wallet-for-agents",
+  "name": "bitcoin-lightning-wallet-for-agents",
+  "description": "Self-custodial Bitcoin and Lightning wallet for AI agents. Send and receive sats via Lightning Network, Spark, or on-chain Bitcoin. Use when: checking bitcoin balance, sending/receiving payments, generating Lightning invoices, managing wallet operations. Requires the BreezClaw p…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

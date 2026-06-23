@@ -1,0 +1,10 @@
+{
+  "id": "agent-wallet-x402-payment-execution",
+  "name": "agent-wallet-x402-payment-execution",
+  "description": "A FluxA Agent Wallet skill that enables agents to request budgets, sign x402 payments, and call paid endpoints autonomously. It walks through the full flow—from mandate creation to X-PAYMENT execution—so agents can perform paid actions without human intervention.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

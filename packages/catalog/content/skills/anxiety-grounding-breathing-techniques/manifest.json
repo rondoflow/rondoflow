@@ -1,0 +1,10 @@
+{
+  "id": "anxiety-grounding-breathing-techniques",
+  "name": "anxiety-grounding-breathing-techniques",
+  "description": "Manage anxiety with grounding exercises, breathing techniques, and thought reframing",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

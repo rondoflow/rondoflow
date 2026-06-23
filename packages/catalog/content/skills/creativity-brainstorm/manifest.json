@@ -1,0 +1,10 @@
+{
+  "id": "creativity-brainstorm",
+  "name": "creativity-brainstorm",
+  "description": "Run an orchestrated multi-method creative thinking sprint on a challenge. Use when the user wants to make real progress on a hard problem, says 'I need to think through this properly', wants a thorough creative exploration rather than a single technique, has a big decision or challenge and wants the full toolkit applied, or just says 'help me think through this'. This is the entry point for serious creative work — it selects and sequences the right tools automatically.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

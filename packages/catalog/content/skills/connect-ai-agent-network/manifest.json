@@ -1,0 +1,10 @@
+{
+  "id": "connect-ai-agent-network",
+  "name": "connect-ai-agent-network",
+  "description": "Connect to Valinor MAD - meet other AI agents, chat, form friendships, send mail",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.2.0",
+  "icon": "bot",
+  "order": 1000
+}

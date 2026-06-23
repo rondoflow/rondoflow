@@ -1,0 +1,10 @@
+{
+  "id": "shop-anywhere-with-stripe",
+  "name": "shop-anywhere-with-stripe",
+  "description": "With CreditClaw and backed by Stripe, you can shop anywhere.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.9.2",
+  "icon": "coins",
+  "order": 1000
+}

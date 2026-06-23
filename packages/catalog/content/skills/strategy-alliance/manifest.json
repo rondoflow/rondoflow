@@ -1,0 +1,10 @@
+{
+  "id": "strategy-alliance",
+  "name": "strategy-alliance",
+  "description": "Maps parties, identifies natural allies and swing parties, and assesses alliance stability for coalition-building in competitive contexts. Triggers: 'build alliances', 'coalition building', 'who are my allies', 'manage stakeholders', 'political coalition', 'alliance strategy', 'who do I need on my side', 'get people on board', 'organizational politics'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

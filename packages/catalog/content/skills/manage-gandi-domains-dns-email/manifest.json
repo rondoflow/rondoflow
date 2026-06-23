@@ -1,0 +1,10 @@
+{
+  "id": "manage-gandi-domains-dns-email",
+  "name": "manage-gandi-domains-dns-email",
+  "description": "Manage Gandi domains, DNS, email, and SSL certificates via the Gandi API",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

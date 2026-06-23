@@ -1,0 +1,211 @@
+{
+  "language": {
+    "section": "Sprache",
+    "label": "Anzeigesprache"
+  },
+  "panel": {
+    "title": "Einstellungen",
+    "ariaLabel": "Einstellungen",
+    "description": "Konfigurieren Sie die rondoflow-Einstellungen. Änderungen werden automatisch gespeichert."
+  },
+  "appearance": {
+    "section": "Darstellung"
+  },
+  "theme": {
+    "label": "Design",
+    "ariaLabel": "Design",
+    "option": {
+      "system": "System",
+      "light": "Hell",
+      "dark": "Dunkel"
+    }
+  },
+  "apiKeys": {
+    "section": "API-Schlüssel & Integrationen"
+  },
+  "connection": {
+    "section": "Verbindung",
+    "serverUrl": "Server-URL",
+    "serverUrlPlaceholder": "http://localhost:3001",
+    "testAriaLabel": "Verbindung testen",
+    "status": {
+      "checking": "Wird geprüft…",
+      "connected": "Verbunden",
+      "unreachable": "Nicht erreichbar"
+    }
+  },
+  "safety": {
+    "section": "Sicherheit",
+    "globalLevel": "Globale Sicherheitsstufe",
+    "level": {
+      "cautious": {
+        "label": "Vorsichtig",
+        "description": "Jeden Tool-Aufruf genehmigen. Am besten für sensible Umgebungen."
+      },
+      "balanced": {
+        "label": "Ausgewogen",
+        "description": "Riskante Vorgänge genehmigen; sichere automatisch zulassen."
+      },
+      "autonomous": {
+        "label": "Autonom",
+        "description": "Assistenten handeln ohne Genehmigung. Nur mit vertrauenswürdigen Workflows verwenden."
+      }
+    }
+  },
+  "models": {
+    "section": "Modelle",
+    "default": "Standardmodell",
+    "option": {
+      "deepThinker": {
+        "label": "Tiefdenker",
+        "description": "Opus — beste Argumentation, höhere Kosten."
+      },
+      "allRounder": {
+        "label": "Allrounder",
+        "description": "Sonnet — ausgewogene Geschwindigkeit und Leistungsfähigkeit."
+      },
+      "quickHelper": {
+        "label": "Schneller Helfer",
+        "description": "Haiku — schnell und kostengünstig."
+      }
+    }
+  },
+  "advanced": {
+    "section": "Erweitert",
+    "agentTeams": {
+      "label": "Assistenten-Teams",
+      "description": "Assistenten erlauben, Unter-Assistenten zu starten und als Team zu koordinieren.",
+      "warning": "Assistenten-Teams erhöhen den Token-Verbrauch und die Kosten pro Konversation erheblich."
+    },
+    "maxConcurrent": "Maximale gleichzeitige Assistenten — {{count}}",
+    "maxBudget": {
+      "label": "Maximales Budget pro Konversation ($)",
+      "placeholder": "Kein Limit",
+      "description": "Globale Ausgabenobergrenze, die an jede Ausführung weitergegeben wird. Eine Ausführung stoppt mit einem Budgetfehler, wenn dieser Betrag überschritten wird. Leer lassen für kein Limit."
+    },
+    "directorBudget": {
+      "label": "Director-Budget pro Auswertung ($)",
+      "placeholder": "Standard (0.05)",
+      "description": "Ausgabenobergrenze für jede Director-Auswertung zwischen Workflow-Schritten. Erhöhen Sie sie für lange Workflows mit umfangreichen Schrittverläufen, die einen Budgetfehler verursachen. Leer lassen für den Standardwert."
+    },
+    "directorTimeout": {
+      "label": "Director-Timeout pro Auswertung (s)",
+      "placeholder": "Standard (90)",
+      "description": "Zeitlimit für jede Director-Auswertung zwischen Workflow-Schritten. Bei einem Timeout wird die Ausgabe des Schritts ungeprüft weitergegeben. Erhöhen Sie es für lange Workflows, die einen Timeout-Fehler verursachen. Leer lassen für den Standardwert."
+    }
+  },
+  "mode": {
+    "ariaLabel": "Berechtigungsmodus",
+    "option": {
+      "plan": "Plan",
+      "default": "Standard",
+      "edit": "Bearbeiten",
+      "full": "Voll"
+    },
+    "editConfirm": {
+      "warning": "Der Bearbeitungsmodus erlaubt diesem Assistenten, Dateien zu ändern."
+    }
+  },
+  "globalSafety": {
+    "title": "Globale Sicherheitsregeln",
+    "defaultLevel": {
+      "title": "Standard-Sicherheitsstufe",
+      "description": "Gilt für alle Assistenten, sofern nicht überschrieben.",
+      "cautious": {
+        "label": "Vorsichtig",
+        "description": "Vor jeder Aktion fragen"
+      },
+      "balanced": {
+        "label": "Ausgewogen",
+        "description": "Nur vor riskanten Aktionen fragen"
+      },
+      "autonomous": {
+        "label": "Autonom",
+        "description": "Selbstständig arbeiten"
+      }
+    },
+    "blocked": {
+      "title": "Blockierte Befehle",
+      "description": "Diese Befehle werden unabhängig von der Sicherheitsstufe immer blockiert.",
+      "placeholder": "Blockierten Befehl hinzufügen..."
+    },
+    "approval": {
+      "title": "Genehmigung erforderlich",
+      "description": "Diese Befehle erfordern vor der Ausführung Ihre Genehmigung.",
+      "placeholder": "Befehlsmuster hinzufügen..."
+    },
+    "timeout": {
+      "title": "Standard-Timeout",
+      "hint": "Sekunden (Standard: 300)"
+    }
+  },
+  "context": {
+    "title": "Arbeitsbereich-Kontext",
+    "description": "Dieses Dokument wird in jede Assistenten-Anweisung in diesem Arbeitsbereich eingefügt. Verwenden Sie es für gemeinsame Anweisungen, Projektkontext oder Coding-Standards.",
+    "placeholder": "# Arbeitsbereich-Kontext\n\nBeschreiben Sie das Projekt, die Konventionen oder Anweisungen, die alle Assistenten befolgen sollen...",
+    "workingDir": {
+      "title": "Arbeitsverzeichnis",
+      "saved": "Gespeichert",
+      "description": "Legen Sie das Verzeichnis fest, in dem Assistenten und Git-Vorgänge ausgeführt werden. Leer lassen, um das Standardverzeichnis des Servers zu verwenden.",
+      "placeholder": "C:\\Users\\me\\my-project oder /home/me/my-project",
+      "saveError": "Speichern fehlgeschlagen"
+    }
+  },
+  "plan": {
+    "title": "Arbeitsbereich-Plan",
+    "description": "Definieren Sie Ziele, Meilensteine und Aufgaben für diesen Arbeitsbereich. Dieses Dokument dient nur Ihrer Referenz — es wird nicht in Assistenten-Anweisungen eingefügt.",
+    "placeholder": "# Arbeitsbereich-Plan\n\nDefinieren Sie Ziele, Meilensteine und Aufgaben für diesen Arbeitsbereich..."
+  },
+  "credentials": {
+    "loading": "Anmeldedaten werden geladen…",
+    "intro": "Verschlüsselt auf dem Server gespeichert. Secrets werden nie angezeigt — nur eine maskierte Vorschau.",
+    "state": {
+      "notSet": "Nicht gesetzt",
+      "saved": "Gespeichert",
+      "fromEnv": "Aus .env",
+      "set": "Gesetzt",
+      "withPreview": "{{source}} · {{preview}}",
+      "willClear": "Wird beim Speichern gelöscht"
+    },
+    "input": {
+      "keepCurrent": "Leer lassen, um den aktuellen Wert beizubehalten",
+      "notSet": "Nicht gesetzt"
+    },
+    "reveal": {
+      "show": "{{label}} anzeigen",
+      "hide": "{{label}} ausblenden"
+    },
+    "clear": "Leeren",
+    "undo": "Rückgängig",
+    "save": "Anmeldedaten speichern",
+    "savedState": "Gespeichert",
+    "loadError": "Anmeldedaten konnten nicht geladen werden",
+    "saveError": "Anmeldedaten konnten nicht gespeichert werden",
+    "group": {
+      "anthropic": {
+        "title": "Claude-Zugang",
+        "hint": "Assistenten werden über die Claude Code CLI ausgeführt. Geben Sie entweder einen API-Schlüssel oder ein Setup-Token von `claude setup-token` an (verwendet Ihr Claude-Abonnement). Wenn beide gesetzt sind, gewinnt das Setup-Token. Wird beim Speichern sofort angewendet."
+      },
+      "openai": {
+        "title": "OpenAI-Zugang",
+        "hint": "Wird von OpenAI-Assistenten verwendet. Erstellen Sie einen Schlüssel unter platform.openai.com/api-keys. Wird beim Speichern sofort angewendet."
+      },
+      "perplexity": {
+        "title": "Perplexity-Zugang",
+        "hint": "Wird von Perplexity-Assistenten verwendet. Erstellen Sie einen Schlüssel unter perplexity.ai/settings/api. Wird beim Speichern sofort angewendet."
+      },
+      "github": {
+        "title": "GitHub OAuth",
+        "hint": "Aktiviert „Mit GitHub anmelden“. Erstellen Sie eine OAuth-App unter GitHub → Developer settings."
+      },
+      "google": {
+        "title": "Google OAuth",
+        "hint": "Aktiviert „Mit Google anmelden“. Erstellen Sie OAuth-Anmeldedaten in der Google Cloud Console."
+      },
+      "smtp": {
+        "title": "E-Mail (SMTP)",
+        "hint": "Wird vom Canvas-E-Mail-Knoten zum Senden von Workflow-Ausgaben verwendet. SMTP secure: \"true\" für Port 465 (implizites TLS), \"false\" für 587 (STARTTLS). Wird beim Speichern sofort angewendet; lassen Sie den SMTP-Host leer, um zu deaktivieren."
+      }
+    }
+  }
+}

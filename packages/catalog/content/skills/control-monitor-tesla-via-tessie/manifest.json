@@ -1,0 +1,10 @@
+{
+  "id": "control-monitor-tesla-via-tessie",
+  "name": "control-monitor-tesla-via-tessie",
+  "description": "Control and monitor Tesla vehicles via the Tessie API. Use when you need to check Tesla status (battery, location, charging), control climate (heat/cool), lock/unlock doors, start/stop charging, honk/flash lights, open charge port or trunks, or any other Tesla vehicle command. R…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

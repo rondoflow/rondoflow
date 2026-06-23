@@ -1,0 +1,277 @@
+{
+  "format": {
+    "brainstorm": {
+      "label": "Brainstorming",
+      "description": "Offene Ideenfindung und Exploration"
+    },
+    "review": {
+      "label": "Prüfung",
+      "description": "Strukturierte Bewertung eines Vorschlags oder Artefakts"
+    },
+    "deliberation": {
+      "label": "Debatte",
+      "description": "Kontroverser Austausch, um eine Position auf die Probe zu stellen"
+    }
+  },
+  "role": {
+    "participant": {
+      "label": "Teilnehmer",
+      "tooltip": "Bringt während der gesamten Diskussion aktiv Ideen und Antworten ein."
+    },
+    "observer": {
+      "label": "Beobachter",
+      "tooltip": "Hört zu und fasst zusammen, trägt aber keine Beiträge bei."
+    },
+    "devilAdvocate": {
+      "label": "Advocatus Diaboli",
+      "tooltip": "Hinterfragt jeden Vorschlag, um Annahmen auf die Probe zu stellen."
+    },
+    "moderator": {
+      "label": "Moderator"
+    }
+  },
+  "validation": {
+    "topicRequired": "Thema ist erforderlich.",
+    "facilitatorRequired": "Es muss ein Moderator ausgewählt werden.",
+    "participantRequired": "Es muss mindestens ein Teilnehmer hinzugefügt werden."
+  },
+  "wizard": {
+    "stepIndicator": "Schritt {{current}} von {{total}}",
+    "title": {
+      "topic": "Neue Diskussion — Thema",
+      "team": "Neue Diskussion — Team",
+      "settings": "Neue Diskussion — Einstellungen"
+    },
+    "description": "Erstellen Sie eine neue Multi-Agenten-Diskussion in {{total}} Schritten.",
+    "topic": {
+      "label": "Worüber soll das Team diskutieren?",
+      "placeholder": "Beschreiben Sie das Thema, die Frage oder den Vorschlag zur Diskussion…",
+      "hint": "Seien Sie konkret – ein fokussiertes Thema führt zu einer besseren Diskussion.",
+      "styleLabel": "Diskussionsstil"
+    },
+    "team": {
+      "heading": "Wählen Sie Ihr Team",
+      "facilitatorLabel": "Moderator",
+      "facilitatorHint": "Der Moderator leitet die Diskussion und erstellt die abschließende Synthese.",
+      "selectPlaceholder": "Einen Moderator auswählen…",
+      "groupFacilitators": "Moderatoren",
+      "groupAllAssistants": "Alle Assistenten",
+      "newButton": "Neu",
+      "createNamePlaceholder": "Moderatorenname",
+      "createDescPlaceholder": "Beschreibung (optional)",
+      "createSubmit": "Erstellen & auswählen",
+      "creating": "Wird erstellt...",
+      "participantsLabel": "Teilnehmer",
+      "participantsEmpty": "Noch keine Teilnehmer. Fügen Sie mindestens einen Agenten hinzu.",
+      "participantAgentLabel": "Agent von Teilnehmer {{index}}",
+      "participantRoleLabel": "Rolle von Teilnehmer {{index}}",
+      "roleDescriptionLabel": "Rollenbeschreibung",
+      "removeParticipant": "Teilnehmer {{index}} entfernen",
+      "addParticipant": "Weiteren Teilnehmer hinzufügen"
+    },
+    "settings": {
+      "roundsLabel": "Anzahl der Runden",
+      "autoLabel": "Automatisch (Moderator entscheidet)",
+      "autoHint": "Der Moderator bewertet den Fortschritt nach jeder Runde und entscheidet, wann abgeschlossen wird.",
+      "fixedLabel": "Feste Runden",
+      "fixedHint": "Führt genau diese Anzahl von Runden aus, unabhängig vom Fortschritt.",
+      "roundsInputLabel": "Anzahl der Runden",
+      "estimatesTitle": "Schätzungen",
+      "estimatedCost": "Geschätzte Kosten",
+      "costRange": "{{min}} $ – {{max}} $",
+      "estimatedTime": "Geschätzte Zeit",
+      "timeValue": "~{{minutes}} Min.",
+      "participants": "Teilnehmer",
+      "rounds": "Runden",
+      "auto": "Automatisch",
+      "estimatesNote": "Die Schätzungen gehen von Sonnet für den Moderator und Haiku für die Teilnehmer aus. Die tatsächlichen Kosten variieren."
+    },
+    "footer": {
+      "back": "Zurück",
+      "backLabel": "Zum vorherigen Schritt gehen",
+      "next": "Weiter",
+      "nextLabel": "Zum nächsten Schritt gehen",
+      "start": "Starten",
+      "startLabel": "Diskussion starten"
+    }
+  },
+  "timeline": {
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "saidLabel": "{{name}} sagte",
+    "moderatorDecisionLabel": "Moderatorentscheidung",
+    "conclusionLabel": "Diskussionsfazit",
+    "conclusionTitle": "Fazit",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "copyLabel": "Fazit in die Zwischenablage kopieren",
+    "download": "Herunterladen",
+    "downloadLabel": "Fazit als Markdown herunterladen",
+    "topicLabel": "Thema: {{topic}}",
+    "empty": {
+      "draftTitle": "Diskussion nicht gestartet",
+      "draftHint": "Drücken Sie „Starten“, um die Diskussion zu beginnen. Beiträge erscheinen hier in Echtzeit.",
+      "waitingTitle": "Warten auf den ersten Beitrag...",
+      "waitingHint": "Die Diskussion hat begonnen. Beiträge erscheinen hier, sobald die Agenten antworten."
+    },
+    "roundOf": "Runde {{current}} von {{max}}",
+    "round": "Runde {{current}}",
+    "status": {
+      "active": "Aktiv",
+      "concluded": "Abgeschlossen",
+      "draft": "Entwurf"
+    },
+    "turnsLabel": "Diskussionsbeiträge",
+    "exportHeading": "Diskussionsfazit",
+    "exportTopic": "**Thema:** {{topic}}"
+  },
+  "controls": {
+    "toolbarLabel": "Diskussionssteuerung",
+    "round": {
+      "concluded": "Abgeschlossen",
+      "of": "Runde {{current}} von {{max}}",
+      "current": "Runde {{current}}",
+      "notStarted": "Nicht gestartet"
+    },
+    "status": {
+      "draft": "Entwurf",
+      "active": "Aktiv",
+      "concluded": "Abgeschlossen"
+    },
+    "statusLabel": "Diskussionsstatus: {{status}}",
+    "start": "Starten",
+    "startLabel": "Diskussion starten",
+    "pause": "Pausieren",
+    "pauseLabel": "Diskussion pausieren",
+    "stop": "Stoppen",
+    "stopLabel": "Diskussion stoppen",
+    "resume": "Fortsetzen",
+    "resumeLabel": "Diskussion fortsetzen",
+    "export": "Exportieren",
+    "exportLabel": "Diskussion exportieren",
+    "stopDialog": {
+      "title": "Diskussion stoppen?",
+      "description": "Dadurch wird die Diskussion dauerhaft gestoppt. Nicht gespeicherter Fortschritt geht verloren und die Diskussion kann nicht neu gestartet werden.",
+      "confirm": "Diskussion stoppen"
+    }
+  },
+  "list": {
+    "status": {
+      "draft": "Entwurf",
+      "active": "Aktiv",
+      "concluded": "Abgeschlossen"
+    },
+    "openLabel": "Diskussion öffnen: {{name}}",
+    "title": "Diskussionen",
+    "facilitators": "Moderatoren",
+    "facilitatorsLabel": "Moderatoren verwalten",
+    "newDiscussion": "Neue Diskussion",
+    "newDiscussionLabel": "Neue Diskussion erstellen",
+    "panelLabel": "Diskussionsliste",
+    "description": "Alle Teamdiskussionen. Klicken Sie auf eine, um sie zu öffnen.",
+    "listLabel": "Diskussionsliste",
+    "empty": {
+      "title": "Noch keine Diskussionen",
+      "hint": "Starten Sie eine Teamdiskussion, um sie hier zu sehen."
+    }
+  },
+  "panel": {
+    "label": "Diskussion: {{name}}",
+    "labelEmpty": "Diskussions-Panel",
+    "description": "Live-Transkript und Steuerung für die Diskussion „{{topic}}“.",
+    "descriptionEmpty": "Keine Diskussion ausgewählt.",
+    "status": {
+      "active": "Aktiv",
+      "concluded": "Abgeschlossen",
+      "draft": "Entwurf"
+    },
+    "closeLabel": "Diskussions-Panel schließen",
+    "empty": {
+      "title": "Keine Diskussion ausgewählt",
+      "hint": "Öffnen Sie „Diskussionen“ in der oberen Leiste und wählen Sie eine aus, um sie hier anzuzeigen."
+    },
+    "exportTitle": "# Diskussion: {{name}}",
+    "exportTopic": "**Thema:** {{topic}}",
+    "exportConclusion": "## Fazit"
+  },
+  "facilitators": {
+    "title": "Moderatoren",
+    "newButton": "Neu",
+    "presetLabel": "Mit einer Voreinstellung beginnen",
+    "namePlaceholder": "Moderatorenname",
+    "descPlaceholder": "Beschreibung (optional)",
+    "personaPlaceholder": "Persona / Anweisungen (optional – leer lassen für einen generischen Moderator)",
+    "model": {
+      "opus": "Opus",
+      "sonnet": "Sonnet",
+      "haiku": "Haiku"
+    },
+    "creating": "Wird erstellt...",
+    "loading": "Wird geladen...",
+    "empty": {
+      "title": "Noch keine Moderatoren.",
+      "hint": "Erstellen Sie einen, um Diskussionen zu moderieren.",
+      "createFirst": "Erstellen Sie Ihren ersten Moderator"
+    },
+    "builtin": "Integriert",
+    "deleteLabel": "{{name}} löschen",
+    "defaultPersona": "Du bist {{name}}, ein erfahrener Diskussionsmoderator. Du leitest Diskussionen, sorgst dafür, dass alle Teilnehmer gehört werden, fasst Standpunkte zusammen und hältst die Gespräche produktiv und fokussiert."
+  },
+  "chat": {
+    "step": "Schritt {{index}}: ",
+    "stepRunning": "Läuft ",
+    "working": "Wird bearbeitet…",
+    "agentCompleted": "{{name}} abgeschlossen",
+    "viewConversationTitle": "Klicken, um die vollständige Agentenkonversation anzuzeigen",
+    "tokens_one": "{{count}} Token",
+    "tokens_other": "{{count}} Token",
+    "workflowCompleted": "Workflow abgeschlossen",
+    "tokensSuffix_one": "· {{formattedCount}} Token",
+    "tokensSuffix_other": "· {{formattedCount}} Token",
+    "outputs": "Ausgaben",
+    "outputsLabel": "Gespeicherte Workflow-Ausgaben anzeigen",
+    "outputsTitle": "Alle gespeicherten Ausgaben anzeigen",
+    "savingOutput": "Ausgabe wird gespeichert…",
+    "openResult": "Ergebnis öffnen",
+    "openResultLabel": "Das gespeicherte Workflow-Ergebnis öffnen",
+    "openResultTitle": "Das gespeicherte Ergebnis öffnen",
+    "saveLabel": "Workflow-Ausgabe im Projektordner speichern",
+    "saveTitle": "Ausgabe im Projektordner speichern",
+    "directorEvaluating": "Director wertet aus...",
+    "director": "Director",
+    "directorSuggestsRedirect": "Director schlägt Umleitung vor",
+    "approveRedirect": "Umleitung genehmigen",
+    "continueForward": "Vorwärts fortsetzen",
+    "approveStep": "Schritt {{index}} genehmigen",
+    "approveAndRun": "Genehmigen & ausführen",
+    "stopFlow": "Ablauf stoppen",
+    "resolved": "Gelöst",
+    "redirectApproved": "Umleitung genehmigt – {{name}} wird erneut ausgeführt",
+    "redirectDeclined": "Umleitung abgelehnt – wird vorwärts fortgesetzt",
+    "advisorAnalyzing": "Advisor analysiert Workflow...",
+    "streamingLabel": "Streaming",
+    "emptyTitle": "Führen Sie Ihren Workflow aus",
+    "emptyHint": "Senden Sie unten eine Nachricht, um die Kette zu starten. Jeder Agent wird der Reihe nach verarbeitet.",
+    "logLabel": "Workflow-Protokoll",
+    "approvalMode": {
+      "auto": "Automatisch",
+      "autoTitle": "Automatisch – jeden Schritt und seine Tools ohne Nachfrage ausführen",
+      "step": "Schritt",
+      "stepTitle": "Schritt für Schritt – vor jedem Agentenschritt bestätigen",
+      "groupLabel": "Workflow-Genehmigungsmodus"
+    },
+    "executionLog": "Ausführungsprotokoll",
+    "stepsCount_one": "{{count}} Schritt",
+    "stepsCount_other": "{{count}} Schritte",
+    "runningSuffix": "— läuft",
+    "viewOutputs": "Gespeicherte Ausgaben anzeigen",
+    "clearLog": "Protokoll leeren",
+    "inputPlaceholderRunning": "Zusätzliche Anweisungen senden… (Strg+Enter)",
+    "inputPlaceholderIdle": "Beschreiben Sie, was der Workflow tun soll… (Strg+Enter zum Ausführen)",
+    "inputLabel": "Workflow-Nachrichteneingabe",
+    "stopWorkflow": "Workflow stoppen",
+    "startingWorkflow": "Workflow wird gestartet…",
+    "runWorkflow": "Workflow ausführen",
+    "typeMessageFirst": "Geben Sie zuerst eine Nachricht ein"
+  }
+}

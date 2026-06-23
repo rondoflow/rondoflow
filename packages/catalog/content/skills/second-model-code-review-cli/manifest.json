@@ -1,0 +1,10 @@
+{
+  "id": "second-model-code-review-cli",
+  "name": "second-model-code-review-cli",
+  "description": "Use the @steipete/oracle CLI to bundle a prompt plus the right files and get a second-model review (API or browser) for debugging, refactors, design checks, or cross-validation.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

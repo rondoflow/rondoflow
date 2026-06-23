@@ -1,0 +1,10 @@
+{
+  "id": "binance-new-coin-launch-detector",
+  "name": "binance-new-coin-launch-detector",
+  "description": "Binance Alpha new coin launch detector. Uses WebSocket to monitor !miniTicker@arr stream and detects new trading pairs immediately when they appear. Maintains known symbols set in memory and triggers alert for new symbols with valid opening price.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "coins",
+  "order": 1000
+}

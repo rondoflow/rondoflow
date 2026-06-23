@@ -1,0 +1,76 @@
+{
+  "title": "Git",
+  "tab": {
+    "status": "État",
+    "log": "Journal",
+    "branches": "Branches"
+  },
+  "action": {
+    "refresh": "Actualiser",
+    "close": "Fermer",
+    "saveDirectory": "Enregistrer le répertoire",
+    "cancelEditing": "Annuler la modification",
+    "changeDirectory": "Changer le répertoire du dépôt"
+  },
+  "repo": {
+    "pathPlaceholder": "/chemin/vers/votre/projet",
+    "none": "Aucun dépôt sélectionné",
+    "hint": "Cliquez sur l'icône de modification pour définir un dossier de projet pour cet espace de travail."
+  },
+  "commit": {
+    "placeholder": "Message de commit…",
+    "submit": "Commiter",
+    "submitCount": "Commiter ({{count}})"
+  },
+  "push": {
+    "label": "Pousser"
+  },
+  "status": {
+    "empty": "Arbre de travail propre",
+    "staged": "Indexé ({{count}})",
+    "changes": "Modifications ({{count}})",
+    "unstageAll": "Tout désindexer",
+    "stageAll": "Tout indexer",
+    "stage": "Indexer",
+    "unstage": "Désindexer",
+    "stageFile": "Indexer {{path}}",
+    "unstageFile": "Désindexer {{path}}",
+    "fileStatus": {
+      "added": "Ajouté",
+      "modified": "Modifié",
+      "deleted": "Supprimé",
+      "renamed": "Renommé",
+      "untracked": "Non suivi"
+    }
+  },
+  "log": {
+    "empty": "Aucun commit pour le moment",
+    "history": "Historique des commits",
+    "justNow": "à l'instant",
+    "minutesAgo": "il y a {{count}} min",
+    "hoursAgo": "il y a {{count}} h",
+    "daysAgo": "il y a {{count}} j"
+  },
+  "branches": {
+    "list": "Branches Git",
+    "tabs": "Onglets Git",
+    "newBranch": "Nouvelle branche",
+    "newBranchFrom": "Nouvelle branche à partir de",
+    "namePlaceholder": "feature/ma-branche",
+    "createSwitch": "Créer et basculer",
+    "empty": "Aucune branche trouvée",
+    "switch": "basculer",
+    "switching": "Basculement…",
+    "currentBranch": "Branche actuelle",
+    "invalidName": "Nom de branche invalide. Utilisez des lettres, des chiffres, /, - ou .",
+    "createFailed": "Échec de la création de la branche"
+  },
+  "error": {
+    "statusFailed": "Échec de l'obtention de l'état Git",
+    "stageFailed": "Échec de l'indexation des fichiers",
+    "unstageFailed": "Échec de la désindexation des fichiers",
+    "commitFailed": "Échec du commit",
+    "pushFailed": "Échec du push",
+    "checkoutFailed": "Échec du basculement de branche"
+  }
+}

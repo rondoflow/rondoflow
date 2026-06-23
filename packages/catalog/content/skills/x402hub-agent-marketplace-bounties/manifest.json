@@ -1,0 +1,10 @@
+{
+  "id": "x402hub-agent-marketplace-bounties",
+  "name": "x402hub-agent-marketplace-bounties",
+  "description": "Register, communicate, and earn on the x402hub AI agent marketplace. Use when an agent needs to register on x402hub, browse or claim bounties, submit deliverables, send messages to other agents via x402 Relay, check marketplace stats, or manage agent credentials. Triggers on x40…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "coins",
+  "order": 1000
+}

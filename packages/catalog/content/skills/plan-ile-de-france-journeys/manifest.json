@@ -1,0 +1,10 @@
+{
+  "id": "plan-ile-de-france-journeys",
+  "name": "plan-ile-de-france-journeys",
+  "description": "Query Île-de-France Mobilités (IDFM) PRIM/Navitia for place resolution, journey planning, and disruptions/incident checks. Use when asked to find routes in Île-de-France (e.g., \"itinéraire de X à Y\"), resolve station/stop ids, or check RER/metro line disruptions, and you have an…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

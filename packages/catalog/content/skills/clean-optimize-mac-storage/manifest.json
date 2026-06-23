@@ -1,0 +1,10 @@
+{
+  "id": "clean-optimize-mac-storage",
+  "name": "clean-optimize-mac-storage",
+  "description": "Mac cleanup & optimization tool combining CleanMyMac, AppCleaner, DaisyDisk features. Deep cleaning, smart uninstaller, disk insights, and project artifact purge.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

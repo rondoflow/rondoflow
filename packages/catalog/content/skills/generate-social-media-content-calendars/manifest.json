@@ -1,0 +1,10 @@
+{
+  "id": "generate-social-media-content-calendars",
+  "name": "generate-social-media-content-calendars",
+  "description": "Generate structured social media content calendars with platform-specific posts, hashtags, and scheduling. Use when creating social media plans, content calendars, or social media management deliverables for clients.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "github-cli-comprehensive-reference",
+  "name": "github-cli-comprehensive-reference",
+  "description": "Comprehensive GitHub CLI (gh) reference. Covers repos, issues, PRs, Actions, releases, gists, search, projects v2, API, secrets/variables, labels, codespaces, extensions, auth, and advanced GraphQL patterns.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

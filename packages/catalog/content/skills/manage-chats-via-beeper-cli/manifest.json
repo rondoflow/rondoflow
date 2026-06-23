@@ -1,0 +1,10 @@
+{
+  "id": "manage-chats-via-beeper-cli",
+  "name": "manage-chats-via-beeper-cli",
+  "description": "Search chats, list/read messages, and send messages via Beeper Desktop using the beeper-cli.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "tavily-web-search-api",
+  "name": "tavily-web-search-api",
+  "description": "Web search using Tavily's LLM-optimized API. Returns relevant results with content snippets, scores, and metadata.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

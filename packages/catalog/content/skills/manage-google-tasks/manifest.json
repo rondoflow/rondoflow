@@ -1,0 +1,10 @@
+{
+  "id": "manage-google-tasks",
+  "name": "manage-google-tasks",
+  "description": "Google Tasks API integration with managed OAuth. Manage task lists and tasks with full CRUD operations. Use this skill when users want to read, create, update, or delete tasks and task lists in Google Tasks. For other third party apps, use the api-gateway skill (https://clawhub.…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "check-square",
+  "order": 1000
+}

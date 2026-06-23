@@ -1,0 +1,10 @@
+{
+  "id": "create-placeholder-test-data-fixtures",
+  "name": "create-placeholder-test-data-fixtures",
+  "description": "Create placeholder data, test fixtures, and sample datasets for dev work. Use when generating mocks, building fixtures, or scaffolding content templates.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

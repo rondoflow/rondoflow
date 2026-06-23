@@ -1,0 +1,10 @@
+{
+  "id": "economics-incentive-mapping",
+  "name": "economics-incentive-mapping",
+  "description": "Maps who benefits, who pays, and what behaviours the incentive structure actually produces. Triggers: 'what's the incentive here', 'why do people keep doing this', 'incentives are misaligned', 'who benefits from this', 'why isn't this working despite the policy', 'what does the structure reward', 'people say one thing but do another', any situation where behaviour diverges from stated intent.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

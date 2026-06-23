@@ -1,0 +1,10 @@
+{
+  "id": "ai-image-generation-editing-api",
+  "name": "ai-image-generation-editing-api",
+  "description": "AI image generation, editing, and background removal API via Bria.ai — authenticates via OAuth device flow and caches credentials in ~/.bria/credentials, then calls 20+ endpoints to remove backgrounds for transparent PNGs and cutouts, generate images from text prompts, and edit…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "image",
+  "order": 1000
+}

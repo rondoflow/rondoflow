@@ -1,0 +1,10 @@
+{
+  "id": "text-image-to-3d-model-generator",
+  "name": "text-image-to-3d-model-generator",
+  "description": "AI 3D model generation powered by CellCog. Text-to-3D, image-to-3D — production-ready GLB files for games, AR/VR, e-commerce, and 3D printing. Game assets, product visualization, characters, props, environments, and batch generation.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.10",
+  "icon": "image",
+  "order": 1000
+}

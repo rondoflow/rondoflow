@@ -1,0 +1,10 @@
+{
+  "id": "coordinate-projects-tasks-meetings",
+  "name": "coordinate-projects-tasks-meetings",
+  "description": "Coordinate projects — track tasks, schedule meetings, and share docs.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.12",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "decision-reversibility-analysis",
+  "name": "decision-reversibility-analysis",
+  "description": "Categorises a decision by reversibility and applies the appropriate level of process rigour. Triggers: 'is this reversible', 'how much should I think about this', 'one-way door', 'two-way door', 'decision type', 'how committed is this'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

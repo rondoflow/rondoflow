@@ -1,0 +1,10 @@
+{
+  "id": "capture-connect-organize-notes",
+  "name": "capture-connect-organize-notes",
+  "description": "Knowledge capture and connection system with automatic organization and retrieval. Use when user mentions taking notes, capturing ideas, recording insights, or finding previous notes. Captures from any context, organizes automatically by topic and project, surfaces relevant note…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

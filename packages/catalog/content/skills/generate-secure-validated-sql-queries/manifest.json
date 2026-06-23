@@ -1,0 +1,10 @@
+{
+  "id": "generate-secure-validated-sql-queries",
+  "name": "generate-secure-validated-sql-queries",
+  "description": "Generate secure SQL queries with validation, pagination helpers, risk analysis, and audit-focused safeguards.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.3.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

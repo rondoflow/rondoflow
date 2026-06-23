@@ -1,0 +1,10 @@
+{
+  "id": "manage-postfix-dovecot-email",
+  "name": "manage-postfix-dovecot-email",
+  "description": "Complete email management for Postfix/Dovecot",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

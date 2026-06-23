@@ -1,0 +1,76 @@
+{
+  "title": "Git",
+  "tab": {
+    "status": "Status",
+    "log": "Verlauf",
+    "branches": "Branches"
+  },
+  "action": {
+    "refresh": "Aktualisieren",
+    "close": "Schließen",
+    "saveDirectory": "Verzeichnis speichern",
+    "cancelEditing": "Bearbeitung abbrechen",
+    "changeDirectory": "Repository-Verzeichnis ändern"
+  },
+  "repo": {
+    "pathPlaceholder": "/pfad/zu/ihrem/projekt",
+    "none": "Kein Repository ausgewählt",
+    "hint": "Klicken Sie auf das Bearbeiten-Symbol, um einen Projektordner für diesen Arbeitsbereich festzulegen."
+  },
+  "commit": {
+    "placeholder": "Commit-Nachricht…",
+    "submit": "Commit",
+    "submitCount": "Commit ({{count}})"
+  },
+  "push": {
+    "label": "Push"
+  },
+  "status": {
+    "empty": "Arbeitsverzeichnis sauber",
+    "staged": "Bereitgestellt ({{count}})",
+    "changes": "Änderungen ({{count}})",
+    "unstageAll": "Alle zurücknehmen",
+    "stageAll": "Alle bereitstellen",
+    "stage": "Bereitstellen",
+    "unstage": "Zurücknehmen",
+    "stageFile": "{{path}} bereitstellen",
+    "unstageFile": "{{path}} zurücknehmen",
+    "fileStatus": {
+      "added": "Hinzugefügt",
+      "modified": "Geändert",
+      "deleted": "Gelöscht",
+      "renamed": "Umbenannt",
+      "untracked": "Nicht versioniert"
+    }
+  },
+  "log": {
+    "empty": "Noch keine Commits",
+    "history": "Commit-Verlauf",
+    "justNow": "gerade eben",
+    "minutesAgo": "vor {{count}} Min.",
+    "hoursAgo": "vor {{count}} Std.",
+    "daysAgo": "vor {{count}} T."
+  },
+  "branches": {
+    "list": "Git-Branches",
+    "tabs": "Git-Tabs",
+    "newBranch": "Neuer Branch",
+    "newBranchFrom": "Neuer Branch von",
+    "namePlaceholder": "feature/my-branch",
+    "createSwitch": "Erstellen & Wechseln",
+    "empty": "Keine Branches gefunden",
+    "switch": "wechseln",
+    "switching": "Wird gewechselt…",
+    "currentBranch": "Aktueller Branch",
+    "invalidName": "Ungültiger Branch-Name. Verwenden Sie Buchstaben, Zahlen, /, - oder .",
+    "createFailed": "Branch konnte nicht erstellt werden"
+  },
+  "error": {
+    "statusFailed": "Git-Status konnte nicht abgerufen werden",
+    "stageFailed": "Dateien konnten nicht bereitgestellt werden",
+    "unstageFailed": "Dateien konnten nicht zurückgenommen werden",
+    "commitFailed": "Commit fehlgeschlagen",
+    "pushFailed": "Push fehlgeschlagen",
+    "checkoutFailed": "Branch konnte nicht gewechselt werden"
+  }
+}

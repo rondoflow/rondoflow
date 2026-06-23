@@ -1,0 +1,10 @@
+{
+  "id": "analyze-agent-data",
+  "name": "analyze-agent-data",
+  "description": "Real-time environmental context API for AI agents. 6 intelligence feeds updated hourly to daily: Master Intelligence Digest (cross-domain synthesis), Moltbook community sentiment, GitHub trending repos, Polymarket prediction signals, Pulse narrative intelligence, and token marke…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "coins",
+  "order": 1000
+}

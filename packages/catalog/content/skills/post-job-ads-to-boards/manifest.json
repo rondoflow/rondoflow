@@ -1,0 +1,10 @@
+{
+  "id": "post-job-ads-to-boards",
+  "name": "post-job-ads-to-boards",
+  "description": "Post free job ads to 20+ job boards such as LinkedIn, Indeed, Ziprecruiter etc. to receive applicant resumes via email.",
+  "category": "Communication",
+  "author": "community",
+  "version": "2.1.3",
+  "icon": "message-circle",
+  "order": 1000
+}

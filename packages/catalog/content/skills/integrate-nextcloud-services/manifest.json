@@ -1,0 +1,10 @@
+{
+  "id": "integrate-nextcloud-services",
+  "name": "integrate-nextcloud-services",
+  "description": "Nextcloud integration. Manage Users, Groups, Files, Folders, Calendars, Contacts and more. Use when the user wants to interact with Nextcloud data.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "chart-bar",
+  "order": 1000
+}

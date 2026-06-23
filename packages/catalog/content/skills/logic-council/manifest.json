@@ -1,0 +1,10 @@
+{
+  "id": "logic-council",
+  "name": "logic-council",
+  "description": "Run a reasoning problem, argument, plan, or decision through a council of 5 logical reasoning advisors who analyze it from distinct reasoning frameworks, peer-review each other, and synthesize a verdict on whether the reasoning holds. MANDATORY TRIGGERS: 'logic council this', 'run the logic council', 'pressure-test this reasoning', 'is my thinking sound'. STRONG TRIGGERS: any complex argument where the conclusion matters, a plan with non-obvious dependencies, reasoning you've invested in and want stress-tested. Use ethics-council for moral questions, llm-council for general decisions — this council is specifically for testing the soundness of reasoning itself.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

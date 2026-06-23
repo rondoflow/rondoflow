@@ -1,0 +1,10 @@
+{
+  "id": "echo-agent",
+  "name": "echo-agent",
+  "description": "EchoAgent is a minimal OpenClaw-compatible skill.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "control-macos-little-snitch-firewall",
+  "name": "control-macos-little-snitch-firewall",
+  "description": "Control Little Snitch firewall on macOS. View logs, manage profiles and rule groups, monitor network traffic. Use when the user wants to check firewall activity, enable/disable profiles or blocklists, or troubleshoot network connections.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "server",
+  "order": 1000
+}

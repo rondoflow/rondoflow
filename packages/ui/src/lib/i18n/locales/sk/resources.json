@@ -1,0 +1,298 @@
+{
+  "browser": {
+    "title": "Zdroje pracovného priestoru",
+    "refresh": "Obnoviť zdroje",
+    "close": "Zavrieť panel zdrojov",
+    "tabAriaLabel": "Karta {{tab}}",
+    "tablistLabel": "Karty zdrojov",
+    "loadingAria": "Načítavanie zdrojov",
+    "tab": {
+      "files": "Súbory",
+      "links": "Odkazy",
+      "notes": "Poznámky",
+      "variables": "Premenné"
+    },
+    "summaryFormat": "{{files}} · {{links}} · {{notes}} · {{variables}}",
+    "summary": {
+      "files_one": "{{count}} súbor",
+      "files_few": "{{count}} súbory",
+      "files_other": "{{count}} súborov",
+      "links_one": "{{count}} odkaz",
+      "links_few": "{{count}} odkazy",
+      "links_other": "{{count}} odkazov",
+      "notes_one": "{{count}} poznámka",
+      "notes_few": "{{count}} poznámky",
+      "notes_other": "{{count}} poznámok",
+      "variables_one": "{{count}} premenná",
+      "variables_few": "{{count}} premenné",
+      "variables_other": "{{count}} premenných"
+    }
+  },
+  "files": {
+    "dropzone": "Sem presuňte súbory alebo kliknite pre výber",
+    "uploading": "Nahrávanie {{name}}…",
+    "empty": "Zatiaľ neboli nahraté žiadne súbory.",
+    "listLabel": "Nahraté súbory",
+    "renameAria": "Premenovať súbor",
+    "size.unknown": "—",
+    "preview": "Náhľad",
+    "previewAria": "Náhľad {{name}}",
+    "download": "Stiahnuť",
+    "downloadAria": "Stiahnuť {{name}}",
+    "rename": "Premenovať",
+    "renameItemAria": "Premenovať {{name}}",
+    "deleteItemAria": "Odstrániť {{name}}"
+  },
+  "links": {
+    "add": "Pridať odkaz",
+    "empty": "Zatiaľ neboli pridané žiadne odkazy.",
+    "listLabel": "Odkazy pracovného priestoru",
+    "placeholder": {
+      "url": "URL *",
+      "title": "Názov",
+      "description": "Popis (voliteľné)"
+    },
+    "aria": {
+      "url": "URL odkazu",
+      "title": "Názov odkazu",
+      "description": "Popis odkazu"
+    },
+    "open": "Otvoriť odkaz",
+    "openAria": "Otvoriť {{name}}",
+    "deleteItemAria": "Odstrániť {{name}}"
+  },
+  "notes": {
+    "add": "Pridať poznámku",
+    "empty": "Zatiaľ neboli pridané žiadne poznámky.",
+    "listLabel": "Poznámky pracovného priestoru",
+    "placeholder": {
+      "title": "Názov poznámky *",
+      "content": "Sem napíšte svoju poznámku…"
+    },
+    "aria": {
+      "title": "Názov poznámky",
+      "content": "Obsah poznámky",
+      "expand": "Rozbaliť poznámku: {{name}}",
+      "collapse": "Zbaliť poznámku: {{name}}",
+      "edit": "Upraviť poznámku {{name}}",
+      "delete": "Odstrániť poznámku {{name}}"
+    },
+    "autoSave": "Automaticky uloží pri opustení · {{date}}"
+  },
+  "variables": {
+    "add": "Pridať premennú",
+    "empty": "Zatiaľ neboli pridané žiadne premenné.",
+    "listLabel": "Premenné pracovného priestoru",
+    "placeholder": {
+      "key": "Kľúč *",
+      "value": "Hodnota"
+    },
+    "aria": {
+      "key": "Kľúč premennej",
+      "value": "Hodnota premennej",
+      "secret": "Tajná premenná",
+      "editValue": "Upraviť hodnotu premennej {{name}}"
+    },
+    "secretLabel": "Tajné (maskovať hodnotu)",
+    "showValue": "Zobraziť hodnotu",
+    "hideValue": "Skryť hodnotu",
+    "show": "Zobraziť",
+    "hide": "Skryť",
+    "editItemAria": "Upraviť {{name}}",
+    "deleteItemAria": "Odstrániť {{name}}"
+  },
+  "externalFolders": {
+    "title": "Externé priečinky",
+    "ariaLabel": "Externé priečinky",
+    "refresh": "Obnoviť",
+    "description": "Zaregistrujte hostiteľské adresáre pripojené do kontajnera a priraďte ich k asistentom",
+    "attachNotice": "Registrácia alebo priradenie priečinka ho pridá k vybranému asistentovi.",
+    "empty": {
+      "title": "Nie sú pripojené žiadne externé priečinky",
+      "intro": "Server beží v Dockeri, takže hostiteľské priečinky musia byť pripojené do kontajnera pomocou bind-mount. Pripojte adresár a automaticky sa tu zobrazí.",
+      "step1Prefix": "Nastavte",
+      "step1Mid": "v súbore",
+      "step1Suffix": "(alebo pridajte bind-mount pod",
+      "step1End": "v súbore",
+      "step1Tail": ").",
+      "step2": "Reštartujte kontajner servera.",
+      "step3": "Kliknite na obnoviť — pripojené priečinky sa zobrazia nižšie.",
+      "rootMissing": "Koreň pripojenia ešte nie je v kontajneri prítomný."
+    },
+    "readOnlyBadge": "Len na čítanie",
+    "added": "Pridané",
+    "attach": "Priradiť",
+    "deleteAria": "Odstrániť {{name}}",
+    "delete": "Odstrániť",
+    "pickPlaceholder": "Vyberte pripojený priečinok…",
+    "placeholder": {
+      "containerPath": "/external/my-project",
+      "name": "Zobrazovaný názov",
+      "description": "Popis (voliteľné)"
+    },
+    "aria": {
+      "containerPath": "Cesta v kontajneri",
+      "name": "Názov",
+      "description": "Popis"
+    },
+    "readOnlyLabelPrefix": "Len na čítanie (pripojené s",
+    "readOnlyLabelSuffix": ")",
+    "register": "Zaregistrovať",
+    "registerFolder": "Zaregistrovať priečinok",
+    "error": {
+      "required": "Názov a cesta v kontajneri sú povinné",
+      "registerFailed": "Nepodarilo sa zaregistrovať priečinok"
+    }
+  },
+  "marketplace": {
+    "title": "Zručnosti",
+    "ariaLabel": "Zručnosti",
+    "description": "Prehliadajte a spravujte zručnosti pre svojich asistentov",
+    "attachNotice": "Pridanie zručnosti ju priradí k vybranému asistentovi.",
+    "tab": {
+      "browse": "Prehliadať",
+      "installed": "Nainštalované",
+      "installedCount": "Nainštalované ({{count}})",
+      "create": "Vytvoriť",
+      "import": "Importovať"
+    },
+    "category": {
+      "all": "Všetko",
+      "development": "Vývoj",
+      "writing": "Písanie",
+      "analysis": "Analýza",
+      "research": "Výskum"
+    },
+    "browse": {
+      "searchPlaceholder": "Hľadať zručnosti...",
+      "searchAria": "Hľadať zručnosti",
+      "filterLabel": "Filtrovať podľa kategórie",
+      "loading": "Načítavanie zručností…",
+      "emptyCatalog": "V katalógu nie sú dostupné žiadne zručnosti",
+      "emptyMatch": "Žiadne zručnosti nezodpovedajú „{{query}}“",
+      "listLabel": "Dostupné zručnosti",
+      "chipAria": "{{category}} ({{count}} zručností)"
+    },
+    "card": {
+      "version": "v{{version}}",
+      "viewDetailsAria": "Zobraziť podrobnosti o {{name}}",
+      "actionAria": "{{action}} {{name}}",
+      "adding": "Pridáva sa",
+      "installing": "Inštaluje sa",
+      "added": "Pridané",
+      "installed": "Nainštalované",
+      "add": "Pridať",
+      "install": "Inštalovať",
+      "installFailed": "Inštalácia zlyhala"
+    },
+    "installed": {
+      "empty": "Zatiaľ nie sú nainštalované žiadne zručnosti",
+      "emptyHint": "Prehliadajte trh a pridajte schopnosti!",
+      "listLabel": "Nainštalované zručnosti",
+      "uninstallAria": "Odinštalovať {{name}}"
+    },
+    "create": {
+      "intro": "Napíšte vlastnú zručnosť. Názov a inštrukcie sa stanú lokálnym súborom SKILL.md, ktorý môžete priradiť asistentom.",
+      "nameLabel": "Názov",
+      "namePlaceholder": "my-custom-skill",
+      "nameAria": "Názov zručnosti",
+      "nameInvalid": "Povolené sú iba písmená, číslice, spojovníky a podčiarkovníky.",
+      "descriptionLabel": "Popis",
+      "descriptionPlaceholder": "S čím táto zručnosť pomáha asistentovi",
+      "descriptionAria": "Popis zručnosti",
+      "categoryLabel": "Kategória",
+      "categoryOptional": "(voliteľné)",
+      "categoryPlaceholder": "Vývoj, Písanie, Analýza…",
+      "categoryAria": "Kategória zručnosti",
+      "instructionsLabel": "Inštrukcie",
+      "instructionsPlaceholder": "Ste expert na…\n\n## Pokyny\n- …",
+      "instructionsAria": "Inštrukcie zručnosti",
+      "creating": "Vytvára sa",
+      "submit": "Vytvoriť zručnosť",
+      "success": "„{{name}}“ vytvorená a nainštalovaná.",
+      "failed": "Nepodarilo sa vytvoriť zručnosť"
+    },
+    "edit": {
+      "title": "Upraviť {{name}}",
+      "intro": "Aktualizujte detaily a inštrukcie tejto zručnosti. Uložením sa prepíše jej lokálny súbor SKILL.md.",
+      "nameReadonly": "Názov sa po vytvorení zručnosti nedá zmeniť.",
+      "submit": "Uložiť zmeny",
+      "saving": "Ukladá sa",
+      "success": "„{{name}}“ aktualizovaná.",
+      "failed": "Nepodarilo sa aktualizovať zručnosť",
+      "backAria": "Späť na detail zručnosti"
+    },
+    "import": {
+      "label": "URL Git repozitára",
+      "intro": "Importujte vlastnú zručnosť z Git repozitára.",
+      "placeholder": "https://github.com/user/skill-repo",
+      "aria": "URL Git repozitára",
+      "importing": "Importuje sa",
+      "submit": "Importovať",
+      "success": "„{{name}}“ úspešne importovaná.",
+      "failed": "Import zlyhal",
+      "requirements": "Požiadavky",
+      "req1Prefix": "Repozitár musí obsahovať súbor",
+      "req1Suffix": "v koreňovom adresári",
+      "req2": "Repozitár musí byť verejne prístupný alebo musia byť nakonfigurované poverenia",
+      "req3Prefix": "Súbor",
+      "req3Mid": "alebo",
+      "req3Suffix": "definuje dostupné nástroje"
+    }
+  },
+  "detail": {
+    "back": "Späť",
+    "backAria": "Späť na trh",
+    "version": "v{{version}}",
+    "installedOn_one": "Nainštalované u {{count}} asistenta",
+    "installedOn_few": "Nainštalované u {{count}} asistentov",
+    "installedOn_other": "Nainštalované u {{count}} asistentov",
+    "descriptionHeading": "Popis",
+    "whatItDoesHeading": "Čo táto zručnosť robí",
+    "whatItDoesBody": "Táto zručnosť rozširuje vášho asistenta o ďalšie schopnosti. Po nainštalovaní môže váš asistent používať nástroje a postupy poskytované touto zručnosťou na dokončenie príslušných úloh.",
+    "sourcePrefix": "Zdroj: {{url}}",
+    "sourceHeading": "Zdroj",
+    "addToAssistant": "Pridať k asistentovi",
+    "addedToAssistant": "Pridané k asistentovi",
+    "adding": "Pridáva sa...",
+    "uninstall": "Odinštalovať zručnosť",
+    "uninstalling": "Odinštalovanie...",
+    "install": "Inštalovať zručnosť",
+    "installing": "Inštalovanie...",
+    "installFailed": "Nepodarilo sa nainštalovať zručnosť",
+    "uninstallFailed": "Nepodarilo sa odinštalovať zručnosť",
+    "edit": "Upraviť",
+    "editAria": "Upraviť {{name}}",
+    "editFailed": "Nepodarilo sa otvoriť editor"
+  },
+  "memory": {
+    "selectWorkspace": "Najprv vyberte pracovný priestor",
+    "empty": "Zatiaľ žiadna pamäť",
+    "emptyHint": "Fakty pracovného priestoru a automaticky zachytené poznatky sa zobrazujú tu a zdieľajú sa s každým agentom.",
+    "source": {
+      "manual": "manuálne",
+      "auto": "automaticky",
+      "director": "riaditeľ"
+    },
+    "placeholder": {
+      "key": "Kľúč",
+      "value": "Hodnota"
+    },
+    "addAria": "Pridať pamäť",
+    "unpin": "Odopnúť",
+    "pin": "Pripnúť",
+    "readOnly": "automaticky zachytené · len na čítanie"
+  },
+  "errors": {
+    "loadResources": "Nepodarilo sa načítať zdroje",
+    "uploadFailed": "Nahrávanie zlyhalo",
+    "createResource": "Nepodarilo sa vytvoriť zdroj",
+    "updateResource": "Nepodarilo sa aktualizovať zdroj",
+    "deleteResource": "Nepodarilo sa odstrániť zdroj",
+    "loadFolders": "Nepodarilo sa načítať externé priečinky",
+    "scanFolders": "Nepodarilo sa preskenovať pripojené priečinky",
+    "registerFolder": "Nepodarilo sa zaregistrovať priečinok",
+    "updateFolder": "Nepodarilo sa aktualizovať priečinok",
+    "deleteFolder": "Nepodarilo sa odstrániť priečinok"
+  }
+}

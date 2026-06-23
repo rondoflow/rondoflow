@@ -1,0 +1,10 @@
+{
+  "id": "legal-understanding-support-guidance",
+  "name": "legal-understanding-support-guidance",
+  "description": "Support legal understanding from everyday rights to professional practice and scholarship.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

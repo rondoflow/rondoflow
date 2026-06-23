@@ -1,0 +1,10 @@
+{
+  "id": "query-baidu-encyclopedia-knowledge",
+  "name": "query-baidu-encyclopedia-knowledge",
+  "description": "The Baidu Baike Component is a knowledge service tool designed to query authoritative encyclopedia explanations for various nouns. Its core function is given a specific \"noun\" (object, person, location, concept, event, etc.) provided by the user, it returns a standardized, detai…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

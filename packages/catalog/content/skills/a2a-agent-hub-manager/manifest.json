@@ -1,0 +1,10 @@
+{
+  "id": "a2a-agent-hub-manager",
+  "name": "a2a-agent-hub-manager",
+  "description": "Manage the MoltBot A2A Hub — register agents, search the registry, relay messages, and stream responses. Use when working with the A2A agent-to-agent protocol hub deployed at a2a-hub.fly.dev.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "prd-driven-autonomous-coding-iteration",
+  "name": "prd-driven-autonomous-coding-iteration",
+  "description": "Run one Better Ralph iteration: PRD-driven autonomous coding. Read prd.json, pick next story, implement it, run checks, commit, mark story passed, append progress. Uses only standard OpenClaw tools (read, write, exec, git). Triggers on: run better ralph, better ralph iteration,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

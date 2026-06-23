@@ -1,0 +1,10 @@
+{
+  "id": "audit-openclaw-security-scan-secrets",
+  "name": "audit-openclaw-security-scan-secrets",
+  "description": "Security guard for OpenClaw users. Audit configs, scan secrets, manage access, and generate security reports.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

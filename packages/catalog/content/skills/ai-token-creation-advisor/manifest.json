@@ -1,0 +1,10 @@
+{
+  "id": "ai-token-creation-advisor",
+  "name": "ai-token-creation-advisor",
+  "description": "CLAWP Agent - AI token creation advisor powered by OpenClaw",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.2.0",
+  "icon": "coins",
+  "order": 1000
+}

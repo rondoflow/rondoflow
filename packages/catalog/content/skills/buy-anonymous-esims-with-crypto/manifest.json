@@ -1,0 +1,10 @@
+{
+  "id": "buy-anonymous-esims-with-crypto",
+  "name": "buy-anonymous-esims-with-crypto",
+  "description": "Purchase anonymous eSIMs with BTC/XMR/card - no account required",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-retail-trade-reports",
+  "name": "generate-retail-trade-reports",
+  "description": "This skill processes multiple weekly sales report Excel files to generate a consolidated Retail Trade Weekly Report with week-over-week (WoW) comparisons across different channels (DRP, DXS, License Store) and product types (Mobile Prepaid/Postpaid, FWA 4G/5G).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-financial-research-agent",
+  "name": "autonomous-financial-research-agent",
+  "description": "Autonomous financial research agent for stock analysis, financial statements, metrics, prices, SEC filings, and crypto data.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

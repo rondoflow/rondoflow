@@ -1,0 +1,10 @@
+{
+  "id": "pragmatic-coding-standards-guide",
+  "name": "pragmatic-coding-standards-guide",
+  "description": "Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments",
+  "category": "Development",
+  "author": "community",
+  "version": "2",
+  "icon": "code",
+  "order": 1000
+}

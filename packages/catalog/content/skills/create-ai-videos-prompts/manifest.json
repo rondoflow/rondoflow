@@ -1,0 +1,10 @@
+{
+  "id": "create-ai-videos-prompts",
+  "name": "create-ai-videos-prompts",
+  "description": "Create AI videos with Sora 2, Veo 3, Seedance, Runway, and modern APIs using reliable prompt and rendering workflows.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

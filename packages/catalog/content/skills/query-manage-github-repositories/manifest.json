@@ -1,0 +1,10 @@
+{
+  "id": "query-manage-github-repositories",
+  "name": "query-manage-github-repositories",
+  "description": "Query and manage GitHub repositories - list repos, check CI status, create issues, search repos, and view recent activity.",
+  "category": "Development",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "code",
+  "order": 1000
+}

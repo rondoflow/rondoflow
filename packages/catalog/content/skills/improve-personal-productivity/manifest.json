@@ -1,0 +1,10 @@
+{
+  "id": "improve-personal-productivity",
+  "name": "improve-personal-productivity",
+  "description": "Personal productivity tracking and analysis skill. Records work and life activities via voice/text input, tracks time, categorizes tasks, and generates daily logs with insights and suggestions for improvement. Use when the user wants to track time, log activities, analyze produc…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "image",
+  "order": 1000
+}

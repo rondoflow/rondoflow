@@ -1,0 +1,10 @@
+{
+  "id": "cognition-metacognition",
+  "name": "cognition-metacognition",
+  "description": "Applies thinking-about-thinking as a practical tool — monitoring comprehension, calibrating confidence, and knowing what you do not know. Use when asked 'how confident should I be about this', 'am I actually understanding this or just recognising it', 'what do I not know that I should know', 'I think I understand this but I keep getting it wrong', 'calibrate my confidence', or when the quality of reasoning on a complex problem needs to be assessed from the outside.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

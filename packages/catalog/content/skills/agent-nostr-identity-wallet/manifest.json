@@ -1,0 +1,10 @@
+{
+  "id": "agent-nostr-identity-wallet",
+  "name": "agent-nostr-identity-wallet",
+  "description": "Your agent wants a social life. Give it one. This skill gives your agent its own Nostr identity + ecash wallet. One mnemonic backs up everything (NIP-06). Not for you — for your agent. It owns its own keys, its own sats, posts as itself. One install, automatic bootstrap, no thir…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.8",
+  "icon": "coins",
+  "order": 1000
+}

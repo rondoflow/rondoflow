@@ -1,0 +1,10 @@
+{
+  "id": "manage-gitea-via-tea-cli",
+  "name": "manage-gitea-via-tea-cli",
+  "description": "Interact with Gitea using the `tea` CLI. Use `tea issue`, `tea pr`, `tea actions`, and `tea api` for issues, PRs, Actions, and advanced queries.",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

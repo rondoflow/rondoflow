@@ -1,0 +1,10 @@
+{
+  "id": "control-windows-desktop-applications",
+  "name": "control-windows-desktop-applications",
+  "description": "Control desktop applications on Windows — launch, close, focus, resize, move windows, simulate keyboard/mouse input, manage processes, control VSCode, read clipboard, and capture screen info. Use when the user wants to interact with any running program, switch windows, type text…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

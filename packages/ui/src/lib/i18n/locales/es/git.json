@@ -1,0 +1,81 @@
+{
+  "title": "Git",
+  "tab": {
+    "status": "Estado",
+    "log": "Historial",
+    "branches": "Ramas"
+  },
+  "action": {
+    "refresh": "Actualizar",
+    "close": "Cerrar",
+    "saveDirectory": "Guardar directorio",
+    "cancelEditing": "Cancelar edición",
+    "changeDirectory": "Cambiar el directorio del repositorio"
+  },
+  "repo": {
+    "pathPlaceholder": "/ruta/a/su/proyecto",
+    "none": "Ningún repositorio seleccionado",
+    "hint": "Haga clic en el icono de edición para establecer una carpeta de proyecto para este espacio de trabajo."
+  },
+  "commit": {
+    "placeholder": "Mensaje de commit…",
+    "submit": "Confirmar",
+    "submitCount": "Confirmar ({{count}})"
+  },
+  "push": {
+    "label": "Push"
+  },
+  "status": {
+    "empty": "Árbol de trabajo limpio",
+    "staged_one": "Preparado ({{count}})",
+    "staged_other": "Preparados ({{count}})",
+    "changes_one": "Cambio ({{count}})",
+    "changes_other": "Cambios ({{count}})",
+    "unstageAll": "Quitar todo de preparación",
+    "stageAll": "Preparar todo",
+    "stage": "Preparar",
+    "unstage": "Quitar de preparación",
+    "stageFile": "Preparar {{path}}",
+    "unstageFile": "Quitar de preparación {{path}}",
+    "fileStatus": {
+      "added": "Añadido",
+      "modified": "Modificado",
+      "deleted": "Eliminado",
+      "renamed": "Renombrado",
+      "untracked": "Sin seguimiento"
+    }
+  },
+  "log": {
+    "empty": "Aún no hay commits",
+    "history": "Historial de commits",
+    "justNow": "ahora mismo",
+    "minutesAgo_one": "hace {{count}} min",
+    "minutesAgo_other": "hace {{count}} min",
+    "hoursAgo_one": "hace {{count}} h",
+    "hoursAgo_other": "hace {{count}} h",
+    "daysAgo_one": "hace {{count}} d",
+    "daysAgo_other": "hace {{count}} d"
+  },
+  "branches": {
+    "list": "Ramas de Git",
+    "tabs": "Pestañas de Git",
+    "newBranch": "Nueva rama",
+    "newBranchFrom": "Nueva rama desde",
+    "namePlaceholder": "feature/mi-rama",
+    "createSwitch": "Crear y cambiar",
+    "empty": "No se encontraron ramas",
+    "switch": "cambiar",
+    "switching": "Cambiando…",
+    "currentBranch": "Rama actual",
+    "invalidName": "Nombre de rama no válido. Use letras, números, /, - o .",
+    "createFailed": "No se pudo crear la rama"
+  },
+  "error": {
+    "statusFailed": "No se pudo obtener el estado de git",
+    "stageFailed": "No se pudieron preparar los archivos",
+    "unstageFailed": "No se pudieron quitar los archivos de preparación",
+    "commitFailed": "El commit falló",
+    "pushFailed": "El push falló",
+    "checkoutFailed": "No se pudo cambiar de rama"
+  }
+}

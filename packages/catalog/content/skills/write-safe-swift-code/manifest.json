@@ -1,0 +1,10 @@
+{
+  "id": "write-safe-swift-code",
+  "name": "write-safe-swift-code",
+  "description": "Write safe Swift code avoiding memory leaks, optional traps, and concurrency bugs.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

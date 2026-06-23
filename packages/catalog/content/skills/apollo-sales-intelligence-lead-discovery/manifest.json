@@ -1,0 +1,10 @@
+{
+  "id": "apollo-sales-intelligence-lead-discovery",
+  "name": "apollo-sales-intelligence-lead-discovery",
+  "description": "Sales intelligence and lead discovery via Apollo.io's REST API.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

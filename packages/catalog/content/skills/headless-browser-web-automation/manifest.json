@@ -1,0 +1,10 @@
+{
+  "id": "headless-browser-web-automation",
+  "name": "headless-browser-web-automation",
+  "description": "Professional web automation with headless browser - navigate, scrape, automate, test, and interact with any website.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "globe",
+  "order": 1000
+}

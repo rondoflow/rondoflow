@@ -1,0 +1,10 @@
+{
+  "id": "generate-github-actions-workflows",
+  "name": "generate-github-actions-workflows",
+  "description": "Generate GitHub Actions workflows from plain English. Use when setting up CI.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "code",
+  "order": 1000
+}

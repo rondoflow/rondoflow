@@ -1,0 +1,10 @@
+{
+  "id": "analyze-polymarket-wallets-copy-scores",
+  "name": "analyze-polymarket-wallets-copy-scores",
+  "description": "Analyze Polymarket prediction market wallets — get copy trading scores (1-10), P&L, win rate, risk metrics (Sharpe ratio, Sortino ratio, max drawdown), red flags, position sizing, market category performance, recent performance (7d/30d/90d), streak analysis, individual open posi…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.12",
+  "icon": "coins",
+  "order": 1000
+}

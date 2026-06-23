@@ -1,0 +1,10 @@
+{
+  "id": "generate-mermaid-diagrams",
+  "name": "generate-mermaid-diagrams",
+  "description": "Generate diagrams from text using [Mermaid](https://mermaid.js.org/).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

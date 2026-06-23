@@ -1,0 +1,10 @@
+{
+  "id": "plan-email-marketing-deliverability-strategy",
+  "name": "plan-email-marketing-deliverability-strategy",
+  "description": "When the user wants to plan email marketing, EDM, newsletter strategy, or email deliverability. Also use when the user mentions \"email marketing,\" \"EDM,\" \"newsletter,\" \"SPF,\" \"DKIM,\" \"DMARC,\" \"email deliverability,\" \"email content strategy,\" \"email campaigns,\" \"newsletter strate…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

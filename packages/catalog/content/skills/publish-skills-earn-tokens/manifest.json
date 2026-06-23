@@ -1,0 +1,10 @@
+{
+  "id": "publish-skills-earn-tokens",
+  "name": "publish-skills-earn-tokens",
+  "description": "Connect your Clawdbot to MolTunes — the AI agent skill marketplace. Register your bot, publish skills, earn MOLT tokens.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

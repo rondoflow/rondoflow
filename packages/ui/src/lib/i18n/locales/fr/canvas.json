@@ -1,0 +1,353 @@
+{
+  "toolbar": {
+    "stop": {
+      "label": "Arrêter",
+      "ariaLabel": "Arrêter le workflow",
+      "tooltipTitle": "Arrêter",
+      "tooltipBody": "Arrête l'exécution en cours et met fin immédiatement à chaque agent actif."
+    },
+    "run": {
+      "label": "Exécuter",
+      "ariaLabel": "Exécuter le workflow",
+      "coaching": "Votre workflow est prêt. Cliquez sur Exécuter pour décrire la tâche et démarrer.",
+      "tooltipTitle": "Exécuter le workflow",
+      "tooltipBody": "Ouvre le journal d'exécution, où vous décrivez la tâche et lancez l'exécution. Chaque agent s'exécute ensuite dans l'ordre des dépendances, en transmettant sa sortie au suivant."
+    },
+    "director": {
+      "label": "Directeur",
+      "evaluating": "Évaluation",
+      "tooltipTitle": "Directeur",
+      "tooltipBodyBefore": "Pilote le workflow ",
+      "tooltipBodyWhileRuns": "pendant son exécution",
+      "tooltipBodyMid": ". Après chaque étape, il examine la sortie de l'agent et décide s'il faut ",
+      "tooltipBodyContinue": "continuer",
+      "tooltipBodyToNext": " vers l'agent suivant, ",
+      "tooltipBodyRedirect": "rediriger",
+      "tooltipBodyRedirectNote": " (réexécuter une étape avec de nouvelles consignes) ou ",
+      "tooltipBodyConclude": "conclure",
+      "tooltipBodyEarly": " plus tôt.",
+      "toggleOn": "Activé — cliquez pour désactiver",
+      "toggleOff": "Désactivé — cliquez pour activer",
+      "action": {
+        "continue": "continuer",
+        "redirect": "rediriger",
+        "conclude": "conclure"
+      }
+    },
+    "planner": {
+      "label": "Planificateur",
+      "planning": "Planification",
+      "tooltipTitle": "Planificateur",
+      "tooltipBody": "Analyse votre workflow avant son exécution. Il examine les agents et la manière dont ils sont connectés, puis suggère des améliorations ou des changements aux agents en amont — afin que les problèmes soient détectés avant le début de l'exécution.",
+      "toggleOn": "Activé — cliquez pour désactiver",
+      "toggleOff": "Désactivé — cliquez pour activer"
+    },
+    "advisor": {
+      "label": "Conseiller",
+      "tooltipTitle": "Conseiller",
+      "tooltipBody": "Analyse une exécution terminée et suggère des améliorations — meilleurs personas d'agents, prompts ou structure du workflow — d'après ce qui s'est réellement passé.",
+      "analyzing": "Analyse…",
+      "clickToAnalyze": "Cliquez pour analyser la dernière exécution"
+    },
+    "chat": {
+      "open": "Ouvrir le chat du workflow",
+      "close": "Fermer le chat du workflow",
+      "tooltipTitle": "Chat du workflow",
+      "tooltipBody": "Ouvre le chat et le journal d'exécution — observez les agents s'exécuter en direct, lisez leur sortie brute complète et envoyez des messages de suivi au workflow.",
+      "toggleOpen": "Ouvert — cliquez pour fermer",
+      "toggleClosed": "Cliquez pour ouvrir"
+    },
+    "assistants": {
+      "label": "Assistants",
+      "tooltipTitle": "Assistants",
+      "tooltipBody": "Parcourez et gérez chaque assistant de cet espace de travail — ouvrez la liste complète pour les créer, modifier ou inspecter."
+    },
+    "plan": {
+      "label": "Plan"
+    },
+    "resources": {
+      "label": "Ressources"
+    },
+    "externalFolders": {
+      "label": "Dossiers externes"
+    },
+    "save": {
+      "ariaLabel": "Enregistrer le canevas",
+      "label": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré",
+      "titleSaving": "Enregistrement…",
+      "titleDirty": "Modifications non enregistrées — cliquez pour enregistrer",
+      "titleSaved": "Canevas enregistré"
+    },
+    "progress": {
+      "running": "En cours…"
+    }
+  },
+  "template": {
+    "card": {
+      "nodeCount_one": "{{count}} nœud",
+      "nodeCount_other": "{{count}} nœuds",
+      "use": "Utiliser ce modèle",
+      "load": "Charger le modèle : {{name}}"
+    },
+    "dialog": {
+      "title": "Modèles de canevas",
+      "description": "Partez d'une disposition préconçue. Vous pouvez tout personnaliser après le chargement."
+    },
+    "saved": {
+      "heading": "Mes workflows",
+      "agentCount_one": "{{count}} agent",
+      "agentCount_other": "{{count}} agents",
+      "withDescription": "{{label}} — {{description}}",
+      "delete": "Supprimer {{name}}"
+    },
+    "builtIn": {
+      "heading": "Modèles intégrés",
+      "listLabel": "Modèles de canevas disponibles"
+    }
+  },
+  "palette": {
+    "toolbarLabel": "Glisser vers le canevas",
+    "coaching": "Faites glisser des assistants et des compétences sur le canevas pour constituer votre équipe",
+    "addAria": "Ajouter {{label}} — faites glisser sur le canevas ou cliquez pour le placer",
+    "dragOrClick": "glisser ou cliquer",
+    "item": {
+      "assistant": "Assistant",
+      "openaiAssistant": "Assistant OpenAI",
+      "perplexityAssistant": "Assistant Perplexity",
+      "skill": "Compétence",
+      "safetyRule": "Règle de sécurité",
+      "resource": "Ressource",
+      "connection": "Connexion",
+      "condition": "Condition",
+      "output": "Sortie",
+      "note": "Note",
+      "email": "E-mail",
+      "structurer": "Structurer",
+      "dbSave": "Enregistrer en BDD",
+      "httpRequest": "Requête HTTP",
+      "duckduckgoSearch": "Recherche DuckDuckGo",
+      "sakanaAi": "Sakana AI"
+    }
+  },
+  "loop": {
+    "progress": "Progression de la boucle : {{iteration}} sur {{max}}"
+  },
+  "finder": {
+    "title": "Trouver un nœud",
+    "placeholder": "Rechercher des nœuds par nom...",
+    "empty": "Aucun nœud correspondant",
+    "emptyHint": "Essayez un autre nom ou type de nœud.",
+    "untitled": "Sans titre"
+  },
+  "placeholder": {
+    "title": "Bienvenue dans Rondoflow !",
+    "intro": "RondoFlow vous offre un espace de travail visuel où vous placez des assistants spécialisés (agents) sous forme de cartes (nœuds), les reliez entre eux et exécutez l'ensemble comme un workflow.",
+    "describePlaceholder": "Décrivez une tâche et nous construirons l'espace de travail…",
+    "describeButton": "Générer",
+    "describeAriaLabel": "Décrivez la tâche pour générer un espace de travail",
+    "generating": "Génération de votre espace de travail…",
+    "or": "ou",
+    "useTemplate": "Utiliser un modèle",
+    "createAssistant": "Créer un assistant",
+    "continueToWorkspace": "Continuer vers votre espace de travail"
+  },
+  "default": {
+    "agentName": "Nouvel agent",
+    "skillName": "Nouvelle compétence",
+    "policyName": "Nouvelle politique",
+    "mcpName": "Serveur MCP",
+    "resourceLabel": "Ressources",
+    "outputName": "Sortie",
+    "conditionName": "Condition",
+    "emailName": "E-mail",
+    "structurerName": "Structureur",
+    "dbSaveName": "Enregistrer en BDD",
+    "httpRequestName": "Requête HTTP",
+    "duckduckgoSearchName": "Recherche DuckDuckGo",
+    "sakanaAiName": "Sakana AI"
+  },
+  "node": {
+    "shell": {
+      "inputTitle": "Entrée — connectez un autre nœud à celui-ci",
+      "inputAria": "Port d'entrée",
+      "branchOutputTitle": "Sortie de branche : {{label}} — faites glisser pour connecter",
+      "branchOutputAria": "Sortie de branche : {{label}}",
+      "outputTitle": "Sortie — faites glisser pour connecter à un autre nœud",
+      "outputAria": "Port de sortie",
+      "enableStep": "Activer l'étape",
+      "skipStep": "Ignorer l'étape"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "agent": {
+      "aria": "Agent : {{name}}, statut : {{status}}",
+      "outputLabel": "Sortie",
+      "deepResearch": "Recherche approfondie",
+      "scheduleTitle": "Tâche planifiée",
+      "instructionsLabel": "Instructions"
+    },
+    "skill": {
+      "aria": "Compétence : {{name}}",
+      "outputLabel": "Compétence",
+      "description": "Attachez une compétence réutilisable à un assistant.",
+      "fieldLabel": "Compétence",
+      "assignAria": "Attribuer une compétence à ce nœud",
+      "assignedSkill": "Compétence attribuée",
+      "assignPlaceholder": "Attribuer une compétence…",
+      "installedSkills": "Compétences",
+      "loading": "Chargement…",
+      "empty": "Aucune compétence disponible pour l'instant.",
+      "loadingShort": "…"
+    },
+    "start": {
+      "title": "Démarrer",
+      "outputLabel": "Commencer",
+      "description": "Point d'entrée — teste la connexion à l'API Claude avant l'exécution du flux.",
+      "aria": "Démarrer : teste la connexion à l'API Claude",
+      "testAria": "Tester la connexion à l'API Claude",
+      "testLabel": "Tester",
+      "fieldLabel": "API Claude",
+      "testFailed": "Échec du test de connexion",
+      "status": {
+        "idle": "Pas encore testé",
+        "testing": "Test de la connexion…",
+        "success": "Connecté",
+        "error": "Échec de la connexion"
+      }
+    },
+    "output": {
+      "aria": "Sortie : {{name}}",
+      "description": "Enregistre la sortie des agents qui y sont reliés",
+      "processLabel": "Traiter",
+      "formatLabel": "Format",
+      "destinationLabel": "Destination",
+      "allAgents": "Tous les agents",
+      "noAgents": "Aucun agent connecté",
+      "connectedAgents_one": "{{count}} agent connecté",
+      "connectedAgents_other": "{{count}} agents connectés",
+      "workspaceFolder": "Dossier de l'espace de travail",
+      "openTitle": "Ouvrir {{name}}",
+      "openAria": "Ouvrir la sortie enregistrée {{name}}",
+      "openSaved": "Ouvrir la sortie enregistrée"
+    },
+    "stickyNote": {
+      "placeholder": "Saisissez une note...",
+      "empty": "Double-cliquez pour modifier..."
+    },
+    "resource": {
+      "defaultLabel": "Ressources",
+      "outputLabel": "Ressources",
+      "aria": "Nœud de ressources : {{fileCount}} fichiers, {{linkCount}} liens, {{noteCount}} notes, {{variableCount}} variables",
+      "description": "Fichiers, liens, notes et variables partagés.",
+      "files_one": "{{count}} fichier",
+      "files_other": "{{count}} fichiers",
+      "links_one": "{{count}} lien",
+      "links_other": "{{count}} liens",
+      "notes_one": "{{count}} note",
+      "notes_other": "{{count}} notes",
+      "vars_one": "{{count}} var",
+      "vars_other": "{{count}} vars"
+    },
+    "condition": {
+      "aria": "Condition : {{name}}",
+      "description": "Achemine la sortie de l'assistant précédent vers la première branche correspondante",
+      "else": "Sinon",
+      "elseSuffix": "{{label}} (par défaut)",
+      "branch": "Branche"
+    },
+    "mcp": {
+      "aria": "Serveur MCP : {{name}}",
+      "outputLabel": "Outils",
+      "subtitle": "Serveur MCP",
+      "secured": "sécurisé"
+    },
+    "policy": {
+      "aria": "Politique : {{name}}, niveau : {{level}}",
+      "outputLabel": "Politique",
+      "description": "Politique de sécurité de niveau {{level}}.",
+      "level": {
+        "global": "Global",
+        "agent": "Agent",
+        "session": "Session"
+      }
+    },
+    "email": {
+      "aria": "E-mail : {{name}}",
+      "description": "Envoie par e-mail la sortie des agents qui y sont reliés",
+      "processLabel": "Envoyer depuis",
+      "recipientsLabel": "Destinataires",
+      "subjectLabel": "Objet",
+      "allAgents": "Tous les agents",
+      "noAgents": "Aucun agent connecté",
+      "connectedAgents_one": "{{count}} agent connecté",
+      "connectedAgents_other": "{{count}} agents connectés",
+      "recipientCount_one": "{{count}} destinataire",
+      "recipientCount_other": "{{count}} destinataires",
+      "noRecipients": "Aucun destinataire",
+      "noSubject": "Aucun objet",
+      "sent": "Envoyé",
+      "sendFailed": "Échec de l'envoi",
+      "sendingOff": "Envoi en cours"
+    },
+    "structurer": {
+      "aria": "Structureur : {{name}}",
+      "description": "Convertit la sortie de l'agent en lignes structurées",
+      "processLabel": "Source",
+      "formatLabel": "Format",
+      "outputLabel": "Jeu de données",
+      "allAgents": "Tous les agents",
+      "noAgents": "Aucun agent connecté",
+      "connectedAgents_one": "{{count}} agent connecté",
+      "connectedAgents_other": "{{count}} agents connectés",
+      "modeParse": "Analyser",
+      "modeAi": "IA",
+      "lastRunLabel": "Dernière exécution",
+      "rowCount_one": "{{count}} ligne",
+      "rowCount_other": "{{count}} lignes"
+    },
+    "dbSave": {
+      "aria": "Enregistrer en BDD : {{name}}",
+      "description": "Enregistre le jeu de données structuré dans la base de données",
+      "labelLabel": "Libellé",
+      "lastRunLabel": "Dernière exécution",
+      "savedRows_one": "{{count}} ligne enregistrée",
+      "savedRows_other": "{{count}} lignes enregistrées"
+    },
+    "httpRequest": {
+      "aria": "Requête HTTP : {{name}}",
+      "description": "Appelle une API HTTP externe",
+      "outputLabel": "Réponse",
+      "requestLabel": "Requête",
+      "noUrl": "Aucune URL définie",
+      "lastRunLabel": "Dernière exécution",
+      "status": "Statut {{status}}"
+    },
+    "duckduckgoSearch": {
+      "aria": "Recherche DuckDuckGo : {{name}}",
+      "description": "Recherche sur le web avec DuckDuckGo",
+      "outputLabel": "Résultats",
+      "queryLabel": "Requête",
+      "noQuery": "Aucune requête définie",
+      "optionsLabel": "Options",
+      "options": "{{max}} résultats · {{region}}",
+      "lastRunLabel": "Dernière exécution",
+      "results": "{{n}} résultat(s)"
+    },
+    "sakanaAi": {
+      "aria": "Sakana AI : {{name}}",
+      "description": "Exécute une complétion Sakana AI",
+      "outputLabel": "Complétion",
+      "modelLabel": "Modèle",
+      "promptLabel": "Prompt",
+      "noModel": "Aucun modèle défini",
+      "noPrompt": "Aucun prompt défini"
+    }
+  },
+  "edge": {
+    "delete": "Supprimer la connexion"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "search-compile-academic-literature",
+  "name": "search-compile-academic-literature",
+  "description": "Find and compile academic literature with citation lists across Google Scholar, PubMed, arXiv, IEEE, ACM, Semantic Scholar, Scopus, and Web of Science. Use for requests like “find related literature,” “related work,” “citation list,” or “key papers on a topic.”",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "implement-reliable-backup-strategies",
+  "name": "implement-reliable-backup-strategies",
+  "description": "Implement reliable backup strategies avoiding data loss, failed restores, and security gaps.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

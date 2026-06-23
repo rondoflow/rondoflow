@@ -1,0 +1,10 @@
+{
+  "id": "typescript-language-server-diagnostics",
+  "name": "typescript-language-server-diagnostics",
+  "description": "TypeScript language server providing type checking, code intelligence, and LSP diagnostics for .ts, .tsx, .js, .jsx, .mts, .cts, .mjs, .cjs files. Use when working with TypeScript or JavaScript code that needs type checking, autocomplete, error detection, refactoring support, or…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

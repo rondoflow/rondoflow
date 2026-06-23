@@ -1,0 +1,10 @@
+{
+  "id": "historical-lesson-extraction",
+  "name": "historical-lesson-extraction",
+  "description": "Extracts the transferable principle from a specific historical case — separating the contingent surface details from the underlying rule that applies across contexts. TRIGGERS: 'what's the lesson', 'extract the lesson', 'what should we learn from this', 'generalise from this case', 'apply this to our situation'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

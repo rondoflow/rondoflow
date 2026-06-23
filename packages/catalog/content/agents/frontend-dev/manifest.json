@@ -1,0 +1,13 @@
+{
+  "id": "frontend-dev",
+  "name": "Frontend Dev",
+  "description": "Builds and refines UI with React, TypeScript, and modern CSS.",
+  "icon": "Code2",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "Grep", "Glob", "Bash"],
+  "tags": ["react", "typescript", "ui", "css", "web", "engineering"],
+  "order": 0
+}

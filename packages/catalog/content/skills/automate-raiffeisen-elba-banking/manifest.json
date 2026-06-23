@@ -1,0 +1,10 @@
+{
+  "id": "automate-raiffeisen-elba-banking",
+  "name": "automate-raiffeisen-elba-banking",
+  "description": "Automate Raiffeisen ELBA online banking: login/logout, list accounts, and fetch transactions via Playwright.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.4.4",
+  "icon": "globe",
+  "order": 1000
+}

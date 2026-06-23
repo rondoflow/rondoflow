@@ -1,0 +1,10 @@
+{
+  "id": "resolve-download-deliver-media-to-chat",
+  "name": "resolve-download-deliver-media-to-chat",
+  "description": "Unified skill for resolving, downloading, and delivering media (audio/video) to chat platforms. Integrates yt-dlp for resolution and handles Spotify metadata sync.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "image",
+  "order": 1000
+}

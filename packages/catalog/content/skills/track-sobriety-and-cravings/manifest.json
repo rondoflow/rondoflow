@@ -1,0 +1,10 @@
+{
+  "id": "track-sobriety-and-cravings",
+  "name": "track-sobriety-and-cravings",
+  "description": "Track sobriety with alcohol-free streaks, craving management, and recovery milestones",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

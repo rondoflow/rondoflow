@@ -1,0 +1,10 @@
+{
+  "id": "systems-leverage-analysis",
+  "name": "systems-leverage-analysis",
+  "description": "Finds where small interventions produce large, lasting change using Donella Meadows' leverage point hierarchy. Use when asked 'where should we intervene', 'highest leverage', 'what actually changes this system', or 'find the lever'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

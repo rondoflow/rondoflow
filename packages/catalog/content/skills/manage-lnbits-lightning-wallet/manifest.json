@@ -1,0 +1,10 @@
+{
+  "id": "manage-lnbits-lightning-wallet",
+  "name": "manage-lnbits-lightning-wallet",
+  "description": "Manage LNbits Lightning Wallet (Balance, Pay, Invoice)",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

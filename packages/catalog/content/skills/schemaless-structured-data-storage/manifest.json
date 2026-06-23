@@ -1,0 +1,10 @@
+{
+  "id": "schemaless-structured-data-storage",
+  "name": "schemaless-structured-data-storage",
+  "description": "Store and query structured data without planning schemas upfront. Use when you need to remember information, track entities across conversations, build knowledge bases, ingest API data, store user preferences, create CRM systems, or maintain any persistent state. Automatically e…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.5",
+  "icon": "chart-bar",
+  "order": 1000
+}

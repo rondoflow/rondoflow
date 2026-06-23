@@ -1,0 +1,10 @@
+{
+  "id": "send-email-ingest-delivery-webhooks",
+  "name": "send-email-ingest-delivery-webhooks",
+  "description": "Send email via MailChannels Email API and ingest signed delivery-event webhooks into Clawdbot (Moltbot).",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

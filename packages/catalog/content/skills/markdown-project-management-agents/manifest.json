@@ -1,0 +1,10 @@
+{
+  "id": "markdown-project-management-agents",
+  "name": "markdown-project-management-agents",
+  "description": "Project management for AI agents using markdown files. Install and use the cairn CLI to create projects, manage tasks, track status, and coordinate human-AI collaboration through a shared workspace of markdown files.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "mindset-reframe",
+  "name": "mindset-reframe",
+  "description": "Applies cognitive reframing as a rigorous methodology — CBT-adjacent but not therapy. Use when you're stuck in a negative thought loop, interpreting a situation in a consistently unhelpful way, catastrophizing, or noticing that your automatic interpretation of events generates disproportionate distress. Triggers: 'reframe', 'negative thought loop', 'I keep catastrophizing', 'I can't stop thinking about it the worst way', 'cognitive distortion', 'I keep assuming the worst', 'stuck in my head about this', 'help me think about this differently'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

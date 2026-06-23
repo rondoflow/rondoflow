@@ -1,0 +1,10 @@
+{
+  "id": "manage-macos-calendar-events",
+  "name": "manage-macos-calendar-events",
+  "description": "Create, list, and manage macOS Calendar events via AppleScript. Use when the user asks to add a reminder, schedule an event, create a calendar entry, set a deadline, or anything involving Apple Calendar on macOS. Triggers on requests like \"remind me in 3 days\", \"add to my calend…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "check-square",
+  "order": 1000
+}

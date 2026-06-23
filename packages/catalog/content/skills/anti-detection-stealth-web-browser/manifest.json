@@ -1,0 +1,10 @@
+{
+  "id": "anti-detection-stealth-web-browser",
+  "name": "anti-detection-stealth-web-browser",
+  "description": "Anti-detection web browsing that bypasses bot detection, CAPTCHAs, and IP blocks using puppeteer-extra with stealth plugin and optional residential proxy support. Use when (1) websites block headless browsers or datacenter IPs, (2) need to bypass Cloudflare/Vercel protection, (3…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "globe",
+  "order": 1000
+}

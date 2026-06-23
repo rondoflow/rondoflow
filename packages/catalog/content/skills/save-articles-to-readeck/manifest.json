@@ -1,0 +1,10 @@
+{
+  "id": "save-articles-to-readeck",
+  "name": "save-articles-to-readeck",
+  "description": "Save articles to Readeck (self-hosted read-it-later app). Use when the user wants to save an article for later reading, add something to their reading list, or send a page to Readeck.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

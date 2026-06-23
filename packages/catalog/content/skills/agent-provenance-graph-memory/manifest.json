@@ -1,0 +1,10 @@
+{
+  "id": "agent-provenance-graph-memory",
+  "name": "agent-provenance-graph-memory",
+  "description": "The Agent Provenance Graph for AI agents — the only memory layer where agents can prove what they knew, trace why they knew it, and coordinate without an LLM in the loop. Timestamped facts. Auditable decisions. Deterministic trust. Ask 'what blocks deploy?' → exact typed answer.…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.26",
+  "icon": "bot",
+  "order": 1000
+}

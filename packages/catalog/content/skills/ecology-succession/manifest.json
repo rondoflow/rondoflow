@@ -1,0 +1,10 @@
+{
+  "id": "ecology-succession",
+  "name": "ecology-succession",
+  "description": "Applies ecological succession to understand how systems evolve through stages — pioneer, consolidation, climax, and disturbance. Use when asked 'what stage are we at', 'where are we in the cycle', 'what comes next', 'the old model isn't working anymore', 'we're in transition', or 'what does disruption mean for us'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

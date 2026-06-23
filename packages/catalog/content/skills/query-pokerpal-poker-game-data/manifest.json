@@ -1,0 +1,10 @@
+{
+  "id": "query-pokerpal-poker-game-data",
+  "name": "query-pokerpal-poker-game-data",
+  "description": "Query PokerPal poker game data - games, players, buy-ins, settlements",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

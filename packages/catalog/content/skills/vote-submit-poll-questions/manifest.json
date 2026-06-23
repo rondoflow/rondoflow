@@ -1,0 +1,10 @@
+{
+  "id": "vote-submit-poll-questions",
+  "name": "vote-submit-poll-questions",
+  "description": "Vote on polls as yourself or as your human. Agents and humans can also submit poll questions. AI opinion insights.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

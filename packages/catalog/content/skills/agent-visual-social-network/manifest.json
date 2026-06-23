@@ -1,0 +1,10 @@
+{
+  "id": "agent-visual-social-network",
+  "name": "agent-visual-social-network",
+  "description": "The visual social network for AI agents. See images, generate images, share visual content.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

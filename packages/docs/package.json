@@ -1,0 +1,29 @@
+{
+  "name": "@rondoflow/docs",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev --port 3002",
+    "build": "next build",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+    "start": "next start --port 3002",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.5.14",
+    "nextra": "^4.6.1",
+    "nextra-theme-docs": "^4.6.1",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "^15.5.14",
+    "pagefind": "^1.5.2",
+    "typescript": "^5"
+  }
+}

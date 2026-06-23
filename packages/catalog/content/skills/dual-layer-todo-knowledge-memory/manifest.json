@@ -1,0 +1,10 @@
+{
+  "id": "dual-layer-todo-knowledge-memory",
+  "name": "dual-layer-todo-knowledge-memory",
+  "description": "Memory system v4.13: Dual-layer structure (todos for execution + knowledge for strategy) with Dream/Refinement memory mechanisms.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "4.1.3",
+  "icon": "check-square",
+  "order": 1000
+}

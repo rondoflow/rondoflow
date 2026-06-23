@@ -1,0 +1,10 @@
+{
+  "id": "book-smog-check-appointments",
+  "name": "book-smog-check-appointments",
+  "description": "Book smog check appointments through Lokuli MCP. Use when user needs a smog check, emissions test, or vehicle inspection. Triggers on requests like \"I need a smog check\", \"book smog test\", \"emissions inspection\", \"DMV smog requirement\", or any smog-related request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

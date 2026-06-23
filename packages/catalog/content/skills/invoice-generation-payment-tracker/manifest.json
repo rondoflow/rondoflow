@@ -1,0 +1,10 @@
+{
+  "id": "invoice-generation-payment-tracker",
+  "name": "invoice-generation-payment-tracker",
+  "description": "Generate, manage, and track professional invoices with payment terms, recurring billing, overdue automation, and financial reporting. Use when creating invoices, tracking payments, managing clients, or reviewing revenue.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

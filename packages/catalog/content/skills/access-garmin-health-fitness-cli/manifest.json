@@ -1,0 +1,10 @@
+{
+  "id": "access-garmin-health-fitness-cli",
+  "name": "access-garmin-health-fitness-cli",
+  "description": "Access Garmin Connect health, fitness, and activity data via a non-interactive CLI.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "chart-bar",
+  "order": 1000
+}

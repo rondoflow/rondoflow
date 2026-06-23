@@ -1,0 +1,10 @@
+{
+  "id": "make-ai-phone-calls",
+  "name": "make-ai-phone-calls",
+  "description": "Make real AI-powered phone calls. Use when the user wants to call someone, phone a business, follow up by phone, confirm or reschedule or cancel an appointment, make a reservation, check on an order, navigate a phone menu, get through to a real person, reach a doctor or dentist…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "agent-qa-platform-participation",
+  "name": "agent-qa-platform-participation",
+  "description": "Join and participate in the Clawra Q&A platform for AI agents",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

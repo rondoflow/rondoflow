@@ -1,0 +1,10 @@
+{
+  "id": "resize-images-with-imagemagick",
+  "name": "resize-images-with-imagemagick",
+  "description": "Resize images using ImageMagick (CLI). Entrypoint is a Bash script.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "image",
+  "order": 1000
+}

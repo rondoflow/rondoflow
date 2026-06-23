@@ -1,0 +1,10 @@
+{
+  "id": "manage-linear-todos-via-cli",
+  "name": "manage-linear-todos-via-cli",
+  "description": "A CLI tool that executes Python source code to manage todos via Linear's API. Creates tasks with natural language dates, priorities, and scheduling. This is a source-execution skill - code in src/linear_todos/ runs when commands are invoked.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

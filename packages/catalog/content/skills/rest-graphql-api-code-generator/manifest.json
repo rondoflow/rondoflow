@@ -1,0 +1,10 @@
+{
+  "id": "rest-graphql-api-code-generator",
+  "name": "rest-graphql-api-code-generator",
+  "description": "API code generator. Generate RESTful endpoints, GraphQL schemas, OpenAPI/Swagger docs, API clients, mock servers, authentication, rate limiting.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

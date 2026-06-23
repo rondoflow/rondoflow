@@ -1,0 +1,10 @@
+{
+  "id": "edit-word-documents",
+  "name": "edit-word-documents",
+  "description": "Surgically edit existing (brownfield) .docx files with formatting preservation and tracked changes via the Safe-DOCX MCP server. Use when user says \"edit this docx,\" \"change the contract,\" \"redline the document,\" \"compare these Word files,\" \"add a comment to the docx,\" \"read thi…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.3.0",
+  "icon": "bot",
+  "order": 1000
+}

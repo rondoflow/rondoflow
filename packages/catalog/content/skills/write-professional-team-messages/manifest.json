@@ -1,0 +1,10 @@
+{
+  "id": "write-professional-team-messages",
+  "name": "write-professional-team-messages",
+  "description": "Write effective professional messages for software teams. Use when drafting emails, Slack/Teams messages, meeting agendas, status updates, or translating technical concepts for non-technical audiences. Triggers on email, slack, teams, message, meeting agenda, status update, stak…",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

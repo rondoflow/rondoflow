@@ -1,0 +1,204 @@
+---
+title: Resources
+description: Attach files, links, notes, and variables as shared context for the Assistants in a Workspace.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Resources
+
+Resources are pieces of context you attach to a Workspace (Canvas) so the Assistants (Agents) running there can use them. A Resource can be an uploaded file, a reference link, a freeform note, or a named variable. When an Assistant starts (spawns) inside a Workspace, every Resource in that Workspace is folded into its working context automatically — no per-Assistant wiring required.
+
+Resources are **workspace-scoped**: they belong to one Workspace and are shared by all the Assistants on that Workspace's canvas.
+
+## Resource types
+
+There are four types, stored on the `WorkspaceResource` model:
+
+| Type | What it holds | Key fields |
+| --- | --- | --- |
+| **File** | An uploaded document or asset | `filePath`, `fileSize`, `mimeType` |
+| **URL** | A reference link | `url` |
+| **Note** | Inline text you write yourself | `content` |
+| **Variable** | A named key/value pair (optionally secret) | `varKey`, `varValue`, `isSecret` |
+
+Every Resource also has a `name`, an optional `description`, and `createdAt` / `updatedAt` timestamps.
+
+<Callout type="info">
+A Workspace also has a separate **context document** (`contextDocument`). It is prepended ahead of all Resources, so think of it as the always-on preamble and of Resources as the structured attachments around it.
+</Callout>
+
+## How Resources reach an Assistant
+
+When an Assistant starts, RondoFlow builds a **workspace context** from the Workspace's context document plus all of its Resources, then merges it into the spawn configuration. Each type contributes differently:
+
+| Type | How it is injected |
+| --- | --- |
+| **File** | The Workspace files directory is added to the Assistant's accessible directories, and a **Workspace Files** manifest (name + size) is appended to the prompt — but only when the Workspace has **no** working directory. When a working directory is set, the files already live inside the project, so neither the directory nor the manifest is added; the Assistant simply finds the files there. |
+| **URL** | Appended to the prompt under a **Workspace Reference URLs** section (name, optional description, and the link). |
+| **Note** | Appended to the prompt under a **Workspace Notes** section, using the name as a heading and the description as a subtitle. |
+| **Variable** | Injected into the Assistant's environment as `varKey=varValue`. Secret values are decrypted first. |
+
+Building this context is **non-fatal**: if it can't be assembled for some reason, the Assistant still starts — just without the Workspace context.
+
+## Variables and secrets
+
+A variable Resource is a `varKey` plus a `varValue`. At run time the key becomes an environment variable for the Assistant, which is the right way to pass API keys, tokens, or configuration without hard-coding them into a prompt.
+
+### How variable values are resolved
+
+A few rules govern what actually reaches the spawned process:
+
+- **Agent-level env wins.** When an Assistant already defines an environment variable with the same key, that value takes precedence — a workspace variable Resource is only applied when its key is **not** already present in the Assistant's own env.
+- **Reserved server secrets are stripped.** Variables named `DATABASE_URL`, `BETTER_AUTH_SECRET`, or `rondoflow_SECRET` are silently dropped before the child process launches (the blocklist is compared case-insensitively). A variable Resource cannot inject these — they belong to the server, not to a run. See [Security](/docs/reference/security).
+- **Tuning Claude's output ceiling.** A variable named `CLAUDE_CODE_MAX_OUTPUT_TOKENS` overrides the spawned CLI's per-response output-token limit (default `128000`, which Claude Code clamps to each model's true maximum). This is a handy way to raise the ceiling for a single Workspace without editing the root `.env`.
+
+### Marking a variable secret
+
+Set `isSecret: true` to mark a variable as sensitive. Two things change:
+
+- **At rest** — the value is encrypted with **AES-256-GCM** before it touches the database. The key is derived (via scrypt) from a server secret, with a static salt so it stays stable across restarts.
+- **In the API** — `varValue` is **never returned** for *any* variable Resource, secret or not. The serialized shape omits the field entirely (the shared `WorkspaceResource` type has no `varValue` at all). The API exposes `varKey` and `isSecret`, so the canvas and other clients can show that a variable exists — and whether it's a secret — without ever exposing the value.
+
+The plaintext value is decrypted only when an Assistant starts, so it can be placed into that run's environment. If decryption fails (for example, because the key changed), that one variable is logged and skipped, and the Assistant continues without it.
+
+<Callout type="warning">
+**Which secret derives the encryption key.** The encryption module reads `rondoflow_SECRET` (note the lowercase prefix — this matches the code today), and falls back to `BETTER_AUTH_SECRET` when it isn't set. On a case-sensitive OS (Linux/macOS), an uppercase `RONDOFLOW_SECRET` will **not** be picked up by the encryption module and it will silently use `BETTER_AUTH_SECRET` instead.
+
+The safest, always-working guidance is to rely on `BETTER_AUTH_SECRET` (which `npm run setup` generates and which auth refuses to start without). If you set a dedicated encryption secret, use the exact casing `rondoflow_SECRET`. Either way, keep the value stable and back it up alongside your database — if it changes, existing secret variables can no longer be decrypted and are skipped at run time. See [Configuration](/docs/getting-started/configuration) and [Security](/docs/reference/security).
+</Callout>
+
+## The Resource card on the canvas
+
+Drag a **Resource** card (Node) onto the Workspace from the palette at the bottom of the canvas. The card is a compact summary of everything attached to the Workspace — it shows running counts of files, links, notes, and variables, for example `3 files · 2 links` and `1 note · 4 vars`.
+
+<Callout type="info">
+The Resource card is **decorative**. It has both an input and an output handle, but those connections have **no effect on execution**: a Resource card is not a workflow step, and the execution engine ignores any edge that touches it. All Resources in a Workspace are injected into **every** Assistant automatically (as described above) — wiring the card to an Assistant, or leaving it unconnected, changes nothing about which Resources an Assistant receives. The card simply visualizes the running counts.
+</Callout>
+
+The palette item is tagged for the Standard tier, but interface complexity is currently pinned to the full tier and isn't a user-facing setting, so tier gating is inert — the Resource card (like every other palette card) is always available.
+
+See [The Canvas](/docs/guides/canvas) for general canvas and card mechanics.
+
+## Managing Resources
+
+All endpoints are nested under a Workspace: `/api/workspaces/:workspaceId/resources`. The `workspaceId` and any resource `id` must be valid UUIDs.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/workspaces/:workspaceId/resources` | List Resources (optional `?type=file\|url\|note\|variable`) |
+| `POST` | `/api/workspaces/:workspaceId/resources` | Create a URL, note, or variable Resource |
+| `POST` | `/api/workspaces/:workspaceId/resources/upload` | Upload a file (multipart) |
+| `GET` | `/api/workspaces/:workspaceId/resources/:id` | Fetch one Resource |
+| `PATCH` | `/api/workspaces/:workspaceId/resources/:id` | Update a Resource |
+| `DELETE` | `/api/workspaces/:workspaceId/resources/:id` | Delete a Resource (removes the file from disk too) |
+| `GET` | `/api/workspaces/:workspaceId/resources/:id/download` | Download a file Resource |
+
+All responses use the standard envelope: `{ success, data?, error?, meta? }`. See the [API reference](/docs/reference/api).
+
+### Creating a URL, note, or variable
+
+The create endpoint accepts `url`, `note`, and `variable` types (files use the upload endpoint). The `?type=` filter on the list endpoint additionally accepts `file`. Required fields are validated per type: a `url` Resource needs a `url`, and a `variable` Resource needs a `varKey`.
+
+<Tabs items={['URL', 'Note', 'Variable', 'Secret variable']}>
+<Tabs.Tab>
+```bash
+curl -X POST http://localhost:3001/api/workspaces/$WORKSPACE_ID/resources \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "url",
+    "name": "API docs",
+    "description": "Reference for the payments API",
+    "url": "https://example.com/api"
+  }'
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+curl -X POST http://localhost:3001/api/workspaces/$WORKSPACE_ID/resources \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "note",
+    "name": "House style",
+    "content": "Write in US English. Prefer short sentences."
+  }'
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+curl -X POST http://localhost:3001/api/workspaces/$WORKSPACE_ID/resources \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "variable",
+    "name": "Environment",
+    "varKey": "APP_ENV",
+    "varValue": "staging"
+  }'
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+curl -X POST http://localhost:3001/api/workspaces/$WORKSPACE_ID/resources \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "variable",
+    "name": "Service token",
+    "varKey": "SERVICE_TOKEN",
+    "varValue": "sk-live-...",
+    "isSecret": true
+  }'
+```
+
+The response will include the Resource but **not** the `varValue` (which is never returned for any variable).
+</Tabs.Tab>
+</Tabs>
+
+`name` is limited to 200 characters and `varKey` to 100 characters. `isSecret` defaults to `false`.
+
+### Uploading a file
+
+Files use a dedicated multipart endpoint. The maximum upload size is **50 MB** — the server streams the upload and rejects anything larger.
+
+<Steps>
+### Pick the file
+
+Use the file Resource control on the Workspace, or call the upload endpoint directly.
+
+### Send it as multipart
+
+```bash
+curl -X POST http://localhost:3001/api/workspaces/$WORKSPACE_ID/resources/upload \
+  -F "file=@./spec.pdf" \
+  -F "name=Product spec"
+```
+
+The `name` field is optional — without it the original filename is used. The server records `filePath`, `fileSize`, and `mimeType` for you.
+
+### Use it
+
+The file becomes part of the Workspace context for every Assistant on that Workspace, and you can fetch it back any time from the download endpoint.
+</Steps>
+
+<Callout type="important">
+Deleting a file Resource removes the underlying file from disk on a best-effort basis, then deletes the database record. Downloads fail cleanly if the file is missing on disk, returning a validation error rather than a broken stream.
+</Callout>
+
+### Updating and deleting
+
+`PATCH` accepts a partial body — send only the fields you want to change (`name`, `description`, `url`, `content`, `varKey`, `varValue`, `isSecret`). When you update a `varValue` on a variable that is (or is becoming) secret, the new value is re-encrypted before storage.
+
+`DELETE` removes the Resource and, for files, cleans up the stored file.
+
+## Related
+
+<Cards>
+  <Cards.Card title="The Canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Memory" href="/docs/guides/memory" />
+  <Cards.Card title="External Folders" href="/docs/guides/external-folders" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="API reference" href="/docs/reference/api" />
+</Cards>

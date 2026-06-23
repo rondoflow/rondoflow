@@ -1,0 +1,10 @@
+{
+  "id": "explore-psychology-and-clinical-research",
+  "name": "explore-psychology-and-clinical-research",
+  "description": "Navigate the mind from curiosity about behavior to clinical research.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

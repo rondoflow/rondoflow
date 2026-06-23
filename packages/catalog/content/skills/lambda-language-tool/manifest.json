@@ -1,0 +1,10 @@
+{
+  "id": "lambda-language-tool",
+  "name": "lambda-language-tool",
+  "description": "Native agent-to-agent language. Not a translation layer — a shared tongue agents speak natively. Triggers on Lambda syntax like ?Uk/co or !It>Ie. Covers general concepts, code, evolution, agent comms, emotions, social.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

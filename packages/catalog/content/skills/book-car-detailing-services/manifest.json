@@ -1,0 +1,10 @@
+{
+  "id": "book-car-detailing-services",
+  "name": "book-car-detailing-services",
+  "description": "Book detailing services through Lokuli MCP. Use when user needs to find and book detailing. Triggers on requests like \"book a detailing\", \"find detailing near me\", or any detailing service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "creativity-alternatives",
+  "name": "creativity-alternatives",
+  "description": "Apply Edward de Bono's APC (Alternatives, Possibilities, Choices) tool to deliberately generate options before evaluating any of them. Use when the user is about to make a decision, wants more options before choosing, feels like they only see two paths, is planning something and wants to make sure they've considered all the approaches, or tends to go with the first good idea.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

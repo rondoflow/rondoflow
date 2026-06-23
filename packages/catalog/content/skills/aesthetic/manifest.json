@@ -1,0 +1,10 @@
+{
+  "id": "aesthetic",
+  "name": "aesthetic",
+  "description": "Entry point for the aesthetic toolkit. Routes to the right aesthetic skill based on your situation. Use when you say 'aesthetic', 'check the design', 'does this feel right', 'is this elegant', 'is this too complex', 'what pattern is this', 'find the simpler version', or want an aesthetic lens applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

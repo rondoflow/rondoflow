@@ -1,0 +1,10 @@
+{
+  "id": "writing-pov",
+  "name": "writing-pov",
+  "description": "Audits point-of-view for violations, consistency, and fit. Use when narration feels inconsistent, when there is unwanted head-hopping, or when the chosen POV isn't serving the story. Triggers: 'POV problems', 'head-hopping', 'point of view', 'the narration feels inconsistent', 'POV violations', 'narrative perspective', 'sometimes we know things the character shouldn't'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

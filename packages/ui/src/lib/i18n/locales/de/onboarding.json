@@ -1,0 +1,113 @@
+{
+  "wizard": {
+    "title": "Willkommen bei rondoflow"
+  },
+  "coaching": {
+    "dismiss": "Tipp ausblenden"
+  },
+  "checklist": {
+    "title": "Erste Schritte",
+    "progress": "{{done}}/{{total}}",
+    "addNode": "Einen Assistenten zum Arbeitsbereich hinzufügen",
+    "connectNodes": "Zwei Karten verbinden",
+    "runWorkflow": "Ihren Workflow ausführen",
+    "done": "Gut gemacht — Sie haben Ihren ersten Workflow erstellt und ausgeführt! 🎉",
+    "dismiss": "Checkliste ausblenden",
+    "collapse": "Einklappen",
+    "expand": "Ausklappen"
+  },
+  "action": {
+    "continue": "Weiter",
+    "skip": "Überspringen",
+    "browse": "Durchsuchen",
+    "go": "Los"
+  },
+  "directory": {
+    "heading": "Wo befindet sich Ihr Code?",
+    "description": "rondoflow arbeitet über Claude Code mit Ihren lokalen Dateien. Verweisen Sie es auf Ihren Projektordner.",
+    "placeholder": "/home/user/projects/my-app",
+    "hint": "Dies kann später in den Arbeitsbereich-Einstellungen geändert werden.",
+    "error": {
+      "required": "Ein Arbeitsverzeichnis ist erforderlich, damit rondoflow funktioniert."
+    },
+    "cli": {
+      "checking": "Claude Code CLI wird geprüft...",
+      "detected": "Claude Code erkannt",
+      "notDetected": "Claude Code nicht erkannt — installieren Sie es zuerst",
+      "installHint": "Ausführen:",
+      "checkAgain": "Erneut prüfen"
+    },
+    "auth": {
+      "missing": "Noch keine Claude-Anmeldedaten konfiguriert",
+      "hintSet": "Setzen Sie",
+      "hintOrRun": ", oder führen Sie aus",
+      "hintAndSet": "und setzen Sie",
+      "hintTail": "um Ihr Claude-Abonnement zu verwenden. Sie können es auch später in den Einstellungen hinzufügen."
+    }
+  },
+  "workMode": {
+    "heading": "Wie möchten Sie arbeiten?",
+    "description": "Wählen Sie, wie viel Kontrolle Sie möchten. Sie können den Modus jederzeit in den Einstellungen wechseln.",
+    "quick": {
+      "title": "Schnellstart",
+      "description": "Beschreiben Sie, was Sie möchten, rondoflow erledigt den Rest. Am besten zum Ausprobieren."
+    },
+    "full": {
+      "title": "Volle Kontrolle",
+      "description": "Erstellen Sie Assistenten-Teams mit Skills, Sicherheitsregeln und benutzerdefinierten Workflows. Für erfahrene Benutzer."
+    }
+  },
+  "firstAction": {
+    "heading": "Beschreibe deine Aufgabe.",
+    "headingAccent": "Der Arbeitsbereich baut sich selbst.",
+    "description": "Schreib, was passieren soll — du siehst, welche Assistenten entstehen und wie sie sich verbinden, bevor du etwas startest.",
+    "taskPlaceholder": "z. B. Konkurrenz zusammenfassen und Bericht per E-Mail senden",
+    "taskAriaLabel": "Beschreiben Sie, was Sie erstellen möchten",
+    "generating": "Wird generiert...",
+    "divider": "oder",
+    "suggest": {
+      "research": "Den Markt untersuchen und einen Bericht erstellen",
+      "review": "Einen Pull Request prüfen und Korrekturen vorschlagen",
+      "data": "Eine CSV verarbeiten, Daten bereinigen und speichern"
+    },
+    "gallery": {
+      "heading": "Vorlagen",
+      "hint": "oder beschreibe links eine Aufgabe und wir bauen sie auf"
+    },
+    "preview": {
+      "heading": "Vorschau",
+      "live": "baue auf",
+      "idle": "Vorschau",
+      "caption": "Ungefähr das, was wir erstellen — danach prüfen und anpassen.",
+      "start": "Aufgabeneingabe",
+      "output": "Ergebnis",
+      "email": "Bericht per E-Mail"
+    },
+    "template": {
+      "title": "Mit Vorlage beginnen",
+      "subtitle": "Vorgefertigte Workflows"
+    },
+    "create": {
+      "title": "Einen Assistenten erstellen",
+      "subtitle": "Von Grund auf erstellen"
+    }
+  },
+  "toast": {
+    "dismiss": "Ausblenden"
+  },
+  "folderPicker": {
+    "title": "Projektordner auswählen",
+    "pathPlaceholder": "Pfad eingeben...",
+    "home": "Startseite",
+    "up": "Nach oben",
+    "git": "git",
+    "homeAriaLabel": "Zum Home-Verzeichnis gehen",
+    "upAriaLabel": "Zum übergeordneten Verzeichnis gehen",
+    "empty": "Keine Unterverzeichnisse",
+    "footerHint": "Doppelklicken Sie, um einen Ordner zu öffnen. Klicken Sie auf \"Auswählen\", um den aktuellen Ordner zu verwenden.",
+    "select": "Diesen Ordner auswählen",
+    "error": {
+      "browse": "Verzeichnis konnte nicht durchsucht werden"
+    }
+  }
+}

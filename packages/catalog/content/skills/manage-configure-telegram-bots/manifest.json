@@ -1,0 +1,10 @@
+{
+  "id": "manage-configure-telegram-bots",
+  "name": "manage-configure-telegram-bots",
+  "description": "Manage and configure Telegram bots for OpenClaw. Use when setting up Telegram integrations, troubleshooting bot connectivity, configuring bot tokens, or managing Telegram channel/webhook settings. Handles bot registration, token validation, and network connectivity checks for ap…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

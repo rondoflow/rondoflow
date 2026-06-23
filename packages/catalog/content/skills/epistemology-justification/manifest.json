@@ -1,0 +1,10 @@
+{
+  "id": "epistemology-justification",
+  "name": "epistemology-justification",
+  "description": "Analyzes what would actually justify believing a claim. Maps the justification structure (foundationalist, coherentist, reliabilist) and identifies the weakest link in the chain. Use when you say 'what would it actually take to know this', 'is this belief actually justified', 'what's the foundation for this assumption', 'we keep citing the same evidence for everything', 'I believe this but I can't say why', 'what would change my mind', or when a claim feels supported but you want to make the support structure explicit and test it.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

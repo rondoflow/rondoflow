@@ -1,0 +1,10 @@
+{
+  "id": "learn-user-preferences-personalize-responses",
+  "name": "learn-user-preferences-personalize-responses",
+  "description": "Learn user preferences from conversations and personalize responses automatically. Preferences compound over time — corrections like \"use TypeScript, not JavaScript\" are captured and injected into future sessions.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

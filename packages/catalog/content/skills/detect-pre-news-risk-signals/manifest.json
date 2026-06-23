@@ -1,0 +1,10 @@
+{
+  "id": "detect-pre-news-risk-signals",
+  "name": "detect-pre-news-risk-signals",
+  "description": "Detects pre-news ambient risk signals across human, legal, and operational systems and converts them into machine-readable, tradable risk primitives.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cognition-mental-models",
+  "name": "cognition-mental-models",
+  "description": "Surfaces and audits the internal representations that drive perception and decision-making. Use when asked 'what assumptions am I making', 'why do I keep seeing this the same way', 'what model is driving this decision', 'I think I'm missing something about how this works', 'what's my mental model here', or when a belief or decision pattern needs to be examined from the inside.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

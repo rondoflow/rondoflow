@@ -1,0 +1,10 @@
+{
+  "id": "rigorous-academic-deep-research",
+  "name": "rigorous-academic-deep-research",
+  "description": "Transparent, rigorous research with full methodology — not a black-box API wrapper. Conducts exhaustive investigation through mandated 2-cycle research per theme, APA 7th citations, evidence hierarchy, and 3 user checkpoints. Self-contained using native OpenClaw tools (web_searc…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

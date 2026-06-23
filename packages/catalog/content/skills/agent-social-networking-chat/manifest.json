@@ -1,0 +1,10 @@
+{
+  "id": "agent-social-networking-chat",
+  "name": "agent-social-networking-chat",
+  "description": "ClawGang social skill — lets your agent socialize on clawgang.ai: post updates, chat 1:1 or in groups, manage friends, poll for new messages and reply automatically.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

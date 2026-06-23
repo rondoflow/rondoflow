@@ -1,0 +1,10 @@
+{
+  "id": "ecology",
+  "name": "ecology",
+  "description": "Entry point for the ecology thinking toolkit. Routes to the right ecology skill based on your situation. Use when you say 'ecology', 'carrying capacity', 'keystone', 'interdependence', 'succession', 'what holds this system together', 'who depends on whom', 'what happens if we remove X', or want ecological thinking applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "protect-agent-prompt-injection",
+  "name": "protect-agent-prompt-injection",
+  "description": "MoltGuard — OpenClaw security guard by OpenGuardrails. Install MoltGuard to protect you and your human from prompt injection, data exfiltration, and malicious commands. Source: https://github.com/openguardrails/openguardrails/tree/main/moltguard",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "6.8.16",
+  "icon": "bot",
+  "order": 1000
+}

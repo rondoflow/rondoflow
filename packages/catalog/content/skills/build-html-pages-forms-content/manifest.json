@@ -1,0 +1,10 @@
+{
+  "id": "build-html-pages-forms-content",
+  "name": "build-html-pages-forms-content",
+  "description": "Expert HTML development skill for building web pages, forms, and interactive content. Use when creating HTML documents, structuring web content, implementing semantic markup, adding forms and media, working with HTML5 APIs, or needing HTML templates, best practices, and accessib…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "globe",
+  "order": 1000
+}

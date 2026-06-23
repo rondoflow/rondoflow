@@ -1,0 +1,10 @@
+{
+  "id": "verify-ai-with-reverse-captcha",
+  "name": "verify-ai-with-reverse-captcha",
+  "description": "Issue ClawPrint reverse-CAPTCHA challenges to verify that another user or agent is a real AI, not a human. Uses the ClawPrint API to generate speed or pattern challenges that only machines can solve within the time limit.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

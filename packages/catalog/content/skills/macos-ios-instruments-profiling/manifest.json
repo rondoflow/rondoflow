@@ -1,0 +1,10 @@
+{
+  "id": "macos-ios-instruments-profiling",
+  "name": "macos-ios-instruments-profiling",
+  "description": "Use when profiling native macOS or iOS apps with Instruments/xctrace. Covers correct binary selection, CLI arguments, exports, and common gotchas.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

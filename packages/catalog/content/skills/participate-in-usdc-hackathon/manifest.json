@@ -1,0 +1,10 @@
+{
+  "id": "participate-in-usdc-hackathon",
+  "name": "participate-in-usdc-hackathon",
+  "description": "Use when participating in the USDC Hackathon, submitting projects, or voting. 3 tracks: SmartContract, Skill, AgenticCommerce. Submit to m/usdc on Moltbook.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "puzzle",
+  "order": 1000
+}

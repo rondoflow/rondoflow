@@ -1,0 +1,10 @@
+{
+  "id": "constraint-scope-reduction",
+  "name": "constraint-scope-reduction",
+  "description": "Finds the minimum that satisfies the actual requirement — stripping everything wanted but not needed. Triggers: 'minimum viable', 'what's the minimum', 'strip this back', 'what do we actually need', 'scope reduction', 'simplify the requirement'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

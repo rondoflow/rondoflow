@@ -1,0 +1,10 @@
+{
+  "id": "assist-ethereum-transactions-gas-bridges",
+  "name": "assist-ethereum-transactions-gas-bridges",
+  "description": "Assist with Ethereum transactions, gas optimization, token approvals, and L2 bridges.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

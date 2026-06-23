@@ -1,0 +1,10 @@
+{
+  "id": "emotional-trust-audit",
+  "name": "emotional-trust-audit",
+  "description": "Maps what is building and eroding trust in a relationship or situation — trust degrades silently until it fails loudly. TRIGGERS: 'trust audit', 'why don't they trust us', 'relationship health check', 'what's eroding trust', 'build trust with'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

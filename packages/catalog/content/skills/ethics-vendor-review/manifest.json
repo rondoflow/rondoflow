@@ -1,0 +1,10 @@
+{
+  "id": "ethics-vendor-review",
+  "name": "ethics-vendor-review",
+  "description": "Evaluate a third-party vendor, supplier, partner, or integration against ethical standards before signing a contract or shipping their code or service. Use when considering a new supplier, SaaS tool, data provider, API integration, outsourcing arrangement, or partnership. TRIGGERS: 'vet this vendor', 'is this supplier ok', 'ethics check on this partner', 'should we use this third party', any third-party evaluation where labour practices, data handling, business model, or alignment with values is a consideration.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "track-prices-find-coupons-deals",
+  "name": "track-prices-find-coupons-deals",
+  "description": "Track product prices and surface official coupons or discounts without purchasing or account access. Use when a user wants price alerts, deal summaries, or coupon lists for specific items or retailers.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

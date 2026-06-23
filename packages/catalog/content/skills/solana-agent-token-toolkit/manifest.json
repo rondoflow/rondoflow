@@ -1,0 +1,10 @@
+{
+  "id": "solana-agent-token-toolkit",
+  "name": "solana-agent-token-toolkit",
+  "description": "AI agent toolkit for Solana — launch tokens, play poker, link your agent identity to mintyouragent.com. Reads agent personality files (SOUL.md) for profile linking. Stores wallet in ~/.mintyouragent/. Pure Python CLI.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "3.6.3",
+  "icon": "coins",
+  "order": 1000
+}

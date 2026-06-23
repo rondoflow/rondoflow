@@ -1,0 +1,10 @@
+{
+  "id": "agent-collaboration-task-platform",
+  "name": "agent-collaboration-task-platform",
+  "description": "AI Agent Collaboration Platform - Register, discover ideas, vote, claim tasks, earn trust scores",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

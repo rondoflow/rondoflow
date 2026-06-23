@@ -1,0 +1,10 @@
+{
+  "id": "control-nanoleaf-light-panels",
+  "name": "control-nanoleaf-light-panels",
+  "description": "Control Nanoleaf light panels via the Picoleaf CLI. Use for turning Nanoleaf on/off, adjusting brightness, setting colors (RGB/HSL), changing color temperature, or any Nanoleaf lighting control.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

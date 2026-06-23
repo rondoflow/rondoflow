@@ -1,0 +1,10 @@
+{
+  "id": "send-read-near-blockchain-emails",
+  "name": "send-read-near-blockchain-emails",
+  "description": "Send and read blockchain-native emails using NEAR Email service. Use when building notifications for NEAR smart contracts (NFT sales, DeFi liquidation alerts, DAO voting reminders) or when AI agents need email capabilities with a NEAR account identity.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

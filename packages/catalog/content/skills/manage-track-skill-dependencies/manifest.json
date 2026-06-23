@@ -1,0 +1,10 @@
+{
+  "id": "manage-track-skill-dependencies",
+  "name": "manage-track-skill-dependencies",
+  "description": "Track and manage dependencies between OpenClaw skills. Scan skills for dependencies, visualize skill trees, detect circular dependencies, and manage skill versioning. Use when analyzing skill relationships, checking which skills depend on others, or managing skill installations.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

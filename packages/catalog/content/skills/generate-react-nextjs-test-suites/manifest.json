@@ -1,0 +1,10 @@
+{
+  "id": "generate-react-nextjs-test-suites",
+  "name": "generate-react-nextjs-test-suites",
+  "description": "Generates unit tests, integration tests, and E2E tests for React/Next.js applications. Scans components to create Jest + React Testing Library test stubs, analyzes Istanbul/LCOV coverage reports to surface gaps, scaffolds Playwright test files from Next.js routes, mocks API call…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "globe",
+  "order": 1000
+}

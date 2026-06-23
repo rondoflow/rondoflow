@@ -1,0 +1,10 @@
+{
+  "id": "onchain-yield-discovery-portfolio-management",
+  "name": "onchain-yield-discovery-portfolio-management",
+  "description": "On-chain yield discovery, transaction building, and portfolio management via the Yield.xyz API. Use when the user wants to find yields, stake, lend, deposit into vaults, check balances, claim rewards, exit positions, compare APYs, or manage any on-chain yield across 80+ networks.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.5",
+  "icon": "coins",
+  "order": 1000
+}

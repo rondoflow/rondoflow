@@ -1,0 +1,10 @@
+{
+  "id": "kaspa-blockchain-development-toolkit",
+  "name": "kaspa-blockchain-development-toolkit",
+  "description": "Comprehensive Kaspa blockchain development toolkit for building transactions, integrating wallets, creating dApps, block explorers, and interacting with the Kaspa network. Use when working with Kaspa blockchain development including: (1) Building and broadcasting transactions, (…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

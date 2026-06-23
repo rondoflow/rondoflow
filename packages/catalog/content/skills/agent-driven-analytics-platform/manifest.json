@@ -1,0 +1,10 @@
+{
+  "id": "agent-driven-analytics-platform",
+  "name": "agent-driven-analytics-platform",
+  "description": "Run analytics end-to-end from your agent without opening a dashboard. English-first workflow, with Chinese docs and content available. Create projects, ship tracking, query results, and run experiments.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "4.0.9",
+  "icon": "bot",
+  "order": 1000
+}

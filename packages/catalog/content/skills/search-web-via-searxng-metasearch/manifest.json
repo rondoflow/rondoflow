@@ -1,0 +1,10 @@
+{
+  "id": "search-web-via-searxng-metasearch",
+  "name": "search-web-via-searxng-metasearch",
+  "description": "Search the web using a self-hosted SearXNG instance. Privacy-respecting metasearch that aggregates results from multiple engines.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "duckduckgo-search-scraper-cli",
+  "name": "duckduckgo-search-scraper-cli",
+  "description": "DuckDuckGo HTML search scraper CLI with JSON, CSV, OpenSearch, markdown, and compact outputs.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "2026.2.15",
+  "icon": "globe",
+  "order": 1000
+}

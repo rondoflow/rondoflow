@@ -1,0 +1,10 @@
+{
+  "id": "crypto-news-search-trading-signals",
+  "name": "crypto-news-search-trading-signals",
+  "description": "Crypto news search, AI ratings, trading signals, and real-time updates via the OpenNews 6551 API. Supports keyword search, coin filtering, source filtering, AI score ranking, and WebSocket live feeds.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

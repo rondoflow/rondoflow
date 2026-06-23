@@ -1,0 +1,28 @@
+{
+  "id": "graphql-architect",
+  "name": "GraphQL Architect",
+  "description": "Designs and optimizes scalable, secure, high-performance GraphQL APIs.",
+  "icon": "Waypoints",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "graphql",
+    "api",
+    "schema",
+    "performance",
+    "federation"
+  ],
+  "order": 118
+}

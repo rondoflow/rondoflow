@@ -1,0 +1,10 @@
+{
+  "id": "self-healing-backup-update-rollback",
+  "name": "self-healing-backup-update-rollback",
+  "description": "Self-healing backup and update system with intelligent rollback. Protects against failed updates by automatically monitoring system health post-update and recovering from backups when needed. Features canary deployment testing, health baselines, smart rollback, and 24/7 automate…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "constraint-hardness-testing",
+  "name": "constraint-hardness-testing",
+  "description": "Tests whether a stated constraint is real — distinguishing genuine limits from assumptions, habits, or politics dressed as facts. Triggers: 'is this really a constraint', 'challenge the assumption', 'who says we can't', 'is this actually fixed', 'test the constraint'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

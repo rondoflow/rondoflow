@@ -1,0 +1,10 @@
+{
+  "id": "amazon-product-reviews-extractor",
+  "name": "amazon-product-reviews-extractor",
+  "description": "This skill provides a one-stop Amazon review collection service through BrowserAct's Amazon Reviews API template. It can directly extract structured review results from Amazon product pages. By simply providing an ASIN, you can get clean, usable review data without building craw…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

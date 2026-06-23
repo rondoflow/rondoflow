@@ -1,0 +1,10 @@
+{
+  "id": "book-event-planner-services",
+  "name": "book-event-planner-services",
+  "description": "Book event-planner services through Lokuli MCP. Use when user needs to find and book event-planner. Triggers on requests like \"book a event-planner\", \"find event-planner near me\", or any event-planner service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "strategy-positioning",
+  "name": "strategy-positioning",
+  "description": "Builds the conditions for competitive unassailability before the contest begins. Triggers: 'create a position', 'competitive positioning', 'make myself the obvious choice', 'how do I make myself hard to compete with', 'strategic positioning', 'establish advantage before competing', 'what makes me hard to displace', 'build a moat'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

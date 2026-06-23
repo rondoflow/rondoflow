@@ -1,0 +1,10 @@
+{
+  "id": "crowdsourced-crypto-news-rewards",
+  "name": "crowdsourced-crypto-news-rewards",
+  "description": "Crowdsourced crypto news API. Submit articles, comment, and vote to earn SQUID tokens. Human-curated DeFi news with token-aware tagging.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

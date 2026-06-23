@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-cloud-oss-cli",
+  "name": "alibaba-cloud-oss-cli",
+  "description": "Alibaba Cloud OSS CLI (ossutil 2.0) skill. Install, configure, and operate OSS from the command line based on the official ossutil overview.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

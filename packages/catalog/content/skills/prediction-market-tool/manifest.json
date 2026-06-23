@@ -1,0 +1,10 @@
+{
+  "id": "prediction-market-tool",
+  "name": "prediction-market-tool",
+  "description": "Play the daily garden temperature prediction market on Base.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

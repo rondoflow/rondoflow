@@ -1,0 +1,10 @@
+{
+  "id": "book-car-wash-services",
+  "name": "book-car-wash-services",
+  "description": "Book car-wash services through Lokuli MCP. Use when user needs to find and book car-wash. Triggers on requests like \"book a car-wash\", \"find car-wash near me\", or any car-wash service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

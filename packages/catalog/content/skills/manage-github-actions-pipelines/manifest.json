@@ -1,0 +1,10 @@
+{
+  "id": "manage-github-actions-pipelines",
+  "name": "manage-github-actions-pipelines",
+  "description": "Create, debug, and manage CI/CD pipelines with GitHub Actions. Use when the user needs to set up automated testing, deployment, releases, or workflows. Covers workflow syntax, common patterns, secrets management, caching, matrix builds, and troubleshooting.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

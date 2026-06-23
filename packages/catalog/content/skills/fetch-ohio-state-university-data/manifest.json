@@ -1,0 +1,10 @@
+{
+  "id": "fetch-ohio-state-university-data",
+  "name": "fetch-ohio-state-university-data",
+  "description": "Use the bundled fetch helper to pull JSON from OSU Content APIs.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

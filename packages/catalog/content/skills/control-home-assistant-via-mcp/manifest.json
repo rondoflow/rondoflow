@@ -1,0 +1,10 @@
+{
+  "id": "control-home-assistant-via-mcp",
+  "name": "control-home-assistant-via-mcp",
+  "description": "The skill for control Home Assistant smart home devices and query states using MCP protocol.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

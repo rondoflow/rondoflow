@@ -1,0 +1,10 @@
+{
+  "id": "acuity-scheduling-integration",
+  "name": "acuity-scheduling-integration",
+  "description": "Acuity Scheduling API integration with managed OAuth. Manage appointments, calendars, clients, and availability. Use this skill when users want to schedule, reschedule, or cancel appointments, check availability, or manage clients and calendars. For other third party apps, use t…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "plug",
+  "order": 1000
+}

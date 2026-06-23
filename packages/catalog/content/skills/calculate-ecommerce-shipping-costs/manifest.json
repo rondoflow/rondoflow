@@ -1,0 +1,10 @@
+{
+  "id": "calculate-ecommerce-shipping-costs",
+  "name": "calculate-ecommerce-shipping-costs",
+  "description": "Estimate shipping as a margin and offer-design decision, not just a carrier quote lookup.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

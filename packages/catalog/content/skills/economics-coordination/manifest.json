@@ -1,0 +1,10 @@
+{
+  "id": "economics-coordination",
+  "name": "economics-coordination",
+  "description": "Diagnoses collective action failures, public goods problems, and why individually rational behaviour produces collective irrationality. Triggers: 'collective action problem', 'tragedy of the commons', 'free rider', 'everyone is acting in their own interest but the result is bad for all', 'why won't people contribute', 'public good', 'how do we get people to cooperate', 'commons', any situation where individual rationality produces group-level harm.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

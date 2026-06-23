@@ -1,0 +1,10 @@
+{
+  "id": "control-slack-react-and-pin",
+  "name": "control-slack-react-and-pin",
+  "description": "Use when you need to control Slack from Clawdbot via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

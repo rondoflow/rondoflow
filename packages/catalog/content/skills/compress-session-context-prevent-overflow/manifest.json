@@ -1,0 +1,10 @@
+{
+  "id": "compress-session-context-prevent-overflow",
+  "name": "compress-session-context-prevent-overflow",
+  "description": "Prevent context overflow with automatic session truncation and memory preservation.",
+  "category": "Community",
+  "author": "community",
+  "version": "3.13.3",
+  "icon": "puzzle",
+  "order": 1000
+}

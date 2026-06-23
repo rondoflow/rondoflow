@@ -1,0 +1,10 @@
+{
+  "id": "b2b-lead-research-enrichment",
+  "name": "b2b-lead-research-enrichment",
+  "description": "Automated lead research and enrichment for B2B sales. Finds companies matching your criteria, enriches with contact data, and generates personalized outreach messages.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "build-swipe-file-from-content",
+  "name": "build-swipe-file-from-content",
+  "description": "Analyzes high-performing content from URLs and builds a swipe file. Use when someone wants to study and deconstruct successful content (articles, tweets, videos) to extract patterns, psychological techniques, and recreatable frameworks.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

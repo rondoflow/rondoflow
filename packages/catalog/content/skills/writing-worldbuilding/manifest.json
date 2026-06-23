@@ -1,0 +1,10 @@
+{
+  "id": "writing-worldbuilding",
+  "name": "writing-worldbuilding",
+  "description": "Audits a fictional world for internal consistency, texture, economy, and constraint-story alignment. Use when a world feels thin, generic, like a backdrop rather than a place people actually inhabit. Triggers: 'the world feels thin', 'worldbuilding', 'my world doesn't feel real', 'the setting is generic', 'world audit', 'the world feels like a backdrop'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

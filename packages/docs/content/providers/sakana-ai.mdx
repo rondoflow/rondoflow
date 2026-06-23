@@ -1,0 +1,67 @@
+---
+title: Sakana AI
+description: Use the Sakana AI transform node to run Sakana chat completions with model presets inside a workflow.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+# Sakana AI
+
+Sakana AI is available in RondoFlow as a **transform node** (`sakana-ai`), not as an Assistant provider. It runs a Sakana chat-completions request mid-workflow, then passes the result to the next step.
+
+This is useful when you want a dedicated model call between Assistant steps, for example to rewrite, normalize, or classify an upstream output before routing it onward.
+
+## Model presets
+
+The node drawer ships with these model presets:
+
+| Model id | Notes |
+| --- | --- |
+| `sakana-chat` | Default preset for new nodes |
+| `sakana-mini` | Smaller/faster preset |
+
+The model field still accepts any custom model id.
+
+## Setup
+
+<Steps>
+### Set your API key
+
+Add this to your server environment:
+
+```env
+SAKANA_API_KEY=
+```
+
+The generated `.env.example` already includes `SAKANA_API_KEY`, but it is optional and only needed when you run Sakana AI nodes.
+
+### Add the node
+
+From the canvas palette, drag **Sakana AI** onto the workspace.
+
+### Configure the request
+
+Set `apiUrl`, select a model preset (or enter a custom model id), write the prompt, and optionally set system prompt, temperature, max tokens, and output format (`text` or `json`).
+</Steps>
+
+<Callout type="warning">
+If `SAKANA_API_KEY` is missing, the step fails fast with a clear error (`SAKANA_API_KEY is not set...`).
+</Callout>
+
+## How it runs
+
+- Interpolates `{{input}}`/`{{output}}` into the node prompt.
+- Calls Sakana's chat-completions endpoint (`https://api.sakana.ai/v1/chat/completions` by default).
+- Returns either extracted completion text (`outputFormat: text`) or the full JSON response (`outputFormat: json`).
+
+Sakana AI nodes run in both interactive and server-side execution paths because both compilers include `sakana-ai` as an executable step type.
+
+## Related
+
+<Cards>
+  <Cards.Card title="Providers overview" href="/docs/providers" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+</Cards>

@@ -1,0 +1,10 @@
+{
+  "id": "zod-validation-library-documentation",
+  "name": "zod-validation-library-documentation",
+  "description": "Complete Zod validation library documentation. Use when working with Zod schema validation, TypeScript type inference, form validation, API validation, error handling, or data parsing. Covers schema definition, refinements, transforms, error customization, and ecosystem integrat…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

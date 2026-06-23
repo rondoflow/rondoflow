@@ -1,0 +1,10 @@
+{
+  "id": "aetherlang-ai-workflow-orchestration",
+  "name": "aetherlang-ai-workflow-orchestration",
+  "description": "Execute AI workflow orchestration flows using the AetherLang Ω DSL. Run multi-step AI pipelines for recipes, business strategy, market analysis, molecular gastronomy, and more.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "9.9.11",
+  "icon": "chart-bar",
+  "order": 1000
+}

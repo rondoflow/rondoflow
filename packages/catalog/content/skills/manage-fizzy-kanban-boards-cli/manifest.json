@@ -1,0 +1,10 @@
+{
+  "id": "manage-fizzy-kanban-boards-cli",
+  "name": "manage-fizzy-kanban-boards-cli",
+  "description": "Use the fizzy-cli tool to authenticate and manage Fizzy kanban boards, cards, comments, tags, columns, users, and notifications from the command line. Apply this skill when you need to list, create, update, or delete Fizzy resources or when scripting Fizzy workflows.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

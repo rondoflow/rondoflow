@@ -1,0 +1,10 @@
+{
+  "id": "tailwind-shadcn-styling",
+  "name": "tailwind-shadcn-styling",
+  "description": "Production-tested setup for Tailwind v4 with shadcn/ui. Prevents 8 documented errors through a mandatory four-step architecture.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

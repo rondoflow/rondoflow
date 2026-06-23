@@ -1,0 +1,13 @@
+{
+  "id": "editor-proofreader",
+  "name": "Editor / Proofreader",
+  "description": "Polishes grammar, clarity, and consistency.",
+  "icon": "SpellCheck",
+  "category": "Content & Marketing",
+  "purpose": "review",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Edit"],
+  "tags": ["editing", "proofreading", "grammar", "clarity", "review"],
+  "order": 16
+}

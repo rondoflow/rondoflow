@@ -1,0 +1,10 @@
+{
+  "id": "creativity-random-entry",
+  "name": "creativity-random-entry",
+  "description": "Apply Edward de Bono's Random Entry technique — use an unrelated word, object, or image as a creative springboard to break out of cognitive ruts. Use when the user is stuck, wants unexpected inspiration, asks for a random creative prompt, wants to approach something from a completely fresh angle, or says they've exhausted their usual thinking. The randomness is the point — don't skip it.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

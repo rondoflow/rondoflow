@@ -1,0 +1,10 @@
+{
+  "id": "write-production-ready-code",
+  "name": "write-production-ready-code",
+  "description": "Write production-ready code with clean architecture, proper error handling, and pragmatic trade-offs between shipping fast and building right.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

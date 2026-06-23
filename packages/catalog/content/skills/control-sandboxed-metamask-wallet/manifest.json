@@ -1,0 +1,10 @@
+{
+  "id": "control-sandboxed-metamask-wallet",
+  "name": "control-sandboxed-metamask-wallet",
+  "description": "Control a sandboxed MetaMask browser extension wallet for autonomous blockchain transactions. Features configurable permission guardrails including spend limits, chain allowlists, protocol restrictions, and approval thresholds. MetaMask-only (other wallets not supported).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

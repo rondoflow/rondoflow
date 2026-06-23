@@ -1,0 +1,10 @@
+{
+  "id": "investigation-evidence-audit",
+  "name": "investigation-evidence-audit",
+  "description": "Evaluates the quality, strength, and completeness of evidence for a claim. Covers evidence type hierarchy, sample quality, methodological soundness, conflicts of interest, and what's notably absent. Use when you want to know how good the evidence is — 'is this evidence strong', 'evaluate the research', 'how solid is this', 'is this just one study', 'what kind of evidence supports this', 'what's missing from the evidence'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

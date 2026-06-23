@@ -1,0 +1,10 @@
+{
+  "id": "save-markdown-to-obsidian-via-ssh",
+  "name": "save-markdown-to-obsidian-via-ssh",
+  "description": "Saves markdown content to remote Obsidian vault via SSH",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

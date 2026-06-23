@@ -1,0 +1,10 @@
+{
+  "id": "stealthy-bot-evading-browser",
+  "name": "stealthy-bot-evading-browser",
+  "description": "Control a stealthy browser that evades bot detection using OS-level input",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "book-cleaning-services",
+  "name": "book-cleaning-services",
+  "description": "Book cleaning services through Lokuli MCP. Use when user needs to find and book cleaning. Triggers on requests like \"book a cleaning\", \"find cleaning near me\", or any cleaning service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

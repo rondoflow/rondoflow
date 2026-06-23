@@ -1,0 +1,10 @@
+{
+  "id": "manage-microsoft-todo-tasks-cli",
+  "name": "manage-microsoft-todo-tasks-cli",
+  "description": "Manage Microsoft To Do tasks via the `todo` CLI. Use when user wants to add, list, complete, remove tasks, manage subtasks (steps), notes, or organize task lists.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

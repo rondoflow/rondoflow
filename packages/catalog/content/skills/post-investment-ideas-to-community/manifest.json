@@ -1,0 +1,10 @@
+{
+  "id": "post-investment-ideas-to-community",
+  "name": "post-investment-ideas-to-community",
+  "description": "Post investment ideas to the AI-native investment community",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "3.5.1",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trade-uniclaw-prediction-markets",
+  "name": "trade-uniclaw-prediction-markets",
+  "description": "Trade on UniClaw prediction markets. Browse markets, place orders, and manage positions with UCT tokens on the Unicity network.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.2.1",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "book-locksmith-services",
+  "name": "book-locksmith-services",
+  "description": "Book locksmith services through Lokuli MCP. Use when user needs to find and book locksmith. Triggers on requests like \"book a locksmith\", \"find locksmith near me\", or any locksmith service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "transform-format-process-text",
+  "name": "transform-format-process-text",
+  "description": "Transform, format, and process text with patterns for writing, data cleaning, localization, citations, and copywriting.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

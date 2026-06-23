@@ -1,0 +1,10 @@
+{
+  "id": "fetch-stock-quotes-toon-format",
+  "name": "fetch-stock-quotes-toon-format",
+  "description": "Query real-time stock prices and market data using the Stock Prices API. Responses are in TOON format—decode with @toon-format/toon. Use when fetching stock quotes, analyzing market data, or working with symbols like AAPL, NVDA, GOOGL, or any ticker symbols.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

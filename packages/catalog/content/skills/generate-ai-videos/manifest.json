@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-videos",
+  "name": "generate-ai-videos",
+  "description": "AI video generator with premier models: Wan 2.6, Kling O1/2.6, Google Veo 3.1, Sora 2 Pro, Pixverse V5.5, Hailuo 2.0/2.3, SeeDance 1.5 Pro, Vidu Q2. Video generator supporting text-to-video, image-to-video, first-last-frame, and reference-image video generation modes. Use as sho…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "image",
+  "order": 1000
+}

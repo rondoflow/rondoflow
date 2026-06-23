@@ -1,0 +1,10 @@
+{
+  "id": "agent-bridge-integration-kit",
+  "name": "agent-bridge-integration-kit",
+  "description": "> Cross-platform presence for AI agents. One config, many platforms.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

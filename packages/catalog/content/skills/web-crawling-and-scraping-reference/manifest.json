@@ -1,0 +1,10 @@
+{
+  "id": "web-crawling-and-scraping-reference",
+  "name": "web-crawling-and-scraping-reference",
+  "description": "Web crawling and scraping reference — robots.txt protocol, Scrapy framework, anti-bot detection, headless browsers, and legal considerations",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "3.0.0",
+  "icon": "globe",
+  "order": 1000
+}

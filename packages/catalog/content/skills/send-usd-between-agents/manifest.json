@@ -1,0 +1,10 @@
+{
+  "id": "send-usd-between-agents",
+  "name": "send-usd-between-agents",
+  "description": "Send USD from one agent to another.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "integrate-xerolite-ibkr-trading",
+  "name": "integrate-xerolite-ibkr-trading",
+  "description": "Integrate OpenClaw with Xerolite - IBKR. Use when: querying Xerolite API, placing orders, searching contracts, fetching portfolio.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "coins",
+  "order": 1000
+}

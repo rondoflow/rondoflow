@@ -1,0 +1,10 @@
+{
+  "id": "protonmail-read-send-encrypted-email",
+  "name": "protonmail-read-send-encrypted-email",
+  "description": "ProtonMail integration via Proton Mail Bridge for reading and sending encrypted emails.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

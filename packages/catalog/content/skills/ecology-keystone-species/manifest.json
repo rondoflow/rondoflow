@@ -1,0 +1,10 @@
+{
+  "id": "ecology-keystone-species",
+  "name": "ecology-keystone-species",
+  "description": "Identifies the entities with disproportionate structural importance — whose removal would collapse the system. Use when asked 'who is critical here', 'what holds this together', 'single points of failure', 'what if we lose X', 'irreplaceable actors', or 'structural dependencies'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

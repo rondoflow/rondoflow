@@ -1,0 +1,10 @@
+{
+  "id": "book-eyebrow-services",
+  "name": "book-eyebrow-services",
+  "description": "Book eyebrows services through Lokuli MCP. Use when user needs to find and book eyebrows. Triggers on requests like \"book a eyebrows\", \"find eyebrows near me\", or any eyebrows service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

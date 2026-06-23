@@ -1,0 +1,533 @@
+---
+title: Data Model
+description: Reference for RondoFlow's Prisma schema — every entity, its key fields, enums, and relationships.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Data Model
+
+RondoFlow stores all state in PostgreSQL via [Prisma](/docs/reference/architecture). This page documents the schema entity by entity: what each model is for, its key fields, and how it relates to the rest. Field names below match the database exactly — the UI wraps many of them in friendlier terms (see [Terminology](/docs/concepts/terminology)).
+
+<Callout type="info">
+The source of truth is `packages/server/prisma/schema.prisma`. If you change the schema, generate a migration (`npm run db:migrate`) and update this page to match.
+</Callout>
+
+## Enums
+
+These shared Prisma enums constrain field values across the model.
+
+| Enum | Values |
+| --- | --- |
+| `UserRole` | `admin`, `editor`, `viewer` |
+| `AgentStatus` | `idle`, `running`, `waiting_approval`, `error` |
+| `PolicyLevel` | `global`, `agent`, `session` |
+| `SkillSource` | `marketplace`, `git`, `custom` |
+| `DiscussionFormat` | `brainstorm`, `review`, `deliberation` |
+| `DiscussionStatus` | `draft`, `active`, `concluded` |
+| `ParticipantRole` | `participant`, `observer`, `devil_advocate` |
+| `MessageRole` | `user`, `assistant`, `system`, `tool` |
+| `StoryStatus` | `pending`, `in_progress`, `passed`, `failed` |
+| `ResourceType` | `file`, `url`, `note`, `variable` |
+
+<Callout type="info">
+`StructuredDataset.format` is **not** a Prisma enum — it is stored as a plain `String`. Its allowed values come from the `StructuredFormat` TypeScript union in `packages/shared/src/structured-format.ts`: `json-object`, `json-array`, and `table`. See [Structured datasets](#structured-datasets) below.
+</Callout>
+
+## Authentication
+
+RondoFlow uses [Better Auth](/docs/reference/security). Three tables back it: `User`, `Session`, and `Account`, plus a transient `Verification` table.
+
+### User
+
+The account owner. Owns Workspaces and Assistants (Agents).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `email` | `String` | Unique |
+| `emailVerified` | `Boolean` | Defaults to `false` |
+| `name` | `String` | Display name |
+| `image` | `String?` | Avatar URL |
+| `role` | `UserRole` | Global role; defaults to `viewer` (fail-closed) |
+| `banned` | `Boolean` | Defaults to `false`; `true` once deactivated (sessions rejected) |
+| `banReason` | `String?` | Optional reason recorded on deactivation |
+| `banExpires` | `DateTime?` | Optional ban expiry (null = indefinite) |
+| `createdAt` / `updatedAt` | `DateTime` | Timestamps |
+
+Relations: `sessions`, `accounts`, `workspaces` (as owner), `agents` (as owner).
+
+<Callout type="info">
+`role` gates a single shared team workspace — access is by role, not per-user ownership (`userId` columns are kept for attribution/audit only). The role migration backfills existing users to `editor` and promotes the oldest account to `admin`. See [Security](/docs/reference/security).
+</Callout>
+
+### Session
+
+A login session (mapped to the `auth_session` table — distinct from `AgentSession` below).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `userId` | `String` | FK → `User`, cascades on delete |
+| `token` | `String` | Unique session token |
+| `expiresAt` | `DateTime` | Expiry |
+| `ipAddress` | `String?` | Client IP |
+| `userAgent` | `String?` | Client user agent |
+| `impersonatedBy` | `String?` | Admin user id when the session is an impersonation |
+| `createdAt` / `updatedAt` | `DateTime` | Timestamps |
+
+### Account
+
+A linked credential or OAuth provider account (one per provider per user).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `userId` | `String` | FK → `User`, cascades on delete |
+| `providerId` | `String` | e.g. `github`, `google`, `credential` |
+| `accountId` | `String` | Provider-side account id |
+| `accessToken` / `refreshToken` / `idToken` | `String?` | OAuth tokens |
+| `accessTokenExpiresAt` / `refreshTokenExpiresAt` | `DateTime?` | Token expiry |
+| `scope` | `String?` | Granted scopes |
+| `password` | `String?` | Hashed password for credential accounts |
+| `createdAt` / `updatedAt` | `DateTime` | Timestamps |
+
+Unique on `[providerId, accountId]`. `Verification` holds short-lived identifier/value pairs used for email verification and similar flows.
+
+## Workspace
+
+A Workspace (UI: also "Workspace") is the top-level container for a canvas, its resources, and its memories.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Workspace name |
+| `contextDocument` | `String?` | Shared context injected into runs |
+| `planDocument` | `String?` | Working plan document |
+| `workingDirectory` | `String?` | Default working directory for runs |
+| `userId` | `String?` | FK → `User` (owner) |
+
+Relations: `canvasLayouts`, `resources`, `memories`.
+
+## Agent
+
+An Assistant (Agent) — the core actor. Defines a personality (persona), provider, tools, and execution behavior. Owns its skills, policies, memories, sessions, and assignments.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Assistant name |
+| `avatar` | `String?` | Avatar |
+| `description` | `String?` | Short description |
+| `persona` | `String` | Personality / system prompt |
+| `purpose` | `String?` | What the assistant is for |
+| `scope` | `String[]` | Scope tags |
+| `allowedTools` | `String[]` | Permitted tool names |
+| `memoryEnabled` | `Boolean` | Defaults to `false` |
+| `model` | `String?` | Model override |
+| `provider` | `String` | Defaults to `claude-code` (also `openai`, `perplexity`) |
+| `providerConfig` | `Json?` | Provider-specific settings |
+| `status` | `AgentStatus` | Defaults to `idle` |
+| `permissionMode` | `String` | Defaults to `default` |
+| `loopEnabled` | `Boolean` | Self-loop on (defaults `false`) |
+| `loopCriteria` | `Json?` | Loop exit conditions |
+| `maxIterations` | `Int` | Defaults to `10` |
+| `teamEnabled` | `Boolean` | Defaults to `false` |
+| `isFavorite` | `Boolean` | Defaults to `false` |
+| `isFacilitator` | `Boolean` | Can moderate discussions (defaults `false`) |
+| `canvasX` / `canvasY` | `Float` | Card position on the workspace |
+| `userId` | `String?` | FK → `User` (owner) |
+
+Relations: `skills` (via `AgentSkill`), `policies`, `memories`, `sessions`, `participations` and `moderatedTables` (discussions), `mcpAssignments` (via `AgentMcpServer`), `externalFolders` (via `AgentExternalFolder`).
+
+See [Assistants](/docs/guides/assistants), [Loops](/docs/guides/loops), and [Providers](/docs/providers).
+
+## Skills
+
+### Skill
+
+An installed capability (UI: "Skill"). Catalogs where it came from and where it lives on disk.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Unique |
+| `description` | `String` | Required |
+| `source` | `SkillSource` | `marketplace`, `git`, or `custom` |
+| `gitUrl` | `String?` | Origin when `source = git` |
+| `path` | `String` | On-disk install path |
+| `version` / `author` / `category` / `icon` | `String?` | Metadata |
+| `mcpConfig` | `Json?` | Optional MCP wiring |
+| `installedAt` | `DateTime` | Install timestamp |
+
+### AgentSkill
+
+Join table assigning a Skill to an Assistant, with ordering and an on/off switch.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `agentId` | `String` | FK → `Agent`, cascades |
+| `skillId` | `String` | FK → `Skill`, cascades |
+| `priority` | `Int` | Ordering, defaults `0` |
+| `enabled` | `Boolean` | Defaults to `true` |
+
+Composite primary key `[agentId, skillId]`. See [Skills](/docs/guides/skills).
+
+## Policy (Safety Rule)
+
+A Safety Rule (Policy) constrains what an Assistant may do. Rules can apply globally, per agent, or per session.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Rule name |
+| `level` | `PolicyLevel` | `global`, `agent`, or `session` |
+| `rules` | `Json` | The rule payload |
+| `agentId` | `String?` | FK → `Agent` (when agent-scoped), cascades |
+| `sessionId` | `String?` | FK → `AgentSession` (when session-scoped), cascades |
+
+When multiple rules apply, the most restrictive wins. See [Safety Rules](/docs/guides/safety-rules) and [Security](/docs/reference/security).
+
+<Callout type="info">
+The global per-run budget cap is stored on a single canonical global `Policy` row (id `d0000000-0000-0000-0000-000000000001`), not in an env var. See [Security](/docs/reference/security).
+</Callout>
+
+## Sessions & Messages
+
+### AgentSession
+
+A Conversation (Session) — one run of an Assistant, or a discussion table run. Mapped to the `Session` table.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `agentId` | `String?` | FK → `Agent` (null for table-only runs) |
+| `tableId` | `String?` | FK → `DiscussionTable` for discussions |
+| `startedAt` | `DateTime` | Start time |
+| `endedAt` | `DateTime?` | Null while active |
+
+Relations: `messages`, `policies`. Indexed on `[agentId, startedAt]` and `[tableId]`.
+
+### Message
+
+A single turn within a Conversation.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `sessionId` | `String` | FK → `AgentSession`, cascades |
+| `role` | `MessageRole` | `user`, `assistant`, `system`, `tool` |
+| `content` | `String` | Message text |
+| `toolUse` | `Json?` | Structured tool call/result |
+| `rawEvent` | `Json?` | Raw stream-json event |
+| `tokenCount` | `Int?` | Token count for the turn |
+| `timestamp` | `DateTime` | Ordered by `[sessionId, timestamp]` |
+
+## Discussions
+
+### DiscussionTable
+
+A multi-agent discussion (UI: "Discussion"), moderated by a Facilitator (Moderator — the `moderator` Agent).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Discussion name |
+| `topic` | `String` | Subject |
+| `format` | `DiscussionFormat` | `brainstorm`, `review`, `deliberation` |
+| `moderatorId` | `String` | FK → `Agent` (the Facilitator) |
+| `status` | `DiscussionStatus` | Defaults to `draft` |
+| `conclusion` | `String?` | Final summary when concluded |
+| `maxRounds` | `Int` | Defaults to `5` |
+
+Relations: `participants` (via `TableParticipant`), `sessions`.
+
+### TableParticipant
+
+Join table placing an Assistant at a discussion with a role.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `tableId` | `String` | FK → `DiscussionTable`, cascades |
+| `agentId` | `String` | FK → `Agent`, cascades |
+| `role` | `ParticipantRole` | `participant` (default), `observer`, `devil_advocate` |
+
+Composite primary key `[tableId, agentId]`. See [Discussions](/docs/guides/discussions).
+
+## Memory
+
+A Memory entry persists facts across runs. Scoped to a single Assistant or to a whole Workspace.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `agentId` | `String?` | FK → `Agent` (agent scope), cascades |
+| `workspaceId` | `String?` | FK → `Workspace` (workspace scope), cascades |
+| `scope` | `String` | `agent` (default) or `workspace` |
+| `source` | `String` | `manual` (default), `auto`, or `director` |
+| `key` | `String` | Memory key |
+| `value` | `String` | Memory value |
+| `pinned` | `Boolean` | Always-include when set |
+| `importance` | `Int` | Ranking weight, defaults `0` |
+
+Unique on `[agentId, key]` and `[workspaceId, key]` (upserts rely on these). Indexed on `[workspaceId, pinned]`, `[agentId, pinned]`, and `[scope, source]`. See [Memory](/docs/guides/memory).
+
+## Resources
+
+### WorkspaceResource
+
+A Resource attached to a Workspace — a file, URL, note, or variable. See [Resources](/docs/guides/resources).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `workspaceId` | `String` | FK → `Workspace`, cascades |
+| `type` | `ResourceType` | `file`, `url`, `note`, `variable` |
+| `name` | `String` | Display name |
+| `description` | `String?` | Optional description |
+| `filePath` / `fileSize` / `mimeType` | `String?` / `Int?` / `String?` | For `file` resources |
+| `url` | `String?` | For `url` resources |
+| `content` | `String?` | For `note` resources |
+| `varKey` / `varValue` | `String?` | For `variable` resources |
+| `isSecret` | `Boolean` | Marks a variable as secret (defaults `false`) |
+
+Indexed on `[workspaceId, type]`.
+
+### CanvasLayout
+
+A saved layout of the workspace canvas (cards, edges, viewport).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Defaults to `default` |
+| `workspaceId` | `String` | FK → `Workspace`, cascades |
+| `viewport` | `Json` | Pan/zoom state |
+| `nodes` | `Json` | Card positions and data |
+| `edges` | `Json` | Connections between cards |
+
+See [Canvas](/docs/guides/canvas).
+
+## Connections (MCP Servers)
+
+### McpServer
+
+A Connection (MCP Server) the Assistants can use.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Unique |
+| `description` | `String?` | Optional |
+| `type` | `String` | Defaults to `stdio` |
+| `command` | `String` | Executable to start the server |
+| `args` | `String[]` | CLI arguments |
+| `env` | `Json?` | Environment variables |
+
+### AgentMcpServer
+
+Join table assigning a Connection to an Assistant. Composite primary key `[agentId, mcpServerId]`; both FKs cascade on delete. See [Connections](/docs/guides/connections).
+
+## External Folders
+
+### ExternalFolder
+
+A host directory bind-mounted into the server and exposed to Assistants. See [External Folders](/docs/guides/external-folders).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Display name |
+| `description` | `String?` | Optional |
+| `containerPath` | `String` | Unique in-container path (must resolve under `EXTERNAL_FOLDERS_CONTAINER_ROOT`) |
+| `readOnly` | `Boolean` | Defaults to `false` |
+
+### AgentExternalFolder
+
+Join table mounting a folder for an Assistant, with `priority` (default `0`) and `enabled` (default `true`). Composite primary key `[agentId, externalFolderId]`; both FKs cascade.
+
+## Chain Runs
+
+A ChainRun records a workflow execution (a DAG of steps). It owns an append-only event log and per-step results. See [Workflows](/docs/guides/workflows) and [Orchestration](/docs/guides/orchestration).
+
+### ChainRun
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `chainId` | `String` | Unique chain identifier |
+| `workspaceId` | `String?` | FK reference (workspace) |
+| `initialMessage` | `String` | The triggering message |
+| `status` | `String` | Defaults to `running` |
+| `totalSteps` | `Int` | Defaults to `0` |
+| `completedAt` | `DateTime?` | Null while running |
+
+Relations: `steps` (`ChainStepResult`), `events` (`ChainRunEvent`).
+
+### ChainStepResult
+
+One step in a chain run, including its output and cost.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `chainRunId` | `String` | FK → `ChainRun`, cascades |
+| `stepIndex` | `Int` | Position in the chain |
+| `agentId` | `String` | Acting assistant |
+| `agentName` | `String?` | Snapshot of the name |
+| `output` | `String` | Final per-step text (defaults `""`) |
+| `tokensIn` / `tokensOut` | `Int` | Token counts (default `0`) |
+| `costUsd` | `Float` | Step cost in USD (defaults `0`) |
+| `status` | `String` | Defaults to `running` |
+| `startedAt` / `completedAt` | `DateTime` / `DateTime?` | Timestamps |
+
+<Callout type="info">
+A chain step isn't always an Assistant turn. The Structurer (Structure) and Save to DB cards run as real non-agent steps inside the [ChainExecutor](/docs/guides/workflows); the Output and Email cards are run-completion sinks rather than execution steps. See [Data Nodes](/docs/guides/data-nodes) for the canvas-side picture and [Structured datasets](#structured-datasets) below for the tables they write.
+</Callout>
+
+### ChainRunEvent
+
+Append-only, ordered transcript of a run: step start, tool use/result, step completion, director decisions, errors, and completion. Streamed text deltas are not stored per-delta — the final per-step output lives on `ChainStepResult.output`.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `chainRunId` | `String` | FK → `ChainRun`, cascades |
+| `seq` | `Int` | Ordering within the run |
+| `type` | `String` | Event type |
+| `stepIndex` | `Int?` | Related step |
+| `agentId` / `agentName` | `String?` | Acting assistant |
+| `payload` | `Json?` | Event data |
+
+Indexed on `[chainRunId, seq]`.
+
+## Structured datasets
+
+These two tables back the canvas data pipeline: a Structurer (Structure) card turns an Assistant's prose into a typed dataset, and a Save to DB card persists it here. Datasets are then viewable and CSV-exportable in the Saved Datasets panel, and served by `GET /api/datasets` and `GET /api/datasets/:id` (paginated rows). See [Data Nodes](/docs/guides/data-nodes) for the canvas workflow and [API](/docs/reference/api) for the endpoints.
+
+### StructuredDataset
+
+The parent row: one persisted dataset, with its declared schema and provenance.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `workspaceId` | `String?` | Plain string correlator (no FK) for the originating workspace |
+| `chainRunId` | `String?` | Plain string correlator (no FK) for the originating chain run |
+| `nodeId` | `String` | The Save to DB card (node) that wrote the dataset |
+| `name` | `String` | Dataset name |
+| `format` | `String` | One of `json-object`, `json-array`, `table` (the `StructuredFormat` union; see [Enums](#enums)) |
+| `schema` | `Json` | The declared column/field schema |
+| `rowCount` | `Int` | Number of persisted rows (defaults `0`) |
+| `sourceAgentIds` | `String[]` | Assistants whose output fed the dataset |
+| `createdAt` | `DateTime` | Created timestamp |
+
+Relations: `rows` (`StructuredRow`). Indexed on `[workspaceId, createdAt]` and `[chainRunId]`.
+
+<Callout type="info">
+`workspaceId` and `chainRunId` are deliberately **plain string correlators with no foreign key** — the same pattern as `ChainStepResult.agentId` referencing an Assistant by string. This avoids FK churn when a chain run or workspace is recreated.
+</Callout>
+
+### StructuredRow
+
+A single row of a dataset, stored separately so rows stay queryable and paginatable.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `datasetId` | `String` | FK → `StructuredDataset`, cascades on delete |
+| `idx` | `Int` | Row order within the dataset |
+| `data` | `Json` | The row payload |
+
+Indexed on `[datasetId, idx]`.
+
+<Callout type="warning">
+The Save to DB step enforces write-time caps before persisting: at most **5,000 rows** (`MAX_DATASET_ROWS`) and **2,000,000 bytes** (`MAX_DATASET_BYTES`) of serialized row data. Rows beyond those limits are dropped at write time — these are engine guards in the [ChainExecutor](/docs/guides/workflows), not schema constraints. See [Data Nodes](/docs/guides/data-nodes).
+</Callout>
+
+## Cost, Activity & Artifacts
+
+### SessionUsage
+
+Token and cost tracking per session/agent/workspace. Fields: `sessionId`, `agentId?`, `workspaceId?`, `model?`, `inputTokens`, `outputTokens`, `costUsd`. Indexed on `[agentId, createdAt]`, `[sessionId]`, and `[workspaceId, createdAt]`.
+
+### ActivityEvent
+
+The activity feed. A lightweight, denormalized event log.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `userId` / `workspaceId` / `agentId` | `String?` | Optional context references |
+| `type` | `String` | Event type |
+| `title` | `String` | Headline |
+| `detail` | `String?` | Longer text |
+| `metadata` | `Json?` | Arbitrary extra data |
+
+Indexed on `[userId, createdAt]` and `[workspaceId, createdAt]`. See [Monitoring](/docs/guides/monitoring).
+
+### Artifact
+
+A file produced by a session. Fields: `sessionId`, `fileName`, `filePath`, `fileSize?`, `mimeType?`. Indexed on `[sessionId]`.
+
+## Schedules
+
+### ScheduledTask
+
+A cron-scheduled run of a saved workflow or an assistant. See [Schedules](/docs/guides/schedules).
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | UUID primary key |
+| `name` | `String` | Task name |
+| `description` | `String` | Defaults to `""` |
+| `type` | `String` | `workflow` or `agent` |
+| `targetId` | `String` | `SavedWorkflow.id` or `Agent.id` |
+| `message` | `String` | Message sent on run (defaults `""`) |
+| `schedule` | `String` | Cron expression, e.g. `0 9 * * 1-5` |
+| `timezone` | `String` | Defaults to `UTC` |
+| `enabled` | `Boolean` | Defaults to `true` |
+| `directorEnabled` | `Boolean` | Stored flag (defaults `false`); **not currently honored** — the Scheduler does not invoke the Director for scheduled runs |
+| `lastRunAt` / `nextRunAt` | `DateTime?` | Scheduling state |
+| `lastStatus` | `String?` | `success`, `error`, or `running` |
+
+Indexed on `[enabled, nextRunAt]`. `SavedWorkflow` stores reusable workflow definitions: `name`, `description`, and a `workflow` JSON blob.
+
+<Callout type="warning">
+`directorEnabled` is plumbed through the API, the database, and the UI type, but the Scheduler engine never reads it — scheduled execution never invokes the Director. Likewise, scheduled **agent** tasks run with a generic helper prompt rather than the Assistant's real persona, skills, and model. See [Schedules](/docs/guides/schedules).
+</Callout>
+
+## PRD & Stories
+
+<Callout type="info">
+The PRD pipeline is an **experimental backend capability**. The data models, the `PrdPipelineEngine`, and the `/api/prds` routes exist, but the UI trigger is currently a no-op stub — it is not a ready-to-use feature today. Documented here for completeness of the schema.
+</Callout>
+
+`PRD` is a product requirements document with a `title` and child `stories`. Each `Story` has a `prdId` (FK → `PRD`, cascades), a `title`, `acceptanceCriteria`, a `status` (`StoryStatus`: `pending`, `in_progress`, `passed`, `failed`, default `pending`), and a `priority` (`Int`, default `0`). `Story` is indexed on `[prdId, priority]`.
+
+## Instance Settings
+
+### Setting
+
+Global key/value config managed in the UI (credentials, etc.). Values are AES-256-GCM encrypted at rest in the `iv:tag:ciphertext` form.
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `key` | `String` | Primary key, e.g. `ANTHROPIC_API_KEY` |
+| `value` | `String` | Encrypted ciphertext |
+| `createdAt` / `updatedAt` | `DateTime` | Timestamps |
+
+<Callout type="warning">
+Secrets in `Setting` and any `WorkspaceResource` with `isSecret = true` are sensitive. Review [Security](/docs/reference/security) before exposing the database or backups.
+</Callout>
+
+## Related reference
+
+<Cards>
+  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
+  <Cards.Card title="Configuration" href="/docs/reference/configuration" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="API" href="/docs/reference/api" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+</Cards>

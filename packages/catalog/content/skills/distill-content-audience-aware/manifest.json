@@ -1,0 +1,10 @@
+{
+  "id": "distill-content-audience-aware",
+  "name": "distill-content-audience-aware",
+  "description": "Distill content to its essence with audience-aware compression, format selection, and quality verification.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

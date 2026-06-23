@@ -1,0 +1,10 @@
+{
+  "id": "creativity-water-logic",
+  "name": "creativity-water-logic",
+  "description": "Apply Edward de Bono's water logic for flow-based, non-judgmental exploration. Use when the user is in early-stage exploration and premature categorization is killing promising directions, wants to follow where ideas lead without forcing conclusions, is working on something open-ended where 'is this right?' is the wrong question, or needs to map possibilities before judging them. Water logic is the alternative to rock logic.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

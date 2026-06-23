@@ -1,0 +1,140 @@
+---
+title: Your First Workflow
+description: Sign in, describe a task, let RondoFlow build a team of Assistants, then run it and watch live on the Workspace.
+---
+
+import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Your First Workflow
+
+This walkthrough takes you from a blank screen to a running multi-agent Workflow in a few minutes. You'll describe a task in plain English, let RondoFlow generate a team of specialized Assistants (agents), review them on the Workspace (canvas), press Run, and inspect the output and cost.
+
+<Callout type="info">
+Before you start, make sure RondoFlow is installed and your Claude credential is set. See [Installation](/docs/getting-started/installation) and [Configuration](/docs/getting-started/configuration).
+</Callout>
+
+<Steps>
+
+### Sign in and complete the onboarding wizard
+
+The first time you open RondoFlow, a short three-step wizard appears. You can't dismiss step 1 — a working directory is required for RondoFlow to function.
+
+**Step 1 — Where does your code live?**
+
+RondoFlow operates on your local files through Claude Code, so it needs a project folder.
+
+- The wizard auto-detects a likely directory and pre-fills it. You can edit the path or click **Browse** to pick a folder.
+- It also runs a health check: you'll see **Claude Code detected** in green, or a warning to install the CLI with `npm install -g @anthropic-ai/claude-code`.
+- If no Claude credential is found yet, you'll get a non-blocking note. Set `ANTHROPIC_API_KEY`, or run `claude setup-token` and set `CLAUDE_CODE_OAUTH_TOKEN` to use your Claude subscription. You can also add it later in Settings.
+
+The working directory can be changed any time in Workspace settings.
+
+**Step 2 — How do you want to work?**
+
+Pick a work mode:
+
+| Mode | Best for |
+| --- | --- |
+| **Quick Start** | Describe what you want and let RondoFlow handle the rest. Great for trying things out. |
+| **Full Control** | Build Assistant teams with skills, Safety Rules (policies), and custom Workflows. For power users. |
+
+<Callout type="info">
+The work-mode choice is purely a first-impression preference today — it has **no runtime effect**. The interface is pinned to the full feature set, so every panel, palette item, and control is available regardless of which mode you pick, and there is no work-mode switcher in [Settings](/docs/guides/settings). Treat this step as "how would you like to be introduced," not a setting you can change later.
+</Callout>
+
+**Step 3 — What would you like to do first?**
+
+You'll land on a final screen with a few options:
+
+- **Describe a task** (the primary input) — type what you want and click **Go**. This is the path we follow below.
+- **Start from Template** — open the gallery of pre-built Workflows.
+- **Create an Assistant** — build one from scratch.
+- **Skip** — go straight to an empty Workspace.
+
+### Describe a task and let RondoFlow generate a Workflow
+
+Type a clear, specific goal — for example, `Build a REST API with tests and code review`. Your description must be at least 10 characters (and at most 1000).
+
+RondoFlow sends it to its Workflow Architect, which analyzes the task and designs a complete team:
+
+- **2–5 specialized Assistants**, each with a focused role — no generic "helper" agents.
+- A detailed **Personality** (persona) per Assistant describing its expertise, approach, and responsibilities.
+- A **purpose** (writing, coding, analysis, chat, review, research, creative, data, or general).
+- A recommended **model** — `opus` for deep analysis and complex reasoning, `sonnet` as the strong default for coding and writing, `haiku` for fast, simple tasks.
+- **Recommended skills** drawn from the built-in catalog.
+- **Edges** that define execution order as a DAG (no cycles), so output flows from one Assistant to the next. An edge may carry an optional regex condition that gates the next step.
+- The Assistants are auto-laid out left-to-right by dependency layer.
+
+Generated teams are always **Claude Code Assistants** — the Workflow Architect designs and runs against Claude. RondoFlow also supports OpenAI and Perplexity Assistants, but those aren't part of generation: you add them yourself by dragging them from the palette onto the Workspace. See [Providers](/docs/providers).
+
+The **Director** (orchestrator) is auto-enabled when the generated team has **3 or more Assistants** or needs intelligent coordination, and left off for simple two-Assistant linear flows.
+
+<Callout type="warning">
+Generation spawns a real Claude CLI subprocess that bills against your account. The generate endpoint (`POST /api/workflows/generate`) is **rate-limited to 10 requests per minute**, and a single generation times out after 90 seconds. If it can't produce a valid team, RondoFlow falls back to creating a single Assistant from your description and shows an error notification.
+</Callout>
+
+### Review the generated team
+
+Generation opens a review dialog before anything touches your Workspace. Here you can fine-tune the proposal:
+
+- Edit the **Workflow name**.
+- Edit each Assistant's **name**, **Personality**, and **model**.
+- Remove any **suggested skill** from an Assistant.
+- Remove an Assistant entirely (its edges are removed too).
+- Toggle **Director orchestration** on or off.
+
+When you confirm, RondoFlow materializes the team onto the Workspace: it persists the Assistants and lays out their Cards (nodes) and connections so you can see the whole flow at a glance. From here you can keep editing on the canvas — see [The Canvas](/docs/guides/canvas) for moving Cards, wiring connections, and adding skills or Safety Rules.
+
+### Press Run and watch live execution
+
+When a Workflow is on the Workspace, a toolbar appears at the top center of the canvas.
+
+- Click the green **Run** button. This opens the Execution Log, where you describe the task for this run and start it. (Running is triggered from inside that panel, not by the Run button alone.)
+- Each Assistant then starts in dependency order, passing its output to the next.
+- A step indicator below the toolbar shows progress like `2/4` with the current Assistant's name.
+- Each Card reflects its live state during the run:
+
+| Card state | Meaning |
+| --- | --- |
+| `pending` | Queued, not started yet |
+| `active` | Currently running |
+| `completed` | Finished successfully |
+| `error` | Failed |
+
+The toolbar carries three orchestration controls beside Run/Stop:
+
+| Control | Default | What it does |
+| --- | --- | --- |
+| **Director** (purple) | On | Reviews each step's output mid-run and decides whether to continue, redirect, or conclude. |
+| **Planner** (cyan) | Off | Opt-in pre-run analysis that inspects the Workflow and suggests Assistant changes before execution starts. |
+| **Advisor** (amber) | — | Appears after a run for post-run analysis and improvement suggestions. |
+
+If the **Director** is on, after each step it reviews the output and decides whether to **continue**, **redirect** (re-run a step with new guidance), or **conclude** early — shown as an inline badge in the toolbar. To stop everything immediately, click **Stop**, which terminates every active Assistant. See [Planner, Director & Advisor](/docs/guides/orchestration) for how all three work together.
+
+### Inspect the output and costs
+
+Open the **Workflow Chat** toggle (the message icon) in the toolbar to watch Assistants run live, read their full raw output, and send follow-up messages to the Workflow.
+
+For spend, RondoFlow tracks token usage and cost per run. The cost dashboard (`GET /api/analytics/cost?days=30`) summarizes total cost in USD, the number of conversations (sessions), and a per-model breakdown of input/output tokens and cost — plus a gap-filled per-day time series and a per-workspace rollup that power the Analytics view. If you haven't run anything yet, it shows "No usage data yet." See [Monitoring](/docs/guides/monitoring) for the full view.
+
+<Callout type="info">
+After a run, click **Advisor** in the toolbar to analyze what happened and get suggestions for better Personalities, prompts, or Workflow structure.
+</Callout>
+
+</Steps>
+
+## Going further
+
+A generated team is just Assistants and edges, but the Workspace also has Cards for routing and capturing output — a Condition (router) Card to branch on an Assistant's output, an Output Card to write the run's combined result to a file, an Email Card to send it, and a Structure → Save to DB pair to turn prose into a stored dataset. These are added by hand from the palette. See [Data Nodes](/docs/guides/data-nodes) once you're comfortable with the basics.
+
+## Where to next
+
+<Cards>
+  <Cards.Card title="The Canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Planner, Director & Advisor" href="/docs/guides/orchestration" />
+  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+</Cards>

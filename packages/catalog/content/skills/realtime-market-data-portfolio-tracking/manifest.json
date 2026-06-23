@@ -1,0 +1,10 @@
+{
+  "id": "realtime-market-data-portfolio-tracking",
+  "name": "realtime-market-data-portfolio-tracking",
+  "description": "Real-time market data, portfolio tracking, trade journaling, screening, and news for stocks, crypto, ETFs, commodities, and forex — no API key required to start",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.11",
+  "icon": "coins",
+  "order": 1000
+}

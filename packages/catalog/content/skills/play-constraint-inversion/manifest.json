@@ -1,0 +1,10 @@
+{
+  "id": "play-constraint-inversion",
+  "name": "play-constraint-inversion",
+  "description": "Removes or inverts the main constraint to see what becomes possible — then uses those unconstrained solutions to find real ones. TRIGGERS: 'what if there were no constraints', 'rule inversion', 'what if we could do anything', 'break the rules', 'invert the assumption'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

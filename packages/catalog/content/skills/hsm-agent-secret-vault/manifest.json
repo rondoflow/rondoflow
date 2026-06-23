@@ -1,0 +1,10 @@
+{
+  "id": "hsm-agent-secret-vault",
+  "name": "hsm-agent-secret-vault",
+  "description": "HSM-backed secret management for AI agents — store, retrieve, rotate, and share secrets via the 1Claw vault without exposing them in context.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

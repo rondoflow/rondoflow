@@ -1,0 +1,10 @@
+{
+  "id": "audit-google-analytics-implementation",
+  "name": "audit-google-analytics-implementation",
+  "description": "Audit existing Google Analytics implementation. Checks for common issues, missing configurations, and optimization opportunities.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

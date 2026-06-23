@@ -1,0 +1,10 @@
+{
+  "id": "book-appliance-repair-services",
+  "name": "book-appliance-repair-services",
+  "description": "Book appliance-repair services through Lokuli MCP. Use when user needs to find and book appliance-repair. Triggers on requests like \"book a appliance-repair\", \"find appliance-repair near me\", or any appliance-repair service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

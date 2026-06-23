@@ -1,0 +1,10 @@
+{
+  "id": "bitcoin-agent-wallet-manager",
+  "name": "bitcoin-agent-wallet-manager",
+  "description": "Bitcoin L1 wallet for agents - check balances, send BTC, manage UTXOs. Extends to Stacks L2 (STX, DeFi) and Pillar smart wallets (sBTC yield).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.26.0",
+  "icon": "coins",
+  "order": 1000
+}

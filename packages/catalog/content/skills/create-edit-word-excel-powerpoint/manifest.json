@@ -1,0 +1,10 @@
+{
+  "id": "create-edit-word-excel-powerpoint",
+  "name": "create-edit-word-excel-powerpoint",
+  "description": "Create or modify Word (.docx), Excel (.xlsx), and PowerPoint (.pptx) files. Use when the user mentions Office, Word, Excel, PowerPoint, docx, xlsx, pptx, spreadsheets, presentations, or document export. Check dependencies first, and if a core library is missing, report it direct…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "plug",
+  "order": 1000
+}

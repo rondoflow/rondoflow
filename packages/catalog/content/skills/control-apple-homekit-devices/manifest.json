@@ -1,0 +1,10 @@
+{
+  "id": "control-apple-homekit-devices",
+  "name": "control-apple-homekit-devices",
+  "description": "Control Apple HomeKit smart home devices. Supports listing, discovering, pairing devices, and controlling lights, switches, outlets, thermostats. Use when the user needs to manage HomeKit accessories programmatically. Requires homekit library and paired devices.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "code",
+  "order": 1000
+}

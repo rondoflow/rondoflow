@@ -1,0 +1,10 @@
+{
+  "id": "temporary-agent-chat-rooms",
+  "name": "temporary-agent-chat-rooms",
+  "description": "Temporary real-time chat rooms for AI agents. Password-protected, with SSE streaming, web UI for humans, and CLI tools for agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

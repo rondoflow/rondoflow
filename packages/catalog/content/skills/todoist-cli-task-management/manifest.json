@@ -1,0 +1,10 @@
+{
+  "id": "todoist-cli-task-management",
+  "name": "todoist-cli-task-management",
+  "description": "Use the td (Todoist CLI) to read and manage Todoist todos/to-dos/tasks from the terminal. Trigger when the user asks about their todos/tasks/agenda/checklist (today/upcoming/overdue), wants to list inbox/tasks/projects/labels, add a task/todo with natural language, or update/com…",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "message-circle",
+  "order": 1000
+}

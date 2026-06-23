@@ -1,0 +1,10 @@
+{
+  "id": "realtime-twitter-search-with-citations",
+  "name": "realtime-twitter-search-with-citations",
+  "description": "Search X/Twitter in real-time using Grok or X API. Find tweets, trends, and discussions with citations.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

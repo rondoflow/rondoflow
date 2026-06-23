@@ -1,0 +1,168 @@
+{
+  "scope": {
+    "label": "Alcance",
+    "workspace": "Este espacio de trabajo",
+    "global": "Todos los espacios de trabajo"
+  },
+  "dashboard": {
+    "overview": "Resumen",
+    "periodDays": "{{count}}d",
+    "card": {
+      "assistantsRunning": "{{count}} en ejecución",
+      "assistants": "Asistentes",
+      "discussions": "Discusiones",
+      "schedulesActive": "{{count}} activas",
+      "schedules": "Programaciones",
+      "skills": "Habilidades",
+      "totalCost": "Coste total",
+      "sessions": "Conversaciones",
+      "tokens": "Tokens"
+    },
+    "usage": {
+      "heading": "Uso (últimos {{count}} días)",
+      "empty": {
+        "title": "Aún no hay datos de uso",
+        "hint": "Ejecute asistentes o flujos de trabajo para ver la analítica aquí."
+      }
+    },
+    "metric": {
+      "cost": "Coste",
+      "tokens": "Tokens"
+    },
+    "chart": {
+      "title": "{{metric}} a lo largo del tiempo",
+      "totalCost": "(${{amount}} en total)",
+      "totalTokens": "({{amount}}k en total)",
+      "noneRecorded": "No se registraron {{metric}} en este período",
+      "ariaPerDay": "{{label}} por día durante {{count}} días",
+      "barTitle": "{{day}} — {{value}}",
+      "costValue": "${{amount}}",
+      "tokensValue": "{{amount}}k tokens"
+    },
+    "costByModel": "Coste por modelo",
+    "tokenSplit": "Distribución de tokens",
+    "tokenInput": "entrada",
+    "tokenOutput": "salida",
+    "costByWorkspace": "Coste por espacio de trabajo"
+  },
+  "audit": {
+    "range": {
+      "last24h": "Últimas 24 horas",
+      "last7d": "Últimos 7 días",
+      "last30d": "Últimos 30 días",
+      "allTime": "Todo el tiempo"
+    },
+    "search": {
+      "placeholder": "Buscar eventos…",
+      "ariaLabel": "Buscar en el registro de auditoría"
+    },
+    "filter": {
+      "eventType": "Tipo de evento",
+      "allTypes": "Todos los tipos",
+      "typeOption": "{{label}} ({{count}})",
+      "timeRange": "Intervalo de tiempo"
+    },
+    "exportCsv": "Exportar CSV",
+    "loadError": "No se pudo cargar el registro de auditoría",
+    "count_one": "{{count}} evento",
+    "count_other": "{{count}} eventos",
+    "matchingFilters": " que coinciden con los filtros",
+    "emptyFiltered": "Ningún evento de auditoría coincide con estos filtros.",
+    "column": {
+      "time": "Hora",
+      "type": "Tipo",
+      "event": "Evento"
+    },
+    "pagination": {
+      "pageOf": "Página {{page}} de {{total}}",
+      "previous": "Página anterior",
+      "next": "Página siguiente"
+    },
+    "detail": {
+      "category": "Categoría",
+      "eventId": "ID del evento",
+      "assistantId": "ID del asistente",
+      "workspaceId": "ID del espacio de trabajo"
+    }
+  },
+  "activity": {
+    "empty": {
+      "title": "Aún no hay actividad",
+      "hint": "Ejecute un asistente para ver eventos aquí."
+    },
+    "group": {
+      "today": "Hoy",
+      "yesterday": "Ayer"
+    }
+  },
+  "run": {
+    "status": {
+      "running": "En ejecución",
+      "completed": "Completado",
+      "failed": "Fallido",
+      "stopped": "Detenido"
+    },
+    "detail": {
+      "fallbackTitle": "Ejecución de flujo de trabajo",
+      "back": "Volver a la lista de ejecuciones",
+      "open": "Abrir",
+      "openTooltip": "Abrir esta ejecución en el panel del flujo de trabajo",
+      "emptyTitle": "Sin entradas de registro",
+      "emptyHint": "Esta ejecución no tiene registro de ejecución guardado.",
+      "loadError": "No se pudo cargar esta ejecución"
+    },
+    "list": {
+      "title": "Historial de ejecuciones",
+      "loadingRun": "Cargando ejecución…",
+      "loadError": "No se pudieron cargar las ejecuciones",
+      "errorTitle": "No se pudo cargar el historial",
+      "emptyTitle": "Aún no hay ejecuciones",
+      "emptyHint": "Ejecute un flujo de trabajo y aparecerá aquí.",
+      "count_one": "{{count}} ejecución",
+      "count_other": "{{count}} ejecuciones",
+      "steps": "{{done}}/{{total}} pasos",
+      "tokens": "{{amount}} tok",
+      "cost": "${{amount}}",
+      "loadMore": "Cargar más ({{remaining}})"
+    }
+  },
+  "session": {
+    "status": {
+      "active": "Activa",
+      "ended": "Finalizada",
+      "error": "Error"
+    },
+    "filter": {
+      "fromDate": "Filtrar desde la fecha",
+      "toDate": "Filtrar hasta la fecha",
+      "to": "hasta",
+      "clear": "Borrar el filtro de fecha"
+    },
+    "card": {
+      "ariaLabel": "Conversación del {{date}}, {{count}} mensajes",
+      "prefix": "Conversación",
+      "messages_one": "{{count}} mensaje",
+      "messages_other": "{{count}} mensajes"
+    },
+    "empty": {
+      "filteredTitle": "No hay conversaciones en este intervalo",
+      "filteredHint": "Pruebe a ajustar el filtro de fecha.",
+      "title": "Aún no hay conversaciones",
+      "hint": "Empiece a conversar con el asistente para ver su historial aquí."
+    },
+    "title": "Historial de conversaciones",
+    "count_one": "{{count}} conversación",
+    "count_other": "{{count}} conversaciones",
+    "listAria": "Conversaciones anteriores"
+  },
+  "cost": {
+    "empty": {
+      "title": "Aún no hay datos de uso",
+      "hint": "Ejecute asistentes para ver el seguimiento de costes aquí."
+    },
+    "totalCost": "Coste total",
+    "sessions": "Conversaciones",
+    "tokens": "Tokens",
+    "byModel": "Coste por modelo (últimos {{count}} días)"
+  }
+}

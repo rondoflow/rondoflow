@@ -1,0 +1,10 @@
+{
+  "id": "responsive-design-guidance",
+  "name": "responsive-design-guidance",
+  "description": "Modern responsive CSS patterns using container queries, fluid typography, CSS Grid, and mobile-first strategies.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

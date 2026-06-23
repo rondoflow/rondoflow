@@ -1,0 +1,10 @@
+{
+  "id": "write-safe-idiomatic-php",
+  "name": "write-safe-idiomatic-php",
+  "description": "Write solid PHP avoiding type juggling traps, array quirks, and common security pitfalls.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

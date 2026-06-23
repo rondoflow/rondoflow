@@ -1,0 +1,10 @@
+{
+  "id": "flexible-data-importer-tool",
+  "name": "flexible-data-importer-tool",
+  "description": "id: flexible-data-importer",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

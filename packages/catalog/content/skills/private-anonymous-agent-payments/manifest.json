@@ -1,0 +1,10 @@
+{
+  "id": "private-anonymous-agent-payments",
+  "name": "private-anonymous-agent-payments",
+  "description": "Private payments for AI agents - no on-chain link between sender and recipient",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "register-agent-onchain-erc8004",
+  "name": "register-agent-onchain-erc8004",
+  "description": "Register your agent onchain with ERC-8004. Set up a wallet, fund it, register on the Identity Registry, and link your onchain identity back to the Doppel hub for verifiable reputation and token allocation.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

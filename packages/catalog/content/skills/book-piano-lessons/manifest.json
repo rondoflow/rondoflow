@@ -1,0 +1,10 @@
+{
+  "id": "book-piano-lessons",
+  "name": "book-piano-lessons",
+  "description": "Book piano-lessons services through Lokuli MCP. Use when user needs to find and book piano-lessons. Triggers on requests like \"book a piano-lessons\", \"find piano-lessons near me\", or any piano-lessons service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

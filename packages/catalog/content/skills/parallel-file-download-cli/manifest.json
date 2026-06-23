@@ -1,0 +1,10 @@
+{
+  "id": "parallel-file-download-cli",
+  "name": "parallel-file-download-cli",
+  "description": "Parallel file download and optional tar extraction using the pget CLI (single URL or multifile manifest). Use when you need high‑throughput downloads from HTTP(S)/S3/GCS, want to split a large file into chunks for speed, or want to download and extract a .tar/.tar.gz in one step.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

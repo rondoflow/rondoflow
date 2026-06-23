@@ -1,0 +1,10 @@
+{
+  "id": "lancedb-hybrid-search-memory",
+  "name": "lancedb-hybrid-search-memory",
+  "description": "LanceDB long-term memory plugin with BM25 + vector hybrid search (RRF or linear reranking).",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "check-square",
+  "order": 1000
+}

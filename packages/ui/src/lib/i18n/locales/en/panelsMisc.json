@@ -1,0 +1,501 @@
+{
+  "prd": {
+    "dialog": {
+      "title": "Product Requirements Document"
+    },
+    "field": {
+      "titleLabel": "PRD Title",
+      "titlePlaceholder": "Feature name or epic title…"
+    },
+    "stories": {
+      "heading": "Stories ({{count}})",
+      "add": "Add Story",
+      "addFirst": "Add first story",
+      "empty": "No stories yet",
+      "listLabel": "User stories",
+      "rowTitlePlaceholder": "Story title…",
+      "rowTitleLabel": "Story title",
+      "priorityLabel": "Priority {{priority}}",
+      "statusButtonLabel": "Status: {{status}}. Click to advance.",
+      "collapse": "Collapse story",
+      "expand": "Expand story",
+      "remove": "Remove story",
+      "acceptanceLabel": "Acceptance Criteria",
+      "acceptancePlaceholder": "Given… When… Then…"
+    },
+    "status": {
+      "pending": "Pending",
+      "inProgress": "In Progress",
+      "passed": "Passed",
+      "failed": "Failed"
+    },
+    "progress": {
+      "passed": "{{passed}}/{{total}} passed",
+      "failed": "{{count}} failed",
+      "barLabel": "{{passed}} of {{total}} stories passed"
+    },
+    "validation": {
+      "noStories": "Add at least one story before starting the pipeline.",
+      "emptyTitles_one": "{{count}} story title is empty. Fill it in first.",
+      "emptyTitles_other": "{{count}} story titles are empty. Fill them in first."
+    },
+    "cost": {
+      "label": "Est. cost:",
+      "value": "~${{amount}}"
+    },
+    "start": "Start Pipeline"
+  },
+  "output": {
+    "log": {
+      "panelLabel": "Saved workflow output log",
+      "title": "Output Log",
+      "summary_one": "{{count}} saved output in {{dir}}",
+      "summary_other": "{{count}} saved outputs in {{dir}}",
+      "metaSeparator": "{{time}} · {{size}}",
+      "back": "Back to output list",
+      "copy": "Copy",
+      "copied": "Copied",
+      "copyLabel": "Copy output to clipboard",
+      "download": "Download",
+      "downloadLabel": "Download output file",
+      "refreshLabel": "Refresh output list",
+      "loadingOutputs": "Loading saved outputs…",
+      "empty": {
+        "title": "No saved outputs",
+        "description": "Run a workflow and save its output to see it here."
+      },
+      "error": {
+        "loadList": "Failed to load outputs",
+        "readFile": "Failed to read file"
+      }
+    }
+  },
+  "review": {
+    "dialog": {
+      "title": "Review Generated Workflow",
+      "nameLabel": "Workflow name"
+    },
+    "model": {
+      "opus": "Opus (Deep)",
+      "sonnet": "Sonnet (Balanced)",
+      "haiku": "Haiku (Fast)"
+    },
+    "agent": {
+      "nameLabel": "Agent {{index}} name",
+      "modelLabel": "Agent {{index}} model",
+      "personaLabel": "Agent {{index}} persona",
+      "remove": "Remove {{name}}",
+      "removeSkill": "Remove skill {{skill}}"
+    },
+    "executionFlow": "Execution Flow",
+    "director": {
+      "title": "Director orchestration",
+      "description": "AI coordinator evaluates each step and decides the next action"
+    },
+    "saveTemplate": "Save as Template",
+    "addToCanvas": "Add to Canvas"
+  },
+  "advisor": {
+    "category": {
+      "agent": "Agent",
+      "skill": "Skill",
+      "order": "Order",
+      "quality": "Quality"
+    },
+    "action": {
+      "applySkill": "Apply \"{{skill}}\"",
+      "updatePersona": "Update Persona",
+      "applied": "Applied",
+      "failed": "Failed"
+    },
+    "title": "Workflow Advisor",
+    "objectiveMet": "Objective met",
+    "objectiveNotMet": "Objective not met",
+    "allGood": "Everything looks good — no improvements needed."
+  },
+  "director": {
+    "title": "Director",
+    "subtitle": "Workflow orchestrator",
+    "toggleLabel": "Toggle Director",
+    "rigor": {
+      "label": "Criticism Level",
+      "sliderLabel": "Criticism level",
+      "setLabel": "Set rigor to {{level}}",
+      "minLabel": "Relaxed",
+      "maxLabel": "Demanding",
+      "level": {
+        "relaxed": {
+          "label": "Relaxed",
+          "description": "Almost always continues. Only redirects for critical errors."
+        },
+        "lenient": {
+          "label": "Lenient",
+          "description": "Accepts most outputs. Redirects only when something important is missing."
+        },
+        "balanced": {
+          "label": "Balanced",
+          "description": "Default level. Evaluates quality fairly, suggests improvements when worthwhile."
+        },
+        "strict": {
+          "label": "Strict",
+          "description": "Higher standards. Expects thorough work and may redirect for incomplete outputs."
+        },
+        "demanding": {
+          "label": "Demanding",
+          "description": "Very high bar. Expects comprehensive, production-ready output from every step."
+        }
+      }
+    },
+    "customInstructions": {
+      "label": "Custom Instructions",
+      "help": "Additional instructions for the Director when evaluating agent outputs. These are appended to the system prompt.",
+      "placeholder": "e.g., Always ensure code includes TypeScript types. Prioritize security over performance..."
+    },
+    "howItWorks": {
+      "title": "How Director Works",
+      "evaluates": "Evaluates each agent's output after completion",
+      "contextualizes": "Contextualizes messages so the next agent understands the full picture",
+      "redirects": "Can redirect (retry) a step if output quality is insufficient",
+      "concludes": "Can conclude the workflow early if the objective is already met",
+      "learns": "Learns patterns between runs to improve future evaluations"
+    }
+  },
+  "history": {
+    "panelLabel": "Execution history",
+    "title": "Execution History",
+    "description": "All past workflow runs and their execution logs."
+  },
+  "condition": {
+    "title": "Condition",
+    "subtitle": "Route to the first matching branch",
+    "name": {
+      "label": "Name",
+      "placeholder": "Condition"
+    },
+    "hint": {
+      "withAgent": "Matched against {{agent}}’s last line, case-insensitive. The first matching branch runs; the default branch runs if none match.",
+      "noAgent": "Matched against the previous assistant’s last line, case-insensitive. The first matching branch runs; the default branch runs if none match."
+    },
+    "branches": {
+      "heading": "Branches",
+      "total": "{{count}} total",
+      "labelPlaceholder": "Branch label",
+      "labelAria": "Branch {{index}} label",
+      "remove": "Remove branch {{index}}",
+      "removeTitle": "Remove branch",
+      "patternAria": "Branch {{index}} pattern",
+      "kind": {
+        "contains": "Contains",
+        "regex": "Matches regex"
+      },
+      "patternPlaceholder": {
+        "contains": "approved, lgtm",
+        "regex": "^DECISION:\\s*GO$"
+      },
+      "default": "Default branch (runs if none match)",
+      "setDefault": "Set as default branch",
+      "addLabel": "Add:",
+      "empty": "No branches yet. Add one, then drag a wire from its handle to a downstream assistant.",
+      "noDefault": "No default branch — if no condition matches, the flow stops on this path."
+    },
+    "preset": {
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "custom": "Custom"
+    },
+    "regexInvalid": "Invalid regular expression"
+  },
+  "outputNode": {
+    "title": "Output",
+    "subtitle": "Process & save run output",
+    "name": {
+      "label": "Name",
+      "placeholder": "Output"
+    },
+    "docTitle": {
+      "label": "Document title",
+      "placeholder": "Optional — heading for formatted markdown/HTML"
+    },
+    "savingFrom": "Saving outputs from",
+    "savingHint": "Connect agents to this Output node on the canvas to choose which to save.",
+    "allAgents": "All agents in the run.",
+    "noAgents": "No agents connected yet — drag a wire from an agent into this Output node. With no connections it saves nothing.",
+    "unknownAgent": "Unknown agent",
+    "format": {
+      "label": "Format",
+      "selectLabel": "Output format"
+    },
+    "destination": {
+      "label": "Save to",
+      "browse": "Browse",
+      "custom": "Custom folder",
+      "default": "Workspace folder (default)",
+      "reset": "Reset to workspace"
+    }
+  },
+  "assistants": {
+    "title": "Assistants",
+    "new": "New",
+    "empty": {
+      "title": "No assistants yet.",
+      "create": "Create your first assistant"
+    },
+    "delete": "Delete {{name}}"
+  },
+  "tool": {
+    "toggleLabel": "Tool: {{name}}. Click to {{action}} details.",
+    "expand": "expand",
+    "collapse": "collapse",
+    "running": "Running",
+    "completed": "Completed",
+    "input": "Input",
+    "output": "Output"
+  },
+  "emailNode": {
+    "title": "Email",
+    "subtitle": "Email run output",
+    "enabled": {
+      "label": "Send after each run",
+      "hint": "Off by default. When on, this node emails the selected output every time the workflow finishes."
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "Email"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "Optional — defaults to \"Workflow output\""
+    },
+    "recipients": {
+      "label": "Recipients",
+      "placeholder": "a@example.com, b@example.com",
+      "hint": "Comma-separated email addresses.",
+      "count_one": "{{count}} valid recipient",
+      "count_other": "{{count}} valid recipients",
+      "invalid": "Invalid: {{list}}"
+    },
+    "sendingFrom": "Emailing output from",
+    "sendingHint": "Connect agents to this Email node on the canvas to choose which output to send.",
+    "allAgents": "All agents in the run.",
+    "noAgents": "No agents connected yet — drag a wire from an agent into this Email node. With no connections it sends nothing.",
+    "unknownAgent": "Unknown agent"
+  },
+  "structurerNode": {
+    "title": "Structurer",
+    "subtitle": "Convert agent output into structured data",
+    "unknownAgent": "Unknown agent",
+    "name": {
+      "label": "Name",
+      "placeholder": "Structurer"
+    },
+    "sourceFrom": "Structuring from",
+    "sourceHint": "Driven by the assistants wired into this node on the canvas.",
+    "allAgents": "All agents in the run.",
+    "noAgents": "No assistants connected yet — drag a wire from an assistant into this node.",
+    "format": {
+      "label": "Format",
+      "selectLabel": "Output format"
+    },
+    "mode": {
+      "label": "Extraction mode",
+      "parse": "Parse",
+      "ai": "AI extraction",
+      "parseHint": "Deterministically extract JSON or tables already present in the output. No extra cost.",
+      "aiHint": "Run a Claude pass to extract structured rows from free-form text."
+    },
+    "instructions": {
+      "label": "Extraction instructions",
+      "placeholder": "Optional guidance for the AI extractor…"
+    },
+    "schema": {
+      "heading": "Schema",
+      "total": "{{count}} columns",
+      "hint": "Declare the columns/fields to extract. Leave empty to infer.",
+      "keyPlaceholder": "key",
+      "keyAria": "Column {{index}} key",
+      "remove": "Remove column {{index}}",
+      "labelPlaceholder": "Label",
+      "labelAria": "Column {{index}} label",
+      "typeAria": "Column {{index}} type",
+      "type": {
+        "string": "Text",
+        "number": "Number",
+        "boolean": "Boolean",
+        "date": "Date"
+      },
+      "add": "Add column",
+      "empty": "No columns — the extractor will infer fields from the content."
+    }
+  },
+  "dbSaveNode": {
+    "title": "Save to Database",
+    "subtitle": "Persist the structured dataset",
+    "name": {
+      "label": "Name",
+      "placeholder": "Save to DB"
+    },
+    "datasetLabel": {
+      "label": "Dataset label",
+      "placeholder": "Optional — names the saved dataset",
+      "hint": "Falls back to the structurer's dataset name when blank."
+    },
+    "savingFrom": "Saving dataset from",
+    "noUpstream": "No structurer connected yet — wire a Structurer node into this one.",
+    "lastSaved_one": "Last run saved {{count}} row.",
+    "lastSaved_other": "Last run saved {{count}} rows.",
+    "viewDatasets": "View saved datasets"
+  },
+  "datasets": {
+    "panelLabel": "Saved datasets",
+    "title": "Saved datasets",
+    "back": "Back to list",
+    "rowCount_one": "{{count}} row",
+    "rowCount_other": "{{count}} rows",
+    "summary_one": "{{count}} dataset",
+    "summary_other": "{{count}} datasets",
+    "downloadCsv": "Download CSV",
+    "csv": "CSV",
+    "refresh": "Refresh",
+    "error": {
+      "loadList": "Failed to load datasets.",
+      "loadDetail": "Failed to load the dataset."
+    },
+    "empty": {
+      "title": "No saved datasets",
+      "description": "Run a workflow with a Save-to-DB node to store structured data here."
+    },
+    "emptyRows": {
+      "title": "No rows",
+      "description": "This dataset has no rows."
+    },
+    "listMeta": "{{rows}} rows · {{format}} · {{time}}"
+  },
+  "httpRequestNode": {
+    "title": "HTTP Request",
+    "subtitle": "Call an external API mid-workflow.",
+    "name": {
+      "label": "Name",
+      "placeholder": "HTTP Request"
+    },
+    "request": {
+      "label": "Request",
+      "methodLabel": "HTTP method",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "hint": "The URL, headers and body accept the {{token}} placeholder — it's replaced with the upstream output."
+    },
+    "query": {
+      "heading": "Query parameters",
+      "keyPlaceholder": "name",
+      "valuePlaceholder": "value",
+      "add": "Add parameter",
+      "empty": "No query parameters.",
+      "remove": "Remove parameter {{index}}"
+    },
+    "headers": {
+      "heading": "Headers",
+      "keyPlaceholder": "Header",
+      "valuePlaceholder": "value",
+      "add": "Add header",
+      "empty": "No headers.",
+      "remove": "Remove header {{index}}"
+    },
+    "body": {
+      "label": "Body",
+      "placeholder": "{ \"query\": \"...\" }",
+      "hint": "Sent with POST, PUT and PATCH. Supports the {{token}} placeholder.",
+      "mode": {
+        "json": "JSON",
+        "form": "Form",
+        "raw": "Raw"
+      }
+    },
+    "timeout": {
+      "label": "Timeout (seconds)",
+      "hint": "The request fails if no response arrives in time."
+    },
+    "response": {
+      "label": "Response passed downstream",
+      "body": "Body only",
+      "full": "Full (status + headers)",
+      "hint": "Choose what downstream nodes receive: just the response body, or a JSON envelope with status and headers."
+    }
+  },
+  "duckduckgoSearchNode": {
+    "title": "DuckDuckGo Search",
+    "subtitle": "Search the web mid-workflow.",
+    "name": {
+      "label": "Name",
+      "placeholder": "DuckDuckGo Search"
+    },
+    "query": {
+      "label": "Search query",
+      "placeholder": "Search query",
+      "hint": "The query accepts the {{token}} placeholder — it's replaced with the upstream output."
+    },
+    "maxResults": {
+      "label": "Max results"
+    },
+    "region": {
+      "label": "Region",
+      "placeholder": "us-en",
+      "hint": "DuckDuckGo region code, e.g. us-en, uk-en, de-de. Leave blank for no region."
+    },
+    "safeSearch": {
+      "label": "SafeSearch",
+      "strict": "Strict",
+      "moderate": "Moderate",
+      "off": "Off"
+    },
+    "timeLimit": {
+      "label": "Time range",
+      "any": "Any time",
+      "d": "Past day",
+      "w": "Past week",
+      "m": "Past month",
+      "y": "Past year"
+    },
+    "output": {
+      "label": "Results passed downstream",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Choose what downstream nodes receive: a readable list, or a JSON array of records."
+    }
+  },
+  "sakanaAiNode": {
+    "title": "Sakana AI",
+    "subtitle": "Run Sakana AI completion mid-workflow.",
+    "name": {
+      "label": "Name",
+      "placeholder": "Sakana AI"
+    },
+    "apiUrl": {
+      "label": "API URL",
+      "placeholder": "https://api.sakana.ai/v1/chat/completions"
+    },
+    "model": {
+      "label": "Model",
+      "placeholder": "sakana-chat"
+    },
+    "systemPrompt": {
+      "label": "System prompt",
+      "placeholder": "Optional system instruction..."
+    },
+    "prompt": {
+      "label": "Prompt",
+      "placeholder": "Summarize {{input}}",
+      "hint": "The prompt accepts the {{token}} placeholder — it is replaced with the upstream output."
+    },
+    "temperature": {
+      "label": "Temperature"
+    },
+    "maxTokens": {
+      "label": "Max tokens"
+    },
+    "output": {
+      "label": "Output passed downstream",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Choose what downstream nodes receive: completion text, or the full JSON response."
+    }
+  }
+}

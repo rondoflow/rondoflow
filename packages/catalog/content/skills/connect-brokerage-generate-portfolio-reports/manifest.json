@@ -1,0 +1,10 @@
+{
+  "id": "connect-brokerage-generate-portfolio-reports",
+  "name": "connect-brokerage-generate-portfolio-reports",
+  "description": "Connect to a user's investment accounts via SnapTrade SDK and generate portfolio reports (e.g., daily total value). Use when the user wants SnapTrade-based brokerage connectivity (Webull, E*TRADE, etc.), connection portal links, account registration, or automated portfolio summa…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

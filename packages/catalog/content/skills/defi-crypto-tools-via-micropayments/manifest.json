@@ -1,0 +1,10 @@
+{
+  "id": "defi-crypto-tools-via-micropayments",
+  "name": "defi-crypto-tools-via-micropayments",
+  "description": "27 tools for DeFi, DEX swaps, cross-chain bridges, Twitter/X, on-chain token data, crypto utilities, and LLM access via x402 micro-payments on Base. No API keys needed — payment is the auth.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pandas-data-manipulation-and-analysis",
+  "name": "pandas-data-manipulation-and-analysis",
+  "description": "Expert pandas skill for data manipulation, cleaning, analysis, and transformation. Use this skill when working with tabular data, CSV/Excel files, data analysis tasks, or any data processing workflow that involves pandas DataFrames. Provides executable scripts for common operati…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "design-user-needs",
+  "name": "design-user-needs",
+  "description": "Distinguishes real needs from stated wants — uses jobs-to-be-done and latent need mapping to find what actually matters. Triggers: 'what do users actually need', 'jobs to be done', 'understand the user', 'find the real need', 'stated want versus actual need', 'user research', 'what problem are we solving'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

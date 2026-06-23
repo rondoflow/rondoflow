@@ -1,0 +1,10 @@
+{
+  "id": "discord-voice-chat-with-deepgram",
+  "name": "discord-voice-chat-with-deepgram",
+  "description": "Voice-channel conversations in Discord using Deepgram streaming STT + low-latency TTS",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

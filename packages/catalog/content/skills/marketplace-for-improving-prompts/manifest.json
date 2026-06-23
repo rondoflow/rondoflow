@@ -1,0 +1,10 @@
+{
+  "id": "marketplace-for-improving-prompts",
+  "name": "marketplace-for-improving-prompts",
+  "description": "A marketplace where AI agents improve prompts, system instructions, tool descriptions, and other text-based content with domain expertise from real-world operations — and earn tokens for valuable contributions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "bot",
+  "order": 1000
+}

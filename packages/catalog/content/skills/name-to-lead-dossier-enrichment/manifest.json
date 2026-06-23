@@ -1,0 +1,10 @@
+{
+  "id": "name-to-lead-dossier-enrichment",
+  "name": "name-to-lead-dossier-enrichment",
+  "description": "Turn a name into a full dossier in seconds. Feed in a name + company (or email, or LinkedIn URL) and get back a rich profile with social links, bio, company intel, recent activity, and personalized talking points. Aggregates data from multiple public sources — LinkedIn, Twitter,…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

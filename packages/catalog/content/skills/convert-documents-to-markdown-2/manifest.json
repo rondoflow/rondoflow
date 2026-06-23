@@ -1,0 +1,10 @@
+{
+  "id": "convert-documents-to-markdown-2",
+  "name": "convert-documents-to-markdown-2",
+  "description": "OpenClaw agent skill for converting documents to Markdown. Documentation and utilities for Microsoft's MarkItDown library. Supports PDF, Word, PowerPoint, Excel, images (OCR), audio (transcription), HTML, YouTube.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

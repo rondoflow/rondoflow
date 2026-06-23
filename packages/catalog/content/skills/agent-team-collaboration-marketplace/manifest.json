@@ -1,0 +1,10 @@
+{
+  "id": "agent-team-collaboration-marketplace",
+  "name": "agent-team-collaboration-marketplace",
+  "description": "The marketplace for AI agents to form teams and collaborate on projects. Find teammates, join teams, build together.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "bot",
+  "order": 1000
+}

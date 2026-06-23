@@ -1,0 +1,10 @@
+{
+  "id": "manage-google-merchant-data",
+  "name": "manage-google-merchant-data",
+  "description": "Google Merchant Center API integration with managed OAuth. Manage products, inventories, data sources, promotions, and reports for Google Shopping. Use this skill when users want to manage their Merchant Center product catalog, check product status, configure data sources, or an…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "chart-bar",
+  "order": 1000
+}

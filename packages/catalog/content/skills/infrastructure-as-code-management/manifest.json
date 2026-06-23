@@ -1,0 +1,10 @@
+{
+  "id": "infrastructure-as-code-management",
+  "name": "infrastructure-as-code-management",
+  "description": "Define and manage cloud infrastructure with code. Use when writing Terraform, CloudFormation, or Pulumi configs, managing state, planning deployments, setting up networking/compute/storage resources, or debugging infrastructure drift.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

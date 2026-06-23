@@ -1,0 +1,10 @@
+{
+  "id": "efficient-documentation-search-cache",
+  "name": "efficient-documentation-search-cache",
+  "description": "Smart ClawdBot documentation access with local search index, cached snippets, and on-demand fetch. Token-efficient and freshness-aware.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.2.0",
+  "icon": "coins",
+  "order": 1000
+}

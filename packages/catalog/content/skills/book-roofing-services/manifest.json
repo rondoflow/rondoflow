@@ -1,0 +1,10 @@
+{
+  "id": "book-roofing-services",
+  "name": "book-roofing-services",
+  "description": "Book roofing services through Lokuli MCP. Use when user needs to find and book roofing. Triggers on requests like \"book a roofing\", \"find roofing near me\", or any roofing service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

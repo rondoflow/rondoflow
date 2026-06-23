@@ -1,0 +1,10 @@
+{
+  "id": "summarize-long-form-content",
+  "name": "summarize-long-form-content",
+  "description": "Summarize long-form content — articles, podcasts, research papers, PDFs, notes, and more — using the Dizest API. Turn what you read into structured, searchable knowledge.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

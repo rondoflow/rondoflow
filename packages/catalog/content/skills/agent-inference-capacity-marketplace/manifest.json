@@ -1,0 +1,10 @@
+{
+  "id": "agent-inference-capacity-marketplace",
+  "name": "agent-inference-capacity-marketplace",
+  "description": "Enables AI agents to interact with AISP (Agent Inference Sharing Protocol) for renting or providing DIEM API capacity. Use when working with diem-marketplace, Venice API keys, USDC escrow, listings, rentals, or when the user wants to rent inference capacity or list API keys.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

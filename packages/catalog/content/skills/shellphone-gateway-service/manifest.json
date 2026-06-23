@@ -1,0 +1,10 @@
+{
+  "id": "shellphone-gateway-service",
+  "name": "shellphone-gateway-service",
+  "description": "Private WebSocket gateway for connecting iOS to your AI agents. No Telegram. No Discord. No middleman.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

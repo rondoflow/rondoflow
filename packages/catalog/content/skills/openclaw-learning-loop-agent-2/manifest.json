@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-learning-loop-agent-2",
+  "name": "openclaw-learning-loop-agent-2",
+  "description": "NousResearch Hermes Agent CLI integration. Core capabilities: - Self-improving skill system - Persistent memory (FTS5 + LLM summaries) - Sub-agent delegation - MCP integration - Browser automation - Code execution",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "bot",
+  "order": 1000
+}

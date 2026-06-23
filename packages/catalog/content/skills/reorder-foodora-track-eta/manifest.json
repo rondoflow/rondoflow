@@ -1,0 +1,10 @@
+{
+  "id": "reorder-foodora-track-eta",
+  "name": "reorder-foodora-track-eta",
+  "description": "Goal: reorder a previous Foodora order safely (preview first; confirm only on explicit user “yes/confirm/place the order”).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

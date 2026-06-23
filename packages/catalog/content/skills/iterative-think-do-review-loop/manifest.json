@@ -1,0 +1,10 @@
+{
+  "id": "iterative-think-do-review-loop",
+  "name": "iterative-think-do-review-loop",
+  "description": "Complex ideas need iteration, not conversation. Think → Do → Review → Repeat. CellCog completes the full loop — brainstorming, reasoning, problem-solving, strategic thinking, then executing across every modality: research, documents, visuals, data, prototypes. Like having an Alf…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "chart-bar",
+  "order": 1000
+}

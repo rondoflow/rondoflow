@@ -1,0 +1,10 @@
+{
+  "id": "track-deals-forecast-sales-pipeline",
+  "name": "track-deals-forecast-sales-pipeline",
+  "description": "Track deals through every stage from lead to close. Manage pipeline stages, update deal status, forecast revenue, and identify bottlenecks in your sales process.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "handle-tamil-whatsapp-messages",
+  "name": "handle-tamil-whatsapp-messages",
+  "description": "Handle Tamil language messages on WhatsApp - transliteration, cultural greetings, and bilingual responses for Tamil Nadu users.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

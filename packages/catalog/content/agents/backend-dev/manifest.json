@@ -1,0 +1,13 @@
+{
+  "id": "backend-dev",
+  "name": "Backend Dev",
+  "description": "Designs APIs, data models, and server-side logic.",
+  "icon": "Server",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "Grep", "Glob", "Bash"],
+  "tags": ["api", "database", "server", "node", "engineering", "backend"],
+  "order": 1
+}

@@ -1,0 +1,10 @@
+{
+  "id": "unreal-engine-helper",
+  "name": "unreal-engine-helper",
+  "description": "version: 1.0.0",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

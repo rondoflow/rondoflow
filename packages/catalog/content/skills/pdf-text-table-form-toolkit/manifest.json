@@ -1,0 +1,10 @@
+{
+  "id": "pdf-text-table-form-toolkit",
+  "name": "pdf-text-table-form-toolkit",
+  "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

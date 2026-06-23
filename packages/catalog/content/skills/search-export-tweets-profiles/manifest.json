@@ -1,0 +1,10 @@
+{
+  "id": "search-export-tweets-profiles",
+  "name": "search-export-tweets-profiles",
+  "description": "Twitter API Alternative — Search 1B+ tweets with natural language queries, boolean filters, and one-click CSV exports (up to 64K rows). Look up profiles, find users by topic, and track conversations. No developer account needed, no complex OAuth setup — 2-minute setup via Xpoz M…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "bot",
+  "order": 1000
+}

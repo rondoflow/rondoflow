@@ -1,0 +1,28 @@
+{
+  "id": "api-documenter",
+  "name": "API Documenter",
+  "description": "Creates developer-first API docs — OpenAPI specs, code examples, and SDK guides.",
+  "icon": "FileCode",
+  "category": "Content & Marketing",
+  "purpose": "writing",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "api",
+    "openapi",
+    "documentation",
+    "sdk",
+    "reference"
+  ],
+  "order": 102
+}

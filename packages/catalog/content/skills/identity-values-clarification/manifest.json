@@ -1,0 +1,10 @@
+{
+  "id": "identity-values-clarification",
+  "name": "identity-values-clarification",
+  "description": "Surfaces and tests actual operative values — distinguishing what is stated from what decisions actually reveal. Triggers: 'values clarification', 'what do we actually stand for', 'is this consistent with our values', 'values alignment check', 'test the values', 'what do our decisions reveal'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

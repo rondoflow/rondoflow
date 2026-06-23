@@ -1,0 +1,10 @@
+{
+  "id": "quo-utility",
+  "name": "quo-utility",
+  "description": "Quo API integration with managed OAuth. Manage calls, messages, contacts, and conversations for your business phone system. Use this skill when users want to send SMS, list calls, manage contacts, or retrieve call recordings/transcripts. For other third party apps, use the api-g…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "message-circle",
+  "order": 1000
+}

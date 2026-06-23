@@ -1,0 +1,10 @@
+{
+  "id": "priority-realtime-web-search",
+  "name": "priority-realtime-web-search",
+  "description": "Priority live web search for real-time information",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

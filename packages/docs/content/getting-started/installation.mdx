@@ -1,0 +1,213 @@
+---
+title: Installation & Setup
+description: Install and run RondoFlow locally with the one-command setup or full Docker stack, then open the workspace (canvas).
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Installation & Setup
+
+RondoFlow is local-first: everything runs on your machine. You can install it two ways — a **Local dev** setup (Node tooling on your host, PostgreSQL in Docker) or a **Docker** setup that runs every service in containers. Pick whichever matches how you like to work.
+
+## Prerequisites
+
+| Requirement | Why you need it | Notes |
+|-------------|-----------------|-------|
+| **Node.js 20+** | Runs the dev servers and tooling | Only required for Local dev; the repo pins Node 20 (`.nvmrc`) and the workspace declares `engines.node: ">=20"`. Not needed for the full Docker path. |
+| **Docker** | Hosts PostgreSQL (and all services in Docker mode) | Docker Desktop or a compatible engine with `docker compose`. |
+| **Claude Code CLI** | Assistants (agents) are Claude Code subprocesses | Install it and authenticate so your assistants can run. See [Claude Code provider](/docs/providers/claude-code). |
+
+<Callout type="warning">
+If the Claude Code CLI is missing, RondoFlow still starts, but it shows a banner and assistants cannot run until the CLI is detected. The startup prerequisites check treats a missing CLI as a warning, not a hard blocker.
+</Callout>
+
+<Callout type="info">
+RondoFlow can also use OpenAI and Perplexity for assistants. Those need API keys but no CLI. See [Providers](/docs/providers).
+</Callout>
+
+## Install
+
+<Tabs items={['Local dev', 'Docker']}>
+<Tabs.Tab>
+
+Use this path when you want hot reload and to run the Node tooling directly on your host. PostgreSQL still runs in Docker.
+
+<Steps>
+### Clone the repository
+
+```bash
+git clone https://github.com/arzzen/rondoflow.git
+cd rondoflow
+```
+
+### Run setup
+
+```bash
+npm run setup
+```
+
+`npm run setup` does everything you need to get started, in order:
+
+1. `npm install` — installs all workspace dependencies.
+2. `node scripts/setup-env.js` — generates a root `.env` from `.env.example` with a freshly generated random `BETTER_AUTH_SECRET`. If a `.env` already exists, it is left in place (the script only appends `BETTER_AUTH_SECRET` and `BETTER_AUTH_URL` if `BETTER_AUTH_SECRET` is missing — your existing config is never overwritten).
+3. `docker compose up -d --wait postgres` — starts PostgreSQL and waits until it's healthy.
+4. `npm run db:migrate` — applies the Prisma migrations (`prisma migrate dev`).
+5. `npm run db:seed` — loads sample data and, if the admin env vars are set, bootstraps the first admin.
+
+<Callout type="info">
+Setup generates a working `.env`, but the Claude credential is left blank. To run assistants on Claude, add an `ANTHROPIC_API_KEY` **or** a `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`). If both are set, the setup token wins. See [Configuration](/docs/getting-started/configuration).
+</Callout>
+
+<Callout type="warning">
+RondoFlow is invite-only, so set `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` (optionally `RONDOFLOW_ADMIN_NAME`) in `.env` **before** this seed step runs — that bootstraps the first admin account. If you ran setup before adding them, edit `.env` and re-run `npm run db:seed`. See [First run](#first-run).
+</Callout>
+
+### Start the dev servers
+
+```bash
+npm run dev
+```
+
+This runs the full stack via Turborepo. Three apps come up:
+
+- **UI** on port **3000** — open `http://localhost:3000`
+- **Server** (Fastify + Socket.IO) on port **3001**
+- **Docs** (this site, Nextra) on port **3002**, proxied at `http://localhost:3000/docs`
+
+You can also start packages individually:
+
+```bash
+npm run dev:ui       # Next.js frontend only (port 3000)
+npm run dev:server   # Fastify backend only (port 3001)
+npm run dev:docs     # Docs site only (port 3002)
+```
+
+</Steps>
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+Use this path when you want zero host tooling — only Docker is required. Node.js is **not** needed.
+
+<Steps>
+### Clone the repository
+
+```bash
+git clone https://github.com/arzzen/rondoflow.git
+cd rondoflow
+```
+
+### Create your `.env`
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` before starting:
+
+- **`BETTER_AUTH_SECRET`** — replace the placeholder (`change-me-to-a-random-secret`) with a random string, e.g. `openssl rand -hex 32`.
+- **Claude credential** — set `ANTHROPIC_API_KEY` (an Anthropic API key) **or** `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`, to use your Claude subscription). If both are set, the setup token takes precedence.
+- **First admin** — set `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` (optionally `RONDOFLOW_ADMIN_NAME`). RondoFlow is invite-only, and the Docker `migrate` container only runs migrations — so you must run the seed step yourself to bootstrap the first admin. See [First run](#first-run).
+
+### Build and start the stack
+
+```bash
+docker compose up --build
+```
+
+This builds and starts every service:
+
+| Service | Container | Role |
+|---------|-----------|------|
+| `postgres` | `rondoflow-postgres` | PostgreSQL 16 database |
+| `server` | `rondoflow-server` | Fastify backend + Socket.IO + Claude Code CLI |
+| `ui` | `rondoflow-ui` | Next.js frontend |
+| `docs` | `rondoflow-docs` | Nextra documentation site |
+| `migrate` | `rondoflow-migrate` | Runs `prisma migrate deploy` once, then exits |
+
+The `migrate` service applies database migrations automatically on startup, so there's no separate migrate step. Once everything is healthy, open `http://localhost:3000`.
+
+</Steps>
+
+Helper scripts for Docker:
+
+```bash
+npm run docker:all          # docker compose up --build
+npm run docker:all:detach   # same, but runs in the background (-d)
+```
+
+</Tabs.Tab>
+</Tabs>
+
+## Ports
+
+Both paths expose the same ports:
+
+| App | Port | URL |
+|-----|------|-----|
+| UI (frontend) | **3000** | `http://localhost:3000` |
+| API (Fastify + Socket.IO) | **3001** | `http://localhost:3001` |
+| Docs (Nextra) | **3002** | Served at `<host>/docs` (proxied through the UI) |
+| PostgreSQL | **5432** | `postgresql://localhost:5432/rondoflow` |
+
+<Callout type="info">
+The docs site sets a base path of `/docs` and the UI reverse-proxies it, so you read the documentation at `http://localhost:3000/docs` — the same origin as the app. Port 3002 is the docs app's direct port.
+</Callout>
+
+## First run
+
+RondoFlow is **invite-only** — there is no self-registration. The login page reads "Access is invite-only. Ask an administrator to create your account." To get the first administrator account, you bootstrap it at seed time.
+
+Before seeding, set these in your root `.env`:
+
+```env
+RONDOFLOW_ADMIN_EMAIL=you@example.com
+RONDOFLOW_ADMIN_PASSWORD=<a strong password>
+RONDOFLOW_ADMIN_NAME=Administrator   # optional, defaults to "Administrator"
+```
+
+The seed step then creates that first admin. Bootstrap is skipped if either the email or password is blank, and it is idempotent — if the user already exists, it just ensures their role is `admin`.
+
+There are two paths to run the seed:
+
+- **Local dev:** `npm run setup` runs `npm run db:seed` for you, so the admin is created automatically as long as the two env vars are set before you run setup. (You can re-run `npm run db:seed` after editing `.env`.)
+- **Docker:** the `migrate` container runs `prisma migrate deploy` only — it does **not** seed. Run the seed step yourself to create the first admin, with the admin env vars set and PostgreSQL reachable:
+
+  ```bash
+  npm run db:seed
+  ```
+
+<Callout type="warning">
+On Docker, if you skip the seed step, no admin is created and — because self-registration is disabled — everyone is locked out of sign-in. Run `npm run db:seed` (with the admin vars set) to create the first administrator.
+</Callout>
+
+Sign in as that admin with email and password (GitHub/Google sign-in also work for accounts an admin has already created). A guided onboarding wizard then walks you through choosing a working directory, a work mode, and a first action. If the Claude Code CLI isn't detected, the wizard surfaces install instructions until it is.
+
+To add more people, create their accounts from the [Users panel](/docs/guides/users) — only an admin can do this. New users default to the read-only `viewer` role.
+
+## Database & Docker scripts
+
+Manage the database and the PostgreSQL container from the repo root:
+
+| Command | What it does |
+|---------|--------------|
+| `npm run db:migrate` | Apply Prisma migrations (`prisma migrate dev`) |
+| `npm run db:seed` | Load sample data and bootstrap the first admin (if the admin env vars are set) |
+| `npm run db:studio` | Open Prisma Studio to browse the database |
+| `npm run docker:up` | Start only the PostgreSQL container (`docker compose up -d postgres`) — used by the Local dev path |
+| `npm run docker:down` | Stop all containers (`docker compose down`) |
+
+<Callout type="info">
+The default database connection is `postgresql://rondoflow:rondoflow_dev@localhost:5432/rondoflow`. These credentials are for local development only — change them before exposing the database anywhere.
+</Callout>
+
+## Next steps
+
+<Cards>
+  <Cards.Card title="Configuration" href="/docs/getting-started/configuration" />
+  <Cards.Card title="Build your first workflow" href="/docs/getting-started/first-workflow" />
+  <Cards.Card title="Claude Code provider" href="/docs/providers/claude-code" />
+</Cards>

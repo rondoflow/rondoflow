@@ -1,0 +1,10 @@
+{
+  "id": "ship-apps-with-cicd-rollback",
+  "name": "ship-apps-with-cicd-rollback",
+  "description": "Ship applications reliably with CI/CD, rollback strategies, and zero-downtime deployment patterns.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

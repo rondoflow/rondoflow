@@ -1,0 +1,10 @@
+{
+  "id": "get-yahoo-finance-stock-data",
+  "name": "get-yahoo-finance-stock-data",
+  "description": "This skill should be used when the user asks to \"get stock prices\", \"check stock quotes\", \"look up earnings\", \"get financial data\", \"find trending stocks\", or needs stock market data from Yahoo Finance.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

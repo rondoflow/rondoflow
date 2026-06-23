@@ -1,0 +1,10 @@
+{
+  "id": "lookup-domain-whois-rdap-info",
+  "name": "lookup-domain-whois-rdap-info",
+  "description": "Look up domain WHOIS/RDAP info and check marketplace listings. Free API, no auth required.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "code",
+  "order": 1000
+}

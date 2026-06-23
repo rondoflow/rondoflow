@@ -1,0 +1,10 @@
+{
+  "id": "amazon-advertising-campaign-strategy",
+  "name": "amazon-advertising-campaign-strategy",
+  "description": "Build a comprehensive Amazon advertising strategy combining Sponsored Products, Sponsored Brands, and Sponsored Display. Budget allocation, campaign structure, keyword strategy, and ACoS optimization.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

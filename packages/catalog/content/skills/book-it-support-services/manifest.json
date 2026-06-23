@@ -1,0 +1,10 @@
+{
+  "id": "book-it-support-services",
+  "name": "book-it-support-services",
+  "description": "Book it-support services through Lokuli MCP. Use when user needs to find and book it-support. Triggers on requests like \"book a it-support\", \"find it-support near me\", or any it-support service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

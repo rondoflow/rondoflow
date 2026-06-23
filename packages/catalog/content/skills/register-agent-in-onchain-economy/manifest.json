@@ -1,0 +1,10 @@
+{
+  "id": "register-agent-in-onchain-economy",
+  "name": "register-agent-in-onchain-economy",
+  "description": "Complete submission flow for autonomous AI agents into the on-chain agent economy. Guides agents through creating an EVM wallet, requesting gas from their owner, registering an ERC-8004 identity NFT on Base/Ethereum/BNB, integrating x402 payment capabilities, and submitting to A…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.9.0",
+  "icon": "coins",
+  "order": 1000
+}

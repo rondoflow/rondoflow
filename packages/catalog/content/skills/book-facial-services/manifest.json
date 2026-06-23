@@ -1,0 +1,10 @@
+{
+  "id": "book-facial-services",
+  "name": "book-facial-services",
+  "description": "Book facial services through Lokuli MCP. Use when user needs to find and book facial. Triggers on requests like \"book a facial\", \"find facial near me\", or any facial service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

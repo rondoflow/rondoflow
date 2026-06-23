@@ -1,0 +1,10 @@
+{
+  "id": "explore-intent-before-implementation",
+  "name": "explore-intent-before-implementation",
+  "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

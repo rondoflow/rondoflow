@@ -1,0 +1,10 @@
+{
+  "id": "create-terminal-mind-maps",
+  "name": "create-terminal-mind-maps",
+  "description": "Create and visualize mind maps in the terminal with branching and export. Use when brainstorming ideas, organizing thoughts, exporting mind map structures.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

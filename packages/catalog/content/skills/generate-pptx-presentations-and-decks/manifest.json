@@ -1,0 +1,10 @@
+{
+  "id": "generate-pptx-presentations-and-decks",
+  "name": "generate-pptx-presentations-and-decks",
+  "description": "Presentation generation powered by CellCog. Create PPTX presentations, pitch decks, keynotes, slide designs, image slideshows, professional presentations. AI-powered presentation builder.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

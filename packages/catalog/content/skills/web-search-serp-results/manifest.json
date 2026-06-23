@@ -1,0 +1,10 @@
+{
+  "id": "web-search-serp-results",
+  "name": "web-search-serp-results",
+  "description": "Search the web and get real-time SERP-style results with titles, URLs, and snippets. Use this for general web queries when you need current links and information from across the internet.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "globe",
+  "order": 1000
+}

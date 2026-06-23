@@ -1,0 +1,28 @@
+{
+  "id": "frontend-developer",
+  "name": "Frontend Developer",
+  "description": "Builds robust, accessible, performant React components and UIs.",
+  "icon": "Component",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "frontend",
+    "react",
+    "accessibility",
+    "ui",
+    "performance"
+  ],
+  "order": 115
+}

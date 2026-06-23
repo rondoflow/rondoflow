@@ -1,0 +1,10 @@
+{
+  "id": "ai-youtube-video-creator",
+  "name": "ai-youtube-video-creator",
+  "description": "AI YouTube video creator powered by CellCog. Create YouTube videos, YouTube Shorts, thumbnails, video scripts, tutorials, vlogs, educational videos, product reviews, video essays. From script to finished video with voiceover and music. AI-powered YouTube content production.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "image",
+  "order": 1000
+}

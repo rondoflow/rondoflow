@@ -1,0 +1,10 @@
+{
+  "id": "debug-docker-containers-and-compose",
+  "name": "debug-docker-containers-and-compose",
+  "description": "Debug running Docker containers and Compose services. Use when inspecting container logs, exec-ing into running containers, diagnosing networking issues, checking resource usage, debugging multi-stage builds, troubleshooting health checks, or fixing Compose service dependencies.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

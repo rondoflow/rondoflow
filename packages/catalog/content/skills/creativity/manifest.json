@@ -1,0 +1,10 @@
+{
+  "id": "creativity",
+  "name": "creativity",
+  "description": "Entry point for the creativity toolkit. Routes to the right creative thinking technique based on your situation. Use when you say 'creativity', 'think creatively', 'I need fresh ideas', 'help me think differently', 'I'm stuck', or want creative help without knowing which specific tool applies. For comprehensive multi-method sessions, this runs them in sequence.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

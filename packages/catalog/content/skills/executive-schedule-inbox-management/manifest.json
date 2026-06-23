@@ -1,0 +1,10 @@
+{
+  "id": "executive-schedule-inbox-management",
+  "name": "executive-schedule-inbox-management",
+  "description": "Manage an executive's schedule, inbox, and communications.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.12",
+  "icon": "message-circle",
+  "order": 1000
+}

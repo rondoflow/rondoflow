@@ -1,0 +1,10 @@
+{
+  "id": "make-international-phone-calls",
+  "name": "make-international-phone-calls",
+  "description": "Make international phone calls to any country. Low per-minute rates. Pay with PayPal or UPI.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "image",
+  "order": 1000
+}

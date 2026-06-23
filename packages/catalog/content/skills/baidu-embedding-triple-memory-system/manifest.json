@@ -1,0 +1,10 @@
+{
+  "id": "baidu-embedding-triple-memory-system",
+  "name": "baidu-embedding-triple-memory-system",
+  "description": "Complete memory system combining Baidu Embedding auto-recall, Git-Notes structured memory, and file-based workspace search. Use when setting up comprehensive agent memory with local privacy, when you need persistent context across sessions, or when managing decisions/preferences…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

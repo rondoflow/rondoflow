@@ -1,0 +1,10 @@
+{
+  "id": "azure-blob-storage-python",
+  "name": "azure-blob-storage-python",
+  "description": "Azure Blob Storage SDK for Python. Use for uploading, downloading, listing blobs, managing containers, and blob lifecycle. Triggers: \"blob storage\", \"BlobServiceClient\", \"ContainerClient\", \"BlobClient\", \"upload blob\", \"download blob\".",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

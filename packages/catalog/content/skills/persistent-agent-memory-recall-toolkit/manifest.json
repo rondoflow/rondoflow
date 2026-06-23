@@ -1,0 +1,10 @@
+{
+  "id": "persistent-agent-memory-recall-toolkit",
+  "name": "persistent-agent-memory-recall-toolkit",
+  "description": "Persistent memory toolkit for AI agents. Save context, recall with relevance scoring, consolidate insights, track decisions across sessions. Features importance levels, multi-keyword search, session context loader, export/import, memory stats. Pure bash+node, no dependencies. v2…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

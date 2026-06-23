@@ -1,0 +1,10 @@
+{
+  "id": "jira-confluence-cli-tool",
+  "name": "jira-confluence-cli-tool",
+  "description": "CLI tool for interacting with Atlassian Jira and Confluence",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

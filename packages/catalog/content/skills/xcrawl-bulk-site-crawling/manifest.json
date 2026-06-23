@@ -1,0 +1,10 @@
+{
+  "id": "xcrawl-bulk-site-crawling",
+  "name": "xcrawl-bulk-site-crawling",
+  "description": "Use this skill for XCrawl crawl tasks, including bulk site crawling, crawler rule design, async status polling, and delivery of crawl output for downstream scrape and search workflows.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "globe",
+  "order": 1000
+}

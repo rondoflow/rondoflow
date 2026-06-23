@@ -1,0 +1,10 @@
+{
+  "id": "freshbooks-invoicing-billing-cli",
+  "name": "freshbooks-invoicing-billing-cli",
+  "description": "FreshBooks CLI for managing invoices, clients, and billing. Use when the user mentions freshbooks, invoicing, billing, clients, or accounting.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

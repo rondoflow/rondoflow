@@ -1,0 +1,10 @@
+{
+  "id": "monitor-server-health-system-stats",
+  "name": "monitor-server-health-system-stats",
+  "description": "Comprehensive server health monitoring showing system stats, top processes, OpenClaw gateway status, and running services. Perfect for quick health checks via Telegram or CLI.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

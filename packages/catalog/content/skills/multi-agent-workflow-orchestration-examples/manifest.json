@@ -1,0 +1,10 @@
+{
+  "id": "multi-agent-workflow-orchestration-examples",
+  "name": "multi-agent-workflow-orchestration-examples",
+  "description": "Multi-agent workflow examples to work together on the OpenServ Platform. Covers agent discovery, multi-agent workspaces, task dependencies, and workflow orchestration using the Platform Client. Read reference.md for the full API reference. Read openserv-agent-sdk and openserv-cl…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "strategy-intelligence",
+  "name": "strategy-intelligence",
+  "description": "Audits what you actually know vs. what you're assuming about yourself and your opponent before acting. Triggers: 'what do I actually know', 'intelligence audit', 'know your enemy', 'what am I assuming vs knowing', 'prep for negotiation', 'what information do I have', 'what don't I know about them', 'am I missing something important'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

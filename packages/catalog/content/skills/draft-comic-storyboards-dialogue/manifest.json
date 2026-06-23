@@ -1,0 +1,10 @@
+{
+  "id": "draft-comic-storyboards-dialogue",
+  "name": "draft-comic-storyboards-dialogue",
+  "description": "Draft comic storyboards with panels, dialogue, and scene pacing. Use when designing panels, writing dialogue, structuring comic chapters.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

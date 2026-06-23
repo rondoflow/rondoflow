@@ -1,0 +1,10 @@
+{
+  "id": "manage-capacities-notes-entries",
+  "name": "manage-capacities-notes-entries",
+  "description": "Manage Capacities notes, daily entries, and weblinks.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

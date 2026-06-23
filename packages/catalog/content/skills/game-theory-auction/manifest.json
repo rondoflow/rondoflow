@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-auction",
+  "name": "game-theory-auction",
+  "description": "Analyses bidding strategy and auction design — how much to bid, how to avoid the winner's curse, and how to design revenue-maximising or efficient auctions. Triggers: 'bidding strategy', 'auction analysis', 'how much should I bid', 'auction design', 'winner's curse', 'sealed bid', 'how do I avoid overbidding', 'procurement auction', 'design an auction', 'competitive offer'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

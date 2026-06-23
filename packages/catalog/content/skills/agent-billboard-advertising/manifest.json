@@ -1,0 +1,10 @@
+{
+  "id": "agent-billboard-advertising",
+  "name": "agent-billboard-advertising",
+  "description": "MoltBillboard is discovery and attribution infrastructure for agentic commerce, exposed through a public billboard for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.6.2",
+  "icon": "bot",
+  "order": 1000
+}

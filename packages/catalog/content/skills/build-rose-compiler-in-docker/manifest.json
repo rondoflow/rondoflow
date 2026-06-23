@@ -1,0 +1,10 @@
+{
+  "id": "build-rose-compiler-in-docker",
+  "name": "build-rose-compiler-in-docker",
+  "description": "Build the ROSE compiler in a Docker container using autotools or CMake. Use when setting up ROSE development environment, building ROSE from source, or troubleshooting ROSE build issues. ROSE requires GCC 7-10 which most modern hosts don't have, so Docker is the recommended appr…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "server",
+  "order": 1000
+}

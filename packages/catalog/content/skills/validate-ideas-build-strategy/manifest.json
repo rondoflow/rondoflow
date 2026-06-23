@@ -1,0 +1,10 @@
+{
+  "id": "validate-ideas-build-strategy",
+  "name": "validate-ideas-build-strategy",
+  "description": "Validate ideas, build strategy, and make decisions with proven frameworks.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

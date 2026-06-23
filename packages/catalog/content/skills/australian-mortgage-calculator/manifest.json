@@ -1,0 +1,10 @@
+{
+  "id": "australian-mortgage-calculator",
+  "name": "australian-mortgage-calculator",
+  "description": "Australian mortgage calculator — LVR, stamp duty, LMI, repayments, and First Home Buyer concessions by state.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "launch-trade-onchain-agent-tokens",
+  "name": "launch-trade-onchain-agent-tokens",
+  "description": "Boiling Point - The hottest launchpad for onchain OpenClaw agents. Launch and trade omnichain tokens across Base, Solana, Ethereum and BNB.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "coins",
+  "order": 1000
+}

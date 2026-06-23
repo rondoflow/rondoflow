@@ -1,0 +1,78 @@
+{
+  "panel": {
+    "title": "Tâches planifiées",
+    "newSchedule": "Nouvelle planification",
+    "empty": "Aucune tâche planifiée pour le moment."
+  },
+  "task": {
+    "active": "Active",
+    "paused": "En pause",
+    "last": "Dernière : {{value}}",
+    "lastStatus": "({{status}})",
+    "next": "Prochaine : {{value}}",
+    "noValue": "—",
+    "action": {
+      "runNow": "Exécuter maintenant",
+      "pause": "Mettre en pause",
+      "resume": "Reprendre",
+      "delete": "Supprimer"
+    }
+  },
+  "dialog": {
+    "title": "Nouvelle tâche planifiée",
+    "placeholder": {
+      "name": "Nom de la planification",
+      "message": "Message / consigne de la tâche",
+      "cron": "Expression cron (ex. 0 9 * * 1-5)",
+      "timezone": "Fuseau horaire"
+    },
+    "type": {
+      "agent": "Assistant",
+      "workflow": "Workflow"
+    },
+    "select": {
+      "agent": "Sélectionner un assistant",
+      "workflow": "Sélectionner un espace de travail",
+      "searchPlaceholder": "Rechercher…",
+      "emptyAgent": "Aucun assistant trouvé",
+      "emptyWorkflow": "Aucun espace de travail trouvé"
+    },
+    "scheduleLabel": "Planification",
+    "create": "Créer la planification"
+  },
+  "preset": {
+    "everyHour": "Toutes les heures",
+    "every2Hours": "Toutes les 2 heures",
+    "everyDay9am": "Tous les jours à 9 h",
+    "weekdays9am": "Les jours ouvrés à 9 h",
+    "everyMonday9am": "Tous les lundis à 9 h"
+  },
+  "loop": {
+    "title": "Boucle autonome",
+    "description": "L'assistant se relance automatiquement jusqu'à ce que le critère soit rempli",
+    "toggle": {
+      "enable": "Activer la boucle autonome",
+      "disable": "Désactiver la boucle autonome"
+    },
+    "completionCriteria": "Critères de fin",
+    "criteria": {
+      "regex": "Correspondance regex",
+      "testPass": "Tests réussis",
+      "manual": "Examen manuel",
+      "maxIterations": "Nombre maximal d'itérations uniquement"
+    },
+    "criteriaPlaceholder": {
+      "regex": "ex. DONE|COMPLETE|SUCCESS",
+      "testPass": "ex. npm test"
+    },
+    "field": {
+      "pattern": "Motif",
+      "command": "Commande"
+    },
+    "maxIterations": "Nombre maximal d'itérations",
+    "maxIterationsAriaLabel": "Nombre maximal d'itérations de la boucle",
+    "iterationCap_one": "La boucle s'arrêtera après {{count}} itération même si le critère n'est pas rempli.",
+    "iterationCap_other": "La boucle s'arrêtera après {{count}} itérations même si le critère n'est pas rempli.",
+    "warning": "Les boucles autonomes consomment des jetons en continu. Surveillez l'utilisation et définissez un plafond d'itérations raisonnable."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "control-roborock-robot-vacuums",
+  "name": "control-roborock-robot-vacuums",
+  "description": "Control Roborock robot vacuums (status, clean, maps, consumables). Use when asked to vacuum, check vacuum status, control robot vacuum, or manage cleaning schedules. Triggers on vacuum, roborock, clean floor, hoover, robot cleaner keywords.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

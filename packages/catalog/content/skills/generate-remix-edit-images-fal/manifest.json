@@ -1,0 +1,10 @@
+{
+  "id": "generate-remix-edit-images-fal",
+  "name": "generate-remix-edit-images-fal",
+  "description": "Generate, remix, and edit images using fal.ai's AI models. Supports text-to-image generation, image-to-image remixing, and targeted inpainting/editing.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "image",
+  "order": 1000
+}

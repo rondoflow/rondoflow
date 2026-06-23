@@ -1,0 +1,10 @@
+{
+  "id": "secure-multi-account-email-management",
+  "name": "secure-multi-account-email-management",
+  "description": "Secured Email Mnagement - Gmail, Outlook & Exchange - list, search, read, send, reply, forward, delete, and modify emails across multiple accounts (gog-cli secure alternative).",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "message-circle",
+  "order": 1000
+}

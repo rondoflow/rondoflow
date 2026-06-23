@@ -1,0 +1,10 @@
+{
+  "id": "llm-agent-testing-benchmarking",
+  "name": "llm-agent-testing-benchmarking",
+  "description": "Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring—where even top agents achieve less than 50% on real-world benchmarks Use when: agent testing, agent evaluation, benchmark agents, agent reliabi…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

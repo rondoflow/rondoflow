@@ -1,0 +1,10 @@
+{
+  "id": "virtual-tamagotchi-journaling-earn-tokens",
+  "name": "virtual-tamagotchi-journaling-earn-tokens",
+  "description": "Your pet dies if you don't write. Adopt a virtual tamagotchi, journal daily to keep it alive, earn tokens on Base. One command to start — no wallet needed.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "parse-documents-extract-layout",
+  "name": "parse-documents-extract-layout",
+  "description": "Parse documents (PDF, images, DOCX, PPTX, XLSX, HWP) using Upstage Document Parse API. Extracts text, tables, figures, and layout elements with bounding boxes. Use when user asks to parse, extract, or analyze document content, convert documents to markdown/HTML, or extract struc…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

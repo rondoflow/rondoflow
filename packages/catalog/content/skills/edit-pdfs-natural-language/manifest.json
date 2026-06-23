@@ -1,0 +1,10 @@
+{
+  "id": "edit-pdfs-natural-language",
+  "name": "edit-pdfs-natural-language",
+  "description": "Edit PDFs with natural-language instructions using the nano-pdf CLI.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

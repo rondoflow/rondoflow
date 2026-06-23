@@ -1,0 +1,10 @@
+{
+  "id": "codebase-navigation-intelligence-map",
+  "name": "codebase-navigation-intelligence-map",
+  "description": "Codebase intelligence — generates structured navigation maps with file:line references so agents stop re-scanning the same files every session. Use when exploring code, answering \"where is X?\", or onboarding to a new codebase.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "strategy-victory",
+  "name": "strategy-victory",
+  "description": "Defines what winning actually means before the contest begins — prevents the pyrrhic trap of winning in ways that lose the larger goal. Triggers: 'what does winning look like', 'define victory', 'victory conditions', 'what are we actually trying to achieve', 'define success', 'is winning worth it', 'pyrrhic trap', 'are we optimizing for the right thing'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

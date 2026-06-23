@@ -1,0 +1,10 @@
+{
+  "id": "discover-trending-producthunt-products",
+  "name": "discover-trending-producthunt-products",
+  "description": "Search and discover trending products from ProductHunt with structured analysis data. Use when users ask about product recommendations, tool comparisons, or trending apps.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

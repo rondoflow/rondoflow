@@ -1,0 +1,47 @@
+{
+  "panel": {
+    "title": "Notificaciones",
+    "regionLabel": "Notificaciones",
+    "listLabel": "Elementos de notificación"
+  },
+  "unread": {
+    "suffix": ", sin leer",
+    "count_one": "{{count}} sin leer",
+    "count_other": "{{count}} sin leer"
+  },
+  "action": {
+    "markAllRead": "Marcar todas como leídas",
+    "markAllReadLabel": "Marcar todas las notificaciones como leídas",
+    "review": "Revisar",
+    "reviewLabel": "Revisar la solicitud de aprobación",
+    "dismissLabel": "Descartar notificación: {{title}}"
+  },
+  "empty": {
+    "title": "Sin notificaciones"
+  },
+  "time": {
+    "justNow": "ahora mismo",
+    "minutesAgo_one": "hace {{count}} min",
+    "minutesAgo_other": "hace {{count}} min",
+    "hoursAgo_one": "hace {{count}} h",
+    "hoursAgo_other": "hace {{count}} h",
+    "daysAgo_one": "hace {{count}} d",
+    "daysAgo_other": "hace {{count}} d"
+  },
+  "event": {
+    "approvalRequired": {
+      "title": "Se requiere la aprobación del asistente"
+    },
+    "agentError": {
+      "title": "El asistente encontró un error"
+    },
+    "agentDone": {
+      "title": "Asistente completado",
+      "description": "El asistente {{id}} completó su tarea."
+    }
+  },
+  "approval": {
+    "approve": "Aprobar",
+    "reject": "Rechazar"
+  }
+}

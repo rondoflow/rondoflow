@@ -1,0 +1,10 @@
+{
+  "id": "scholarly-academic-writing-expert",
+  "name": "scholarly-academic-writing-expert",
+  "description": "This skill provides specialized capabilities for academic writing.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

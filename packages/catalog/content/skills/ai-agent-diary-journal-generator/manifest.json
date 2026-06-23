@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-diary-journal-generator",
+  "name": "ai-agent-diary-journal-generator",
+  "description": "AI-powered diary generation for agents - creates rich, reflective journal entries (400-600 words) with Quote Hall of Fame, Curiosity Backlog, Decision Archaeology, Relationship Evolution, mood analytics, weekly digests, \"On This Day\" resurfacing, and cron auto-generation. Works…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.7.2",
+  "icon": "bot",
+  "order": 1000
+}

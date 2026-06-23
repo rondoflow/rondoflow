@@ -1,0 +1,10 @@
+{
+  "id": "automate-wps-time-clock-punching",
+  "name": "automate-wps-time-clock-punching",
+  "description": "Automate punching time in/out on WPS Time / NetTime (wpstime.com NetTime). Use for phrases like setup punchclock/configure punchclock/set up time clock, clock in/clock out, start break/end break, start lunch/end lunch, check status/status. Runs a Playwright flow, captures a scre…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "globe",
+  "order": 1000
+}

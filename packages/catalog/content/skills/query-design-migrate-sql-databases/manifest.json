@@ -1,0 +1,10 @@
+{
+  "id": "query-design-migrate-sql-databases",
+  "name": "query-design-migrate-sql-databases",
+  "description": "Query, design, migrate, and optimize SQL databases. Use when working with SQLite, PostgreSQL, or MySQL — schema design, writing queries, creating migrations, indexing, backup/restore, and debugging slow queries. No ORMs required.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

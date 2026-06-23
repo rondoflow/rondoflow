@@ -1,0 +1,222 @@
+---
+title: Memory
+description: How Assistants remember facts across runs, with per-Assistant and shared Workspace scopes plus automatic capture.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Memory
+
+Each run of an Assistant (internally an *agent*) starts fresh — the Claude Code CLI has no recollection of previous conversations. Memory closes that gap. It is a small store of durable, reusable facts that RondoFlow injects into the Assistant's system prompt at the start of every run, so your Assistants accumulate knowledge about your projects and improve over time.
+
+Memory is for **stable, reusable facts** — your tech stack, file locations, conventions, where credentials live, or how a particular Assistant likes to work. It is not a transcript of every run and it is not a place for secrets.
+
+## Two scopes
+
+Every memory is either **agent-scoped** or **workspace-scoped**. A row belongs to exactly one of the two — never both.
+
+| Scope | Belongs to | Shared with | Best for |
+| --- | --- | --- | --- |
+| **Agent** | A single Assistant | Only that Assistant | Behavioral or style learnings about how this Assistant works |
+| **Workspace** | A Workspace (the canvas/workspace) | Every Assistant that runs in that Workspace | Project facts useful to any Assistant — tech stack, endpoints, conventions |
+
+When an Assistant runs inside a Workspace (workspace), RondoFlow injects **both** its own agent memory and the shared workspace memory into the system prompt.
+
+<Callout type="info">
+Agent memory is gated by the Assistant's `memoryEnabled` flag (default off). Workspace memory is **always** injected whenever workspace-scoped rows exist — it is independent of any individual Assistant's setting.
+</Callout>
+
+## Where memories come from
+
+A memory's `source` records who wrote it. There are three sources:
+
+| Source | Written by | Editable in the panel | Typical scope |
+| --- | --- | --- | --- |
+| `manual` | You, by hand | Yes | Either |
+| `auto` | Automatic extraction after a completed run | No (read-only) | Either |
+| `director` | The [Director](/docs/guides/orchestration) storing a learning mid-run | No (read-only) | Agent |
+
+### Manual
+
+You add these yourself in the memory panel or via the API. They are always treated as authoritative and are the only source you can edit or save changes to in the UI.
+
+### Automatic extraction
+
+After a run completes, RondoFlow runs one lightweight pass with the Haiku model (`claude-haiku-4-5-20251001`) over the run transcript to distill a few durable, deduplicated facts. This works for both single-Assistant conversations and multi-step chains.
+
+The extraction is strictly **best-effort and off the critical path** — it never throws into your run, and a failure here never fails the work that just finished. A few guardrails keep it cheap and focused:
+
+- Transcripts shorter than 200 characters are skipped; longer ones are capped at 12,000 characters.
+- At most **5 facts** are extracted per run.
+- Each extracted fact carries a confidence score; anything below `0.6` is dropped.
+- The pass runs under a small budget cap (about `$0.03`) and its token cost is recorded separately so it shows up in [monitoring](/docs/guides/monitoring).
+
+The model classifies each fact's scope itself: `workspace` for project-level facts useful to any Assistant (only when a Workspace exists for the run), or `agent` for a behavioral learning about that specific Assistant. With no Workspace target, every extracted fact is forced to `agent` scope. Agent-scoped facts are only written when that Assistant's `memoryEnabled` flag is on.
+
+Auto-captured rows get a derived `auto:`-prefixed key — the model proposes a short slug, which is normalized (lowercased, non-alphanumerics collapsed to dashes, trimmed to 60 chars) into `auto:<slug>`. That is why every automatic entry in the panel reads `auto:...`, and it is what the upsert-by-key dedup uses to update an existing auto fact in place rather than spawning a near-identical row.
+
+<Callout type="warning">
+The extractor is told to capture stable facts only — tech stack, file locations, conventions, API endpoints, where credentials live — and to never store one-off task details, transient state, or secret values themselves.
+</Callout>
+
+#### Finding the cost line item
+
+The extractor's token usage is recorded under its own synthetic session id so you can pick it out in [monitoring](/docs/guides/monitoring): a single-Assistant run records under `memory-extract:<sessionId>`, and a chain run under `memory-extract:chain:<id>` (an 8-character suffix). Look for those prefixes to see exactly what each extraction pass cost.
+
+### Director learnings
+
+When the [Director](/docs/guides/orchestration) is running, it can store an insight it gained mid-execution as a `director`-source, agent-scoped memory. Each learning gets a timestamped key (`director:learning:<timestamp>`) so successive learnings stay distinct rather than overwriting one another.
+
+In a multi-Assistant chain, a Director learning is attached to the **first Assistant** in the chain. On its next run, the Director reads back the most recent `director:learning:*` rows (up to 20, newest first) across **all** Assistants in the chain, so prior context still carries forward even though new learnings land on the lead Assistant.
+
+## Anatomy of a memory
+
+Every memory row, whatever its scope or source, shares the same shape:
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `key` | string | 1–255 chars. A short, stable slug. Unique per scope. |
+| `value` | string | The fact itself. Capped at **2000 characters** on server-side writes. |
+| `pinned` | boolean | Pinned memories surface first. Default `false`. |
+| `importance` | integer | `0`–`100` rating. Higher surfaces earlier. Default `0`. |
+| `source` | enum | `manual`, `auto`, or `director`. |
+| `scope` | enum | `agent` or `workspace`. |
+
+The `key` is **unique within its scope** (`[agentId, key]` for agent memory, `[workspaceId, key]` for workspace memory). Writing the same key again updates the existing value rather than creating a duplicate — every create endpoint is an upsert by key.
+
+### Ordering: where pinned and important actually win
+
+Pinned-first ordering is applied in some places and not others, so it is worth being precise about which.
+
+| Context | Ordered? | Sort | Row cap |
+| --- | --- | --- | --- |
+| `GET /api/agents/:agentId/memories` (list) | Yes | pinned → importance (desc) → `key` (asc) | none |
+| `GET /api/workspaces/:workspaceId/memories` (list) | Yes | pinned → importance (desc) → `updatedAt` (most recent) | none |
+| Workspace memory **injected** into the prompt | Yes | pinned → importance (desc) → `updatedAt` (most recent) | **30 rows** |
+| Agent memory **injected** into the prompt | No | the order Prisma returns the relation (roughly insertion order) | none |
+
+So pinning and importance reliably float a fact to the top of the dedicated *list* endpoints, and they govern which 30 rows of **workspace** memory make it into the prompt. They do **not** re-sort **agent** memory at injection time — agent rows are emitted in Prisma's default relation order, and there is no cap on how many are injected. If a specific agent-scoped fact must lead its `## Agent Memory` section, keep the section small rather than relying on `pinned`/`importance` to reorder it.
+
+### De-duplication
+
+Automatic extraction would otherwise re-capture the same fact every run. To prevent that, each candidate fact is compared against existing memories using **Jaccard similarity** on the normalized word sets of their values. A candidate is dropped as a near-duplicate when its similarity to any existing memory — or to a candidate already kept in the same batch — exceeds **0.8**.
+
+Two caps bound how far back this looks. The model is shown only the **20** most recent existing values as its "do not repeat these" hint, and the server loads up to **100** existing rows for the actual Jaccard comparison. Beyond those, an old fact can occasionally slip through as a near-duplicate — another reason to lean on manual entries (which upsert by key) for facts you want stored exactly once.
+
+<Callout type="info">
+De-duplication applies to the automatic extractor. Manual writes upsert by key, so re-using a key updates in place; using a brand-new key always creates a row.
+</Callout>
+
+## The memory panel
+
+The memory panel shows a Workspace's shared memory and lets you view, create, pin, edit, and delete entries.
+
+- **View** — each entry shows a colored source badge (`manual`, `auto`, `director`), its key in monospace, the value, and a last-updated date. Pinned/important entries sort to the top.
+- **Create** — type a key and a value into the inline row at the bottom and add it. New entries are saved as `manual` workspace memories.
+- **Pin / unpin** — toggle the pin on any entry, including auto-captured ones, to keep it at the top.
+- **Edit** — only `manual` entries are editable. Auto-captured and Director entries are shown read-only (labeled "auto-captured · read-only"); you can still pin or delete them.
+- **Delete** — remove any entry regardless of source.
+
+<Callout type="info">
+The panel is workspace-scoped. Select a Workspace first — with none selected it prompts you to pick one. Per-Assistant agent memory is managed through the [agent-memory API](#managing-memory-via-the-api) (and surfaced in the Assistant editor).
+</Callout>
+
+## Managing memory via the API
+
+Both scopes expose a parallel set of REST endpoints. All responses use the standard `{ success, data?, error? }` envelope.
+
+<Tabs items={['Agent memory', 'Workspace memory']}>
+<Tabs.Tab>
+
+Per-Assistant memory, keyed by agent id. The list endpoint returns rows **pinned → importance → key (ascending)**:
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/agents/:agentId/memories` | List (pinned → importance → `key`) |
+| `POST` | `/api/agents/:agentId/memories` | Create or upsert by key |
+| `PATCH` | `/api/agents/:agentId/memories/:memoryId` | Partial update |
+| `PATCH` | `/api/agents/:agentId/memories/:memoryId/pin` | Pin / unpin |
+| `DELETE` | `/api/agents/:agentId/memories/:memoryId` | Delete |
+
+```bash
+curl -X POST http://localhost:3001/api/agents/$AGENT_ID/memories \
+  -H 'Content-Type: application/json' \
+  -d '{"key":"deploy-cmd","value":"Deploy with npm run deploy from repo root","pinned":true,"importance":80}'
+```
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+Shared memory, keyed by workspace id. List supports `?source=` and `?pinned=true` filters and returns rows **pinned → importance → updatedAt (most recent)**:
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/workspaces/:workspaceId/memories` | List (optional `?source=` / `?pinned=`) |
+| `POST` | `/api/workspaces/:workspaceId/memories` | Create or upsert by key |
+| `PATCH` | `/api/workspaces/:workspaceId/memories/:id` | Partial update |
+| `PATCH` | `/api/workspaces/:workspaceId/memories/:id/pin` | Pin / unpin |
+| `DELETE` | `/api/workspaces/:workspaceId/memories/:id` | Delete |
+
+```bash
+curl "http://localhost:3001/api/workspaces/$WORKSPACE_ID/memories?source=manual&pinned=true"
+```
+
+</Tabs.Tab>
+</Tabs>
+
+Create and update bodies share the same fields:
+
+```json
+{
+  "key": "tech-stack",
+  "value": "Next.js 14 + Fastify + Prisma + PostgreSQL",
+  "source": "manual",
+  "pinned": false,
+  "importance": 0
+}
+```
+
+- `key` is required (1–255 chars); `value` is required.
+- `source` defaults to `manual`, `pinned` to `false`, `importance` to `0`.
+- `POST` is an **upsert by key** — re-posting the same key updates the existing row.
+- `PATCH` is partial — send only the fields you want to change.
+
+## How memory reaches the Assistant
+
+Memory is woven into the system prompt by the prompt builder when an Assistant is started (spawned). The system prompt is assembled as the Assistant's persona (Personality) followed by any memory sections:
+
+<Steps>
+### Agent memory
+
+If the Assistant has `memoryEnabled` and at least one memory row, an `## Agent Memory` section is appended, listing each entry as `- **key**: value`. These rows are emitted in Prisma's relation order — they are **not** re-sorted by `pinned`/`importance`, and there is no row cap (see [Ordering](#ordering-where-pinned-and-important-actually-win)).
+
+### Workspace memory
+
+If the run has a Workspace, the most relevant workspace-scoped rows (up to **30**, ordered pinned → importance → most recent) are appended as a `## Workspace Memory` section — regardless of the individual Assistant's `memoryEnabled` flag.
+
+### Skills and resources
+
+The persona-plus-memory system prompt is then combined with enabled [Skills](/docs/guides/skills) and [Workspace resources](/docs/guides/resources) to form the full context the Assistant runs with.
+</Steps>
+
+This injection is best-effort: if reading workspace memory fails for any reason, the section is simply omitted and the run proceeds without it.
+
+## Tips
+
+- **Pin the essentials — but know where it counts.** Pinning floats a fact to the top of the list endpoints and decides which 30 **workspace** rows reach the prompt. For **agent** memory, pinning does not reorder the injected section, so keep that section short instead.
+- **Keep values short and stable.** Aim well under the 2000-character cap. Memory is for facts, not paragraphs.
+- **Let auto-extraction do the routine work** and reserve manual entries for things you know the model would otherwise miss.
+- **Never store secrets in `value`.** Point at where a credential lives instead — see [Security](/docs/reference/security).
+- **Turn on agent memory per Assistant** when you want it to accumulate its own behavioral learnings; workspace memory is shared automatically.
+
+## See also
+
+<Cards>
+  <Cards.Card title="Orchestration & the Director" href="/docs/guides/orchestration" />
+  <Cards.Card title="Resources" href="/docs/guides/resources" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Data model" href="/docs/reference/data-model" />
+</Cards>

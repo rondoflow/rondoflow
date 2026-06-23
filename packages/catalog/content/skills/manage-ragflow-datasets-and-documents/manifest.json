@@ -1,0 +1,10 @@
+{
+  "id": "manage-ragflow-datasets-and-documents",
+  "name": "manage-ragflow-datasets-and-documents",
+  "description": "Use for RAGFlow dataset tasks: create, list, inspect, update, or delete datasets; upload, list, update, or delete documents; start or stop parsing; check parse status; retrieve chunks with `search.py`; and list configured models.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "chart-bar",
+  "order": 1000
+}

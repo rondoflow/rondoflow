@@ -1,0 +1,10 @@
+{
+  "id": "financial-variance-cashflow-forecasting-agent",
+  "name": "financial-variance-cashflow-forecasting-agent",
+  "description": "Financial analysis skill for AI agents. Covers variance analysis, cash flow forecasting, month-end close automation, CFO commentary generation, 13-week cash flow dashboards, budget vs actual analysis, and financial statement review. Built by accounting professionals for agents t…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "98.0.1",
+  "icon": "coins",
+  "order": 1000
+}

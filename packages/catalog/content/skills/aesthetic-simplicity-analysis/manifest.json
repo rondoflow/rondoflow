@@ -1,0 +1,10 @@
+{
+  "id": "aesthetic-simplicity-analysis",
+  "name": "aesthetic-simplicity-analysis",
+  "description": "Finds the simpler version while preserving what matters — not arbitrary reduction, but finding the core and discarding what is not it. TRIGGERS: 'find the simple version', 'simplify this', 'what's the essence', 'less but better', 'strip it back', 'what could we remove'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

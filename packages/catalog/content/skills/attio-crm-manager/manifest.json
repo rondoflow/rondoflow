@@ -1,0 +1,10 @@
+{
+  "id": "attio-crm-manager",
+  "name": "attio-crm-manager",
+  "description": "Attio CRM integration for managing companies, people, deals, notes, tasks, and custom objects. Use when working with Attio CRM data, searching contacts, managing sales pipelines, adding notes to records, creating tasks, or syncing prospect information.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

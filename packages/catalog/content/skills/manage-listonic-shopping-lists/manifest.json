@@ -1,0 +1,10 @@
+{
+  "id": "manage-listonic-shopping-lists",
+  "name": "manage-listonic-shopping-lists",
+  "description": "Access Listonic shopping lists: list lists/items, add/check/delete items, and manage lists.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

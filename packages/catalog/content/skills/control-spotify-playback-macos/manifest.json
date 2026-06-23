@@ -1,0 +1,10 @@
+{
+  "id": "control-spotify-playback-macos",
+  "name": "control-spotify-playback-macos",
+  "description": "Control Spotify playback on macOS. Play/pause, skip tracks, control volume, play artists/albums/playlists. Use when a user asks to play music, control Spotify, change songs, or adjust Spotify volume.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "deep-research-and-analysis-agent",
+  "name": "deep-research-and-analysis-agent",
+  "description": "Deep research and analysis agent for any topic. Use when the user wants to research a topic, analyze competitors, evaluate technologies, compare tools, investigate trends, do market research, or get a comprehensive analysis of anything. Triggers on phrases like \"research\", \"inve…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

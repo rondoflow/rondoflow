@@ -1,0 +1,10 @@
+{
+  "id": "llm-reasoning-chat-completions",
+  "name": "llm-reasoning-chat-completions",
+  "description": "Run AIMLAPI LLM and reasoning workflows through chat completions with retries, structured outputs, and explicit User-Agent headers. Use when Codex needs scripted prompting/reasoning calls against AIMLAPI models.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

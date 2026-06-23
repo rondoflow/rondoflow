@@ -1,0 +1,10 @@
+{
+  "id": "operate-crypto-trading-bot",
+  "name": "operate-crypto-trading-bot",
+  "description": "Operate the Moltrade trading bot (config, backtest, test-mode runs, Nostr signal broadcast, exchange adapters, strategy integration) in OpenClaw.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.9",
+  "icon": "coins",
+  "order": 1000
+}

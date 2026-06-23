@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-cloud-data-lake-manager",
+  "name": "alibaba-cloud-data-lake-manager",
+  "description": "Manage Alibaba Cloud Data Lake Formation (DataLake) via OpenAPI/SDK. Use whenever the user asks for DataLake catalog resource operations, configuration updates, status queries, or troubleshooting DataLake API workflows.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

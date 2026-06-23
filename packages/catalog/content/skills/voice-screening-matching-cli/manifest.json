@@ -1,0 +1,10 @@
+{
+  "id": "voice-screening-matching-cli",
+  "name": "voice-screening-matching-cli",
+  "description": "Use the Nimrobo CLI for voice screening and matching network operations.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.17.0",
+  "icon": "image",
+  "order": 1000
+}

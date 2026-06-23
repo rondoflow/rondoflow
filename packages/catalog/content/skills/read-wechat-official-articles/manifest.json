@@ -1,0 +1,10 @@
+{
+  "id": "read-wechat-official-articles",
+  "name": "read-wechat-official-articles",
+  "description": "Read WeChat official account articles. Use the built-in browser tool to open the page and extract body text. Always append ?scene=1 to the URL.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

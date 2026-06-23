@@ -1,0 +1,10 @@
+{
+  "id": "construction-json-parsing-validation",
+  "name": "construction-json-parsing-validation",
+  "description": "Parse and validate JSON data from construction APIs, IoT sensors, and BIM exports. Transform nested JSON to flat DataFrames.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

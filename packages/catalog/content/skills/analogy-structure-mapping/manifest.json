@@ -1,0 +1,10 @@
+{
+  "id": "analogy-structure-mapping",
+  "name": "analogy-structure-mapping",
+  "description": "Identifies the deep structural correspondence between two situations — genuine isomorphism vs superficial similarity. Triggers: 'does this analogy hold', 'map the structure', 'is this really like that', 'structural similarity', 'test the comparison'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

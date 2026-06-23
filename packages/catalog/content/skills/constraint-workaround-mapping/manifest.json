@@ -1,0 +1,10 @@
+{
+  "id": "constraint-workaround-mapping",
+  "name": "constraint-workaround-mapping",
+  "description": "Finds paths around a fixed constraint without removing it — routing around a hard limit to reach the same goal. Triggers: 'work around this', 'given this constraint', 'path around the blocker', 'how do we do this anyway', 'constrained solution'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

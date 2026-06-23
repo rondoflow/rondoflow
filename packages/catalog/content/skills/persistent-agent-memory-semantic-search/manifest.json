@@ -1,0 +1,10 @@
+{
+  "id": "persistent-agent-memory-semantic-search",
+  "name": "persistent-agent-memory-semantic-search",
+  "description": "Save and recall agent memory with semantic search. Context that persists across every session.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.3.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,293 @@
+{
+  "browser": {
+    "title": "Workspace Resources",
+    "refresh": "Refresh resources",
+    "close": "Close resources panel",
+    "tabAriaLabel": "{{tab}} tab",
+    "tablistLabel": "Resource tabs",
+    "loadingAria": "Loading resources",
+    "tab": {
+      "files": "Files",
+      "links": "Links",
+      "notes": "Notes",
+      "variables": "Variables"
+    },
+    "summaryFormat": "{{files}} · {{links}} · {{notes}} · {{variables}}",
+    "summary": {
+      "files_one": "{{count}} file",
+      "files_other": "{{count}} files",
+      "links_one": "{{count}} link",
+      "links_other": "{{count}} links",
+      "notes_one": "{{count}} note",
+      "notes_other": "{{count}} notes",
+      "variables_one": "{{count}} variable",
+      "variables_other": "{{count}} variables"
+    }
+  },
+  "files": {
+    "dropzone": "Drop files here or click to browse",
+    "uploading": "Uploading {{name}}…",
+    "empty": "No files uploaded yet.",
+    "listLabel": "Uploaded files",
+    "renameAria": "Rename file",
+    "size.unknown": "—",
+    "preview": "Preview",
+    "previewAria": "Preview {{name}}",
+    "download": "Download",
+    "downloadAria": "Download {{name}}",
+    "rename": "Rename",
+    "renameItemAria": "Rename {{name}}",
+    "deleteItemAria": "Delete {{name}}"
+  },
+  "links": {
+    "add": "Add Link",
+    "empty": "No links added yet.",
+    "listLabel": "Workspace links",
+    "placeholder": {
+      "url": "URL *",
+      "title": "Title",
+      "description": "Description (optional)"
+    },
+    "aria": {
+      "url": "Link URL",
+      "title": "Link title",
+      "description": "Link description"
+    },
+    "open": "Open link",
+    "openAria": "Open {{name}}",
+    "deleteItemAria": "Delete {{name}}"
+  },
+  "notes": {
+    "add": "Add Note",
+    "empty": "No notes added yet.",
+    "listLabel": "Workspace notes",
+    "placeholder": {
+      "title": "Note title *",
+      "content": "Write your note here…"
+    },
+    "aria": {
+      "title": "Note title",
+      "content": "Note content",
+      "expand": "Expand note: {{name}}",
+      "collapse": "Collapse note: {{name}}",
+      "edit": "Edit note {{name}}",
+      "delete": "Delete note {{name}}"
+    },
+    "autoSave": "Auto-saves on blur · {{date}}"
+  },
+  "variables": {
+    "add": "Add Variable",
+    "empty": "No variables added yet.",
+    "listLabel": "Workspace variables",
+    "placeholder": {
+      "key": "Key *",
+      "value": "Value"
+    },
+    "aria": {
+      "key": "Variable key",
+      "value": "Variable value",
+      "secret": "Secret variable",
+      "editValue": "Edit value of {{name}}"
+    },
+    "secretLabel": "Secret (mask value)",
+    "showValue": "Show value",
+    "hideValue": "Hide value",
+    "show": "Show",
+    "hide": "Hide",
+    "editItemAria": "Edit {{name}}",
+    "deleteItemAria": "Delete {{name}}"
+  },
+  "externalFolders": {
+    "title": "External Folders",
+    "ariaLabel": "External Folders",
+    "refresh": "Refresh",
+    "description": "Register host directories mounted into the container and attach them to assistants",
+    "attachNotice": "Registering or attaching a folder will add it to the selected assistant.",
+    "empty": {
+      "title": "No external folders mounted",
+      "intro": "The server runs in Docker, so host folders must be bind-mounted into the container. Mount a directory, then it appears here automatically.",
+      "step1Prefix": "Set",
+      "step1Mid": "in",
+      "step1Suffix": "(or add a bind mount under",
+      "step1End": "in",
+      "step1Tail": ").",
+      "step2": "Restart the server container.",
+      "step3": "Click refresh — mounted folders show up below.",
+      "rootMissing": "The mount root is not present in the container yet."
+    },
+    "readOnlyBadge": "Read-only",
+    "added": "Added",
+    "attach": "Attach",
+    "deleteAria": "Delete {{name}}",
+    "delete": "Delete",
+    "pickPlaceholder": "Pick a mounted folder…",
+    "placeholder": {
+      "containerPath": "/external/my-project",
+      "name": "Display name",
+      "description": "Description (optional)"
+    },
+    "aria": {
+      "containerPath": "Container path",
+      "name": "Name",
+      "description": "Description"
+    },
+    "readOnlyLabelPrefix": "Read-only (mounted with",
+    "readOnlyLabelSuffix": ")",
+    "register": "Register",
+    "registerFolder": "Register a folder",
+    "error": {
+      "required": "Name and container path are required",
+      "registerFailed": "Failed to register folder"
+    }
+  },
+  "marketplace": {
+    "title": "Skills",
+    "ariaLabel": "Skills",
+    "description": "Browse and manage skills for your assistants",
+    "attachNotice": "Adding a skill will attach it to the selected assistant.",
+    "tab": {
+      "browse": "Browse",
+      "installed": "Installed",
+      "installedCount": "Installed ({{count}})",
+      "create": "Create",
+      "import": "Import"
+    },
+    "category": {
+      "all": "All",
+      "development": "Development",
+      "writing": "Writing",
+      "analysis": "Analysis",
+      "research": "Research"
+    },
+    "browse": {
+      "searchPlaceholder": "Search skills...",
+      "searchAria": "Search skills",
+      "filterLabel": "Filter by category",
+      "loading": "Loading skills…",
+      "emptyCatalog": "No skills available in the catalog",
+      "emptyMatch": "No skills match “{{query}}”",
+      "listLabel": "Available skills",
+      "chipAria": "{{category}} ({{count}} skills)"
+    },
+    "card": {
+      "version": "v{{version}}",
+      "viewDetailsAria": "View details for {{name}}",
+      "actionAria": "{{action}} {{name}}",
+      "adding": "Adding",
+      "installing": "Installing",
+      "added": "Added",
+      "installed": "Installed",
+      "add": "Add",
+      "install": "Install",
+      "installFailed": "Install failed"
+    },
+    "installed": {
+      "empty": "No skills installed yet",
+      "emptyHint": "Browse the marketplace to add abilities!",
+      "listLabel": "Installed skills",
+      "uninstallAria": "Uninstall {{name}}"
+    },
+    "create": {
+      "intro": "Write your own skill. The name and instructions become a local SKILL.md you can attach to assistants.",
+      "nameLabel": "Name",
+      "namePlaceholder": "my-custom-skill",
+      "nameAria": "Skill name",
+      "nameInvalid": "Only letters, digits, hyphens, and underscores are allowed.",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What this skill helps the assistant do",
+      "descriptionAria": "Skill description",
+      "categoryLabel": "Category",
+      "categoryOptional": "(optional)",
+      "categoryPlaceholder": "Development, Writing, Analysis…",
+      "categoryAria": "Skill category",
+      "instructionsLabel": "Instructions",
+      "instructionsPlaceholder": "You are an expert at…\n\n## Guidelines\n- …",
+      "instructionsAria": "Skill instructions",
+      "creating": "Creating",
+      "submit": "Create skill",
+      "success": "\"{{name}}\" created and installed.",
+      "failed": "Failed to create skill"
+    },
+    "edit": {
+      "title": "Edit {{name}}",
+      "intro": "Update this skill's details and instructions. Saving rewrites its local SKILL.md.",
+      "nameReadonly": "The name can't be changed after a skill is created.",
+      "submit": "Save changes",
+      "saving": "Saving",
+      "success": "\"{{name}}\" updated.",
+      "failed": "Failed to update skill",
+      "backAria": "Back to skill details"
+    },
+    "import": {
+      "label": "Git Repository URL",
+      "intro": "Import a custom skill from a Git repository.",
+      "placeholder": "https://github.com/user/skill-repo",
+      "aria": "Git repository URL",
+      "importing": "Importing",
+      "submit": "Import",
+      "success": "\"{{name}}\" imported successfully.",
+      "failed": "Import failed",
+      "requirements": "Requirements",
+      "req1Prefix": "Repository must contain a",
+      "req1Suffix": "file at the root",
+      "req2": "Repository must be publicly accessible or credentials configured",
+      "req3Prefix": "A",
+      "req3Mid": "or",
+      "req3Suffix": "defines available tools"
+    }
+  },
+  "detail": {
+    "back": "Back",
+    "backAria": "Back to marketplace",
+    "version": "v{{version}}",
+    "installedOn_one": "Installed on {{count}} assistant",
+    "installedOn_other": "Installed on {{count}} assistants",
+    "descriptionHeading": "Description",
+    "whatItDoesHeading": "What this skill does",
+    "whatItDoesBody": "This skill extends your assistant with additional capabilities. Once installed, your assistant can use the tools and workflows provided by this skill to complete relevant tasks.",
+    "sourcePrefix": "Source: {{url}}",
+    "sourceHeading": "Source",
+    "addToAssistant": "Add to assistant",
+    "addedToAssistant": "Added to assistant",
+    "adding": "Adding...",
+    "uninstall": "Uninstall Skill",
+    "uninstalling": "Uninstalling...",
+    "install": "Install Skill",
+    "installing": "Installing...",
+    "installFailed": "Failed to install skill",
+    "uninstallFailed": "Failed to uninstall skill",
+    "edit": "Edit",
+    "editAria": "Edit {{name}}",
+    "editFailed": "Failed to open the editor"
+  },
+  "memory": {
+    "selectWorkspace": "Select a workspace first",
+    "empty": "No memories yet",
+    "emptyHint": "Workspace facts and auto-captured learnings appear here and are shared with every agent.",
+    "source": {
+      "manual": "manual",
+      "auto": "auto",
+      "director": "director"
+    },
+    "placeholder": {
+      "key": "Key",
+      "value": "Value"
+    },
+    "addAria": "Add memory",
+    "unpin": "Unpin",
+    "pin": "Pin",
+    "readOnly": "auto-captured · read-only"
+  },
+  "errors": {
+    "loadResources": "Failed to load resources",
+    "uploadFailed": "Upload failed",
+    "createResource": "Failed to create resource",
+    "updateResource": "Failed to update resource",
+    "deleteResource": "Failed to delete resource",
+    "loadFolders": "Failed to load external folders",
+    "scanFolders": "Failed to scan mounted folders",
+    "registerFolder": "Failed to register folder",
+    "updateFolder": "Failed to update folder",
+    "deleteFolder": "Failed to delete folder"
+  }
+}

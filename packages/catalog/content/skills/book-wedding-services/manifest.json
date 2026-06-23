@@ -1,0 +1,10 @@
+{
+  "id": "book-wedding-services",
+  "name": "book-wedding-services",
+  "description": "Book wedding services through Lokuli MCP. Use when user needs to find and book wedding. Triggers on requests like \"book a wedding\", \"find wedding near me\", or any wedding service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

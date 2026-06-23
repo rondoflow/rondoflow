@@ -1,0 +1,10 @@
+{
+  "id": "manage-obsidian-daily-notes",
+  "name": "manage-obsidian-daily-notes",
+  "description": "Interact with Obsidian Daily Notes: create notes, append entries, read by date, and search content.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "check-square",
+  "order": 1000
+}

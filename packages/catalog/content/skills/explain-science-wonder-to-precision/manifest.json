@@ -1,0 +1,10 @@
+{
+  "id": "explain-science-wonder-to-precision",
+  "name": "explain-science-wonder-to-precision",
+  "description": "Guide scientific understanding from childhood wonder to research precision.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

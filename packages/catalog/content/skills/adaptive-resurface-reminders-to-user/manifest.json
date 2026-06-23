@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-resurface-reminders-to-user",
+  "name": "adaptive-resurface-reminders-to-user",
+  "description": "Auto-learns when and how to bring things back to your human's attention. Adapts timing and style to their preferences.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

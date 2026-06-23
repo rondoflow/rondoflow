@@ -1,0 +1,298 @@
+{
+  "tabs": {
+    "ariaLabel": "Espaces de travail",
+    "renameInput": "Renommer l'espace de travail",
+    "rename": "Renommer {{name}}",
+    "delete": "Supprimer {{name}}",
+    "deleteLastDisabled": "Impossible de supprimer le dernier espace de travail",
+    "new": "Nouvel espace de travail",
+    "create": "Créer un nouvel espace de travail",
+    "export": "Exporter le canevas",
+    "exportTooltip": "Exporter le canevas (partager la configuration)",
+    "import": "Importer un canevas",
+    "importTooltip": "Importer un canevas depuis un fichier",
+    "info": "Informations sur l'espace de travail pour {{name}}"
+  },
+  "info": {
+    "title": "Informations sur l'espace de travail",
+    "description": "Configuration en lecture seule et statistiques d'exécution de cet espace de travail.",
+    "loading": "Chargement des informations sur l'espace de travail…",
+    "section": {
+      "runs": "Exécutions",
+      "usage": "Utilisation des tokens",
+      "config": "Configuration",
+      "content": "Canevas et contenu"
+    },
+    "stat": {
+      "totalRuns": "Total des exécutions",
+      "completed": "Terminées",
+      "failed": "Échouées",
+      "running": "En cours",
+      "avgDuration": "Durée moyenne",
+      "maxDuration": "Exécution la plus longue",
+      "totalDuration": "Durée totale d'exécution",
+      "totalSteps": "Total des étapes",
+      "cost": "Coût total",
+      "sessions": "Sessions",
+      "inputTokens": "Tokens d'entrée",
+      "outputTokens": "Tokens de sortie",
+      "nodes": "Nœuds",
+      "edges": "Connexions",
+      "resources": "Ressources",
+      "memories": "Mémoires"
+    },
+    "field": {
+      "workingDirectory": "Répertoire de travail",
+      "notSet": "Non défini",
+      "created": "Créé",
+      "updated": "Dernière mise à jour",
+      "documents": "Documents",
+      "contextDoc": "Contexte",
+      "planDoc": "Plan",
+      "none": "Aucun",
+      "workspaceId": "ID de l'espace de travail",
+      "lastRun": "Dernière exécution",
+      "firstRun": "Première exécution",
+      "stopped": "Exécutions arrêtées",
+      "canvasLayouts": "Dispositions de canevas",
+      "canvasUpdated": "Canevas mis à jour",
+      "activityEvents": "Événements d'activité",
+      "lastActivity": "Dernière activité"
+    }
+  },
+  "search": {
+    "label": "Rechercher",
+    "tooltip": "Rechercher (Ctrl+K)"
+  },
+  "createDialog": {
+    "title": "Nouvel espace de travail",
+    "description": "Partez d'un canevas vierge ou choisissez un flux prédéfini, puis nommez-le et choisissez le dossier du projet dans lequel il travaille.",
+    "startFrom": "Partir de",
+    "templateGroup": "Modèle d'espace de travail",
+    "blankTitle": "Espace de travail vierge",
+    "blankDescription": "Commencez avec un canevas vide.",
+    "agentCount_one": "{{count}} agent",
+    "agentCount_other": "{{count}} agents",
+    "namePlaceholder": "Nom de l'espace de travail…",
+    "nameLabel": "Nom du nouvel espace de travail",
+    "selectFolder": "Sélectionner le dossier du projet",
+    "selectFolderPlaceholder": "Sélectionner le dossier du projet…",
+    "submitFromFlow": "Créer à partir du flux",
+    "submit": "Créer l'espace de travail"
+  },
+  "deleteDialog": {
+    "title": "Supprimer l'espace de travail",
+    "description": "Supprimer « {{name}} » ? Cela supprimera toutes les dispositions de canevas et les ressources associées à cet espace de travail. Cette action est irréversible."
+  },
+  "palette": {
+    "ariaLabel": "Palette de commandes",
+    "placeholder": "Saisissez une commande ou recherchez...",
+    "listLabel": "Commandes",
+    "empty": "Aucune commande trouvée pour « {{query}} »",
+    "navigate": "naviguer",
+    "select": "sélectionner",
+    "results_one": "{{count}} résultat",
+    "results_other": "{{count}} résultats"
+  },
+  "category": {
+    "assistants": "Assistants",
+    "canvas": "Canevas",
+    "navigation": "Navigation",
+    "actions": "Actions",
+    "templates": "Modèles"
+  },
+  "command": {
+    "assistantCreate": {
+      "label": "Créer un nouvel assistant",
+      "description": "Ajouter un nouvel assistant IA à votre espace de travail"
+    },
+    "assistantList": {
+      "label": "Lister tous les assistants",
+      "description": "Parcourir et gérer les assistants existants"
+    },
+    "canvasFit": {
+      "label": "Ajuster à la vue",
+      "description": "Zoomer et déplacer pour afficher tous les nœuds"
+    },
+    "canvasClear": {
+      "label": "Effacer le canevas",
+      "description": "Supprimer tous les nœuds et connexions du canevas"
+    },
+    "canvasZoomIn": {
+      "label": "Zoom avant",
+      "description": "Augmenter le niveau de zoom"
+    },
+    "canvasZoomOut": {
+      "label": "Zoom arrière",
+      "description": "Diminuer le niveau de zoom"
+    },
+    "navAssistants": {
+      "label": "Ouvrir les assistants",
+      "description": "Parcourir et gérer les assistants"
+    },
+    "navFacilitators": {
+      "label": "Ouvrir les facilitateurs",
+      "description": "Gérer les facilitateurs de discussion"
+    },
+    "navDiscussions": {
+      "label": "Ouvrir les discussions",
+      "description": "Parcourir les discussions multi-agents"
+    },
+    "navActivity": {
+      "label": "Ouvrir l'activité",
+      "description": "Flux d'exécution des agents en temps réel"
+    },
+    "navAudit": {
+      "label": "Ouvrir le journal d'audit",
+      "description": "Piste d'audit complète des actions système"
+    },
+    "navHistory": {
+      "label": "Ouvrir l'historique",
+      "description": "Exécutions de workflows passées"
+    },
+    "navAnalytics": {
+      "label": "Ouvrir les analyses",
+      "description": "Utilisation des tokens, coût et performances"
+    },
+    "navSkills": {
+      "label": "Ouvrir la place de marché des compétences",
+      "description": "Parcourir et installer des compétences"
+    },
+    "navMemory": {
+      "label": "Ouvrir la mémoire",
+      "description": "Gérer la mémoire persistante des agents"
+    },
+    "navSchedules": {
+      "label": "Ouvrir les planifications",
+      "description": "Gérer les exécutions de workflows récurrentes"
+    },
+    "navSafety": {
+      "label": "Ouvrir les règles de sécurité",
+      "description": "Gérer les politiques de sécurité et les garde-fous"
+    },
+    "actionUndo": {
+      "label": "Annuler",
+      "description": "Annuler la dernière action"
+    },
+    "actionRedo": {
+      "label": "Rétablir",
+      "description": "Rétablir l'action précédemment annulée"
+    },
+    "actionShortcuts": {
+      "label": "Raccourcis clavier",
+      "description": "Afficher tous les raccourcis clavier"
+    },
+    "templateCodeReview": {
+      "label": "Charger : Pipeline de revue de code",
+      "description": "Rédacteur → Relecteur → Relecteur sécurité"
+    },
+    "templateContentWriting": {
+      "label": "Charger : Équipe de rédaction de contenu",
+      "description": "Chercheur → Rédacteur → Éditeur"
+    },
+    "templateResearch": {
+      "label": "Charger : Assistant de recherche",
+      "description": "Robot de recherche solo avec recherche web et compétences d'analyse de données"
+    },
+    "templateBrainstorm": {
+      "label": "Charger : Équipe de brainstorming",
+      "description": "Créatif, Analyste, Avocat du diable et Modérateur"
+    }
+  },
+  "bottomBar": {
+    "ready": "Prêt",
+    "running": "{{count}} en cours",
+    "tokens": "{{tokens}} tokens ({{cost}})",
+    "documentation": "Documentation",
+    "notifications": "Notifications",
+    "notificationsUnread": "Notifications, {{count}} non lues",
+    "undo": "Annuler",
+    "undoTooltip": "Annuler (Ctrl+Z)",
+    "redo": "Rétablir",
+    "redoTooltip": "Rétablir (Ctrl+Shift+Z)",
+    "zoomOut": "Zoom arrière",
+    "zoomIn": "Zoom avant",
+    "fitView": "Ajuster à la vue"
+  },
+  "userMenu": {
+    "trigger": "Menu utilisateur",
+    "item": {
+      "activity": "Activité",
+      "audit": "Journal d'audit",
+      "analytics": "Analyses",
+      "users": "Utilisateurs",
+      "restartOnboarding": "Relancer la visite guidée",
+      "settings": "Paramètres",
+      "signOut": "Se déconnecter"
+    }
+  },
+  "quickRun": {
+    "deselect": "Désélectionner l'agent",
+    "taskPlaceholder": "Saisissez la tâche et appuyez sur Entrée...",
+    "searchPlaceholder": "Rechercher des agents...",
+    "hintRun": "Entrée pour exécuter",
+    "hintSelectFirst": "Sélectionnez d'abord un agent",
+    "hintClose": "Échap pour fermer"
+  },
+  "shortcuts": {
+    "title": "Raccourcis clavier",
+    "footer": "Appuyez sur <0></0> ou <1></1> pour fermer",
+    "category": {
+      "canvas": "Canevas",
+      "nodes": "Nœuds",
+      "navigation": "Navigation",
+      "editing": "Édition"
+    },
+    "panCanvas": "Déplacer le canevas",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "fitView": "Ajuster la vue",
+    "selectAll": "Tout sélectionner",
+    "newAgent": "Nouvel agent",
+    "deleteSelected": "Supprimer la sélection",
+    "commandPalette": "Palette de commandes",
+    "toggleSkills": "Afficher/masquer la barre latérale des compétences",
+    "shortcutHelp": "Aide sur les raccourcis",
+    "replayTips": "Rejouer les astuces d'intégration",
+    "duplicate": "Dupliquer la sélection",
+    "findNode": "Trouver un nœud",
+    "closeDeselect": "Fermer / désélectionner",
+    "undo": "Annuler",
+    "redo": "Rétablir",
+    "redoAlt": "Rétablir (alt)"
+  },
+  "favorites": {
+    "label": "Favoris",
+    "moreCount": "{{count}} favoris de plus"
+  },
+  "browse": {
+    "trigger": "Parcourir les panneaux",
+    "searchPlaceholder": "Rechercher des panneaux…",
+    "empty": "Aucun panneau correspondant",
+    "group": {
+      "people": "Personnes",
+      "runData": "Données d'exécution",
+      "system": "Système"
+    },
+    "item": {
+      "history": "Historique",
+      "skills": "Compétences",
+      "externalFolders": "Dossiers externes",
+      "memory": "Mémoire",
+      "schedules": "Planifications",
+      "discussions": "Discussions"
+    }
+  },
+  "cliBanner": {
+    "title": "CLI Claude Code introuvable",
+    "description": "rondoflow nécessite Claude Code pour exécuter des agents. Installez-le avec :",
+    "checkAgain": "Vérifier à nouveau",
+    "installGuide": "Guide d'installation"
+  },
+  "tier": {
+    "simpleMode_one": "Mode simple — {{count}} fonctionnalité supplémentaire disponible",
+    "simpleMode_other": "Mode simple — {{count}} fonctionnalités supplémentaires disponibles",
+    "standardMode_one": "Mode standard — {{count}} fonctionnalité supplémentaire disponible",
+    "standardMode_other": "Mode standard — {{count}} fonctionnalités supplémentaires disponibles"
+  }
+}

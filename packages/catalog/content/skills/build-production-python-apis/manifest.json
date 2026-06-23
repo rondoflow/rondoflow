@@ -1,0 +1,10 @@
+{
+  "id": "build-production-python-apis",
+  "name": "build-production-python-apis",
+  "description": "Build fast, production-ready Python APIs with type hints, validation, and async support.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

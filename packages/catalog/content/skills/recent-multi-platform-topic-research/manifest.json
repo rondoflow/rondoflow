@@ -1,0 +1,10 @@
+{
+  "id": "recent-multi-platform-topic-research",
+  "name": "recent-multi-platform-topic-research",
+  "description": "Research any topic across Reddit, X/Twitter, and the web from the last 30 days. Synthesizes findings into actionable insights or copy-paste prompts.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

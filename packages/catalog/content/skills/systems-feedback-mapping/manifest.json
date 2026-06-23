@@ -1,0 +1,10 @@
+{
+  "id": "systems-feedback-mapping",
+  "name": "systems-feedback-mapping",
+  "description": "Identifies all reinforcing (+) and balancing (−) feedback loops in a system. Use when asked to 'map the feedback loops', 'why does this keep happening', 'unintended consequences', or 'system keeps oscillating'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

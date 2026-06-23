@@ -1,0 +1,10 @@
+{
+  "id": "android-device-ai-control",
+  "name": "android-device-ai-control",
+  "description": "Control your Android device with AI. Take screenshots, automate UI, read notifications, manage files, search media, and more — all through natural language via MCP. Fully open source, self-hosted, privacy-first.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.7",
+  "icon": "bot",
+  "order": 1000
+}

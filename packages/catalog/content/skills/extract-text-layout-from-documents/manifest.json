@@ -1,0 +1,10 @@
+{
+  "id": "extract-text-layout-from-documents",
+  "name": "extract-text-layout-from-documents",
+  "description": "Extract text and layout from images and PDFs using LLMWhisperer API. Good for handwriting and complex forms.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.0.7",
+  "icon": "image",
+  "order": 1000
+}

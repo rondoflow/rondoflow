@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-planning-vs-execution",
+  "name": "adaptive-planning-vs-execution",
+  "description": "Auto-learns when to plan vs execute directly. Adapts planning depth to task type. Improves strategy through outcome tracking.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

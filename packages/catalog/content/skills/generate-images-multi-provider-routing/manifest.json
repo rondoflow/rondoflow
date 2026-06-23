@@ -1,0 +1,10 @@
+{
+  "id": "generate-images-multi-provider-routing",
+  "name": "generate-images-multi-provider-routing",
+  "description": "Generate images from text with multi-provider routing — supports GPT Image 2.0 (near-perfect text rendering), Nanobanana 2, Seedream 5.0, Midjourney V7 (photorealistic), Midjourney Niji 7 (anime/illustration only), and local ComfyUI workflows. Includes 1,300+ curated prompts and…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.26",
+  "icon": "bot",
+  "order": 1000
+}

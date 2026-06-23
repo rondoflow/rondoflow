@@ -1,0 +1,10 @@
+{
+  "id": "api-design-review",
+  "name": "api-design-review",
+  "description": "API Design Reviewer",
+  "category": "Development",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "code",
+  "order": 1000
+}

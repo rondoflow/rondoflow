@@ -1,0 +1,10 @@
+{
+  "id": "give-ai-evolving-emotional-state",
+  "name": "give-ai-evolving-emotional-state",
+  "description": "Give your AI emotions that grow from its own memories. Emoclaw builds a unique emotional state that shifts with every conversation, decays between sessions, and evolves over time through self-calibration. Train it on your agent's identity files and watch it develop its own emoti…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "bot",
+  "order": 1000
+}

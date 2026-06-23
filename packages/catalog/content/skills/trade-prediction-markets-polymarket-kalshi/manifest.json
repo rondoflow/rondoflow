@@ -1,0 +1,10 @@
+{
+  "id": "trade-prediction-markets-polymarket-kalshi",
+  "name": "trade-prediction-markets-polymarket-kalshi",
+  "description": "The best prediction market interface for AI agents. Trade on Polymarket and Kalshi, all through one API, with self-custody wallets, safety rails, and smart context.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.20.2",
+  "icon": "coins",
+  "order": 1000
+}

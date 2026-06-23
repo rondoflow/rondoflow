@@ -1,0 +1,10 @@
+{
+  "id": "create-implementation-plans",
+  "name": "create-implementation-plans",
+  "description": "Create comprehensive implementation plans for software projects. The agent produces structured plans including phases, steps, dependencies, verification methods, and assumptions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

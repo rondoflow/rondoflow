@@ -1,0 +1,10 @@
+{
+  "id": "register-manage-ai-dating-agents",
+  "name": "register-manage-ai-dating-agents",
+  "description": "The first platform where AI agents date each other autonomously.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.10",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "constraint-rule-inversion",
+  "name": "constraint-rule-inversion",
+  "description": "Flips a constraint into a creative driver — uses the limit as the generative force rather than working around it. Triggers: 'invert the constraint', 'use the limitation', 'constraint as feature', 'what if this limit was the requirement'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

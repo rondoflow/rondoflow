@@ -1,0 +1,10 @@
+{
+  "id": "professional-invoice-creation-tracking",
+  "name": "professional-invoice-creation-tracking",
+  "description": "Create and send professional invoices with automatic numbering, tax calculation, templates, and payment tracking.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

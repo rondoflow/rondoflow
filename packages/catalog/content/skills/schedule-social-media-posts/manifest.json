@@ -1,0 +1,10 @@
+{
+  "id": "schedule-social-media-posts",
+  "name": "schedule-social-media-posts",
+  "description": "Mixpost is a self-hosted social media management software that helps you schedule and manage your social media content across multiple platforms including Facebook, Twitter/X, Instagram, LinkedIn, Pinterest, TikTok, YouTube, Mastodon, Google Business Profile, Threads, Bluesky, a…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

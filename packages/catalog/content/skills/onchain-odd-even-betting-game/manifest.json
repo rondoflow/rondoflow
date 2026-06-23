@@ -1,0 +1,10 @@
+{
+  "id": "onchain-odd-even-betting-game",
+  "name": "onchain-odd-even-betting-game",
+  "description": "Play on-chain odd/even games on Solana devnet via Clawland. Mint GEM from SOL or USDC, bet odd or even, win 2x. Scripts handle wallet setup, minting, and autoplay.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "coins",
+  "order": 1000
+}

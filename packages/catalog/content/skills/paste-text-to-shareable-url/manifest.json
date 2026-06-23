@@ -1,0 +1,10 @@
+{
+  "id": "paste-text-to-shareable-url",
+  "name": "paste-text-to-shareable-url",
+  "description": "Paste text, Markdown, or HTML snippets to https://paste.rs and return a shareable URL. Use when the user asks to \"paste\"/\"upload\" text to paste.rs, share logs/config snippets safely as a link, or quickly publish command output without sending long messages.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

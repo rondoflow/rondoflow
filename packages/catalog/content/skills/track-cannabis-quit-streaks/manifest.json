@@ -1,0 +1,10 @@
+{
+  "id": "track-cannabis-quit-streaks",
+  "name": "track-cannabis-quit-streaks",
+  "description": "Take a tolerance break or quit cannabis with streak tracking and craving support",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

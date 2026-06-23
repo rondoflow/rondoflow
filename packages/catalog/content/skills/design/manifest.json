@@ -1,0 +1,10 @@
+{
+  "id": "design",
+  "name": "design",
+  "description": "Entry point for the design thinking toolkit. Routes to the right design skill based on your situation. Use when you say 'design', 'user needs', 'what do people actually want', 'design constraints', 'prototype and iterate', 'simplify this', 'remove what's unnecessary', or want design thinking applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

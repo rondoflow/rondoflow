@@ -1,0 +1,10 @@
+{
+  "id": "extract-invariant-principles-from-text",
+  "name": "extract-invariant-principles-from-text",
+  "description": "Extract invariant principles from any text — find the ideas that survive rephrasing.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

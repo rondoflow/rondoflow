@@ -1,0 +1,26 @@
+{
+  "id": "prompt-engineer",
+  "name": "Prompt Engineer",
+  "description": "Architects and optimizes sophisticated LLM prompts and AI interactions.",
+  "icon": "Wand",
+  "category": "Data & Analytics",
+  "purpose": "writing",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash"
+  ],
+  "tags": [
+    "prompt-engineering",
+    "llm",
+    "ai",
+    "optimization",
+    "evaluation"
+  ],
+  "order": 127
+}

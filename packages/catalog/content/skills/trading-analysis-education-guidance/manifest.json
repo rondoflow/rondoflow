@@ -1,0 +1,10 @@
+{
+  "id": "trading-analysis-education-guidance",
+  "name": "trading-analysis-education-guidance",
+  "description": "Trading analysis and education. Technical analysis, chart patterns, risk management, and position sizing for stocks, forex, and crypto.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

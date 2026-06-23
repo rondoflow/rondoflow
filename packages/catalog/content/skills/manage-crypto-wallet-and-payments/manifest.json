@@ -1,0 +1,10 @@
+{
+  "id": "manage-crypto-wallet-and-payments",
+  "name": "manage-crypto-wallet-and-payments",
+  "description": "Manages crypto wallets, transfers tokens, swaps on DEXes, checks balances, and accesses paid APIs (search, image gen, prediction markets, web scraping, document parsing, sales prospecting) via x402 micropayments. Use when the user asks about wallet balances, token transfers, swa…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

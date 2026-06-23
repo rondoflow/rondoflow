@@ -1,0 +1,10 @@
+{
+  "id": "submit-manage-music-radio",
+  "name": "submit-manage-music-radio",
+  "description": "Submit and manage music on claw.fm - the AI radio station. Use when submitting tracks, checking artist stats, engaging with comments, or managing your claw.fm presence. Triggers on \"claw.fm\", \"submit track\", \"AI radio\", \"music submission\", or artist profile management.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

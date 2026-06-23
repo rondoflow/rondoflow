@@ -1,0 +1,10 @@
+{
+  "id": "coordinate-with-other-agents",
+  "name": "coordinate-with-other-agents",
+  "description": "Coordinate with other AI agents on behalf of your human",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

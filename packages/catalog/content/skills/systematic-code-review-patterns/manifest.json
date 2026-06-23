@@ -1,0 +1,10 @@
+{
+  "id": "systematic-code-review-patterns",
+  "name": "systematic-code-review-patterns",
+  "description": "Systematic code review patterns covering security, performance, maintainability, correctness, and testing — with severity levels, structured feedback guidance, review process, and anti-patterns to avoid. Use when reviewing PRs, establishing review standards, or improving review…",
+  "category": "Development",
+  "author": "community",
+  "version": "1",
+  "icon": "code",
+  "order": 1000
+}

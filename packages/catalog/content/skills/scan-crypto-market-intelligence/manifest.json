@@ -1,0 +1,10 @@
+{
+  "id": "scan-crypto-market-intelligence",
+  "name": "scan-crypto-market-intelligence",
+  "description": "Automated crypto market intelligence - prices, sentiment, trending coins, and Polymarket hot markets. Zero dependencies, 100% reliability. Perfect for alpha channels and market monitoring.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

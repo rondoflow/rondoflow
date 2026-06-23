@@ -1,0 +1,10 @@
+{
+  "id": "marketing-playbooks-checklists-deliverables",
+  "name": "marketing-playbooks-checklists-deliverables",
+  "description": "One installed skill containing 23 marketing modules. Pick the relevant module under `references/` to get practical checklists, frameworks, and copy/paste deliverables.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "remediate-github-dependency-hygiene-issues",
+  "name": "remediate-github-dependency-hygiene-issues",
+  "description": "Safely triage and remediate GitHub dependency hygiene issues with explicit guardrails. Use when Dependabot PRs fail, pnpm lockfiles break, transitive vulnerabilities appear (e.g., glob/lodash/brace-expansion), or CI/Vercel fails due to dependency resolution. Prioritize low-risk…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "code",
+  "order": 1000
+}

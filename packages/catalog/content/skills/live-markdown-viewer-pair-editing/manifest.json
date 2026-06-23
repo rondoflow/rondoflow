@@ -1,0 +1,10 @@
+{
+  "id": "live-markdown-viewer-pair-editing",
+  "name": "live-markdown-viewer-pair-editing",
+  "description": "Live markdown viewer for AI pair-editing. When you collaborate, the updates render instantly. Works with any AI agent and web browser.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

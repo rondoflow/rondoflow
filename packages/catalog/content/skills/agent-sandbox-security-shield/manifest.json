@@ -1,0 +1,10 @@
+{
+  "id": "agent-sandbox-security-shield",
+  "name": "agent-sandbox-security-shield",
+  "description": "S-DNA: `AOI-2026-0215-SDNA-SS02`",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "bot",
+  "order": 1000
+}

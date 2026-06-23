@@ -1,0 +1,10 @@
+{
+  "id": "tavily-ai-web-search",
+  "name": "tavily-ai-web-search",
+  "description": "AI-optimized web search via Tavily API. Returns concise, relevant results for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

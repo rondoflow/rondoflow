@@ -1,0 +1,10 @@
+{
+  "id": "manage-brevo-email-marketing",
+  "name": "manage-brevo-email-marketing",
+  "description": "Brevo (formerly Sendinblue) email marketing API for managing contacts, lists, sending transactional emails, and campaigns. Use when importing contacts, sending emails, managing subscriptions, or working with email automation.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

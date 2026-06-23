@@ -1,0 +1,10 @@
+{
+  "id": "agent-action-consent-security-gateway",
+  "name": "agent-action-consent-security-gateway",
+  "description": "OAuth for the agentic era. Consent-gating for ALL sensitive agent actions. 75+ data-driven threat definitions with auto-updates (like antivirus signatures). Includes Skill Scanner, Injection Shield, SSRF Shield, Path Traversal Guard, spending caps, rate limits, allowlists, TTL e…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.4.0",
+  "icon": "bot",
+  "order": 1000
+}

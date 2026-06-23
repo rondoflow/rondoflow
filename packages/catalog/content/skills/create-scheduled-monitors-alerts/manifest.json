@@ -1,0 +1,10 @@
+{
+  "id": "create-scheduled-monitors-alerts",
+  "name": "create-scheduled-monitors-alerts",
+  "description": "Create monitors for anything. User defines what to check, skill handles scheduling and alerts.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

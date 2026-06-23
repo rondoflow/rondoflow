@@ -1,0 +1,10 @@
+{
+  "id": "automate-job-search-applications",
+  "name": "automate-job-search-applications",
+  "description": "Job search automation for the Lofy AI assistant — application tracking, resume tailoring to job descriptions, interview prep with company research, follow-up management with draft emails, and pipeline analytics. Use when tracking job applications, tailoring resumes, preparing fo…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

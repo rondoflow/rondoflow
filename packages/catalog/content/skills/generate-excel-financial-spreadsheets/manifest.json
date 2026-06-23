@@ -1,0 +1,10 @@
+{
+  "id": "generate-excel-financial-spreadsheets",
+  "name": "generate-excel-financial-spreadsheets",
+  "description": "AI spreadsheet and Excel generation powered by CellCog. Financial models, budget templates, data trackers, projections, pivot tables, complex formulas — XLSX output. Data manipulation, analysis, charts, and professional formatting.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.13",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "read-only-mastodon-timeline-cli",
+  "name": "read-only-mastodon-timeline-cli",
+  "description": "Read-only Mastodon CLI. Outputs human-readable timeline summaries or raw JSON.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "message-circle",
+  "order": 1000
+}

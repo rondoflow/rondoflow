@@ -1,0 +1,10 @@
+{
+  "id": "generate-chart-images-from-data",
+  "name": "generate-chart-images-from-data",
+  "description": "Generate publication-quality chart images from data. Supports line, bar, area, point, histogram, candlestick, pie/donut, heatmap, multi-series, and stacked charts. Use when visualizing data, creating graphs, plotting time series, showing distributions, or generating chart images…",
+  "category": "Media",
+  "author": "community",
+  "version": "2.6.35",
+  "icon": "image",
+  "order": 1000
+}

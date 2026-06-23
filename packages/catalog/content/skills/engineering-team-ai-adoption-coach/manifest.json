@@ -1,0 +1,10 @@
+{
+  "id": "engineering-team-ai-adoption-coach",
+  "name": "engineering-team-ai-adoption-coach",
+  "description": "Guide engineering teams through AI adoption to achieve 4-5x productivity gains. Use when helping teams integrate AI tools (Cursor, Copilot, custom agents) into their development workflow, conducting workflow audits, or designing AI-assisted processes.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

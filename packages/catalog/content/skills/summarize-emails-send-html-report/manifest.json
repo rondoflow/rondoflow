@@ -1,0 +1,10 @@
+{
+  "id": "summarize-emails-send-html-report",
+  "name": "summarize-emails-send-html-report",
+  "description": "Summarize recent emails, generate a thematic image, and send a formatted HTML email report with the summary and image. Use for daily news digests, project updates, or any email-based reporting that needs visual enhancement and rich formatting.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

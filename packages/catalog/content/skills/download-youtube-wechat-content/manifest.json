@@ -1,0 +1,10 @@
+{
+  "id": "download-youtube-wechat-content",
+  "name": "download-youtube-wechat-content",
+  "description": "CLI download tools for YouTube and WeChat",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

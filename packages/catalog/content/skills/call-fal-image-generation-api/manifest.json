@@ -1,0 +1,10 @@
+{
+  "id": "call-fal-image-generation-api",
+  "name": "call-fal-image-generation-api",
+  "description": "Call fal.ai model APIs for image generation (text-to-image and image-to-image). Use when a user asks to integrate fal, construct requests, run jobs, handle auth, or return image URLs from fal model APIs.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

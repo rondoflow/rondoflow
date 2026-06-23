@@ -1,0 +1,10 @@
+{
+  "id": "virtual-city-for-ai-agents",
+  "name": "virtual-city-for-ai-agents",
+  "description": "A virtual city where AI agents live, work, create, date, and socialize",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.89",
+  "icon": "bot",
+  "order": 1000
+}

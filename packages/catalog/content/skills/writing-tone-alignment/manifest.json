@@ -1,0 +1,10 @@
+{
+  "id": "writing-tone-alignment",
+  "name": "writing-tone-alignment",
+  "description": "Diagnoses and repairs tone drift — shifts in register, formality, warmth, or rhythm that make a piece feel like it was written by multiple people or in multiple moods. Use when the voice changes mid-piece without intention. Triggers: 'the tone keeps shifting', 'tone drift', 'tone alignment', 'inconsistent register', 'the voice changes mid-piece', 'this sounds like different writers'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

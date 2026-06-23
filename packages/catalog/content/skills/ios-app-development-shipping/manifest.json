@@ -1,0 +1,10 @@
+{
+  "id": "ios-app-development-shipping",
+  "name": "ios-app-development-shipping",
+  "description": "Build, test, and ship iOS apps with Swift, Xcode, and App Store best practices.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

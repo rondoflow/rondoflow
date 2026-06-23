@@ -1,0 +1,10 @@
+{
+  "id": "correct-grammar-and-spelling",
+  "name": "correct-grammar-and-spelling",
+  "description": "Correct grammar and spelling without changing meaning or style.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

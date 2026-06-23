@@ -1,0 +1,10 @@
+{
+  "id": "transform-images-via-recraft-api",
+  "name": "transform-images-via-recraft-api",
+  "description": "Generate, vectorize, upscale, replace background, variate, remove background, and transform images via Recraft API.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

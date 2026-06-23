@@ -1,0 +1,10 @@
+{
+  "id": "migrate-openclaw-agent-new-machine",
+  "name": "migrate-openclaw-agent-new-machine",
+  "description": "Securely migrate OpenClaw Agent (config, memory, skills) to a new machine.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

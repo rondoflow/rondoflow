@@ -1,0 +1,10 @@
+{
+  "id": "design-iteration",
+  "name": "design-iteration",
+  "description": "Structures the feedback loop between making and learning — prototyping, testing, and convergence toward fit. Triggers: 'prototype and test', 'iterate on the design', 'how do we test this', 'get feedback on the design', 'what should we prototype', 'design feedback loop', 'test and learn', 'are we converging'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

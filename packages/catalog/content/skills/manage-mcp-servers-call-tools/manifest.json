@@ -1,0 +1,10 @@
+{
+  "id": "manage-mcp-servers-call-tools",
+  "name": "manage-mcp-servers-call-tools",
+  "description": "MCP CLI Manager - Manage MCP servers and call tools",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

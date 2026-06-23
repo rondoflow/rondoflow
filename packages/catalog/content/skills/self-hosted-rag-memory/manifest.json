@@ -1,0 +1,10 @@
+{
+  "id": "self-hosted-rag-memory",
+  "name": "self-hosted-rag-memory",
+  "description": "**The Brain for OpenClaw** - Self-hosted RAG engine with hybrid search.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

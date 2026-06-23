@@ -1,0 +1,10 @@
+{
+  "id": "generate-diagrams-from-descriptions",
+  "name": "generate-diagrams-from-descriptions",
+  "description": "Generate diagrams from descriptions with Mermaid, PlantUML, or ASCII for architecture, flows, sequences, and data models.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "jehovahs-witnesses-daily-text",
+  "name": "jehovahs-witnesses-daily-text",
+  "description": "Buscar y obtener el texto diario de la página oficial de los Testigos de Jehová en español (wol.jw.org/es/). Utiliza web_fetch para acceder al contenido y extraer el texto del día actual. Use cuando se solicite el texto diario de JW o contenido bíblico diario de fuentes JW.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

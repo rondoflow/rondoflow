@@ -1,0 +1,10 @@
+{
+  "id": "manage-linkedin-inbox",
+  "name": "manage-linkedin-inbox",
+  "description": "LinkedIn inbox manager and conversation assistant powered by Linxa. Use this skill whenever the user mentions LinkedIn messages, LinkedIn inbox, LinkedIn conversations, LinkedIn DMs, or wants to read, search, filter, or manage their LinkedIn messaging. Trigger when the user asks…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "message-circle",
+  "order": 1000
+}

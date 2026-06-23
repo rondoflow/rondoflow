@@ -1,0 +1,10 @@
+{
+  "id": "operate-switchboard-oracle-feeds",
+  "name": "operate-switchboard-oracle-feeds",
+  "description": "Autonomous operator for Switchboard on-demand feeds, Surge streaming, and randomness. Designs jobs, simulates via Crossbar, and deploys/updates/reads feeds across Solana/SVM, EVM, Sui, and other Switchboard-supported chains—with user-controlled security, spend limits, and allow/…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

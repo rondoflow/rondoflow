@@ -1,0 +1,166 @@
+---
+title: Terminology
+description: How RondoFlow maps internal code terms to friendly UI names, where those labels actually live, and the complete mapping the docs follow.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Terminology
+
+RondoFlow runs on a deliberate split between two vocabularies. The product is built for people who want to compose Claude Code agents visually, so the interface uses friendly, approachable names. Under the hood, the code, database, and API keep precise technical terms that map directly to the underlying engine.
+
+This means the same concept can have two valid names:
+
+- An **Assistant** in the UI is an `agent` in the schema and API.
+- A **Safety Rule** in the UI is a `policy` in the engine's resolution logic.
+- A **Connection** in the UI is an `mcpServer` (MCP server) in the spawn configuration.
+
+<Callout type="info">
+Throughout these docs we lead with the **user-facing name** and give the internal term in parentheses on first mention where it helps — for example, "Assistant (agent)". When you read source files or call the [API](/docs/reference/api), expect the internal term.
+</Callout>
+
+## Why two sets of names
+
+The friendly names lower the barrier for everyday use: you drag a **Card** (node) onto the **Workspace** (canvas), wire up an **Assistant**, and **Start** (spawn) it. You do not need to know that "spawn" refers to launching a Claude Code CLI subprocess.
+
+The technical names stay accurate where accuracy matters. A **Safety Rule** is genuinely a `policy` object whose fields drive [Safety Rules](/docs/guides/safety-rules) resolution (most restrictive wins). Keeping the code honest about what each thing *is* keeps the engine predictable.
+
+## How the mapping is implemented
+
+The friendly domain terms are not exported from the shared package — there is no central `terminology` module. They live entirely in the frontend i18n catalogs, under a top-level `terms` object inside the **`common`** namespace, with one file per locale:
+
+```
+packages/ui/src/lib/i18n/locales/en/common.json   # English (default)
+packages/ui/src/lib/i18n/locales/sk/common.json   # Slovak
+packages/ui/src/lib/i18n/locales/es/common.json   # Spanish
+packages/ui/src/lib/i18n/locales/fr/common.json   # French
+packages/ui/src/lib/i18n/locales/de/common.json   # German
+```
+
+Each entry is keyed by the **internal term** and maps to the localized label:
+
+```jsonc
+// packages/ui/src/lib/i18n/locales/en/common.json (excerpt)
+{
+  "terms": {
+    "agent": "Assistant",
+    "persona": "Personality",
+    "policy": "Safety Rules",
+    "mcpServer": "Connection"
+  }
+}
+```
+
+Components resolve a label through [react-i18next](https://react.i18next.com/), reading from the `common` namespace with a `common:`-prefixed key:
+
+```ts
+import { useTranslation } from 'react-i18next'
+
+const { t } = useTranslation('agentDrawer')
+
+t('common:terms.persona')        // "Personality"
+t('common:terms.allowedTools')   // "Capabilities"
+t('common:terms.policy')         // "Safety Rules"
+```
+
+This is the real pattern used across the canvas and drawers (for example `agent-drawer.tsx` and `agent-create-dialog.tsx` render `t('common:terms.persona')`, `t('common:terms.scopePaths')`, and `t('common:terms.allowedTools')`).
+
+<Callout type="warning">
+Older notes mention a shared `terminology.ts` with a `TERMS` record and a `t(term, locale)` helper. That module does not exist — the only source of friendly labels is the i18n catalogs described above (plus a separate audit-label table in the server's activity service for log rendering).
+</Callout>
+
+### Locales and how they are selected
+
+Five locales are defined: **English (`en`, default)**, **Slovak (`sk`)**, **Spanish (`es`)**, **French (`fr`)**, and **German (`de`)**. The active locale is stored in `localStorage` under the key `rondoflow:locale` and is switchable from the Settings panel; it falls back to English when no stored value is found.
+
+The `terms` object is only one section of `common.json`, which in turn is one of ~16 namespace files per locale (`admin`, `agentDrawer`, `analytics`, `app`, `auth`, `canvas`, `common`, `discussions`, `git`, `notifications`, `onboarding`, `panelsMisc`, `resources`, `scheduling`, `settings`, `shell`). So:
+
+- **Adjusting one term** is a small, per-locale edit in each `common.json`.
+- **Adding a locale** is not a single-file change — it touches every namespace file for the new locale.
+
+A catalog parity test (`packages/ui/src/lib/i18n/__tests__/locales.test.ts`) enforces that all five locales declare every namespace, share the same keys (plural-insensitive), have no empty or `[[TODO]]` values, and use matching interpolation variables. Translations that drift out of sync fail CI.
+
+## Complete mapping
+
+The table below is the full set of domain terms defined in the `terms` object of `common.json`, in source order. The **Internal term** is the key used in code, the database, and the API. **English (EN)** is what you see in the default UI and what these docs use. **Slovak (SK)**, **Spanish (ES)**, **French (FR)**, and **German (DE)** are the other four locales.
+
+| Internal term | English (EN) | Slovak (SK) | Spanish (ES) | French (FR) | German (DE) |
+| --- | --- | --- | --- | --- | --- |
+| `agent` | Assistant | Asistent | Asistente | Assistant | Assistent |
+| `agents` | Assistants | Asistenti | Asistentes | Assistants | Assistenten |
+| `persona` | Personality | Osobnosť | Personalidad | Personnalité | Persönlichkeit |
+| `systemPrompt` | Instructions | Inštrukcie | Instrucciones | Instructions | Anweisungen |
+| `scope` | Access | Prístup | Acceso | Accès | Zugriff |
+| `scopePaths` | Access Paths | Cesty prístupu | Rutas de acceso | Chemins d'accès | Zugriffspfade |
+| `policy` | Safety Rules | Bezpečnostné pravidlá | Reglas de seguridad | Règles de sécurité | Sicherheitsregeln |
+| `policies` | Safety Rules | Bezpečnostné pravidlá | Reglas de seguridad | Règles de sécurité | Sicherheitsregeln |
+| `allowedTools` | Capabilities | Schopnosti | Capacidades | Capacités | Fähigkeiten |
+| `mcpServer` | Connection | Pripojenie | Conexión | Connexion | Verbindung |
+| `mcpServers` | Connections | Pripojenia | Conexiones | Connexions | Verbindungen |
+| `discussionTable` | Team Discussion | Tímová diskusia | Discusión en equipo | Discussion d'équipe | Team-Diskussion |
+| `canvas` | Workspace | Pracovný priestor | Espacio de trabajo | Espace de travail | Arbeitsbereich |
+| `node` | Card | Karta | Tarjeta | Carte | Karte |
+| `edge` | Connection | Prepojenie | Conexión | Connexion | Verbindung |
+| `spawn` | Start | Spustiť | Iniciar | Démarrer | Starten |
+| `session` | Conversation | Konverzácia | Conversación | Conversation | Konversation |
+| `sessions` | Conversations | Konverzácie | Conversaciones | Conversations | Konversationen |
+| `skill` | Skill | Zručnosť | Habilidad | Compétence | Skill |
+| `skills` | Skills | Zručnosti | Habilidades | Compétences | Skills |
+| `moderator` | Facilitator | Facilitátor | Facilitador | Animateur | Moderator |
+| `workspace` | Workspace | Pracovný priestor | Espacio de trabajo | Espace de travail | Arbeitsbereich |
+| `approval` | Approval | Schválenie | Aprobación | Approbation | Genehmigung |
+| `memory` | Memory | Pamäť | Memoria | Mémoire | Speicher |
+
+<Callout type="warning">
+Two distinct internal terms — `mcpServer` and `edge` — both surface as **Connection** in English. They are not the same thing: `mcpServer` is an external [Connection](/docs/guides/connections) (an MCP server an Assistant can call), while `edge` is the wire linking two Cards on the Workspace. Among the other locales, only Slovak distinguishes the two with different words (`Pripojenie` for the MCP server vs `Prepojenie` for the wire); Spanish (`Conexión`), French (`Connexion`), and German (`Verbindung`) each reuse a single word for both. Context in the UI makes the difference clear; in code, use the precise key.
+</Callout>
+
+## Terms worth knowing
+
+A few mappings come up constantly across the docs and the canvas:
+
+- **Assistant** (`agent`) — a configured Claude Code agent you place on the Workspace. The palette also offers two provider variants — **OpenAI Assistant** and **Perplexity Assistant** — which are still Assistants (`agent`) carrying a different `provider`, not separate Card types. See [Assistants](/docs/guides/assistants), [OpenAI](/docs/providers/openai), and [Perplexity](/docs/providers/perplexity).
+- **Personality** (`persona`) — the character and behavior profile applied to an Assistant.
+- **Instructions** (`systemPrompt`) — the system prompt that steers an Assistant.
+- **Access** / **Access Paths** (`scope` / `scopePaths`) — where an Assistant is allowed to read and write.
+- **Capabilities** (`allowedTools`) — the tools an Assistant is permitted to use, governed by [Safety Rules](/docs/guides/safety-rules).
+- **Safety Rule** (`policy`) — the constraints that bound what an Assistant may do.
+- **Connection** (`mcpServer`) — an MCP server an Assistant can reach. See [Connections](/docs/guides/connections).
+- **Facilitator** (`moderator`) — the orchestrator that runs a [Team Discussion](/docs/guides/discussions) (`discussionTable`).
+- **Conversation** (`session`) — one run/thread with an Assistant.
+- **Workspace** (`canvas` / `workspace`) — the drag-and-drop [Canvas](/docs/guides/canvas).
+- **Card** (`node`) — any element you drop on the Workspace; **Start** (`spawn`) launches a run.
+- **Role** (`role`) — a user's global access level across the one shared workspace: **admin**, **editor**, or **viewer** (ranked viewer < editor < admin). A viewer is read-only, an editor can also create/edit/delete and run things, and an admin can additionally manage users and global settings. See [Users & Roles](/docs/guides/users).
+
+<Callout type="warning">
+A **Role** is not a **Safety Rule**. A Role is *authorization* — it governs which **users** may read, write, or run within the shared workspace. A Safety Rule (`policy`) is *agent safety* — it bounds what an Assistant's tools may do (along with the per-Assistant permission mode). Do not conflate the two: roles gate people; Safety Rules gate agents.
+</Callout>
+
+### Data-pipeline Card terms
+
+The canvas palette includes several newer Card types beyond Assistant/Skill/Safety Rule/Connection. These appear with friendly labels in the palette but each maps to its own internal `node` type. They have no dedicated `terms` entry — the palette label *is* the user-facing name:
+
+| Palette label | Internal node type | What it is |
+| --- | --- | --- |
+| Resource | `resource` | A file or folder an Assistant can reference. |
+| Note | `note` | A freeform sticky note on the Workspace (not executed). |
+| Condition | `condition` | A pure router that branches the chain by matching agent output. |
+| Output | `output` | A sink that writes the run's combined output to a file. |
+| Structure | `structurer` | Turns agent prose into a typed dataset (parse or AI extraction). |
+| Save to DB | `db-save` | Persists a Structure card's dataset to the database. |
+| Email | `email` | A sink that emails the combined output via SMTP (opt-in; off by default). |
+
+<Callout type="info">
+These cards — what they do, how they wire together, and the connection rules between them — are covered in depth in the [Data Nodes guide](/docs/guides/data-nodes).
+</Callout>
+
+## Where to go next
+
+<Cards>
+  <Cards.Card title="Concepts overview" href="/docs/concepts/overview" />
+  <Cards.Card title="The Workspace canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+</Cards>

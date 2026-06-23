@@ -1,0 +1,337 @@
+---
+title: The Canvas
+description: Build and run multi-agent workflows on the Workspace canvas — drag in cards, wire them up, route on conditions, save data, and execute.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# The Canvas
+
+The **Workspace** (internally a *canvas*) is where you build everything in RondoFlow. It's an infinite, zoomable surface built on [React Flow](https://reactflow.dev) where you drag in **Cards** (nodes), connect them with edges, and run the result as a multi-agent workflow.
+
+Each Workspace is its own canvas with its own Cards, layout, and saved state. Switch between them using the tabs in the top bar.
+
+<Callout type="info">
+New here? Walk through [your first workflow](/docs/getting-started/first-workflow) for a guided end-to-end example, then come back to this page as a reference.
+</Callout>
+
+## The drag-to-canvas palette
+
+A floating palette is docked to the **bottom-center** of the canvas. Each entry is a draggable icon — grab one and drop it anywhere on the surface to create the matching Card at that spot. You can also **click** an entry (or focus it and press <kbd>Enter</kbd> / <kbd>Space</kbd>) to drop the Card at the center of the current view — handy for trackpad, touch, and keyboard. Tooltips show the name on hover.
+
+The palette holds 15 items, in this order:
+
+| Palette item | Card created | What it does |
+| --- | --- | --- |
+| **Assistant** | Assistant card | A Claude Code agent — the core worker in a workflow. |
+| **OpenAI Assistant** | Assistant card (OpenAI) | An Assistant backed by [OpenAI](/docs/providers/openai). |
+| **Perplexity Assistant** | Assistant card (Perplexity) | An Assistant backed by [Perplexity](/docs/providers/perplexity). |
+| **Skill** | Skill card | A reusable [Skill](/docs/guides/skills) you attach to an Assistant. |
+| **Safety Rule** | Safety Rule card | A [Safety Rule](/docs/guides/safety-rules) (policy) attached to an Assistant. |
+| **Resource** | Resource card | Shared files, links, notes, and variables — see [Resources](/docs/guides/resources). |
+| **Connection** | Connection card | An MCP server ([Connection](/docs/guides/connections)) that exposes tools. |
+| **Condition** | Condition card | A pure **router** — sends an Assistant's output down a labelled branch. |
+| **Output** | Output card | Writes the run's combined output to a file. |
+| **HTTP Request** | HTTP Request card | Calls an external HTTP API mid-run, interpolating the upstream output into the request. |
+| **DuckDuckGo Search** | DuckDuckGo Search card | Runs a live web search and passes the results to the next step. |
+| **Structure** | Structurer card | Turns an Assistant's prose into a typed dataset (schema + rows). |
+| **Save to DB** | Save-to-DB card | Persists a Structurer's dataset to the database. |
+| **Email** | Email card | Sends the run's combined output by email over SMTP (off by default). |
+| **Note** | Sticky Note card | A free-form sticky note for yourself and your team. |
+
+<Callout type="info">
+The three Assistant variants all create an Assistant card — they differ only in which provider (Claude Code, OpenAI, or Perplexity) the new card is preconfigured with. You can change the provider later by editing the card.
+</Callout>
+
+The seven workflow cards — **Condition**, **Output**, **HTTP Request**, **DuckDuckGo Search**, **Structure**, **Save to DB**, and **Email** — extend a run beyond plain Assistants: they route, fetch, transform, persist, and deliver what your Assistants produce. They're covered in detail under [Card types](#card-types) below.
+
+### Palette gating by tier
+
+Palette items carry a minimum complexity tier (`simple`, `standard`, or `full`) and are only shown when the current tier is high enough:
+
+- **simple** — Assistant (and the OpenAI / Perplexity variants), Skill, Note
+- **standard** — adds Safety Rule, Resource, Condition, Output, HTTP Request, DuckDuckGo Search, Structure, Save to DB, and Email
+- **full** — adds Connection
+
+In the current build the interface complexity is **pinned to the `full` tier**, so every palette item is always visible. The tier machinery is dormant — it exists so simpler views could hide advanced Cards in the future, but there is no user-facing setting to change it today.
+
+## Card types
+
+Every Card shares the same card shell: an icon chip, a title, an optional description line, a body, and round connection **ports** (handles) you drag between to create edges.
+
+There are 14 card types. The first seven are the building blocks you'll meet first; the remaining seven route, fetch, transform, persist, and deliver what your Assistants produce.
+
+<Tabs items={['Start', 'Assistant', 'Skill', 'Safety Rule', 'Connection', 'Resource', 'Note', 'Condition', 'Output', 'HTTP Request', 'DuckDuckGo Search', 'Structure', 'Save to DB', 'Email']}>
+<Tabs.Tab>
+
+**Start** (internally *spawn*) is the fixed entry point. Every Workspace has exactly one, it has a fixed id, and it **cannot be deleted or edited** — RondoFlow re-adds it automatically if it's ever missing.
+
+Its job is to verify your Claude connection. Click **Test** on the card to run a one-shot connection check; the card shows *Not tested yet*, *Testing…*, *Connected*, or *Connection failed* with a message. The same test runs automatically as a gate before a workflow starts.
+
+Nothing connects *into* Start, and Start can only feed an Assistant — it's the head of the chain.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Assistant** (internally *agent*) cards are the workers. Each shows its name, instructions, and badges for its model and — for Claude Code Assistants — its permission mode. OpenAI and Perplexity Assistants show a **provider badge** instead of the permission-mode badge, plus a *Deep Research* marker when that mode is enabled.
+
+Double-click an Assistant to open its editor. From the card you can also toggle **Skip** to exclude that step from a run. A small clock badge appears in the corner when the Assistant has a [scheduled task](/docs/guides/schedules).
+
+See [Assistants](/docs/guides/assistants) for the full editor.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Skill** cards represent a reusable [Skill](/docs/guides/skills). Use the dropdown on the card to assign one of your installed skills; assigning it renames the card and remembers the skill id. Attach the Skill to an Assistant with an edge.
+
+Double-click an unassigned Skill card to open the marketplace and install one.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Safety Rule** (internally *policy*) cards define permission limits. Each has a **level** — `global`, `agent`, or `session` — shown on the card. Attach a Safety Rule to an Assistant with an edge to apply it.
+
+When rules combine, the most restrictive wins. See [Safety Rules](/docs/guides/safety-rules).
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Connection** (internally *MCP server*) cards expose external tools to an Assistant over the Model Context Protocol. The card shows the transport type (`stdio`, `http`, or `sse`) and a short description. Attach it to an Assistant with an edge.
+
+See [Connections](/docs/guides/connections).
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Resource** cards bundle shared **files, links, notes, and variables** for the Workspace. The card summarizes how many of each it holds. Variables are referenced in Assistant instructions with `{{variable}}` tokens.
+
+See [Resources](/docs/guides/resources).
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Sticky Note** cards are free-form text for documenting your workflow. Double-click to edit; the text auto-saves when you click away. Notes come in a few colors and have no ports — they're purely visual annotations.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Condition** cards are a **pure router** — they spawn no agent. One Assistant feeds into a Condition card, and each of its **branches** is a labelled outgoing handle that routes to a downstream Assistant based on the upstream output.
+
+Each branch (a `ConditionBranchSpec`) has a label, a match **kind** (`contains` or `regex`), and a pattern. A new Condition card seeds three branches — **Approved**, **Rejected**, and an **Else** fallback that runs when nothing else matched. Double-click to open the branch editor and add, rename, or re-match branches.
+
+Before a run, branches are compiled into grouped **conditional edges**, and the upstream Assistant's output (its last non-empty line) is matched against each branch in order; the first match wins, otherwise the Else branch runs. Condition routing is honored in **both** execution modes — DAG (parallel) and [Director](/docs/guides/orchestration) (sequential). The accent color is amber.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Output** cards write the run's combined Assistant output to a file. They're a **pure sink**: an Assistant feeds in, and the card never connects onward (input port, no output port).
+
+In the drawer you choose the **format** — *Formatted Markdown*, *Formatted HTML*, *Raw Text*, or *Raw Markdown* — and a **destination directory** (it falls back to the Workspace working directory at save time). Which Assistants the card captures is **connection-driven**: it's the list of Assistants wired directly into it, shown read-only in the drawer. After a run, the card offers **Open saved file** to jump to what it wrote.
+
+The Output node is a **run-completion side-effect**, not a server execution step — it writes its file once the run finishes.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**HTTP Request** (internally *http-request*) cards call an external HTTP API in the middle of a run. They're a **pass-through transform**: an Assistant (or another transform card) feeds in, the card issues the request, and its response flows to the next step.
+
+In the drawer you set the **method** (GET / POST / PUT / PATCH / DELETE), the **URL**, optional **headers** and **query params**, and a **body** (JSON, form, or raw). The upstream output is available as a `{{input}}` token you can interpolate anywhere in the URL, params, headers, or body. Choose whether the card passes on the response **body** only or the **full** envelope (status + headers + body). A non-2xx status, a network error, or a timeout fails the card and skips its dependents.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**DuckDuckGo Search** (internally *duckduckgo-search*) cards run a live web search mid-run and hand the results to the next step. Like HTTP Request, it's a **pass-through transform** wired between Assistants (or other transform cards).
+
+The drawer takes a **query** (with `{{input}}` interpolation, defaulting to the upstream output), a **max results** cap (up to 25), and optional **region**, **safe-search**, and **time-limit** filters. Results come back either as a readable numbered **text** list or as **JSON** records (title, URL, snippet), selectable per card.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Structure** (internally *Structurer*) cards turn one or more Assistants' prose into a typed **dataset** — a schema plus rows (a `StructuredDataset`). They have an input and a **single output** that may only connect to a Save-to-DB card.
+
+In the drawer you pick the target **format** (JSON object, JSON array, or table), declare **columns**, and choose an extraction **mode**:
+
+- **parse** — deterministic: pulls JSON (fenced or balanced) and markdown tables straight out of the output.
+- **ai** — runs a bounded Claude extraction pass guided by your instructions and model.
+
+Which Assistants feed it is **connection-driven** (read-only in the drawer). Unlike Output and Email, a Structurer is a **real server-side execution step** — it runs as part of the chain, and the card shows live `active`/`completed`/`error` chain states with a sky accent.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Save to DB** (internally *Save-to-DB*) cards persist a Structurer's dataset to the database (Prisma `StructuredDataset` + `StructuredRow`). They're a **pure sink** that only accepts a Structurer — nothing else feeds in, and the card never connects onward.
+
+Saved datasets are capped (max 5,000 rows / ~2 MB per dataset). They're viewable and **CSV-exportable** in the **Saved Datasets** panel, and exposed over the API at `GET /api/datasets` and `GET /api/datasets/:id` (paginated rows). Like the Structurer, this is a **real execution step** and the card shows chain states with an indigo accent.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+**Email** cards send the run's combined output by email over SMTP. They're a **pure sink**: an Assistant feeds in, and the card never connects onward.
+
+Email is **opt-in** — the card's **enabled** toggle defaults **OFF**, so building or saving a workflow never sends mail. Recipients are typed in the drawer; the captured Assistants are **connection-driven** (read-only). When a run finishes, the combined output is rendered to an HTML body, recipients are **de-duplicated per run**, and the message is sent. The card shows the last send status.
+
+SMTP is configured via `.env` (`SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS` / `SMTP_FROM`) **or** in Settings → Credentials (group `smtp`; a DB-stored value overrides `.env`). With no SMTP host configured the feature is disabled. The headless [Scheduler](/docs/guides/schedules) honors enabled Email nodes too.
+
+</Tabs.Tab>
+</Tabs>
+
+Select any Card to reveal a floating toolbar above it with **Edit** (pencil) and **Delete** (trash) actions. The Start card hides both, since it can't be edited or removed.
+
+<Callout type="info">
+The workflow cards fall into a few roles: a **router** (Condition) picks which Assistant runs next; **transforms** (HTTP Request, DuckDuckGo Search) fetch external data inline and pass it on; a **data** path (Assistant → Structure → Save to DB) turns prose into rows and stores them; and **Output** / **Email** are run-completion sinks that deliver the finished output to a file or an inbox.
+</Callout>
+
+<Callout type="warning">
+**HTTP Request** and **DuckDuckGo Search** execute during interactive (canvas) runs, but the headless [Scheduler](/docs/guides/schedules) does not yet run them — a scheduled workflow skips these two cards. Keep that in mind before relying on them in a cron task.
+</Callout>
+
+## Edges: flow, association, and conditional
+
+Edges are the lines you draw between Card ports. RondoFlow distinguishes **three** kinds, and it picks the right one automatically based on what you connect:
+
+| Edge type | Drawn between | Meaning | Look |
+| --- | --- | --- | --- |
+| **Flow** | Start → Assistant; Assistant → Assistant; Assistant → Output / Email / Structure / HTTP Request / DuckDuckGo Search; transform → Assistant; Structure → Save to DB | Execution sequence — output passes from one step to the next | Solid curve |
+| **Association** | Skill / Safety Rule / Connection → Assistant | Attaches a capability or rule to an Assistant | Dashed curve |
+| **Conditional** | Condition branch handle → Assistant | Route this branch's output to the target Assistant | Amber dotted curve with a branch-label chip |
+
+The choice is mechanical: a Skill, Safety Rule, or Connection source makes an **association** edge; a Condition source makes a **conditional** edge; everything else is a **flow** edge.
+
+### Connection rules
+
+The canvas validates every connection as you draw it. Invalid drops are rejected and surfaced as a toast explaining why. The rules:
+
+- **Start** is the entry point — nothing connects into it, and it may only feed an Assistant.
+- **Skill, Safety Rule, and Connection** cards attach to Assistants only.
+- **Output, Email, and Save-to-DB** are pure sinks — they never connect onward.
+- **Output** and **Email** accept only an **Assistant** as their input.
+- **Condition** takes only an Assistant in, and each branch routes only to an Assistant.
+- **Structure** takes only an Assistant in, and its single output connects only to a Save-to-DB card.
+- **Save to DB** accepts only a Structurer.
+- **HTTP Request** and **DuckDuckGo Search** are pass-through transforms: an Assistant (or another transform) feeds in, and they connect onward only to an Assistant (or another transform).
+- You **can't connect a Card to itself**, and a connection needs both a valid source and target.
+
+To remove an edge, click it to select it, then click the **×** that appears at its midpoint.
+
+<Callout type="info">
+Flow edges define the order the workflow runs in. RondoFlow executes Assistants in dependency order, passing each step's output to the next — so wire your Assistants the way you want them to run, starting from **Start**.
+</Callout>
+
+During a run, an edge **glows** when its source Assistant is running, or — for a Condition branch — when the branch's **target** Assistant has started, so the taken branch lights up too.
+
+## The toolbar
+
+A unified toolbar floats at the **top-center** of the canvas. It only appears once there's something to act on (a workflow to run or a canvas to save). It has two groups.
+
+### Run controls (left)
+
+These show once your canvas has a runnable chain:
+
+- **Run** — opens the Execution Log panel where you describe the task and start the run. Each Assistant then runs in order, passing output forward. While running, this becomes **Stop**, which terminates the run and every active agent immediately. A step indicator (`2/5` plus the agent name) shows live progress.
+- **Director** — toggles the [Director](/docs/guides/orchestration), which steers the workflow *while it runs*: after each step it decides whether to **continue**, **redirect** (re-run with new guidance), or **conclude** early. Its latest decision shows inline.
+- **Planner** — toggles the [Planner](/docs/guides/orchestration), which analyzes your workflow *before* it runs and suggests improvements up front.
+- **Advisor** — appears after a run; analyzes what happened and suggests improvements to personalities, prompts, or structure.
+- **Chat** — opens the [workflow chat & execution log](/docs/guides/monitoring): watch agents run live, read raw output, and send follow-up messages.
+
+### Workspace shortcuts and save (right)
+
+Visible whenever a canvas is open:
+
+- **Assistants** — open the full list of Assistants in this Workspace.
+- **Plan** — open the [plan](/docs/guides/orchestration) panel.
+- **Resources** — open the [Resources](/docs/guides/resources) browser.
+- **External Folders** — open the [external folders](/docs/guides/external-folders) panel.
+- **Save** — manually save the canvas. The button highlights with a pulsing dot when you have unsaved changes, shows a spinner while saving, and flashes a checkmark when done.
+
+## Exporting and importing a Workspace
+
+You can share an entire Workspace as a portable bundle. In the top bar (next to the Workspace tabs):
+
+- **Export** (download icon) — downloads the active canvas as a `rondoflow-canvas` bundle file. The bundle embeds the full definition of every referenced Assistant, Skill, and Connection so it can be recreated on another instance, and **strips secrets** (MCP `env`, secret resources are omitted).
+- **Import** (upload icon) — pick a previously-exported bundle file to create a **new** Workspace from it. On import RondoFlow recreates the Assistants, **auto-installs** referenced skills (from the marketplace or git, against a URL whitelist), de-duplicates entities by name, and returns a short report of what was created, reused, or skipped (plus any warnings).
+
+<Callout type="info">
+Because secrets are never included, an imported Workspace may need its Connections re-configured with credentials and any secret Resources re-entered before it runs.
+</Callout>
+
+## Productivity features
+
+### Auto-save
+
+The canvas saves itself automatically. Edits are persisted on a **2-second debounce** — make a change, pause, and it's saved without any clicks. Switching Workspaces flushes any pending save first.
+
+<Callout type="warning">
+Auto-save never persists an **empty** canvas, so an accidental clear can't wipe a saved workflow. If you genuinely want to empty a Workspace, the saved layout is preserved until you add at least one Card.
+</Callout>
+
+### Command palette (Ctrl + K)
+
+Press <kbd>Ctrl</kbd>+<kbd>K</kbd> (or <kbd>Cmd</kbd>+<kbd>K</kbd>) — or click **Search** in the top bar — to open the command palette: a searchable list of actions and navigation shortcuts for jumping around RondoFlow without the mouse.
+
+### Quick run (Ctrl + Shift + R)
+
+Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> to open the **Quick Run** bar — a lightweight modal to pick a single Assistant, type a task, and run it on its own, without wiring up a full chain. Search filters the Assistant list by name or description; choose one, enter your message, and run.
+
+### Keyboard shortcuts
+
+Press <kbd>?</kbd> to open the keyboard-shortcuts overlay at any time. The main shortcuts:
+
+| Action | Keys |
+| --- | --- |
+| Command palette | <kbd>Ctrl</kbd> + <kbd>K</kbd> |
+| Undo | <kbd>Ctrl</kbd> + <kbd>Z</kbd> |
+| Redo | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> or <kbd>Ctrl</kbd> + <kbd>Y</kbd> |
+| Select all | <kbd>Ctrl</kbd> + <kbd>A</kbd> |
+| New agent | <kbd>N</kbd> |
+| Toggle skills sidebar | <kbd>S</kbd> |
+| Delete selected | <kbd>Delete</kbd> / <kbd>Backspace</kbd> |
+| Shortcut help | <kbd>?</kbd> |
+| Close / deselect | <kbd>Esc</kbd> |
+| Quick run | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> |
+
+<Callout type="info">
+Single-key shortcuts like <kbd>N</kbd>, <kbd>S</kbd>, and <kbd>?</kbd> are suppressed while you're typing in an input, so they never interrupt editing.
+</Callout>
+
+### Undo / redo
+
+The canvas tracks a full history. <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (or <kbd>Ctrl</kbd>+<kbd>Y</kbd>) redoes. A snapshot is taken before each structural change — adding a Card, connecting or deleting an edge, deleting a Card, or moving a Card — so you can step back through your edits.
+
+### Navigating the canvas
+
+- **Pan** by dragging the background (hold <kbd>Space</kbd> while dragging).
+- **Zoom** with the scroll wheel or <kbd>Ctrl</kbd>+<kbd>+</kbd> / <kbd>Ctrl</kbd>+<kbd>-</kbd>; the canvas clamps zoom between 0.2× and 2×.
+- **Fit view** with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> to frame all Cards.
+- The background is a subtle dot grid, and the canvas follows your light/dark theme automatically.
+
+## Card states during a run
+
+While a workflow runs, Cards reflect their place in the chain through a visual **chain state**. This applies to Assistants and to the cards that run as steps (Condition, Structure, Save to DB, and the HTTP Request / DuckDuckGo Search transforms):
+
+| State | Appearance | Meaning |
+| --- | --- | --- |
+| `pending` | Dimmed | Queued — hasn't started yet |
+| `active` | Accent ring + glow | Currently executing |
+| `completed` | Green border + check icon | Finished successfully |
+| `error` | Red ring | Failed during the run |
+| `skipped` | Grayed / desaturated | Not run — a Condition branch wasn't taken, or an upstream skip cascaded |
+
+The `active` glow color varies by card: **Assistant** is blue, **Condition** is amber, **Structure** is sky, and **Save to DB** is indigo. Output and Email are run-completion sinks rather than chain steps, so they don't show the active glow — they report their last result on the card after the run.
+
+When a step starts, that card becomes `active`, any not-yet-started cards become `pending`, and completed ones keep their green check. Note the difference between the run-only `skipped` chain state above and the card-level **Skip** toggle on an Assistant, which excludes it from the run entirely. When the run ends, the chain states clear and Cards return to their normal look.
+
+<Callout type="info">
+These run-only states (`chainState` and live `status`) are intentionally **not** counted as unsaved changes, so a run never marks your canvas dirty.
+</Callout>
+
+## Next steps
+
+<Cards>
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
+  <Cards.Card title="Monitoring a run" href="/docs/guides/monitoring" />
+</Cards>

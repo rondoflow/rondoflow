@@ -1,0 +1,10 @@
+{
+  "id": "bidirectional-remarkable-tablet-sync",
+  "name": "bidirectional-remarkable-tablet-sync",
+  "description": "Bidirectional sync with reMarkable tablet via Cloud API (rmapi). Fetch handwritten notes/sketches, process with AI, and push content back. Use for sketch enhancement, journal extraction, or sending documents/images to the tablet.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

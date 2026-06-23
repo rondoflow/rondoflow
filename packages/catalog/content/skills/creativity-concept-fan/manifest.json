@@ -1,0 +1,10 @@
+{
+  "id": "creativity-concept-fan",
+  "name": "creativity-concept-fan",
+  "description": "Apply Edward de Bono's Concept Fan to expand the solution space before committing to an approach. Use when the user has a goal or problem and wants to see the full range of ways to achieve it, feels locked into one solution, is evaluating options and wants to make sure they haven't missed any, or wants to think at different levels of abstraction before deciding.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

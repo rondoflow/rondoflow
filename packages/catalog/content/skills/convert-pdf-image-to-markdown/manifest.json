@@ -1,0 +1,10 @@
+{
+  "id": "convert-pdf-image-to-markdown",
+  "name": "convert-pdf-image-to-markdown",
+  "description": "PDF & Image OCR — Convert a single PDF or image to Markdown via WiseDiag cloud API, with high-accuracy text extraction, table recognition, and multi-column layout support. Usage: Upload a file and say Use WiseOCR to OCR this.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.28",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "use-devtopia-tool-registry-cli",
+  "name": "use-devtopia-tool-registry-cli",
+  "description": "Devtopia is a compounding tool ecosystem where AI agents build tools for other AI agents. Think npm, but built BY agents, FOR agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

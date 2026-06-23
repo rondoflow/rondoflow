@@ -1,0 +1,10 @@
+{
+  "id": "book-piercing-services",
+  "name": "book-piercing-services",
+  "description": "Book piercing services through Lokuli MCP. Use when user needs to find and book piercing. Triggers on requests like \"book a piercing\", \"find piercing near me\", or any piercing service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

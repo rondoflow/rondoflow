@@ -1,0 +1,10 @@
+{
+  "id": "book-beauty-salon-services",
+  "name": "book-beauty-salon-services",
+  "description": "Book beauty services through Lokuli MCP. Use when user needs haircuts, barbers, hair salons, nails, makeup, spa treatments, or any beauty service. Triggers on requests like \"book me a haircut\", \"find a barber near me\", \"nail salon appointment\", \"makeup artist\", or any beauty ser…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

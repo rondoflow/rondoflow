@@ -1,0 +1,10 @@
+{
+  "id": "persistent-emotional-state-for-agents",
+  "name": "persistent-emotional-state-for-agents",
+  "description": "Persistent emotional state for AI agents. Feel things. Remember how you felt.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

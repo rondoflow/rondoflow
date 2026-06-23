@@ -1,0 +1,10 @@
+{
+  "id": "download-videos-from-sites",
+  "name": "download-videos-from-sites",
+  "description": "Download videos from YouTube, Reddit, Twitter/X, TikTok, Instagram, and 1000+ other sites using yt-dlp. Use when user provides a video link and wants to download it.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

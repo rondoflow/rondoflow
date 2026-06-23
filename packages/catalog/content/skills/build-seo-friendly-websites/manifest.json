@@ -1,0 +1,10 @@
+{
+  "id": "build-seo-friendly-websites",
+  "name": "build-seo-friendly-websites",
+  "description": "Build fast, accessible, and SEO-friendly websites with modern best practices.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

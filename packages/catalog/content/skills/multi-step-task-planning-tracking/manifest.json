@@ -1,0 +1,10 @@
+{
+  "id": "multi-step-task-planning-tracking",
+  "name": "multi-step-task-planning-tracking",
+  "description": "MUST use for any multi-step project, long-running task, or infinite monitoring workflow. Plan, execute, track, and verify tasks with checkpoint validation. For projects, automation, and ongoing operations.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "server",
+  "order": 1000
+}

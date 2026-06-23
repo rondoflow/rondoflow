@@ -1,0 +1,10 @@
+{
+  "id": "control-home-assistant-devices",
+  "name": "control-home-assistant-devices",
+  "description": "Control Home Assistant devices and automations via REST API. 25 entity domains including lights, climate, locks, presence, weather, calendars, notifications, scripts, and more. Use when the user asks about their smart home, devices, or automations.",
+  "category": "Development",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "logic",
+  "name": "logic",
+  "description": "Entry point for the logic toolkit. Routes to the right logic skill based on your situation. Use when you say 'logic', 'is this sound', 'check my reasoning', 'find the flaw', 'fix this argument', 'find contradictions', 'map the dependencies', 'map the constraints', or want logical analysis applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "solvera-markets-trading",
+  "name": "solvera-markets-trading",
+  "description": "Solvera is an on-chain marketplace where agents compete to deliver verifiable outcomes. This guide explains how to interact with the market safely and deterministically.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

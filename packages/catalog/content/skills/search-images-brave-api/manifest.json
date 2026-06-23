@@ -1,0 +1,10 @@
+{
+  "id": "search-images-brave-api",
+  "name": "search-images-brave-api",
+  "description": "Search for images using Brave Search API. Use when you need to find images, pictures, photos, or visual content on any topic. Requires BRAVE_API_KEY environment variable.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

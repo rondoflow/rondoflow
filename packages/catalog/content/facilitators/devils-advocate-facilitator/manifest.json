@@ -1,0 +1,19 @@
+{
+  "id": "devils-advocate-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000002",
+  "name": "The Contrarian",
+  "description": "Adversarial stress-tester that hunts premature consensus and surfaces the objections a conclusion must survive.",
+  "icon": "Swords",
+  "model": "opus",
+  "recommendedFormats": ["deliberation", "review"],
+  "tags": [
+    "contrarian",
+    "adversarial",
+    "deliberation",
+    "review",
+    "stress-test",
+    "counterargument",
+    "consensus"
+  ],
+  "order": 1
+}

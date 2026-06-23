@@ -1,0 +1,10 @@
+{
+  "id": "analyze-skill-safety-risk",
+  "name": "analyze-skill-safety-risk",
+  "description": "Analyze any skill for safety before use. Preserve local judgment, classify risk clearly, and optionally verify the final report with SettlementWitness.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.0.5",
+  "icon": "puzzle",
+  "order": 1000
+}

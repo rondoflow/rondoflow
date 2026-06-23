@@ -1,0 +1,10 @@
+{
+  "id": "tdd-development-planning-workflow",
+  "name": "tdd-development-planning-workflow",
+  "description": "TDD-first development workflow with structured planning, task tracking, and PR-based code review. Use when building software projects that require clarification phases, planning approval gates, Trello task management, test-driven development, Git branching policies, and PR feedb…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

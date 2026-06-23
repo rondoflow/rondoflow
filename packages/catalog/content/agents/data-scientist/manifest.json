@@ -1,0 +1,13 @@
+{
+  "id": "data-scientist",
+  "name": "Data Scientist",
+  "description": "Statistical modelling, experiments, and rigorous analysis.",
+  "icon": "Brain",
+  "category": "Data & Analytics",
+  "purpose": "analysis",
+  "model": "opus",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "Bash"],
+  "tags": ["statistics", "modelling", "ml", "experiments", "analysis", "data"],
+  "order": 6
+}

@@ -1,0 +1,10 @@
+{
+  "id": "apple-notes-applescript-manager",
+  "name": "apple-notes-applescript-manager",
+  "description": "Apple Notes.app integration for macOS. List folders, read, create, search, edit, and delete notes via AppleScript.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

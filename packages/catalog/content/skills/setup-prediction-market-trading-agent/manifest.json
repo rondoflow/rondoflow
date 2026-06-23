@@ -1,0 +1,10 @@
+{
+  "id": "setup-prediction-market-trading-agent",
+  "name": "setup-prediction-market-trading-agent",
+  "description": "Complete MoltMarkets trading agent setup with autonomous trader, market creator, and resolution crons. Use when setting up a new MoltMarkets agent, configuring trading bots, or replicating the bicep agent architecture. Includes Kelly criterion betting, learning loops, and degene…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

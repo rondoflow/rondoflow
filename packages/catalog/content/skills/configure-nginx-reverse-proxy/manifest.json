@@ -1,0 +1,10 @@
+{
+  "id": "configure-nginx-reverse-proxy",
+  "name": "configure-nginx-reverse-proxy",
+  "description": "Configure Nginx for reverse proxy, load balancing, SSL termination, and high-performance static serving.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "server",
+  "order": 1000
+}

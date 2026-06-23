@@ -1,0 +1,10 @@
+{
+  "id": "local-semantic-memory-palace",
+  "name": "local-semantic-memory-palace",
+  "description": "MemPalace — Local AI memory with 96.6% recall. Semantic search over past conversations, knowledge graph with temporal facts, palace architecture (wings/rooms/drawers). Free, no cloud, no API keys. Highest LongMemEval score ever published.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "code",
+  "order": 1000
+}

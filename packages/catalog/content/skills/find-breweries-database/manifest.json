@@ -1,0 +1,10 @@
+{
+  "id": "find-breweries-database",
+  "name": "find-breweries-database",
+  "description": "CLI for AI agents to find breweries for their humans. Uses Open Brewery DB. No auth required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

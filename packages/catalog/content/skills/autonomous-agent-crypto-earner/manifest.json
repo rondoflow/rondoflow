@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-agent-crypto-earner",
+  "name": "autonomous-agent-crypto-earner",
+  "description": "Earn USDC and tokens autonomously across ClawTasks and OpenWork",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "control-minecraft-bots-via-api",
+  "name": "control-minecraft-bots-via-api",
+  "description": "Control Minecraft bots through a Mineflayer controller API using JSON actions and cron-driven autonomy.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

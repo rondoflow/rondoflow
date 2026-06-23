@@ -1,0 +1,10 @@
+{
+  "id": "temporal-cycle-detection",
+  "name": "temporal-cycle-detection",
+  "description": "Identifies what recurring cycle a situation is an instance of and where in that cycle you currently are. Use when asked 'what cycle is this', 'where are we in the cycle', 'have we seen this before', 'detect the pattern', 'hype cycle', or 'where in the curve'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

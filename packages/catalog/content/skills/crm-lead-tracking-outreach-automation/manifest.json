@@ -1,0 +1,10 @@
+{
+  "id": "crm-lead-tracking-outreach-automation",
+  "name": "crm-lead-tracking-outreach-automation",
+  "description": "CRM integration, lead tracking, outreach automation, and pipeline management. Transform your AI agent into a sales assistant that never lets leads slip through the cracks.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

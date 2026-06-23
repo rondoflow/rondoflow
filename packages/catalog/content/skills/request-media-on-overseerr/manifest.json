@@ -1,0 +1,10 @@
+{
+  "id": "request-media-on-overseerr",
+  "name": "request-media-on-overseerr",
+  "description": "Request a movie or TV show using the user's Overseerr instance. Overseerr forwards the request to Sonarr/Radarr.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

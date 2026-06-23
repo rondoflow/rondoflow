@@ -1,0 +1,10 @@
+{
+  "id": "scrape-google-maps-business-data",
+  "name": "scrape-google-maps-business-data",
+  "description": "This skill leverages BrowserAct's Google Maps API template to provide a one-stop business data collection service. It extracts structured details directly from Google Maps, including business names, categories, contact info, ratings, and more. Simply provide the search keywords…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

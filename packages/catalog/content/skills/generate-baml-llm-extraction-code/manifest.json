@@ -1,0 +1,10 @@
+{
+  "id": "generate-baml-llm-extraction-code",
+  "name": "generate-baml-llm-extraction-code",
+  "description": "Use when generating BAML code for type-safe LLM extraction, classification, RAG, or agent workflows - creates complete .baml files with types, functions, clients, tests, and framework integrations from natural language requirements. Queries official BoundaryML repositories via M…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "banking-interface-for-bots",
+  "name": "banking-interface-for-bots",
+  "description": "Banking interface for AI bots and automation. Get a bank account, issue a Mastercard, buy and sell crypto, send payments and invoices — all via API. Use when the user needs a bank account for a bot, wants to manage balances, make transfers, handle payouts, or operate cards.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

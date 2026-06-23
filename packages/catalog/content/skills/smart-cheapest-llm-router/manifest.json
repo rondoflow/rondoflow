@@ -1,0 +1,10 @@
+{
+  "id": "smart-cheapest-llm-router",
+  "name": "smart-cheapest-llm-router",
+  "description": "Smart LLM router — save 67% on inference costs. Routes every request to the cheapest capable model across 41 models from OpenAI, Anthropic, Google, DeepSeek, and xAI.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.10.5",
+  "icon": "bot",
+  "order": 1000
+}

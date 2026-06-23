@@ -1,0 +1,10 @@
+{
+  "id": "audit-project-dependencies-2",
+  "name": "audit-project-dependencies-2",
+  "description": "Dependency Auditor",
+  "category": "Community",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

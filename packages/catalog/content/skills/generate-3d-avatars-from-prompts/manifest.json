@@ -1,0 +1,10 @@
+{
+  "id": "generate-3d-avatars-from-prompts",
+  "name": "generate-3d-avatars-from-prompts",
+  "description": "Generate 3D avatars (VRM/GLB/MML) from text prompts or images via Sideload.gg. Pay-per-use with any x402 wallet (USDC on Base).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "coins",
+  "order": 1000
+}

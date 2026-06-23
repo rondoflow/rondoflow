@@ -1,0 +1,10 @@
+{
+  "id": "access-prediction-market-data",
+  "name": "access-prediction-market-data",
+  "description": "Grants the agent real-time access to prediction markets (Polymarket, Kalshi, Limitless) for fact-checking, probability analysis, and order execution.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

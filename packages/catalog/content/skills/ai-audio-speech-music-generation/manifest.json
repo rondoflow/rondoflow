@@ -1,0 +1,10 @@
+{
+  "id": "ai-audio-speech-music-generation",
+  "name": "ai-audio-speech-music-generation",
+  "description": "AI audio generation powered by CellCog. Text-to-speech, voice synthesis, voiceovers, podcast audio, narration, music generation, background music, sound design. Professional audio creation with AI.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

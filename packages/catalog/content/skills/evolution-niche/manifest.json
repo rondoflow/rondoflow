@@ -1,0 +1,10 @@
+{
+  "id": "evolution-niche",
+  "name": "evolution-niche",
+  "description": "Applies competitive exclusion and niche theory to understand differentiation, coexistence, and competitive strategy. Triggers: 'what niche are we in', 'how do we differentiate', 'why can these two strategies coexist', 'competitive exclusion', 'who will win this market', 'niche overlap', 'are we too similar to our competitors', 'resource partitioning'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

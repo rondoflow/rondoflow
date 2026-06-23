@@ -1,0 +1,10 @@
+{
+  "id": "run-commands-on-file-changes",
+  "name": "run-commands-on-file-changes",
+  "description": "Run arbitrary commands when files change. Useful for watching files and triggering builds or tests.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

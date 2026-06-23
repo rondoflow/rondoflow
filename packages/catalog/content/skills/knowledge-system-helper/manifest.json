@@ -1,0 +1,10 @@
+{
+  "id": "knowledge-system-helper",
+  "name": "knowledge-system-helper",
+  "description": "Self-improving memory architecture for OpenClaw agents. Structured memory files, nightly distillation, weekly synthesis, enforced principles (P0 for custom, P1-P8 managed), write-ahead durability, and model-agnostic delegation — so your agent compounds knowledge instead of forge…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "3.6.7",
+  "icon": "bot",
+  "order": 1000
+}

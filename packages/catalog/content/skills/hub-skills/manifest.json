@@ -1,0 +1,10 @@
+{
+  "id": "hub-skills",
+  "name": "hub-skills",
+  "description": "Trade K-pop artist lightstick tokens on the K-Trendz bonding curve market.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

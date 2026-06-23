@@ -1,0 +1,10 @@
+{
+  "id": "social-dynamics-analysis",
+  "name": "social-dynamics-analysis",
+  "description": "Identifies group psychology shaping a discussion or team — groupthink, status dynamics, coalition formation, psychological safety. Triggers: 'group dynamics', 'why does this team behave like this', 'groupthink check', 'why won't people speak up', 'meeting dynamics', 'team dysfunction'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

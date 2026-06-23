@@ -1,0 +1,10 @@
+{
+  "id": "historical-precedent-analysis",
+  "name": "historical-precedent-analysis",
+  "description": "Finds and applies genuinely similar historical situations to inform a current decision — distinguishing true precedents from superficial analogies. TRIGGERS: 'historical precedent', 'has this happened before', 'what does history say', 'find a precedent', 'what did others do in this situation'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

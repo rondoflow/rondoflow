@@ -1,0 +1,10 @@
+{
+  "id": "strategy-force-economy",
+  "name": "strategy-force-economy",
+  "description": "Finds the minimum intervention that achieves the objective — especially when you're outgunned or under-resourced. Triggers: 'do more with less', 'force economy', 'we're under-resourced', 'asymmetric advantage', 'outgunned', 'leverage point', 'how do we win when they have more', 'we can't outspend them', 'small team big problem'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

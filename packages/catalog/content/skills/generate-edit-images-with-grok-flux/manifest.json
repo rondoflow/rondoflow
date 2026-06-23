@@ -1,0 +1,10 @@
+{
+  "id": "generate-edit-images-with-grok-flux",
+  "name": "generate-edit-images-with-grok-flux",
+  "description": "Generiert hochwertige Bilder mit xAI Grok/Flux API. Use when user asks for image generation (\"mach a Bild von...\", \"generier PNG...\", \"Bild erstellen\") or image editing (\"ändere das Bild\", \"mach daraus...\"). Handles Prompts, styles, aspect ratios, edits, batch generation. Output…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

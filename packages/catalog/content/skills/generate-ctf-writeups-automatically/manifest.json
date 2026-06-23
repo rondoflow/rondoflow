@@ -1,0 +1,10 @@
+{
+  "id": "generate-ctf-writeups-automatically",
+  "name": "generate-ctf-writeups-automatically",
+  "description": "Automatically generate professional CTF writeups from solving sessions with flag detection, challenge categorization, and proper markdown formatting",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

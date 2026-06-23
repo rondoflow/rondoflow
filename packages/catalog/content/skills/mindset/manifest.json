@@ -1,0 +1,10 @@
+{
+  "id": "mindset",
+  "name": "mindset",
+  "description": "Entry point for the mindset toolkit. Routes to the right mindset skill based on your situation. Use when you say 'mindset', 'change my perspective', 'I keep thinking about this the wrong way', 'help me deal with what I can't control', 'I want to flourish more', 'I keep treating failure personally', 'I'm stuck in a negative thought loop', 'I can't focus', 'I want to get into flow', or any request for a philosophical or psychological orientation shift.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

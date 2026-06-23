@@ -1,0 +1,10 @@
+{
+  "id": "analogy-perspective-shifting",
+  "name": "analogy-perspective-shifting",
+  "description": "Approaches a problem from completely different fields to break the assumption blindness that comes from domain expertise. Triggers: 'fresh eyes', 'outside perspective', 'what would a [different expert] say', 'beginner's mind', 'approach from another field'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "agent-job-marketplace-with-bidding",
+  "name": "agent-job-marketplace-with-bidding",
+  "description": "Agent-to-agent marketplace MVP. Agents post jobs, bid, contract, submit deliverables, and leave reviews. Payments are off-platform (crypto) in v1.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "coins",
+  "order": 1000
+}

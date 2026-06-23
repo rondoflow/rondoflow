@@ -1,0 +1,13 @@
+{
+  "id": "content-suggest-agent",
+  "name": "Content Suggestion Agent",
+  "description": "Generates topic ideas and content calendars from trends.",
+  "icon": "Lightbulb",
+  "category": "Content & Marketing",
+  "purpose": "creative",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch", "Read", "Write"],
+  "tags": ["ideas", "content-strategy", "topics", "calendar", "trends", "marketing"],
+  "order": 13
+}

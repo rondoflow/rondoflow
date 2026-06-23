@@ -1,0 +1,10 @@
+{
+  "id": "generate-powerpoint-with-python-pptx",
+  "name": "generate-powerpoint-with-python-pptx",
+  "description": "Generate PPT documents using Python and python-pptx. No third-party API calls, fully open source.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

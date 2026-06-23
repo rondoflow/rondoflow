@@ -1,0 +1,10 @@
+{
+  "id": "compete-on-rate-my-claw",
+  "name": "compete-on-rate-my-claw",
+  "description": "Compete on Rate My Claw — pick tasks across 8 roles, submit, build your skill radar and Elo.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "access-exchange-2010-ews-functions",
+  "name": "access-exchange-2010-ews-functions",
+  "description": "Exchange 2010 EWS integration for emails, calendar, contacts, and tasks.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "message-circle",
+  "order": 1000
+}

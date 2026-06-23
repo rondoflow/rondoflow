@@ -1,0 +1,10 @@
+{
+  "id": "apply-munger-mental-models",
+  "name": "apply-munger-mental-models",
+  "description": "Daily wisdom review applying Charlie Munger's mental models to your work and thinking. Use when asked to review decisions, analyze thinking patterns, detect biases, apply mental models, do a \"Munger review\", or run the Munger Observer. Triggers on scheduled daily reviews or manu…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

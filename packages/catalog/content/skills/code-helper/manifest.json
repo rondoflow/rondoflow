@@ -1,0 +1,10 @@
+{
+  "id": "code-helper",
+  "name": "code-helper",
+  "description": "Zero-token execution layer for AI agents. Define workflows once, run them free forever — persistent, scheduled, deterministic. 6 MCP tools over SSE. Supports DAG-based execution, 6 step types (action, condition, loop, parallel, wait, reasoning), 26 built-in actions, ${{}} interp…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.2",
+  "icon": "coins",
+  "order": 1000
+}

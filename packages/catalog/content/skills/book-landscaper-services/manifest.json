@@ -1,0 +1,10 @@
+{
+  "id": "book-landscaper-services",
+  "name": "book-landscaper-services",
+  "description": "Book landscaper services through Lokuli MCP. Use when user needs to find and book landscaper. Triggers on requests like \"book a landscaper\", \"find landscaper near me\", or any landscaper service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

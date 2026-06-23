@@ -1,0 +1,10 @@
+{
+  "id": "manage-isolated-docker-coding-workspaces",
+  "name": "manage-isolated-docker-coding-workspaces",
+  "description": "Create and manage isolated Docker workspaces on your tailnet with Claude Code and OpenCode pre-installed. Use when working with Perry workspaces, connecting to coding agents, or managing remote development environments.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

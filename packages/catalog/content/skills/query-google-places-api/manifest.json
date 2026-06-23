@@ -1,0 +1,10 @@
+{
+  "id": "query-google-places-api",
+  "name": "query-google-places-api",
+  "description": "Query Google Places API (New) via the goplaces CLI for text search, place details, resolve, and reviews. Use for human-friendly place lookup or JSON output for scripts.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

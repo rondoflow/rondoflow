@@ -1,0 +1,10 @@
+{
+  "id": "generate-and-edit-images",
+  "name": "generate-and-edit-images",
+  "description": "Skywork Design (skywork) - Generate or edit images via the Skywork Image API. Use for image creation, poster design, logo design, visual asset generation, or image modification requests. Supports text-to-image and image-to-image editing with aspect ratio and resolution control.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "image",
+  "order": 1000
+}

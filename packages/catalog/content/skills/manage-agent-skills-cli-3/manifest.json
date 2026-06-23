@@ -1,0 +1,10 @@
+{
+  "id": "manage-agent-skills-cli-3",
+  "name": "manage-agent-skills-cli-3",
+  "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.ai. Use when you need to fetch new skills on the fly, sync installed skills to the latest or a specific version, or publish new or updated skill folders with the npm-installed ClawHub CLI.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-obsidian-vaults-via-notesmd-cli",
+  "name": "manage-obsidian-vaults-via-notesmd-cli",
+  "description": "Work with Obsidian vaults (plain Markdown notes) and automate via notesmd-cli.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

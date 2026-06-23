@@ -1,0 +1,10 @@
+{
+  "id": "secure-openclaw-via-cloudflare-zero-trust",
+  "name": "secure-openclaw-via-cloudflare-zero-trust",
+  "description": "Securely expose an OpenClaw Gateway WebUI on a VPS via Cloudflare Zero Trust Access + Cloudflare Tunnel (cloudflared), including DNS cutover for custom hostnames and optional cleanup of Tailscale Serve.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

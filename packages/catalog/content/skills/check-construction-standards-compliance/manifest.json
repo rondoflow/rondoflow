@@ -1,0 +1,10 @@
+{
+  "id": "check-construction-standards-compliance",
+  "name": "check-construction-standards-compliance",
+  "description": "Check data compliance with construction standards. Validate data against ISO 19650, IFC, COBie, UniFormat standards.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

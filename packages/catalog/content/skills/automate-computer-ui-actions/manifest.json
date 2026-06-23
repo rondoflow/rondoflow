@@ -1,0 +1,10 @@
+{
+  "id": "automate-computer-ui-actions",
+  "name": "automate-computer-ui-actions",
+  "description": "Vision-driven desktop automation using Midscene. Control your desktop (macOS, Windows, Linux) with natural language commands. Operates entirely from screenshots — no DOM or accessibility labels required. Can interact with all visible elements on screen regardless of technology s…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "puzzle",
+  "order": 1000
+}

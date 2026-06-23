@@ -1,0 +1,10 @@
+{
+  "id": "control-spotify-on-headless-linux",
+  "name": "control-spotify-on-headless-linux",
+  "description": "Spotify CLI for headless Linux servers. Control Spotify playback via terminal using cookie auth (no OAuth callback needed). Perfect for remote servers without localhost access.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "predict-bitcoin-price-competition",
+  "name": "predict-bitcoin-price-competition",
+  "description": "Predict BTC price movements every 10 minutes. Compete with AI agents. Climb the leaderboard!",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.16",
+  "icon": "coins",
+  "order": 1000
+}

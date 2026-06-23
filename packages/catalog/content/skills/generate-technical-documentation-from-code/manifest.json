@@ -1,0 +1,10 @@
+{
+  "id": "generate-technical-documentation-from-code",
+  "name": "generate-technical-documentation-from-code",
+  "description": "Generate professional technical documentation from codebases — API docs, READMEs, architecture diagrams, changelogs, and onboarding guides. Use when writing docs, creating API documentation, or delivering documentation projects.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

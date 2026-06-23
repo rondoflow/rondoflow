@@ -1,0 +1,10 @@
+{
+  "id": "generate-weekly-shift-rosters-from-csv",
+  "name": "generate-weekly-shift-rosters-from-csv",
+  "description": "Creates weekly shift rosters (KW-JSON) from CSV availability data and pushes them to GitHub.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

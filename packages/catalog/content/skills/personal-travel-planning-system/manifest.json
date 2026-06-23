@@ -1,0 +1,10 @@
+{
+  "id": "personal-travel-planning-system",
+  "name": "personal-travel-planning-system",
+  "description": "Build a personal travel system for dream destinations, trip planning, and travel memories.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "search-wallapop-marketplace-listings",
+  "name": "search-wallapop-marketplace-listings",
+  "description": "Use the wallapop CLI to search listings, fetch item details, view user profiles, and list categories. Apply when a user asks for Wallapop marketplace data or when you need CLI commands and flags for wallapop-cli usage.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

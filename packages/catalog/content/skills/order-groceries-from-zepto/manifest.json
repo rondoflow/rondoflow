@@ -1,0 +1,10 @@
+{
+  "id": "order-groceries-from-zepto",
+  "name": "order-groceries-from-zepto",
+  "description": "Order groceries from Zepto in seconds. Just say what you need, get a payment link on WhatsApp, pay on your phone, done. Remembers your usual items. Works across India where Zepto delivers.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-experiment-optimization-loop",
+  "name": "autonomous-experiment-optimization-loop",
+  "description": "Autonomous experiment loop for AI agents. Use when the user wants to run systematic experiments — optimizing hyperparameters, searching for better configurations, ablation studies, or any task where an agent should iteratively try changes, measure results, and keep or discard ba…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

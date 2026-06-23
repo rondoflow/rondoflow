@@ -1,0 +1,10 @@
+{
+  "id": "serper-search-bulk-scraping-api",
+  "name": "serper-search-bulk-scraping-api",
+  "description": "Professional search (news, places, maps, reviews, scholar, patents) and bulk scraping via Serper API.",
+  "category": "Development",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "code",
+  "order": 1000
+}

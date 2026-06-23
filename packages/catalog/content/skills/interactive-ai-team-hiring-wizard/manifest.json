@@ -1,0 +1,10 @@
+{
+  "id": "interactive-ai-team-hiring-wizard",
+  "name": "interactive-ai-team-hiring-wizard",
+  "description": "Interactive hiring wizard to set up a new AI team member. Guides the user through role design via conversation, generates agent identity files, and optionally sets up performance reviews. Use when the user wants to hire, add, or set up a new AI agent, team member, or assistant.…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

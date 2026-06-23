@@ -1,0 +1,10 @@
+{
+  "id": "agent-lessons-learned-capture",
+  "name": "agent-lessons-learned-capture",
+  "description": "Capture durable lessons from debugging, user corrections, missing capabilities, and repeated workflow friction so future sessions avoid the same mistakes. Use this skill when a non-obvious failure is diagnosed, the user corrects or updates the agent, a workaround or project conv…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

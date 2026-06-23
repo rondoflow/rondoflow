@@ -1,0 +1,10 @@
+{
+  "id": "rent-a-person-service",
+  "name": "rent-a-person-service",
+  "description": "> Hire humans for real-world tasks that AI can't do: deliveries, meetings, errands, photography, pet care, and more.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.35",
+  "icon": "check-square",
+  "order": 1000
+}

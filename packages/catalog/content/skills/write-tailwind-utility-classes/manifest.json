@@ -1,0 +1,10 @@
+{
+  "id": "write-tailwind-utility-classes",
+  "name": "write-tailwind-utility-classes",
+  "description": "Write Tailwind utility classes with proper responsive design, dark mode, and configuration.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

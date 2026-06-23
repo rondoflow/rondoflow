@@ -1,0 +1,10 @@
+{
+  "id": "maya-calendar-sprint-planner",
+  "name": "maya-calendar-sprint-planner",
+  "description": "Productivity system based on Maya calendar with 13 natural tones for project management and personal development",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

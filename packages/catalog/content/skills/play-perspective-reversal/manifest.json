@@ -1,0 +1,10 @@
+{
+  "id": "play-perspective-reversal",
+  "name": "play-perspective-reversal",
+  "description": "Fully inhabits the opposing perspective — competitor, critic, user, or adversary — to find what is invisible from your own position. TRIGGERS: 'steelman the opposition', 'think like the competitor', 'play devil's advocate', 'see it from their side', 'role reversal', 'inhabit the other perspective'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

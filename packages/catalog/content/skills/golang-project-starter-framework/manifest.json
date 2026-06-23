@@ -1,0 +1,10 @@
+{
+  "id": "golang-project-starter-framework",
+  "name": "golang-project-starter-framework",
+  "description": "Gowok: Golang Premwok. The Golang library that helps you to build your own project starter (or framework, possibly).",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "design-constraints",
+  "name": "design-constraints",
+  "description": "Uses constraints productively — maps hard limits, soft preferences, and how the tightest constraints define the solution space. Triggers: 'what are the design constraints', 'map the constraints', 'what are we working within', 'what's fixed', 'constraint-driven design', 'what does the solution space look like', 'working within limits'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

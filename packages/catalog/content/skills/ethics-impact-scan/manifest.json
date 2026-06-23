@@ -1,0 +1,10 @@
+{
+  "id": "ethics-impact-scan",
+  "name": "ethics-impact-scan",
+  "description": "Run a quick ethical impact assessment on a proposed feature, change, or decision before it ships. Use when the user is about to build or ship something and wants to surface who benefits, who's harmed, and at what scale — before commitments are made. TRIGGERS: 'ethics scan', 'impact check', 'who does this affect', 'is this safe to ship', any new feature proposal where stakeholder impact is unclear. Lightweight — takes minutes, not hours.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

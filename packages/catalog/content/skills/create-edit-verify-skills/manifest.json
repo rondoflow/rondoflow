@@ -1,0 +1,10 @@
+{
+  "id": "create-edit-verify-skills",
+  "name": "create-edit-verify-skills",
+  "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

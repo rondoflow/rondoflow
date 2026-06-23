@@ -1,0 +1,10 @@
+{
+  "id": "find-compare-install-agent-skills",
+  "name": "find-compare-install-agent-skills",
+  "description": "Find, compare, and install agent skills across ClawHub and Skills.sh when the user needs new capabilities, better workflows, stronger tools, or safer alternatives. Use when (1) they ask how to do something, how to improve or automate it, or what to install; (2) a skill could ext…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.5",
+  "icon": "bot",
+  "order": 1000
+}

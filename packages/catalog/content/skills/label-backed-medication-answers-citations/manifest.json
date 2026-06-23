@@ -1,0 +1,10 @@
+{
+  "id": "label-backed-medication-answers-citations",
+  "name": "label-backed-medication-answers-citations",
+  "description": "Label-backed medication answers with citations and traceable IDs. RxCUI/NDC/set_id, key label sections, optional recalls/shortages/FAERS/interactions.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.2.3",
+  "icon": "puzzle",
+  "order": 1000
+}

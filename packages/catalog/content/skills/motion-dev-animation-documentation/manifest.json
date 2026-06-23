@@ -1,0 +1,10 @@
+{
+  "id": "motion-dev-animation-documentation",
+  "name": "motion-dev-animation-documentation",
+  "description": "Complete Motion.dev documentation - modern animation library for React, JavaScript, and Vue (formerly Framer Motion)",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

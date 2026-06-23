@@ -1,0 +1,10 @@
+{
+  "id": "organize-automated-content-claims",
+  "name": "organize-automated-content-claims",
+  "description": "A calm way for creators to understand and organize automated content claims across platforms, so nothing important gets missed.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1",
+  "icon": "check-square",
+  "order": 1000
+}

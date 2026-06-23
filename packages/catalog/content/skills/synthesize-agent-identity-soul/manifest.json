@@ -1,0 +1,10 @@
+{
+  "id": "synthesize-agent-identity-soul",
+  "name": "synthesize-agent-identity-soul",
+  "description": "Automated soul synthesis for AI agents. Extracts identity from memory files, promotes recurring patterns to axioms (N>=3), generates SOUL.md with full provenance tracking. Bundled processing engine — no manual Q&A needed.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.4.5",
+  "icon": "bot",
+  "order": 1000
+}

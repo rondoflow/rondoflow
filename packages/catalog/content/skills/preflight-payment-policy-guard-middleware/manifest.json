@@ -1,0 +1,10 @@
+{
+  "id": "preflight-payment-policy-guard-middleware",
+  "name": "preflight-payment-policy-guard-middleware",
+  "description": "Payment guard middleware for AI agents. Use whenever any skill is about to initiate a payment. Runs a preflight check against the user's policy (payments enabled, per-transaction limit, monthly cap). Returns ALLOW, DENY, or CONFIRM_REQUIRED. Other payment-capable skills must cal…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

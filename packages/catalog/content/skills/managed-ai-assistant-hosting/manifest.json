@@ -1,0 +1,10 @@
+{
+  "id": "managed-ai-assistant-hosting",
+  "name": "managed-ai-assistant-hosting",
+  "description": "Your Own AI Personal Assistant, Set Up in 24 Hours. Managed OpenClaw hosting and setup service.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

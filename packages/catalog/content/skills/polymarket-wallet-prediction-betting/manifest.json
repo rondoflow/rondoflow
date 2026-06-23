@@ -1,0 +1,10 @@
+{
+  "id": "polymarket-wallet-prediction-betting",
+  "name": "polymarket-wallet-prediction-betting",
+  "description": "Use this skill to create a Polymarket wallet for your agent and trade on prediction markets. Browse markets, place bets, manage positions — all without exposing private keys.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.31",
+  "icon": "coins",
+  "order": 1000
+}

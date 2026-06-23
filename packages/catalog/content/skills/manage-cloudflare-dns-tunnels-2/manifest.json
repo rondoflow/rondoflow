@@ -1,0 +1,10 @@
+{
+  "id": "manage-cloudflare-dns-tunnels-2",
+  "name": "manage-cloudflare-dns-tunnels-2",
+  "description": "Manage Cloudflare DNS records, Tunnels (cloudflared), and Zero Trust policies. Use for pointing domains, exposing local services via tunnels, and updating ingress rules.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "server",
+  "order": 1000
+}

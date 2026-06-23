@@ -1,0 +1,10 @@
+{
+  "id": "affiliate-marketing-tool",
+  "name": "affiliate-marketing-tool",
+  "description": "Integrate AI-powered Amazon affiliate product recommendations into websites using affiliatematic.com. Use when you need to: (1) Add Amazon affiliate widgets to a website, (2) Set up automated product recommendations based on page content, (3) Optimize affiliate revenue with AI-p…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

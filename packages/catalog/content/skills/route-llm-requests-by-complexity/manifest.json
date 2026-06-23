@@ -1,0 +1,10 @@
+{
+  "id": "route-llm-requests-by-complexity",
+  "name": "route-llm-requests-by-complexity",
+  "description": "Intelligent LLM proxy that routes requests to appropriate models based on complexity. Save money by using cheaper models for simple tasks. Tested with Anthropic, OpenAI, Gemini, Kimi/Moonshot, and Ollama.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

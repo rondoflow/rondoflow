@@ -1,0 +1,10 @@
+{
+  "id": "build-monad-blockchain-dapps",
+  "name": "build-monad-blockchain-dapps",
+  "description": "Builds dapps on Monad blockchain. Use when deploying contracts, setting up frontends with viem/wagmi, or verifying contracts on Monad testnet or mainnet.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "creativity-other-perspectives",
+  "name": "creativity-other-perspectives",
+  "description": "Apply Edward de Bono's OPS (Other People's Shoes) tool to genuinely think from other perspectives. Use when the user needs to understand how others will respond to a decision, wants to anticipate objections, is designing something for other people, is in a conflict or negotiation, or needs to check whether they've considered the people affected by a situation. OPS is structured empathy — not sentiment, but reasoning.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

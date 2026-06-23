@@ -1,0 +1,10 @@
+{
+  "id": "author-agent-skill-files",
+  "name": "author-agent-skill-files",
+  "description": "Write high-quality agent skills (SKILL.md files) for ClawdHub/MoltHub. Use when creating a new skill from scratch, structuring skill content, writing effective frontmatter and descriptions, choosing section patterns, or following best practices for agent-consumable technical doc…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

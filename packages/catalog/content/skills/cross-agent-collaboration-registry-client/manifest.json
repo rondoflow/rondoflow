@@ -1,0 +1,10 @@
+{
+  "id": "cross-agent-collaboration-registry-client",
+  "name": "cross-agent-collaboration-registry-client",
+  "description": "Interact with the CrabNet cross-agent collaboration registry. Use when discovering other agents' capabilities, registering your own capabilities, posting tasks for other agents, claiming/delivering work, or searching for agents who can help with specific skills. Enables agent-to…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "avoid-common-terraform-mistakes",
+  "name": "avoid-common-terraform-mistakes",
+  "description": "Avoid common Terraform mistakes — state corruption, count vs for_each, lifecycle traps, and dependency ordering.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

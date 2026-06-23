@@ -1,0 +1,13 @@
+{
+  "id": "market-research",
+  "name": "Market Research",
+  "description": "Recurring market reports — trends, sizing, competitors, demand (e.g. monthly footwear research).",
+  "icon": "LineChart",
+  "category": "Research & Ops",
+  "purpose": "research",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch", "Read", "Write"],
+  "tags": ["market-research", "trends", "competitors", "industry", "monthly", "reports"],
+  "order": 19
+}

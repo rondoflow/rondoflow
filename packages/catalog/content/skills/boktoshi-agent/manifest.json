@@ -1,0 +1,10 @@
+{
+  "id": "boktoshi-agent",
+  "name": "boktoshi-agent",
+  "description": "**Free-to-play AI trading arena — watch an AI bot trade 24/7 and compete against it with play money.**",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

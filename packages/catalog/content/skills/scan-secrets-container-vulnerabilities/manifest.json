@@ -1,0 +1,10 @@
+{
+  "id": "scan-secrets-container-vulnerabilities",
+  "name": "scan-secrets-container-vulnerabilities",
+  "description": "Automated security auditing for OpenClaw projects. Scans for hardcoded secrets (API keys, tokens) and container vulnerabilities (CVEs) using Trivy. Provides structured reports to help maintain a clean and secure codebase.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "code",
+  "order": 1000
+}

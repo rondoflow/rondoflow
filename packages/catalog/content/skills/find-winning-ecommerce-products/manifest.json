@@ -1,0 +1,10 @@
+{
+  "id": "find-winning-ecommerce-products",
+  "name": "find-winning-ecommerce-products",
+  "description": "Meta-skill for finding e-commerce winning products by correlating social hype signals with marketplace competition data and preparing deployment-ready store listings. Use when users want trend scouting for dropshipping/white-label opportunities with explicit data gates and execu…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

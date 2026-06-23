@@ -1,0 +1,10 @@
+{
+  "id": "setup-application-observability-metrics",
+  "name": "setup-application-observability-metrics",
+  "description": "Set up observability for applications and infrastructure with metrics, logs, traces, and alerts.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "personal-genomics-analysis",
+  "name": "personal-genomics-analysis",
+  "description": "Comprehensive local DNA analysis with **1600+ markers** across **30 categories**. Privacy-first genetic analysis for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "4.2.0",
+  "icon": "bot",
+  "order": 1000
+}

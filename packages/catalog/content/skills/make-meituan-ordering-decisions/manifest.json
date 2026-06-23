@@ -1,0 +1,10 @@
+{
+  "id": "make-meituan-ordering-decisions",
+  "name": "make-meituan-ordering-decisions",
+  "description": "Use this skill when the user explicitly mentions 美团 or when the decision is really about local-density choice, fast delivery trade-offs, and whether a seemingly good promotion is worth acting on.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "puzzle",
+  "order": 1000
+}

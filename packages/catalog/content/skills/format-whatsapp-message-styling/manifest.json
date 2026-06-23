@@ -1,0 +1,10 @@
+{
+  "id": "format-whatsapp-message-styling",
+  "name": "format-whatsapp-message-styling",
+  "description": "Skill to ensure all messages sent to WhatsApp follow the platform's specific formatting syntax. It prevents markdown bloat and ensures a clean, mobile-first reading experience.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

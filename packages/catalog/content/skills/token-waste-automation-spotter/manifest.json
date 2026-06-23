@@ -1,0 +1,10 @@
+{
+  "id": "token-waste-automation-spotter",
+  "name": "token-waste-automation-spotter",
+  "description": "Identify tasks that waste tokens. Scripts don't hallucinate, don't cost per-run, and don't fail randomly. Spot automation opportunities and build them.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

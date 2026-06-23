@@ -1,0 +1,10 @@
+{
+  "id": "production-development-workflow-pr-tracking",
+  "name": "production-development-workflow-pr-tracking",
+  "description": "Production development workflow with TODO tracking, Graphite PRs, GitHub issues, Vercel deploy checks, and SMS notifications. Use when starting a new task, fixing bugs, implementing features, or any development work that needs tracked progress and code review.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

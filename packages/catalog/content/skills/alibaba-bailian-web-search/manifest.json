@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-bailian-web-search",
+  "name": "alibaba-bailian-web-search",
+  "description": "AI-optimized web search via Bailian(Alibaba ModelStdio) API. Returns multisourced, concise web search results for LLMs.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "globe",
+  "order": 1000
+}

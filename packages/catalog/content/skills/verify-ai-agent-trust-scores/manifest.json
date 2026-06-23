@@ -1,0 +1,10 @@
+{
+  "id": "verify-ai-agent-trust-scores",
+  "name": "verify-ai-agent-trust-scores",
+  "description": "Verify AI agents, check trust scores (0-100), fetch A2A agent cards, discover marketplace agents, apply guardrails for security and compliance. Use when user mentions agent verification, trust scores, agent discovery, A2A protocol, agent identity, agent marketplace, guardrails,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

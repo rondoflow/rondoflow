@@ -1,0 +1,10 @@
+{
+  "id": "economics-margin",
+  "name": "economics-margin",
+  "description": "Applies marginal thinking: the relevant decision is the next unit, not the average or the sunk cost. Triggers: 'should we do more of this', 'should we expand', 'should we cut', 'marginal cost', 'sunk cost', 'we've already invested so much', 'average cost', 'is this worth continuing', 'how much should we produce', 'at what point should we stop', any decision about quantity, scale, or whether to continue an existing commitment.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

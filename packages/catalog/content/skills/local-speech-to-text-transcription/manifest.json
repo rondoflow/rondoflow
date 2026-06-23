@@ -1,0 +1,10 @@
+{
+  "id": "local-speech-to-text-transcription",
+  "name": "local-speech-to-text-transcription",
+  "description": "Local speech-to-text with NVIDIA Parakeet TDT 0.6B v3 (ONNX on CPU). 30x faster than Whisper, 25 languages, auto-detection, OpenAI-compatible API. Use when transcribing audio files, converting speech to text, or processing voice recordings locally without cloud APIs.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

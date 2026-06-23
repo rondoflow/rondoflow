@@ -1,0 +1,10 @@
+{
+  "id": "book-tire-services",
+  "name": "book-tire-services",
+  "description": "Book tires services through Lokuli MCP. Use when user needs to find and book tires. Triggers on requests like \"book a tires\", \"find tires near me\", or any tires service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

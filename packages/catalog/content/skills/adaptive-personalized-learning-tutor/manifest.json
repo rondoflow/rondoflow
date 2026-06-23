@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-personalized-learning-tutor",
+  "name": "adaptive-personalized-learning-tutor",
+  "description": "Auto-learns how you learn best. Adapts teaching style, format, and depth to you.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

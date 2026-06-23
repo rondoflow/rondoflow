@@ -1,0 +1,10 @@
+{
+  "id": "chrome-devtools-mcp-automation",
+  "name": "chrome-devtools-mcp-automation",
+  "description": "Chrome DevTools MCP — Google's official browser automation and testing server. Control Chrome via Puppeteer through MCP protocol: click, fill forms, navigate, screenshot, performance traces, network inspection, console debugging. Use for browser testing, web automation, performa…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

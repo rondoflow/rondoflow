@@ -1,0 +1,10 @@
+{
+  "id": "color-typography-themes-for-artifacts",
+  "name": "color-typography-themes-for-artifacts",
+  "description": "Curated collection of professional color and typography themes for styling artifacts — slides, docs, reports, landing pages. Use when applying visual themes to presentations, generating themed content, or creating custom brand palettes. Triggers on theme, color palette, font pai…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-node-apps-with-pm2",
+  "name": "manage-node-apps-with-pm2",
+  "description": "Manage Node.js applications with PM2 process manager. Use for deploying, monitoring, and auto-restarting Node apps in production. Covers starting apps, viewing logs, setting up auto-start on boot, and managing multiple processes.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

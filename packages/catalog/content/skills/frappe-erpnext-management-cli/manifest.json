@@ -1,0 +1,10 @@
+{
+  "id": "frappe-erpnext-management-cli",
+  "name": "frappe-erpnext-management-cli",
+  "description": "CLI for Frappe Framework / ERPNext instances. Use when user asks about \"Frappe\", \"ERPNext\", \"doctypes\", \"Frappe API\", or needs to manage documents, files, reports, or call RPC methods on a Frappe site.",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

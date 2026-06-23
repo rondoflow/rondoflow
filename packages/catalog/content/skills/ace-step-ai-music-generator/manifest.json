@@ -1,0 +1,10 @@
+{
+  "id": "ace-step-ai-music-generator",
+  "name": "ace-step-ai-music-generator",
+  "description": "Generate AI music using ACE-Step 1.5 via ACE Music's free API. Use when the user asks to create, generate, or compose music, songs, beats, instrumentals, or audio tracks. Supports lyrics, style prompts, covers, and repainting. Free API, no cost.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

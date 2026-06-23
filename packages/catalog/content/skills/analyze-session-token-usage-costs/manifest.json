@@ -1,0 +1,10 @@
+{
+  "id": "analyze-session-token-usage-costs",
+  "name": "analyze-session-token-usage-costs",
+  "description": "Analyze OpenClaw session logs to report token usage, costs, and performance metrics grouped by agent and model. Use when the user asks about API spending, token usage, session costs, or wants a usage summary.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

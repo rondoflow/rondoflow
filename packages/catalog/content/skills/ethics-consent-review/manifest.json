@@ -1,0 +1,10 @@
+{
+  "id": "ethics-consent-review",
+  "name": "ethics-consent-review",
+  "description": "Review a UX flow, data practice, or communication pattern to verify that user consent is genuine — informed, voluntary, and meaningful. Use during design or implementation of checkout flows, onboarding, notification settings, permissions requests, terms of service, dark patterns, or any feature where users make choices about what they share or agree to. TRIGGERS: 'consent review', 'is this dark pattern', 'check this onboarding flow', 'is this consent genuine', any UX that involves users agreeing to something, sharing data, or opting in/out.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

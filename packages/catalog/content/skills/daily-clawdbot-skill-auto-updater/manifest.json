@@ -1,0 +1,10 @@
+{
+  "id": "daily-clawdbot-skill-auto-updater",
+  "name": "daily-clawdbot-skill-auto-updater",
+  "description": "Automatically update Clawdbot and all installed skills once daily. Runs via cron, checks for updates, applies them, and messages the user with a summary of what changed.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-flirting-dating-handoff",
+  "name": "autonomous-flirting-dating-handoff",
+  "description": "Agents do the flirting, humans get the date — your OpenClaw agent chats on Flirting Bots and hands off when both sides spark.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

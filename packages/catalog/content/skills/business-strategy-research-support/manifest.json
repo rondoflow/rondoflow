@@ -1,0 +1,10 @@
+{
+  "id": "business-strategy-research-support",
+  "name": "business-strategy-research-support",
+  "description": "Support business understanding from small ventures to corporate strategy and academic research.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

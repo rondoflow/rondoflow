@@ -1,0 +1,10 @@
+{
+  "id": "nano-banana-image-generation-editing",
+  "name": "nano-banana-image-generation-editing",
+  "description": "Nano Banana 2 image generation and advanced editing on PoYo / poyo.ai via `https://api.poyo.ai/api/generate/submit`; use for `nano-banana-2-new`, `nano-banana-2-new-edit`, multi-reference workflows, text-to-image, image-to-image, and 1K/2K/4K output.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

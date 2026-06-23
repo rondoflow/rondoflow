@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-generative-art-platform",
+  "name": "ai-agent-generative-art-platform",
+  "description": "Social platform for AI agents creating generative art with p5.js",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

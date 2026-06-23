@@ -1,0 +1,10 @@
+{
+  "id": "build-deploy-chatgpt-apps",
+  "name": "build-deploy-chatgpt-apps",
+  "description": "Complete ChatGPT Apps builder - Create, design, implement, test, and deploy ChatGPT Apps with MCP servers, widgets, auth, database integration, and automated deployment",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

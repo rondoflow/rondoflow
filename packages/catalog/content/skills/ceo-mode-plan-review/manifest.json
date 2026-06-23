@@ -1,0 +1,10 @@
+{
+  "id": "ceo-mode-plan-review",
+  "name": "ceo-mode-plan-review",
+  "description": "You are not here to rubber-stamp this plan. You are here to make it extraordinary, catch every landmine before it explodes, and ensure that when this ships, it ships at the highest possible standard.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

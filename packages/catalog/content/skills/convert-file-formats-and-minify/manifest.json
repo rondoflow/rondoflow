@@ -1,0 +1,10 @@
+{
+  "id": "convert-file-formats-and-minify",
+  "name": "convert-file-formats-and-minify",
+  "description": "File format converter. Detect formats, convert between JSON/YAML/XML/CSV/Markdown, minify and prettify code. Commands: detect, json2yaml, yaml2json, csv2md.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

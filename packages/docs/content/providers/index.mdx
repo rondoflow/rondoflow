@@ -1,0 +1,200 @@
+---
+title: AI Providers
+description: How each Assistant runs on a provider — Claude Code, OpenAI, or Perplexity — and how to use the Sakana AI transform node with model presets.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# AI Providers
+
+Every Assistant (internally an *Agent*) in RondoFlow runs on a **provider** — the backend that actually executes its prompts. You choose a provider and a model **per Assistant**, so a single Workspace (internally a *Canvas*) can mix a local Claude Code Assistant, a fast OpenAI Assistant, and a web-searching Perplexity Assistant in the same workflow.
+
+RondoFlow ships with three Assistant providers and one transform node:
+
+- **Claude Code** (default) — spawns (starts) the Claude Code CLI as a child process and streams its structured events.
+- **OpenAI** — talks to the OpenAI **Responses API** directly.
+- **Perplexity** — talks to the **Sonar** API (OpenAI-compatible chat completions).
+- **Sakana AI node** — calls Sakana AI chat completions inside a workflow step.
+
+The provider id is stored on each Assistant. An unset or unknown provider falls back to `claude-code`, so existing Assistants keep their original behavior.
+
+## How a provider is chosen
+
+You pick an Assistant provider by **which palette card (Card = Node) you drag onto the Workspace** — there is one card per Assistant provider:
+
+| Palette card | Provider | Palette icon |
+| --- | --- | --- |
+| **Assistant** | `claude-code` (default) | Bot |
+| **OpenAI Assistant** | `openai` | Sparkles |
+| **Perplexity Assistant** | `perplexity` | Globe |
+| **Sakana AI** | transform node (non-agent step) | Waves |
+
+The Assistant provider is **fixed at creation time**. The Assistant editor (the drawer that opens when you click a Card) derives the provider from the existing Assistant and shows it read-only — you can change the **model and tool toggles** there, but **not** the provider itself. To switch providers, create a new Assistant from the matching palette card.
+
+<Callout type="info">
+The OpenAI / Perplexity palette cards only appear once their credential is configured-or-not — they are always in the palette, but an Assistant on a provider whose key is missing fails fast at run time (see [Credentials](#credentials)). The palette is also tier-gated, but the interface complexity tier is currently pinned to **full**, so every card is shown.
+</Callout>
+
+Two values on each Assistant drive execution:
+
+- **`provider`** — one of `claude-code`, `openai`, or `perplexity`.
+- **`providerConfig`** — a small JSON object (model id + tool toggles) that applies only to API providers. Claude Code does not use it.
+
+```ts
+export type AgentProviderId = 'claude-code' | 'openai' | 'perplexity'
+export const DEFAULT_AGENT_PROVIDER: AgentProviderId = 'claude-code'
+```
+
+When you drag an API-provider card or edit one of these Assistants, RondoFlow fills in a default `providerConfig` for that provider (see [Per-Assistant configuration](#per-assistant-configuration) below).
+
+<Callout type="warning">
+`providerConfig` is **required** for the `openai` and `perplexity` providers. The create/update API rejects an API-provider Assistant that omits it (server-side validation: *"providerConfig is required when provider is …"*). The palette and editor supply a default automatically, so you only need to think about this if you create Assistants by calling the API directly — in that case include a `providerConfig`.
+</Callout>
+
+## Credentials
+
+Where the credential comes from depends on the provider.
+
+| Provider | Credential | Where to set it |
+| --- | --- | --- |
+| Claude Code | `ANTHROPIC_API_KEY` **or** `CLAUDE_CODE_OAUTH_TOKEN` | Project `.env` / Settings (forwarded to the spawned CLI) |
+| OpenAI | `OPENAI_API_KEY` | Settings → Credentials (OpenAI access) |
+| Perplexity | `PERPLEXITY_API_KEY` | Settings → Credentials (Perplexity access) |
+
+For Claude Code, the setup-token (`CLAUDE_CODE_OAUTH_TOKEN`, from `claude setup-token`) wins when both are set, and only the winning credential is forwarded to the CLI.
+
+For the API providers, the runner resolves the key from the forwarded environment at run time (the per-run env first, then `process.env`). If the key is missing, the Assistant fails fast with a clear message rather than starting a request:
+
+```text
+OPENAI_API_KEY is not configured. Add it in Settings → Credentials (OpenAI access).
+PERPLEXITY_API_KEY is not configured. Add it in Settings → Credentials (Perplexity access).
+```
+
+<Callout type="info">
+The Anthropic/Claude credentials live in the single root `.env` (and ship in `.env.example`). The OpenAI and Perplexity keys are **runtime-only credentials managed in Settings → Credentials** (encrypted in the database) — they are *not* in `.env.example` and aren't part of the [Configuration](/docs/getting-started/configuration) variable list. A manually-added `OPENAI_API_KEY` / `PERPLEXITY_API_KEY` environment variable still works as a fallback, but the supported path is Settings. See [Settings](/docs/guides/settings) for editing credentials in the UI.
+</Callout>
+
+## Comparison
+
+| Provider | How it runs | Web search | Deep research | Credential |
+| --- | --- | --- | --- | --- |
+| Claude Code | Spawns the Claude Code CLI (`--output-format stream-json`) | Via the CLI's own tools | Via the CLI's own tools | `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN` |
+| OpenAI | OpenAI **Responses API** (HTTP, streamed) | Optional toggle (`webSearch`) | Optional toggle (`deepResearch`) | `OPENAI_API_KEY` |
+| Perplexity | **Sonar** API (OpenAI-compatible chat completions) | Always on — every Sonar model searches | Optional toggle (`deepResearch`) | `PERPLEXITY_API_KEY` |
+
+## Per-Assistant configuration
+
+API providers share a single config shape, stored in the Assistant's `providerConfig` JSON column:
+
+```ts
+export interface ProviderConfig {
+  readonly model: string          // chat model id (ignored when deepResearch is on)
+  readonly webSearch: boolean
+  readonly deepResearch: boolean
+  readonly deepResearchModel?: string // optional explicit deep-research override
+}
+```
+
+- **`model`** — the model id sent to the provider. Claude Code ignores this; it uses the CLI's model selection.
+- **`webSearch`** — adds the web-search tool (OpenAI only). Ignored by providers whose model always searches, such as Perplexity Sonar.
+- **`deepResearch`** — auto-switches the request to the provider's dedicated deep-research model. For OpenAI it also forces web search on. Deep-research runs are agentic and slow, so the runner uses a wide 30-minute client timeout (vs. 10 minutes for regular chat).
+
+<Callout type="info">
+The Perplexity default config stores `webSearch: true` even though there is no web-search toggle in the editor — Sonar models always search, so the field is kept `true` only for shape consistency across providers. Don't be surprised to see it set if you inspect the stored JSON; it has no separate effect.
+</Callout>
+
+### Models
+
+The model catalogs are curated lists shown in the Assistant editor; the stored value is the raw model id, so the lists can grow without code changes elsewhere.
+
+**OpenAI** (default `gpt-5-mini`):
+
+| Model id | Label |
+| --- | --- |
+| `gpt-5.1` | GPT-5.1 — most capable general model |
+| `gpt-5` | GPT-5 — flagship reasoning model |
+| `gpt-5-mini` | GPT-5 mini — balanced speed and quality |
+| `gpt-5-nano` | GPT-5 nano — fastest and most cost-efficient |
+
+Deep-research models (selected automatically when `deepResearch` is on; default `o4-mini-deep-research-2025-06-26`): `o4-mini-deep-research-2025-06-26` (fast) and `o3-deep-research-2025-06-26` (thorough).
+
+**Perplexity** (default `sonar`):
+
+| Model id | Label |
+| --- | --- |
+| `sonar` | Sonar — fast, cost-effective search |
+| `sonar-pro` | Sonar Pro — production-quality multi-source synthesis |
+| `sonar-reasoning` | Sonar Reasoning — chain-of-thought reasoning |
+| `sonar-reasoning-pro` | Sonar Reasoning Pro — advanced analytical reasoning |
+
+When `deepResearch` is on, Perplexity uses `sonar-deep-research`. Sonar's base URL is `https://api.perplexity.ai`.
+
+**Sakana AI node** (default `sakana-chat`):
+
+| Model id |
+| --- |
+| `sakana-chat` |
+| `sakana-mini` |
+
+The Sakana AI node uses these as quick presets in the node drawer and still allows any custom model id.
+
+<Callout type="info">
+The exact model lists, defaults, and the `ProviderConfig` shape live in `packages/shared/src/provider.ts` — confirm there if you need the canonical, up-to-date values.
+</Callout>
+
+## A cross-engine verification pattern
+
+Because the provider is per-Assistant, a common pattern is **cross-checking one engine's output with another**: have a Claude Code Assistant do the main work, then route its result to an OpenAI or Perplexity Assistant that reviews or fact-checks it. RondoFlow ships ready-made Workspace presets for exactly this:
+
+- **OpenAI Cross-Check** — an OpenAI Assistant on `gpt-4.1` with web search on.
+- **Perplexity Cross-Check** — a Perplexity Assistant on `sonar-pro` (Sonar always searches).
+
+Drop one of these in alongside your Claude Code Assistant to get a second opinion from a different model family on the same task.
+
+## The shared runner abstraction
+
+The chain executor and process manager don't care *how* an Assistant runs — only that its runner exposes a common **event contract**: `text`, `tool_use`, `tool_result`, `usage`, `completion`, and `error`, plus `spawn` / `sendMessage` / `kill` and the `pid` / `isRunning` liveness signals the watchdog reads.
+
+A single factory picks the runner from the provider id:
+
+```ts
+export function createAgentRunner(provider: AgentProviderId | undefined): AgentRunner {
+  switch (provider) {
+    case 'openai':
+      return new OpenAIRunner()
+    case 'perplexity':
+      return new PerplexityRunner()
+    case 'claude-code':
+    default:
+      return new ClaudeCodeSpawner()
+  }
+}
+```
+
+- **Claude Code** uses `ClaudeCodeSpawner`, which already satisfies the runner surface by spawning the CLI.
+- **OpenAI** and **Perplexity** both extend **`StreamingApiRunner`**, a base class that owns the shared lifecycle: resolve the API key from the forwarded env, stream one request, map the provider's stream onto the event contract, estimate token cost, and abort cleanly on `kill()`. Each subclass implements only `runStream` (the provider-specific HTTP call and event mapping) and declares its key env var.
+
+Because every runner emits the same events, web search shows up the same way in the UI for all providers — for example, the Perplexity runner emits a synthetic `web_search` `tool_use` / `tool_result` pair so a Sonar search renders like any other search. Token usage events also carry a coarse cost estimate computed from a per-model rate table (the APIs don't return a dollar figure).
+
+<Callout type="warning">
+API runs have no OS process, so the runner's `pid` is `null`. The watchdog skips the pid liveness check for these and relies on `isRunning` instead. This is expected — it doesn't mean the Assistant has stalled.
+</Callout>
+
+## Provider pages
+
+<Cards>
+  <Cards.Card title="Claude Code" href="/docs/providers/claude-code" />
+  <Cards.Card title="OpenAI" href="/docs/providers/openai" />
+  <Cards.Card title="Perplexity" href="/docs/providers/perplexity" />
+  <Cards.Card title="Sakana AI" href="/docs/providers/sakana-ai" />
+</Cards>
+
+## Related
+
+<Cards>
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Settings" href="/docs/guides/settings" />
+  <Cards.Card title="Configuration" href="/docs/getting-started/configuration" />
+  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
+</Cards>

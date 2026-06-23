@@ -1,0 +1,10 @@
+{
+  "id": "book-hair-color-services",
+  "name": "book-hair-color-services",
+  "description": "Book color services through Lokuli MCP. Use when user needs to find and book color. Triggers on requests like \"book a color\", \"find color near me\", or any color service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

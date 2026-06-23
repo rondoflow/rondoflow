@@ -1,0 +1,10 @@
+{
+  "id": "linguistics-connotation",
+  "name": "linguistics-connotation",
+  "description": "Maps the emotional and political freight that words carry beyond their literal meaning. Use when you say 'this word feels wrong', 'what does this term really signal', 'is this word loaded', 'find a better word for this', 'what are the connotations of', 'why does this language feel off', or when word choice is creating unintended reactions.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

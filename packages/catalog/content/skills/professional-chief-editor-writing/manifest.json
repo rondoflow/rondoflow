@@ -1,0 +1,10 @@
+{
+  "id": "professional-chief-editor-writing",
+  "name": "professional-chief-editor-writing",
+  "description": "This skill provides specialized capabilities for chief editor.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "pencil",
+  "order": 1000
+}

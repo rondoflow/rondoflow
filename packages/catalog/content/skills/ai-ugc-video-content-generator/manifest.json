@@ -1,0 +1,10 @@
+{
+  "id": "ai-ugc-video-content-generator",
+  "name": "ai-ugc-video-content-generator",
+  "description": "Call the RawUGC API to generate AI videos/images/music, manage content (personas, products, styles, characters), schedule social media posts, research TikTok content, and analyze viral videos. Use when the user wants to interact with any RawUGC API endpoint.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.0.4",
+  "icon": "image",
+  "order": 1000
+}

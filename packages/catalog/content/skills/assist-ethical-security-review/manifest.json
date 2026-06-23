@@ -1,0 +1,10 @@
+{
+  "id": "assist-ethical-security-review",
+  "name": "assist-ethical-security-review",
+  "description": "Help with application security review, bug bounty workflows, recon, and secure coding while keeping things ethical and scoped. Think critically, use real sources only, and reference OWASP.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

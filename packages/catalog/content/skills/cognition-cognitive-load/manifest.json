@@ -1,0 +1,10 @@
+{
+  "id": "cognition-cognitive-load",
+  "name": "cognition-cognitive-load",
+  "description": "Manages the limits of working memory — chunking, offloading, and reducing unnecessary complexity to free capacity for what matters. Use when asked 'this is too complex to hold in my head', 'I keep losing track of where I am', 'how do I make this simpler to think about', 'the design is overwhelming', 'people aren't retaining this', or when information architecture, learning design, or communication complexity needs to be optimised for working memory limits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

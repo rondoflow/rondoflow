@@ -1,0 +1,10 @@
+{
+  "id": "generate-excalidraw-diagrams-from-text",
+  "name": "generate-excalidraw-diagrams-from-text",
+  "description": "Generate Excalidraw diagrams from natural language descriptions. Use when asked to \"create a diagram\", \"make a flowchart\", \"visualize a process\", \"draw a system architecture\", \"create a mind map\", or \"generate an Excalidraw file\". Supports flowcharts, relationship diagrams, mind…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

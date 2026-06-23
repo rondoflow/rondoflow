@@ -1,0 +1,67 @@
+/*
+ * RondoFlow docs theme overrides.
+ *
+ * Nextra ships its own theme; this file re-skins it into the same visual
+ * "family" as the main app (neutral palette, Geist fonts, dark-first) by
+ * overriding Nextra's CSS variables. It does NOT attempt a pixel-perfect clone
+ * of the app shell — only fonts, neutral accent, and dark background are aligned.
+ *
+ * App tokens mirrored from packages/ui/src/app/globals.css.
+ */
+
+:root {
+  /* Neutral (greyscale) primary to match the app's monochrome palette. */
+  --nextra-primary-hue: 0deg;
+  --nextra-primary-saturation: 0%;
+  --nextra-primary-lightness: 45%;
+}
+
+html {
+  font-family:
+    var(--font-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono), ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+/* Dark theme background/foreground aligned with the app (globals.css .dark). */
+.dark body {
+  background-color: hsl(0 0% 3.9%);
+  color: hsl(0 0% 98%);
+}
+
+/* Light theme background/foreground aligned with the app (globals.css :root). */
+html:not(.dark) body {
+  background-color: hsl(0 0% 100%);
+  color: hsl(0 0% 3.9%);
+}
+
+/* Navbar brand mark — the rounded "O" logo used across the app. */
+.rf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.rf-logo-mark {
+  display: inline-flex;
+  height: 1.5rem;
+  width: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background: hsl(0 0% 9%);
+  color: hsl(0 0% 98%);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.dark .rf-logo-mark {
+  background: hsl(0 0% 98%);
+  color: hsl(0 0% 9%);
+}

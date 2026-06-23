@@ -1,0 +1,10 @@
+{
+  "id": "decision-criteria-weighting",
+  "name": "decision-criteria-weighting",
+  "description": "Runs a weighted multi-criteria analysis — making explicit what matters, how much, and how each option performs against it. Triggers: 'weighted decision matrix', 'multi-criteria analysis', 'help me choose between', 'compare these options', 'decision matrix'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

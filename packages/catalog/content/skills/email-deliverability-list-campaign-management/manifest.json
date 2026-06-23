@@ -1,0 +1,10 @@
+{
+  "id": "email-deliverability-list-campaign-management",
+  "name": "email-deliverability-list-campaign-management",
+  "description": "Email deliverability, list management, sequences, segmentation, and campaign optimization.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

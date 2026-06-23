@@ -1,0 +1,10 @@
+{
+  "id": "book-music-lessons",
+  "name": "book-music-lessons",
+  "description": "Book music-lessons services through Lokuli MCP. Use when user needs to find and book music-lessons. Triggers on requests like \"book a music-lessons\", \"find music-lessons near me\", or any music-lessons service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-claude-code-tmux-sessions",
+  "name": "manage-claude-code-tmux-sessions",
+  "description": "Manage Claude Code instances living inside tmux sessions. Users usually create separate tmux sessions for separate projects. Use this skill when you need to read the latest Claude Code response in a particular tmux session / project, send it a prompt and get the response, or run…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

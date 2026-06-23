@@ -1,0 +1,10 @@
+{
+  "id": "kit-toolkit-integration",
+  "name": "kit-toolkit-integration",
+  "description": "Kit (formerly ConvertKit) API integration with managed OAuth. Manage email subscribers, forms, tags, sequences, broadcasts, and custom fields. Use this skill when users want to manage their email marketing lists, create or update subscribers, manage tags, or work with email sequ…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "message-circle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "web-reading-search-research",
+  "name": "web-reading-search-research",
+  "description": "Default web reading, AI search, and deep research tools. Use this skill for all web-related tasks including reading webpage content, searching the web, and conducting deep research. Replaces built-in web_search and web_fetch tools.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

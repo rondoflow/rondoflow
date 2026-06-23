@@ -1,0 +1,10 @@
+{
+  "id": "ai-image-video-generation-api",
+  "name": "ai-image-video-generation-api",
+  "description": "Generate images or videos via AIMLAPI from prompts. Use when Codex needs reliable AI/ML API media generation with retries, explicit User-Agent headers, and async video polling.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

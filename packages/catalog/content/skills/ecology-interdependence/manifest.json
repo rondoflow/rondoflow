@@ -1,0 +1,10 @@
+{
+  "id": "ecology-interdependence",
+  "name": "ecology-interdependence",
+  "description": "Maps dependency webs and the cascading effects of removing or changing a node in the web. Use when asked 'who depends on whom', 'what cascades if we change X', 'downstream effects', 'what holds this together', 'ripple effects', or 'what breaks if we remove this'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

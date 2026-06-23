@@ -1,0 +1,10 @@
+{
+  "id": "book-hair-braiding-services",
+  "name": "book-hair-braiding-services",
+  "description": "Book braids services through Lokuli MCP. Use when user needs to find and book braids. Triggers on requests like \"book a braids\", \"find braids near me\", or any braids service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

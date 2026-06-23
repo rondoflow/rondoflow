@@ -1,0 +1,10 @@
+{
+  "id": "trade-polymarket-fast-btc-markets",
+  "name": "trade-polymarket-fast-btc-markets",
+  "description": "Trade Polymarket BTC 5-minute and 15-minute fast markets using CEX price momentum signals via Simmer API. Default signal is Binance BTC/USDT klines. Use when user wants to trade sprint/fast markets, automate short-term crypto trading, or use CEX momentum as a Polymarket signal.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.5.2",
+  "icon": "coins",
+  "order": 1000
+}

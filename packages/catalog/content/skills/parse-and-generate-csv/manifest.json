@@ -1,0 +1,10 @@
+{
+  "id": "parse-and-generate-csv",
+  "name": "parse-and-generate-csv",
+  "description": "Parse and generate RFC 4180 compliant CSV that works across tools.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "creativity-plus-minus-interesting",
+  "name": "creativity-plus-minus-interesting",
+  "description": "Apply Edward de Bono's Plus/Minus/Interesting (PMI) tool for balanced evaluation of any idea, proposal, plan, or decision. Use when the user wants to evaluate something fairly, is tempted to immediately accept or reject an idea, needs to think through pros and cons more carefully, or wants to avoid snap judgments. Plus/Minus/Interesting is the antidote to confirmation bias in evaluation.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

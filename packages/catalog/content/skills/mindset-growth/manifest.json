@@ -1,0 +1,10 @@
+{
+  "id": "mindset-growth",
+  "name": "mindset-growth",
+  "description": "Applies Carol Dweck's growth mindset research as a practical methodology — the actual mechanics, not the motivational poster version. Use when you're treating failure as evidence about your identity, avoiding challenges because of what failure would mean, comparing yourself to others in a way that deflates rather than inspires, or struggling to persist in areas where you're not naturally good. Triggers: 'growth mindset', 'I hate not being good at things', 'failure feels personal', 'I avoid things I might fail at', 'I feel stupid when I struggle', 'fixed mindset', 'talent vs. effort'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

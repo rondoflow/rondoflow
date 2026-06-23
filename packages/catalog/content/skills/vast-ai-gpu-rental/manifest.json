@@ -1,0 +1,10 @@
+{
+  "id": "vast-ai-gpu-rental",
+  "name": "vast-ai-gpu-rental",
+  "description": "This skill allows you to provision on-demand GPU infrastructure. You must have a user-provided API Key before performing write actions.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

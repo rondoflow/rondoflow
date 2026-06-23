@@ -1,0 +1,10 @@
+{
+  "id": "radarr-sonarr-lidarr-media-manager",
+  "name": "radarr-sonarr-lidarr-media-manager",
+  "description": "Unified command-line interface for Radarr, Sonarr, and Lidarr. Search, add, and manage movies (Radarr), TV shows (Sonarr), and music (Lidarr) with calendar view and health monitoring.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

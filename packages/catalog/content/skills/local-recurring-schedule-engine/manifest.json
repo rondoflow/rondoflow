@@ -1,0 +1,10 @@
+{
+  "id": "local-recurring-schedule-engine",
+  "name": "local-recurring-schedule-engine",
+  "description": "Local-first recurring schedule engine for reminders, repeated tasks, and time-based execution plans. Use whenever the user mentions recurring timing, repetition, schedules, cadence, weekly/daily/monthly routines, future triggers, or wants to know what runs next. Captures natural…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

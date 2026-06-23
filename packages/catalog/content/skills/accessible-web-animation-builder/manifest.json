@@ -1,0 +1,10 @@
+{
+  "id": "accessible-web-animation-builder",
+  "name": "accessible-web-animation-builder",
+  "description": "Create performant web animations with proper accessibility and timing.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

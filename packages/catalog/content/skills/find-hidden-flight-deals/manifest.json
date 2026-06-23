@@ -1,0 +1,10 @@
+{
+  "id": "find-hidden-flight-deals",
+  "name": "find-hidden-flight-deals",
+  "description": "Find hidden flight deals by comparing prices across 10+ booking sites. Trigger when users share flight prices from any booking site (Skyscanner, Kayak, Google Flights, etc.) or upload flight screenshots. Returns ranked results with booking links and savings calculations.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

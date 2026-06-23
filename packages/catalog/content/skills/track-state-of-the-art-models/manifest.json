@@ -1,0 +1,10 @@
+{
+  "id": "track-state-of-the-art-models",
+  "name": "track-state-of-the-art-models",
+  "description": "**The definitive open-source database of State-of-the-Art AI models.**",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

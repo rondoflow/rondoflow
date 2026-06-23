@@ -1,0 +1,10 @@
+{
+  "id": "edit-trim-merge-convert-video",
+  "name": "edit-trim-merge-convert-video",
+  "description": "Video editing operations for cutting, merging, converting, and processing video files.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

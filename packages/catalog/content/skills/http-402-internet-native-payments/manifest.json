@@ -1,0 +1,10 @@
+{
+  "id": "http-402-internet-native-payments",
+  "name": "http-402-internet-native-payments",
+  "description": "Internet-native payments using the HTTP 402 Payment Required standard. Set up as a buyer to pay for API access, or as a seller to monetize your APIs.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

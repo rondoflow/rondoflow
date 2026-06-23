@@ -1,0 +1,10 @@
+{
+  "id": "software-architecture-patterns",
+  "name": "software-architecture-patterns",
+  "description": "Backend architecture patterns for building maintainable, testable systems: Clean Architecture, Hexagonal Architecture, and Domain-Driven Design.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

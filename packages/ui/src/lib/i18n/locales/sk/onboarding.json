@@ -1,0 +1,113 @@
+{
+  "wizard": {
+    "title": "Vitajte v rondoflow"
+  },
+  "coaching": {
+    "dismiss": "Zavrieť tip"
+  },
+  "checklist": {
+    "title": "Začíname",
+    "progress": "{{done}}/{{total}}",
+    "addNode": "Pridajte asistenta na plátno",
+    "connectNodes": "Spojte dva uzly",
+    "runWorkflow": "Spustite svoj workflow",
+    "done": "Skvelá práca — vytvorili a spustili ste svoj prvý workflow! 🎉",
+    "dismiss": "Zavrieť zoznam",
+    "collapse": "Zbaliť",
+    "expand": "Rozbaliť"
+  },
+  "action": {
+    "continue": "Pokračovať",
+    "skip": "Preskočiť",
+    "browse": "Prehľadávať",
+    "go": "Prejsť"
+  },
+  "directory": {
+    "heading": "Kde sa nachádza váš kód?",
+    "description": "rondoflow pracuje s vašimi lokálnymi súbormi prostredníctvom Claude Code. Nasmerujte ho na priečinok vášho projektu.",
+    "placeholder": "/home/user/projects/my-app",
+    "hint": "Toto je možné neskôr zmeniť v nastaveniach pracovného priestoru.",
+    "error": {
+      "required": "Na fungovanie rondoflow je potrebný pracovný priečinok."
+    },
+    "cli": {
+      "checking": "Kontroluje sa Claude Code CLI...",
+      "detected": "Claude Code zistené",
+      "notDetected": "Claude Code nebolo zistené — najprv ho nainštalujte",
+      "installHint": "Spustite:",
+      "checkAgain": "Skontrolovať znova"
+    },
+    "auth": {
+      "missing": "Zatiaľ nie sú nakonfigurované žiadne poverenia Claude",
+      "hintSet": "Nastavte",
+      "hintOrRun": ", alebo spustite",
+      "hintAndSet": "a nastavte",
+      "hintTail": "na používanie vášho predplatného Claude. Môžete ho pridať aj neskôr v nastaveniach."
+    }
+  },
+  "workMode": {
+    "heading": "Ako chcete pracovať?",
+    "description": "Vyberte si, koľko kontroly chcete mať. Režimy môžete kedykoľvek zmeniť v nastaveniach.",
+    "quick": {
+      "title": "Rýchly štart",
+      "description": "Opíšte, čo chcete, a rondoflow sa postará o zvyšok. Najvhodnejšie na vyskúšanie."
+    },
+    "full": {
+      "title": "Plná kontrola",
+      "description": "Vytvárajte tímy asistentov so zručnosťami, bezpečnostnými pravidlami a vlastnými pracovnými postupmi. Pre pokročilých používateľov."
+    }
+  },
+  "firstAction": {
+    "heading": "Opíš úlohu.",
+    "headingAccent": "Priestor sa zostaví sám.",
+    "description": "Napíš, čo treba spraviť — ešte pred spustením uvidíš, akí asistenti vzniknú a ako sa prepoja.",
+    "taskPlaceholder": "napr. Zhrň konkurenciu a pošli report e-mailom",
+    "taskAriaLabel": "Opíšte, čo chcete vytvoriť",
+    "generating": "Generuje sa...",
+    "divider": "alebo",
+    "suggest": {
+      "research": "Prešetri trh a priprav report",
+      "review": "Skontroluj pull request a navrhni opravy",
+      "data": "Spracuj CSV, vyčisti dáta a ulož ich"
+    },
+    "gallery": {
+      "heading": "Šablóny",
+      "hint": "alebo opíš úlohu vľavo a my ju zostavíme"
+    },
+    "preview": {
+      "heading": "Náhľad",
+      "live": "skladám",
+      "idle": "náhľad",
+      "caption": "Približne to, čo zostavíme — po vytvorení môžeš upraviť.",
+      "start": "Vstup úlohy",
+      "output": "Výsledok",
+      "email": "Report e-mailom"
+    },
+    "template": {
+      "title": "Začať zo šablóny",
+      "subtitle": "Vopred pripravené pracovné postupy"
+    },
+    "create": {
+      "title": "Vytvoriť asistenta",
+      "subtitle": "Vytvoriť od základu"
+    }
+  },
+  "toast": {
+    "dismiss": "Zavrieť"
+  },
+  "folderPicker": {
+    "title": "Vybrať priečinok projektu",
+    "pathPlaceholder": "Zadajte cestu...",
+    "home": "Domov",
+    "up": "Nahor",
+    "git": "git",
+    "homeAriaLabel": "Prejsť do domovského priečinka",
+    "upAriaLabel": "Prejsť do nadradeného priečinka",
+    "empty": "Žiadne podpriečinky",
+    "footerHint": "Dvojitým kliknutím vstúpite do priečinka. Kliknutím na „Vybrať“ použijete aktuálny priečinok.",
+    "select": "Vybrať tento priečinok",
+    "error": {
+      "browse": "Nepodarilo sa prehľadať priečinok"
+    }
+  }
+}

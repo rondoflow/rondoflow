@@ -1,0 +1,10 @@
+{
+  "id": "control-spotify-from-terminal",
+  "name": "control-spotify-from-terminal",
+  "description": "Terminal Spotify playback/search via spogo (preferred) or spotify_player.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

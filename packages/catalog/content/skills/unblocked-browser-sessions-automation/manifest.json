@@ -1,0 +1,10 @@
+{
+  "id": "unblocked-browser-sessions-automation",
+  "name": "unblocked-browser-sessions-automation",
+  "description": "Spin up unblocked browser sessions via Browser.cash for web automation. Sessions bypass anti-bot protections (Cloudflare, DataDome, etc.) making them ideal for scraping and automation.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

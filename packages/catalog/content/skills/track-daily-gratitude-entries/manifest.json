@@ -1,0 +1,10 @@
+{
+  "id": "track-daily-gratitude-entries",
+  "name": "track-daily-gratitude-entries",
+  "description": "Build gratitude practice with daily entries, streaks, and reflection prompts",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

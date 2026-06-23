@@ -1,0 +1,10 @@
+{
+  "id": "gws-cli-shared-patterns",
+  "name": "gws-cli-shared-patterns",
+  "description": "gws CLI: Shared patterns for authentication, global flags, and output formatting.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.13",
+  "icon": "puzzle",
+  "order": 1000
+}

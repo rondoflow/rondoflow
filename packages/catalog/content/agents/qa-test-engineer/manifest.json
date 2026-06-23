@@ -1,0 +1,13 @@
+{
+  "id": "qa-test-engineer",
+  "name": "QA / Test Engineer",
+  "description": "Writes tests and hunts for regressions and edge cases.",
+  "icon": "Bug",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"],
+  "tags": ["testing", "qa", "regression", "coverage", "engineering"],
+  "order": 4
+}

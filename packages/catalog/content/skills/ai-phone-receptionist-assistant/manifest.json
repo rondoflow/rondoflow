@@ -1,0 +1,10 @@
+{
+  "id": "ai-phone-receptionist-assistant",
+  "name": "ai-phone-receptionist-assistant",
+  "description": "AI phone assistant and virtual receptionist for OpenClaw. Answers inbound phone calls, screens callers, makes outbound phone calls, and books appointments — all over Twilio + OpenAI Realtime voice. Full telephone workflow: phone call screening, live call transcripts, CRM contact…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "5.5.7",
+  "icon": "bot",
+  "order": 1000
+}

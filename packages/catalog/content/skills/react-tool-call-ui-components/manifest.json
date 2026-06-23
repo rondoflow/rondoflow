@@ -1,0 +1,10 @@
+{
+  "id": "react-tool-call-ui-components",
+  "name": "react-tool-call-ui-components",
+  "description": "Tool lifecycle components from [ui.inference.sh](https://ui.inference.sh).",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.5",
+  "icon": "bot",
+  "order": 1000
+}

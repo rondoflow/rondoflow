@@ -1,0 +1,10 @@
+{
+  "id": "us-stock-analysis-with-ai",
+  "name": "us-stock-analysis-with-ai",
+  "description": "Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

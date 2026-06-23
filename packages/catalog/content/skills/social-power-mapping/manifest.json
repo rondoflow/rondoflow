@@ -1,0 +1,10 @@
+{
+  "id": "social-power-mapping",
+  "name": "social-power-mapping",
+  "description": "Maps who holds power — formal authority, informal influence, gatekeeping, expertise — and how it flows. Triggers: 'power map', 'who has power here', 'who actually decides', 'map the politics', 'who do I need to get on board', 'who are the gatekeepers'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

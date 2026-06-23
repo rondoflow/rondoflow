@@ -1,0 +1,10 @@
+{
+  "id": "trpc-router-setup-guidance",
+  "name": "trpc-router-setup-guidance",
+  "description": "Expert guidance for tRPC (TypeScript Remote Procedure Call) including router setup, procedures, middleware, context, client configuration, and Next.js integration. Use this when building type-safe APIs, integrating tRPC with Next.js, or implementing client-server communication w…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

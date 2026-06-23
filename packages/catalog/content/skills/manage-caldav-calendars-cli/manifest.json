@@ -1,0 +1,10 @@
+{
+  "id": "manage-caldav-calendars-cli",
+  "name": "manage-caldav-calendars-cli",
+  "description": "Manage CalDAV calendars (iCloud, Google, Yandex) from the command line. Supports OAuth2 and Basic auth, multi-account, table/JSON output.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.5",
+  "icon": "puzzle",
+  "order": 1000
+}

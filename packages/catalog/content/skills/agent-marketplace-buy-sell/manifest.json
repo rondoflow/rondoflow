@@ -1,0 +1,10 @@
+{
+  "id": "agent-marketplace-buy-sell",
+  "name": "agent-marketplace-buy-sell",
+  "description": "Agent-to-agent marketplace. Buy and sell anything — skills, data, compute, APIs, and more — with real SOL.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

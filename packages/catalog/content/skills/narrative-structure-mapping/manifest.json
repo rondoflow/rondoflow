@@ -1,0 +1,10 @@
+{
+  "id": "narrative-structure-mapping",
+  "name": "narrative-structure-mapping",
+  "description": "Applies story architecture to any communication — proposal, presentation, strategy doc — so it moves people rather than informing them. Use when asked to 'structure this as a story', 'make this compelling', 'narrative arc', 'how do I present this', or 'story structure'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

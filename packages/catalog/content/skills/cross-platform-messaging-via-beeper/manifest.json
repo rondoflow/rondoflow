@@ -1,0 +1,10 @@
+{
+  "id": "cross-platform-messaging-via-beeper",
+  "name": "cross-platform-messaging-via-beeper",
+  "description": "Use when sending messages, searching chats, or managing conversations across messaging platforms (Telegram, WhatsApp, Slack, iMessage, etc.) via Beeper Desktop API.",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "message-circle",
+  "order": 1000
+}

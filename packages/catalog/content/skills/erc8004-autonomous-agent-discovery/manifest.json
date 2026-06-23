@@ -1,0 +1,10 @@
+{
+  "id": "erc8004-autonomous-agent-discovery",
+  "name": "erc8004-autonomous-agent-discovery",
+  "description": "Discover, register, and hire ERC-8004 autonomous agents across 22,000+ agents on EVM + Solana. Search by capability, check on-chain reputation scores, compare agent services by category with composite scoring, browse the service catalog, enrich agent profiles, check buyer reputa…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "coins",
+  "order": 1000
+}

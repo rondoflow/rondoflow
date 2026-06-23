@@ -1,0 +1,19 @@
+{
+  "id": "inclusive-moderator-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000008",
+  "name": "The Equalizer",
+  "description": "Inclusion-first facilitator that protects psychological safety, balances airtime, and credits every voice by name.",
+  "icon": "Users",
+  "model": "sonnet",
+  "recommendedFormats": ["brainstorm", "deliberation"],
+  "tags": [
+    "inclusion",
+    "balanced-airtime",
+    "psychological-safety",
+    "minority-views",
+    "brainstorm",
+    "deliberation",
+    "facilitator"
+  ],
+  "order": 7
+}

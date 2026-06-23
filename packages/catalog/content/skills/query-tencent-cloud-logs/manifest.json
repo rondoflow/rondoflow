@@ -1,0 +1,10 @@
+{
+  "id": "query-tencent-cloud-logs",
+  "name": "query-tencent-cloud-logs",
+  "description": "Query and analyze Tencent Cloud CLS logs",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "break-impulse-buying-track-savings",
+  "name": "break-impulse-buying-track-savings",
+  "description": "Break impulse buying habits with spending streaks, urge tracking, and savings milestones",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

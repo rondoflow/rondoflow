@@ -1,0 +1,10 @@
+{
+  "id": "architectural-understanding-guide",
+  "name": "architectural-understanding-guide",
+  "description": "Support architectural understanding from home projects to professional practice and theory.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

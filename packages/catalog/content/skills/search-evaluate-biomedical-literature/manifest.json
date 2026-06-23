@@ -1,0 +1,10 @@
+{
+  "id": "search-evaluate-biomedical-literature",
+  "name": "search-evaluate-biomedical-literature",
+  "description": "Search and evaluate biomedical literature with effective queries, filters, and critical appraisal.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

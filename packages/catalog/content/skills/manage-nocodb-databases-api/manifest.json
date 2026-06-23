@@ -1,0 +1,10 @@
+{
+  "id": "manage-nocodb-databases-api",
+  "name": "manage-nocodb-databases-api",
+  "description": "Access and manage NocoDB databases via REST APIs. Free plans support bases, tables, fields, records, links, filters, sorts, and attachments. Enterprise plans add workspaces, views, scripts, teams, and collaboration features.",
+  "category": "Development",
+  "author": "community",
+  "version": "0.0.2",
+  "icon": "code",
+  "order": 1000
+}

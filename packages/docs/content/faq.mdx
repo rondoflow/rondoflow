@@ -1,0 +1,145 @@
+---
+title: FAQ & Troubleshooting
+description: Answers to common RondoFlow questions and fixes for the issues you are most likely to hit.
+---
+
+import { Callout } from 'nextra/components'
+
+# FAQ & Troubleshooting
+
+Quick answers to the questions that come up most often, plus fixes for the errors you are most likely to run into. Each answer links to the deeper guide where relevant.
+
+## The Claude Code CLI isn't detected
+
+RondoFlow runs Claude-backed Assistants (agents) by starting the Claude Code CLI as a subprocess, so the CLI must be installed and on the server's `PATH`. When it is missing, RondoFlow shows a yellow banner across the top of the Workspace (canvas):
+
+> **Claude Code CLI not found** — RondoFlow requires Claude Code to run agents. Install it with:
+
+To fix it:
+
+1. Install the CLI:
+
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+2. Authenticate it — set an `ANTHROPIC_API_KEY`, or run `claude setup-token` and set `CLAUDE_CODE_OAUTH_TOKEN` (also configurable in Settings → Credentials).
+3. Click **Check Again** in the banner. The banner also carries an **Install Guide** link to Anthropic's Claude Code docs.
+
+Under the hood, the server's prerequisites probe runs `claude --version` and reports a `Claude Code CLI` check via the `/api/health` endpoint (and pushes a `prerequisites` event over Socket.IO on connect). The banner's **Check Again** button re-calls `/api/health`. A missing CLI is a warning, not a hard blocker for the rest of the app — but Claude-backed Assistants cannot run until it is detected.
+
+<Callout type="info">
+  The CLI must be on the **server's** `PATH` (the process that spawns it), not just your shell. In Docker, that means it has to be installed in the server container.
+</Callout>
+
+See [Installation](/docs/getting-started/installation) and the [Claude Code provider](/docs/providers/claude-code) for details.
+
+## Agents produce empty output
+
+When an Assistant finishes but returns nothing, it is almost always one of these causes:
+
+| Cause | What's happening | Fix |
+| --- | --- | --- |
+| **Running as root with bypass** | The CLI refuses `--dangerously-skip-permissions` (what the `bypassPermissions` Safety Rule mode maps to) under root/sudo unless the environment is marked sandboxed. Server deployments often run as root in a container, so headless runs (chains, discussions, loops) exit with no output. | RondoFlow sets `IS_SANDBOX=1` automatically for exactly this case. If you spawn the CLI yourself, set `IS_SANDBOX=1`. |
+| **Empty prompt** | The CLI requires a non-empty prompt operand. RondoFlow fails fast with a clear error: an upstream step produced no text to forward, or the initial task message was blank. | Check that the previous Card (node) actually produced output, and that your task message isn't empty. |
+| **Bad or missing credential** | With no credential forwarded, the CLI falls back to stored credentials in `~/.claude`. A clean container has none, so every run returns a 401 — reported as a successful but empty result. | Configure a valid Claude credential (see below). |
+| **Silent idle-timeout kill** | A run that streams no event for `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` (default 5 minutes; set `0` to disable) is killed and surfaced as a `TIMEOUT_ERROR`. This is the mechanism that reaps stalled headless runs — for example a scheduled `plan`-mode prompt that never emits a turn. | Give long-running Assistants more headroom by raising the timeout, or simplify the task so the CLI streams output sooner. |
+
+<Callout type="info">
+  **DAG vs. Director matters here.** In parallel (DAG) chains, an Assistant step that completes with empty output is **rejected** as an error rather than passed along — an empty string would silently poison every downstream step. Director (sequential) mode deliberately allows empty output so it can redirect or retry. So "a step failed because it produced nothing" is expected DAG behavior, not a bug. See [Workflows](/docs/guides/workflows) and [Data Nodes](/docs/guides/data-nodes).
+</Callout>
+
+To trace exactly what happened, set the spawn debug flag and re-run:
+
+```env
+RONDOFLOW_DEBUG_SPAWN=1
+```
+
+This logs the full CLI lifecycle to the server log — the resolved command and arguments, which credential was forwarded (masked), every stdout line and parsed stream event, stderr, and the exit code. Even without the flag, RondoFlow logs a compact diagnostic line on every failed or empty run (exit code, model, permission mode, prompt length, and the stream events it saw).
+
+See [Monitoring](/docs/guides/monitoring) and [Safety Rules](/docs/guides/safety-rules).
+
+## Which Claude credential is used?
+
+RondoFlow accepts either an Anthropic API key or a Claude Code setup token, but forwards **exactly one** to the CLI:
+
+- A setup token (`CLAUDE_CODE_OAUTH_TOKEN`, from `claude setup-token`, which bills against your Claude subscription) **wins** over an API key (`ANTHROPIC_API_KEY`).
+- Only the winning credential is forwarded to the spawned CLI — an ambient API key can't silently override the token you chose.
+- If neither is set, the CLI falls back to whatever is stored in `~/.claude`.
+
+This precedence is applied identically everywhere RondoFlow invokes Claude. Set credentials in the root `.env` or in Settings → Credentials.
+
+See [Configuration](/docs/getting-started/configuration).
+
+## Can I use OpenAI or Perplexity instead of Claude?
+
+Yes. Provider is chosen **per Assistant**, so you can mix Claude, OpenAI, and Perplexity agents in the same Workspace.
+
+1. Add the key in **Settings → Credentials**:
+   - OpenAI → `OPENAI_API_KEY`
+   - Perplexity → `PERPLEXITY_API_KEY`
+2. Drag the **OpenAI Assistant** or **Perplexity Assistant** card from the palette onto the Workspace. The provider is fixed by *which card you drag* and **cannot be changed later** — the editor's provider is read-only, so a Claude Assistant can't be converted to OpenAI/Perplexity in place (drag the right card instead). Then open the Assistant's editor to pick a model and toggle **Web search** / **Deep research**.
+
+| Provider | Example models | Notes |
+| --- | --- | --- |
+| OpenAI | `gpt-4.1`, `gpt-4.1-mini` (default), `gpt-4o`, `o4-mini` | Talks to the Responses API; supports a deep-research mode. |
+| Perplexity | `sonar` (default), `sonar-pro`, `sonar-reasoning`, `sonar-reasoning-pro` | Every Sonar model searches the web natively. |
+
+<Callout type="info">
+  OpenAI and Perplexity Assistants run as direct API calls — they do **not** require the Claude Code CLI. Only Claude-backed Assistants do.
+</Callout>
+
+<Callout type="warning">
+  The `OPENAI_API_KEY` and `PERPLEXITY_API_KEY` variables are **not** in `.env.example` — they are runtime credentials. Add them in **Settings → Credentials**; copying `.env.example` alone won't enable these providers.
+</Callout>
+
+See [Providers](/docs/providers), [OpenAI](/docs/providers/openai), and [Perplexity](/docs/providers/perplexity).
+
+## How do I make agents work on my real code?
+
+Point RondoFlow at your project folder using **External Folders**. Each Workspace is tied to a working directory, and the folder is passed to the CLI so Assistants can read and edit your real files.
+
+See [External Folders](/docs/guides/external-folders) and [Git](/docs/guides/git) for branch and commit workflows.
+
+## How do I capture a workflow's output — to a file, an email, or a database?
+
+Drop a data-pipeline Card at the end of your chain. RondoFlow has five of them:
+
+| Card | What it does |
+| --- | --- |
+| **Output** | Writes the run's combined Assistant output to a file (Markdown / HTML / raw). |
+| **Email** | Emails the combined output via SMTP — opt-in, so building a workflow never sends mail. |
+| **Condition** | A pure router: branches the chain by matching upstream output. |
+| **Structure** (Structurer) | Turns Assistant prose into a typed dataset (parse or AI extraction). |
+| **Save to DB** | Persists that dataset; view and export it as CSV from the Saved Datasets panel. |
+
+These sit alongside the agent Cards in the palette. See the dedicated [Data Nodes](/docs/guides/data-nodes) guide for connection rules, formats, and configuration.
+
+## Where are runs, costs, and the audit log?
+
+Everything an Assistant does is recorded. Look in the run-data panels (under the user menu):
+
+- **Activity** — what ran, when, and the streamed output.
+- **Analytics** — token usage and estimated cost per run (RondoFlow prices usage from the model when the CLI doesn't report it).
+- **Audit Log** — security-relevant events, including approvals and rejections.
+
+See [Monitoring](/docs/guides/monitoring).
+
+## How is /docs served?
+
+The documentation is a separate Nextra app with a base path of `/docs`. The RondoFlow UI proxies `/docs` (and `/docs/:path*`) to that app so you can read the docs at `<host>/docs` on the same origin as the app.
+
+The proxy target is the `DOCS_ORIGIN` environment variable, which defaults to `http://localhost:3002` (the docs dev server; in production it's the `docs` Docker Compose service). Because the docs app already sets `basePath: '/docs'`, the proxy keeps the `/docs` prefix on the destination.
+
+```env
+# Override only if the docs app runs somewhere else
+DOCS_ORIGIN=http://localhost:3002
+```
+
+See [Self-Hosting](/docs/reference/self-hosting) and [Configuration](/docs/reference/configuration).
+
+## Still stuck?
+
+- Re-read [Configuration](/docs/getting-started/configuration) — most issues are a missing or wrong environment variable.
+- Turn on `RONDOFLOW_DEBUG_SPAWN=1` and check the server log for the exact failure.
+- Review the [Architecture](/docs/reference/architecture) and [Security](/docs/reference/security) references to understand how RondoFlow spawns and sandboxes Assistants.

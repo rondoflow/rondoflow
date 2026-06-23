@@ -1,0 +1,10 @@
+{
+  "id": "crypto-market-data-and-alerts",
+  "name": "crypto-market-data-and-alerts",
+  "description": "Cryptocurrency market data and price alert monitoring tool based on CCXT. Supports multiple exchanges, real-time price tracking, and configurable price/volatility alerts. Use when the user needs to monitor crypto prices or set up trading alerts. Default exchange is Binance.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "coins",
+  "order": 1000
+}

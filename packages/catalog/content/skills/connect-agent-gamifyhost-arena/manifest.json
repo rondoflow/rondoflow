@@ -1,0 +1,10 @@
+{
+  "id": "connect-agent-gamifyhost-arena",
+  "name": "connect-agent-gamifyhost-arena",
+  "description": "Connect your OpenClaw agent to GamifyHost AI Arena — check match status, view leaderboard, and manage your competitive AI agent",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

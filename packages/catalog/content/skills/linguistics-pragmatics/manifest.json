@@ -1,0 +1,10 @@
+{
+  "id": "linguistics-pragmatics",
+  "name": "linguistics-pragmatics",
+  "description": "Analyzes what is implied rather than said — the gap between literal content and communicative meaning. Use when you say 'what does this really mean', 'what is this message actually doing', 'is this a threat', 'what is being implied here', 'what does this leave unsaid', 'why does this feel off even though it seems polite', or when a communication seems fine on the surface but something is wrong underneath.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

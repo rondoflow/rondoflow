@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-signaling",
+  "name": "game-theory-signaling",
+  "description": "Analyses credibility problems and designs signals that are believable because they're costly to fake. Triggers: 'how do I signal credibly', 'signaling', 'they won't believe me', 'cheap talk', 'commitment device', 'how do I make a credible commitment', 'asymmetric information', 'how do I prove I'm serious', 'they don't trust my claim'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

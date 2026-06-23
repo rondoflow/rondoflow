@@ -1,0 +1,10 @@
+{
+  "id": "launch-solana-tokens-metaplex",
+  "name": "launch-solana-tokens-metaplex",
+  "description": "Launch tokens on Solana using Metaplex Genesis protocol",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

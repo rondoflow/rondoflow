@@ -1,0 +1,10 @@
+{
+  "id": "evolution-arms-race",
+  "name": "evolution-arms-race",
+  "description": "Analyses coevolutionary escalation — when parties adapt to each other in cycles that may help neither. Triggers: 'arms race', 'coevolution', 'escalation spiral', 'we keep one-upping each other', 'race to the bottom', 'they adapt to everything we do', 'tit-for-tat escalation', 'are we running to stand still', 'coevolutionary treadmill'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

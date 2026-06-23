@@ -1,0 +1,10 @@
+{
+  "id": "structured-problem-breakdown-and-planning",
+  "name": "structured-problem-breakdown-and-planning",
+  "description": "Break down any problem with structured thinking, action plans, and progress tracking",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

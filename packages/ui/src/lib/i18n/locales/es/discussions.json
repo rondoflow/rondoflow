@@ -1,0 +1,277 @@
+{
+  "format": {
+    "brainstorm": {
+      "label": "Lluvia de ideas",
+      "description": "Generación y exploración abierta de ideas"
+    },
+    "review": {
+      "label": "Revisión",
+      "description": "Evaluación estructurada de una propuesta o artefacto"
+    },
+    "deliberation": {
+      "label": "Debate",
+      "description": "Intercambio adversarial para poner a prueba una posición"
+    }
+  },
+  "role": {
+    "participant": {
+      "label": "Participante",
+      "tooltip": "Aporta ideas y respuestas de forma activa durante toda la discusión."
+    },
+    "observer": {
+      "label": "Observador",
+      "tooltip": "Escucha y resume, pero no aporta turnos."
+    },
+    "devilAdvocate": {
+      "label": "Abogado del diablo",
+      "tooltip": "Cuestiona cada propuesta para poner a prueba las suposiciones."
+    },
+    "moderator": {
+      "label": "Facilitador"
+    }
+  },
+  "validation": {
+    "topicRequired": "El tema es obligatorio.",
+    "facilitatorRequired": "Debe seleccionarse un facilitador.",
+    "participantRequired": "Debe añadirse al menos un participante."
+  },
+  "wizard": {
+    "stepIndicator": "Paso {{current}} de {{total}}",
+    "title": {
+      "topic": "Nueva discusión — Tema",
+      "team": "Nueva discusión — Equipo",
+      "settings": "Nueva discusión — Ajustes"
+    },
+    "description": "Cree una nueva discusión multiasistente en {{total}} pasos.",
+    "topic": {
+      "label": "¿Qué debería discutir el equipo?",
+      "placeholder": "Describa el tema, la pregunta o la propuesta a discutir…",
+      "hint": "Sea específico — un tema enfocado produce una mejor discusión.",
+      "styleLabel": "Estilo de discusión"
+    },
+    "team": {
+      "heading": "Elija su equipo",
+      "facilitatorLabel": "Facilitador",
+      "facilitatorHint": "El facilitador modera la discusión y produce la síntesis final.",
+      "selectPlaceholder": "Seleccione un facilitador…",
+      "groupFacilitators": "Facilitadores",
+      "groupAllAssistants": "Todos los asistentes",
+      "newButton": "Nuevo",
+      "createNamePlaceholder": "Nombre del facilitador",
+      "createDescPlaceholder": "Descripción (opcional)",
+      "createSubmit": "Crear y seleccionar",
+      "creating": "Creando...",
+      "participantsLabel": "Participantes",
+      "participantsEmpty": "Aún no hay participantes. Añada al menos un asistente.",
+      "participantAgentLabel": "Asistente del participante {{index}}",
+      "participantRoleLabel": "Rol del participante {{index}}",
+      "roleDescriptionLabel": "Descripción del rol",
+      "removeParticipant": "Eliminar participante {{index}}",
+      "addParticipant": "Añadir otro participante"
+    },
+    "settings": {
+      "roundsLabel": "Número de rondas",
+      "autoLabel": "Automático (decide el facilitador)",
+      "autoHint": "El facilitador evalúa el progreso después de cada ronda y decide cuándo concluir.",
+      "fixedLabel": "Rondas fijas",
+      "fixedHint": "Ejecutar exactamente este número de rondas independientemente del progreso.",
+      "roundsInputLabel": "Número de rondas",
+      "estimatesTitle": "Estimaciones",
+      "estimatedCost": "Coste estimado",
+      "costRange": "${{min}} – ${{max}}",
+      "estimatedTime": "Tiempo estimado",
+      "timeValue": "~{{minutes}} min",
+      "participants": "Participantes",
+      "rounds": "Rondas",
+      "auto": "Automático",
+      "estimatesNote": "Las estimaciones asumen Sonnet para el facilitador y Haiku para los participantes. Los costes reales pueden variar."
+    },
+    "footer": {
+      "back": "Atrás",
+      "backLabel": "Ir al paso anterior",
+      "next": "Siguiente",
+      "nextLabel": "Ir al paso siguiente",
+      "start": "Iniciar",
+      "startLabel": "Iniciar discusión"
+    }
+  },
+  "timeline": {
+    "showMore": "Mostrar más",
+    "showLess": "Mostrar menos",
+    "saidLabel": "{{name}} dijo",
+    "moderatorDecisionLabel": "Decisión del facilitador",
+    "conclusionLabel": "Conclusión de la discusión",
+    "conclusionTitle": "Conclusión",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyLabel": "Copiar la conclusión al portapapeles",
+    "download": "Descargar",
+    "downloadLabel": "Descargar la conclusión como Markdown",
+    "topicLabel": "Tema: {{topic}}",
+    "empty": {
+      "draftTitle": "Discusión no iniciada",
+      "draftHint": "Pulse Iniciar para comenzar la discusión. Los turnos aparecerán aquí en tiempo real.",
+      "waitingTitle": "Esperando el primer turno...",
+      "waitingHint": "La discusión ha comenzado. Los turnos aparecerán aquí a medida que respondan los asistentes."
+    },
+    "roundOf": "Ronda {{current}} de {{max}}",
+    "round": "Ronda {{current}}",
+    "status": {
+      "active": "Activa",
+      "concluded": "Concluida",
+      "draft": "Borrador"
+    },
+    "turnsLabel": "Turnos de la discusión",
+    "exportHeading": "Conclusión de la discusión",
+    "exportTopic": "**Tema:** {{topic}}"
+  },
+  "controls": {
+    "toolbarLabel": "Controles de la discusión",
+    "round": {
+      "concluded": "Concluida",
+      "of": "Ronda {{current}} de {{max}}",
+      "current": "Ronda {{current}}",
+      "notStarted": "No iniciada"
+    },
+    "status": {
+      "draft": "Borrador",
+      "active": "Activa",
+      "concluded": "Concluida"
+    },
+    "statusLabel": "Estado de la discusión: {{status}}",
+    "start": "Iniciar",
+    "startLabel": "Iniciar discusión",
+    "pause": "Pausar",
+    "pauseLabel": "Pausar discusión",
+    "stop": "Detener",
+    "stopLabel": "Detener discusión",
+    "resume": "Reanudar",
+    "resumeLabel": "Reanudar discusión",
+    "export": "Exportar",
+    "exportLabel": "Exportar discusión",
+    "stopDialog": {
+      "title": "¿Detener la discusión?",
+      "description": "Esto detendrá permanentemente la discusión. Cualquier progreso no guardado se perderá y la discusión no podrá reiniciarse.",
+      "confirm": "Detener discusión"
+    }
+  },
+  "list": {
+    "status": {
+      "draft": "Borrador",
+      "active": "Activa",
+      "concluded": "Concluida"
+    },
+    "openLabel": "Abrir discusión: {{name}}",
+    "title": "Discusiones",
+    "facilitators": "Facilitadores",
+    "facilitatorsLabel": "Gestionar facilitadores",
+    "newDiscussion": "Nueva discusión",
+    "newDiscussionLabel": "Crear nueva discusión",
+    "panelLabel": "Lista de discusiones",
+    "description": "Todas las discusiones del equipo. Haga clic en una para abrirla.",
+    "listLabel": "Lista de discusiones",
+    "empty": {
+      "title": "Aún no hay discusiones",
+      "hint": "Inicie una discusión de equipo para verla aquí."
+    }
+  },
+  "panel": {
+    "label": "Discusión: {{name}}",
+    "labelEmpty": "Panel de discusión",
+    "description": "Transcripción en vivo y controles para la discusión «{{topic}}».",
+    "descriptionEmpty": "No hay ninguna discusión seleccionada.",
+    "status": {
+      "active": "Activa",
+      "concluded": "Concluida",
+      "draft": "Borrador"
+    },
+    "closeLabel": "Cerrar el panel de discusión",
+    "empty": {
+      "title": "No hay ninguna discusión seleccionada",
+      "hint": "Abra Discusiones desde la barra superior y elija una para verla aquí."
+    },
+    "exportTitle": "# Discusión: {{name}}",
+    "exportTopic": "**Tema:** {{topic}}",
+    "exportConclusion": "## Conclusión"
+  },
+  "facilitators": {
+    "title": "Facilitadores",
+    "newButton": "Nuevo",
+    "presetLabel": "Empezar desde una preconfiguración",
+    "namePlaceholder": "Nombre del facilitador",
+    "descPlaceholder": "Descripción (opcional)",
+    "personaPlaceholder": "Personalidad / instrucciones (opcional — deje en blanco para un facilitador genérico)",
+    "model": {
+      "opus": "Opus",
+      "sonnet": "Sonnet",
+      "haiku": "Haiku"
+    },
+    "creating": "Creando...",
+    "loading": "Cargando...",
+    "empty": {
+      "title": "Aún no hay facilitadores.",
+      "hint": "Cree uno para moderar discusiones.",
+      "createFirst": "Cree su primer facilitador"
+    },
+    "builtin": "Integrado",
+    "deleteLabel": "Eliminar {{name}}",
+    "defaultPersona": "Usted es {{name}}, un facilitador de discusiones experimentado. Guía las discusiones, garantiza que todos los participantes sean escuchados, sintetiza los puntos de vista y mantiene las conversaciones productivas y enfocadas."
+  },
+  "chat": {
+    "step": "Paso {{index}}: ",
+    "stepRunning": "Ejecutando ",
+    "working": "Trabajando…",
+    "agentCompleted": "{{name}} completado",
+    "viewConversationTitle": "Haga clic para ver la conversación completa del asistente",
+    "tokens_one": "{{count}} token",
+    "tokens_other": "{{count}} tokens",
+    "workflowCompleted": "Flujo de trabajo completado",
+    "tokensSuffix_one": "· {{formattedCount}} token",
+    "tokensSuffix_other": "· {{formattedCount}} tokens",
+    "outputs": "Salidas",
+    "outputsLabel": "Ver las salidas guardadas del flujo de trabajo",
+    "outputsTitle": "Ver todas las salidas guardadas",
+    "savingOutput": "Guardando salida…",
+    "openResult": "Abrir resultado",
+    "openResultLabel": "Abrir el resultado guardado del flujo de trabajo",
+    "openResultTitle": "Abrir el resultado guardado",
+    "saveLabel": "Guardar la salida del flujo de trabajo en la carpeta del proyecto",
+    "saveTitle": "Guardar la salida en la carpeta del proyecto",
+    "directorEvaluating": "El director está evaluando...",
+    "director": "Director",
+    "directorSuggestsRedirect": "El director sugiere redirigir",
+    "approveRedirect": "Aprobar redirección",
+    "continueForward": "Continuar adelante",
+    "approveStep": "Aprobar paso {{index}}",
+    "approveAndRun": "Aprobar y ejecutar",
+    "stopFlow": "Detener flujo",
+    "resolved": "Resuelto",
+    "redirectApproved": "Redirección aprobada — reejecutando {{name}}",
+    "redirectDeclined": "Redirección rechazada — continuando adelante",
+    "advisorAnalyzing": "El asesor está analizando el flujo de trabajo...",
+    "streamingLabel": "Transmitiendo",
+    "emptyTitle": "Ejecute su flujo de trabajo",
+    "emptyHint": "Envíe un mensaje abajo para iniciar la cadena. Cada asistente lo procesará en orden.",
+    "logLabel": "Registro del flujo de trabajo",
+    "approvalMode": {
+      "auto": "Automático",
+      "autoTitle": "Automático — ejecutar cada paso y sus herramientas sin preguntar",
+      "step": "Paso",
+      "stepTitle": "Paso a paso — confirmar antes de ejecutar cada paso del asistente",
+      "groupLabel": "Modo de aprobación del flujo de trabajo"
+    },
+    "executionLog": "Registro de ejecución",
+    "stepsCount_one": "{{count}} paso",
+    "stepsCount_other": "{{count}} pasos",
+    "runningSuffix": "— ejecutando",
+    "viewOutputs": "Ver salidas guardadas",
+    "clearLog": "Borrar registro",
+    "inputPlaceholderRunning": "Enviar instrucciones adicionales… (Ctrl+Enter)",
+    "inputPlaceholderIdle": "Describa lo que debe hacer el flujo de trabajo… (Ctrl+Enter para ejecutar)",
+    "inputLabel": "Entrada de mensaje del flujo de trabajo",
+    "stopWorkflow": "Detener flujo de trabajo",
+    "startingWorkflow": "Iniciando flujo de trabajo…",
+    "runWorkflow": "Ejecutar flujo de trabajo",
+    "typeMessageFirst": "Escriba un mensaje primero"
+  }
+}

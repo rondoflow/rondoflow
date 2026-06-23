@@ -1,0 +1,10 @@
+{
+  "id": "beat-procrastination-with-task-breakdown",
+  "name": "beat-procrastination-with-task-breakdown",
+  "description": "Beat procrastination with task breakdown, 2-minute starts, and accountability tracking",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

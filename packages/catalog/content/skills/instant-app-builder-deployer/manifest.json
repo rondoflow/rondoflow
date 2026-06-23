@@ -1,0 +1,10 @@
+{
+  "id": "instant-app-builder-deployer",
+  "name": "instant-app-builder-deployer",
+  "description": "Build, edit, and deploy Instant-backed apps using npx instant-cli, create-instant-app (Next.js + Codex), GitHub (gh), and Vercel (vercel). Use when asked to create a new app, modify an existing app, fix bugs, add features, or deploy/update an app. Projects live under ~/apps; alw…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "safe-apple-mail-body-search",
+  "name": "safe-apple-mail-body-search",
+  "description": "Fast & safe Apple Mail search with body content support.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "4.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-practice-tests-and-flashcards",
+  "name": "generate-practice-tests-and-flashcards",
+  "description": "Generate practice tests, flashcards, study schedules, and timed simulations from any study material.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

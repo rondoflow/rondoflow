@@ -1,0 +1,10 @@
+{
+  "id": "free-web-search",
+  "name": "free-web-search",
+  "description": "Zero-API-key free web search, browsing, and claim verification for AI agents. No API keys required. 100% free. Designed to reduce hallucination risk by surfacing corroborating and conflicting sources.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "18.0.0",
+  "icon": "bot",
+  "order": 1000
+}

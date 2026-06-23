@@ -1,0 +1,10 @@
+{
+  "id": "agents-bank",
+  "name": "agents-bank",
+  "description": "**Version:** 1.0.6",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "bot",
+  "order": 1000
+}

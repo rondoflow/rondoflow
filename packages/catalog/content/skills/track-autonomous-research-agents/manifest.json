@@ -1,0 +1,10 @@
+{
+  "id": "track-autonomous-research-agents",
+  "name": "track-autonomous-research-agents",
+  "description": "CLI tool for managing autonomous research agents with append-only state, instruction queues, and oversight.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

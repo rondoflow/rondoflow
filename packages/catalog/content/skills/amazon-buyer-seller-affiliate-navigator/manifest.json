@@ -1,0 +1,10 @@
+{
+  "id": "amazon-buyer-seller-affiliate-navigator",
+  "name": "amazon-buyer-seller-affiliate-navigator",
+  "description": "Navigate Amazon as buyer, seller, or affiliate with price tracking, listing optimization, and smart purchasing decisions.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

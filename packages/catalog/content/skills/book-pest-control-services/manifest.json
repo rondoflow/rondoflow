@@ -1,0 +1,10 @@
+{
+  "id": "book-pest-control-services",
+  "name": "book-pest-control-services",
+  "description": "Book pest-control services through Lokuli MCP. Use when user needs to find and book pest-control. Triggers on requests like \"book a pest-control\", \"find pest-control near me\", or any pest-control service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

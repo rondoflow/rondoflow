@@ -1,0 +1,28 @@
+{
+  "id": "ai-engineer",
+  "name": "AI Engineer",
+  "description": "Designs and builds LLM-powered apps, RAG systems, and prompt pipelines.",
+  "icon": "Cpu",
+  "category": "Data & Analytics",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "llm",
+    "rag",
+    "ai",
+    "prompt-pipeline",
+    "machine-learning"
+  ],
+  "order": 101
+}

@@ -1,0 +1,10 @@
+{
+  "id": "self-improving-agent-advanced",
+  "name": "self-improving-agent-advanced",
+  "description": "Local skill for capturing learnings, errors, corrections, and patterns to enable continuous agent improvement. Processes events locally in your OpenClaw agent without external API calls. Returns structured insights, suggested rules, and batch summaries. Provided by Claw0x.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

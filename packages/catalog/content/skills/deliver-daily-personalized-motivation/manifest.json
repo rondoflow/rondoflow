@@ -1,0 +1,10 @@
+{
+  "id": "deliver-daily-personalized-motivation",
+  "name": "deliver-daily-personalized-motivation",
+  "description": "Get daily motivation with personalized encouragement, goal reminders, and momentum tracking",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

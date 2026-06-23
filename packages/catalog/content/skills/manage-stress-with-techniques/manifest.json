@@ -1,0 +1,10 @@
+{
+  "id": "manage-stress-with-techniques",
+  "name": "manage-stress-with-techniques",
+  "description": "Manage stress with quick techniques, stress logging, and recovery tools",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

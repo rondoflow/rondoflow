@@ -1,0 +1,10 @@
+{
+  "id": "query-financial-market-data-api",
+  "name": "query-financial-market-data-api",
+  "description": "Query financial market data via the Tradekix API — stock prices, crypto, forex, indices, market news, earnings, economic events, Congressional trades, and social sentiment. Use when the user asks about markets, stock prices, trading data, economic calendars, or financial news. A…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

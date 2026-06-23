@@ -1,0 +1,10 @@
+{
+  "id": "macos-file-integrity-totp-security",
+  "name": "macos-file-integrity-totp-security",
+  "description": "Set up feelgoodbot file integrity monitoring and TOTP step-up authentication for macOS. Use when the user wants to detect malware, monitor for system tampering, set up security alerts, or require OTP verification for sensitive agent actions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

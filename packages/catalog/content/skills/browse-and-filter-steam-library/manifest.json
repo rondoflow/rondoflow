@@ -1,0 +1,10 @@
+{
+  "id": "browse-and-filter-steam-library",
+  "name": "browse-and-filter-steam-library",
+  "description": "Browse, filter, and discover games in a Steam library. Filter by playtime, reviews, Steam Deck compatibility, genres, and tags. Use when user asks about their Steam games, what to play, game recommendations, or Steam Deck compatible games.",
+  "category": "Development",
+  "author": "community",
+  "version": "0.4.0",
+  "icon": "code",
+  "order": 1000
+}

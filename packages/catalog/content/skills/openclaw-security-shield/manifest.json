@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-security-shield",
+  "name": "openclaw-security-shield",
+  "description": "Enterprise security scanner for AI agents. Detects credential theft, data exfiltration, and malicious code with static analysis + runtime guards + ClamAV integration. Audit logging and tamper-evident reports.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

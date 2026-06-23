@@ -1,0 +1,10 @@
+{
+  "id": "add-persistent-memory-to-agents",
+  "name": "add-persistent-memory-to-agents",
+  "description": "Add persistent memory to any agent so it can remember prior work, maintain context across sessions, and continue long-running workflows.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

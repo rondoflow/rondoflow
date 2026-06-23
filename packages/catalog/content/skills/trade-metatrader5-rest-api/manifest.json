@@ -1,0 +1,10 @@
+{
+  "id": "trade-metatrader5-rest-api",
+  "name": "trade-metatrader5-rest-api",
+  "description": "MetaTrader 5 trading via REST API — get market data, place/modify/close orders, manage positions, pull history. Use when you need to interact with forex/crypto/stock markets through MT5.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "coins",
+  "order": 1000
+}

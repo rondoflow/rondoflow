@@ -1,0 +1,13 @@
+{
+  "id": "serp-search-agent",
+  "name": "SERP Search Agent",
+  "description": "Pulls search rankings and analyses the results page.",
+  "icon": "ListOrdered",
+  "category": "SEO & Search",
+  "purpose": "research",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch"],
+  "tags": ["serp", "rankings", "search", "seo", "competitor"],
+  "order": 8
+}

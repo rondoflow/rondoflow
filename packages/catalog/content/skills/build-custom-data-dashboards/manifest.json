@@ -1,0 +1,10 @@
+{
+  "id": "build-custom-data-dashboards",
+  "name": "build-custom-data-dashboards",
+  "description": "Build custom dashboards from any data source with local hosting and visual QA loops.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

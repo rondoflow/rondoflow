@@ -1,0 +1,10 @@
+{
+  "id": "community-token-launch-coordination",
+  "name": "community-token-launch-coordination",
+  "description": "Coordination infrastructure for token launches led by communities, agents, or both. Mechanics beat promises.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

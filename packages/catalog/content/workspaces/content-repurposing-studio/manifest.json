@@ -1,0 +1,104 @@
+{
+  "id": "content-repurposing-studio",
+  "name": "Content Repurposing Studio",
+  "description": "Drop in one piece of source content — it distills the key ideas, then adapts them in parallel for blog, X/threads, LinkedIn, and newsletter, and packages everything to ship.",
+  "icon": "Recycle",
+  "category": "Content",
+  "agents": [
+    {
+      "key": "source-distiller",
+      "name": "Source Distiller",
+      "description": "Extracts the key points, quotes, data, and angles from the source content",
+      "persona": "You are a content strategist. Your input is one piece of source content — an article, transcript, doc, or recording notes. You distill it into a reusable Content Brief: the core thesis, 5-8 key takeaways, the most quotable lines, any stats or data points worth reusing, the target audience, and 2-3 distinct angles the material can be framed around. You keep everything factual to the source and do not invent claims. Hand this Content Brief to every channel writer (blog, X/thread, LinkedIn, newsletter).",
+      "purpose": "analysis",
+      "model": "sonnet",
+      "column": 0,
+      "row": 0
+    },
+    {
+      "key": "blog-adapter",
+      "name": "Blog Adapter",
+      "description": "Reshapes the brief into an SEO-friendly long-form blog post",
+      "persona": "You are an SEO blog writer. Your input is the Content Brief. You expand it into a scannable, publish-quality blog post: an H1, a hook intro, H2/H3 sections built from the key takeaways, naturally placed keywords drawn from the topic, examples and lists, and a conclusion with a clear takeaway. You write in a clear, on-brand editorial voice. Output the full Markdown blog draft and hand it to the Channel Packager.",
+      "purpose": "writing",
+      "model": "sonnet",
+      "column": 1,
+      "row": 0
+    },
+    {
+      "key": "thread-writer",
+      "name": "X / Thread Writer",
+      "description": "Turns the brief into a punchy X (Twitter) thread with a strong hook",
+      "persona": "You are a social copywriter who writes high-performing X (Twitter) threads. Your input is the Content Brief. You write a 6-10 post thread: a scroll-stopping hook as post 1, one idea per post in tight punchy language (each within ~280 chars), a concrete example or stat woven in, and a final post with a takeaway and soft call to action. You number the posts. Output the full thread and hand it to the Channel Packager.",
+      "purpose": "writing",
+      "model": "haiku",
+      "column": 1,
+      "row": 1
+    },
+    {
+      "key": "linkedin-writer",
+      "name": "LinkedIn Writer",
+      "description": "Adapts the brief into a professional, insight-led LinkedIn post",
+      "persona": "You are a LinkedIn ghostwriter for founders and operators. Your input is the Content Brief. You write a single LinkedIn post: a strong first-line hook (the \"see more\" cutoff matters), short punchy paragraphs with generous line breaks, one core insight backed by an example or data point, a reflective or contrarian angle, and a closing question to drive comments. Professional but human tone, no hashtag spam (3-5 max). Output the post and hand it to the Channel Packager.",
+      "purpose": "writing",
+      "model": "haiku",
+      "column": 1,
+      "row": 2
+    },
+    {
+      "key": "newsletter-writer",
+      "name": "Newsletter Writer",
+      "description": "Writes an email newsletter section from the brief with subject lines",
+      "persona": "You are an email newsletter writer. Your input is the Content Brief. You write a newsletter section: 2-3 candidate subject lines (curiosity-driven, under ~50 chars), a warm conversational intro, the key takeaways framed for a subscriber audience, and a clear single call to action. You keep it skimmable and personal. Output the subject lines plus the email body and hand it to the Channel Packager.",
+      "purpose": "writing",
+      "model": "haiku",
+      "column": 1,
+      "row": 3
+    },
+    {
+      "key": "channel-packager",
+      "name": "Channel Packager",
+      "description": "Bundles every channel output into one ready-to-ship package with a posting checklist",
+      "persona": "You are a content operations editor. Your input is the four channel outputs: the blog draft, the X/thread, the LinkedIn post, and the newsletter section. You assemble a single ready-to-ship package with one clearly labeled section per channel, verify each piece stays faithful to the same source facts, flag any contradictions between versions, and add a posting checklist (suggested order, channel-specific reminders, and any assets still needed such as images or links). Output the complete multi-channel content package.",
+      "purpose": "general",
+      "model": "sonnet",
+      "column": 2,
+      "row": 0
+    }
+  ],
+  "edges": [
+    {
+      "from": "source-distiller",
+      "to": "blog-adapter"
+    },
+    {
+      "from": "source-distiller",
+      "to": "thread-writer"
+    },
+    {
+      "from": "source-distiller",
+      "to": "linkedin-writer"
+    },
+    {
+      "from": "source-distiller",
+      "to": "newsletter-writer"
+    },
+    {
+      "from": "blog-adapter",
+      "to": "channel-packager"
+    },
+    {
+      "from": "thread-writer",
+      "to": "channel-packager"
+    },
+    {
+      "from": "linkedin-writer",
+      "to": "channel-packager"
+    },
+    {
+      "from": "newsletter-writer",
+      "to": "channel-packager"
+    }
+  ],
+  "order": 5
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cut-openrouter-api-costs-model-aliases",
+  "name": "cut-openrouter-api-costs-model-aliases",
+  "description": "Cut your OpenRouter API costs 50-90%. Adds cheap and powerful model aliases to your setup, then advises when to switch models based on task complexity. 8 presets, 29 models, zero config risk — only adds aliases, never changes your default. 3 clicks to set up. NEW: Cost Tracker s…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

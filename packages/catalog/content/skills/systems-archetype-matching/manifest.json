@@ -1,0 +1,10 @@
+{
+  "id": "systems-archetype-matching",
+  "name": "systems-archetype-matching",
+  "description": "Applies the 8 classic system archetypes (Senge) to diagnose recurring system behavior. Use when asked 'this keeps repeating', 'the fix made it worse', 'we've solved this before', 'identify the pattern', or 'system archetype'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

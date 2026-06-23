@@ -1,0 +1,10 @@
+{
+  "id": "track-recommend-tv-shows-movies",
+  "name": "track-recommend-tv-shows-movies",
+  "description": "Track and recommend TV shows and movies using Trakt.tv. Use when the user asks for show/movie recommendations, wants to track what they're watching, check their watchlist, or get personalized suggestions based on their viewing history. Requires Trakt.tv account with Pro subscrip…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

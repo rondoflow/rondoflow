@@ -1,0 +1,10 @@
+{
+  "id": "high-intent-buyer-conversation-discovery",
+  "name": "high-intent-buyer-conversation-discovery",
+  "description": "Lead Generation — Find high-intent buyers in live Twitter, Instagram, and Reddit conversations. Auto-researches your product, generates targeted search queries, and discovers people actively looking for solutions you offer. Social selling and prospecting powered by 1.5B+ indexed…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.2.0",
+  "icon": "bot",
+  "order": 1000
+}

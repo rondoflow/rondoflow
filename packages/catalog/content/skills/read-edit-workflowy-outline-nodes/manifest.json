@@ -1,0 +1,10 @@
+{
+  "id": "read-edit-workflowy-outline-nodes",
+  "name": "read-edit-workflowy-outline-nodes",
+  "description": "Workflowy outliner CLI for reading, searching, and editing nodes. Use when the user wants to interact with their Workflowy outline — searching, adding items, viewing trees, marking complete, bulk operations, or usage reports. Also use whenever the user shares a workflowy.com URL…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "pencil",
+  "order": 1000
+}

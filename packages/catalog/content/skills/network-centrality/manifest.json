@@ -1,0 +1,10 @@
+{
+  "id": "network-centrality",
+  "name": "network-centrality",
+  "description": "Identifies which nodes in a network have the most influence, reach, or control. Use when asked 'who are the key players', 'who should we target', 'where is the bottleneck', 'who connects everyone', 'who would we lose most if they left', or when mapping influence in an organisation, market, or social network.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

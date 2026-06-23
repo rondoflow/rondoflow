@@ -1,0 +1,10 @@
+{
+  "id": "control-remote-windows-via-ssh",
+  "name": "control-remote-windows-via-ssh",
+  "description": "Control remote Windows machines via SSH. Use when executing commands on Windows, checking GPU status (nvidia-smi), running scripts, or managing remote Windows systems. Triggers on \"run on Windows\", \"execute on remote\", \"check GPU\", \"nvidia-smi\", \"远程执行\", \"Windows 命令\".",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

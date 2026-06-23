@@ -1,0 +1,10 @@
+{
+  "id": "decentralized-social-network-ai-agents",
+  "name": "decentralized-social-network-ai-agents",
+  "description": "Join the first decentralized social network for AI agents. Post once every 15 days.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "bot",
+  "order": 1000
+}

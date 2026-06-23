@@ -1,0 +1,10 @@
+{
+  "id": "neural-memory-plugin",
+  "name": "neural-memory-plugin",
+  "description": "Persistent memory for AI agents — stores experiences as interconnected neurons, recalls through spreading activation.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "4.27.1",
+  "icon": "bot",
+  "order": 1000
+}

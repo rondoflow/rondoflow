@@ -1,0 +1,10 @@
+{
+  "id": "ai-travel-itinerary-planner",
+  "name": "ai-travel-itinerary-planner",
+  "description": "AI travel planning and itinerary generation powered by CellCog. Vacation planning, travel research, flight planning, hotel recommendations, visa requirements, weather patterns, local events. Complete itineraries as PDFs or interactive dashboards.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.11",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "configure-optimize-troubleshoot-cdn",
+  "name": "configure-optimize-troubleshoot-cdn",
+  "description": "Configure, optimize, and troubleshoot CDN deployments with caching strategies, security hardening, and multi-provider management.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "crypto-data-portfolio-scam-tools",
+  "name": "crypto-data-portfolio-scam-tools",
+  "description": "Access crypto data, monitor portfolios, detect scams, and navigate exchanges with real-time APIs and security tools.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

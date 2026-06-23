@@ -1,0 +1,10 @@
+{
+  "id": "stake-tokens-earn-rewards",
+  "name": "stake-tokens-earn-rewards",
+  "description": "Stake $CLAWMEGLE tokens to earn dual rewards (ETH + CLAWMEGLE) from Clanker LP fees. Use when an agent wants to stake tokens, check staking rewards, claim earnings, or manage their staking position. Supports both Bankr API and direct wallet transactions.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

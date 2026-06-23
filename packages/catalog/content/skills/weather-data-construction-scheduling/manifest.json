@@ -1,0 +1,10 @@
+{
+  "id": "weather-data-construction-scheduling",
+  "name": "weather-data-construction-scheduling",
+  "description": "Fetch weather data for construction scheduling. Historical data, forecasts, and risk assessment for outdoor work.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

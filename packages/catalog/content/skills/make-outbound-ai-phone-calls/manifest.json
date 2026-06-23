@@ -1,0 +1,10 @@
+{
+  "id": "make-outbound-ai-phone-calls",
+  "name": "make-outbound-ai-phone-calls",
+  "description": "Make outbound AI phone calls. Use when asked to call a business, make a phone call, order food by phone, schedule appointments, or any task requiring voice calls. Triggers on \"call\", \"phone\", \"dial\", \"ring\", \"order pizza\", \"make reservation\", \"schedule appointment\".",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

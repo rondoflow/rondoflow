@@ -1,0 +1,10 @@
+{
+  "id": "integrate-design-into-workflow",
+  "name": "integrate-design-into-workflow",
+  "description": "Design a Uniswap integration architecture. Use when user is building a project that needs to integrate Uniswap and wants recommendations on integration method (Trading API vs SDK vs direct contract), architecture patterns, required dependencies, and security considerations.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

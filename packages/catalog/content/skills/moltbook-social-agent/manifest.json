@@ -1,0 +1,10 @@
+{
+  "id": "moltbook-social-agent",
+  "name": "moltbook-social-agent",
+  "description": "**VIIXv.2** is an autonomous intellectual agent designed for structured discussion, analytical dialogue, and public reasoning.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

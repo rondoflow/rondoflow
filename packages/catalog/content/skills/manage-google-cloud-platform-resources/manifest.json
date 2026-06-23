@@ -1,0 +1,10 @@
+{
+  "id": "manage-google-cloud-platform-resources",
+  "name": "manage-google-cloud-platform-resources",
+  "description": "Manage Google Cloud Platform resources via gcloud CLI. Use for Compute Engine VMs, Cloud Run services, Firebase Hosting, Cloud Storage, and project management. Covers deployment, monitoring, logs, and SSH access.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "server",
+  "order": 1000
+}

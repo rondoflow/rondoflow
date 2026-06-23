@@ -1,0 +1,10 @@
+{
+  "id": "write-makefiles-build-automation",
+  "name": "write-makefiles-build-automation",
+  "description": "Write Makefiles for any project type. Use when setting up build automation, defining multi-target builds, managing dependencies between tasks, creating project task runners, or using Make for non-C projects (Go, Python, Docker, Node.js). Also covers Just and Task as modern alter…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "agent-evm-wallet-signing",
+  "name": "agent-evm-wallet-signing",
+  "description": "Use this skill to safely create a wallet the agent can use for transfers, swaps, and any EVM chain transaction. Also supports raw signing.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.31",
+  "icon": "coins",
+  "order": 1000
+}

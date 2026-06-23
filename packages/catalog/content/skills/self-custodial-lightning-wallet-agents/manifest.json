@@ -1,0 +1,10 @@
+{
+  "id": "self-custodial-lightning-wallet-agents",
+  "name": "self-custodial-lightning-wallet-agents",
+  "description": "Self-custodial Bitcoin Lightning wallet for AI agents. Use when the agent needs to send or receive bitcoin payments, check its balance, generate invoices, or manage its wallet. Supports bolt11, bolt12, LNURL, and lightning addresses. Zero config — one command to initialize.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

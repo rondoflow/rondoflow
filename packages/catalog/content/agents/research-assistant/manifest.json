@@ -1,0 +1,13 @@
+{
+  "id": "research-assistant",
+  "name": "Research Assistant",
+  "description": "In-depth, well-cited research across many sources.",
+  "icon": "Microscope",
+  "category": "Research & Ops",
+  "purpose": "research",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "WebSearch", "WebFetch", "Write"],
+  "tags": ["research", "synthesis", "sources", "analysis", "reports"],
+  "order": 18
+}

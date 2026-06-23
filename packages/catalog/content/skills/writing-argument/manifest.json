@@ -1,0 +1,10 @@
+{
+  "id": "writing-argument",
+  "name": "writing-argument",
+  "description": "Builds and repairs persuasive arguments by surfacing the warrant, auditing evidence, addressing counterarguments, and identifying rhetorical substitutes. Use when an argument has holes, the case isn't landing, or evidence isn't connecting to the claim. Triggers: 'build an argument', 'argument structure', 'the argument isn't working', 'op-ed', 'persuasive writing', 'make the case for', 'my argument has holes', 'the evidence doesn't land'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "lemlist-email-outreach-automation",
+  "name": "lemlist-email-outreach-automation",
+  "description": "Lemlist API integration with managed OAuth. Sales automation and cold outreach platform. Use this skill when users want to manage campaigns, leads, activities, schedules, or unsubscribes in Lemlist. For other third party apps, use the api-gateway skill (https://clawhub.ai/byungk…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

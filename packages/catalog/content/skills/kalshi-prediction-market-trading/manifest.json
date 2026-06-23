@@ -1,0 +1,10 @@
+{
+  "id": "kalshi-prediction-market-trading",
+  "name": "kalshi-prediction-market-trading",
+  "description": "Trade on Kalshi prediction markets (CFTC-regulated prediction market exchange). Check portfolio, search markets, analyze orderbooks, place/cancel orders. Use when working with Kalshi API, trading binary contracts, checking market prices, managing positions, or researching predic…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "track-agent-session-costs",
+  "name": "track-agent-session-costs",
+  "description": "codesession (codesession-cli, code session, code-session) — Track AI agent session costs, tokens, file changes, and git commits. Works with Claude Code, OpenClaw, Codex, GPT, Cursor, Windsurf, Cline & any AI agent. Budget enforcement, auto-pricing, MCP server, web dashboard, ale…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.5.1",
+  "icon": "bot",
+  "order": 1000
+}

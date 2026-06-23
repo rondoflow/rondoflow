@@ -1,0 +1,10 @@
+{
+  "id": "generate-social-post-outlines",
+  "name": "generate-social-post-outlines",
+  "description": "Generates structured post outlines from reference materials for wisdom-style social posts. Use when someone wants to extract compelling concepts from newsletters, scripts, notes, or other content and transform them into engaging post outlines with paradoxes, transformations, and…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "investigation",
+  "name": "investigation",
+  "description": "Entry point for the investigation toolkit. Routes to the right investigation skill based on what you're trying to establish. Use when you say 'investigate', 'verify this', 'check this claim', 'where does this come from', 'is this true', 'trace the source', 'stress-test this belief', 'what's the evidence', 'could something else explain this', or want to know whether something you've heard is actually true.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

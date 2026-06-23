@@ -1,0 +1,10 @@
+{
+  "id": "evolution-fitness-landscape",
+  "name": "evolution-fitness-landscape",
+  "description": "Maps the solution space as peaks and valleys to understand local optima, adaptive valleys, and path dependence. Triggers: 'are we stuck', 'local maximum', 'fitness landscape', 'why can't we get to the next level', 'path dependence', 'trapped by success', 'incremental improvement is not working', 'we need a discontinuous leap', 'adjacent possible'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "bluetooth-thermal-printer-control",
+  "name": "bluetooth-thermal-printer-control",
+  "description": "Print text, images, and QR codes to a wireless Bluetooth thermal printer from a MacOS device. Use `inkjet print` for output, `inkjet scan` to discover printers.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "image",
+  "order": 1000
+}

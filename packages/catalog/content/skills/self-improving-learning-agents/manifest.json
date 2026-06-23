@@ -1,0 +1,10 @@
+{
+  "id": "self-improving-learning-agents",
+  "name": "self-improving-learning-agents",
+  "description": "**Learn from errors and corrections in real-time. Continuously improve by capturing failures, user feedback, and successful patterns.**",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

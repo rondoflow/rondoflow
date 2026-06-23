@@ -1,0 +1,10 @@
+{
+  "id": "macos-system-administration-automation",
+  "name": "macos-system-administration-automation",
+  "description": "macOS system administration, command-line differences from Linux, and automation best practices.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

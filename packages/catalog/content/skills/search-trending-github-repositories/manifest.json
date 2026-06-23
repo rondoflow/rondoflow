@@ -1,0 +1,10 @@
+{
+  "id": "search-trending-github-repositories",
+  "name": "search-trending-github-repositories",
+  "description": "Search and analyze trending GitHub repositories by topics, star count, and creation date. Supports filtering by multiple tags, minimum stars, and time range. Use when the user needs to discover popular open-source projects on GitHub. Optionally uses GITHUB_TOKEN for higher API r…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "code",
+  "order": 1000
+}

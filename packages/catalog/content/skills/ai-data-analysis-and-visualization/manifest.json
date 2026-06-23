@@ -1,0 +1,10 @@
+{
+  "id": "ai-data-analysis-and-visualization",
+  "name": "ai-data-analysis-and-visualization",
+  "description": "AI data analysis and visualization powered by CellCog. Data cleaning, exploratory analysis, hypothesis testing, statistical reports, ML model evaluation, dataset profiling, charts, dashboards. Upload CSVs and get analysis back with full Python access.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.11",
+  "icon": "chart-bar",
+  "order": 1000
+}

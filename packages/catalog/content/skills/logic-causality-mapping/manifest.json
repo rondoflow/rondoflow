@@ -1,0 +1,10 @@
+{
+  "id": "logic-causality-mapping",
+  "name": "logic-causality-mapping",
+  "description": "Map causal relationships, trace dependencies, and reason about consequences before acting. Use when you need to understand what causes what, what breaks if something changes, or what must be true for a plan to work. TRIGGERS: 'map the dependencies', 'what causes this', 'what breaks if I change X', 'trace the root cause', 'if X then what', 'what has to be true for this to work', any situation involving root cause analysis, impact assessment, dependency tracing, or reasoning about chains of effect.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

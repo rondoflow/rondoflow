@@ -1,0 +1,10 @@
+{
+  "id": "sql-data-insight-analyst",
+  "name": "sql-data-insight-analyst",
+  "description": "Extract insights from data with SQL, visualization, and clear communication of findings.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

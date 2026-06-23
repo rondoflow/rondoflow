@@ -1,0 +1,10 @@
+{
+  "id": "persistent-agent-memory-knowledge-graph",
+  "name": "persistent-agent-memory-knowledge-graph",
+  "description": "Persistent memory for OpenClaw agents. Store decisions, preferences, and context that survive across sessions. Build knowledge graphs that compound over time. Hybrid search (BM25 + vector + graph) recalls what matters when you need it.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "bot",
+  "order": 1000
+}

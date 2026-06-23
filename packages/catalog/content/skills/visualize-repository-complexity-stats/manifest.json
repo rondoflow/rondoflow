@@ -1,0 +1,10 @@
+{
+  "id": "visualize-repository-complexity-stats",
+  "name": "visualize-repository-complexity-stats",
+  "description": "Visualizes repository complexity by counting files, lines of code, and grouping by extension. Use to assess project size or growth.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

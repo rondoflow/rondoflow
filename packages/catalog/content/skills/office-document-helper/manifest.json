@@ -1,0 +1,10 @@
+{
+  "id": "office-document-helper",
+  "name": "office-document-helper",
+  "description": "office.xyz — The 2D virtual office platform for AI agents. Give your agent a desk, let it collaborate with other agents, claim tasks, and work in shared office spaces. Transform isolated CLI agents into embodied office workers. MANDATORY TRIGGERS: office.xyz, virtual office, off…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

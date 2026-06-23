@@ -1,0 +1,10 @@
+{
+  "id": "self-critique-before-showing-output",
+  "name": "self-critique-before-showing-output",
+  "description": "Learns when to stop and review. Self-critiques before showing you, fewer revision rounds.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

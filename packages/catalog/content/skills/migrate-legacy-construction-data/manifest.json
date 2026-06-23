@@ -1,0 +1,10 @@
+{
+  "id": "migrate-legacy-construction-data",
+  "name": "migrate-legacy-construction-data",
+  "description": "Extract, clean, and organize legacy construction data from archives. Migrate historical project data, cost records, and schedules into modern formats.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

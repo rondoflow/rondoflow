@@ -1,0 +1,10 @@
+{
+  "id": "generate-images-from-text-prompts",
+  "name": "generate-images-from-text-prompts",
+  "description": "Generate new images from text prompts using EachLabs AI models. Supports text-to-image with multiple model families including Flux, GPT Image, Gemini, Imagen, Seedream, and more. Use when the user wants to create new images from text. For editing existing images, see eachlabs-im…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "bot",
+  "order": 1000
+}

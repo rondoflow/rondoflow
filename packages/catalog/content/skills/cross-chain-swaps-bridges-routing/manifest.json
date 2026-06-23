@@ -1,0 +1,10 @@
+{
+  "id": "cross-chain-swaps-bridges-routing",
+  "name": "cross-chain-swaps-bridges-routing",
+  "description": "Use LI.FI API for cross-chain and same-chain swaps, bridges, and contract calls. Use when quoting routes, validating chains/tokens, building transaction requests, and tracking status.",
+  "category": "Development",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "code",
+  "order": 1000
+}

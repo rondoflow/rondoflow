@@ -1,0 +1,28 @@
+{
+  "id": "nextjs-pro",
+  "name": "Next.js Pro",
+  "description": "Builds high-performance, SEO-friendly Next.js applications.",
+  "icon": "Triangle",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "nextjs",
+    "react",
+    "ssr",
+    "seo",
+    "performance"
+  ],
+  "order": 123
+}

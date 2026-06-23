@@ -1,0 +1,10 @@
+{
+  "id": "kanbanflow-task-board-management",
+  "name": "kanbanflow-task-board-management",
+  "description": "<skill>",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

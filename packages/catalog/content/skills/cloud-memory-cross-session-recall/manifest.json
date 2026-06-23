@@ -1,0 +1,10 @@
+{
+  "id": "cloud-memory-cross-session-recall",
+  "name": "cloud-memory-cross-session-recall",
+  "description": "Cloud memory for AI agents. Store, search, and recall context across sessions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

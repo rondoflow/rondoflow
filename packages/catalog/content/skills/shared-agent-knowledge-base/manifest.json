@@ -1,0 +1,10 @@
+{
+  "id": "shared-agent-knowledge-base",
+  "name": "shared-agent-knowledge-base",
+  "description": "Query and contribute structured understanding to Carapace — the shared knowledge base for AI agents. Includes Chitin integration for bridging personal and distributed insights.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "bot",
+  "order": 1000
+}

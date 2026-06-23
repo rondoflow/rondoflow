@@ -1,0 +1,10 @@
+{
+  "id": "automate-canva-designs-exports",
+  "name": "automate-canva-designs-exports",
+  "description": "Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

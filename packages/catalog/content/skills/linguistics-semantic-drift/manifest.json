@@ -1,0 +1,10 @@
+{
+  "id": "linguistics-semantic-drift",
+  "name": "linguistics-semantic-drift",
+  "description": "Tracks how meanings shift over time or across groups — concept creep, definition drift, and what it costs when words change. Use when you say 'this word doesn't mean what it used to', 'people are using this term differently now', 'this definition has been captured', 'concept creep', 'the word has been weaponised', 'we need to define our terms', or when a key term is contested or means different things to different audiences.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

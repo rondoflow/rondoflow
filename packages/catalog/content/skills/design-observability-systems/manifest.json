@@ -1,0 +1,10 @@
+{
+  "id": "design-observability-systems",
+  "name": "design-observability-systems",
+  "description": "Observability Designer (POWERFUL)",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "server",
+  "order": 1000
+}

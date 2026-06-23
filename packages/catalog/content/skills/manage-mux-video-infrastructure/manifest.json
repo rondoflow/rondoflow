@@ -1,0 +1,10 @@
+{
+  "id": "manage-mux-video-infrastructure",
+  "name": "manage-mux-video-infrastructure",
+  "description": "Mux Video infrastructure skill for designing, ingesting, transcoding/packaging, playback ID policy, live streaming, clipping, and observability with Mux Data. Use when architecting or operating Mux-based video pipelines, live workflows, playback security, or diagnosing playback…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

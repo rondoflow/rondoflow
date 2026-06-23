@@ -1,0 +1,10 @@
+{
+  "id": "translate-song-lyrics",
+  "name": "translate-song-lyrics",
+  "description": "Translate Indonesian song lyrics to natural-sounding English. Use when Beralio needs to translate their Indonesian lyrics for international release, sync licensing, or collaboration with English-speaking artists. Applies humanizer techniques to ensure translations feel authentic…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

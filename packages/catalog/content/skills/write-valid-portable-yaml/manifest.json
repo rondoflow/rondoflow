@@ -1,0 +1,10 @@
+{
+  "id": "write-valid-portable-yaml",
+  "name": "write-valid-portable-yaml",
+  "description": "Write valid YAML that parses predictably across languages and versions.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

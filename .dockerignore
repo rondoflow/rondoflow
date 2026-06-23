@@ -1,0 +1,30 @@
+# Bare patterns are anchored to the build context root (the repo root), so they
+# only match e.g. ./.next — NOT packages/ui/.next. The build context for both
+# Dockerfiles is the repo root, so the **/-prefixed variants below are what
+# actually keep nested workspace artifacts (e.g. the 329MB packages/ui/.next)
+# out of the context and stop the broad `COPY packages/ui/ ...` from busting the
+# layer cache. next build / npm ci regenerate these inside the image regardless.
+node_modules
+.next
+dist
+out
+build
+.turbo
+**/node_modules
+**/.next
+**/dist
+**/out
+**/build
+**/.turbo
+**/coverage
+**/.nyc_output
+.git
+.claude
+.rondoflow
+coverage
+.nyc_output
+*.md
+!README.md
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,10 @@
+{
+  "id": "send-gmail-email",
+  "name": "send-gmail-email",
+  "description": "Gmail: Send an email.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.15",
+  "icon": "message-circle",
+  "order": 1000
+}

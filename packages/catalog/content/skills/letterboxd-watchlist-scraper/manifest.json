@@ -1,0 +1,10 @@
+{
+  "id": "letterboxd-watchlist-scraper",
+  "name": "letterboxd-watchlist-scraper",
+  "description": "Scrape a public Letterboxd user's watchlist into a CSV/JSONL list of titles and film URLs without logging in. Use when a user asks to export, scrape, or mirror a Letterboxd watchlist, or to build watch-next queues.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "globe",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "local-file-rag-suite",
+  "name": "local-file-rag-suite",
+  "description": "High-performance local File RAG suite (Basic Edition).",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

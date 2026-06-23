@@ -1,0 +1,10 @@
+{
+  "id": "postgresql-query-and-schema-design",
+  "name": "postgresql-query-and-schema-design",
+  "description": "Write efficient PostgreSQL queries and design schemas with proper indexing and patterns.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

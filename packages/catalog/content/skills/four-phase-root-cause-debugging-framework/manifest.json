@@ -1,0 +1,10 @@
+{
+  "id": "four-phase-root-cause-debugging-framework",
+  "name": "four-phase-root-cause-debugging-framework",
+  "description": "Four-phase debugging framework that ensures root cause investigation before attempting fixes. Never jump to solutions.",
+  "category": "Development",
+  "author": "community",
+  "version": "3.0.0",
+  "icon": "code",
+  "order": 1000
+}

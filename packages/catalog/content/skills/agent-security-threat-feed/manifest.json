@@ -1,0 +1,10 @@
+{
+  "id": "agent-security-threat-feed",
+  "name": "agent-security-threat-feed",
+  "description": "Agent-native security signal feed by PromptIntel. Report threats and receive protections.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.4.0",
+  "icon": "bot",
+  "order": 1000
+}

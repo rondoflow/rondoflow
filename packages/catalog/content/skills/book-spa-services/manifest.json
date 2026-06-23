@@ -1,0 +1,10 @@
+{
+  "id": "book-spa-services",
+  "name": "book-spa-services",
+  "description": "Book spa services through Lokuli MCP. Use when user needs to find and book spa. Triggers on requests like \"book a spa\", \"find spa near me\", or any spa service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

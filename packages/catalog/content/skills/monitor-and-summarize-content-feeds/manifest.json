@@ -1,0 +1,10 @@
+{
+  "id": "monitor-and-summarize-content-feeds",
+  "name": "monitor-and-summarize-content-feeds",
+  "description": "AI-powered content monitoring and summarization tool. Monitor RSS feeds, blogs, and news sources with automatic AI summarization and daily digest generation.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

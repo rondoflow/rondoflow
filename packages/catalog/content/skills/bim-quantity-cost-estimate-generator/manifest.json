@@ -1,0 +1,10 @@
+{
+  "id": "bim-quantity-cost-estimate-generator",
+  "name": "bim-quantity-cost-estimate-generator",
+  "description": "Automatically generate estimates from QTO data. Apply pricing rules to BIM quantities for cost estimates.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,158 @@
+{
+  "users": {
+    "title": "Benutzer",
+    "description": "Verwalten Sie, wer auf diesen Arbeitsbereich zugreifen kann und was sie tun dürfen.",
+    "invite": {
+      "heading": "Einen Benutzer einladen",
+      "placeholder": {
+        "name": "Name",
+        "email": "E-Mail",
+        "password": "Temporäres Passwort (8+ Zeichen)"
+      },
+      "submit": "Benutzer erstellen",
+      "validation": "E-Mail, Name und ein Passwort mit mindestens 8 Zeichen sind erforderlich",
+      "created": "{{email}} erstellt"
+    },
+    "badge": {
+      "you": "Sie",
+      "deactivated": "Deaktiviert"
+    },
+    "role": {
+      "changed": "{{email}} ist jetzt {{role}}",
+      "selfTitle": "Sie können Ihre eigene Rolle nicht ändern",
+      "admin": {
+        "label": "Administrator",
+        "description": "Vollzugriff — verwaltet Benutzer und alles, was ein Bearbeiter tun kann"
+      },
+      "editor": {
+        "label": "Bearbeiter",
+        "description": "Workflows im gemeinsamen Arbeitsbereich erstellen, bearbeiten, löschen und ausführen"
+      },
+      "viewer": {
+        "label": "Betrachter",
+        "description": "Nur lesen — kann ansehen, aber nicht bearbeiten oder ausführen"
+      }
+    },
+    "action": {
+      "reactivate": "Reaktivieren",
+      "deactivate": "Deaktivieren",
+      "deleteUser": "Benutzer löschen"
+    },
+    "toast": {
+      "reactivated": "{{email}} reaktiviert",
+      "deactivated": "{{email}} deaktiviert",
+      "deleted": "{{email}} gelöscht",
+      "requestFailed": "Anfrage fehlgeschlagen"
+    },
+    "empty": "Noch keine Benutzer.",
+    "delete": {
+      "title": "Benutzer löschen?",
+      "description": "{{email}} dauerhaft löschen. Der Aktivitätsverlauf bleibt erhalten, aber die Anmeldung ist nicht mehr möglich. Dies kann nicht rückgängig gemacht werden."
+    }
+  },
+  "mcp": {
+    "title": "MCP-Verbindungen",
+    "description": "Externe Model-Context-Protocol-Server verwalten",
+    "add": "Verbindung hinzufügen",
+    "empty": {
+      "title": "Noch keine Verbindungen",
+      "description": "Fügen Sie einen MCP-Server hinzu, um die Fähigkeiten des Assistenten zu erweitern."
+    },
+    "list": {
+      "ariaLabel": "MCP-Server-Verbindungen"
+    },
+    "card": {
+      "editAria": "{{name}} bearbeiten",
+      "deleteAria": "{{name}} löschen",
+      "test": "Verbindung testen",
+      "testing": "Wird getestet…",
+      "connected": "Verbunden",
+      "failed": "Fehlgeschlagen"
+    },
+    "dialog": {
+      "addTitle": "MCP-Verbindung hinzufügen",
+      "editTitle": "MCP-Verbindung bearbeiten",
+      "save": "Verbindung speichern"
+    },
+    "field": {
+      "name": "Name",
+      "namePlaceholder": "z. B. filesystem",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Was bietet dieser Server?",
+      "command": "Befehl",
+      "commandPlaceholder": "npx, python, /usr/bin/my-server",
+      "args": "Argumente (durch Komma getrennt)",
+      "argsPlaceholder": "-y, @modelcontextprotocol/server-filesystem, /tmp",
+      "env": "Umgebungsvariablen",
+      "envKeyPlaceholder": "KEY",
+      "envValuePlaceholder": "Wert",
+      "envAdd": "Hinzufügen",
+      "envRemoveAria": "Umgebungsvariable entfernen",
+      "transport": "Transport",
+      "transportStdio": "Lokal (stdio)",
+      "transportHttp": "HTTP",
+      "transportSse": "SSE",
+      "url": "Server-URL",
+      "urlPlaceholder": "https://example.com/mcp",
+      "auth": "Authentifizierung",
+      "authNone": "Keine",
+      "authBearer": "Bearer-Token",
+      "authHeader": "Header",
+      "authOauth2": "OAuth2",
+      "token": "Bearer-Token",
+      "tokenPlaceholder": "Token oder OAuth-Zugriffstoken einfügen",
+      "secretKeep": "•••••• (leer lassen zum Beibehalten)",
+      "headerName": "Header-Name",
+      "headerNamePlaceholder": "X-API-Key",
+      "headerValue": "Header-Wert",
+      "headerValuePlaceholder": "geheimer Wert",
+      "tokenUrl": "Token-URL",
+      "tokenUrlPlaceholder": "https://example.com/oauth/token",
+      "clientId": "Client-ID",
+      "clientIdPlaceholder": "Client-ID",
+      "clientSecret": "Client-Secret",
+      "clientSecretPlaceholder": "Client-Secret",
+      "scope": "Scope",
+      "scopePlaceholder": "optional, durch Leerzeichen getrennt",
+      "oauthHint": "Token- und OAuth2-Secrets werden im Ruhezustand verschlüsselt und zur Laufzeit an den Assistenten gesendet. Interaktives Browser-OAuth wird für gestartete Assistenten nicht unterstützt — verwenden Sie ein Token oder OAuth2-Client-Anmeldedaten."
+    }
+  },
+  "approval": {
+    "title": "Aktion erforderlich",
+    "description": "Ein Assistent fordert die Berechtigung an, einen Befehl auszuführen. Überprüfen Sie ihn sorgfältig, bevor Sie ihn genehmigen.",
+    "waiting": "Warten auf Genehmigung",
+    "intent": "Was der Assistent tun möchte",
+    "command": "Befehl",
+    "commandAria": "Auszuführender Befehl",
+    "editCommandAria": "Befehl bearbeiten",
+    "edit": "Bearbeiten & Genehmigen",
+    "cancelEdit": "Bearbeitung abbrechen",
+    "editToggleAria": "Befehl vor der Genehmigung bearbeiten",
+    "approve": "Genehmigen",
+    "approveEdit": "Bearbeitung genehmigen",
+    "approveAria": "Diesen Befehl genehmigen",
+    "approveEditAria": "Mit bearbeitetem Befehl genehmigen",
+    "reject": "Ablehnen",
+    "rejectAria": "Diesen Befehl ablehnen",
+    "shortcuts": "Enter = Genehmigen · Esc = Ablehnen",
+    "countdown": {
+      "label": "Automatisch ausblenden",
+      "autoDismissAria": "Automatisch ausblenden in {{time}}"
+    },
+    "risk": {
+      "levelAria": "Risikostufe: {{label}}",
+      "high": {
+        "label": "Hohes Risiko",
+        "reason": "Dieser Befehl kann irreversible Änderungen verursachen."
+      },
+      "medium": {
+        "label": "Mittleres Risiko",
+        "reason": "Dieser Befehl ändert den externen Zustand."
+      },
+      "low": {
+        "label": "Geringes Risiko",
+        "reason": "Keine offensichtlichen destruktiven Muster erkannt."
+      }
+    }
+  }
+}

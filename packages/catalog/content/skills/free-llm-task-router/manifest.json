@@ -1,0 +1,10 @@
+{
+  "id": "free-llm-task-router",
+  "name": "free-llm-task-router",
+  "description": "Route tasks to free AI models via OpenRouter to save money. Use when the agent needs to delegate content writing, research, code generation, or other tasks to cheaper/free models instead of using expensive primary models. Prevents surprise API bills.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

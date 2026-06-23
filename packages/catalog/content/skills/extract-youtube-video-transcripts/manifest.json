@@ -1,0 +1,10 @@
+{
+  "id": "extract-youtube-video-transcripts",
+  "name": "extract-youtube-video-transcripts",
+  "description": "Extract YouTube video transcripts from existing captions (manual or auto-generated) using yt-dlp, with optional timestamps and local SQLite caching. Use when the user asks for a YouTube transcript, captions, subtitles, or wants to turn a YouTube link into text for summarization/…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "image",
+  "order": 1000
+}

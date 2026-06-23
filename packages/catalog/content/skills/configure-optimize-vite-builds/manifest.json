@@ -1,0 +1,10 @@
+{
+  "id": "configure-optimize-vite-builds",
+  "name": "configure-optimize-vite-builds",
+  "description": "Configure and optimize Vite for development, production builds, and library bundling.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

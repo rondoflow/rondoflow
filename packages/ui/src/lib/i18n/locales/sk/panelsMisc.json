@@ -1,0 +1,504 @@
+{
+  "prd": {
+    "dialog": {
+      "title": "Dokument požiadaviek na produkt"
+    },
+    "field": {
+      "titleLabel": "Názov PRD",
+      "titlePlaceholder": "Názov funkcie alebo epicu…"
+    },
+    "stories": {
+      "heading": "Príbehy ({{count}})",
+      "add": "Pridať príbeh",
+      "addFirst": "Pridať prvý príbeh",
+      "empty": "Zatiaľ žiadne príbehy",
+      "listLabel": "Používateľské príbehy",
+      "rowTitlePlaceholder": "Názov príbehu…",
+      "rowTitleLabel": "Názov príbehu",
+      "priorityLabel": "Priorita {{priority}}",
+      "statusButtonLabel": "Stav: {{status}}. Kliknutím posuniete ďalej.",
+      "collapse": "Zbaliť príbeh",
+      "expand": "Rozbaliť príbeh",
+      "remove": "Odstrániť príbeh",
+      "acceptanceLabel": "Akceptačné kritériá",
+      "acceptancePlaceholder": "Za predpokladu… Keď… Potom…"
+    },
+    "status": {
+      "pending": "Čaká",
+      "inProgress": "Prebieha",
+      "passed": "Prešlo",
+      "failed": "Zlyhalo"
+    },
+    "progress": {
+      "passed": "{{passed}}/{{total}} prešlo",
+      "failed": "{{count}} zlyhalo",
+      "barLabel": "{{passed}} z {{total}} príbehov prešlo"
+    },
+    "validation": {
+      "noStories": "Pred spustením kanála pridajte aspoň jeden príbeh.",
+      "emptyTitles_one": "{{count}} názov príbehu je prázdny. Najprv ho vyplňte.",
+      "emptyTitles_few": "{{count}} názvy príbehov sú prázdne. Najprv ich vyplňte.",
+      "emptyTitles_other": "{{count}} názvov príbehov je prázdnych. Najprv ich vyplňte."
+    },
+    "cost": {
+      "label": "Odhad. náklady:",
+      "value": "~${{amount}}"
+    },
+    "start": "Spustiť kanál"
+  },
+  "output": {
+    "log": {
+      "panelLabel": "Záznam uloženého výstupu pracovného toku",
+      "title": "Záznam výstupu",
+      "summary_one": "{{count}} uložený výstup v {{dir}}",
+      "summary_few": "{{count}} uložené výstupy v {{dir}}",
+      "summary_other": "{{count}} uložených výstupov v {{dir}}",
+      "metaSeparator": "{{time}} · {{size}}",
+      "back": "Späť na zoznam výstupov",
+      "copy": "Kopírovať",
+      "copied": "Skopírované",
+      "copyLabel": "Kopírovať výstup do schránky",
+      "download": "Stiahnuť",
+      "downloadLabel": "Stiahnuť súbor výstupu",
+      "refreshLabel": "Obnoviť zoznam výstupov",
+      "loadingOutputs": "Načítavajú sa uložené výstupy…",
+      "empty": {
+        "title": "Žiadne uložené výstupy",
+        "description": "Spustite pracovný tok a uložte jeho výstup, aby sa tu zobrazil."
+      },
+      "error": {
+        "loadList": "Nepodarilo sa načítať výstupy",
+        "readFile": "Nepodarilo sa prečítať súbor"
+      }
+    }
+  },
+  "review": {
+    "dialog": {
+      "title": "Skontrolovať vygenerovaný pracovný tok",
+      "nameLabel": "Názov pracovného toku"
+    },
+    "model": {
+      "opus": "Opus (Hĺbkový)",
+      "sonnet": "Sonnet (Vyvážený)",
+      "haiku": "Haiku (Rýchly)"
+    },
+    "agent": {
+      "nameLabel": "Názov asistenta {{index}}",
+      "modelLabel": "Model asistenta {{index}}",
+      "personaLabel": "Osobnosť asistenta {{index}}",
+      "remove": "Odstrániť {{name}}",
+      "removeSkill": "Odstrániť zručnosť {{skill}}"
+    },
+    "executionFlow": "Tok vykonávania",
+    "director": {
+      "title": "Orchestrácia Director",
+      "description": "AI koordinátor vyhodnocuje každý krok a rozhoduje o ďalšej akcii"
+    },
+    "saveTemplate": "Uložiť ako šablónu",
+    "addToCanvas": "Pridať do pracovného priestoru"
+  },
+  "advisor": {
+    "category": {
+      "agent": "Asistent",
+      "skill": "Zručnosť",
+      "order": "Poradie",
+      "quality": "Kvalita"
+    },
+    "action": {
+      "applySkill": "Použiť „{{skill}}“",
+      "updatePersona": "Aktualizovať osobnosť",
+      "applied": "Použité",
+      "failed": "Zlyhalo"
+    },
+    "title": "Poradca pracovného toku",
+    "objectiveMet": "Cieľ splnený",
+    "objectiveNotMet": "Cieľ nesplnený",
+    "allGood": "Všetko vyzerá dobre — žiadne vylepšenia nie sú potrebné."
+  },
+  "director": {
+    "title": "Director",
+    "subtitle": "Orchestrátor pracovného toku",
+    "toggleLabel": "Prepnúť Director",
+    "rigor": {
+      "label": "Úroveň kritiky",
+      "sliderLabel": "Úroveň kritiky",
+      "setLabel": "Nastaviť prísnosť na {{level}}",
+      "minLabel": "Uvoľnené",
+      "maxLabel": "Náročné",
+      "level": {
+        "relaxed": {
+          "label": "Uvoľnené",
+          "description": "Takmer vždy pokračuje. Presmeruje iba pri kritických chybách."
+        },
+        "lenient": {
+          "label": "Zhovievavé",
+          "description": "Prijíma väčšinu výstupov. Presmeruje iba vtedy, keď chýba niečo dôležité."
+        },
+        "balanced": {
+          "label": "Vyvážené",
+          "description": "Predvolená úroveň. Spravodlivo hodnotí kvalitu, navrhuje vylepšenia, keď sa to oplatí."
+        },
+        "strict": {
+          "label": "Prísne",
+          "description": "Vyššie nároky. Očakáva dôkladnú prácu a môže presmerovať pri neúplných výstupoch."
+        },
+        "demanding": {
+          "label": "Náročné",
+          "description": "Veľmi vysoká latka. Očakáva komplexný výstup pripravený na produkciu z každého kroku."
+        }
+      }
+    },
+    "customInstructions": {
+      "label": "Vlastné inštrukcie",
+      "help": "Ďalšie inštrukcie pre Director pri vyhodnocovaní výstupov asistentov. Pripoja sa k systémovým inštrukciám.",
+      "placeholder": "napr. Vždy zabezpečte, aby kód obsahoval typy TypeScript. Uprednostnite bezpečnosť pred výkonom..."
+    },
+    "howItWorks": {
+      "title": "Ako Director funguje",
+      "evaluates": "Vyhodnocuje výstup každého asistenta po dokončení",
+      "contextualizes": "Kontextualizuje správy, aby ďalší asistent porozumel celkovému obrazu",
+      "redirects": "Môže presmerovať (zopakovať) krok, ak je kvalita výstupu nedostatočná",
+      "concludes": "Môže ukončiť pracovný tok skôr, ak je cieľ už splnený",
+      "learns": "Učí sa vzory medzi spusteniami na zlepšenie budúcich hodnotení"
+    }
+  },
+  "history": {
+    "panelLabel": "História vykonávania",
+    "title": "História vykonávania",
+    "description": "Všetky minulé spustenia pracovného toku a ich záznamy vykonávania."
+  },
+  "condition": {
+    "title": "Podmienka",
+    "subtitle": "Smerovať na prvú zhodnú vetvu",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Podmienka"
+    },
+    "hint": {
+      "withAgent": "Porovnáva sa s posledným riadkom {{agent}}, bez ohľadu na veľkosť písmen. Spustí sa prvá zhodná vetva; ak sa nezhoduje žiadna, spustí sa predvolená vetva.",
+      "noAgent": "Porovnáva sa s posledným riadkom predchádzajúceho asistenta, bez ohľadu na veľkosť písmen. Spustí sa prvá zhodná vetva; ak sa nezhoduje žiadna, spustí sa predvolená vetva."
+    },
+    "branches": {
+      "heading": "Vetvy",
+      "total": "{{count}} celkom",
+      "labelPlaceholder": "Označenie vetvy",
+      "labelAria": "Označenie vetvy {{index}}",
+      "remove": "Odstrániť vetvu {{index}}",
+      "removeTitle": "Odstrániť vetvu",
+      "patternAria": "Vzor vetvy {{index}}",
+      "kind": {
+        "contains": "Obsahuje",
+        "regex": "Zhoduje sa s regulárnym výrazom"
+      },
+      "patternPlaceholder": {
+        "contains": "approved, lgtm",
+        "regex": "^DECISION:\\s*GO$"
+      },
+      "default": "Predvolená vetva (spustí sa, ak sa nezhoduje žiadna)",
+      "setDefault": "Nastaviť ako predvolenú vetvu",
+      "addLabel": "Pridať:",
+      "empty": "Zatiaľ žiadne vetvy. Pridajte jednu a potom potiahnite spojenie z jej rukoväte k nasledujúcemu asistentovi.",
+      "noDefault": "Žiadna predvolená vetva — ak sa nezhoduje žiadna podmienka, tok sa na tejto ceste zastaví."
+    },
+    "preset": {
+      "approved": "Schválené",
+      "rejected": "Zamietnuté",
+      "custom": "Vlastné"
+    },
+    "regexInvalid": "Neplatný regulárny výraz"
+  },
+  "outputNode": {
+    "title": "Výstup",
+    "subtitle": "Spracovať a uložiť výstup spustenia",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Výstup"
+    },
+    "docTitle": {
+      "label": "Názov dokumentu",
+      "placeholder": "Voliteľné — nadpis pre formátovaný markdown/HTML"
+    },
+    "savingFrom": "Ukladanie výstupov z",
+    "savingHint": "Pripojte asistentov k tomuto výstupnému uzlu v pracovnom priestore a vyberte, ktoré sa majú uložiť.",
+    "allAgents": "Všetci asistenti v spustení.",
+    "noAgents": "Zatiaľ nie sú pripojení žiadni asistenti — potiahnite spojenie z asistenta do tohto výstupného uzla. Bez pripojení sa neuloží nič.",
+    "unknownAgent": "Neznámy asistent",
+    "format": {
+      "label": "Formát",
+      "selectLabel": "Formát výstupu"
+    },
+    "destination": {
+      "label": "Uložiť do",
+      "browse": "Prehľadávať",
+      "custom": "Vlastný priečinok",
+      "default": "Priečinok pracovného priestoru (predvolený)",
+      "reset": "Obnoviť na pracovný priestor"
+    }
+  },
+  "assistants": {
+    "title": "Asistenti",
+    "new": "Nový",
+    "empty": {
+      "title": "Zatiaľ žiadni asistenti.",
+      "create": "Vytvorte svojho prvého asistenta"
+    },
+    "delete": "Odstrániť {{name}}"
+  },
+  "tool": {
+    "toggleLabel": "Nástroj: {{name}}. Kliknutím {{action}} podrobnosti.",
+    "expand": "rozbaliť",
+    "collapse": "zbaliť",
+    "running": "Beží",
+    "completed": "Dokončené",
+    "input": "Vstup",
+    "output": "Výstup"
+  },
+  "emailNode": {
+    "title": "Email",
+    "subtitle": "Odoslať výstup behu e-mailom",
+    "enabled": {
+      "label": "Odoslať po každom behu",
+      "hint": "Predvolene vypnuté. Po zapnutí tento uzol odošle vybraný výstup e-mailom po každom dokončení workflowu."
+    },
+    "name": {
+      "label": "Názov",
+      "placeholder": "Email"
+    },
+    "subject": {
+      "label": "Predmet",
+      "placeholder": "Voliteľné — predvolene „Výstup workflowu“"
+    },
+    "recipients": {
+      "label": "Príjemcovia",
+      "placeholder": "a@example.com, b@example.com",
+      "hint": "E-mailové adresy oddelené čiarkou.",
+      "count_one": "{{count}} platný príjemca",
+      "count_few": "{{count}} platní príjemcovia",
+      "count_other": "{{count}} platných príjemcov",
+      "invalid": "Neplatné: {{list}}"
+    },
+    "sendingFrom": "Odoslať výstup od",
+    "sendingHint": "Pripoj agentov k tomuto Email uzlu na plátne a vyber, ktorý výstup sa odošle.",
+    "allAgents": "Všetci agenti v behu.",
+    "noAgents": "Zatiaľ nie sú pripojení žiadni agenti — potiahni spojenie z agenta do tohto Email uzla. Bez spojení sa neodošle nič.",
+    "unknownAgent": "Neznámy agent"
+  },
+  "structurerNode": {
+    "title": "Štruktúrovanie",
+    "subtitle": "Preveďte výstup agenta na štruktúrované dáta",
+    "unknownAgent": "Neznámy agent",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Štruktúrovanie"
+    },
+    "sourceFrom": "Štruktúruje z",
+    "sourceHint": "Riadené asistentmi pripojenými do tohto nodu na plátne.",
+    "allAgents": "Všetci agenti v behu.",
+    "noAgents": "Zatiaľ nie sú pripojení žiadni asistenti — pripojte asistenta do tohto nodu.",
+    "format": {
+      "label": "Formát",
+      "selectLabel": "Formát výstupu"
+    },
+    "mode": {
+      "label": "Režim extrakcie",
+      "parse": "Parsovať",
+      "ai": "AI extrakcia",
+      "parseHint": "Deterministicky extrahuje JSON alebo tabuľky už prítomné vo výstupe. Bez ďalších nákladov.",
+      "aiHint": "Spustí Claude na extrakciu štruktúrovaných riadkov z voľného textu."
+    },
+    "instructions": {
+      "label": "Pokyny na extrakciu",
+      "placeholder": "Voliteľné pokyny pre AI extraktor…"
+    },
+    "schema": {
+      "heading": "Schéma",
+      "total": "{{count}} stĺpcov",
+      "hint": "Definujte stĺpce/polia na extrakciu. Nechajte prázdne pre automatické odvodenie.",
+      "keyPlaceholder": "kľúč",
+      "keyAria": "Kľúč stĺpca {{index}}",
+      "remove": "Odstrániť stĺpec {{index}}",
+      "labelPlaceholder": "Štítok",
+      "labelAria": "Štítok stĺpca {{index}}",
+      "typeAria": "Typ stĺpca {{index}}",
+      "type": {
+        "string": "Text",
+        "number": "Číslo",
+        "boolean": "Boolean",
+        "date": "Dátum"
+      },
+      "add": "Pridať stĺpec",
+      "empty": "Žiadne stĺpce — extraktor odvodí polia z obsahu."
+    }
+  },
+  "dbSaveNode": {
+    "title": "Uložiť do databázy",
+    "subtitle": "Perzistuje štruktúrovaný dataset",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Uložiť do DB"
+    },
+    "datasetLabel": {
+      "label": "Štítok datasetu",
+      "placeholder": "Voliteľné — pomenuje uložený dataset",
+      "hint": "Ak je prázdne, použije sa názov datasetu zo štruktúrovania."
+    },
+    "savingFrom": "Ukladá dataset z",
+    "noUpstream": "Zatiaľ nie je pripojené žiadne štruktúrovanie — pripojte node Štruktúrovanie.",
+    "lastSaved_one": "Posledný beh uložil {{count}} riadok.",
+    "lastSaved_other": "Posledný beh uložil {{count}} riadkov.",
+    "viewDatasets": "Zobraziť uložené datasety"
+  },
+  "datasets": {
+    "panelLabel": "Uložené datasety",
+    "title": "Uložené datasety",
+    "back": "Späť na zoznam",
+    "rowCount_one": "{{count}} riadok",
+    "rowCount_other": "{{count}} riadkov",
+    "summary_one": "{{count}} dataset",
+    "summary_other": "{{count}} datasetov",
+    "downloadCsv": "Stiahnuť CSV",
+    "csv": "CSV",
+    "refresh": "Obnoviť",
+    "error": {
+      "loadList": "Načítanie datasetov zlyhalo.",
+      "loadDetail": "Načítanie datasetu zlyhalo."
+    },
+    "empty": {
+      "title": "Žiadne uložené datasety",
+      "description": "Spustite workflow s nodom Uložiť do DB na uloženie štruktúrovaných dát."
+    },
+    "emptyRows": {
+      "title": "Žiadne riadky",
+      "description": "Tento dataset nemá žiadne riadky."
+    },
+    "listMeta": "{{rows}} riadkov · {{format}} · {{time}}"
+  },
+  "httpRequestNode": {
+    "title": "HTTP požiadavka",
+    "subtitle": "Zavolajte externé API počas behu.",
+    "name": {
+      "label": "Názov",
+      "placeholder": "HTTP požiadavka"
+    },
+    "request": {
+      "label": "Požiadavka",
+      "methodLabel": "HTTP metóda",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "hint": "URL, hlavičky a telo akceptujú zástupný symbol {{token}} — nahradí sa výstupom z predchádzajúceho uzla."
+    },
+    "query": {
+      "heading": "Parametre dotazu",
+      "keyPlaceholder": "názov",
+      "valuePlaceholder": "hodnota",
+      "add": "Pridať parameter",
+      "empty": "Žiadne parametre dotazu.",
+      "remove": "Odstrániť parameter {{index}}"
+    },
+    "headers": {
+      "heading": "Hlavičky",
+      "keyPlaceholder": "Hlavička",
+      "valuePlaceholder": "hodnota",
+      "add": "Pridať hlavičku",
+      "empty": "Žiadne hlavičky.",
+      "remove": "Odstrániť hlavičku {{index}}"
+    },
+    "body": {
+      "label": "Telo",
+      "placeholder": "{ \"query\": \"...\" }",
+      "hint": "Odosiela sa s POST, PUT a PATCH. Podporuje zástupný symbol {{token}}.",
+      "mode": {
+        "json": "JSON",
+        "form": "Formulár",
+        "raw": "Surové"
+      }
+    },
+    "timeout": {
+      "label": "Časový limit (sekundy)",
+      "hint": "Požiadavka zlyhá, ak odpoveď nepríde včas."
+    },
+    "response": {
+      "label": "Odpoveď posielaná ďalej",
+      "body": "Iba telo",
+      "full": "Celá (stav + hlavičky)",
+      "hint": "Vyberte, čo dostanú ďalšie uzly: iba telo odpovede, alebo JSON obálku so stavom a hlavičkami."
+    }
+  },
+  "duckduckgoSearchNode": {
+    "title": "Vyhľadávanie DuckDuckGo",
+    "subtitle": "Vyhľadávajte na webe počas behu.",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Vyhľadávanie DuckDuckGo"
+    },
+    "query": {
+      "label": "Vyhľadávací dotaz",
+      "placeholder": "Vyhľadávací dotaz",
+      "hint": "Dotaz akceptuje zástupný symbol {{token}} — nahradí sa výstupom z predchádzajúceho uzla."
+    },
+    "maxResults": {
+      "label": "Max. výsledkov"
+    },
+    "region": {
+      "label": "Región",
+      "placeholder": "us-en",
+      "hint": "Kód regiónu DuckDuckGo, napr. us-en, uk-en, de-de. Pre žiadny región nechajte prázdne."
+    },
+    "safeSearch": {
+      "label": "SafeSearch",
+      "strict": "Prísny",
+      "moderate": "Mierny",
+      "off": "Vypnutý"
+    },
+    "timeLimit": {
+      "label": "Časový rozsah",
+      "any": "Kedykoľvek",
+      "d": "Posledný deň",
+      "w": "Posledný týždeň",
+      "m": "Posledný mesiac",
+      "y": "Posledný rok"
+    },
+    "output": {
+      "label": "Výsledky posielané ďalej",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Vyberte, čo dostanú ďalšie uzly: čitateľný zoznam, alebo JSON pole záznamov."
+    }
+  },
+  "sakanaAiNode": {
+    "title": "Sakana AI",
+    "subtitle": "Spustite dokončenie cez Sakana AI počas workflowu.",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Sakana AI"
+    },
+    "apiUrl": {
+      "label": "API URL",
+      "placeholder": "https://api.sakana.ai/v1/chat/completions"
+    },
+    "model": {
+      "label": "Model",
+      "placeholder": "sakana-chat"
+    },
+    "systemPrompt": {
+      "label": "Systémový prompt",
+      "placeholder": "Voliteľná systémová inštrukcia..."
+    },
+    "prompt": {
+      "label": "Prompt",
+      "placeholder": "Zhrň {{input}}",
+      "hint": "Prompt podporuje zástupný symbol {{token}} — nahradí sa výstupom z predchádzajúceho uzla."
+    },
+    "temperature": {
+      "label": "Teplota"
+    },
+    "maxTokens": {
+      "label": "Max tokenov"
+    },
+    "output": {
+      "label": "Výstup posielaný ďalej",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Vyberte, čo dostanú ďalšie uzly: text dokončenia alebo celú JSON odpoveď."
+    }
+  }
+}

@@ -1,0 +1,115 @@
+---
+title: Introduction
+description: RondoFlow is a local-first visual platform for composing teams of Claude Code Assistants that collaborate to get work done.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+# Introduction
+
+**Build AI agent teams visually.** Describe what you need, and RondoFlow assembles a team of specialized Claude Code Assistants that work together to get it done.
+
+RondoFlow is a local-first, self-hosted platform with a drag-and-drop Workspace (canvas) where you compose, connect, and run multi-agent workflows. You stay in control: it runs on your machine, against your project folders, and risky actions wait for your approval.
+
+## Who it's for
+
+RondoFlow is for anyone who wants more than a single chat window:
+
+- **Developers** orchestrating code review, refactoring, and test-writing across a real repository.
+- **Writers and analysts** running content, research, and data tasks as a coordinated team.
+- **Teams** who want repeatable, scheduled, auditable automation rather than one-off prompts.
+
+You don't need to be an expert to start. Describe a task in plain English and RondoFlow designs the team for you — then you can edit everything on the canvas.
+
+<Callout type="info">
+  RondoFlow runs entirely on your own machine (PostgreSQL + a Fastify backend + a Next.js UI). Your code, credentials, and run history never leave your infrastructure. See [Self-Hosting](/docs/reference/self-hosting).
+</Callout>
+
+## The core idea
+
+Most AI tools give you one assistant in one box. RondoFlow gives you a **visual Workspace** where you place specialized Assistants (agents) as Cards (nodes), wire them together, and run the whole thing as a workflow. Each Assistant can have its own model, Personality (persona), Skills, Memory, and Connections — and they hand work off to each other to complete tasks no single agent would handle as well.
+
+Beyond Assistants, the canvas also has **data and output Cards** — route work down different paths with a Condition Card, write a run's combined output to a file, email it, turn agent prose into a typed dataset, and persist it to the database. See [Data Cards](/docs/guides/data-nodes).
+
+## Headline capabilities
+
+| Capability | What it does | Learn more |
+|---|---|---|
+| **Visual Workspace** | Drag Assistant, Skill, Safety Rule, Resource, Connection, Note, and data/output Cards onto the canvas and wire them with flow, association, and conditional edges. | [Canvas](/docs/guides/canvas) |
+| **AI-generated Workflows** | Describe a task; RondoFlow designs 2–5 specialized Assistants in a DAG and lets you review before adding them. | [Workflows](/docs/guides/workflows) |
+| **Branching** | A Condition Card is a pure router: it sends work down labelled branches by matching the upstream Assistant's output (`contains` or `regex`), with an Else fallback — honored in both parallel and sequential modes. | [Data Cards](/docs/guides/data-nodes) |
+| **Data & output Cards** | Structure agent prose into a typed dataset and Save to DB; write the combined run output to a file (Output); or send it as an email (Email). | [Data Cards](/docs/guides/data-nodes) |
+| **Orchestration** | Planner reviews before running, Director coordinates between steps, Advisor analyzes finished runs. | [Orchestration](/docs/guides/orchestration) |
+| **Team Discussions** | Multiple Assistants brainstorm or debate a topic while a Facilitator (moderator) manages turns and synthesizes conclusions. | [Discussions](/docs/guides/discussions) |
+| **Multiple providers** | Run Assistants on Claude Code, OpenAI, or Perplexity. | [Providers](/docs/providers) |
+| **Safety Rules** | Layered policies (global, per-agent, per-conversation) gate risky commands and cap budgets — most restrictive always wins. | [Safety Rules](/docs/guides/safety-rules) |
+| **Schedules** | Run Assistants or workflows on a cron schedule (e.g. code review every weekday at 9am). | [Schedules](/docs/guides/schedules) |
+| **Loops** | Re-run an Assistant iteratively until a goal is met or an iteration cap is reached. | [Loops](/docs/guides/loops) |
+| **Memory** | Give Assistants persistent context that carries across runs. | [Memory](/docs/guides/memory) |
+| **Skills** | Instruction sets that grant specialized abilities; ships with built-ins and supports importing from Git. | [Skills](/docs/guides/skills) |
+| **Resources** | Attach files, folders, and other inputs that Assistants can use. | [Resources](/docs/guides/resources) |
+| **Git & Connections** | Manage branches, staging, and commits inline; attach MCP-based Connections to extend what Assistants can reach. | [Git](/docs/guides/git) · [Connections](/docs/guides/connections) |
+| **Users & Roles** | Invite-only team workspace with three global roles — viewer (read-only), editor, and admin. | [Users & Roles](/docs/guides/users) |
+| **Monitoring & audit** | Watch live execution feedback on the canvas, with activity, audit logs, and token-usage tracking. | [Monitoring](/docs/guides/monitoring) |
+
+<Callout type="info">
+  The UI ships in **English, Slovak, Spanish, French, and German** (switchable in Settings) — though code identifiers, model IDs, tool names, and brand names always stay in English.
+</Callout>
+
+### Multiple AI providers
+
+Every Assistant has a provider. The default `claude-code` provider starts (spawns) the Claude Code CLI as a subprocess; the `openai` and `perplexity` providers talk to their HTTP APIs directly and carry a per-agent model plus tool toggles (web search, deep research).
+
+- **Claude Code** — full agentic tool use against your local project. [Details](/docs/providers/claude-code)
+- **OpenAI** — models such as GPT-4.1, GPT-4.1 mini, GPT-4o, and o4-mini, plus deep-research modes. [Details](/docs/providers/openai)
+- **Perplexity** — Sonar models with built-in web search. [Details](/docs/providers/perplexity)
+
+## How it works
+
+<Steps>
+### Compose on the canvas
+
+Describe a task in plain English (or pick a template) and let RondoFlow generate a team — or drag Cards onto the Workspace yourself: Assistants, Skills, and Safety Rules, plus data and output Cards (Condition, Output, Email, Structure, Save to DB). Connect them with edges to define execution order and routing. Everything auto-saves.
+
+### Run as a workflow
+
+Start the workflow from the toolbar. Each Assistant runs in turn (or in parallel branches), passing context downstream. Condition Cards route work down the matching branch, and Structure → Save to DB steps run as real non-agent steps. Director is auto-enabled for workflows with three or more Assistants to coordinate hand-offs.
+
+### Monitor and improve
+
+Watch live feedback on the canvas — active Cards glow, completed Cards show a checkmark. Approve any risky action when prompted. When the run completes, Output Cards write the combined result to a file and Email Cards send it (Email is opt-in and off by default). Afterward, Advisor analyzes the results and suggests improvements.
+</Steps>
+
+<Callout type="important">
+  Agents run as real subprocesses against your working directory and can execute commands. Safety Rules and approval prompts exist to keep that under your control — review the [Security](/docs/reference/security) model before granting broad access.
+</Callout>
+
+## Terminology
+
+RondoFlow uses friendly names in its UI. You'll see these throughout the docs, with the internal term in parentheses on first mention:
+
+| You see | Internal term |
+|---|---|
+| Assistant | Agent |
+| Personality | Persona |
+| Safety Rule | Policy |
+| Connection | MCP Server |
+| Facilitator | Moderator |
+| Conversation | Session |
+| Workspace | Canvas |
+| Card | Node |
+| Start | Spawn |
+
+See the full [Terminology](/docs/concepts/terminology) reference.
+
+## Where to go next
+
+<Cards>
+  <Cards.Card title="Getting Started" href="/docs/getting-started/installation" />
+  <Cards.Card title="Core Concepts" href="/docs/concepts/overview" />
+  <Cards.Card title="Guides" href="/docs/guides/canvas" />
+  <Cards.Card title="Data Cards" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Reference" href="/docs/reference/architecture" />
+</Cards>

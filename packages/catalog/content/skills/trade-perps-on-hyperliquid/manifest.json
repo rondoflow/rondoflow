@@ -1,0 +1,10 @@
+{
+  "id": "trade-perps-on-hyperliquid",
+  "name": "trade-perps-on-hyperliquid",
+  "description": "Trade on Hyperliquid. Supports 228+ perps, HIP-3 equity/commodity perps (TSLA, GOLD), market scanning, sentiment analysis, Grok web/X search, and prediction market data. Commands for account status, market data, funding rates, order book, trading, and intelligence gathering.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.15",
+  "icon": "coins",
+  "order": 1000
+}

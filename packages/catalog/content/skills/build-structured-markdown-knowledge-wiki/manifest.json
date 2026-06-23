@@ -1,0 +1,10 @@
+{
+  "id": "build-structured-markdown-knowledge-wiki",
+  "name": "build-structured-markdown-knowledge-wiki",
+  "description": "LLM-maintained personal knowledge base. Compile raw sources into a structured markdown wiki, auto-lint for consistency, serve as a browsable website. Inspired by Karpathy's 'LLM Knowledge Bases' workflow. Use when: user asks to create/manage a wiki, 'wiki this', 'add to wiki', '…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

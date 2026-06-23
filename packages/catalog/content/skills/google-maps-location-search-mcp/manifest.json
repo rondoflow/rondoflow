@@ -1,0 +1,10 @@
+{
+  "id": "google-maps-location-search-mcp",
+  "name": "google-maps-location-search-mcp",
+  "description": "Google Maps Grounding Lite MCP for location search, weather, and routes via mcporter.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

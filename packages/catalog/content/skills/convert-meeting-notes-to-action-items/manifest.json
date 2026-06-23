@@ -1,0 +1,10 @@
+{
+  "id": "convert-meeting-notes-to-action-items",
+  "name": "convert-meeting-notes-to-action-items",
+  "description": "Convert meeting notes or transcripts into clear summaries, decisions, and action items with owners and due dates. Use when a user asks to turn a meeting recording, transcript, or notes into a follow-up plan.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

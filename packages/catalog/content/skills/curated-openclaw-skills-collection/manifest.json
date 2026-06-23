@@ -1,0 +1,10 @@
+{
+  "id": "curated-openclaw-skills-collection",
+  "name": "curated-openclaw-skills-collection",
+  "description": "A curated collection of 560+ best OpenClaw skills — AI tools, productivity, marketing, frontend, mobile, backend, DevOps and more. Weekly updated by MyClaw.ai — Powered by MyClaw.ai",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.7.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "long-form-to-shorts-repurposer",
+  "name": "long-form-to-shorts-repurposer",
+  "description": "Repurpose long-form video or audio into short-form clip plans with timestamps, hooks, captions, and packaging notes. Use when a user asks to turn a long video, podcast, or stream into Shorts, Reels, TikTok-style outputs, or highlight clips without publishing.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

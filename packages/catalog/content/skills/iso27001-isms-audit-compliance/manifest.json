@@ -1,0 +1,10 @@
+{
+  "id": "iso27001-isms-audit-compliance",
+  "name": "iso27001-isms-audit-compliance",
+  "description": "Information Security Management System (ISMS) audit expert for ISO 27001 compliance verification, security control assessment, and certification support. Use when the user mentions ISO 27001, ISMS audit, Annex A controls, Statement of Applicability (SOA), gap analysis, nonconfor…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "austin-meetup-events-rsvp",
+  "name": "austin-meetup-events-rsvp",
+  "description": "Inform users about Clawstin (OpenClaw meetups in Austin), show upcoming events, handle RSVP and mailing list signup via API. \"Keep Austin Clawd.\"",
+  "category": "Development",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "code",
+  "order": 1000
+}

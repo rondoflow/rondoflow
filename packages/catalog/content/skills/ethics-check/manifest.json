@@ -1,0 +1,10 @@
+{
+  "id": "ethics-check",
+  "name": "ethics-check",
+  "description": "A fast, comprehensive ethics report on any decision, action, or situation — runs all five ethical frameworks in a single pass. Lighter than ethics-council (no peer review, no HTML report), heavier than ethics-impact-scan. Triggers: 'ethics check', 'quick ethics review', 'full ethics report', 'check this ethically', 'run an ethics check', any request for a complete ethical assessment without full council process.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

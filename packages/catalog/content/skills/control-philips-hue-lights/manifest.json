@@ -1,0 +1,10 @@
+{
+  "id": "control-philips-hue-lights",
+  "name": "control-philips-hue-lights",
+  "description": "Control Philips Hue lights/scenes via the OpenHue CLI.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

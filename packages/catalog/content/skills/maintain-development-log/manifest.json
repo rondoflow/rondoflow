@@ -1,0 +1,10 @@
+{
+  "id": "maintain-development-log",
+  "name": "maintain-development-log",
+  "description": "Generate narrative blog posts from AI coding session transcripts. Reads session files, selects sessions relevant to a topic, and produces an agent-narrated blog post about the human-agent collaboration. Supports builder's log, tutorial, and technical deep-dive styles.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

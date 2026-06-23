@@ -1,0 +1,10 @@
+{
+  "id": "query-equity-crypto-financial-data",
+  "name": "query-equity-crypto-financial-data",
+  "description": "Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

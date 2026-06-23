@@ -1,0 +1,179 @@
+{
+  "error": {
+    "title": "Niečo sa pokazilo",
+    "fallback": "Vyskytla sa neočakávaná chyba. Skúste to znova.",
+    "errorId": "ID chyby: {{digest}}",
+    "tryAgain": "Skúsiť znova",
+    "goHome": "Prejsť na domovskú stránku"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Stránka sa nenašla",
+    "description": "Stránka, ktorú hľadáte, neexistuje.",
+    "back": "Späť na rondoflow"
+  },
+  "agentStream": {
+    "error": {
+      "timeout": "Vypršal časový limit požiadavky. Skúste to znova.",
+      "rateLimit": "Príliš veľa požiadaviek. Pred ďalším pokusom chvíľu počkajte.",
+      "network": "Vyskytla sa sieťová chyba. Skontrolujte pripojenie a skúste to znova.",
+      "overloaded": "Služba je dočasne preťažená. Skúste to čoskoro znova.",
+      "auth": "Overenie zlyhalo. Skontrolujte konfiguráciu rozhrania API.",
+      "contextLength": "Konverzácia je príliš dlhá. Zvážte vymazanie chatu.",
+      "processError": "Proces asistenta sa nepodarilo spustiť. Uistite sa, že je Claude Code nainštalovaný a nakonfigurovaný.",
+      "approvalTimeout": "Vypršal časový limit žiadosti o schválenie.",
+      "unexpected": "Vyskytla sa neočakávaná chyba. Skúste to znova.",
+      "cannotReachServerRaw": "Nedá sa dosiahnuť server rondoflow",
+      "cannotReachServer": "Server nie je dostupný. Uistite sa, že je backend spustený: npm run dev:server"
+    }
+  },
+  "workspace": {
+    "defaultName": "Môj pracovný priestor",
+    "numberedName": "Pracovný priestor {{n}}"
+  },
+  "toast": {
+    "edgeDeleted": "Pripojenie odstránené.",
+    "nodeDeleted": "Karta odstránená.",
+    "undo": "Späť",
+    "runNotPermitted": "Vaša rola neumožňuje spúšťať pracovné postupy",
+    "saveFailed": "Plátno sa nepodarilo uložiť.",
+    "autosaveFailed": "Vaše zmeny sa nepodarilo automaticky uložiť — po obnovení sa môžu stratiť.",
+    "retry": "Skúsiť znova"
+  },
+  "notify": {
+    "workflowGenerationFailed": {
+      "title": "Generovanie pracovného postupu zlyhalo",
+      "description": "Nepodarilo sa vygenerovať pracovný postup s viacerými asistentmi. Namiesto toho sa vytvára jednoduchý asistent. Podrobnosti nájdete v protokoloch servera."
+    },
+    "workspaceCreateFailed": {
+      "title": "Nepodarilo sa vytvoriť pracovný priestor",
+      "description": "Pracovný priestor sa nepodarilo vytvoriť. Uistite sa, že je server spustený, a skúste to znova."
+    },
+    "discussionCreateFailed": {
+      "title": "Nepodarilo sa vytvoriť diskusiu",
+      "description": "Diskusiu sa nepodarilo uložiť. Uistite sa, že je server spustený."
+    },
+    "canvasExported": {
+      "title": "Pracovný priestor exportovaný",
+      "description_one": "Uložené {{file}} ({{count}} asistent).",
+      "description_few": "Uložené {{file}} ({{count}} asistenti).",
+      "description_other": "Uložené {{file}} ({{count}} asistentov)."
+    },
+    "exportFailed": {
+      "title": "Export zlyhal",
+      "description": "Tento pracovný priestor sa nepodarilo exportovať."
+    },
+    "imported": {
+      "title": "Importované „{{name}}“"
+    },
+    "importFailed": {
+      "title": "Import zlyhal",
+      "description": "Tento súbor pracovného priestoru sa nepodarilo importovať."
+    }
+  },
+  "import": {
+    "tooLarge": "Tento súbor pracovného priestoru je príliš veľký na import (limit 16 MB).",
+    "invalidJson": "Tento súbor nie je platný JSON.",
+    "agents_one": "{{count}} asistent",
+    "agents_few": "{{count}} asistenti",
+    "agents_other": "{{count}} asistentov",
+    "skillsInstalled": "{{count}} zručností nainštalovaných",
+    "skillsSkipped": "{{count}} zručností preskočených",
+    "mcpServers": "{{count}} pripojení (MCP)"
+  },
+  "connection": {
+    "testFailed": "Test pripojenia zlyhal"
+  },
+  "log": {
+    "startTesting": "Štart: testuje sa pripojenie k rozhraniu Claude API…",
+    "startConnectionFailed": "Štart: pripojenie zlyhalo — {{message}}",
+    "startConnection": "Štart: {{message}}",
+    "noAgents": "Na pracovnom priestore nie sú žiadni asistenti. Na spustenie pracovného postupu pridajte aspoň 2 prepojených asistentov.",
+    "connectTwoAgents": "Prepojte aspoň 2 asistentov spojeniami, aby ste vytvorili reťazec pracovného postupu.",
+    "agentSaveFailed": "Asistenta „{{name}}“ sa nepodarilo uložiť do databázy. Vytvorte ho znova.",
+    "cannotConnectServer": "Nedá sa pripojiť k serveru. Uistite sa, že je backend spustený na porte 3001.",
+    "conditionWarning": "⚠ {{warning}}",
+    "startingWorkflowAuto": "Spúšťa sa pracovný postup s {{count}} krokmi (automatické schválenie)",
+    "startingWorkflowPerStep": "Spúšťa sa pracovný postup s {{count}} krokmi (schválenie krok po kroku)",
+    "stoppedByUser": "Pracovný postup zastavený používateľom",
+    "outputSavedTo": "Výstup uložený do {{path}}",
+    "saveFailed": "Uloženie zlyhalo: {{error}}",
+    "unknownError": "Neznáma chyba",
+    "autoSaveFailed": "Automatické uloženie výstupu zlyhalo: {{error}}",
+    "outputNoMatch": "Výstup „{{name}}“: žiadny zodpovedajúci výstup asistenta na uloženie",
+    "outputNodeSaved": "Výstup „{{name}}“ uložený do {{path}}",
+    "outputNodeSaveFailed": "Výstup „{{name}}“ sa nepodarilo uložiť: {{error}}",
+    "redirectApproved": "Presmerovanie schválené",
+    "continuingForward": "Pokračuje sa ďalej",
+    "skipReasonConditionNotMet": "podmienka vetvy nesplnená",
+    "skipReasonErrorCascade": "predchádzajúci krok zlyhal",
+    "skipReasonNoActivePath": "žiadna aktívna cesta",
+    "stepSkipped": "{{agentName}}: preskočené ({{reason}})",
+    "completedSteps": "Dokončených {{done}} z {{total}} krokov",
+    "completedStepsSkipped": "Dokončených {{done}} z {{total}} krokov ({{skipped}} preskočených)",
+    "stepError": "{{agentName}}: {{error}}",
+    "workflowStoppedReason": "Pracovný postup zastavený — {{reason}}",
+    "plannerAnalyzing": "Plánovač analyzuje pracovný postup...",
+    "plannerSuggests_one": "Plánovač navrhuje {{count}} zmenu: {{analysis}}",
+    "plannerSuggests_few": "Plánovač navrhuje {{count}} zmeny: {{analysis}}",
+    "plannerSuggests_other": "Plánovač navrhuje {{count}} zmien: {{analysis}}",
+    "plannerApproved": "Plánovač schválil pracovný postup: {{analysis}}",
+    "plannerError": "Chyba plánovača: {{error}}",
+    "advisorAnalyzing": "Analyzuje sa spustenie pracovného postupu...",
+    "advisorFailed": "Analýza poradcu zlyhala: {{error}}",
+    "noStepHistory": "Pre asistenta {{agentName}} zatiaľ nie je dostupná žiadna história konverzácie.",
+    "emailSent": "Email „{{name}}“ odoslaný {{count}} príjemcom: {{to}}",
+    "emailSendFailed": "Email „{{name}}“ sa nepodarilo odoslať: {{error}}",
+    "emailNoRecipients": "Email „{{name}}“: nie sú nastavení príjemcovia",
+    "emailNoMatch": "Email „{{name}}“: žiadny zodpovedajúci výstup agenta na odoslanie"
+  },
+  "fallbackAgent": {
+    "agentLabel": "Asistent",
+    "stepLabel": "Asistent {{index}}"
+  },
+  "output": {
+    "defaultName": "Výstup"
+  },
+  "savedWorkflow": {
+    "description_one": "Vygenerovaný pracovný postup s {{count}} asistentom",
+    "description_few": "Vygenerovaný pracovný postup s {{count}} asistentmi",
+    "description_other": "Vygenerovaný pracovný postup s {{count}} asistentmi"
+  },
+  "banner": {
+    "viewOnly": "Prístup len na zobrazenie — úpravy a spúšťanie sú zakázané"
+  },
+  "coaching": {
+    "connectNodes": "Prepojte asistentov ťahaním z jedného úchytu na druhý"
+  },
+  "agentChat": {
+    "sheetTitleWith": "Chat s {{name}}",
+    "sheetTitle": "Chat s asistentom",
+    "empty": "Vyberte asistenta a začnite chatovať"
+  },
+  "sheet": {
+    "activity": "Aktivita",
+    "auditLog": "Záznam auditu",
+    "memory": "Pamäť",
+    "workspaceContext": "Kontext pracovného priestoru",
+    "costDashboard": "Prehľad nákladov",
+    "analytics": "Analytika",
+    "directorSettings": "Nastavenia riaditeľa",
+    "outputSettings": "Nastavenia výstupu",
+    "conditionSettings": "Nastavenia podmienky",
+    "workflowChat": "Chat pracovného postupu",
+    "workspacePlan": "Plán pracovného priestoru",
+    "emailSettings": "Nastavenia e-mailu",
+    "structurerSettings": "Nastavenia štruktúrovania",
+    "dbSaveSettings": "Nastavenia ukladania do databázy",
+    "httpRequestSettings": "Nastavenia HTTP požiadavky",
+    "duckduckgoSearchSettings": "Nastavenia vyhľadávania DuckDuckGo",
+    "sakanaAiSettings": "Nastavenia Sakana AI"
+  },
+  "empty": {
+    "selectWorkspace": "Najprv vyberte pracovný priestor"
+  },
+  "email": {
+    "defaultName": "Email",
+    "defaultSubject": "Výstup workflowu"
+  }
+}

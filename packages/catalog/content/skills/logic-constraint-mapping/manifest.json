@@ -1,0 +1,10 @@
+{
+  "id": "logic-constraint-mapping",
+  "name": "logic-constraint-mapping",
+  "description": "Map the full constraint landscape for a decision, design, or plan — distinguishing hard limits from soft preferences, surfacing hidden constraints, and finding conflicts between them. Use before committing to an approach, when a plan keeps hitting unexpected walls, or when it's unclear what's actually negotiable. TRIGGERS: 'map the constraints', 'what are we actually working with', 'what's blocking this', 'what can we change', 'constraint analysis', any situation where the boundaries of what's possible need to be understood before proceeding.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

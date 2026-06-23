@@ -1,0 +1,28 @@
+{
+  "id": "full-stack-developer",
+  "name": "Full-Stack Developer",
+  "description": "Designs and builds complete web apps end-to-end, frontend to backend.",
+  "icon": "Layers",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "fullstack",
+    "frontend",
+    "backend",
+    "web",
+    "end-to-end"
+  ],
+  "order": 116
+}

@@ -1,0 +1,151 @@
+---
+title: Perplexity
+description: Run web-searching Assistants on Perplexity's Sonar models through RondoFlow's OpenAI-compatible API integration.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Perplexity
+
+Perplexity gives your Assistants (agents) live web search baked into every reply. RondoFlow talks to Perplexity's **Sonar** models over its OpenAI-compatible chat API at `https://api.perplexity.ai`, so a Perplexity-backed Assistant behaves like any other Card (node) on the Workspace (canvas) — it just answers from the current web instead of training data alone.
+
+Pick Perplexity when an Assistant needs fresh, sourced facts: market checks, release notes, "what changed this week," competitive research, or any step where citations matter.
+
+<Callout type="info">
+Every Sonar model searches the web on **every** run. There is no web-search toggle for Perplexity — the search happens automatically and the sources are surfaced back to RondoFlow.
+</Callout>
+
+## How it works
+
+RondoFlow reuses the official OpenAI SDK pointed at Perplexity's base URL, because Perplexity's chat completions endpoint is OpenAI-compatible. Each Assistant turn:
+
+- Threads your conversation through a **message history** (system prompt, then alternating user/assistant turns). Perplexity has no response-id continuation, so RondoFlow keeps the full history in memory for multi-turn chat.
+- Emits a synthetic `web_search` activity (tool-use id `pplx-search-<n>`) so the UI renders search the same way it does for other providers — no real tool call is made; Sonar searches internally — then streams the model's answer token by token.
+- Captures the **citations** (or `search_results`) Perplexity attaches to the response so you can see which sources it used.
+- Reports token usage and a coarse cost estimate when the API returns a usage block (see [Cost estimates](#cost-estimates)).
+
+This wiring is shared with other API providers, so Perplexity Assistants run inside chains, loops, schedules, and discussions exactly like Claude Code or OpenAI ones.
+
+## Supported models
+
+The Assistant editor offers these Sonar chat models (the stored value is the raw model id sent to the API):
+
+| Model | ID | Best for |
+| --- | --- | --- |
+| Sonar | `sonar` | Fast, cost-effective search (default) |
+| Sonar Pro | `sonar-pro` | Production-quality multi-source synthesis |
+| Sonar Reasoning | `sonar-reasoning` | Chain-of-thought reasoning |
+| Sonar Reasoning Pro | `sonar-reasoning-pro` | Advanced analytical reasoning |
+
+The default model is **Sonar** (`sonar`).
+
+### Deep research
+
+Turning on the **Deep research** toggle switches the request to a dedicated deep-research model — `sonar-deep-research` — regardless of the chat model you selected. Deep research fans out across many sources for a thorough, well-cited report. When the toggle is on, the model dropdown is disabled (your chat-model pick is ignored for that run).
+
+<Callout type="warning">
+Deep research is slower and costlier. RondoFlow widens the request timeout to **30 minutes** for these runs (normal Sonar runs use a 10-minute timeout), so expect long-running steps and budget accordingly. The shared spawn idle timeout still applies — see [Timeouts](#timeouts).
+</Callout>
+
+You can pin a specific deep-research model with the optional `deepResearchModel` field in the Assistant's `providerConfig` (see [Provider config](#provider-config)); when set, it is used instead of `sonar-deep-research`. The editor has no control for this override — it is preserved if present but is not a user-facing setting today.
+
+## Setup
+
+<Steps>
+### Get a Perplexity API key
+
+Create a key at `perplexity.ai/settings/api`.
+
+### Add the key in RondoFlow
+
+Open **Settings → Credentials** and paste the key under **Perplexity access**. It maps to the `PERPLEXITY_API_KEY` environment variable and applies immediately on save — no restart needed.
+
+You can also set it directly in your root `.env`:
+
+```env
+PERPLEXITY_API_KEY=pplx-...
+```
+
+<Callout type="info">
+`PERPLEXITY_API_KEY` is **not** included in `.env.example` — it is a Settings-managed credential. The Settings → Credentials path is the recommended way to set it; the `.env` fallback works only if you add the line yourself.
+</Callout>
+
+### Create a Perplexity Assistant
+
+Drag the **Perplexity Assistant** card (Globe icon) from the canvas palette onto the Workspace. This seeds a new Assistant whose provider is fixed to Perplexity.
+
+<Callout type="important">
+The provider is set when you drop the card and is **read-only** in the editor — there is no provider dropdown. To use a different provider, drag that provider's palette card instead.
+</Callout>
+
+### Pick a Sonar model
+
+Open the Assistant's editor, choose a Sonar model, and optionally enable **Deep research**.
+
+### Run it
+
+Connect the Assistant into a chain or chat with it directly, and start the run. The first turn searches the web automatically.
+</Steps>
+
+<Callout type="important">
+If you start a Perplexity Assistant without a key, the run fails with: `PERPLEXITY_API_KEY is not configured. Add it in Settings → Credentials (Perplexity access).` Add the key and try again.
+</Callout>
+
+## Provider config
+
+A Perplexity Assistant's `providerConfig` uses the shared API-provider shape:
+
+```json
+{
+  "model": "sonar",
+  "webSearch": true,
+  "deepResearch": false
+}
+```
+
+- `model` — the Sonar chat model id. Ignored when `deepResearch` is on.
+- `webSearch` — kept `true` for shape consistency. Sonar always searches, so this flag has no effect for Perplexity, and the editor shows no web-search toggle (it only appears for OpenAI). Toggling **Deep research** on in the editor also forces and locks `webSearch` to `true`.
+- `deepResearch` — when `true`, the request switches to `sonar-deep-research`.
+- `deepResearchModel` *(optional)* — an explicit deep-research model id used instead of `sonar-deep-research`. No editor control sets this; it is preserved if present.
+
+## Cost estimates
+
+Perplexity's response usage block carries token counts but no dollar figure, so RondoFlow computes a **coarse** estimate from a built-in per-model rate table (USD per 1M tokens) and reports it on the run's usage event. Treat it as an approximation, not a billing source of truth.
+
+| Model | Input ($/1M) | Output ($/1M) |
+| --- | --- | --- |
+| `sonar` | 1 | 1 |
+| `sonar-pro` | 3 | 15 |
+| `sonar-reasoning` | 1 | 5 |
+| `sonar-reasoning-pro` | 2 | 8 |
+| `sonar-deep-research` | 2 | 8 |
+
+Any model not in this table falls back to an estimate of $1 input / $1 output per 1M tokens.
+
+## Timeouts
+
+A Perplexity run is governed by two independent limits:
+
+- **OpenAI-SDK request timeout** — 10 minutes for normal Sonar runs, widened to 30 minutes for deep-research runs.
+- **Shared spawn timeouts** — like every API runner, Perplexity also honors the idle and wall-clock timeouts (`RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`, default 5 minutes; `RONDOFLOW_SPAWN_MAX_MS`, off by default). The idle timer resets on every streamed event.
+
+<Callout type="warning">
+A long deep-research run that streams **no tokens for 5 minutes** can be reaped by the idle timer even though it is still inside the 30-minute request timeout. If you self-host and run heavy deep-research workloads, raise `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` (or set it to `0` to disable it) so quiet runs are not killed.
+</Callout>
+
+## Tips
+
+- **Lean on citations.** Perplexity returns the sources it consulted; pass them downstream when a later step needs to verify or quote a claim.
+- **Match the model to the job.** Use `sonar` for quick lookups, `sonar-pro` for synthesis across many sources, and the reasoning models when the step needs analysis rather than retrieval.
+- **Reserve deep research for real reports.** It is the right tool for a thorough briefing, but its cost and runtime make it a poor fit for a quick fact check inside a tight loop.
+
+## Related
+
+<Cards>
+  <Cards.Card title="AI Providers overview" href="/docs/providers" />
+  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
+  <Cards.Card title="OpenAI provider" href="/docs/providers/openai" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+</Cards>

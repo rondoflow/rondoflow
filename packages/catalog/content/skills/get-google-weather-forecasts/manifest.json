@@ -1,0 +1,10 @@
+{
+  "id": "get-google-weather-forecasts",
+  "name": "get-google-weather-forecasts",
+  "description": "Google Weather API - accurate, real-time weather data. Get current conditions, temperature, humidity, wind, and forecasts. Powered by Google's Weather API for reliable, hyperlocal data updated every 15 minutes. Supports any location worldwide.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

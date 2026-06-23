@@ -1,0 +1,10 @@
+{
+  "id": "structured-market-research-analysis",
+  "name": "structured-market-research-analysis",
+  "description": "Conduct structured market research on any industry, competitor, or opportunity. Analyze market size, trends, competitors, and customer segments with a proven framework.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

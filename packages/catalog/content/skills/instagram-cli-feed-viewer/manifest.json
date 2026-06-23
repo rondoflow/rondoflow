@@ -1,0 +1,10 @@
+{
+  "id": "instagram-cli-feed-viewer",
+  "name": "instagram-cli-feed-viewer",
+  "description": "Instagram CLI for viewing feeds, posts, profiles, and engagement via cookies.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

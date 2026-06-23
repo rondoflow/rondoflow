@@ -1,0 +1,10 @@
+{
+  "id": "systematic-deep-reasoning-framework",
+  "name": "systematic-deep-reasoning-framework",
+  "description": "Comprehensive deep reasoning framework that guides systematic, thorough thinking for complex tasks. Automatically applies for multi-step problems, ambiguous requirements, architectural decisions, debugging sessions, and any task requiring careful analysis beyond surface-level re…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

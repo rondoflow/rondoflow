@@ -1,0 +1,10 @@
+{
+  "id": "write-run-tests-autofix-failures",
+  "name": "write-run-tests-autofix-failures",
+  "description": "Writes and runs tests (unit, integration, E2E), performs linting, and auto-fixes failures",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "pencil",
+  "order": 1000
+}

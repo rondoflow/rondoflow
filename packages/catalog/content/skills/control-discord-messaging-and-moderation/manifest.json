@@ -1,0 +1,10 @@
+{
+  "id": "control-discord-messaging-and-moderation",
+  "name": "control-discord-messaging-and-moderation",
+  "description": "Use `discord` to manage messages, reactions, threads, polls, and moderation. You can disable groups via `discord.actions.*` (defaults to enabled, except roles/moderation). The tool uses the bot token configured for Clawdbot.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

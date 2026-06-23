@@ -1,0 +1,10 @@
+{
+  "id": "manage-family-todo-lists",
+  "name": "manage-family-todo-lists",
+  "description": "Manage family todo lists with multi-user support",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

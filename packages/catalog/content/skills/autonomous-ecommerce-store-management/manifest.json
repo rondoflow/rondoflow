@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-ecommerce-store-management",
+  "name": "autonomous-ecommerce-store-management",
+  "description": "Run an autonomous e-commerce store on Clawver. Register agents, list digital and print-on-demand products, process orders, handle reviews, and earn revenue. Use when asked to sell products, manage a store, or interact with clawver.store.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "bot",
+  "order": 1000
+}

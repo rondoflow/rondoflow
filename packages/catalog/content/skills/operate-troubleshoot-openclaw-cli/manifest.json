@@ -1,0 +1,10 @@
+{
+  "id": "operate-troubleshoot-openclaw-cli",
+  "name": "operate-troubleshoot-openclaw-cli",
+  "description": "Operate and troubleshoot the OpenClaw CLI across setup, gateway/node lifecycle, channel login, messaging, agent turns, models, plugins, and system health. Use when asked to choose, run, debug, or explain `openclaw` commands, global flags (`--dev`, `--profile`), or command famili…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

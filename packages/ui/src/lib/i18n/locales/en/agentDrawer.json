@@ -1,0 +1,286 @@
+{
+  "purpose": {
+    "general": "General",
+    "writing": "Writing",
+    "coding": "Coding",
+    "analysis": "Analysis",
+    "chat": "Chat",
+    "review": "Review",
+    "research": "Research",
+    "creative": "Creative",
+    "data": "Data"
+  },
+  "tool": {
+    "read": "Read files",
+    "write": "Write files",
+    "edit": "Edit files",
+    "bash": "Run commands (Bash)",
+    "glob": "Find files (Glob)",
+    "grep": "Search contents (Grep)",
+    "ls": "List directories (LS)",
+    "webFetch": "Fetch web pages (WebFetch)",
+    "webSearch": "Search the web (WebSearch)",
+    "todoWrite": "Manage a task list (TodoWrite)"
+  },
+  "permissionMode": {
+    "default": {
+      "label": "Default",
+      "description": "Standard permission checks"
+    },
+    "edit": {
+      "label": "Accept Edits",
+      "description": "Auto-accept file edits (no bash/git)"
+    },
+    "full": {
+      "label": "Full Access",
+      "description": "Read, write, and run git/bash without prompts"
+    }
+  },
+  "status": {
+    "idle": "Idle",
+    "running": "Running",
+    "waiting": "Waiting",
+    "error": "Error"
+  },
+  "tab": {
+    "configure": "Configure",
+    "capabilities": "Capabilities",
+    "safety": "Safety",
+    "history": "History"
+  },
+  "field": {
+    "name": "Name",
+    "description": "Description",
+    "purpose": "Purpose",
+    "model": "Model",
+    "tools": "Tools",
+    "customModelId": "Custom Model ID"
+  },
+  "placeholder": {
+    "name": "Assistant name",
+    "description": "What does this assistant do?",
+    "persona": "You are a helpful assistant that...",
+    "customModel": "claude-opus-4-5",
+    "scopePath": "/path/to/directory"
+  },
+  "hint": {
+    "personaSystemPrompt": "This becomes the system prompt guiding how the assistant behaves.",
+    "deepResearchModel": "Deep research runs use a dedicated deep-research model automatically.",
+    "perplexitySearches": "Perplexity Sonar models search the web automatically on every run.",
+    "customModel": "Optional. Enter a full model ID to override the tier above. Leave empty to use the selected tier."
+  },
+  "toggle": {
+    "webSearch": {
+      "label": "Web search",
+      "description": "Let the assistant search the web during a run."
+    },
+    "deepResearch": {
+      "label": "Deep research",
+      "description": "Uses a dedicated deep-research model. Slower and costlier, and turns on web search automatically."
+    }
+  },
+  "safety": {
+    "level": "Safety Level",
+    "levelAria": "Safety level",
+    "cautious": {
+      "label": "Cautious",
+      "description": "Requires approval for all actions"
+    },
+    "balanced": {
+      "label": "Balanced",
+      "description": "Requires approval for destructive commands only"
+    },
+    "autonomous": {
+      "label": "Autonomous",
+      "description": "Runs without approval prompts"
+    },
+    "toolsApiNote": "<0>{{provider}}</0> assistants manage their tools (web search, deep research) in the <1>Configure</1> tab. Per-tool file and command permissions don't apply to {{provider}} assistants.",
+    "toolsAllNote": "All tools are enabled (autonomous). Choose <1>Balanced</1> above to grant specific tools instead."
+  },
+  "action": {
+    "addPath": "Add path",
+    "removePath": "Remove {{path}}",
+    "addTool": "Add tool",
+    "removeTool": "Remove {{tool}}"
+  },
+  "advanced": {
+    "teams": {
+      "title": "Agent Teams",
+      "description": "Allow this agent to coordinate with other agents",
+      "enableAria": "Enable agent teams",
+      "disableAria": "Disable agent teams"
+    },
+    "permissionMode": "Permission Mode",
+    "permissionModeAria": "Permission mode"
+  },
+  "conversations": {
+    "emptyTitle": "No conversations yet",
+    "emptyDescription": "Start chatting to see your history here",
+    "listAria": "Past conversations",
+    "sessionTitle": "Session {{id}}",
+    "messageCount_one": "{{count}} message",
+    "messageCount_other": "{{count}} messages",
+    "statusActive": "active",
+    "statusEnded": "ended"
+  },
+  "drawer": {
+    "noAssistant": "No assistant selected",
+    "configureAria": "Configure {{name}}",
+    "loadError": "Could not load this assistant.",
+    "validationNameRequired": "Name is required",
+    "validationPersonaRequired": "Persona is required",
+    "saveFailed": "Save failed — try again",
+    "unsavedChanges": "Unsaved changes",
+    "allChangesSaved": "All changes saved",
+    "noChanges": "No changes"
+  },
+  "create": {
+    "simple": {
+      "titleDescribe": "Create an Assistant",
+      "titlePreview": "Preview",
+      "titleConfirm": "Confirm",
+      "descDescribe": "Describe what you want this assistant to do in plain language.",
+      "descPreview": "Review the generated configuration before creating.",
+      "descConfirm": "Your assistant is ready to create.",
+      "stepProgressAria": "Step progress",
+      "describePlaceholder": "E.g. I want an assistant that reviews my code and suggests improvements, focuses on TypeScript, and explains every change it makes.",
+      "describeHint": "Be as descriptive as you like — tone, focus area, things to avoid.",
+      "recommendedModel": "Recommended Model",
+      "recommendedBadge": "Recommended",
+      "costPerMessage": "~${{cost}}/msg",
+      "confirmSummary": "<0>{{name}}</0> will be created with purpose <1>{{purpose}}</1> using the <2>{{model}}</2> model.",
+      "confirmHint": "You can adjust all settings after creation from the assistant drawer.",
+      "browseTemplates": "Browse templates",
+      "configureManually": "Configure manually",
+      "generating": "Generating...",
+      "continue": "Continue",
+      "looksGood": "Looks good",
+      "createAssistant": "Create Assistant"
+    },
+    "advanced": {
+      "titleCustomise": "Customise Template",
+      "titleNew": "New Assistant — Advanced",
+      "descCustomise": "Review and tweak the pre-filled configuration, then create.",
+      "descNew": "Configure every detail manually.",
+      "namePlaceholder": "My Assistant",
+      "descriptionPlaceholder": "Short summary of what this assistant does",
+      "scopePathPlaceholder": "/path/to/directory",
+      "toolsPlaceholder": "read_files, run_commands, ...",
+      "browseTemplates": "Browse templates",
+      "simpleMode": "Simple mode",
+      "createAssistant": "Create Assistant"
+    }
+  },
+  "template": {
+    "useTemplateAria": "Use template: {{name}}",
+    "title": "Start from a Template",
+    "description": "Pick a pre-configured assistant to get started fast. You can tweak everything before creating.",
+    "searchPlaceholder": "Search templates (e.g. SEO, frontend, data)",
+    "searchAria": "Search templates",
+    "noMatch": "No templates match “{{query}}”.",
+    "describeWithAi": "Describe with AI",
+    "startFromScratch": "Start from scratch",
+    "quickPickPlaceholder": "Jump to a template…",
+    "quickPickSearch": "Search templates…",
+    "quickPickEmpty": "No templates found"
+  },
+  "model": {
+    "selectionAria": "Model selection",
+    "recommended": "Recommended",
+    "costPerMessage": "~${{cost}}/msg",
+    "whyRecommended": "Why recommended"
+  },
+  "chat": {
+    "running": "Running",
+    "completed": "Completed",
+    "toolAria": "Tool: {{tool}}. Click to {{action}} details.",
+    "toolExpand": "expand",
+    "toolCollapse": "collapse",
+    "toolInput": "Input",
+    "toolOutput": "Output",
+    "errorTitle": "Something went wrong",
+    "tokenTooltip": "Input: {{input}} tokens, Output: {{output}} tokens",
+    "tokenSummary": "{{tokens}} tokens · ${{cost}}",
+    "emptyTitle": "Start a conversation",
+    "emptyDescription": "Send a message below to begin chatting with this assistant.",
+    "messagesAria": "Conversation messages",
+    "workspaceFilesAria": "Workspace files",
+    "workspaceFilesTitle": "Workspace Files",
+    "noFiles": "No files in workspace yet.",
+    "fileMention": "[file: {{name}}]",
+    "messagePlaceholder": "Message the assistant… (Ctrl+Enter to send)",
+    "messageInputAria": "Message input",
+    "attachFileAria": "Attach file from workspace",
+    "attachFileTitle": "Attach workspace file",
+    "stopAria": "Stop generation",
+    "stopTitle": "Stop generation",
+    "sendAria": "Send message",
+    "sendTitle": "Send message (Ctrl+Enter)",
+    "purposeLabel": "Purpose: {{purpose}}",
+    "resourcesLabel": "Resources:",
+    "resourcesNone": "none",
+    "resourcesMore": "{{names}} +{{remaining}} more",
+    "manageResources": "Manage",
+    "manageResourcesAria": "Manage workspace resources",
+    "editAria": "Edit assistant settings",
+    "clearAria": "Clear conversation"
+  },
+  "skills": {
+    "emptyTitle": "No skills added",
+    "emptyDescription": "Browse the marketplace to add abilities.",
+    "browseMarketplace": "Browse Marketplace",
+    "listAria": "Skills attached to this assistant",
+    "priorityAria": "Priority {{priority}}",
+    "enableAria": "Enable {{name}}",
+    "disableAria": "Disable {{name}}",
+    "removeAria": "Remove {{name}}",
+    "addSkill": "Add Skill",
+    "addSkillAria": "Open skill marketplace to add a skill",
+    "quickAttachPlaceholder": "Attach a skill…",
+    "quickAttachSearch": "Search skills…",
+    "quickAttachEmpty": "No skills found",
+    "quickAttachOverflow": "Keep typing to narrow results…"
+  },
+  "folders": {
+    "emptyTitle": "No external folders attached",
+    "emptyDescription": "Attach a host directory this assistant can read or write.",
+    "attachFolder": "Attach Folder",
+    "listAria": "External folders attached to this assistant",
+    "priorityAria": "Priority {{priority}}",
+    "readOnly": "RO",
+    "enableAria": "Enable {{name}}",
+    "disableAria": "Disable {{name}}",
+    "removeAria": "Remove {{name}}",
+    "attachFolderAria": "Open external folders to attach a folder"
+  },
+  "mcp": {
+    "addRemoveAria": "{{action}} {{name}} {{managed}}",
+    "addAction": "Add",
+    "removeAction": "Remove",
+    "managedBySkill": "(managed by skill)",
+    "emptyTitle": "No MCP servers registered",
+    "emptyDescription": "Add MCP connections to extend this agent's capabilities.",
+    "manageConnections": "Manage Connections",
+    "assignedTitle": "Assigned ({{count}})",
+    "assignedAria": "Assigned MCP servers",
+    "availableTitle": "Available ({{count}})",
+    "availableAria": "Available MCP servers",
+    "skillManagedNote": "<0>Skill-managed</0> servers are added automatically when a skill is enabled. Disable the skill to remove them."
+  },
+  "memory": {
+    "title": "Agent Memory",
+    "rememberAcrossSessions": "Remember across sessions",
+    "disabledNote": "Memory is off — saved entries below are not injected into this agent's runs, and nothing is auto-captured, until you enable it.",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "autoCaptured": "auto-captured · read-only",
+    "keyPlaceholder": "Key",
+    "valuePlaceholder": "Value",
+    "addMemoryAria": "Add memory",
+    "source": {
+      "manual": "manual",
+      "auto": "auto",
+      "director": "director"
+    }
+  }
+}

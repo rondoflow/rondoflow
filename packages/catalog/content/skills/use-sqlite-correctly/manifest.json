@@ -1,0 +1,10 @@
+{
+  "id": "use-sqlite-correctly",
+  "name": "use-sqlite-correctly",
+  "description": "Use SQLite correctly with proper concurrency, pragmas, and type handling.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

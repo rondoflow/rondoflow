@@ -1,0 +1,10 @@
+{
+  "id": "automate-windows-gui-with-powershell",
+  "name": "automate-windows-gui-with-powershell",
+  "description": "Automate Windows GUI interactions (mouse, keyboard, windows) using PowerShell. Use when the user needs to simulate user input on the desktop, such as moving the cursor, clicking buttons, typing text in non-web apps, or managing window states.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

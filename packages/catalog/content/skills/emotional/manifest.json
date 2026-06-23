@@ -1,0 +1,10 @@
+{
+  "id": "emotional",
+  "name": "emotional",
+  "description": "Entry point for the emotional intelligence toolkit. Routes to the right emotional skill based on your situation. Use when you say 'emotional', 'why are they behaving like this', 'what motivates them', 'why the resistance', 'what do they really want', 'trust issues', or want emotional/interpersonal reasoning applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

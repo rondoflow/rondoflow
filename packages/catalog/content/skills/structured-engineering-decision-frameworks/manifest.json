@@ -1,0 +1,10 @@
+{
+  "id": "structured-engineering-decision-frameworks",
+  "name": "structured-engineering-decision-frameworks",
+  "description": "Structured decision-making patterns for common engineering choices — library selection, architecture, build vs buy, prioritization, reversibility analysis, and ADRs. Use when choosing between tools, architectures, or approaches, or when documenting technical decisions.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

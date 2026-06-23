@@ -1,0 +1,10 @@
+{
+  "id": "book-hair-extensions-services",
+  "name": "book-hair-extensions-services",
+  "description": "Book extensions services through Lokuli MCP. Use when user needs to find and book extensions. Triggers on requests like \"book a extensions\", \"find extensions near me\", or any extensions service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

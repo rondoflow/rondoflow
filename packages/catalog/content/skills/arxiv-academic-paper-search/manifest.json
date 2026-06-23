@@ -1,0 +1,10 @@
+{
+  "id": "arxiv-academic-paper-search",
+  "name": "arxiv-academic-paper-search",
+  "description": "Use the arXiv API for academic paper discovery, relevance screening, and structured output. Suitable for topic-based search, latest-paper discovery, fixed-template reporting, and citation-oriented workflows.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

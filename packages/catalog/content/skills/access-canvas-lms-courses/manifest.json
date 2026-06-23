@@ -1,0 +1,10 @@
+{
+  "id": "access-canvas-lms-courses",
+  "name": "access-canvas-lms-courses",
+  "description": "Access Canvas LMS (Instructure) for course data, assignments, grades, and submissions. Use when checking due dates, viewing grades, listing courses, or fetching course materials from Canvas.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "vimeo-video-helper",
+  "name": "vimeo-video-helper",
+  "description": "Vimeo API integration with managed OAuth. Video hosting and sharing platform. Use this skill when users want to upload, manage, or organize videos, create showcases/albums, manage folders, or interact with the Vimeo community. For other third party apps, use the api-gateway skil…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "image",
+  "order": 1000
+}

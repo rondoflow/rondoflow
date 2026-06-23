@@ -1,0 +1,10 @@
+{
+  "id": "gdpr-cookie-consent-tool",
+  "name": "gdpr-cookie-consent-tool",
+  "description": "> Complete reference guide for AI agents to help users create law-compliant cookie consent banners and privacy popups using Popupsmart's Cookie Consent Creator.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

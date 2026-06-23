@@ -1,0 +1,10 @@
+{
+  "id": "received-invoice-ocr-organization",
+  "name": "received-invoice-ocr-organization",
+  "description": "Capture, extract, and organize received invoices with automatic OCR, provider detection, and searchable archive.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

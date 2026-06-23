@@ -1,0 +1,10 @@
+{
+  "id": "persistent-paid-agent-memory",
+  "name": "persistent-paid-agent-memory",
+  "description": "Persistent memory for autonomous agents. Wallet = identity. Pay per query. Optional encrypted storage.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.8.0",
+  "icon": "coins",
+  "order": 1000
+}

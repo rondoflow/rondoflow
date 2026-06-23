@@ -1,0 +1,10 @@
+{
+  "id": "sendgrid-email-integration",
+  "name": "sendgrid-email-integration",
+  "description": "SendGrid API integration with managed OAuth. Send emails, manage contacts, templates, suppressions, and view email statistics. Use this skill when users want to send transactional or marketing emails, manage email lists, handle bounces/unsubscribes, or analyze email performance.…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

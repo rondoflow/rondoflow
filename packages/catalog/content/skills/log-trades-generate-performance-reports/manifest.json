@@ -1,0 +1,10 @@
+{
+  "id": "log-trades-generate-performance-reports",
+  "name": "log-trades-generate-performance-reports",
+  "description": "Log every trade with full context (thesis, entry, exit, PnL, emotion, lesson). Generate weekly and monthly performance reports. Identify patterns in wins/losses. Use when recording a new trade, reviewing performance, running a weekly debrief, or updating the trading strategy bas…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

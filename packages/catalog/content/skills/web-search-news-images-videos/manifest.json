@@ -1,0 +1,10 @@
+{
+  "id": "web-search-news-images-videos",
+  "name": "web-search-news-images-videos",
+  "description": "Use this skill when users need to search the web for information, news, images, or videos. Triggers include: requests to \"search for\", \"find information about\", \"look up\", \"what's the latest on\", or any request requiring current web content. Also use for research tasks, fact-che…",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.3",
+  "icon": "image",
+  "order": 1000
+}

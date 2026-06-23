@@ -1,0 +1,10 @@
+{
+  "id": "save-daily-memory-for-continuity",
+  "name": "save-daily-memory-for-continuity",
+  "description": "Periodically reviews conversation history and writes memory files to maintain agent continuity across sessions. Dual-layer system with daily raw notes and curated long-term memory.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

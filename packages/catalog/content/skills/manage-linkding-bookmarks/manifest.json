@@ -1,0 +1,10 @@
+{
+  "id": "manage-linkding-bookmarks",
+  "name": "manage-linkding-bookmarks",
+  "description": "Manage linkding bookmarks - save URLs, search, tag, organize, and retrieve your personal bookmark collection. Use when the user wants to save links, search bookmarks, manage tags, or organize their reading list.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

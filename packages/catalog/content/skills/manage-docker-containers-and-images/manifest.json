@@ -1,0 +1,10 @@
+{
+  "id": "manage-docker-containers-and-images",
+  "name": "manage-docker-containers-and-images",
+  "description": "Docker containers, images, Compose stacks, networking, volumes, debugging, production hardening, and the commands that keep real environments stable. Use when (1) the task touches Docker, Dockerfiles, images, containers, or Compose; (2) build reliability, runtime behavior, logs,…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "image",
+  "order": 1000
+}

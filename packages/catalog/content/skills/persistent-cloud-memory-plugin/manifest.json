@@ -1,0 +1,10 @@
+{
+  "id": "persistent-cloud-memory-plugin",
+  "name": "persistent-cloud-memory-plugin",
+  "description": "Persistent cloud memory plugin for OpenClaw. This document routes setup, troubleshooting, and uninstall flows and defines config boundaries.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.38",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "temporal",
+  "name": "temporal",
+  "description": "Entry point for the temporal thinking toolkit. Routes to the right temporal skill based on your situation. Use when you say 'temporal', 'timing', 'when', 'long term', 'what happens in 5 years', 'what cycle is this', 'should we wait', 'possible futures', or want time-horizon thinking applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

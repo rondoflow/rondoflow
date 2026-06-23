@@ -1,0 +1,10 @@
+{
+  "id": "scaffold-nextjs-typescript-projects",
+  "name": "scaffold-nextjs-typescript-projects",
+  "description": "Generate production-ready Next.js projects with TypeScript, Tailwind CSS, shadcn/ui, and API integration. Use when the user asks to build, create, develop, or scaffold a Next.js application, web app, full-stack project, or frontend with backend integration. Prioritizes modern st…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "plug",
+  "order": 1000
+}

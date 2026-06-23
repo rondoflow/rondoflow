@@ -1,0 +1,10 @@
+{
+  "id": "realtime-ai-news-briefing-fetcher",
+  "name": "realtime-ai-news-briefing-fetcher",
+  "description": "Fetch real-time AI news briefings from the AI News Oracle API (Hacker News, TechCrunch, The Verge). Uses a10m.work registry for discovery and Paymaster for gasless transactions.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

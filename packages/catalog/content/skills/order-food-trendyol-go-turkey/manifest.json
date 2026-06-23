@@ -1,0 +1,10 @@
+{
+  "id": "order-food-trendyol-go-turkey",
+  "name": "order-food-trendyol-go-turkey",
+  "description": "Order food from TGO Yemek (Trendyol GO), Turkey's leading food delivery service. Use when user wants to order food delivery in Turkey, browse restaurants, search for foods, manage delivery addresses, check order history, or checkout with 3D Secure payment.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

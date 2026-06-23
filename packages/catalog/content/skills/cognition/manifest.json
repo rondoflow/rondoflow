@@ -1,0 +1,10 @@
+{
+  "id": "cognition",
+  "name": "cognition",
+  "description": "Entry point for the cognition toolkit. Routes to the right cognition skill based on your situation. Use when you say 'cognition', 'how am I thinking about this', 'why can't I focus', 'what mental model is driving this', 'am I thinking clearly', 'this is too complex to hold in my head', 'what do I actually know here', or want applied cognitive science without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

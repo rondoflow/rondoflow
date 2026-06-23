@@ -1,0 +1,10 @@
+{
+  "id": "synthesize-invariant-principles-across-sources",
+  "name": "synthesize-invariant-principles-across-sources",
+  "description": "Synthesize invariant principles from 3+ sources — find the core that survives across all expressions.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "pencil",
+  "order": 1000
+}

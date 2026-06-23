@@ -1,0 +1,10 @@
+{
+  "id": "react-best-practices-guidance",
+  "name": "react-best-practices-guidance",
+  "description": "React and Next.js performance optimization guidelines from Vercel Engineering. 57 rules across 8 categories for writing, reviewing, and refactoring React code.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

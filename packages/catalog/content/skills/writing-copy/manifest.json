@@ -1,0 +1,10 @@
+{
+  "id": "writing-copy",
+  "name": "writing-copy",
+  "description": "Writes and audits marketing copy, landing pages, ad copy, email copy, and product descriptions using the attention-desire-action framework. Use when copy isn't converting, describes features instead of benefits, or fails to earn the reader's next step. Triggers: 'copywriting', 'ad copy', 'landing page', 'email copy', 'marketing copy', 'write copy', 'the copy isn't converting', 'product description', 'headline isn't working'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

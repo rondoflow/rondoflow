@@ -1,0 +1,10 @@
+{
+  "id": "ai-podcast-episode-production",
+  "name": "ai-podcast-episode-production",
+  "description": "AI podcast production powered by CellCog. Create full podcast episodes from a single prompt — multi-voice dialogue, intro/outro music, and automatic editing to finished MP3. Episode scripts, show notes, interview prep, audiograms. Frontier voice quality with natural delivery. #1…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "bot",
+  "order": 1000
+}

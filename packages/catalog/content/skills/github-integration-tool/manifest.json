@@ -1,0 +1,10 @@
+{
+  "id": "github-integration-tool",
+  "name": "github-integration-tool",
+  "description": "A skill for verifying and configuring the required MCP (Model Context Protocol) servers for the Product Guide Writer workflow.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

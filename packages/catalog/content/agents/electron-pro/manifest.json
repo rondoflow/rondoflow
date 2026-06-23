@@ -1,0 +1,28 @@
+{
+  "id": "electron-pro",
+  "name": "Electron Pro",
+  "description": "Builds secure, performant cross-platform desktop apps with Electron and TypeScript.",
+  "icon": "AppWindow",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "electron",
+    "desktop",
+    "cross-platform",
+    "typescript",
+    "ipc"
+  ],
+  "order": 114
+}

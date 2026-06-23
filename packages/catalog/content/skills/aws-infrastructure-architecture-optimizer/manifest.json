@@ -1,0 +1,10 @@
+{
+  "id": "aws-infrastructure-architecture-optimizer",
+  "name": "aws-infrastructure-architecture-optimizer",
+  "description": "Architect, deploy, and optimize AWS infrastructure avoiding cost explosions and security pitfalls.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "server",
+  "order": 1000
+}

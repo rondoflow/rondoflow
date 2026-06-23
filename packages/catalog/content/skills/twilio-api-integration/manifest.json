@@ -1,0 +1,10 @@
+{
+  "id": "twilio-api-integration",
+  "name": "twilio-api-integration",
+  "description": "Twilio API integration with managed OAuth. SMS, voice calls, phone numbers, and communications. Use this skill when users want to send SMS messages, make voice calls, manage phone numbers, or work with Twilio resources. For other third party apps, use the api-gateway skill (http…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

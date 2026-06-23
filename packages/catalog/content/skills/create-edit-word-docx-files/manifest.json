@@ -1,0 +1,10 @@
+{
+  "id": "create-edit-word-docx-files",
+  "name": "create-edit-word-docx-files",
+  "description": "Create, inspect, and edit Microsoft Word documents and DOCX files with reliable styles, numbering, tracked changes, tables, sections, and compatibility checks. Use when (1) the task is about Word or `.docx`; (2) the file includes tracked changes, comments, fields, tables, templa…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "check-square",
+  "order": 1000
+}

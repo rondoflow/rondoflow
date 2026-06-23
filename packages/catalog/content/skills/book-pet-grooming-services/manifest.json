@@ -1,0 +1,10 @@
+{
+  "id": "book-pet-grooming-services",
+  "name": "book-pet-grooming-services",
+  "description": "Book pet-grooming services through Lokuli MCP. Use when user needs to find and book pet-grooming. Triggers on requests like \"book a pet-grooming\", \"find pet-grooming near me\", or any pet-grooming service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

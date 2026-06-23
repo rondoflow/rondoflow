@@ -1,0 +1,10 @@
+{
+  "id": "apple-health-data-sync",
+  "name": "apple-health-data-sync",
+  "description": "Sync encrypted Apple Health data from an iOS device (iPhone, iPad) to OpenClaw.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.8.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

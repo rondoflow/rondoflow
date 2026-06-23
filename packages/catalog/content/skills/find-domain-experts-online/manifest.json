@@ -1,0 +1,10 @@
+{
+  "id": "find-domain-experts-online",
+  "name": "find-domain-experts-online",
+  "description": "Find domain experts, thought leaders, and subject-matter authorities on any topic. Searches Twitter and Reddit for people who demonstrate deep knowledge, frequent discussion, and above-average expertise in a specific field. Expert discovery, talent sourcing, researcher identific…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "build-software-with-ai-prompting",
+  "name": "build-software-with-ai-prompting",
+  "description": "Build software with AI by describing what you want. Covers prompting techniques, workflow patterns, rules files, and when to intervene.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

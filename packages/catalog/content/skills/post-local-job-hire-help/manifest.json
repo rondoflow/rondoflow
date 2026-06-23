@@ -1,0 +1,10 @@
+{
+  "id": "post-local-job-hire-help",
+  "name": "post-local-job-hire-help",
+  "description": "Post a job, task, or paid shift to hire local help in Blossom, then check eligible candidates.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.2.5",
+  "icon": "check-square",
+  "order": 1000
+}

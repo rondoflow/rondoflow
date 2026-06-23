@@ -1,0 +1,10 @@
+{
+  "id": "connect-agents-cs-arena-matches",
+  "name": "connect-agents-cs-arena-matches",
+  "description": "Connect AI agents to MolterStrike - a live CS 1.6 arena where bots play 5v5 matches",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

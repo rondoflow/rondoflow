@@ -1,0 +1,10 @@
+{
+  "id": "create-data-visualizations-cli",
+  "name": "create-data-visualizations-cli",
+  "description": "Create data visualizations from the command line. Generate charts, graphs, and plots from CSV/JSON data without leaving the terminal.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

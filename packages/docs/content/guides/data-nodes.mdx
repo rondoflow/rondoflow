@@ -1,0 +1,310 @@
+---
+title: Data Nodes
+description: Output, Email, Condition, Structurer, Save-to-DB, and the HTTP Request / DuckDuckGo Search transform cards turn a workflow's results into files, emails, branch routes, saved datasets, and live external data.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Data Nodes
+
+Most cards (Nodes) on a Workspace (Canvas) describe *who* runs and *what* tools they hold. The **data nodes** describe what happens to a run's results — where the combined output goes, how the flow branches, and how prose becomes a saved dataset. They sit in the palette right after the Connection card and turn an agent workflow into a small data pipeline.
+
+There are seven of them, plus the Saved Datasets panel that shows what the pipeline persisted:
+
+| Card | Role | Runs as |
+| --- | --- | --- |
+| **Output** | Writes the run's combined output to a file | Run-completion side-effect (browser) |
+| **Email** | Emails the run's combined output via SMTP | Run-completion side-effect (browser / scheduler) |
+| **Condition** | Routes one Assistant's output to one of several branches | Compiled into conditional edges (no step) |
+| **HTTP Request** | Calls an external HTTP API mid-run | Server-side step — interactive runs only |
+| **DuckDuckGo Search** | Runs a live web search mid-run | Server-side step — interactive runs only |
+| **Structurer** | Turns Assistant prose into a typed dataset | Real server-side workflow step |
+| **Save to DB** | Persists that dataset to the database | Real server-side workflow step |
+
+They split into four kinds:
+
+- **Sinks** — **Output**, **Email**, and **Save to DB**. A sink has an input but never originates an edge: it is the end of a route.
+- **A router** — **Condition** does no agent work. It is compiled away into conditional edges before a run, so the upstream Assistant's output is sent down exactly one branch.
+- **Transforms** — **HTTP Request** and **DuckDuckGo Search** fetch external data in the middle of a run and pass it to the next step. Each sits inline between Assistants (an input and an output), like an extra step in the chain.
+- **A pipeline** — **Structurer → Save to DB**. The Structurer extracts a structured dataset (schema + rows) from upstream output; Save to DB writes it to the database, where the [Saved Datasets panel](#the-saved-datasets-panel) can view and export it.
+
+<Callout type="info">
+The full list of card types on a Workspace is fourteen: Start (Spawn), Assistant (Agent), Skill, Safety Rule (Policy), Connection (MCP Server), Resource, Note, plus the seven data and transform nodes documented here. For general card and edge mechanics — adding, selecting, wiring, running — see [The Canvas](/docs/guides/canvas). For how a wired graph executes, see [Workflows](/docs/guides/workflows).
+</Callout>
+
+## Adding a data node
+
+Drag the card from the floating palette at the bottom-center of the canvas. After the Connection card the palette runs **Condition → Output → HTTP Request → DuckDuckGo Search → Structure → Save to DB → Email**, then the Note card. Each card opens its own settings panel (drawer) when you select it.
+
+The palette items carry tier hints (the data nodes are tagged Standard), but interface complexity is currently pinned to the full tier and isn't a user-facing setting, so every card is always available — the tier hints are inert. See [Settings](/docs/guides/settings).
+
+## Output
+
+The **Output** card writes a run's combined Assistant output to a file on disk. It is a pure sink: an input handle, no output handle, and it is never a workflow step the engine executes — instead it is processed by the browser when the run completes.
+
+### What it saves
+
+Wire one or more Assistants into the Output card. The selection is **connection-driven**: the card's `agentSelection` is recomputed from the `agent → output` edges wired into it, in canvas order, so the drawer shows the connected Assistants **read-only**. With nothing wired in, the card saves nothing. (A legacy `'all'` value — every Assistant in the run — is still honored at run time but is no longer produced by the canvas.)
+
+When the run finishes, the card collects the selected Assistants' outputs, formats them, and saves a timestamped file named `workflow-output-<timestamp>-<id>.<ext>` to the destination directory via the server's filesystem save endpoint.
+
+### Format
+
+Pick one of four formats in the drawer:
+
+| Format | Extension | What you get |
+| --- | --- | --- |
+| **Formatted Markdown** | `.md` | An optional `# Title`, then a `## Assistant` section per contributor, joined by `---`. |
+| **Formatted HTML** | `.html` | A complete, self-contained HTML document (the markdown rendered to safe, escaped HTML). |
+| **Raw Text** | `.txt` | Plain text with markdown markers stripped, one uppercase heading per Assistant. |
+| **Raw Markdown** | `.md` | Each Assistant's output concatenated verbatim, no headings or separators. |
+
+The optional **Document title** field is used in the Formatted Markdown / HTML header. Formatting is shared code (`formatRunOutput`), so the scheduler produces byte-identical artifacts on headless runs.
+
+### Destination and re-opening
+
+The drawer has a **destination directory** picker. Leave it unset to fall back to the Workspace working directory (or the current directory when there is none). After a run, the card remembers the file it wrote and shows an **Open saved file** button so you can re-open it from the canvas.
+
+<Callout type="info">
+Output is a run-completion side-effect, not a server execution step — it is driven by the browser. The headless [scheduler](/docs/guides/schedules) honors Output specs on cron runs too (resolved from the saved workflow, mapping Assistant ids to names), so a scheduled workflow still writes its file.
+</Callout>
+
+## Email
+
+The **Email** card sends a run's combined output as an HTML email over SMTP. Like Output, it is a pure sink processed when the run completes — but with one critical difference: **it is opt-in.**
+
+<Callout type="warning">
+The **Enabled** toggle defaults **OFF**. Building or running a workflow never sends mail until you explicitly turn the card on. While it is off, the card shows a "Sending off" badge and is skipped at run time. A disabled card is also excluded from the saved-workflow spec, so the scheduler never sends from it either.
+</Callout>
+
+### Recipients and body
+
+Type a comma- or newline-separated list of addresses in **Recipients**. The drawer parses and validates them live, showing the valid count and flagging any invalid entries. Recipients are also **connection-driven** for *which* Assistants' output is included: the `agentSelection` tracks the `agent → email` edges, shown read-only in the drawer just like Output.
+
+The body is the selected Assistants' output rendered to HTML via the same shared `formatRunOutput` formatter Output uses. You can set an optional **Subject** (a default is used when blank) and a **Title** for the HTML document header. After a run the card shows a "Sent" or "Send failed" status chip with detail.
+
+Sends are **de-duplicated per chain run**: a re-delivered run-completion event can't double-send for the same `chainId`.
+
+### Configuring SMTP
+
+Email needs an SMTP transport, configured either in `.env` or in **Settings → Credentials** (group `smtp`; the password is encrypted). A value stored in the credentials manager overrides the matching `.env` value at boot, exactly like the other credentials:
+
+| Variable | Notes |
+| --- | --- |
+| `SMTP_HOST` | **Required.** Leave blank to disable email entirely. |
+| `SMTP_FROM` | **Required.** Sender address, e.g. `RondoFlow <noreply@example.com>`. |
+| `SMTP_PORT` | Defaults to `587`. |
+| `SMTP_SECURE` | `true` for 465 (implicit TLS), `false` for 587 (STARTTLS). When unset, defaults to `true` only when the port is 465. |
+| `SMTP_USER` / `SMTP_PASS` | Auth is attached only when **both** are present, so unauthenticated relays / local catchers (e.g. MailHog) work without them. |
+
+See [Configuration → Email node (SMTP)](/docs/getting-started/configuration#email-node-smtp) for the full env reference.
+
+### How sending is gated
+
+The browser POSTs the rendered email to the server, which is the authority on what actually goes out:
+
+| Endpoint | Behavior |
+| --- | --- |
+| `POST /api/email/send` | Requires the **run** capability (editor+), rate-limited to **10/min**. Validates recipients (1–50 valid addresses), subject (1–255 chars), and an HTML body; collapses CR/LF in the subject as a header-injection defense. Returns `EMAIL_SEND_FAILED` (502) on a transport/auth/send error. |
+| `GET /api/email/status` | Non-secret view so the UI can show whether email is configured (host, port, secure, from). |
+
+If SMTP isn't configured, the send is rejected with a clear "Email is not configured" validation error rather than a cryptic transport failure. The headless scheduler honors enabled Email cards on cron runs as well. See the [API reference](/docs/reference/api).
+
+## Condition
+
+The **Condition** card is a pure **router** — it does no agent work. One Assistant feeds into it, and each labelled branch wires onward to another Assistant. At run time the upstream Assistant's output is matched against each branch in order; the first match wins, and the flow continues down only that branch.
+
+Because it spawns no Assistant, a Condition card is **compiled away** before a run: it is resolved into grouped *conditional edges* (`agentA → agentB` carrying the branch's compiled pattern), so `agentA → [Condition] → agentB` becomes a direct conditional route.
+
+### Branches
+
+Each branch is a labelled source handle rendered along the bottom of the card. A new Condition card is seeded with three branches:
+
+| Branch | Match kind | Default pattern |
+| --- | --- | --- |
+| **Approved** | contains | `approved\|approve\|lgtm` |
+| **Rejected** | contains | `rejected\|reject\|denied\|blocked` |
+| **Else** | (fallback) | — runs when nothing else matched |
+
+In the drawer you can rename branches, add or remove them, and choose each branch's **match kind**:
+
+- **contains** — the pattern is split on `|` / `,` into keywords; each is escaped and OR'd together, so `approved|lgtm` matches output containing either word literally.
+- **regex** — the pattern is a regular expression. The drawer validates it live and flags an invalid expression.
+
+Matching is **case-insensitive** and runs against the upstream output's **last non-empty line** (its "verdict"). Mark any one branch as the **default** (the Else/fallback) — doing so clears the flag on every other branch. Branches route exclusively: within a Condition group, the lowest-order branch whose pattern matches wins, falling back to the Else branch when nothing matches. If nothing matches and there is no Else branch, that path simply stops.
+
+<Callout type="info">
+Condition routing is honored in **both** execution modes: the DAG path runs matched branches in parallel, and Director mode walks them sequentially. See [Workflows](/docs/guides/workflows) and [Orchestration](/docs/guides/orchestration).
+</Callout>
+
+### Lint warnings
+
+Before a run, RondoFlow surfaces non-blocking author-time warnings for common Condition mistakes — a card with no Assistant feeding in (its branches won't run), more than one Assistant feeding in (only the first is used), a branch with an empty pattern (it never matches), and a card with no default branch (the flow stops when nothing matches). These are warnings, not errors: they won't block a run.
+
+### On the canvas
+
+A Condition card uses an amber accent. Its outgoing edges render as **amber dotted bezier curves with a branch-label chip** at the midpoint, so conditional routes read distinctly from plain flow edges. During a run the active card gets an amber ring; a card on an unmatched (skipped) path dims and grays out.
+
+## Transform nodes: HTTP Request & DuckDuckGo Search
+
+Two cards fetch external data **in the middle** of a run and pass it to the next step. Unlike the sinks and the router, they are **pass-through transforms**: each takes an input from an Assistant (or another transform) and produces an output that flows onward to an Assistant (or another transform). Wire them inline, the way you'd wire one Assistant into the next.
+
+Both interpolate the upstream step's output through an `{{input}}` token, and both **fail the card** (and skip its dependents) on a network error, a timeout, or a non-2xx / unparseable response — an errored transform never silently passes empty data downstream.
+
+<Callout type="warning">
+HTTP Request and DuckDuckGo Search run during **interactive** (canvas) runs only. The headless [scheduler](/docs/guides/schedules) does not yet execute them, so a **scheduled** workflow silently skips both — design cron workflows without them for now.
+</Callout>
+
+### HTTP Request
+
+The **HTTP Request** card issues an outbound HTTP call. Configure it in the drawer:
+
+| Field | Notes |
+| --- | --- |
+| **Method** | `GET`, `POST`, `PUT`, `PATCH`, or `DELETE`. |
+| **URL** | The endpoint. Supports `{{input}}` interpolation. |
+| **Headers** / **Query params** | Key/value pairs; values support `{{input}}`. |
+| **Body** | Optional request body in **JSON**, **form**, or **raw** mode (supports `{{input}}`). |
+| **Timeout** | Per-request timeout in seconds. |
+| **Response mode** | **Body** passes only the response body downstream; **Full** passes a status + headers + body envelope. |
+
+The response becomes the card's output, available to the next step as its `{{input}}`.
+
+### DuckDuckGo Search
+
+The **DuckDuckGo Search** card runs a live web search (via DuckDuckGo's HTML endpoint) and emits the results downstream:
+
+| Field | Notes |
+| --- | --- |
+| **Query** | The search terms; supports `{{input}}` and defaults to `{{input}}` (the upstream output). |
+| **Max results** | 1–25 (capped at 25). |
+| **Region** | Optional locale, e.g. `us-en`. |
+| **Safe search** | `strict`, `moderate` (default), or `off`. |
+| **Time limit** | Optional recency filter: day, week, month, or year. |
+| **Output format** | **Text** (a readable numbered list) or **JSON** (an array of `{ title, url, snippet }` records). |
+
+A search that returns no results is a valid (empty) output, not a failure.
+
+## Structurer
+
+The **Structurer** card converts one or more Assistants' free text into a typed **dataset** — a schema plus rows. Unlike Output and Email, it is a **real server-side workflow step**: the engine runs it in topological order like an Assistant step (emitting the same start/complete events). Its single output may only connect to a Save-to-DB card.
+
+### Source and shape
+
+The source Assistants are **connection-driven** (the `agent → structurer` edges, shown read-only in the drawer). Choose a target **format**:
+
+| Format | Result |
+| --- | --- |
+| **JSON object** | A single object (at most one row). |
+| **JSON array** | An array of row objects. |
+| **Table (rows)** | A table of rows. |
+
+Optionally declare a **schema** of columns — each with a `key`, a `label`, and a type (`string`, `number`, `boolean`, `date`). When a schema is present, rows are projected onto it with light per-type coercion; an empty schema infers free-form rows.
+
+### Extraction modes
+
+<Tabs items={['Parse (deterministic)', 'AI extraction']}>
+<Tabs.Tab>
+**Parse** mode is deterministic and dependency-free. For each upstream output it extracts the first JSON value (preferring fenced ` ```json ` blocks, then a balanced `{…}` / `[…]`), and falls back to parsing the first markdown table. Unparseable output simply contributes no rows — it never throws. This is the right choice when your Assistant already emits JSON or a markdown table.
+</Tabs.Tab>
+<Tabs.Tab>
+**AI** mode runs a bounded Claude extraction pass over the joined upstream text, guided by your schema and optional **instructions**, and feeds the resulting rows through the same schema projection. Choose this when the output is prose that needs interpreting. You can set the model for the extraction pass (it defaults to a small, fast model). AI mode incurs an extra model call.
+</Tabs.Tab>
+</Tabs>
+
+After a run the card shows the row count it produced (and any error). On the canvas the Structurer uses a sky accent and gets a sky ring while active. An empty extraction is a valid result, not a failure.
+
+<Callout type="info">
+The Structurer's output is a serialized dataset envelope — it isn't human-readable prose. It is meant to flow into a Save-to-DB card, not into another Assistant. Connection rules enforce this: a Structurer only connects to a Save-to-DB card.
+</Callout>
+
+## Save to DB
+
+The **Save to DB** card persists the upstream Structurer's dataset to the database. It is a sink that **only accepts a Structurer** as its input, and it is the second real server-side step in the pipeline.
+
+When it runs, it parses the upstream dataset and writes it as a `StructuredDataset` row plus one `StructuredRow` per data row, tagged with the workspace, the chain run id, and the node id. You can set an optional **dataset label** that overrides the dataset name; the drawer shows the upstream Structurer read-only and the last saved row count, and has a **View saved datasets** button that opens the Saved Datasets panel.
+
+<Callout type="warning">
+**Caps protect the database.** A save is bounded to **5,000 rows** and **~2 MB** of serialized row data — the executor truncates the row set to fit. If nothing structured feeds in, the step is a no-op with the message *"Nothing to save — no structured dataset feeds into this node."* rather than an error.
+</Callout>
+
+On the canvas Save to DB uses an indigo accent (and an indigo ring while active). Every save records an audit activity entry, so saves show up in the [activity log](/docs/guides/monitoring). The underlying `StructuredDataset` / `StructuredRow` tables and the `StructuredFormat` enum are documented in the [data model reference](/docs/reference/data-model).
+
+## The Saved Datasets panel
+
+Datasets written by Save-to-DB cards are viewable and exportable in the **Saved Datasets** panel (also reachable from a Save-to-DB card's **View saved datasets** button). The panel is a shared team pool, listing datasets most-recent-first; opening one shows its schema as a table with its rows.
+
+### CSV export
+
+With a dataset open, the **CSV** button downloads it as a `.csv` file. The header row is the schema's column keys (or, with no schema, the union of all row keys); cells are quoted/escaped as needed. The export uses the shared `toCsv` serializer, so the file matches the on-screen table exactly.
+
+### The Datasets API
+
+The panel is backed by two read endpoints (standard `{ success, data?, error?, meta? }` envelope):
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/datasets` | List dataset summaries, most recent first. Optional `?workspaceId=` narrows the view; paginated (`page`, `limit`, default 30, max 100). |
+| `GET` | `/api/datasets/:id` | Fetch one dataset's schema plus a **paginated slice of rows** (`page`, `limit`, default 100, max 500). |
+
+See the [API reference](/docs/reference/api).
+
+## Connection rules
+
+The canvas enforces type-aware wiring. An invalid drag is refused, and an invalid drop surfaces a toast explaining why. The rules that govern the data nodes:
+
+| Wiring | Allowed? |
+| --- | --- |
+| anything → Start | ❌ Start is the entry point — nothing connects into it |
+| Start → Assistant | ✅ Start only feeds an Assistant |
+| Assistant → Output / Email | ✅ only an Assistant's output may feed a sink |
+| Output / Email → anything | ❌ they are endpoints — they never connect onward |
+| Assistant → Condition | ✅ only an Assistant feeds a Condition (the first is used) |
+| Condition branch → Assistant | ✅ each branch routes only to an Assistant |
+| Assistant → Structurer | ✅ only an Assistant's output feeds a Structurer |
+| Structurer → Save to DB | ✅ a Structurer's only valid target |
+| Structurer → anything else | ❌ a Structurer only connects to a Save-to-DB card |
+| Structurer → Save to DB ← anything else | ❌ Save to DB accepts only a Structurer |
+| Save to DB → anything | ❌ it is an endpoint |
+| Assistant → HTTP Request / DuckDuckGo Search | ✅ an Assistant (or another transform) may feed a transform |
+| HTTP Request / DuckDuckGo Search → Assistant | ✅ a transform connects onward to an Assistant (or another transform) |
+| HTTP Request / DuckDuckGo Search → sink / Condition / Structurer | ❌ transforms wire only to Assistants or other transforms |
+
+Edges come in **three kinds**: `association` (a Skill / Safety Rule / Connection attached to an Assistant — a subtle dashed line), `conditional` (a Condition branch route — the amber dotted bezier with a label chip), and `flow` (everything else — the animated solid route). The edge kind is derived from the source card automatically.
+
+## What happens during a run
+
+The data nodes behave differently across the run lifecycle:
+
+<Steps>
+### Before the run
+
+The canvas compiles. Condition cards are resolved into grouped conditional edges, Structurer/Save-to-DB cards become real steps in the topologically sorted chain, and the sink cards' connection-driven selections are synced from the edges. Condition lint warnings (if any) are surfaced.
+
+### During the run
+
+The engine executes the chain. Assistant, Structurer/Save-to-DB, and (in interactive runs) HTTP Request / DuckDuckGo Search steps run as real steps with live status on their cards (active ring, skipped dimming, error ring). Condition routing decides, per group, which single downstream branch runs — in parallel under the DAG path, sequentially under Director mode. Output and Email cards do nothing yet.
+
+### When the run completes
+
+The Output and Email cards run as browser side-effects: Output writes its file(s) and remembers them for the **Open saved file** button; each **enabled** Email card renders and sends its message (de-duplicated per `chainId`). Save-to-DB writes are already persisted from their execution step and now appear in the Saved Datasets panel.
+</Steps>
+
+<Callout type="important">
+On a headless [scheduled](/docs/guides/schedules) run there is no browser, so the **scheduler** reproduces the Output and Email side-effects from the saved workflow spec (Output always; Email only for enabled cards). Structurer and Save-to-DB run as normal server steps either way — but the HTTP Request and DuckDuckGo Search transforms are **not** executed on scheduled runs; they run only in interactive runs.
+</Callout>
+
+## Related
+
+<Cards>
+  <Cards.Card title="The Canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Resources" href="/docs/guides/resources" />
+  <Cards.Card title="Schedules" href="/docs/guides/schedules" />
+  <Cards.Card title="Configuration (SMTP)" href="/docs/getting-started/configuration#email-node-smtp" />
+  <Cards.Card title="Data model" href="/docs/reference/data-model" />
+  <Cards.Card title="API reference" href="/docs/reference/api" />
+</Cards>

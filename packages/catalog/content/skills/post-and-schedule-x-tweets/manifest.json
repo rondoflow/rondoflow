@@ -1,0 +1,10 @@
+{
+  "id": "post-and-schedule-x-tweets",
+  "name": "post-and-schedule-x-tweets",
+  "description": "Post to X (Twitter) using the OpenTweet API. Create tweets, schedule posts, publish threads, upload media, access analytics, and manage your X content autonomously.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.1.3",
+  "icon": "chart-bar",
+  "order": 1000
+}

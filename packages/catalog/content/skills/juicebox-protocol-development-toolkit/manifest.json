@@ -1,0 +1,10 @@
+{
+  "id": "juicebox-protocol-development-toolkit",
+  "name": "juicebox-protocol-development-toolkit",
+  "description": "Complete Juicebox V5 protocol skills collection. Build, deploy, and interact with Juicebox projects, revnets, hooks, and omnichain deployments. Includes API reference, implementation details, UI generation, and GraphQL queries.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

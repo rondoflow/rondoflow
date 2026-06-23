@@ -1,0 +1,10 @@
+{
+  "id": "outreach-tool",
+  "name": "outreach-tool",
+  "description": "PollyReach gives every AI agent a phone number and the ability to get things done over the phone — finding contacts, making calls, and completing tasks. Just tell Polly what you need.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

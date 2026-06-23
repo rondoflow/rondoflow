@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-services-directory",
+  "name": "ai-agent-services-directory",
+  "description": "The directory for AI agent services. Discover tools, platforms, and infrastructure built for agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "hubspot-crm-cms-api-integration",
+  "name": "hubspot-crm-cms-api-integration",
+  "description": "HubSpot CRM and CMS API integration for contacts, companies, deals, owners, and content management.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

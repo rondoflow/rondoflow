@@ -1,0 +1,10 @@
+{
+  "id": "ai-powered-web-scraping-framework",
+  "name": "ai-powered-web-scraping-framework",
+  "description": "AI-powered web scraping framework for extracting structured data from websites. Use when Codex needs to crawl, scrape, or extract data from web pages using AI-powered parsing, handle dynamic content, or work with complex HTML structures.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

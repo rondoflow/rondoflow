@@ -1,0 +1,10 @@
+{
+  "id": "generate-echarts-charts-from-data",
+  "name": "generate-echarts-charts-from-data",
+  "description": "Generate charts from natural language or tabular data, recommend chart types, and export ECharts-based HTML or SVG. Use when users ask for one-sentence chart generation, auto chart selection from data, or embeddable chart previews.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "globe",
+  "order": 1000
+}

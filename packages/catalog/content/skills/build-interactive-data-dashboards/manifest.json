@@ -1,0 +1,10 @@
+{
+  "id": "build-interactive-data-dashboards",
+  "name": "build-interactive-data-dashboards",
+  "description": "Interactive dashboards and apps powered by CellCog. Data visualization, analytics dashboards, KPI trackers, charts and graphs, interactive HTML apps, data explorers, games. Build web apps with AI.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "globe",
+  "order": 1000
+}

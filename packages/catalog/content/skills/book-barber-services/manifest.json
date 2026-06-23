@@ -1,0 +1,10 @@
+{
+  "id": "book-barber-services",
+  "name": "book-barber-services",
+  "description": "Book barber services through Lokuli MCP. Use when user needs to find and book barber. Triggers on requests like \"book a barber\", \"find barber near me\", or any barber service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ui-ux-design-helper",
+  "name": "ui-ux-design-helper",
+  "description": "Searchable UI/UX design databases: 50+ styles, 97 palettes, 57 font pairings, 99 UX rules, 25 chart types. CLI generates design systems from natural language. Data-driven complement to ui-design.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

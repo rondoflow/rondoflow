@@ -1,0 +1,10 @@
+{
+  "id": "ai-legal-document-generation",
+  "name": "ai-legal-document-generation",
+  "description": "AI legal document generation powered by CellCog. Contracts, NDAs, terms of service, privacy policies, freelance agreements, employment contracts, compliance reviews, legal research. Precision legal drafting from natural language prompts. Not legal advice.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.11",
+  "icon": "puzzle",
+  "order": 1000
+}

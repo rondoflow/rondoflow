@@ -1,0 +1,10 @@
+{
+  "id": "book-dj-services",
+  "name": "book-dj-services",
+  "description": "Book dj services through Lokuli MCP. Use when user needs to find and book dj. Triggers on requests like \"book a dj\", \"find dj near me\", or any dj service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

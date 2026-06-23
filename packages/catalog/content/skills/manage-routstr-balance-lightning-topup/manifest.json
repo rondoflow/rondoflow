@@ -1,0 +1,10 @@
+{
+  "id": "manage-routstr-balance-lightning-topup",
+  "name": "manage-routstr-balance-lightning-topup",
+  "description": "Manage Routstr balance by checking balance, creating Lightning invoices for top-up, and checking invoice payment status",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

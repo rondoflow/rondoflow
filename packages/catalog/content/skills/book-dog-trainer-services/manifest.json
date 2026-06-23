@@ -1,0 +1,10 @@
+{
+  "id": "book-dog-trainer-services",
+  "name": "book-dog-trainer-services",
+  "description": "Book dog-trainer services through Lokuli MCP. Use when user needs to find and book dog-trainer. Triggers on requests like \"book a dog-trainer\", \"find dog-trainer near me\", or any dog-trainer service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

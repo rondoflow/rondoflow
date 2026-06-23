@@ -1,0 +1,10 @@
+{
+  "id": "retry-failed-cron-jobs",
+  "name": "retry-failed-cron-jobs",
+  "description": "Auto-retry failed cron jobs on connection recovery. Use when cron jobs fail due to network errors and should be retried when connectivity is restored. Integrates with heartbeat to detect failed jobs and re-run them automatically.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "inference-sh-javascript-sdk",
+  "name": "inference-sh-javascript-sdk",
+  "description": "JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate 150+ models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.5",
+  "icon": "bot",
+  "order": 1000
+}

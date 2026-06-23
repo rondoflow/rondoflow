@@ -1,0 +1,10 @@
+{
+  "id": "summarize-long-content-multiple-formats",
+  "name": "summarize-long-content-multiple-formats",
+  "description": "When user asks to summarize text, articles, documents, meetings, emails, YouTube transcripts, books, PDFs, reports, conversations, or any long content. Also handles bullet points, key takeaways, action items, TL;DR, ELI5, executive summaries, chapter summaries, comparison summar…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

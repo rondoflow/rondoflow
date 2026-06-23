@@ -1,0 +1,10 @@
+{
+  "id": "search-download-extract-gifs-cli",
+  "name": "search-download-extract-gifs-cli",
+  "description": "Search GIF providers with CLI/TUI, download results, and extract stills/sheets.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "clicksend-messaging-integration",
+  "name": "clicksend-messaging-integration",
+  "description": "ClickSend API integration with managed authentication. Send SMS, MMS, and voice messages, manage contacts and lists. Use this skill when users want to send text messages, make voice calls, manage contact lists, or track message delivery. For other third party apps, use the api-g…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

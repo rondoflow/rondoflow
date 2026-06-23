@@ -1,0 +1,10 @@
+{
+  "id": "union-helper-tool",
+  "name": "union-helper-tool",
+  "description": "Send transactional and marketing emails via UniOne Email API. Manage email templates, validate email addresses, check delivery statistics, manage suppression lists, configure webhooks, and handle domain settings. UniOne delivers billions of emails annually with 99.88% deliverabi…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

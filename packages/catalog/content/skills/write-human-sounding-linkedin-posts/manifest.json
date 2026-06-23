@@ -1,0 +1,10 @@
+{
+  "id": "write-human-sounding-linkedin-posts",
+  "name": "write-human-sounding-linkedin-posts",
+  "description": "Writes LinkedIn posts that sound like a real person, not a content mill",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

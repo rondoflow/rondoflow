@@ -1,0 +1,28 @@
+{
+  "id": "test-automator",
+  "name": "Test Automator",
+  "description": "Designs and maintains comprehensive automated testing strategies.",
+  "icon": "FlaskConical",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "testing",
+    "automation",
+    "ci",
+    "e2e",
+    "coverage"
+  ],
+  "order": 132
+}

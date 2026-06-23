@@ -1,0 +1,10 @@
+{
+  "id": "apple-notes-cli-manager",
+  "name": "apple-notes-cli-manager",
+  "description": "Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks Clawdbot to add a note, list notes, search notes, or manage note folders.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

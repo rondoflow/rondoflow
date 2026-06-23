@@ -1,0 +1,10 @@
+{
+  "id": "inventory-management-reference-guide",
+  "name": "inventory-management-reference-guide",
+  "description": "Inventory management reference — SKU systems, FIFO/LIFO valuation, barcode formats, ABC analysis, EOQ formula, and WMS migration",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "5.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

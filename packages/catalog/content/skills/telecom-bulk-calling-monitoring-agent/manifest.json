@@ -1,0 +1,10 @@
+{
+  "id": "telecom-bulk-calling-monitoring-agent",
+  "name": "telecom-bulk-calling-monitoring-agent",
+  "description": "Turn your AI Agent into a Telecom Operator. Bulk calling, ChatOps, and Field Monitoring.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

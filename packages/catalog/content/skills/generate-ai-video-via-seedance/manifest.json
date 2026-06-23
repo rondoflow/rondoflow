@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-video-via-seedance",
+  "name": "generate-ai-video-via-seedance",
+  "description": "AI video generation powered by CellCog via Seedance. Cinematic 1080p video with smooth motion, multi-shot narratives, lipsync, voice synthesis, scoring. Complete videos from a single prompt via ByteDance's Seedance model.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.9",
+  "icon": "bot",
+  "order": 1000
+}

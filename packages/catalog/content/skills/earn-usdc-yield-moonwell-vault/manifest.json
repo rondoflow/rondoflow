@@ -1,0 +1,10 @@
+{
+  "id": "earn-usdc-yield-moonwell-vault",
+  "name": "earn-usdc-yield-moonwell-vault",
+  "description": "Earn yield on USDC by supplying to the Moonwell Flagship USDC vault on Base. Use when depositing USDC, withdrawing from the vault, checking position/APY, or generating yield reports.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "apple-reminders-cli-manager",
+  "name": "apple-reminders-cli-manager",
+  "description": "Manage Apple Reminders via the `remindctl` CLI on macOS (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,13 @@
+{
+  "id": "social-media-manager",
+  "name": "Social Media Manager",
+  "description": "Platform-native posts, threads, and engagement.",
+  "icon": "Share2",
+  "category": "Content & Marketing",
+  "purpose": "creative",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch", "Read", "Write"],
+  "tags": ["social", "twitter", "linkedin", "engagement", "marketing"],
+  "order": 17
+}

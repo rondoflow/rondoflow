@@ -1,0 +1,10 @@
+{
+  "id": "tezos-smart-contract-development",
+  "name": "tezos-smart-contract-development",
+  "description": "Expert Tezos blockchain development guidance. Provides security-first smart contract development, FA1.2/FA2 token standards, gas optimization, and production deployment patterns. Use when building Tezos L1 smart contracts or implementing token standards.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

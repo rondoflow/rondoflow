@@ -1,0 +1,10 @@
+{
+  "id": "daily-briefing-calendar-todos-weather",
+  "name": "daily-briefing-calendar-todos-weather",
+  "description": "Daily briefing: gathers calendar (gcalcli-calendar), active todos (todo-management), and weather (openmeteo-sh-weather-simple) into a concise summary.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "wallet-authenticated-agent-email",
+  "name": "wallet-authenticated-agent-email",
+  "description": "Email service for AI agents with wallet authentication and crypto payments",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

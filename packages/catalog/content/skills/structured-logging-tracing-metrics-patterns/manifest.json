@@ -1,0 +1,10 @@
+{
+  "id": "structured-logging-tracing-metrics-patterns",
+  "name": "structured-logging-tracing-metrics-patterns",
+  "description": "Structured logging, distributed tracing, and metrics collection patterns for building observable systems. Use when implementing logging infrastructure, setting up distributed tracing with OpenTelemetry, designing metrics collection (RED/USE methods), configuring alerting and das…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

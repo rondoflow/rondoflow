@@ -1,0 +1,10 @@
+{
+  "id": "writing-arc-design",
+  "name": "writing-arc-design",
+  "description": "Maps and repairs character arcs and thematic arcs by aligning external plot events with internal change. Use when an arc feels unearned, a change feels sudden, or the ending doesn't land. Triggers: 'the arc feels unearned', 'arc design', 'the ending doesn't land', 'character arc', 'thematic arc', 'the change feels sudden', 'the character just changes at the end'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

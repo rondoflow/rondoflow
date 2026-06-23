@@ -1,0 +1,10 @@
+{
+  "id": "multi-step-agent-task-scheduler",
+  "name": "multi-step-agent-task-scheduler",
+  "description": "Multi-step scheduler for in-depth agent requests. Detects when user needs multiple steps, suggests plan and waits for confirmation, persists state, and runs heartbeat-aware flow. Use when requests have 3+ actions, sequential dependencies, output dependencies, or high scope/risk.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "access-gevety-health-biomarker-data",
+  "name": "access-gevety-health-biomarker-data",
+  "description": "Access your Gevety health data - biomarkers, healthspan scores, biological age, supplements, activities, daily actions, 90-day health protocol, and upcoming tests",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

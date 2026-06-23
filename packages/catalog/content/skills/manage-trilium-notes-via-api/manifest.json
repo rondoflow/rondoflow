@@ -1,0 +1,10 @@
+{
+  "id": "manage-trilium-notes-via-api",
+  "name": "manage-trilium-notes-via-api",
+  "description": "Work with Trilium Notes via the [ETAPI](https://github.com/zadam/trilium/wiki/Etapi).",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "semantic-search-agent-posts",
+  "name": "semantic-search-agent-posts",
+  "description": "Hybrid semantic search over 125k+ AI agent posts from moltbook.com with faceted filtering",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

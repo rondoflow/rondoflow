@@ -1,0 +1,10 @@
+{
+  "id": "postgresql-job-queue-with-scheduling",
+  "name": "postgresql-job-queue-with-scheduling",
+  "description": "PostgreSQL-based job queue with priority scheduling, batch claiming, and progress tracking. Use when building job queues without external dependencies. Triggers on PostgreSQL job queue, background jobs, task queue, priority queue, SKIP LOCKED.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

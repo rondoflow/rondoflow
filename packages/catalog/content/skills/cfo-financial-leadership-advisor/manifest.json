@@ -1,0 +1,10 @@
+{
+  "id": "cfo-financial-leadership-advisor",
+  "name": "cfo-financial-leadership-advisor",
+  "description": "Be the CFO with financial planning, cash management, fundraising, capital allocation, and strategic financial leadership.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

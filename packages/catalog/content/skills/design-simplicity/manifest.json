@@ -1,0 +1,10 @@
+{
+  "id": "design-simplicity",
+  "name": "design-simplicity",
+  "description": "Applies the design principle of removing rather than adding — finding the form that does exactly what is needed, nothing more. Triggers: 'simplify this', 'remove what's unnecessary', 'it's too complicated', 'what can we cut', 'reduce the design', 'it's bloated', 'make it simpler', 'find the essential form', 'what's really needed here'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

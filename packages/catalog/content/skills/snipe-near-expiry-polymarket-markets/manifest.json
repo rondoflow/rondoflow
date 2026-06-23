@@ -1,0 +1,10 @@
+{
+  "id": "snipe-near-expiry-polymarket-markets",
+  "name": "snipe-near-expiry-polymarket-markets",
+  "description": "Near-expiry conviction trading on Polymarket. Snipe markets about to resolve when the odds are heavily skewed. Filter by topic, cap your bets, and only trade strong splits close to deadline.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "coins",
+  "order": 1000
+}

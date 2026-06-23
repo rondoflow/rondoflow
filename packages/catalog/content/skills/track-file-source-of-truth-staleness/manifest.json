@@ -1,0 +1,10 @@
+{
+  "id": "track-file-source-of-truth-staleness",
+  "name": "track-file-source-of-truth-staleness",
+  "description": "Track source-of-truth relationships between files — know when derived content becomes stale.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "book-painter-services",
+  "name": "book-painter-services",
+  "description": "Book painter services through Lokuli MCP. Use when user needs to find and book painter. Triggers on requests like \"book a painter\", \"find painter near me\", or any painter service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

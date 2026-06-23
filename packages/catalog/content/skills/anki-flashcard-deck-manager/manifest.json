@@ -1,0 +1,10 @@
+{
+  "id": "anki-flashcard-deck-manager",
+  "name": "anki-flashcard-deck-manager",
+  "description": "Interact with Anki flashcard decks via the AnkiConnect REST API. Use when the user wants to create, update, search, or manage Anki cards, decks, notes, or models.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

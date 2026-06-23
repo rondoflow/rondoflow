@@ -1,0 +1,10 @@
+{
+  "id": "guide-property-decisions-any-jurisdiction",
+  "name": "guide-property-decisions-any-jurisdiction",
+  "description": "Guide any property decision for buyers, sellers, landlords, investors, or agents in any jurisdiction.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

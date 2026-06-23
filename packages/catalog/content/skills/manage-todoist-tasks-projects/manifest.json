@@ -1,0 +1,10 @@
+{
+  "id": "manage-todoist-tasks-projects",
+  "name": "manage-todoist-tasks-projects",
+  "description": "Manage tasks and projects in Todoist. Use when user asks about tasks, to-dos, reminders, or productivity.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.2.1",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "switch-between-ai-models",
+  "name": "switch-between-ai-models",
+  "description": "Auto-route tasks to the cheapest Claude model that works correctly. Three-tier progression: Haiku → Sonnet → Opus. Classify before responding. HAIKU (default): factual Q&A, greetings, reminders, status checks, lookups, simple file ops, heartbeats, casual chat, 1-2 sentence tasks…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

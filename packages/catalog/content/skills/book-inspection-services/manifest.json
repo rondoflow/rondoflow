@@ -1,0 +1,10 @@
+{
+  "id": "book-inspection-services",
+  "name": "book-inspection-services",
+  "description": "Book inspection services through Lokuli MCP. Use when user needs to find and book inspection. Triggers on requests like \"book a inspection\", \"find inspection near me\", or any inspection service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

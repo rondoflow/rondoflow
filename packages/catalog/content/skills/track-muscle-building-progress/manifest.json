@@ -1,0 +1,10 @@
+{
+  "id": "track-muscle-building-progress",
+  "name": "track-muscle-building-progress",
+  "description": "Track muscle building with weight progression, protein tracking, and strength milestones",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "add-funds-to-wallet-usdc",
+  "name": "add-funds-to-wallet-usdc",
+  "description": "Add money to the wallet. Use when you or the user want to fund, deposit, top up, load, buy USDC, add funds, onramp, or get USDC. Also use when the wallet has insufficient balance for a send or trade operation, or when someone asks \"how do I get USDC?\"",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

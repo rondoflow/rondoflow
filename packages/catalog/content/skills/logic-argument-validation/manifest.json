@@ -1,0 +1,10 @@
+{
+  "id": "logic-argument-validation",
+  "name": "logic-argument-validation",
+  "description": "Check whether an argument's premises actually support its conclusion, and identify logical fallacies. Use when reviewing a design decision, technical proposal, product argument, or any reasoning where the conclusion needs to hold up under scrutiny. TRIGGERS: 'validate this argument', 'does this logic hold', 'check my reasoning', 'is this a fallacy', 'find the flaw in this', any proposal or decision where the reasoning chain matters. Pairs well with logic-consistency-check when a full document needs scrutiny.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

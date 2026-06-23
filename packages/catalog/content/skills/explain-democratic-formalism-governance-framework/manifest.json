@@ -1,0 +1,10 @@
+{
+  "id": "explain-democratic-formalism-governance-framework",
+  "name": "explain-democratic-formalism-governance-framework",
+  "description": "Explain, summarize, analyze, or adapt the \"Republic with No Masters\" / Democratic Formalism governance framework when asked to produce content, guidance, critiques, FAQs, or implementation ideas based on the manifesto in principles.md.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

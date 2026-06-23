@@ -1,0 +1,10 @@
+{
+  "id": "sensory-detail-mining",
+  "name": "sensory-detail-mining",
+  "description": "Finds specific details being overlooked — the most important information is often present but not being registered. Triggers: 'what are we missing', 'go deeper on this', 'find the details', 'be more specific', 'what exactly is happening', 'ground this in specifics'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

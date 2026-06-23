@@ -1,0 +1,10 @@
+{
+  "id": "automate-macos-gui",
+  "name": "automate-macos-gui",
+  "description": "- **Screen Reading**: Capture screenshots and OCR text",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

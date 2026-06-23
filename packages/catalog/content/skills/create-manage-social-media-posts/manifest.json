@@ -1,0 +1,10 @@
+{
+  "id": "create-manage-social-media-posts",
+  "name": "create-manage-social-media-posts",
+  "description": "Call PostProxy API to create and manage social media posts",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

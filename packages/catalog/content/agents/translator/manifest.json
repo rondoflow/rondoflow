@@ -1,0 +1,13 @@
+{
+  "id": "translator",
+  "name": "Translator (i18n)",
+  "description": "Accurate, natural translation and localisation.",
+  "icon": "Languages",
+  "category": "Research & Ops",
+  "purpose": "writing",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit"],
+  "tags": ["translation", "i18n", "localisation", "languages", "writing"],
+  "order": 20
+}

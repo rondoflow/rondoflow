@@ -1,0 +1,10 @@
+{
+  "id": "automate-chrome-with-puppeteer",
+  "name": "automate-chrome-with-puppeteer",
+  "description": "Automate Chrome and Chromium with Puppeteer for scraping, testing, screenshots, and browser workflows.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

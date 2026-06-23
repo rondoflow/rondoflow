@@ -1,0 +1,10 @@
+{
+  "id": "get-mta-train-departures",
+  "name": "get-mta-train-departures",
+  "description": "MTA system train departures (NYC Subway, LIRR, Metro-North). Use when the user wants train times, schedules, or service alerts for MTA transit. Covers MTA Subway, LIRR, and Metro-North across the greater New York area.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "puzzle",
+  "order": 1000
+}

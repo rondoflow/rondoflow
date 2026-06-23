@@ -1,0 +1,10 @@
+{
+  "id": "compare-sources-for-shared-principles",
+  "name": "compare-sources-for-shared-principles",
+  "description": "Compare two sources to find shared and divergent principles — discover what survives independent observation.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

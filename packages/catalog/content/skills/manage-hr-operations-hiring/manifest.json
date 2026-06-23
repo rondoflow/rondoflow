@@ -1,0 +1,10 @@
+{
+  "id": "manage-hr-operations-hiring",
+  "name": "manage-hr-operations-hiring",
+  "description": "Manage HR operations with hiring pipelines, compliance frameworks, compensation strategy, and workforce analytics.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

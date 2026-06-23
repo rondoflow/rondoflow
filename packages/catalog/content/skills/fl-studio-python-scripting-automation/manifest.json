@@ -1,0 +1,10 @@
+{
+  "id": "fl-studio-python-scripting-automation",
+  "name": "fl-studio-python-scripting-automation",
+  "description": "FL Studio Python scripting for MIDI controller development, piano roll manipulation, Edison audio editing, workflow automation, and FLP file parsing with PyFLP. Use for programmatic configuration, device customization, MIDI transport, macros, and save file manipulation. Covers a…",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "image",
+  "order": 1000
+}

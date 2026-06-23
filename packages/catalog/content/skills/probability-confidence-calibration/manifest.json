@@ -1,0 +1,10 @@
+{
+  "id": "probability-confidence-calibration",
+  "name": "probability-confidence-calibration",
+  "description": "Tests whether stated confidence levels match available evidence — catching overconfidence and underconfidence. Use when asked to 'calibrate my confidence', 'am I overconfident', 'confidence check', 'how sure should I be', or 'is this as certain as it seems'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

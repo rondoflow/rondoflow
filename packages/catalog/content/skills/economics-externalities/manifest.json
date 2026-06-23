@@ -1,0 +1,10 @@
+{
+  "id": "economics-externalities",
+  "name": "economics-externalities",
+  "description": "Identifies costs and benefits not borne by the decision-maker — and how to internalise them. Triggers: 'externality', 'who else is affected', 'costs falling on others', 'side effects', 'spillover', 'the market isn't accounting for this', 'negative externality', 'positive externality', 'social cost vs. private cost', 'Pigou', any situation where the person deciding does not bear all the consequences.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "apollo-contact-company-enrichment",
+  "name": "apollo-contact-company-enrichment",
+  "description": "Apollo.io contact and company enrichment API. Enrich people with email, phone, title, company data. Enrich organizations with industry, revenue, employee count, funding. Search for prospects. Use when the user needs to enrich contacts, find emails, lookup company info, or search…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

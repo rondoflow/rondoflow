@@ -1,0 +1,10 @@
+{
+  "id": "pikaboard-kanban-task-management",
+  "name": "pikaboard-kanban-task-management",
+  "description": "Interact with PikaBoard task management API. Use when creating, updating, listing, or managing tasks. Agent-first kanban for AI teams. Triggers on: tasks, kanban, board, todo, backlog, sprint.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

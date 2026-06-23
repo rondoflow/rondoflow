@@ -1,0 +1,164 @@
+---
+title: Users & Roles
+description: RondoFlow is a shared, invite-only team workspace with three global roles — viewer, editor, and admin — enforced by the server.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Users & Roles
+
+RondoFlow runs as a **single shared team workspace**. Every authenticated user operates on the same pool of Assistants (agents), Safety Rules (policies), Connections (MCP), and Conversations (sessions) — there is no per-user data. What a user can *do* with that shared pool is controlled by their **global role**.
+
+There are three roles, and access is **invite-only**: open self-registration is disabled, so a new account exists only because an admin created it.
+
+## The three roles
+
+Roles are **ranked and additive** — `viewer < editor < admin`. Each role inherits everything the role below it can do and adds more.
+
+| Role | Rank | Capabilities | What they can do |
+| --- | --- | --- | --- |
+| Viewer | 0 | `read` | Read-only. Sees everything in the workspace, but cannot create, edit, delete, or run anything. |
+| Editor | 1 | `read`, `write`, `run` | Everything a viewer can do, plus create/edit/delete resources **and** run workflows, Assistants, chains, Discussions, Loops, and the Director/Planner/Advisor. |
+| Admin | 2 | `read`, `write`, `run`, `manageUsers`, `manageGlobalSettings` | Everything an editor can do, plus manage users and manage global credential settings. |
+
+The capability matrix is the single source of truth for what each role unlocks: `read` requires viewer, `write` and `run` require editor, and `manageUsers` and `manageGlobalSettings` require admin.
+
+<Callout type="warning">
+RondoFlow is **RBAC over one shared workspace** — there is **no per-user data isolation** and it is **not multi-tenant**. Roles gate *actions*, not *ownership*; `userId` columns exist only for attribution and audit. Because every authenticated user can see all of the shared workspace, RondoFlow is **not safe to expose publicly**. Run it behind your own boundary — see [Self-Hosting](/docs/reference/self-hosting) and [Security](/docs/reference/security).
+</Callout>
+
+New accounts default to **viewer** (`DEFAULT_USER_ROLE`), a fail-closed choice: an unrecognized or missing role collapses to viewer rather than to something more permissive.
+
+## Getting in: the first admin
+
+Because self-registration is disabled, you cannot create your own account from the login page — it reads *"Access is invite-only. Ask an administrator to create your account."* So the very first admin has to be **bootstrapped** at seed time.
+
+Set these environment variables before seeding:
+
+| Variable | Required | Default |
+| --- | --- | --- |
+| `RONDOFLOW_ADMIN_EMAIL` | Yes | — |
+| `RONDOFLOW_ADMIN_PASSWORD` | Yes | — |
+| `RONDOFLOW_ADMIN_NAME` | No | `Administrator` |
+
+<Steps>
+### Set the admin variables
+
+Add `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` (and optionally `RONDOFLOW_ADMIN_NAME`) to your environment or `.env`. See [Configuration](/docs/getting-started/configuration).
+
+### Run the seed
+
+The bootstrap runs **only at seed time** — `npm run db:seed`, or `npm run setup` (which seeds as part of installation). It is **not** a server-startup hook. See [Installation](/docs/getting-started/installation).
+
+### Sign in
+
+Log in with the email and password you set. From there you can invite everyone else.
+</Steps>
+
+The bootstrap is **idempotent and fail-safe**: it is **skipped** if either the email or password is blank, and if the user already exists it simply ensures their role is `admin` (it does not overwrite anything else, including the name). The seed creates the account with a hashed credential, so the bootstrapped admin can log in with email and password immediately.
+
+<Callout type="info">
+**Docker users:** the Compose `migrate` container runs `prisma migrate deploy` only — it does **not** seed. You must run the seed step yourself (for example, `npm run db:seed` with the admin variables set and Postgres reachable) to create the first admin. Skip this and you will be locked out, since self-registration is disabled.
+</Callout>
+
+## Sign-in methods
+
+Email/password and GitHub/Google OAuth all remain valid ways to **sign in** — only **sign-up** is disabled. OAuth providers are configured to never self-provision: they can only sign in a user an admin has already created. They will never create a new account on the fly.
+
+A social provider button only appears on the login page when that provider is actually configured. Each provider is `enabled` only when its OAuth client ID is set (`GITHUB_CLIENT_ID` / `GOOGLE_CLIENT_ID`), and the login page reads a booleans-only endpoint (`/api/auth-providers`) to decide which buttons to render — a provider with no client ID is hidden, and no credential values are ever exposed. See [OAuth sign-in](/docs/getting-started/configuration#oauth-sign-in-optional).
+
+## Managing users (admins)
+
+Admins manage everyone from the **Users panel** in the UI: invite/create a user with a starting role, change a role, deactivate/reactivate, and delete. Each of these actions is also available via the API under `/api/users`. Every route requires the **admin** role, uses the standard `{ success, data?, error?, meta? }` envelope, and is **recorded to the audit log**.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/users` | List users. Query: `search` (email contains), `limit` (1–200, default 100), `offset` (default 0). Returns `{ users, total }`. |
+| `POST` | `/api/users` | Create/invite a user. Body: `email`, `name`, `password`, `role`. Returns `201`. |
+| `PATCH` | `/api/users/:id/role` | Change a user's role. Body: `{ role }`. |
+| `POST` | `/api/users/:id/deactivate` | Ban a user (rejects their sessions, preserves history). Body: `{ banReason? }`. |
+| `POST` | `/api/users/:id/reactivate` | Unban a user. |
+| `DELETE` | `/api/users/:id` | Permanently remove a user. |
+
+A user row has the shape `{ id, email, name, image, role, banned, createdAt }`.
+
+<Callout type="important">
+**Self-protection.** You cannot act against your own account through these routes: you cannot change your own admin role, deactivate yourself, or delete yourself. This keeps a workspace from being accidentally left without an admin.
+</Callout>
+
+Each admin action writes an entry to the audit log — `user_invited`, `user_role_changed`, `user_deactivated`, `user_reactivated`, and `user_deleted` — so user-management changes are reviewable later. See [Monitoring & Audit](/docs/guides/monitoring).
+
+### Examples
+
+These use cookie auth: sign in first and persist the session cookie with `-b cookies.txt -c cookies.txt`.
+
+<Tabs items={['Invite a user', 'Change a role']}>
+<Tabs.Tab>
+```bash
+curl -X POST http://localhost:3001/api/users \
+  -b cookies.txt -c cookies.txt \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "email": "alex@example.com",
+    "name": "Alex Rivera",
+    "password": "a-strong-password",
+    "role": "editor"
+  }'
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+curl -X PATCH http://localhost:3001/api/users/USER_ID/role \
+  -b cookies.txt -c cookies.txt \
+  -H 'Content-Type: application/json' \
+  -d '{ "role": "admin" }'
+```
+</Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+`role` accepts `admin`, `editor`, or `viewer` and defaults to `viewer` when omitted on create. `name` is 1–200 characters and `password` is 8–128 characters.
+</Callout>
+
+## How enforcement works
+
+The **server is the real security boundary.** UI affordances — a hidden palette, disabled buttons — are advisory only; the checks that matter all live server-side and fail closed.
+
+**REST is a default-deny gate** keyed on HTTP method + path. Two `preHandler` hooks run on every request:
+
+<Steps>
+### Authenticate
+
+The session is validated, the user's role is attached, and **banned users are rejected** with `403 "Your account has been deactivated"`.
+
+### Authorize
+
+A default-deny role gate decides access by method and path:
+
+- **Admin-only prefixes** — `/api/users` and `/api/settings/credentials` require admin for **any** method, including `GET`.
+- **Reads** (`GET` / `HEAD` / `OPTIONS`) are open to any authenticated user (viewer and up).
+- **Run paths** (those matching `start` / `stop` / `pause` / `resume` / `run-now` / `execute`) require **editor** or above.
+- **Any other** `POST` / `PUT` / `PATCH` / `DELETE` requires **editor** or above.
+</Steps>
+
+Because the fallthrough rule covers all other mutations, a newly added mutating route is protected automatically — it fails safe.
+
+**Socket.IO is gated too.** Viewers are read-only over the socket: an editor-or-above check guards chain execute/stop, agent start/stop/message, Discussion start, Director and approval responses, Loops, and the Advisor. Viewers attempting any of these are denied with a policy error (for example, the Advisor returns *"Your role does not permit running analysis"*).
+
+<Callout type="info">
+**Where deactivation bites.** Deactivating (banning) a user is enforced at the **HTTP boundary**: the authenticate hook rejects any request carrying a banned session with `403 "Your account has been deactivated"`, and history is preserved. The **socket** connect middleware validates the session but does **not** separately re-check the `banned` flag — so a deactivated user holding a still-valid session cookie isn't disconnected purely *because* of the ban. They are still blocked from doing anything meaningful: every run/execute/mutate action over the socket is guarded by the editor-or-above **role** gate, and HTTP access is cut off. For an immediate, total cut-off, also change the user's role (or delete the account).
+</Callout>
+
+**In the UI**, a role badge appears in the user menu, the admin-only Users panel is shown to admins, and **viewers get a read-only Canvas** — the palette is hidden and nodes are not draggable, connectable, or deletable. These mirror the server's capabilities (and default to viewer until the session resolves), but they are convenience only; the server is what enforces access.
+
+## Related
+
+<Cards>
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
+  <Cards.Card title="Monitoring & Audit" href="/docs/guides/monitoring" />
+  <Cards.Card title="Self-Hosting" href="/docs/reference/self-hosting" />
+</Cards>

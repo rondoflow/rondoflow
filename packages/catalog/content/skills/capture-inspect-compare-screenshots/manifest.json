@@ -1,0 +1,10 @@
+{
+  "id": "capture-inspect-compare-screenshots",
+  "name": "capture-inspect-compare-screenshots",
+  "description": "Capture, inspect, and compare screenshots of screens, windows, regions, web pages, simulators, and CI runs with the right tool, wait strategy, viewport, and output format. Use when (1) you need screenshots for debugging, QA, docs, bug reports, or visual review; (2) desktop, brow…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

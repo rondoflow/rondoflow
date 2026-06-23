@@ -1,0 +1,10 @@
+{
+  "id": "whatsapp-automation-via-rest-api",
+  "name": "whatsapp-automation-via-rest-api",
+  "description": "Interact with WhatsApp via GOWA (Go WhatsApp Web Multi-Device) REST API for personal automation. Supports sending messages with ghost mentions (@everyone), images, documents, group management, and more. Always use REST mode (http://localhost:3000) for production.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "image",
+  "order": 1000
+}

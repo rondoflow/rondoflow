@@ -1,0 +1,10 @@
+{
+  "id": "cloud-android-task-execution",
+  "name": "cloud-android-task-execution",
+  "description": "Use mcporter to call cpc-mcp-server AutoJS Agent tools for cloud Android task execution and result retrieval.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.0.2",
+  "icon": "bot",
+  "order": 1000
+}

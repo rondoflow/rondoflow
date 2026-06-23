@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-news",
+  "name": "openclaw-news",
+  "description": "**Version:** 1.0.0",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

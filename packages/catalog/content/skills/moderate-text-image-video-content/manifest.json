@@ -1,0 +1,10 @@
+{
+  "id": "moderate-text-image-video-content",
+  "name": "moderate-text-image-video-content",
+  "description": "Moderate text, images, and video using Vettly's content moderation API via MCP server.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

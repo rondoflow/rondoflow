@@ -1,0 +1,10 @@
+{
+  "id": "lip-sync-avatar-video-messages",
+  "name": "lip-sync-avatar-video-messages",
+  "description": "Generate and send video messages with a lip-syncing VRM avatar. Use when user asks for video message, avatar video, video reply, or when TTS should be delivered as video instead of audio.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "image",
+  "order": 1000
+}

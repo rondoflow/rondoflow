@@ -1,0 +1,10 @@
+{
+  "id": "ansible-pitfall-avoidance-guide",
+  "name": "ansible-pitfall-avoidance-guide",
+  "description": "Avoid common Ansible mistakes — YAML syntax traps, variable precedence, idempotence failures, and handler gotchas.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

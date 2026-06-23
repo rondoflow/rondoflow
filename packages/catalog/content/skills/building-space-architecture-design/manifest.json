@@ -1,0 +1,10 @@
+{
+  "id": "building-space-architecture-design",
+  "name": "building-space-architecture-design",
+  "description": "Design buildings and spaces with principles of form, function, sustainability, and building codes.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

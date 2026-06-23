@@ -1,0 +1,10 @@
+{
+  "id": "analyze-construction-drawings-extract-data",
+  "name": "analyze-construction-drawings-extract-data",
+  "description": "Analyze construction drawings to extract dimensions, annotations, symbols, and metadata. Support quantity takeoff and design review automation.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

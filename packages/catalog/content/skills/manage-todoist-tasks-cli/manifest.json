@@ -1,0 +1,10 @@
+{
+  "id": "manage-todoist-tasks-cli",
+  "name": "manage-todoist-tasks-cli",
+  "description": "Manage Todoist tasks via the `todoist` CLI (list, add, modify, complete, delete). Supports filters, projects, labels, and priorities.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

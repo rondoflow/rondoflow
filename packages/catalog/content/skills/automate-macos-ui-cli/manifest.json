@@ -1,0 +1,10 @@
+{
+  "id": "automate-macos-ui-cli",
+  "name": "automate-macos-ui-cli",
+  "description": "Capture and automate macOS UI with the Peekaboo CLI.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

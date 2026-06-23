@@ -1,0 +1,10 @@
+{
+  "id": "learn-when-to-ask-approval",
+  "name": "learn-when-to-ask-approval",
+  "description": "Self-learn to decide when to act, when to ask, and which actions should always need approval.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

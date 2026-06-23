@@ -1,0 +1,10 @@
+{
+  "id": "web3-crypto-intelligence-mcp",
+  "name": "web3-crypto-intelligence-mcp",
+  "description": "Access Web3 and crypto intelligence via Heurist Mesh MCP. Use when the user asks about cryptocurrency analytics, token information, trending tokens, wallet analysis, Twitter/X crypto intelligence, funding rates, market summaries, or any Web3-related queries. Heurist Mesh provide…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "coins",
+  "order": 1000
+}

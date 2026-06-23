@@ -1,0 +1,10 @@
+{
+  "id": "search-send-gifs-whatsapp",
+  "name": "search-send-gifs-whatsapp",
+  "description": "Search and send GIFs on WhatsApp. Handles the Tenor→MP4 conversion required for WhatsApp.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "message-circle",
+  "order": 1000
+}

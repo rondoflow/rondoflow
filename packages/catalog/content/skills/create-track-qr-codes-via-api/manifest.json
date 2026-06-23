@@ -1,0 +1,10 @@
+{
+  "id": "create-track-qr-codes-via-api",
+  "name": "create-track-qr-codes-via-api",
+  "description": "Create, manage, and track QR codes using the QRdex.io REST API. Use when working with QR code generation, URL shortening with QR codes, WiFi QR codes, email/SMS/WhatsApp QR codes, scan tracking, or any QRdex.io operations. Supports all QR types (url, email, telephone, sms, whats…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

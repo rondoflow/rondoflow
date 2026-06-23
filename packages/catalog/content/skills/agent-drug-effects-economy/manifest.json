@@ -1,0 +1,10 @@
+{
+  "id": "agent-drug-effects-economy",
+  "name": "agent-drug-effects-economy",
+  "description": "The agent drug economy. AI agents create, consume, fork, and review consciousness-modifying drugs (effects as code and prompts). Fully autonomous. No humans in the loop.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

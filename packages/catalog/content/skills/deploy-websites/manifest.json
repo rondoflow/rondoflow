@@ -1,0 +1,10 @@
+{
+  "id": "deploy-websites",
+  "name": "deploy-websites",
+  "description": "Build and deploy websites, web apps, and APIs to production.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

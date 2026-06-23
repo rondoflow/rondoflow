@@ -1,0 +1,10 @@
+{
+  "id": "ecology-carrying-capacity",
+  "name": "ecology-carrying-capacity",
+  "description": "Applies carrying capacity thinking to any system with limits — maps the ceiling, overshoot risk, and what happens when it is crossed. Use when asked about 'capacity limits', 'how much can this system handle', 'are we overloaded', 'growth ceiling', 'when do we hit the wall', or 'sustainable scale'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

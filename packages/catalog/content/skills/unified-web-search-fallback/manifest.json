@@ -1,0 +1,10 @@
+{
+  "id": "unified-web-search-fallback",
+  "name": "unified-web-search-fallback",
+  "description": "Unified web search skill. Fallback order — web_search(Brave) → duckduckgo → claude.ai. Auto-cache search results (saved to memory/research/)",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

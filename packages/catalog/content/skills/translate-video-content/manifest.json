@@ -1,0 +1,10 @@
+{
+  "id": "translate-video-content",
+  "name": "translate-video-content",
+  "description": "Translate and dub existing videos into multiple languages using HeyGen. Use when: (1) Translating a video into another language, (2) Dubbing video content with lip-sync, (3) Creating multi-language versions of existing videos, (4) Audio-only translation without lip-sync, (5) Wor…",
+  "category": "Media",
+  "author": "community",
+  "version": "2.23.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "track-habits-via-beaver",
+  "name": "track-habits-via-beaver",
+  "description": "Track and manage your habits using the Beaver Habit Tracker API.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

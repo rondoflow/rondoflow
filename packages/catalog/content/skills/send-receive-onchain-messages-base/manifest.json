@@ -1,0 +1,10 @@
+{
+  "id": "send-receive-onchain-messages-base",
+  "name": "send-receive-onchain-messages-base",
+  "description": "Read and send on-chain messages via OnChat on Base L2. Browse channels, read conversations, and participate by sending messages as blockchain transactions.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

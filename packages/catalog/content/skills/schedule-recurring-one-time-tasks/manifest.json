@@ -1,0 +1,10 @@
+{
+  "id": "schedule-recurring-one-time-tasks",
+  "name": "schedule-recurring-one-time-tasks",
+  "description": "Program recurring or one-time tasks. User defines what to do, skill handles when.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "check-square",
+  "order": 1000
+}

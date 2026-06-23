@@ -1,0 +1,10 @@
+{
+  "id": "write-multi-step-task-plans",
+  "name": "write-multi-step-task-plans",
+  "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

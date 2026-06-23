@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-monitoring-dashboard",
+  "name": "openclaw-monitoring-dashboard",
+  "description": "Mission control dashboard for OpenClaw - real-time session monitoring, LLM usage tracking, cost intelligence, and system vitals. View all your AI agents in one place.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.4.1",
+  "icon": "bot",
+  "order": 1000
+}

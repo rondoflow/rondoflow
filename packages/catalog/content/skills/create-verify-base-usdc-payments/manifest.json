@@ -1,0 +1,10 @@
+{
+  "id": "create-verify-base-usdc-payments",
+  "name": "create-verify-base-usdc-payments",
+  "description": "Use when an OpenClawBot needs to create or verify PayTrigo payments on Base/USDC without webhooks.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

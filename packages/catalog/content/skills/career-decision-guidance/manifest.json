@@ -1,0 +1,10 @@
+{
+  "id": "career-decision-guidance",
+  "name": "career-decision-guidance",
+  "description": "Learns your career context. Guides decisions on paths, transitions, negotiations, and growth based on what it discovers about you.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

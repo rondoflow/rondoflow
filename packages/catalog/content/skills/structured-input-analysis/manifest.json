@@ -1,0 +1,10 @@
+{
+  "id": "structured-input-analysis",
+  "name": "structured-input-analysis",
+  "description": "Structured analysis for any input. Data, code, text, decisions, visuals. Prioritize, question, conclude.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

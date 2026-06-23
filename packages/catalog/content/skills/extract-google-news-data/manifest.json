@@ -1,0 +1,10 @@
+{
+  "id": "extract-google-news-data",
+  "name": "extract-google-news-data",
+  "description": "This skill provides a one-stop news collection service using BrowserAct's Google News API template. It extracts structured news results directly from Google News, including headlines, sources, publication times, and article links, providing clean and ready-to-use data without ma…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

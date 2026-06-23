@@ -1,0 +1,10 @@
+{
+  "id": "basecamp-project-management",
+  "name": "basecamp-project-management",
+  "description": "Basecamp API integration with managed OAuth. Manage projects, to-dos, messages, schedules, documents, and team collaboration. Use this skill when users want to create and manage projects, to-do lists, schedule events, or collaborate with teams in Basecamp. For other third party…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "plug",
+  "order": 1000
+}

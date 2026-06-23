@@ -1,0 +1,10 @@
+{
+  "id": "book-photographer-services",
+  "name": "book-photographer-services",
+  "description": "Book photographer services through Lokuli MCP. Use when user needs to find and book photographer. Triggers on requests like \"book a photographer\", \"find photographer near me\", or any photographer service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

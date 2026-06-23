@@ -1,0 +1,10 @@
+{
+  "id": "create-cv-resume-documents",
+  "name": "create-cv-resume-documents",
+  "description": "Create a free digital identity, professional resume and CV — from classic PDF and HTML layouts to 3D worlds and playable games. Permanent public URL with own slug. Free API for AI agents — basic use without API key, full features with Access-ID. Use when the user wants to build,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "5.2.4",
+  "icon": "bot",
+  "order": 1000
+}

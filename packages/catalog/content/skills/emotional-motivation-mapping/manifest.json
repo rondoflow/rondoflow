@@ -1,0 +1,10 @@
+{
+  "id": "emotional-motivation-mapping",
+  "name": "emotional-motivation-mapping",
+  "description": "Maps what genuinely drives different people — beyond stated reasons and job descriptions. Use when incentives seem misaligned or individual behaviour is hard to predict. TRIGGERS: 'what motivates them', 'motivation map', 'why are they behaving like this', 'what drives this person', 'understand the incentives'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

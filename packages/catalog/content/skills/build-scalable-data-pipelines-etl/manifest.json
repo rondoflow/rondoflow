@@ -1,0 +1,10 @@
+{
+  "id": "build-scalable-data-pipelines-etl",
+  "name": "build-scalable-data-pipelines-etl",
+  "description": "Data engineering skill for building scalable data pipelines, ETL/ELT systems, and data infrastructure. Expertise in Python, SQL, Spark, Airflow, dbt, Kafka, and modern data stack. Includes data modeling, pipeline orchestration, data quality, and DataOps. Use when designing data…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

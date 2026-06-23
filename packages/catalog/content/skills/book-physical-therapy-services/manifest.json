@@ -1,0 +1,10 @@
+{
+  "id": "book-physical-therapy-services",
+  "name": "book-physical-therapy-services",
+  "description": "Book physical-therapy services through Lokuli MCP. Use when user needs to find and book physical-therapy. Triggers on requests like \"book a physical-therapy\", \"find physical-therapy near me\", or any physical-therapy service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

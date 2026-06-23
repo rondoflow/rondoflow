@@ -1,0 +1,86 @@
+{
+  "title": "Git",
+  "tab": {
+    "status": "Stav",
+    "log": "Záznam",
+    "branches": "Vetvy"
+  },
+  "action": {
+    "refresh": "Obnoviť",
+    "close": "Zavrieť",
+    "saveDirectory": "Uložiť adresár",
+    "cancelEditing": "Zrušiť úpravy",
+    "changeDirectory": "Zmeniť adresár repozitára"
+  },
+  "repo": {
+    "pathPlaceholder": "/cesta/k/vasmu/projektu",
+    "none": "Nie je vybraný žiadny repozitár",
+    "hint": "Kliknutím na ikonu úprav nastavte priečinok projektu pre tento pracovný priestor."
+  },
+  "commit": {
+    "placeholder": "Správa commitu…",
+    "submit": "Commit",
+    "submitCount": "Commit ({{count}})"
+  },
+  "push": {
+    "label": "Push"
+  },
+  "status": {
+    "empty": "Pracovný strom je čistý",
+    "staged_one": "Pripravené ({{count}})",
+    "staged_few": "Pripravené ({{count}})",
+    "staged_other": "Pripravené ({{count}})",
+    "changes_one": "Zmeny ({{count}})",
+    "changes_few": "Zmeny ({{count}})",
+    "changes_other": "Zmeny ({{count}})",
+    "unstageAll": "Zrušiť prípravu všetkých",
+    "stageAll": "Pripraviť všetky",
+    "stage": "Pripraviť",
+    "unstage": "Zrušiť prípravu",
+    "stageFile": "Pripraviť {{path}}",
+    "unstageFile": "Zrušiť prípravu {{path}}",
+    "fileStatus": {
+      "added": "Pridané",
+      "modified": "Upravené",
+      "deleted": "Odstránené",
+      "renamed": "Premenované",
+      "untracked": "Nesledované"
+    }
+  },
+  "log": {
+    "empty": "Zatiaľ žiadne commity",
+    "history": "História commitov",
+    "justNow": "práve teraz",
+    "minutesAgo_one": "pred {{count}} min",
+    "minutesAgo_few": "pred {{count}} min",
+    "minutesAgo_other": "pred {{count}} min",
+    "hoursAgo_one": "pred {{count}} h",
+    "hoursAgo_few": "pred {{count}} h",
+    "hoursAgo_other": "pred {{count}} h",
+    "daysAgo_one": "pred {{count}} d",
+    "daysAgo_few": "pred {{count}} d",
+    "daysAgo_other": "pred {{count}} d"
+  },
+  "branches": {
+    "list": "Vetvy Git",
+    "tabs": "Karty Git",
+    "newBranch": "Nová vetva",
+    "newBranchFrom": "Nová vetva z",
+    "namePlaceholder": "feature/moja-vetva",
+    "createSwitch": "Vytvoriť a prepnúť",
+    "empty": "Nenašli sa žiadne vetvy",
+    "switch": "prepnúť",
+    "switching": "Prepína sa…",
+    "currentBranch": "Aktuálna vetva",
+    "invalidName": "Neplatný názov vetvy. Použite písmená, čísla, /, - alebo .",
+    "createFailed": "Vetvu sa nepodarilo vytvoriť"
+  },
+  "error": {
+    "statusFailed": "Nepodarilo sa získať stav git",
+    "stageFailed": "Nepodarilo sa pripraviť súbory",
+    "unstageFailed": "Nepodarilo sa zrušiť prípravu súborov",
+    "commitFailed": "Commit zlyhal",
+    "pushFailed": "Push zlyhal",
+    "checkoutFailed": "Nepodarilo sa prepnúť vetvu"
+  }
+}

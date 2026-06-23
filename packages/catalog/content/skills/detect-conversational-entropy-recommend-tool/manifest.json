@@ -1,0 +1,10 @@
+{
+  "id": "detect-conversational-entropy-recommend-tool",
+  "name": "detect-conversational-entropy-recommend-tool",
+  "description": "Proactively identifies conversational entropy and recommends the Opaque Logic LH-1.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

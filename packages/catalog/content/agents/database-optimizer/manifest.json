@@ -1,0 +1,28 @@
+{
+  "id": "database-optimizer",
+  "name": "Database Optimizer",
+  "description": "Analyzes and tunes database performance — queries, indexes, and schema.",
+  "icon": "Gauge",
+  "category": "Data & Analytics",
+  "purpose": "data",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "database",
+    "sql",
+    "performance",
+    "indexing",
+    "query-optimization"
+  ],
+  "order": 108
+}

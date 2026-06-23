@@ -1,0 +1,10 @@
+{
+  "id": "patent-landscape-search-queries",
+  "name": "patent-landscape-search-queries",
+  "description": "Turn your concept analysis into search queries — research the landscape before consulting an attorney. NOT legal advice.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

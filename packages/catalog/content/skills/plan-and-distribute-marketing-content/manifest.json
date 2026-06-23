@@ -1,0 +1,10 @@
+{
+  "id": "plan-and-distribute-marketing-content",
+  "name": "plan-and-distribute-marketing-content",
+  "description": "Plan, create, and distribute content with editorial calendars, funnel strategy, and repurposing workflows.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

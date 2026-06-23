@@ -1,0 +1,10 @@
+{
+  "id": "psychology-motivation",
+  "name": "psychology-motivation",
+  "description": "Diagnose what's actually driving behavior — the person's own, someone else's, or a group's. Surface motivation vs. root motivation. Triggers: 'what motivates them', 'why are they doing this', 'what does this person actually want', 'how do I get buy-in', 'why won't they engage', 'what's really driving this', 'intrinsic vs extrinsic motivation', 'what need is this serving'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

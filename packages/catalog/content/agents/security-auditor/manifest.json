@@ -1,0 +1,28 @@
+{
+  "id": "security-auditor",
+  "name": "Security Auditor",
+  "description": "Application security auditor — finds, evaluates, and mitigates vulnerabilities.",
+  "icon": "ShieldCheck",
+  "category": "Engineering",
+  "purpose": "review",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "security",
+    "audit",
+    "vulnerabilities",
+    "owasp",
+    "pentesting"
+  ],
+  "order": 131
+}

@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-research-development-media-agent",
+  "name": "autonomous-research-development-media-agent",
+  "description": "Agente de IA autónomo de Manus con capacidades de investigación, desarrollo, automatización y generación de medios.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

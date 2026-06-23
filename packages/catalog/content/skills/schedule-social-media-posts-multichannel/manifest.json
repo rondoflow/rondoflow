@@ -1,0 +1,10 @@
+{
+  "id": "schedule-social-media-posts-multichannel",
+  "name": "schedule-social-media-posts-multichannel",
+  "description": "Schedule and manage social media posts across TikTok, Instagram, Facebook, X (Twitter), YouTube, LinkedIn, Threads, Bluesky, Pinterest, and Telegram using the PostFast API. Use when the user wants to schedule social media posts, manage social media content, upload media for soci…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.3.1",
+  "icon": "image",
+  "order": 1000
+}

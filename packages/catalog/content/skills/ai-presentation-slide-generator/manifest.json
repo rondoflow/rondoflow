@@ -1,0 +1,10 @@
+{
+  "id": "ai-presentation-slide-generator",
+  "name": "ai-presentation-slide-generator",
+  "description": "AI-powered presentation generation using 2slides API. Create slides from text content, match reference image styles, or summarize documents into presentations. Use when users request to \"create a presentation\", \"make slides\", \"generate a deck\", \"create slides from this content/d…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "identity-character-testing",
+  "name": "identity-character-testing",
+  "description": "Asks what a person or organisation of genuine integrity would do — grounding decisions in character rather than calculation. Triggers: 'character test', 'what would a person of integrity do', 'what does this say about us', 'gut check', 'would I be proud of this', 'are we being who we want to be'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

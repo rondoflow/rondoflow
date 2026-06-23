@@ -1,0 +1,10 @@
+{
+  "id": "structured-agent-memory-system",
+  "name": "structured-agent-memory-system",
+  "description": "Structured memory system for OpenClaw agents. Context death resilience (checkpoint/recover), structured storage, Obsidian-compatible markdown, local semantic search, and session transcript repair.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.5.1",
+  "icon": "bot",
+  "order": 1000
+}

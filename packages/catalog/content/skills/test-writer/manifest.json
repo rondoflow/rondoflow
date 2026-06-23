@@ -1,0 +1,10 @@
+{
+  "id": "test-writer",
+  "name": "test-writer",
+  "description": "Writes comprehensive test suites with good coverage across unit, integration, and edge cases",
+  "category": "Development",
+  "author": "rondoflow",
+  "version": "1.0.0",
+  "icon": "check-circle",
+  "order": 4
+}

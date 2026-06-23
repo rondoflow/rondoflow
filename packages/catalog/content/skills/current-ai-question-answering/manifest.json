@@ -1,0 +1,10 @@
+{
+  "id": "current-ai-question-answering",
+  "name": "current-ai-question-answering",
+  "description": "Answer AI questions with current info instead of outdated training data.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

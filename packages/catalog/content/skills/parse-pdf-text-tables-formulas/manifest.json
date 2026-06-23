@@ -1,0 +1,10 @@
+{
+  "id": "parse-pdf-text-tables-formulas",
+  "name": "parse-pdf-text-tables-formulas",
+  "description": "Parse PDF documents with MinerU MCP to extract text, tables, and formulas. Supports multiple backends including MLX-accelerated inference on Apple Silicon.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

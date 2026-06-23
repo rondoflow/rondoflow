@@ -1,0 +1,10 @@
+{
+  "id": "research-market-sizing-segmentation-demand",
+  "name": "research-market-sizing-segmentation-demand",
+  "description": "Research markets with sizing, segmentation, competitor mapping, pricing checks, and demand validation that turn fuzzy ideas into decision-ready evidence. Use when (1) you need TAM, SAM, SOM, whitespace, or category sizing; (2) you must compare competitors, pricing, positioning,…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

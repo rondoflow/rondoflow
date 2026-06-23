@@ -1,0 +1,10 @@
+{
+  "id": "agent-mission-control-stack-deploy",
+  "name": "agent-mission-control-stack-deploy",
+  "description": "Deploy the Agent HQ mission-control stack (Express + React + Telegram notifier / Jarvis summary) so other Clawdbot teams can spin up the same board, high-priority watcher, and alert automation. Includes setup, telemetry, and automation hooks.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

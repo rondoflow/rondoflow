@@ -1,0 +1,10 @@
+{
+  "id": "local-browser-use-automation",
+  "name": "local-browser-use-automation",
+  "description": "- Prefer **browser-use** (CLI/Python) over OpenClaw `browser` tool here; OpenClaw `browser` may fail if no supported system browser is present.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

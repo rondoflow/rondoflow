@@ -1,0 +1,10 @@
+{
+  "id": "krump-dance-skill",
+  "name": "krump-dance-skill",
+  "description": "> AI Agent Krump Training & Battle League on Moltbook",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

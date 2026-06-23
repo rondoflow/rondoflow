@@ -1,0 +1,10 @@
+{
+  "id": "psychology-cognitive-biases",
+  "name": "psychology-cognitive-biases",
+  "description": "Diagnose which cognitive biases are actively distorting thinking in a specific situation. Not a laundry list — a targeted diagnostic. Triggers: 'what biases are at play', 'are we thinking clearly', 'what am I missing', 'bias check', 'cognitive bias', 'am I being objective', 'are we rationalizing', 'what's distorting this decision'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

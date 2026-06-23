@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-team-management",
+  "name": "ai-agent-team-management",
+  "description": "Manage AI agent team members with roles, skills, and task delegation. Use when: listing team members, adding/updating agents, setting the team leader, checking who has specific expertise, delegating tasks to the right agent, or coordinating multi-agent workflows. Keywords: team…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.9",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "marketing-attribution-engine",
+  "name": "marketing-attribution-engine",
+  "description": "Helps creators clearly credit collaborators, tools, and partners in a way platforms understand. Reduces confusion, missed disclosures, and avoidable issues before content goes live.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.2",
+  "icon": "pencil",
+  "order": 1000
+}

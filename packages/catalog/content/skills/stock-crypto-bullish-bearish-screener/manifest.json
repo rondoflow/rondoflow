@@ -1,0 +1,10 @@
+{
+  "id": "stock-crypto-bullish-bearish-screener",
+  "name": "stock-crypto-bullish-bearish-screener",
+  "description": "Intellectia stock/crypto screener for Bullish/Bearish Tomorrow/Week/Month presets. Calls /gateway/v1/stock/screener-list (no auth) and summarizes results.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

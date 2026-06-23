@@ -1,0 +1,10 @@
+{
+  "id": "trade-crypto-and-prediction-markets",
+  "name": "trade-crypto-and-prediction-markets",
+  "description": "Trade crypto (Binance, Upbit, Hyperliquid, Lighter) and prediction markets (Polymarket). Backtest strategies with 80+ indicators using Signal DSL, get market data (OHLCV, scan, rank), place and manage orders, subscribe to live trading signals, and compete on the community arena…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.11",
+  "icon": "coins",
+  "order": 1000
+}

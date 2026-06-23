@@ -1,0 +1,10 @@
+{
+  "id": "recover-broken-git-state",
+  "name": "recover-broken-git-state",
+  "description": "Diagnose and recover broken Git state and worktree metadata with a staged, low-risk recovery flow. Use when Git reports detached or contradictory HEAD state, phantom worktree locks, orphaned worktree entries, missing refs, 0000000000000000000000000000000000000000 hashes, or bran…",
+  "category": "Development",
+  "author": "community",
+  "version": "0.2.1",
+  "icon": "code",
+  "order": 1000
+}

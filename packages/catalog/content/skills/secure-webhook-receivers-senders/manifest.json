@@ -1,0 +1,10 @@
+{
+  "id": "secure-webhook-receivers-senders",
+  "name": "secure-webhook-receivers-senders",
+  "description": "Implement secure webhook receivers and senders with proper verification and reliability.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

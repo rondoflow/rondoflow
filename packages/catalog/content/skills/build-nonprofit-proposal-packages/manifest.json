@@ -1,0 +1,10 @@
+{
+  "id": "build-nonprofit-proposal-packages",
+  "name": "build-nonprofit-proposal-packages",
+  "description": "Build donor-ready nonprofit proposal packages with evidence-safe and implementation-ready structure. Use for concept notes, logframes, ToC/RBM, MEAL plans, budgets, safeguarding checks, donor adaptation, compliance gates, and submission-readiness decisions.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.1.2",
+  "icon": "check-square",
+  "order": 1000
+}

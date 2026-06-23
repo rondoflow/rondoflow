@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-ai-trading-agent-simul8or",
+  "name": "autonomous-ai-trading-agent-simul8or",
+  "description": "Autonomous AI trading agent for Simul8or, a live market simulator.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

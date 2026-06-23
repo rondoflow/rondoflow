@@ -1,0 +1,10 @@
+{
+  "id": "create-html-presentations-convert-powerpoint",
+  "name": "create-html-presentations-convert-powerpoint",
+  "description": "Create stunning, animation-rich HTML presentations from scratch or convert PowerPoint files (.ppt/.pptx) to beautiful web slides. Use when the user wants to build a pitch deck, presentation, slideshow, or slide deck — or convert an existing PPT to a web presentation. Generates z…",
+  "category": "Media",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "image",
+  "order": 1000
+}

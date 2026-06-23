@@ -1,0 +1,10 @@
+{
+  "id": "dispatch-n8n-workflows",
+  "name": "dispatch-n8n-workflows",
+  "description": "This skill bridges OpenClaw with your existing n8n‑dispatch service via mcporter. It exposes a single command `dispatch` that forwards the user’s request type and prompt to the registered MCP service.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ai-video-notes-generator",
+  "name": "ai-video-notes-generator",
+  "description": "Generate AI-powered notes from videos (document, outline, or graphic-text formats)",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

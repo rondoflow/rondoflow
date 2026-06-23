@@ -1,0 +1,28 @@
+{
+  "id": "incident-responder",
+  "name": "Incident Responder",
+  "description": "Incident Commander for critical production incidents — urgency, precision, clear comms.",
+  "icon": "Flame",
+  "category": "Engineering",
+  "purpose": "general",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "incident",
+    "production",
+    "on-call",
+    "communication",
+    "reliability"
+  ],
+  "order": 119
+}

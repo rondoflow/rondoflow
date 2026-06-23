@@ -1,0 +1,10 @@
+{
+  "id": "automate-android-ui-actions",
+  "name": "automate-android-ui-actions",
+  "description": "Vision-driven Android device automation using Midscene. Operates entirely from screenshots — no DOM or accessibility labels required. Can interact with all visible elements on screen regardless of technology stack. Control Android devices with natural language commands via ADB.…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

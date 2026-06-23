@@ -1,0 +1,10 @@
+{
+  "id": "build-expo-native-ui",
+  "name": "build-expo-native-ui",
+  "description": "Build beautiful native iOS/Android apps with Expo Router. Covers route structure, native tabs, animations, blur effects, liquid glass, SF Symbols, and platform patterns.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

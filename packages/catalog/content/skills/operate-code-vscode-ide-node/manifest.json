@@ -1,0 +1,10 @@
+{
+  "id": "operate-code-vscode-ide-node",
+  "name": "operate-code-vscode-ide-node",
+  "description": "Operate on code through a VS Code/Cursor IDE connected as an OpenClaw Node. Provides 40+ commands for file operations, language intelligence, git, testing, debugging, and Cursor Agent CLI integration. Use when you need to read/write/edit code, navigate definitions/references, ru…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

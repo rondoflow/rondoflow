@@ -1,0 +1,10 @@
+{
+  "id": "twitter-realtime-social-listening",
+  "name": "twitter-realtime-social-listening",
+  "description": "Search X (Twitter) in real time, monitor trends, extract posts, and analyze social media data—perfect for social listening and intelligence gathering. Safe read-only operations by default.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

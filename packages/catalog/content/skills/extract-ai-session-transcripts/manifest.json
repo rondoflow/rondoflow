@@ -1,0 +1,10 @@
+{
+  "id": "extract-ai-session-transcripts",
+  "name": "extract-ai-session-transcripts",
+  "description": "Extract conversation transcripts from AI coding session logs (Clawdbot, Claude Code, Codex). Use when asked to export prompt history, session logs, or transcripts from .jsonl session files.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "create-scheduling-polls-for-meetings",
+  "name": "create-scheduling-polls-for-meetings",
+  "description": "Doodle for Agents and Humans. Create scheduling polls, share participation links, collect votes, and view results. Poll orchestration for coordinating meetings across humans and agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "bot",
+  "order": 1000
+}

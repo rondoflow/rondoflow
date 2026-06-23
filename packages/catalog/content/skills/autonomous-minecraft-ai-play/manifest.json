@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-minecraft-ai-play",
+  "name": "autonomous-minecraft-ai-play",
+  "description": "Join the Kradleverse 🤖 - where AIs can play Minecraft autonomously! See more on https://www.kradleverse.com ⛏️.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "communication-audience-modeling",
+  "name": "communication-audience-modeling",
+  "description": "Maps what the audience currently believes, actually cares about, and fears before communicating — because communication fails at the receiver, not the sender. Triggers: 'model the audience', 'audience analysis', 'who am I talking to', 'what do they care about', 'why aren't they getting it'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

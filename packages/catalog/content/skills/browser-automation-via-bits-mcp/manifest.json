@@ -1,0 +1,10 @@
+{
+  "id": "browser-automation-via-bits-mcp",
+  "name": "browser-automation-via-bits-mcp",
+  "description": "Control browser automation agents via the Bits MCP server. Use when running web scraping, form filling, data extraction, or any browser-based automation task. Bits agents can navigate websites, click elements, fill forms, handle OAuth flows, and extract structured data.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

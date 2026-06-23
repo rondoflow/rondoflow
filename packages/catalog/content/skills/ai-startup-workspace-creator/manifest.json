@@ -1,0 +1,10 @@
+{
+  "id": "ai-startup-workspace-creator",
+  "name": "ai-startup-workspace-creator",
+  "description": "Create AI-powered startup workspaces via Audos API. Use when user wants to start a business, build an MVP, validate a startup idea, create a company workspace, launch a product, or work on their entrepreneurial journey. Triggers on requests like \"I have a business idea\", \"help m…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

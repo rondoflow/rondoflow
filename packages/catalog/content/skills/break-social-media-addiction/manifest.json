@@ -1,0 +1,10 @@
+{
+  "id": "break-social-media-addiction",
+  "name": "break-social-media-addiction",
+  "description": "Break social media addiction with screen-free streaks, urge tracking, and digital wellness",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

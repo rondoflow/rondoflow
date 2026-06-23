@@ -1,0 +1,10 @@
+{
+  "id": "fetch-clean-extract-web-content",
+  "name": "fetch-clean-extract-web-content",
+  "description": "Public web retrieval and clean extraction engine. Use whenever the user wants to fetch, download, inspect, clean, or save content from a public URL. Supports safe fetching of public web pages, extracts title/text/links, stores results locally, and keeps a job history. No credent…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

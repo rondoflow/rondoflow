@@ -1,0 +1,10 @@
+{
+  "id": "information-signal-noise",
+  "name": "information-signal-noise",
+  "description": "Separates meaningful signal from background noise. Use when asked to 'find the signal', 'cut through the noise', 'what actually matters here', 'what's driving the variation', 'is this data telling us something real', or when a source is overwhelming and it's unclear what's relevant.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

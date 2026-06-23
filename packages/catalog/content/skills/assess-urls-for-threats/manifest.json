@@ -1,0 +1,10 @@
+{
+  "id": "assess-urls-for-threats",
+  "name": "assess-urls-for-threats",
+  "description": "Companion skill for @cybrlab/urlcheck-openclaw. Requires URLCheck plugin tools to assess URLs for threats and intent alignment before navigation.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "puzzle",
+  "order": 1000
+}

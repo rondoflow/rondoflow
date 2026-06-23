@@ -1,0 +1,10 @@
+{
+  "id": "zero-trust-security-hardening",
+  "name": "zero-trust-security-hardening",
+  "description": "Zero Trust security hardening for OpenClaw deployments. Use when asked to audit, harden, or apply Zero Trust architecture to an OpenClaw instance — including NHI identity scoping, Principle of Least Privilege (PLP), Plan-First protocol, DNS-based egress filtering, plugin allowli…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.3.1",
+  "icon": "puzzle",
+  "order": 1000
+}

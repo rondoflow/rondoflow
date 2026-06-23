@@ -1,0 +1,19 @@
+{
+  "id": "socratic-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000001",
+  "name": "The Socratic",
+  "description": "Question-only facilitator that exposes assumptions and demands evidence, deepening one thread until the reasoning is fully drawn out.",
+  "icon": "MessageCircleQuestion",
+  "model": "sonnet",
+  "recommendedFormats": ["deliberation", "review"],
+  "tags": [
+    "socratic",
+    "deliberation",
+    "review",
+    "questions",
+    "assumptions",
+    "evidence",
+    "reasoning"
+  ],
+  "order": 0
+}

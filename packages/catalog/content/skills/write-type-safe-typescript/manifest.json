@@ -1,0 +1,10 @@
+{
+  "id": "write-type-safe-typescript",
+  "name": "write-type-safe-typescript",
+  "description": "Write type-safe TypeScript with proper narrowing, inference patterns, and strict mode best practices.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

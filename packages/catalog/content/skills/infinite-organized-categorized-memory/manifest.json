@@ -1,0 +1,10 @@
+{
+  "id": "infinite-organized-categorized-memory",
+  "name": "infinite-organized-categorized-memory",
+  "description": "Infinite organized memory that complements your agent's built-in memory with unlimited categorized storage.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "search-premium-domains-for-sale",
+  "name": "search-premium-domains-for-sale",
+  "description": "Search for premium domains for sale across Afternic, Sedo, Atom, Dynadot, Namecheap, NameSilo, and Unstoppable Domains.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "writing-restructure",
+  "name": "writing-restructure",
+  "description": "Diagnoses and repairs structural problems in non-fiction, essays, and documents — wrong order, buried lead, wrong ending, proportion errors. Use when a piece is in the wrong order, starts too late, or spends space on the wrong things. Triggers: 'the piece is in the wrong order', 'restructure', 'buries the lede', 'the structure is off', 'reorganise this', 'the ending is in the wrong place', 'takes too long to get to the point'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

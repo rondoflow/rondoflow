@@ -1,0 +1,10 @@
+{
+  "id": "voice-sms-ai-missions",
+  "name": "voice-sms-ai-missions",
+  "description": "ClawdTalk — Voice calls, SMS, and AI Missions for Clawdbot",
+  "category": "Media",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "image",
+  "order": 1000
+}

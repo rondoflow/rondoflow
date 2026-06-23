@@ -1,0 +1,10 @@
+{
+  "id": "book-electrician-services",
+  "name": "book-electrician-services",
+  "description": "Book electrician services through Lokuli MCP. Use when user needs to find and book electrician. Triggers on requests like \"book a electrician\", \"find electrician near me\", or any electrician service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

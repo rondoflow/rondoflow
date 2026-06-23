@@ -1,0 +1,10 @@
+{
+  "id": "personal-music-tracking-system",
+  "name": "personal-music-tracking-system",
+  "description": "Build a personal music system for tracking discoveries, favorites, concerts, and listening memories.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

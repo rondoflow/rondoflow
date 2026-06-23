@@ -1,0 +1,10 @@
+{
+  "id": "webchat-voice-full-stack",
+  "name": "webchat-voice-full-stack",
+  "description": "One-step full-stack installer for OpenClaw WebChat voice input with local speech-to-text. Orchestrates three focused skills in order: local STT backend (faster-whisper-local-service), HTTPS/WSS reverse proxy (webchat-https-proxy), and voice UI mic controls (webchat-voice-gui). I…",
+  "category": "Media",
+  "author": "community",
+  "version": "0.4.1",
+  "icon": "image",
+  "order": 1000
+}

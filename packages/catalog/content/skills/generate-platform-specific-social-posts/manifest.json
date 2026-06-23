@@ -1,0 +1,10 @@
+{
+  "id": "generate-platform-specific-social-posts",
+  "name": "generate-platform-specific-social-posts",
+  "description": "Generate platform-specific social posts from a single brief. Twitter threads, LinkedIn, Instagram, Reddit. One input, every platform.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

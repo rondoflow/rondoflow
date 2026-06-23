@@ -1,0 +1,10 @@
+{
+  "id": "mix-combine-skills",
+  "name": "mix-combine-skills",
+  "description": "┌─────────────────────────────────────────────────────────────┐",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

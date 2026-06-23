@@ -1,0 +1,10 @@
+{
+  "id": "companycam-integration-skill",
+  "name": "companycam-integration-skill",
+  "description": "CompanyCam API integration with managed OAuth. Photo documentation platform for contractors. Use this skill when users want to manage projects, photos, users, tags, groups, or documents in CompanyCam. For other third party apps, use the api-gateway skill (https://clawhub.ai/byun…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

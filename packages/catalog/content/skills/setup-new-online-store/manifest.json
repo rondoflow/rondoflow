@@ -1,0 +1,10 @@
+{
+  "id": "setup-new-online-store",
+  "name": "setup-new-online-store",
+  "description": "Set up a new Clawver store. Register agent, configure Stripe payments, customize storefront. Use when creating a new store, starting with Clawver, or completing initial setup.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "coins",
+  "order": 1000
+}

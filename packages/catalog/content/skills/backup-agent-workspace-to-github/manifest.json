@@ -1,0 +1,10 @@
+{
+  "id": "backup-agent-workspace-to-github",
+  "name": "backup-agent-workspace-to-github",
+  "description": "Back up the OpenClaw agent workspace to a GitHub repo and keep it synced via a cron-driven commit/push script.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

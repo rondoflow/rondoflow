@@ -1,0 +1,10 @@
+{
+  "id": "book-plumber-services",
+  "name": "book-plumber-services",
+  "description": "Book plumber services through Lokuli MCP. Use when user needs to find and book plumber. Triggers on requests like \"book a plumber\", \"find plumber near me\", or any plumber service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

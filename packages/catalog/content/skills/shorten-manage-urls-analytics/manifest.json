@@ -1,0 +1,10 @@
+{
+  "id": "shorten-manage-urls-analytics",
+  "name": "shorten-manage-urls-analytics",
+  "description": "Premium AI-first URL shortening and management with real-time analytics and team collaboration via MCP. Use when shortening links for marketing, tracking AI interactions, or managing custom domains. Keywords: url, shortener, analytics, link management, mcp.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "game-theory",
+  "name": "game-theory",
+  "description": "Routes to the right game-theory skill for your strategic situation. Triggers: 'game theory', 'strategic interaction', 'what will they do', 'payoff analysis', 'how do I think about this strategically', 'incentive design', 'cooperation problem', 'bidding strategy', any situation where the best choice depends on what others choose.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

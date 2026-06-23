@@ -1,0 +1,10 @@
+{
+  "id": "semantic-code-caching-reuse",
+  "name": "semantic-code-caching-reuse",
+  "description": "Semantic code caching for AI agents. Cache, retrieve, and reuse code from prior agent executions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "webclaw-helper",
+  "name": "webclaw-helper",
+  "description": "Web dashboard for OpenClaw. Browser-based UI for any installed skill. Schema-driven rendering, JWT auth, RBAC, AI chat, real-time updates. Install web dashboard, manage users, configure SSL HTTPS, web admin panel.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "globe",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "prioritized-agent-action-selection",
+  "name": "prioritized-agent-action-selection",
+  "description": "Prioritized action selection for AI agents. 10 needs with tension scoring, execution-gate tracking, optional continuity scripts, and an opt-in watchdog. Use when an agent needs local stateful action prioritization inside an isolated WORKSPACE. Read the deployment tiers and secur…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.34.8",
+  "icon": "bot",
+  "order": 1000
+}

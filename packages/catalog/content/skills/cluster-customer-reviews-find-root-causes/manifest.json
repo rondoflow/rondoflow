@@ -1,0 +1,10 @@
+{
+  "id": "cluster-customer-reviews-find-root-causes",
+  "name": "cluster-customer-reviews-find-root-causes",
+  "description": "Analyze customer reviews, complaints, and feedback to find repeat patterns, likely root causes, and action priorities. Use when teams need to cluster complaints, separate product issues from messaging issues, identify purchase drivers or refund triggers, and turn messy review da…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

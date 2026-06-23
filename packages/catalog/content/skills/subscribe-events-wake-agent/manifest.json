@@ -1,0 +1,10 @@
+{
+  "id": "subscribe-events-wake-agent",
+  "name": "subscribe-events-wake-agent",
+  "description": "Event watcher skill for OpenClaw. Use when you need to subscribe to event sources (Redis Streams + webhook JSONL) and wake an agent only when matching events arrive. Covers filtering, dedupe, retry, and session routing via sessions_send/agent_gate.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

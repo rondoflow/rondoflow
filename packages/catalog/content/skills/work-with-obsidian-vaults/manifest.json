@@ -1,0 +1,10 @@
+{
+  "id": "work-with-obsidian-vaults",
+  "name": "work-with-obsidian-vaults",
+  "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

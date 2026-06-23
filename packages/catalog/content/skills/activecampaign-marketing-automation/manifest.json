@@ -1,0 +1,10 @@
+{
+  "id": "activecampaign-marketing-automation",
+  "name": "activecampaign-marketing-automation",
+  "description": "Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, automation enrollment, and tasks. Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

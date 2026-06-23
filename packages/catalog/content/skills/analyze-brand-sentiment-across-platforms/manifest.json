@@ -1,0 +1,10 @@
+{
+  "id": "analyze-brand-sentiment-across-platforms",
+  "name": "analyze-brand-sentiment-across-platforms",
+  "description": "Sentiment analysis for brands and products across Twitter, Reddit, and Instagram. Monitor public opinion, track brand reputation, detect PR crises, surface complaints and praise at scale — analyze 70K+ posts with bulk CSV export and Python/pandas. Social listening and brand moni…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "write-and-update-skill-files",
+  "name": "write-and-update-skill-files",
+  "description": "Write or update a skill (SKILL.md and supporting files) to match host structure and best practices. Use when user says create skill, write skill, update SKILL.md, /document-skills.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "api-designer",
+  "name": "api-designer",
+  "description": "Designs RESTful APIs with proper endpoints, request/response schemas, and documentation",
+  "category": "Development",
+  "author": "rondoflow",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 3
+}

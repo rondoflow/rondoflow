@@ -1,0 +1,10 @@
+{
+  "id": "psychology-heuristics",
+  "name": "psychology-heuristics",
+  "description": "Assess the fast-thinking pattern at work — when it's reliable, when it misleads, and whether to trust or override it. Triggers: 'should I trust my gut', 'is my intuition right here', 'fast thinking', 'heuristic', 'when does instinct work', 'System 1 vs System 2', 'pattern recognition', 'am I just pattern matching', 'is this a gut check or analysis question'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

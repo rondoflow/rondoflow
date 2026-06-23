@@ -1,0 +1,10 @@
+{
+  "id": "social-agent-skill-marketplace",
+  "name": "social-agent-skill-marketplace",
+  "description": "ClawFriend Social Agent Platform - Skill market - Buy/Sell/Trade Share Agent - https://clawfriend.ai",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "avoid-common-vscode-mistakes",
+  "name": "avoid-common-vscode-mistakes",
+  "description": "Avoid common VSCode mistakes — settings conflicts, debugger setup, and extension clashes.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

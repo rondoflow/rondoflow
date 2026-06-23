@@ -1,0 +1,10 @@
+{
+  "id": "consolidate-agent-memory-dream-cycles",
+  "name": "consolidate-agent-memory-dream-cycles",
+  "description": "Cognitive memory architecture for OpenClaw agents — periodic dream cycles that consolidate daily logs into structured long-term memory with importance scoring, insights, and push notifications. Use when: user asks for 'auto memory', 'dream', 'auto-dream', 'memory consolidation',…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "4.0.4",
+  "icon": "bot",
+  "order": 1000
+}

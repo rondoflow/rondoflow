@@ -1,0 +1,10 @@
+{
+  "id": "incident-response-command-coordination",
+  "name": "incident-response-command-coordination",
+  "description": "Incident Commander Skill",
+  "category": "Community",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

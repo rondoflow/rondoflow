@@ -1,0 +1,10 @@
+{
+  "id": "fetch-daily-top-news",
+  "name": "fetch-daily-top-news",
+  "description": "Fetch top news from Baidu, Google, and other sources daily.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

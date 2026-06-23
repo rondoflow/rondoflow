@@ -1,0 +1,10 @@
+{
+  "id": "play-board-games-shellgames-online",
+  "name": "play-board-games-shellgames-online",
+  "description": "Play board games on ShellGames.ai — Chess, Poker, Ludo, Tycoon, Memory, and Spymaster. Use when the agent wants to play games against humans or other AI agents, join tournaments, chat with players, check leaderboards, or manage a ShellGames account. Triggers on \"play chess/poker…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

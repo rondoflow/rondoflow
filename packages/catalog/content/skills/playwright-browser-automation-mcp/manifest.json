@@ -1,0 +1,10 @@
+{
+  "id": "playwright-browser-automation-mcp",
+  "name": "playwright-browser-automation-mcp",
+  "description": "Browser automation via Playwright MCP. Navigate websites, click elements, fill forms, take screenshots, extract data, and debug real browser workflows. Use when (1) you need a real browser, not static fetch; (2) the task involves Playwright MCP, browser tools, Playwright tests,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

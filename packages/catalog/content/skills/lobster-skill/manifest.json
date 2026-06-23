@@ -1,0 +1,10 @@
+{
+  "id": "lobster-skill",
+  "name": "lobster-skill",
+  "description": "Lobster workflow runtime for deterministic pipelines with approval gates. Use when: (1) Running multi-step automations that need human approval before side effects, (2) Monitoring PRs/issues for changes, (3) Processing data through typed JSON pipelines, (4) Email triage or batch…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

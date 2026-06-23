@@ -1,0 +1,10 @@
+{
+  "id": "generate-social-og-images",
+  "name": "generate-social-og-images",
+  "description": "Generate social images and OG cards from professional templates via the SnapOG API. One API call = one pixel-perfect PNG.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "setup-automated-polymarket-trading",
+  "name": "setup-automated-polymarket-trading",
+  "description": "Set up automated trading on Polymarket. Covers wallet setup, token approvals, API authentication, market discovery, order placement, WebSocket feeds, and position management.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "coins",
+  "order": 1000
+}

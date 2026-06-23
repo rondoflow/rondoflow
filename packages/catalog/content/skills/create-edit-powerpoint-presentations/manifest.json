@@ -1,0 +1,10 @@
+{
+  "id": "create-edit-powerpoint-presentations",
+  "name": "create-edit-powerpoint-presentations",
+  "description": "Create, inspect, and edit Microsoft PowerPoint presentations and PPTX decks with reliable layouts, templates, placeholders, notes, charts, and visual QA. Use when (1) the task is about PowerPoint or `.pptx`; (2) layouts, placeholders, notes, charts, comments, or template fidelit…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

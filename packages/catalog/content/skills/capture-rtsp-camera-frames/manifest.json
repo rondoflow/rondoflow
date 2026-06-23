@@ -1,0 +1,10 @@
+{
+  "id": "capture-rtsp-camera-frames",
+  "name": "capture-rtsp-camera-frames",
+  "description": "Capture frames or clips from RTSP/ONVIF cameras.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

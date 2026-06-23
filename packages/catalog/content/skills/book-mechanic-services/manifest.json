@@ -1,0 +1,10 @@
+{
+  "id": "book-mechanic-services",
+  "name": "book-mechanic-services",
+  "description": "Book mechanic services through Lokuli MCP. Use when user needs to find and book mechanic. Triggers on requests like \"book a mechanic\", \"find mechanic near me\", or any mechanic service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

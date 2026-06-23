@@ -1,0 +1,10 @@
+{
+  "id": "advanced-debugging-assistant",
+  "name": "advanced-debugging-assistant",
+  "description": "Systematic debugging methodology and language-specific debugging commands.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

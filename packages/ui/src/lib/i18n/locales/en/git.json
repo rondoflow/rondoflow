@@ -1,0 +1,76 @@
+{
+  "title": "Git",
+  "tab": {
+    "status": "Status",
+    "log": "Log",
+    "branches": "Branches"
+  },
+  "action": {
+    "refresh": "Refresh",
+    "close": "Close",
+    "saveDirectory": "Save directory",
+    "cancelEditing": "Cancel editing",
+    "changeDirectory": "Change repository directory"
+  },
+  "repo": {
+    "pathPlaceholder": "/path/to/your/project",
+    "none": "No repository selected",
+    "hint": "Click the edit icon to set a project folder for this workspace."
+  },
+  "commit": {
+    "placeholder": "Commit message…",
+    "submit": "Commit",
+    "submitCount": "Commit ({{count}})"
+  },
+  "push": {
+    "label": "Push"
+  },
+  "status": {
+    "empty": "Working tree clean",
+    "staged": "Staged ({{count}})",
+    "changes": "Changes ({{count}})",
+    "unstageAll": "Unstage All",
+    "stageAll": "Stage All",
+    "stage": "Stage",
+    "unstage": "Unstage",
+    "stageFile": "Stage {{path}}",
+    "unstageFile": "Unstage {{path}}",
+    "fileStatus": {
+      "added": "Added",
+      "modified": "Modified",
+      "deleted": "Deleted",
+      "renamed": "Renamed",
+      "untracked": "Untracked"
+    }
+  },
+  "log": {
+    "empty": "No commits yet",
+    "history": "Commit history",
+    "justNow": "just now",
+    "minutesAgo": "{{count}}m ago",
+    "hoursAgo": "{{count}}h ago",
+    "daysAgo": "{{count}}d ago"
+  },
+  "branches": {
+    "list": "Git branches",
+    "tabs": "Git tabs",
+    "newBranch": "New Branch",
+    "newBranchFrom": "New branch from",
+    "namePlaceholder": "feature/my-branch",
+    "createSwitch": "Create & Switch",
+    "empty": "No branches found",
+    "switch": "switch",
+    "switching": "Switching…",
+    "currentBranch": "Current branch",
+    "invalidName": "Invalid branch name. Use letters, numbers, /, - or .",
+    "createFailed": "Failed to create branch"
+  },
+  "error": {
+    "statusFailed": "Failed to get git status",
+    "stageFailed": "Failed to stage files",
+    "unstageFailed": "Failed to unstage files",
+    "commitFailed": "Commit failed",
+    "pushFailed": "Push failed",
+    "checkoutFailed": "Failed to switch branch"
+  }
+}

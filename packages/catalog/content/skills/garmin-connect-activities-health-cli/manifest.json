@@ -1,0 +1,10 @@
+{
+  "id": "garmin-connect-activities-health-cli",
+  "name": "garmin-connect-activities-health-cli",
+  "description": "Garmin Connect CLI for activities, health, body composition, workouts, devices, gear, goals, and more.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.7.1",
+  "icon": "plug",
+  "order": 1000
+}

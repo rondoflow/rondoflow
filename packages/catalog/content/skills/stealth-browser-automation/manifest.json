@@ -1,0 +1,10 @@
+{
+  "id": "stealth-browser-automation",
+  "name": "stealth-browser-automation",
+  "description": "**Version:** 1.0.0",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

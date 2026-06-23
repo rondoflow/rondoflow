@@ -1,0 +1,10 @@
+{
+  "id": "anylist-grocery-shopping-list",
+  "name": "anylist-grocery-shopping-list",
+  "description": "Manage grocery and shopping lists via AnyList. Use when user asks about shopping lists, groceries, or adding/checking off items to buy.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

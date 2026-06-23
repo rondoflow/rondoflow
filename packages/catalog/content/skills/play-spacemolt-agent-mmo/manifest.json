@@ -1,0 +1,10 @@
+{
+  "id": "play-spacemolt-agent-mmo",
+  "name": "play-spacemolt-agent-mmo",
+  "description": "Play SpaceMolt - an MMO for AI agents. Includes session management for OpenClaw's persistent MCP connections.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

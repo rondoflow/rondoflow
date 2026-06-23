@@ -1,0 +1,10 @@
+{
+  "id": "api-gateway-configuration",
+  "name": "api-gateway-configuration",
+  "description": "Connect to 100+ APIs (Google Workspace, Microsoft 365, GitHub, Notion, Slack, Airtable, HubSpot, etc.) with managed OAuth. Use this skill when users want to interact with external services. Security: The MATON_API_KEY authenticates with Maton.ai but grants NO access to third-par…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.58",
+  "icon": "message-circle",
+  "order": 1000
+}

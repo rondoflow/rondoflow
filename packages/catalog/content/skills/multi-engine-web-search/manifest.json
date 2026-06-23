@@ -1,0 +1,10 @@
+{
+  "id": "multi-engine-web-search",
+  "name": "multi-engine-web-search",
+  "description": "Multi search engine integration with 16 engines (7 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "2.1.3",
+  "icon": "globe",
+  "order": 1000
+}

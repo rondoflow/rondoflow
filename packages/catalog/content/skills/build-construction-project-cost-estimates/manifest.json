@@ -1,0 +1,10 @@
+{
+  "id": "build-construction-project-cost-estimates",
+  "name": "build-construction-project-cost-estimates",
+  "description": "Build construction project estimates. Generate detailed cost breakdowns with labor, materials, equipment, and overhead.",
+  "category": "Community",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

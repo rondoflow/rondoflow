@@ -1,0 +1,10 @@
+{
+  "id": "quiet-mail-management",
+  "name": "quiet-mail-management",
+  "description": "**Unlimited email for AI agents. No verification, no limits, just reliable email.**",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

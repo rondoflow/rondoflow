@@ -1,0 +1,10 @@
+{
+  "id": "multi-source-intelligent-search-agents",
+  "name": "multi-source-intelligent-search-agents",
+  "description": "Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

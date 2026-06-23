@@ -1,0 +1,10 @@
+{
+  "id": "adhd-founder-daily-planner",
+  "name": "adhd-founder-daily-planner",
+  "description": "This skill should be used when the user asks to 'plan my day', 'help me plan today', 'morning planning', 'what should I work on today', 'daily planner', 'evening reflection', 'reflect on my day', 'migrate tasks', 'carry tasks forward', 'rapid log', 'brain dump my tasks', or ment…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "server",
+  "order": 1000
+}

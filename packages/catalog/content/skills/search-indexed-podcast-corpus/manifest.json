@@ -1,0 +1,10 @@
+{
+  "id": "search-indexed-podcast-corpus",
+  "name": "search-indexed-podcast-corpus",
+  "description": "PullThatUpJamie — Podcast Intelligence. A semantically indexed podcast corpus (109+ feeds, ~7K episodes, ~1.9M paragraphs) that works as a vector DB for podcast content. Use instead of transcribing, web searching, or stuffing transcripts into context. Use when an agent needs to:…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.6.0",
+  "icon": "bot",
+  "order": 1000
+}

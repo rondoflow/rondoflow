@@ -1,0 +1,53 @@
+{
+  "id": "brainstorm-team",
+  "name": "Brainstorm Team",
+  "description": "Creative, Analyst, and Devil's Advocate guided by a Moderator.",
+  "icon": "Lightbulb",
+  "order": 3,
+  "nodes": [
+    {
+      "key": "creative",
+      "type": "agent",
+      "position": { "x": 100, "y": 100 },
+      "name": "Creative",
+      "description": "Generates imaginative, out-of-the-box ideas",
+      "model": "sonnet",
+      "purpose": "creative"
+    },
+    {
+      "key": "analyst",
+      "type": "agent",
+      "position": { "x": 500, "y": 100 },
+      "name": "Analyst",
+      "description": "Evaluates ideas with data-driven reasoning",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "devils-advocate",
+      "type": "agent",
+      "position": { "x": 300, "y": 50 },
+      "name": "Devil's Advocate",
+      "description": "Challenges assumptions and stress-tests ideas",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "moderator",
+      "type": "agent",
+      "position": { "x": 300, "y": 300 },
+      "name": "Moderator",
+      "description": "Facilitates discussion and synthesises outcomes",
+      "model": "sonnet",
+      "purpose": "general"
+    }
+  ],
+  "edges": [
+    { "source": "creative", "target": "analyst", "edgeType": "flow" },
+    { "source": "analyst", "target": "creative", "edgeType": "flow" },
+    { "source": "devils-advocate", "target": "creative", "edgeType": "flow" },
+    { "source": "devils-advocate", "target": "analyst", "edgeType": "flow" },
+    { "source": "moderator", "target": "creative", "edgeType": "flow" },
+    { "source": "moderator", "target": "analyst", "edgeType": "flow" }
+  ]
+}

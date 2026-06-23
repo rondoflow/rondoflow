@@ -1,0 +1,10 @@
+{
+  "id": "build-review-vocabulary",
+  "name": "build-review-vocabulary",
+  "description": "Build and review vocabulary from books, podcasts, and daily encounters. Use when the user wants to READ a book, shares a new word, asks about a word while reading a book, requests a vocabulary quiz, asks about word progress, or when a cron/heartbeat triggers a scheduled quiz. Ha…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.1.4",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-tinytalkingtodos-via-cli",
+  "name": "manage-tinytalkingtodos-via-cli",
+  "description": "Manage TinyTalkingTodos lists and items via the ttt CLI",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "puzzle",
+  "order": 1000
+}

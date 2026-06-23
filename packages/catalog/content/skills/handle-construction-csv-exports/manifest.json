@@ -1,0 +1,10 @@
+{
+  "id": "handle-construction-csv-exports",
+  "name": "handle-construction-csv-exports",
+  "description": "Handle CSV files from construction software exports. Auto-detect delimiters, encodings, and clean messy data.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-farcaster-account-poster",
+  "name": "autonomous-farcaster-account-poster",
+  "description": "Create Farcaster accounts and post casts autonomously. Official skill from the Farcaster team.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

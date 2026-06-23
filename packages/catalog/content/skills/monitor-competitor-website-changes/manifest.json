@@ -1,0 +1,10 @@
+{
+  "id": "monitor-competitor-website-changes",
+  "name": "monitor-competitor-website-changes",
+  "description": "Know what your competitors ship before their customers do. Automated monitoring of competitor websites, product pages, pricing, content, and social presence. Detects changes, extracts new features, tracks pricing updates, and alerts you with digestible summaries. Your agent watc…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

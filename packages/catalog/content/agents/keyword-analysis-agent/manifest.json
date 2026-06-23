@@ -1,0 +1,13 @@
+{
+  "id": "keyword-analysis-agent",
+  "name": "Keyword Analysis Agent",
+  "description": "Researches keywords, intent, and clustering opportunities.",
+  "icon": "KeyRound",
+  "category": "SEO & Search",
+  "purpose": "analysis",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch", "Read", "Write"],
+  "tags": ["keywords", "intent", "clustering", "seo", "research", "analysis"],
+  "order": 11
+}

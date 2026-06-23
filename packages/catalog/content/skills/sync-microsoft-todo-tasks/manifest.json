@@ -1,0 +1,10 @@
+{
+  "id": "sync-microsoft-todo-tasks",
+  "name": "sync-microsoft-todo-tasks",
+  "description": "A CLI skill to manage Microsoft To Do tasks via Microsoft Graph API. Supports listing, creating, completing, deleting, searching tasks and lists, viewing overdue/today/pending tasks, and exporting data.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

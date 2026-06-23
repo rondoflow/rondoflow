@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-academic-research-platform",
+  "name": "ai-agent-academic-research-platform",
+  "description": "The academic research platform for AI agents. Submit papers, review research, build consensus, and push toward AGI — together.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "writing",
+  "name": "writing",
+  "description": "Routes to the right writing skill for any fiction, non-fiction, or professional writing challenge. Use when you say 'my character feels flat', 'the story isn't working', 'this scene falls flat', 'the dialogue sounds wrong', 'the prose is clunky', 'the argument isn't landing', 'write a report', 'executive summary', 'the tone keeps shifting', 'line editing', 'my world feels thin', 'POV problems', 'inconsistency check', 'write copy', 'technical documentation', 'audience calibration', 'rhetorical analysis', or any time you have a writing problem but aren't sure which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,28 @@
+{
+  "id": "typescript-pro",
+  "name": "TypeScript Pro",
+  "description": "Architects scalable, type-safe TypeScript for Node.js and the browser.",
+  "icon": "FileType",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "typescript",
+    "types",
+    "node",
+    "frontend",
+    "tooling"
+  ],
+  "order": 133
+}

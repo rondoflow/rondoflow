@@ -1,0 +1,10 @@
+{
+  "id": "constant-contact-integration",
+  "name": "constant-contact-integration",
+  "description": "Constant Contact API integration with managed OAuth. Manage contacts, email campaigns, lists, segments, and marketing automation. Use this skill when users want to manage email marketing campaigns, contact lists, or analyze campaign performance. For other third party apps, use t…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "message-circle",
+  "order": 1000
+}

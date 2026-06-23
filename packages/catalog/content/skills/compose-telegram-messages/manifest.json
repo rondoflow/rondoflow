@@ -1,0 +1,10 @@
+{
+  "id": "compose-telegram-messages",
+  "name": "compose-telegram-messages",
+  "description": "Compose rich, readable Telegram messages using HTML formatting via direct Telegram API. Use when: (1) Sending any Telegram message beyond a simple one-line reply, (2) Creating structured messages with sections, lists, or status updates, (3) Need formatting unavailable via Clawdb…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "globe",
+  "order": 1000
+}

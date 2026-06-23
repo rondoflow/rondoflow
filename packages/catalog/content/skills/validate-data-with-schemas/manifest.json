@@ -1,0 +1,10 @@
+{
+  "id": "validate-data-with-schemas",
+  "name": "validate-data-with-schemas",
+  "description": "Validate data with schemas across languages and formats. Use when defining JSON Schema, using Zod (TypeScript) or Pydantic (Python), validating API request/response shapes, checking CSV/JSON data integrity, or setting up data contracts between services.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

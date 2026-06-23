@@ -1,0 +1,10 @@
+{
+  "id": "control-sensibo-smart-ac-devices",
+  "name": "control-sensibo-smart-ac-devices",
+  "description": "Control Sensibo smart AC devices via their REST API. Use when the user asks to turn on/off AC, change temperature, set modes, check room temperature/humidity, or manage climate schedules. Triggers on phrases like \"turn on AC\", \"set bedroom to 22\", \"how hot is it\", \"AC off\", \"coo…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

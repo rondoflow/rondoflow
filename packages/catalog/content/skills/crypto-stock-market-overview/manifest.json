@@ -1,0 +1,10 @@
+{
+  "id": "crypto-stock-market-overview",
+  "name": "crypto-stock-market-overview",
+  "description": "Use when user asks about crypto prices, DeFi yields, market sentiment, fear and greed index, stock prices, upcoming crypto events, or requests a market overview",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "coins",
+  "order": 1000
+}

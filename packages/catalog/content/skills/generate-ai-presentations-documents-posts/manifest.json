@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-presentations-documents-posts",
+  "name": "generate-ai-presentations-documents-posts",
+  "description": "Generate AI-powered presentations, documents, and social posts using Gamma.app API. Use when user asks to create a presentation, pitch deck, slide deck, document, or social media carousel. Triggers on requests like \"create a presentation about X\", \"make a pitch deck\", \"generate…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "adversarial-implementation-review-coach",
+  "name": "adversarial-implementation-review-coach",
+  "description": "Adversarial implementation review based on Block's g3 dialectical autocoding research. Use when validating implementation completeness against requirements with fresh objectivity.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.9.0",
+  "icon": "puzzle",
+  "order": 1000
+}

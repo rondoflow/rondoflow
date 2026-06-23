@@ -1,0 +1,184 @@
+---
+title: Monitoring & Audit
+description: Track every action with the team-wide audit log, watch live run output, and review token usage, cost, and failure analytics.
+---
+
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Monitoring & Audit
+
+RondoFlow gives you several lenses on what your Assistants (agents) are doing: a lightweight **Activity** feed, a searchable **Audit Log** of actions, an **Analytics** view that aggregates token usage and cost, and **Execution History** with live output so you can watch a workflow as it executes or replay one that finished.
+
+<Callout type="warning">
+All of these lenses read from **team-wide shared pools**, not per-user views. Every authenticated user sees the same Activity feed, Audit Log, Analytics totals, and run history. Audit events still carry a `userId` for who-did-what attribution, but results are **not** scoped to the caller — there is no per-user isolation. Optional `workspaceId`/`agentId` filters narrow the view, but anyone can apply them.
+</Callout>
+
+## Where to find each panel
+
+The observability panels are spread across two places in the top bar:
+
+| Panel | How to open it |
+| --- | --- |
+| **Activity** | User (account) menu, under **Run data**. Command palette: `nav:activity`. |
+| **Audit Log** | User (account) menu, under **Run data**. Command palette: `nav:audit`. |
+| **Analytics** | User (account) menu, under **Run data**. Command palette: `nav:analytics`. |
+| **Execution History** | **Browse** menu (the LayoutGrid dropdown), under the **System** group. Command palette: `nav:history`. |
+
+<Callout type="info">
+**Execution History is in the Browse menu, not the workflow toolbar.** The toolbar's **Run** button opens the live **Execution Log** for an in-progress run (where you type the task and watch output stream in) — that is a different thing from the **Execution History** panel, which lists your past runs and is reached from the Browse menu's System group or the `nav:history` command.
+</Callout>
+
+<Callout type="info">
+The Activity / Audit Log / Analytics / History menu items carry a `minTier: 'standard'` hint, but the interface complexity tier is currently **hard-pinned to the full tier** and is not user-configurable. In practice every panel is always visible to every role — the tier machinery is dormant, so treat the "standard tier" hint as an internal note rather than a live gate.
+</Callout>
+
+## Activity feed vs. Audit Log
+
+There are two distinct panels for past actions, and they share the same underlying `/api/activity` data but present it very differently:
+
+| | **Activity** | **Audit Log** |
+| --- | --- | --- |
+| Purpose | Quick "what just happened" glance | Forensic, filterable trail |
+| Layout | Date-grouped list (Today / Yesterday / older) | Paginated table, newest first |
+| Volume | Latest **100** events, no pagination | 50 per page with previous/next |
+| Filters | Workspace (when active) only | Search, event type, time range, Workspace |
+| Search | No | Yes (debounced) |
+| Expand rows | No | Yes — full metadata |
+| CSV export | No | Yes |
+
+Use the **Activity** feed for a fast scroll through recent events; use the **Audit Log** when you need to search, scope by time, drill into a single event, or export.
+
+## Audit Log
+
+The Audit Log is a paginated, filterable trail of everything that happened — Assistants starting, completing, or erroring; configuration changes; approval decisions; and user-management actions. Each entry records a timestamp, an event type, a human-readable title, optional detail, and structured metadata.
+
+### Filtering and searching
+
+The dashboard exposes several filters that combine into a single query:
+
+| Filter | What it does |
+| --- | --- |
+| Search | Case-insensitive match against the event **title** and **detail** |
+| Event type | Restrict to one type; the dropdown shows each type with its live count |
+| Time range | Last 24 hours, last 7 days, last 30 days, or all time |
+| Workspace | When a Workspace (canvas) is active, results are scoped to it |
+
+Search input is debounced, so the list refreshes shortly after you stop typing. Changing any filter resets you to page 1. Results are returned 50 per page, newest first, with previous/next pagination at the bottom.
+
+Click any row to expand it. The expanded view shows the event's category, its event ID, the related Assistant ID and Workspace ID (when present), and a pretty-printed JSON dump of any metadata.
+
+### Event types
+
+Known event types render with a friendly label and severity color. Unknown types still appear — their machine name is humanized automatically (category **Other**, severity **info**) — so newly added events never go missing from the log.
+
+| Type | Label | Category | Severity |
+| --- | --- | --- | --- |
+| `agent_started` | Assistant started | Execution | info |
+| `agent_completed` | Assistant completed | Execution | success |
+| `agent_error` | Assistant error | Execution | error |
+| `agent_created` | Assistant created | Configuration | info |
+| `agent_deleted` | Assistant deleted | Configuration | warning |
+| `approval_granted` | Approval granted | Approvals | success |
+| `approval_denied` | Approval denied | Approvals | warning |
+| `user_invited` | User invited | User Management | info |
+| `user_role_changed` | User role changed | User Management | info |
+| `user_deactivated` | User deactivated | User Management | warning |
+| `user_reactivated` | User reactivated | User Management | success |
+| `user_deleted` | User deleted | User Management | warning |
+
+<Callout type="info">
+The **Save to DB** canvas Card (node) records a `dataset_saved` event when it persists a structured dataset. That type is **not** in the static registry, so it renders via the humanized fallback — label **Dataset Saved**, category **Other**, severity **info** — and its metadata carries the `datasetId` and `format`. Any other event type your build emits behaves the same way.
+</Callout>
+
+### Exporting to CSV
+
+Click **Export CSV** to download the currently filtered events. The export honors every active filter, so what you download matches what you see.
+
+The export columns are: `timestamp`, `type`, `title`, `detail`, `agentId`, `workspaceId`.
+
+<Callout type="warning">
+Audit values contain user-controlled text (Assistant names, commands, and so on). To keep Excel and Google Sheets from evaluating a cell as a formula, any value that begins with a formula trigger (`=`, `+`, `-`, `@`, a tab/carriage return, or leading whitespace followed by one) is prefixed with a single quote. Fields containing commas, quotes, or newlines are RFC-4180 escaped.
+</Callout>
+
+Exports are capped at the **5,000 most recent** matching events. If your filter matches more than that, the file is truncated and a final note row records how many events matched in total. The response also carries `X-Total-Count` and `X-Truncated` headers so tooling can detect truncation. Narrow the time range or add filters to capture an older slice.
+
+## Analytics
+
+The Analytics view aggregates cost and token usage across **the whole team's runs** so you can see where budget is going and spot failure trends. It is a shared pool: the totals include every user's sessions, and the per-Workspace breakdown can surface any Workspace's name, not just your own.
+
+It reports, over a configurable lookback window (default 30 days, up to 90):
+
+- **Total cost (USD)**, total input tokens, total output tokens, and total sessions
+- **By model** — input/output tokens, cost, and session count per model
+- **By day** — a continuous daily time series (gaps filled with zeros) for charting cost and token trends
+- **By Workspace** — usage broken down per Workspace, sorted by cost, with runs that have no Workspace bucketed under "No workspace"
+
+Days are bucketed at UTC midnight so the date filter and the chart buckets line up regardless of your local timezone.
+
+<Callout type="info">
+To narrow Analytics to a single Workspace or Assistant, pass `workspaceId` or `agentId` as query params (the panel does this when a Workspace is active). Without them, you see the team-wide aggregate.
+</Callout>
+
+## Execution History & live output
+
+The **Execution History** panel lists your past workflow runs, most recent first. Like the other lenses it is a shared team pool — all runs are listed, narrowable by Workspace. Each row summarizes the run at a glance:
+
+- The initial message (the task you started the run with)
+- When it ran
+- Steps completed out of total steps
+- Combined token usage (input + output), when greater than zero
+- Cost in USD, when greater than zero
+- A status badge: **Running**, **Completed**, **Failed**, or **Stopped**
+
+Select a run to open its detail view, which replays the full execution log for that run, step by step, with per-step token and cost figures. The token and cost figures shown on each list row are summed from the run's individual steps.
+
+<Tabs items={['Watching a live run', 'Replaying a past run']}>
+<Tabs.Tab>
+Click **Run** on the workflow toolbar to open the live **Execution Log**, then enter your task there to start the run. Output streams into that panel in real time so you can follow each Assistant's progress as it happens. A run with **Running** status also appears in Execution History with an animated badge.
+</Tabs.Tab>
+<Tabs.Tab>
+Open any completed, failed, or stopped run from Execution History to read its recorded transcript — steps and full event sequence. If a restore action is available, use **Open** to push the run back into the main workflow panel.
+</Tabs.Tab>
+</Tabs>
+
+## APIs
+
+The monitoring panels are thin clients over a small set of REST endpoints. All use the standard `{ success, data?, error?, meta? }` envelope, and all read from team-wide pools (no per-caller scoping).
+
+### Activity / Audit Log
+
+| Method & path | Purpose |
+| --- | --- |
+| `GET /api/activity` | Paginated, filterable list of events. Query: `page`, `limit` (max 200, default 50), `workspaceId`, `agentId`, `type`, `search`, `from`, `to`. Returns `meta: { total, page, limit }`. The Activity feed calls this with `limit=100`. |
+| `GET /api/activity/types` | Distinct event types with counts, for the type filter (accepts the same filters except `type`), sorted by count descending. |
+| `GET /api/activity/export` | CSV download of the filtered log, capped at 5,000 rows. Sets `X-Total-Count` and `X-Truncated` headers. |
+
+### Analytics
+
+| Method & path | Purpose |
+| --- | --- |
+| `GET /api/analytics/cost` | Team-wide aggregated cost and token usage. Query: `days` (1–90, default 30), `workspaceId`, `agentId`. Returns `period`, `total`, `byModel`, `byDay`, and `byWorkspace`. |
+
+### Runs
+
+| Method & path | Purpose |
+| --- | --- |
+| `GET /api/runs` | List historical runs (newest first). Query: `page`, `limit` (max 100, default 30), `workspaceId`. Each item includes summed `tokensIn`, `tokensOut`, and `costUsd`. |
+| `GET /api/runs/:chainId` | A single run with its steps and full event transcript (agent names resolved) for replay. |
+
+Example: fetch the 30-day cost breakdown for one Workspace.
+
+```bash
+curl "http://localhost:3001/api/analytics/cost?days=30&workspaceId=ws_123"
+```
+
+## Related
+
+<Cards>
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+  <Cards.Card title="Settings" href="/docs/guides/settings" />
+  <Cards.Card title="API Reference" href="/docs/reference/api" />
+</Cards>

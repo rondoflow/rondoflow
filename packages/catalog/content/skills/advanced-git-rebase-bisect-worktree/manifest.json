@@ -1,0 +1,10 @@
+{
+  "id": "advanced-git-rebase-bisect-worktree",
+  "name": "advanced-git-rebase-bisect-worktree",
+  "description": "Advanced git operations beyond add/commit/push. Use when rebasing, bisecting bugs, using worktrees for parallel development, recovering with reflog, managing subtrees/submodules, resolving merge conflicts, cherry-picking across branches, or working with monorepos.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

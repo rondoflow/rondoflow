@@ -1,0 +1,10 @@
+{
+  "id": "quaker-spiritual-grounding-framework",
+  "name": "quaker-spiritual-grounding-framework",
+  "description": "Quaker-grounded spiritual framework for AI agents seeking grounding beyond optimization",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

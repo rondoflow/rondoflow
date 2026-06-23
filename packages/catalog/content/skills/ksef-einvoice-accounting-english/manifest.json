@@ -1,0 +1,10 @@
+{
+  "id": "ksef-einvoice-accounting-english",
+  "name": "ksef-einvoice-accounting-english",
+  "description": "National e-Invoice System (KSeF) accounting assistant in English. Use when working with KSeF 2.0 API, FA(3) invoices, Polish VAT compliance, e-invoice processing, payment matching, VAT registers (JPK_V7), corrective invoices, split payment mechanism (MPP) or Polish accounting wo…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.2.6",
+  "icon": "coins",
+  "order": 1000
+}

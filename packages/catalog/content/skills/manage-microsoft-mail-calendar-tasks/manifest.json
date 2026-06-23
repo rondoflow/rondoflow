@@ -1,0 +1,10 @@
+{
+  "id": "manage-microsoft-mail-calendar-tasks",
+  "name": "manage-microsoft-mail-calendar-tasks",
+  "description": "Connect to personal Microsoft accounts via Microsoft Graph API to manage email, calendar events, and tasks. Use this skill when the user needs to read/write Outlook mail, manage calendar appointments, or handle Microsoft To Do tasks.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "message-circle",
+  "order": 1000
+}

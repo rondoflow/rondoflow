@@ -1,0 +1,10 @@
+{
+  "id": "plan-generate-ecommerce-conversion-images",
+  "name": "plan-generate-ecommerce-conversion-images",
+  "description": "Plan and generate ecommerce image assets that actually support conversion. Use when teams need to decide which product, PDP, marketplace, promo, or ad images to create first, turn product context into clear visual briefs, or route asset generation/editing through an available im…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

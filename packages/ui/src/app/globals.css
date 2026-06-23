@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+
+  /* rondoflow status colors */
+  :root,
+  .dark {
+    --status-idle: 142 71% 45%;
+    --status-running: 217 91% 60%;
+    --status-waiting: 45 93% 47%;
+    --status-error: 0 84% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Respect motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-pulse {
+      animation: none;
+    }
+  }
+}
+
+/* React Flow — animated edge dash keyframe */
+@keyframes dashdraw {
+  from {
+    stroke-dashoffset: 9;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* React Flow — active edge glow pulse */
+@keyframes edgepulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* React Flow dark-mode overrides */
+.react-flow__renderer {
+  background: transparent;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+/* Canvas nodes use a soft, rounded flow-builder aesthetic — radius is driven by
+   each component's own Tailwind classes (rounded-2xl cards, rounded-full ports).
+   Connection ports get a subtle ring so they read as solid coloured dots. */
+.react-flow__handle {
+  z-index: 2;
+}
+
+.react-flow__handle.rf-port {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.react-flow__handle.rf-port:hover {
+  box-shadow: 0 0 0 4px hsl(var(--foreground) / 0.08);
+}
+
+/* Live connection feedback while dragging an edge. React Flow toggles these
+   classes on handles during a drag: `connectionindicator` on every handle you
+   could start/end on, `connectingto` on the one currently under the cursor, and
+   `valid` only when dropping there would create an allowed connection. We turn
+   that into a clear green (valid) / red (invalid) cue so the snap-back is never
+   silent — see also the explanatory toast in handleInvalidConnection. */
+.react-flow__handle.connectionindicator {
+  box-shadow: 0 0 0 3px hsl(var(--foreground) / 0.12);
+}
+
+.react-flow__handle.connectingto.valid {
+  background-color: hsl(142 71% 45%);
+  box-shadow: 0 0 0 5px hsl(142 71% 45% / 0.35);
+}
+
+.react-flow__handle.connectingto:not(.valid) {
+  background-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 5px hsl(var(--destructive) / 0.4);
+  cursor: not-allowed;
+}
+
+/* One-shot confetti burst for the activation checklist completion. Each particle
+   carries its own --dx/--dy/--rot via inline style so a single keyframe scatters
+   them in a fan. Plays once, then the DOM nodes are removed by the component. */
+@keyframes rf-confetti {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.rf-confetti-piece {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  animation: rf-confetti 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rf-confetti-piece {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Connection drag line — match the bezier edge styling */
+.react-flow__connectionline path,
+.react-flow__connection-path {
+  stroke: hsl(var(--foreground) / 0.5);
+  stroke-width: 1.75;
+}
+
+/* The custom 'output' node type name collides with React Flow's reserved
+   built-in node types (input/default/output/group), which ship default box
+   styling in style.css — padding, a fixed 150px width, a border, a background
+   and centered text. That default box renders as a stray bordered square behind
+   our own NodeShell card. Neutralize it so only the node's own card is visible.
+
+   The selectors are doubled (`.react-flow__node.react-flow__node-output`) on
+   purpose: the xyflow default rule has equal specificity AND is injected later
+   in the cascade (style.css is imported by a client component, so it lands in a
+   page-segment chunk after this layout-level globals.css). Matching specificity
+   would lose to source order — so we add the `.react-flow__node` class (always
+   present on the wrapper) to outrank it regardless of injection order. */
+.react-flow__node.react-flow__node-output {
+  width: auto;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+
+.react-flow__node.react-flow__node-output.selectable:hover,
+.react-flow__node.react-flow__node-output.selectable.selected,
+.react-flow__node.react-flow__node-output.selectable:focus,
+.react-flow__node.react-flow__node-output.selectable:focus-visible {
+  box-shadow: none;
+}

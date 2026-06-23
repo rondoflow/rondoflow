@@ -1,0 +1,10 @@
+{
+  "id": "sap-fico-senior-consulting-guidance",
+  "name": "sap-fico-senior-consulting-guidance",
+  "description": "| Property | Value |",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

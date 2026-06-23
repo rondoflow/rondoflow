@@ -1,0 +1,10 @@
+{
+  "id": "manage-youtube-account-via-cli",
+  "name": "manage-youtube-account-via-cli",
+  "description": "Manage your YouTube account from the command line. Complete CLI for YouTube Data API v3 - list/search videos, upload, manage playlists, and more.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

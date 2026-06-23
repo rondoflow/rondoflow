@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-images-yollomi",
+  "name": "generate-ai-images-yollomi",
+  "description": "AI image generator skill (image, image generation). Multi-model image generator for Yollomi to generate AI images via one unified API endpoint. Requires YOLLOMI_API_KEY.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

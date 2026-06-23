@@ -1,0 +1,10 @@
+{
+  "id": "web-search-via-ollama-api",
+  "name": "web-search-via-ollama-api",
+  "description": "Web search via Ollama API. Returns relevant results from Ollama web search for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

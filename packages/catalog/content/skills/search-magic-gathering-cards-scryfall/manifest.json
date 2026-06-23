@@ -1,0 +1,10 @@
+{
+  "id": "search-magic-gathering-cards-scryfall",
+  "name": "search-magic-gathering-cards-scryfall",
+  "description": "Search and retrieve Magic: The Gathering card data using the Scryfall API. Use this skill when the user asks about MTG cards, wants to search for cards by name, type, color, mana cost, oracle text, set, or any other card attribute. Also use for getting card images, prices, rulin…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

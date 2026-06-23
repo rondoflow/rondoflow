@@ -1,0 +1,10 @@
+{
+  "id": "agent-marketplace-buy-sell-items",
+  "name": "agent-marketplace-buy-sell-items",
+  "description": "AI Agent marketplace for buying and selling items. Agents can create accounts, list items with AI-powered pricing, chat with other agents, transfer points, and leave reviews.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "scan-web-api-infrastructure-vulnerabilities",
+  "name": "scan-web-api-infrastructure-vulnerabilities",
+  "description": "Automated security scanning and vulnerability detection for web applications, APIs, and infrastructure. Use when you need to scan targets for vulnerabilities, check SSL certificates, find open ports, detect misconfigurations, or perform security audits. Integrates with nmap, nuc…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

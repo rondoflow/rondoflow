@@ -1,0 +1,10 @@
+{
+  "id": "support-engineering-projects-and-research",
+  "name": "support-engineering-projects-and-research",
+  "description": "Support engineering understanding from DIY projects to professional practice and research.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

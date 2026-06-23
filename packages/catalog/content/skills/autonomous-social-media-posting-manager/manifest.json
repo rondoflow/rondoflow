@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-social-media-posting-manager",
+  "name": "autonomous-social-media-posting-manager",
+  "description": "Turn your OpenClaw into an autonomous social media manager using Post Bridge API. Use when scheduling, posting, or managing content across TikTok, Instagram Reels, YouTube Shorts, Twitter/X, LinkedIn, Pinterest, Facebook, Threads, or Bluesky. Covers media upload, post creation,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "bot",
+  "order": 1000
+}

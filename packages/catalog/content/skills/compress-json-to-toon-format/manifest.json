@@ -1,0 +1,10 @@
+{
+  "id": "compress-json-to-toon-format",
+  "name": "compress-json-to-toon-format",
+  "description": "Compress JSON data to TOON format for ~40% context savings. Use when fetching APIs, reading JSON files, or any task outputting structured data. Pipe any output through `toon` - JSON gets compressed, non-JSON passes through unchanged.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

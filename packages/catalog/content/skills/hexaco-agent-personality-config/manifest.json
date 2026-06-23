@@ -1,0 +1,10 @@
+{
+  "id": "hexaco-agent-personality-config",
+  "name": "hexaco-agent-personality-config",
+  "description": "Configure AI personality using the AURA protocol (HEXACO-based). Use when user wants to customize agent personality, reduce sycophancy, adjust communication style, or mentions AURA/personality configuration.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0-beta.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "configure-server-cloud-firewalls",
+  "name": "configure-server-cloud-firewalls",
+  "description": "Configure firewalls on servers and cloud providers with security best practices.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

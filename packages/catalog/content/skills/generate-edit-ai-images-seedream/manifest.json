@@ -1,0 +1,10 @@
+{
+  "id": "generate-edit-ai-images-seedream",
+  "name": "generate-edit-ai-images-seedream",
+  "description": "Generate and edit AI images using ByteDance's Seedream — featuring text-to-image, image editing, and batch sequential generation with up to 4K resolution, PNG output, typography/poster design excellence, and built-in prompt optimization. Supports Seedream v5.0 Lite (latest), v4.…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-clawhub-skills-cli",
+  "name": "manage-clawhub-skills-cli",
+  "description": "Help developers manage OpenClaw skills with the ClawHub CLI. Use when publishing, inspecting, installing, updating, syncing, or troubleshooting ClawHub skills. Also covers auth, workdir behavior, and exact command templates.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "puzzle",
+  "order": 1000
+}

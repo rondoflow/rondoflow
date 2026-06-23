@@ -1,0 +1,10 @@
+{
+  "id": "local-network-agent-messaging",
+  "name": "local-network-agent-messaging",
+  "description": "Use when agents need to communicate over the local network — \"send message to agent\", \"discover agents\", \"check for messages\", \"coordinate with other agents\", \"approve agent\", \"agent status\", \"add peer\", \"message log\"",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.6.1",
+  "icon": "bot",
+  "order": 1000
+}

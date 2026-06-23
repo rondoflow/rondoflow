@@ -1,0 +1,10 @@
+{
+  "id": "manage-clash-proxy-nodes",
+  "name": "manage-clash-proxy-nodes",
+  "description": "Manages Clash proxy nodes. Allows listing current node with connection status, listing available nodes, and switching to a specified node. Use when the user asks to manage Clash proxy settings, view available nodes, or switch between them.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

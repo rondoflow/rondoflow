@@ -1,0 +1,10 @@
+{
+  "id": "generate-novel-ideas-by-taste",
+  "name": "generate-novel-ideas-by-taste",
+  "description": "Generate novel ideas calibrated to user taste. Auto-learns preferred styles, risk levels, and creative directions through feedback.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

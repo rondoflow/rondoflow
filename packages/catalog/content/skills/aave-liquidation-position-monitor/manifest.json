@@ -1,0 +1,10 @@
+{
+  "id": "aave-liquidation-position-monitor",
+  "name": "aave-liquidation-position-monitor",
+  "description": "Proactive monitoring of Aave V3 borrow positions with liquidation alerts. Queries user collateral, debt, and health factor across chains (Ethereum, Polygon, Arbitrum, etc.). Sends urgent alerts to Telegram/Discord/Slack when health factor drops below configurable thresholds (cri…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

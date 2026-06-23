@@ -1,0 +1,10 @@
+{
+  "id": "science-based-learning-tutor",
+  "name": "science-based-learning-tutor",
+  "description": "Science-based learning tutoring skill — For primary/secondary students, university students, self-learners, and exam candidates. Complete learning system covering pre-learning diagnosis, teacher preparation, preview, note-taking, review, and spaced repetition.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ai-brand-strategy-asset-generator",
+  "name": "ai-brand-strategy-asset-generator",
+  "description": "An advanced AI agent that acts as a Senior Brand Strategist. It automates project setup, applies elite market methodologies (Archetypes, StoryBrand, Personas), and generates structured brand assets while preventing hallucinations via strict context shielding.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

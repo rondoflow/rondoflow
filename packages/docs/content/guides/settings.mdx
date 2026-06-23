@@ -1,0 +1,177 @@
+---
+title: Settings & Credentials
+description: Manage API keys, OAuth secrets, SMTP, the UI language, theme, the global budget cap, and your account from the in-app Settings dialog.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Settings & Credentials
+
+Settings is the in-app control surface for the things you'd otherwise edit in a `.env` file or a config dialog: your provider API keys, OAuth secrets, SMTP for the Email node, the interface language, the theme, a global spend cap, and your account session.
+
+Open it from the user menu in the top-right corner of the Workspace (Canvas): click your avatar, then **Settings**. Settings opens as a centered modal dialog with a vertical tab rail down the left side. The tabs are **Appearance**, **Language**, **API Keys & Integrations**, **Connection**, **Safety**, **Models**, and **Advanced**.
+
+<Callout type="info">
+Most preferences in Settings are saved automatically the moment you change them (theme, language, and the client-side preferences are written to your browser's local storage). The two exceptions are credentials — which have an explicit **Save credentials** button so you can stage several changes and commit them at once — and the global budget, which saves to the server when you leave the field.
+</Callout>
+
+## Credentials
+
+The **API Keys & Integrations** tab lets you manage every secret RondoFlow needs without touching the `.env` file. Each credential is encrypted and stored on the server, then loaded into the environment so the Claude Code CLI, the OpenAI/Perplexity runners, and the SMTP sender can use it.
+
+<Callout type="warning">
+Credential management is **admin-only**. Both reading and writing credentials (`GET`/`PUT /api/settings/credentials`) require the `manageUsers` capability — non-admins cannot view or change them. See [Users & Roles](/docs/guides/users) for the role model.
+</Callout>
+
+### What you can set
+
+| Group | Credential(s) | Used for |
+| --- | --- | --- |
+| Claude access | Claude API key (`ANTHROPIC_API_KEY`) or Claude setup token (`CLAUDE_CODE_OAUTH_TOKEN`) | Running Assistants (Agents) via the Claude Code CLI |
+| OpenAI access | OpenAI API key (`OPENAI_API_KEY`) | OpenAI Assistants |
+| Perplexity access | Perplexity API key (`PERPLEXITY_API_KEY`) | Perplexity Assistants |
+| GitHub OAuth | GitHub Client ID + Client Secret | "Sign in with GitHub" |
+| Google OAuth | Google Client ID + Client Secret | "Sign in with Google" |
+| Email (SMTP) | `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` | Sending a workflow's combined output via the canvas Email Card (Node) |
+
+<Callout type="info">
+For Claude you can supply **either** an API key **or** a setup token (run `claude setup-token` to mint one from your Claude subscription). If both are set, the **setup token wins**. Provider keys apply immediately on save — no restart needed.
+</Callout>
+
+### Email (SMTP)
+
+The Email (SMTP) group configures the SMTP relay used by the canvas Email Card (Node), which emails a workflow's combined Assistant output as HTML. Two fields are required for email to work at all — `SMTP_HOST` and `SMTP_FROM`. If either is blank, the Email node is treated as not configured and stays inert (a blank host effectively disables it).
+
+| Field | Notes |
+| --- | --- |
+| `SMTP_HOST` | The relay hostname. **Required** — leave blank to disable email. Non-secret. |
+| `SMTP_PORT` | Defaults to `587` when blank. Non-secret. |
+| `SMTP_SECURE` | `true` for port 465 (implicit TLS), `false` for 587 (STARTTLS). When blank, it defaults to `true` only if the port is 465. Non-secret. |
+| `SMTP_USER` | Optional — auth is only attached when both user and password are present, so unauthenticated local catchers (e.g. MailHog) work. Non-secret. |
+| `SMTP_PASS` | The SMTP password. **The only secret in this group** — masked in status and rendered as a password input. |
+| `SMTP_FROM` | The `From` address, e.g. `RondoFlow <noreply@example.com>`. **Required.** Non-secret. |
+
+<Callout type="info">
+For how the Email Card behaves on the canvas — it is opt-in (disabled by default), recipients are driven by what you connect to it, and the body reuses the run's formatted output — see [Data Nodes](/docs/guides/data-nodes).
+</Callout>
+
+### How credentials are stored and shown
+
+Secrets are never returned to the browser in full. When you open Settings, the panel fetches only the *status* of each credential — whether it's set, where it came from, and a masked preview.
+
+- **Secrets** (API keys, OAuth client secrets, `SMTP_PASS`) are masked. The preview shows only the last four characters, e.g. `••••a1b2`.
+- **Non-secrets** (GitHub / Google Client IDs, the SMTP host/port/secure/user/from) are shown in full so you can confirm what's configured.
+- Each row shows a source label: **Saved** (stored in the database), **From .env** (falling back to the file), or **Not set**.
+
+Behind the scenes, stored values are encrypted at rest with AES-256-GCM. The encryption key is derived (via scrypt) from a server secret.
+
+<Callout type="warning">
+The code reads the secret from the lowercase env var `rondoflow_SECRET`, falling back to `BETTER_AUTH_SECRET`. On a case-sensitive OS (Linux/macOS), an uppercase `RONDOFLOW_SECRET` would **not** be picked up — so in practice the `BETTER_AUTH_SECRET` fallback is what works today, and you should rely on it (`npm run setup` always generates one). A secret must be configured for credential storage to work at all.
+</Callout>
+
+<Callout type="warning">
+Because the reveal toggle only ever un-masks what you're currently typing, there is no way to read back a previously saved secret through the UI. If you lose a key, re-paste a fresh one rather than trying to recover the old value.
+</Callout>
+
+### Setting, changing, and clearing
+
+<Steps>
+### Open Settings
+
+Click your avatar in the top-right, then **Settings**, and select **API Keys & Integrations** from the tab rail.
+
+### Enter a value
+
+Type or paste the new secret into the field. Secret fields render as password inputs — use the eye icon to reveal what you're typing. Leaving a field blank keeps its current value unchanged.
+
+### Save
+
+Click **Save credentials**. Only fields you actually changed are sent. A green **Saved** confirmation appears when the update lands.
+
+### Clear (optional)
+
+To remove a stored credential, click **Clear** next to it, then **Save credentials**. Clearing deletes the database value and falls back to whatever was in your `.env` file. Use **Undo** before saving if you change your mind.
+</Steps>
+
+The update semantics map directly to the API: an absent field is left unchanged, an empty string clears it (restoring the `.env` fallback), and a non-empty value sets it.
+
+### OAuth changes rebuild auth
+
+When you change a GitHub or Google credential, RondoFlow rebuilds its authentication layer in place so that "Sign in with GitHub/Google" starts working without restarting the server. Claude, OpenAI, Perplexity, and SMTP credentials don't require this — they're picked up on the next Assistant run (or the next email send).
+
+<Callout type="info">
+The underlying endpoints are `GET /api/settings/credentials` (masked status) and `PUT /api/settings/credentials` (upsert/clear), both admin-gated. See the [API reference](/docs/reference/api) for the full envelope.
+</Callout>
+
+## Language
+
+The **Language** tab switches the UI locale. Five locales ship today: **English** (the default), **Slovak**, **Spanish**, **French**, and **German**. Your choice is persisted in the browser (local storage key `rondoflow:locale`) and re-applied on every visit. Localization covers user-facing strings only — code identifiers, model IDs, tool names, URLs, and brand names are never translated.
+
+## Theme
+
+The **Appearance** tab has a three-way theme toggle:
+
+<Tabs items={['Dark', 'Light', 'System']}>
+  <Tabs.Tab>The default. RondoFlow ships dark-first; the entire UI is tuned for it.</Tabs.Tab>
+  <Tabs.Tab>A light theme for bright environments. Toggle it on whenever you prefer.</Tabs.Tab>
+  <Tabs.Tab>Follows your operating system's light/dark preference and switches automatically when the OS does.</Tabs.Tab>
+</Tabs>
+
+Your choice is remembered in the browser and re-applied on every visit.
+
+## Global budget cap
+
+The **Advanced** tab includes a **Max Budget** field. Despite the UI label reading "per Session", this is a **global per-run spend cap**: the value is persisted on the canonical global Safety Rule (Policy) and forwarded as `--max-budget-usd` to *every* run. Leaving it blank means **no cap**.
+
+- It is saved to the server when you leave the field (`PUT /api/settings/budget`), and loaded back when the dialog opens (`GET /api/settings/budget`).
+- The value must be a positive number and is capped at **1000 USD** by the API's validation schema.
+- Because it lives on the global Policy, it interacts with per-Assistant and per-Conversation (Session) rules using the usual "most restrictive wins" resolution — a stricter rule at a lower level still takes precedence. See [Safety Rules](/docs/guides/safety-rules) for layered budgets.
+
+## Other Settings tabs
+
+The remaining tabs expose client-side preferences stored locally in your browser. It's worth knowing which controls actually affect the server and which are cosmetic:
+
+- **Connection** — a server URL field (defaults to `http://localhost:3001`) with a **Test** button. The field is display-only and does **not** reconfigure the API endpoint (the real base is the build-time `NEXT_PUBLIC_API_URL`), and the **Test** button is a placeholder — it does not make a network request. It simply reports "connected" if the URL string contains `localhost` and "disconnected" otherwise.
+- **Safety** — a global safety posture preference (Cautious / Balanced / Autonomous), stored in the browser. For the real enforced rules, see [Safety Rules](/docs/guides/safety-rules).
+- **Models** — a default model preference (Deep Thinker / All-Rounder / Quick Helper, mapping to Opus / Sonnet / Haiku), stored in the browser.
+- **Advanced** — beyond the global budget above, the **Agent Teams** toggle and the **Max Concurrent Assistants** slider are stored only in the browser and have **no server effect** today. The real concurrency limit is set by the `MAX_CONCURRENT_AGENTS` environment variable (default `5`); the slider does not change it.
+
+<Callout type="info">
+Only credentials and the global budget are server-backed. The Connection URL, Safety posture, Models preference, Agent Teams toggle, and Max Concurrent slider are browser-local preferences — changing them does not alter how runs execute.
+</Callout>
+
+## Interface complexity
+
+RondoFlow has machinery for showing more or less of its interface via a complexity tier (Simple / Standard / Full). In the current build, the tier is **hard-pinned to Full** — every feature, palette Card (Node), and panel is visible, the tier indicator stays hidden, and there is no user-facing control to change it. The tier machinery remains wired up so simpler modes can be re-enabled later, but today it does not gate anything you can see.
+
+## Account
+
+Your account lives in the same user menu that opens Settings:
+
+- The menu header shows your name and email.
+- The run-data panels — Activity, Audit Log, and Analytics — appear above **Settings**. A tier gate exists for these entries, but with the interface pinned to Full they are always shown.
+- **Sign out** ends your session and returns you to the sign-in screen.
+
+## Where settings come from
+
+RondoFlow reads configuration from three places, in increasing precedence:
+
+1. The root `.env` file (the baseline, see [Configuration](/docs/getting-started/configuration)).
+2. Credentials stored in the database via this panel — these override the `.env` file at boot.
+3. Live edits in Settings — applied immediately to the running server.
+
+This is why clearing a credential in the UI "falls back to `.env`": removing the database value restores whatever the file provided.
+
+## Next steps
+
+<Cards>
+  <Cards.Card title="Configuration" href="/docs/getting-started/configuration" />
+  <Cards.Card title="AI Providers" href="/docs/providers" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="API Reference" href="/docs/reference/api" />
+</Cards>

@@ -1,0 +1,10 @@
+{
+  "id": "automated-invoice-payment-followup",
+  "name": "automated-invoice-payment-followup",
+  "description": "Automated invoice follow-up sequences that escalate from friendly to firm. Track unpaid invoices, send timed reminder emails with escalating tone, log payment interactions, and generate AR aging reports. Your agent handles the awkward conversations so you don't have to — preserv…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

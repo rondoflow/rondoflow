@@ -1,0 +1,10 @@
+{
+  "id": "manage-tasks-projects-via-locu",
+  "name": "manage-tasks-projects-via-locu",
+  "description": "Manage tasks and projects via Locu's Public API.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

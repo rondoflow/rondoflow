@@ -1,0 +1,10 @@
+{
+  "id": "generate-original-ai-music",
+  "name": "generate-original-ai-music",
+  "description": "Original music, fully yours. 5 seconds to 10 minutes using frontier music generation models. Instrumental and vocal tracks with perfect vocals. Cinematic scores, background tracks, podcast intros, game soundtracks, ambient soundscapes, jingles, lo-fi beats, orchestral compositio…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

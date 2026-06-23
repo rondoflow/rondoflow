@@ -1,0 +1,10 @@
+{
+  "id": "plan-software-projects",
+  "name": "plan-software-projects",
+  "description": "Triage ideas, problems, and feature requests into the right format: proposal doc, feature issue, or bug report. Repo-aware — discovers templates and docs structure from the current repository. Use when: (1) the user describes an idea, feature, or problem they want to track, (2)…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cognition-attention",
+  "name": "cognition-attention",
+  "description": "Maps the attention economy of a mind or situation — what captures it, what depletes it, and how to protect it. Use when asked 'why can't I focus', 'attention keeps getting pulled away', 'how do I protect deep work', 'what's stealing my focus', 'I keep getting distracted', or when designing environments, workflows, or communications that need to respect cognitive bandwidth.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

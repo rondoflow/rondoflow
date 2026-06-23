@@ -1,0 +1,211 @@
+{
+  "language": {
+    "section": "Idioma",
+    "label": "Idioma de la interfaz"
+  },
+  "panel": {
+    "title": "Configuración",
+    "ariaLabel": "Configuración",
+    "description": "Configure las preferencias de rondoflow. Los cambios se guardan automáticamente."
+  },
+  "appearance": {
+    "section": "Apariencia"
+  },
+  "theme": {
+    "label": "Tema",
+    "ariaLabel": "Tema",
+    "option": {
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Oscuro"
+    }
+  },
+  "apiKeys": {
+    "section": "Claves de API e integraciones"
+  },
+  "connection": {
+    "section": "Conexión",
+    "serverUrl": "URL del servidor",
+    "serverUrlPlaceholder": "http://localhost:3001",
+    "testAriaLabel": "Probar conexión",
+    "status": {
+      "checking": "Comprobando…",
+      "connected": "Conectado",
+      "unreachable": "Inaccesible"
+    }
+  },
+  "safety": {
+    "section": "Seguridad",
+    "globalLevel": "Nivel de seguridad global",
+    "level": {
+      "cautious": {
+        "label": "Cauteloso",
+        "description": "Aprobar cada llamada de herramienta. Ideal para entornos sensibles."
+      },
+      "balanced": {
+        "label": "Equilibrado",
+        "description": "Aprobar operaciones de riesgo; permitir las seguras automáticamente."
+      },
+      "autonomous": {
+        "label": "Autónomo",
+        "description": "Los asistentes actúan sin aprobación. Use solo con flujos de trabajo de confianza."
+      }
+    }
+  },
+  "models": {
+    "section": "Modelos",
+    "default": "Modelo predeterminado",
+    "option": {
+      "deepThinker": {
+        "label": "Pensador profundo",
+        "description": "Opus — mejor razonamiento, mayor costo."
+      },
+      "allRounder": {
+        "label": "Todoterreno",
+        "description": "Sonnet — velocidad y capacidad equilibradas."
+      },
+      "quickHelper": {
+        "label": "Ayudante rápido",
+        "description": "Haiku — rápido y económico."
+      }
+    }
+  },
+  "advanced": {
+    "section": "Avanzado",
+    "agentTeams": {
+      "label": "Equipos de asistentes",
+      "description": "Permitir que los asistentes generen subasistentes y se coordinen como un equipo.",
+      "warning": "Los equipos de asistentes aumentan considerablemente el uso de tokens y el costo por conversación."
+    },
+    "maxConcurrent": "Máx. de asistentes simultáneos — {{count}}",
+    "maxBudget": {
+      "label": "Presupuesto máx. por conversación ($)",
+      "placeholder": "Sin límite",
+      "description": "Límite de gasto global aplicado a cada ejecución. Una ejecución se detiene con un error de presupuesto cuando supera este importe. Déjalo vacío para no poner límite."
+    },
+    "directorBudget": {
+      "label": "Presupuesto del Director por evaluación ($)",
+      "placeholder": "Predeterminado (0.05)",
+      "description": "Límite de gasto para cada evaluación del Director entre los pasos del flujo de trabajo. Auméntalo en flujos largos con historiales de pasos extensos que alcanzan un error de presupuesto. Déjalo vacío para usar el valor predeterminado."
+    },
+    "directorTimeout": {
+      "label": "Tiempo límite del Director por evaluación (s)",
+      "placeholder": "Predeterminado (90)",
+      "description": "Límite de tiempo real para cada evaluación del Director entre los pasos del flujo de trabajo. Al agotarse, la salida del paso se transmite sin revisar. Auméntalo en flujos largos que alcanzan un error de tiempo límite. Déjalo vacío para usar el valor predeterminado."
+    }
+  },
+  "mode": {
+    "ariaLabel": "Modo de permisos",
+    "option": {
+      "plan": "Plan",
+      "default": "Predeterminado",
+      "edit": "Editar",
+      "full": "Completo"
+    },
+    "editConfirm": {
+      "warning": "El modo de edición permite a este asistente modificar archivos."
+    }
+  },
+  "globalSafety": {
+    "title": "Reglas de seguridad globales",
+    "defaultLevel": {
+      "title": "Nivel de seguridad predeterminado",
+      "description": "Se aplica a todos los asistentes salvo que se anule.",
+      "cautious": {
+        "label": "Cauteloso",
+        "description": "Preguntar antes de cada acción"
+      },
+      "balanced": {
+        "label": "Equilibrado",
+        "description": "Preguntar solo antes de acciones de riesgo"
+      },
+      "autonomous": {
+        "label": "Autónomo",
+        "description": "Trabajar de forma independiente"
+      }
+    },
+    "blocked": {
+      "title": "Comandos bloqueados",
+      "description": "Estos comandos siempre se bloquean, independientemente del nivel de seguridad.",
+      "placeholder": "Añadir comando bloqueado..."
+    },
+    "approval": {
+      "title": "Requerir aprobación",
+      "description": "Estos comandos requieren su aprobación antes de ejecutarse.",
+      "placeholder": "Añadir patrón de comando..."
+    },
+    "timeout": {
+      "title": "Tiempo de espera predeterminado",
+      "hint": "segundos (predeterminado: 300)"
+    }
+  },
+  "context": {
+    "title": "Contexto del espacio de trabajo",
+    "description": "Este documento se inyecta en cada indicación de los asistentes de este espacio de trabajo. Úselo para instrucciones compartidas, contexto del proyecto o estándares de codificación.",
+    "placeholder": "# Contexto del espacio de trabajo\n\nDescriba el proyecto, las convenciones o las instrucciones que todos los asistentes deben seguir...",
+    "workingDir": {
+      "title": "Directorio de trabajo",
+      "saved": "Guardado",
+      "description": "Establezca el directorio donde se ejecutan los asistentes y las operaciones de git. Déjelo vacío para usar el directorio predeterminado del servidor.",
+      "placeholder": "C:\\Users\\me\\my-project o /home/me/my-project",
+      "saveError": "No se pudo guardar"
+    }
+  },
+  "plan": {
+    "title": "Plan del espacio de trabajo",
+    "description": "Defina objetivos, hitos y tareas para este espacio de trabajo. Este documento es para su referencia — no se inyecta en las indicaciones de los asistentes.",
+    "placeholder": "# Plan del espacio de trabajo\n\nDefina objetivos, hitos y tareas para este espacio de trabajo..."
+  },
+  "credentials": {
+    "loading": "Cargando credenciales…",
+    "intro": "Almacenadas cifradas en el servidor. Los secretos nunca se muestran — solo una vista previa enmascarada.",
+    "state": {
+      "notSet": "Sin configurar",
+      "saved": "Guardado",
+      "fromEnv": "Desde .env",
+      "set": "Configurado",
+      "withPreview": "{{source}} · {{preview}}",
+      "willClear": "Se borrará al guardar"
+    },
+    "input": {
+      "keepCurrent": "Deje en blanco para conservar el valor actual",
+      "notSet": "Sin configurar"
+    },
+    "reveal": {
+      "show": "Mostrar {{label}}",
+      "hide": "Ocultar {{label}}"
+    },
+    "clear": "Borrar",
+    "undo": "Deshacer",
+    "save": "Guardar credenciales",
+    "savedState": "Guardado",
+    "loadError": "No se pudieron cargar las credenciales",
+    "saveError": "No se pudieron guardar las credenciales",
+    "group": {
+      "anthropic": {
+        "title": "Acceso a Claude",
+        "hint": "Los asistentes se ejecutan mediante la CLI de Claude Code. Proporcione una clave de API o un token de configuración de `claude setup-token` (usa su suscripción de Claude). Si se establecen ambos, prevalece el token de configuración. Se aplica de inmediato al guardar."
+      },
+      "openai": {
+        "title": "Acceso a OpenAI",
+        "hint": "Utilizado por los asistentes de OpenAI. Cree una clave en platform.openai.com/api-keys. Se aplica de inmediato al guardar."
+      },
+      "perplexity": {
+        "title": "Acceso a Perplexity",
+        "hint": "Utilizado por los asistentes de Perplexity. Cree una clave en perplexity.ai/settings/api. Se aplica de inmediato al guardar."
+      },
+      "github": {
+        "title": "GitHub OAuth",
+        "hint": "Habilita «Iniciar sesión con GitHub». Cree una aplicación OAuth en GitHub → Developer settings."
+      },
+      "google": {
+        "title": "Google OAuth",
+        "hint": "Habilita «Iniciar sesión con Google». Cree credenciales OAuth en la consola de Google Cloud."
+      },
+      "smtp": {
+        "title": "Correo (SMTP)",
+        "hint": "Lo usa el nodo Email del lienzo para enviar la salida del flujo. SMTP secure: «true» para el puerto 465 (TLS implícito), «false» para 587 (STARTTLS). Se aplica al guardar; deja SMTP host vacío para desactivarlo."
+      }
+    }
+  }
+}

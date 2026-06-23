@@ -1,0 +1,10 @@
+{
+  "id": "trade-prediction-markets-kelly-sizing",
+  "name": "trade-prediction-markets-kelly-sizing",
+  "description": "Trade prediction markets on MoltMarkets intelligently. Use for screening markets, forming probability estimates, detecting edge, sizing positions with Kelly criterion, placing bets, creating markets, resolving markets, and tracking calibration. Triggers on any MoltMarkets tradin…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

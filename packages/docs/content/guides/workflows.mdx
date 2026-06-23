@@ -1,0 +1,259 @@
+---
+title: Workflows
+description: Run multiple Assistants together as a DAG — parallel branches, conditional routing, per-step approval, Director mode, and recorded runs.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Workflows
+
+A workflow runs several Assistants (internally "agents") together on one task. Each Assistant is a Card (node) on the Workspace (canvas); the connections between them define the order of execution. When you start a run, RondoFlow's **ChainExecutor** walks that graph step by step, handing each Assistant's output to the next.
+
+This page covers how the graph executes, the Run/Stop controls, conditional branching, per-step approval, Director mode, and the run history that's recorded along the way.
+
+## The graph: a DAG of steps
+
+A workflow is a **directed acyclic graph (DAG)**. Every executable Card on the Workspace is a step; every connection is an edge pointing from one step to another.
+
+- **Acyclic.** Cycles are rejected before anything starts. If your connections form a loop, the run fails immediately with an error telling you how many steps could be ordered versus how many exist. Fix the connection that points "backward" and run again.
+- **Dependency order.** A step only runs after all of its predecessors have finished (or been skipped). Order is computed by a topological sort, not by where Cards sit on the canvas.
+- **Output flows downstream.** Each step receives its predecessor's output as its input message. A root step (no predecessors) receives the task you typed when you started the run.
+
+<Callout type="info">
+Need to repeat work or build a feedback loop? A DAG can't contain cycles by design. For iterative behavior, use [Director mode](#director-mode-continuous-orchestration) (which can re-run a step) or see [Loops](/docs/guides/loops).
+</Callout>
+
+### Not just Assistants: non-agent steps
+
+Most steps are Assistants, but two **data-pipeline Cards** also execute as real, numbered steps in the DAG:
+
+| Card | What it does as a step | Per-step approval? |
+| --- | --- | --- |
+| **Structure** (Structurer) | Turns the upstream Assistant's prose into a typed dataset (parse or AI extraction). | No |
+| **Save to DB** (DbSaveNode) | Persists that dataset to the database. | No |
+
+These run no Claude agent and skip the approval gate, but they still appear as ordered steps with `step_start` / `step_complete` events, count toward the step total, and (for Save to DB) persist a dataset you can review later. Two other data Cards — **Output** (writes the combined run output to a file) and **Email** (sends it via SMTP) — are not DAG steps at all; they fire once after the whole run completes. See [Data Nodes](/docs/guides/data-nodes) for the full pipeline, connection rules, and saved-dataset viewing.
+
+### Assistants can use different providers
+
+A step's Assistant runs on whichever provider its configuration names — RondoFlow picks the runner per step (`createAgentRunner(config.provider)`), so a single workflow can mix Claude Code, OpenAI, and Perplexity Assistants. Output still flows between them as plain text. See [Assistants](/docs/guides/assistants) for provider setup.
+
+### Parallel branches
+
+Independent branches run **at the same time**. After each layer of steps completes, the executor finds every step whose predecessors are all done and starts them together — so two unrelated chains advance in parallel rather than one-at-a-time.
+
+```text
+        ┌─ Researcher ─┐
+ Intake ┤              ├─ Editor
+        └─ Analyst ────┘
+```
+
+Here `Researcher` and `Analyst` run concurrently after `Intake`. `Editor` waits for both, then receives a **fan-in** message that concatenates each predecessor's output under a labeled heading.
+
+### Conditional edges and skips
+
+An edge can carry a condition — a regular expression matched **case-insensitively against the predecessor's verdict**, which is its *last non-empty output line* (not the whole output). So a pattern only matches if it appears on that final line; a phrase buried earlier in the output won't trigger it. Have your Assistant end with a clear one-line verdict (e.g. `APPROVED` or `Status: rejected`) when you want to route on it.
+
+A step runs if at least one unconditional edge enables it, or if a conditional edge's pattern matched. When no incoming edge is satisfied, the step is **skipped**, and that skip cascades to any descendants that have no other path to reach them.
+
+If a step fails or finishes with no usable output, the executor records an error, skips that step and its dependents, and **keeps running independent branches** — one broken branch doesn't take down the whole workflow.
+
+<Callout type="warning">
+A step that completes but produces empty text is treated as a failure in normal (DAG) runs. An empty string would silently poison every downstream step, so the executor rejects it instead. Empty output usually means a tool failure (e.g. a blocked WebFetch), a credential problem, or a hit budget/turn limit. See [Monitoring](/docs/guides/monitoring) to inspect what happened. (In Director mode the rule is relaxed — empty output lets the Director redirect or retry instead of failing outright.)
+</Callout>
+
+### Branching with a Condition card
+
+Wiring conditions onto raw edges works, but the friendly way to branch is a **Condition** (ConditionNode) Card — a pure router that does no Assistant work. You give it labelled branches (seeded with `Approved` / `Rejected` / `Else` by default), each with a match kind:
+
+| Match kind | Behavior |
+| --- | --- |
+| `contains` | The branch wins if its text appears in the predecessor's verdict (case-insensitive). |
+| `regex` | The branch wins if its pattern matches the verdict. |
+
+Each branch routes only to an Assistant, and an **Else / fallback** branch catches anything no other branch matched. Branches in a Condition card are **mutually exclusive**: at run time RondoFlow compiles them into a group of conditional edges and only the single highest-priority matching branch fires (the else branch is the last resort). This is the `group` / `order` routing resolved by `resolveGroupWinner`.
+
+Condition cards are honored in **both** run modes — parallel DAG and sequential Director. RondoFlow also lints your branching workflow before a run and surfaces warnings (e.g. unreachable or contradictory branches).
+
+<Callout type="info">
+On the canvas, a Condition card renders one source handle per branch (no single output), and its outgoing connections draw as amber dotted edges with a branch-label chip. For the complete Condition reference — match kinds, the else branch, and connection rules — see [Data Nodes](/docs/guides/data-nodes#condition).
+</Callout>
+
+## Running a workflow
+
+The Run and Stop controls live on the workflow toolbar at the top of the Workspace.
+
+<Steps>
+### Open the run panel
+
+Click **Run**. This opens the Execution Log panel, where you describe the task. The button only appears once your Workspace has a runnable workflow.
+
+### Describe the task and start
+
+Type the task. This text becomes the input message for every root step. Start the run from inside the panel.
+
+### Watch it execute
+
+The toolbar shows a live step indicator — `current / total` plus the name of the Assistant running now. Open **Workflow Chat** to watch agents run live, read their full raw output, and send follow-up messages.
+
+### Stop if needed
+
+Click **Stop** to end the run and terminate every active Assistant immediately. Any pending approvals are released and their steps unwind cleanly.
+</Steps>
+
+<Callout type="info">
+Both run modes execute tools with `permissionMode: bypassPermissions` so headless tools like WebSearch and WebFetch aren't denied (the CLI can't show its own interactive prompt in a spawned process). The **only** human gate is per-step approval, below — a Safety Rule still constrains *which* tools an Assistant may call.
+</Callout>
+
+## Per-step approval
+
+By default a workflow runs in **auto** mode: steps proceed without interruption (tools run freely within each step). Switch to **per-step approval** mode to put a human gate in front of every Assistant step.
+
+| Mode | Behavior |
+| --- | --- |
+| `auto` | Each step starts as soon as its predecessors finish. |
+| `perStep` | Before each Assistant step starts, the run pauses and asks you to approve it. Tools then run freely once you approve. |
+
+How per-step approval behaves:
+
+- Before an Assistant step starts, the executor emits an approval request and waits. (Non-agent steps — Structure and Save to DB — are never gated; they run automatically.)
+- **Approve** and the step runs. **Decline** and the run stops, with a reason noting which step was not approved.
+- **Approval timeout.** If you never respond, the request auto-declines after **15 minutes** so an abandoned run doesn't leave a process — and the promise behind it — dangling forever.
+
+<Callout type="info">
+Per-step approval is the human gate. To control what an Assistant is *allowed* to do once it runs, use a [Safety Rule](/docs/guides/safety-rules) (policy). The two are independent: approval decides *whether* a step runs; a Safety Rule decides *what tools it can use*.
+</Callout>
+
+## Director mode: continuous orchestration
+
+**Director** mode turns a linear plan into a steered run. With it enabled, the workflow no longer just walks the DAG — after each step the Director (an AI orchestrator) reviews the Assistant's output and decides what happens next. (When RondoFlow generates a workflow for you, Director is enabled automatically for plans with three or more Assistants.)
+
+The Director picks one of three actions:
+
+| Action | What it does |
+| --- | --- |
+| `continue` | Move on to the next step, passing along the (possibly rewritten) message. |
+| `redirect` | Re-run a step with new guidance — useful when output is off-target. |
+| `conclude` | End the workflow early because the goal is met. |
+
+Redirect handling has guardrails so a run can't loop forever:
+
+- The **first** redirect on a step is auto-approved — no prompt.
+- A **second** redirect on the same step asks you to approve the retry. Redirect-approval requests **auto-decline after 2 minutes** if you don't respond.
+- A step is retried at most **twice**; beyond that the Director is forced to `continue`.
+
+<Callout type="important">
+The graph still owns forward routing, not the Director. The Director walks one node at a time (it can't parallelise), but it picks the next node with the **same** conditional/branch enablement logic as the DAG path — so Condition cards and conditional edges work in Director mode too. When the Director suggests jumping to a divergent step on a redirect, that target is intentionally ignored in branching workflows; branches the conditions didn't select are skipped and cascade exactly as in DAG mode.
+</Callout>
+
+The Director can also save a short **learning** to [Memory](/docs/guides/memory) after a step, so future runs benefit from what it observed. If the Director's own evaluation fails, the run falls back to plain linear behavior rather than stalling.
+
+<Callout type="info">
+Toggle Director from the toolbar; the badge shows its status (idle / evaluating / decided) and the last action it took. You can also tune its rigor and add custom instructions. For the full breakdown of Director, Planner, and Advisor, see [Orchestration](/docs/guides/orchestration).
+</Callout>
+
+## Runs: history, tokens, and cost
+
+Every workflow execution is recorded as a **run** (a `ChainRun`) so you can review it later. Each run stores its initial message, status, total step count, and timestamps, plus:
+
+- **Per-step details** — for each step: the Assistant, its model, the output, status, and start/finish times.
+- **Token usage and cost** — input tokens, output tokens, and USD cost are tracked per step and summed for the run.
+- **A full event transcript** — an append-only, ordered log of step starts, tool use and results, step completions, Director decisions, errors, and completion. This lets the Execution Log replay faithfully after a refresh. (Streamed text deltas aren't stored individually; the final per-step output is kept on the step record.)
+
+### The runs API
+
+Run history is exposed over a paginated API.
+
+<Tabs items={['List runs', 'Single run']}>
+<Tabs.Tab>
+
+`GET /api/runs` returns runs most-recent-first, with per-run token and cost totals aggregated from its steps.
+
+Query parameters:
+
+| Parameter | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `workspaceId` | string | — | Optional. Narrow the list to one Workspace. |
+| `page` | integer | `1` | Minimum `1`. |
+| `limit` | integer | `30` | Minimum `1`, maximum `100`. |
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "…",
+      "chainId": "…",
+      "workspaceId": "…",
+      "status": "completed",
+      "totalSteps": 3,
+      "stepCount": 3,
+      "tokensIn": 12000,
+      "tokensOut": 4200,
+      "costUsd": 0.18,
+      "createdAt": "…",
+      "completedAt": "…"
+    }
+  ],
+  "meta": { "total": 42, "page": 1, "limit": 30 }
+}
+```
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+`GET /api/runs/:chainId` returns one run with its ordered steps and the full event transcript, enriched with Assistant display names and models so the UI can replay the execution log.
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "…",
+    "chainId": "…",
+    "status": "completed",
+    "steps": [
+      {
+        "stepIndex": 0,
+        "agentName": "Researcher",
+        "model": "…",
+        "output": "…",
+        "tokensIn": 4000,
+        "tokensOut": 1500,
+        "costUsd": 0.06,
+        "status": "completed"
+      }
+    ],
+    "events": [ { "seq": 0, "type": "step_start", "stepIndex": 0 } ]
+  }
+}
+```
+
+</Tabs.Tab>
+</Tabs>
+
+<Callout type="important">
+Run history is a **shared team pool** — there is no per-owner scoping. Without a `workspaceId` filter, `GET /api/runs` returns all runs across the team; pass an optional `workspaceId` to narrow the view to one Workspace. For the full envelope and other endpoints, see the [API reference](/docs/reference/api).
+</Callout>
+
+### Triggering a run over HTTP
+
+Beyond the toolbar (which uses the Socket.IO path with Director, Planner, and approval-mode support), there's a plain HTTP trigger used by automated callers like [Loops](/docs/guides/loops) and the [Scheduler](/docs/guides/schedules):
+
+```text
+POST /api/chains/execute
+```
+
+This path always runs in **auto** approval mode with `bypassPermissions` — there's no human to approve tools or steps when a chain is fired headlessly. It validates the graph for cycles, starts the run, and responds `202` with the `chainId`. It does **not** offer Director or per-step approval; those live only on the toolbar/socket flow.
+
+## Next steps
+
+<Cards>
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
+  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+  <Cards.Card title="Loops" href="/docs/guides/loops" />
+  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+</Cards>

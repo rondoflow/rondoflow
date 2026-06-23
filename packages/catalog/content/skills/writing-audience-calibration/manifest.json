@@ -1,0 +1,10 @@
+{
+  "id": "writing-audience-calibration",
+  "name": "writing-audience-calibration",
+  "description": "Calibrates writing for a specific reader by profiling their knowledge, concerns, and relationship to the topic — then rewriting for that reader without changing the substance. Use when content is too technical, too basic, or framed for the wrong audience. Triggers: 'write for a specific audience', 'audience calibration', 'this needs to work for non-technical readers', 'the audience isn't the right fit', 'calibrate this for', 'it's too technical / not technical enough', 'recalibrate this for'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

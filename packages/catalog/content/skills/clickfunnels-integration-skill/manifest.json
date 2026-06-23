@@ -1,0 +1,10 @@
+{
+  "id": "clickfunnels-integration-skill",
+  "name": "clickfunnels-integration-skill",
+  "description": "ClickFunnels API integration with managed OAuth. Manage contacts, products, orders, courses, forms, and webhooks. Use this skill when users want to create sales funnels, manage contacts, process orders, or build marketing automation. For other third party apps, use the api-gatew…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "plug",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "arxiv-collection-reporting-orchestrator",
+  "name": "arxiv-collection-reporting-orchestrator",
+  "description": "End-to-end orchestration skill for periodic arXiv collection and reporting using three sub-skills: arxiv-search-collector, arxiv-paper-processor, and arxiv-batch-reporter. Supports manual language control across all markdown outputs and Stage-B processing strategy (`subagent_par…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

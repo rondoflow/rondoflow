@@ -1,0 +1,10 @@
+{
+  "id": "create-ai-generated-films",
+  "name": "create-ai-generated-films",
+  "description": "Create films with AI video generation by managing scripts, prompts, consistency, and production workflows from concept to final cut.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

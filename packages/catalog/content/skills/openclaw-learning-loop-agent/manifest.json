@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-learning-loop-agent",
+  "name": "openclaw-learning-loop-agent",
+  "description": "Turn OpenClaw into a learning-loop agent with seeded workspace rules, skill promotion, reflective memory, and proactive maintenance.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

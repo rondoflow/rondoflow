@@ -1,0 +1,10 @@
+{
+  "id": "identity-mission-alignment",
+  "name": "identity-mission-alignment",
+  "description": "Tests whether a proposed decision is genuinely aligned with stated mission — or is rationalising a departure from it. Triggers: 'mission alignment', 'is this on mission', 'are we drifting', 'mission check', 'does this serve our purpose', 'on brand'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

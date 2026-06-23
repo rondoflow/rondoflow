@@ -1,0 +1,10 @@
+{
+  "id": "diagnose-and-repair-discord-bot",
+  "name": "diagnose-and-repair-discord-bot",
+  "description": "Quick diagnosis and repair for Discord bot, Gateway, OAuth token, and legacy config issues. Checks connectivity, token expiration, and cleans up old Clawdis artifacts.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "post-to-x-via-oauth",
+  "name": "post-to-x-via-oauth",
+  "description": "Post to X (Twitter) using the official OAuth 1.0a API. Use when asked to \"post to X\", \"tweet this\", \"post on Twitter\", create threads, delete tweets, or check account info. Free tier compatible. NOT for search, mentions, or media uploads (requires Basic+ tier).",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

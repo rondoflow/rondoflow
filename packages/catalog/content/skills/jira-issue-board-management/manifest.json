@@ -1,0 +1,10 @@
+{
+  "id": "jira-issue-board-management",
+  "name": "jira-issue-board-management",
+  "description": "Manage Jira issues, boards, sprints, and projects via the jira-cli. Search, create, update, and transition issues directly from the command line.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

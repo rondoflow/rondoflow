@@ -1,0 +1,10 @@
+{
+  "id": "qiuqiu-assistant-helper",
+  "name": "qiuqiu-assistant-helper",
+  "description": "This is a multi-purpose helper skill for Jesse, designed to automate common workspace tasks.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,28 @@
+{
+  "id": "qa-expert",
+  "name": "QA Expert",
+  "description": "Designs and manages comprehensive QA processes for software quality.",
+  "icon": "ClipboardCheck",
+  "category": "Engineering",
+  "purpose": "review",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "qa",
+    "quality-assurance",
+    "testing",
+    "test-strategy",
+    "process"
+  ],
+  "order": 129
+}

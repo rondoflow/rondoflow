@@ -1,0 +1,10 @@
+{
+  "id": "lightweight-headless-browser-automation",
+  "name": "lightweight-headless-browser-automation",
+  "description": "**Use instead of Chrome/Chromium and Openclaw default browser for data extraction and web automation when you don't need graphical rendering.**",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "globe",
+  "order": 1000
+}

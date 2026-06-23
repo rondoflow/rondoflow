@@ -1,0 +1,10 @@
+{
+  "id": "design-scalable-system-architecture",
+  "name": "design-scalable-system-architecture",
+  "description": "Design scalable systems with sound trade-offs, clear boundaries, and maintainable patterns.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

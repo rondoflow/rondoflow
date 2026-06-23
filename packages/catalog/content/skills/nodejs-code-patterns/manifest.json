@@ -1,0 +1,10 @@
+{
+  "id": "nodejs-code-patterns",
+  "name": "nodejs-code-patterns",
+  "description": "WHAT: Production-ready Node.js backend patterns - Express/Fastify setup, layered architecture, middleware, error handling, validation, database integration, authentication, and caching. WHEN: User is building REST APIs, setting up Node.js servers, implementing authentication, in…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

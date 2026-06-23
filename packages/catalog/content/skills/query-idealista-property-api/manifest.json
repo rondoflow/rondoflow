@@ -1,0 +1,10 @@
+{
+  "id": "query-idealista-property-api",
+  "name": "query-idealista-property-api",
+  "description": "Query Idealista API via idealista-cli (OAuth2 client credentials).",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

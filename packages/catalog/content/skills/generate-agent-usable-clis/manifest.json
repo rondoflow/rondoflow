@@ -1,0 +1,10 @@
+{
+  "id": "generate-agent-usable-clis",
+  "name": "generate-agent-usable-clis",
+  "description": "Generate or refine agent-usable CLIs for existing software/codebases using the CLI-Anything methodology. Use when the user wants to turn a GUI app, desktop tool, repository, SDK, or web/API surface into a structured CLI for agents; when adapting CLI-Anything into OpenClaw workfl…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

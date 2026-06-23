@@ -1,0 +1,10 @@
+{
+  "id": "gemini-cli-qa-generation",
+  "name": "gemini-cli-qa-generation",
+  "description": "Gemini CLI for one-shot Q&A, summaries, and generation.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

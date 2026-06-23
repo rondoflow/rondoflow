@@ -1,0 +1,10 @@
+{
+  "id": "manage-planka-kanban-boards",
+  "name": "manage-planka-kanban-boards",
+  "description": "Manage Planka (Kanban) projects, boards, lists, cards, and notifications via a custom Python CLI.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.12",
+  "icon": "check-square",
+  "order": 1000
+}

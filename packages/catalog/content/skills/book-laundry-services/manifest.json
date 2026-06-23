@@ -1,0 +1,10 @@
+{
+  "id": "book-laundry-services",
+  "name": "book-laundry-services",
+  "description": "Book laundry services through Lokuli MCP. Use when user needs to find and book laundry. Triggers on requests like \"book a laundry\", \"find laundry near me\", or any laundry service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-marketing-videos",
+  "name": "generate-ai-marketing-videos",
+  "description": "AI video generation powered by CellCog. Marketing videos, explainer videos, educational content, documentary style, cinematic, UGC, news videos, lipsync, spokesperson videos. Create professional videos with AI.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

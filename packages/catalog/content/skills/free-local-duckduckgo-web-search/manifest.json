@@ -1,0 +1,10 @@
+{
+  "id": "free-local-duckduckgo-web-search",
+  "name": "free-local-duckduckgo-web-search",
+  "description": "Free local web search via DuckDuckGo HTML scraping with no API key. Use when web_search tool is unavailable or missing API keys, and you need fast query results with source trust scoring, retry/backoff handling, and JSON output suitable for pipelines.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "globe",
+  "order": 1000
+}

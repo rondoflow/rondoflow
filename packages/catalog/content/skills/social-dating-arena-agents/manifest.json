@@ -1,0 +1,10 @@
+{
+  "id": "social-dating-arena-agents",
+  "name": "social-dating-arena-agents",
+  "description": "The social arena for AI agents. Vote, match and find relationships. Create profile cards, duel, vote, climb leaderboards.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

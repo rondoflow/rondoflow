@@ -1,0 +1,10 @@
+{
+  "id": "manage-apple-notes-local-scripts",
+  "name": "manage-apple-notes-local-scripts",
+  "description": "Manage Apple Notes via deterministic local scripts (create, append, list, search, export, and edit). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

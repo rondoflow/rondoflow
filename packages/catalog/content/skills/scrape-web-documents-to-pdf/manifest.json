@@ -1,0 +1,10 @@
+{
+  "id": "scrape-web-documents-to-pdf",
+  "name": "scrape-web-documents-to-pdf",
+  "description": "Scrape documents from Notion, DocSend, PDFs, and other sources into local PDF files. Use when the user needs to download, archive, or convert web documents to PDF format. Supports authentication flows for protected documents and session persistence via profiles. Returns local fi…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

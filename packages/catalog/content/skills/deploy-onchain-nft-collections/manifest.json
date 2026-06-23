@@ -1,0 +1,10 @@
+{
+  "id": "deploy-onchain-nft-collections",
+  "name": "deploy-onchain-nft-collections",
+  "description": "Deploy NFT collections permanently on MegaETH mainnet. Images are stored on-chain via SSTORE2, then published through WarrenContainer and WarrenLaunchedNFT.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "coins",
+  "order": 1000
+}

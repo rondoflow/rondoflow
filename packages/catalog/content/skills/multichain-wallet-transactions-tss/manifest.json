@@ -1,0 +1,10 @@
+{
+  "id": "multichain-wallet-transactions-tss",
+  "name": "multichain-wallet-transactions-tss",
+  "description": "Use this skill when an agent needs to create crypto wallets, send transactions, swap tokens, check balances, or perform any on-chain operation across 36+ blockchains using threshold signatures (TSS). Vultisig SDK provides self-custodial MPC vaults — no seed phrases, no single po…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

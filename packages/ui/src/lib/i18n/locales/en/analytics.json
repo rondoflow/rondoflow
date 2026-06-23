@@ -1,0 +1,168 @@
+{
+  "scope": {
+    "label": "Scope",
+    "workspace": "This workspace",
+    "global": "All workspaces"
+  },
+  "dashboard": {
+    "overview": "Overview",
+    "periodDays": "{{count}}d",
+    "card": {
+      "assistantsRunning": "{{count}} running",
+      "assistants": "Assistants",
+      "discussions": "Discussions",
+      "schedulesActive": "{{count}} active",
+      "schedules": "Schedules",
+      "skills": "Skills",
+      "totalCost": "Total cost",
+      "sessions": "Sessions",
+      "tokens": "Tokens"
+    },
+    "usage": {
+      "heading": "Usage (last {{count}} days)",
+      "empty": {
+        "title": "No usage data yet",
+        "hint": "Run assistants or workflows to see analytics here."
+      }
+    },
+    "metric": {
+      "cost": "Cost",
+      "tokens": "Tokens"
+    },
+    "chart": {
+      "title": "{{metric}} over time",
+      "totalCost": "(${{amount}} total)",
+      "totalTokens": "({{amount}}k total)",
+      "noneRecorded": "No {{metric}} recorded in this period",
+      "ariaPerDay": "{{label}} per day over {{count}} days",
+      "barTitle": "{{day}} — {{value}}",
+      "costValue": "${{amount}}",
+      "tokensValue": "{{amount}}k tokens"
+    },
+    "costByModel": "Cost by model",
+    "tokenSplit": "Token split",
+    "tokenInput": "input",
+    "tokenOutput": "output",
+    "costByWorkspace": "Cost by workspace"
+  },
+  "audit": {
+    "range": {
+      "last24h": "Last 24 hours",
+      "last7d": "Last 7 days",
+      "last30d": "Last 30 days",
+      "allTime": "All time"
+    },
+    "search": {
+      "placeholder": "Search events…",
+      "ariaLabel": "Search audit log"
+    },
+    "filter": {
+      "eventType": "Event type",
+      "allTypes": "All types",
+      "typeOption": "{{label}} ({{count}})",
+      "timeRange": "Time range"
+    },
+    "exportCsv": "Export CSV",
+    "loadError": "Failed to load audit log",
+    "count_one": "{{count}} event",
+    "count_other": "{{count}} events",
+    "matchingFilters": " matching filters",
+    "emptyFiltered": "No audit events match these filters.",
+    "column": {
+      "time": "Time",
+      "type": "Type",
+      "event": "Event"
+    },
+    "pagination": {
+      "pageOf": "Page {{page}} of {{total}}",
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "detail": {
+      "category": "Category",
+      "eventId": "Event ID",
+      "assistantId": "Assistant ID",
+      "workspaceId": "Workspace ID"
+    }
+  },
+  "activity": {
+    "empty": {
+      "title": "No activity yet",
+      "hint": "Run an agent to see events here."
+    },
+    "group": {
+      "today": "Today",
+      "yesterday": "Yesterday"
+    }
+  },
+  "run": {
+    "status": {
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed",
+      "stopped": "Stopped"
+    },
+    "detail": {
+      "fallbackTitle": "Workflow run",
+      "back": "Back to run list",
+      "open": "Open",
+      "openTooltip": "Open this run in the workflow panel",
+      "emptyTitle": "No log entries",
+      "emptyHint": "This run has no recorded execution log.",
+      "loadError": "Couldn’t load this run"
+    },
+    "list": {
+      "title": "Execution History",
+      "loadingRun": "Loading run…",
+      "loadError": "Failed to load runs",
+      "errorTitle": "Couldn’t load history",
+      "emptyTitle": "No runs yet",
+      "emptyHint": "Run a workflow and it will show up here.",
+      "count_one": "{{count}} run",
+      "count_other": "{{count}} runs",
+      "steps": "{{done}}/{{total}} steps",
+      "tokens": "{{amount}} tok",
+      "cost": "${{amount}}",
+      "loadMore": "Load more ({{remaining}})"
+    }
+  },
+  "session": {
+    "status": {
+      "active": "Active",
+      "ended": "Ended",
+      "error": "Error"
+    },
+    "filter": {
+      "fromDate": "Filter from date",
+      "toDate": "Filter to date",
+      "to": "to",
+      "clear": "Clear date filter"
+    },
+    "card": {
+      "ariaLabel": "Session from {{date}}, {{count}} messages",
+      "prefix": "Session",
+      "messages_one": "{{count}} message",
+      "messages_other": "{{count}} messages"
+    },
+    "empty": {
+      "filteredTitle": "No sessions in this range",
+      "filteredHint": "Try adjusting the date filter.",
+      "title": "No conversations yet",
+      "hint": "Start chatting with the assistant to see your history here."
+    },
+    "title": "Session History",
+    "count_one": "{{count}} session",
+    "count_other": "{{count}} sessions",
+    "listAria": "Past sessions"
+  },
+  "cost": {
+    "empty": {
+      "title": "No usage data yet",
+      "hint": "Run agents to see cost tracking here."
+    },
+    "totalCost": "Total cost",
+    "sessions": "Sessions",
+    "tokens": "Tokens",
+    "byModel": "Cost by Model (last {{count}} days)"
+  }
+}

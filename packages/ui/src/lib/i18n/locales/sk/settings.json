@@ -1,0 +1,211 @@
+{
+  "language": {
+    "section": "Jazyk",
+    "label": "Jazyk rozhrania"
+  },
+  "panel": {
+    "title": "Nastavenia",
+    "ariaLabel": "Nastavenia",
+    "description": "Nakonfigurujte predvoľby rondoflow. Zmeny sa ukladajú automaticky."
+  },
+  "appearance": {
+    "section": "Vzhľad"
+  },
+  "theme": {
+    "label": "Téma",
+    "ariaLabel": "Téma",
+    "option": {
+      "system": "Systém",
+      "light": "Svetlá",
+      "dark": "Tmavá"
+    }
+  },
+  "apiKeys": {
+    "section": "API kľúče a integrácie"
+  },
+  "connection": {
+    "section": "Pripojenie",
+    "serverUrl": "URL servera",
+    "serverUrlPlaceholder": "http://localhost:3001",
+    "testAriaLabel": "Otestovať pripojenie",
+    "status": {
+      "checking": "Kontrola…",
+      "connected": "Pripojené",
+      "unreachable": "Nedostupné"
+    }
+  },
+  "safety": {
+    "section": "Bezpečnosť",
+    "globalLevel": "Globálna úroveň bezpečnosti",
+    "level": {
+      "cautious": {
+        "label": "Opatrný",
+        "description": "Schváliť každé volanie nástroja. Najvhodnejšie pre citlivé prostredia."
+      },
+      "balanced": {
+        "label": "Vyvážený",
+        "description": "Schvaľovať rizikové operácie; bezpečné povoliť automaticky."
+      },
+      "autonomous": {
+        "label": "Autonómny",
+        "description": "Asistenti konajú bez schválenia. Používajte len pri dôveryhodných pracovných postupoch."
+      }
+    }
+  },
+  "models": {
+    "section": "Modely",
+    "default": "Predvolený model",
+    "option": {
+      "deepThinker": {
+        "label": "Hĺbkový mysliteľ",
+        "description": "Opus — najlepšie uvažovanie, vyššie náklady."
+      },
+      "allRounder": {
+        "label": "Univerzál",
+        "description": "Sonnet — vyvážená rýchlosť a schopnosti."
+      },
+      "quickHelper": {
+        "label": "Rýchly pomocník",
+        "description": "Haiku — rýchly a úsporný."
+      }
+    }
+  },
+  "advanced": {
+    "section": "Rozšírené",
+    "agentTeams": {
+      "label": "Tímy asistentov",
+      "description": "Umožniť asistentom spúšťať pod-asistentov a koordinovať sa ako tím.",
+      "warning": "Tímy asistentov výrazne zvyšujú spotrebu tokenov a náklady na konverzáciu."
+    },
+    "maxConcurrent": "Max. súbežných asistentov — {{count}}",
+    "maxBudget": {
+      "label": "Max. rozpočet na konverzáciu ($)",
+      "placeholder": "Bez limitu",
+      "description": "Globálny strop výdavkov posielaný do každého behu. Beh sa zastaví s chybou rozpočtu, keď túto sumu prekročí. Pre žiadny limit nechajte prázdne."
+    },
+    "directorBudget": {
+      "label": "Rozpočet Directora na vyhodnotenie ($)",
+      "placeholder": "Predvolené (0.05)",
+      "description": "Strop výdavkov pre každé vyhodnotenie Directorom medzi krokmi workflowu. Zvýšte ho pri dlhých workflowoch s rozsiahlou históriou krokov, ktoré narazia na chybu rozpočtu. Pre predvolenú hodnotu nechajte prázdne."
+    },
+    "directorTimeout": {
+      "label": "Časový limit Directora na vyhodnotenie (s)",
+      "placeholder": "Predvolené (90)",
+      "description": "Limit reálneho času pre každé vyhodnotenie Directorom medzi krokmi workflowu. Po vypršaní sa výstup kroku posunie ďalej bez kontroly. Zvýšte ho pri dlhých workflowoch, ktoré narazia na chybu časového limitu. Pre predvolenú hodnotu nechajte prázdne."
+    }
+  },
+  "mode": {
+    "ariaLabel": "Režim oprávnení",
+    "option": {
+      "plan": "Plán",
+      "default": "Predvolený",
+      "edit": "Upraviť",
+      "full": "Plný"
+    },
+    "editConfirm": {
+      "warning": "Režim úprav umožňuje tomuto asistentovi upravovať súbory."
+    }
+  },
+  "globalSafety": {
+    "title": "Globálne bezpečnostné pravidlá",
+    "defaultLevel": {
+      "title": "Predvolená úroveň bezpečnosti",
+      "description": "Platí pre všetkých asistentov, pokiaľ nie je prepísaná.",
+      "cautious": {
+        "label": "Opatrný",
+        "description": "Opýtať sa pred každou akciou"
+      },
+      "balanced": {
+        "label": "Vyvážený",
+        "description": "Opýtať sa len pred rizikovými akciami"
+      },
+      "autonomous": {
+        "label": "Autonómny",
+        "description": "Pracovať nezávisle"
+      }
+    },
+    "blocked": {
+      "title": "Zablokované príkazy",
+      "description": "Tieto príkazy sú vždy zablokované, bez ohľadu na úroveň bezpečnosti.",
+      "placeholder": "Pridať zablokovaný príkaz..."
+    },
+    "approval": {
+      "title": "Vyžadovať schválenie",
+      "description": "Tieto príkazy vyžadujú vaše schválenie pred spustením.",
+      "placeholder": "Pridať vzor príkazu..."
+    },
+    "timeout": {
+      "title": "Predvolený časový limit",
+      "hint": "sekúnd (predvolene: 300)"
+    }
+  },
+  "context": {
+    "title": "Kontext pracovného priestoru",
+    "description": "Tento dokument sa vkladá do každého promptu asistenta v tomto pracovnom priestore. Použite ho na zdieľané inštrukcie, kontext projektu alebo kódovacie štandardy.",
+    "placeholder": "# Kontext pracovného priestoru\n\nOpíšte projekt, konvencie alebo inštrukcie, ktoré majú všetci asistenti dodržiavať...",
+    "workingDir": {
+      "title": "Pracovný adresár",
+      "saved": "Uložené",
+      "description": "Nastavte adresár, v ktorom bežia asistenti a operácie gitu. Ponechajte prázdne pre použitie predvoleného adresára servera.",
+      "placeholder": "C:\\Users\\me\\my-project alebo /home/me/my-project",
+      "saveError": "Uloženie zlyhalo"
+    }
+  },
+  "plan": {
+    "title": "Plán pracovného priestoru",
+    "description": "Definujte ciele, míľniky a úlohy pre tento pracovný priestor. Tento dokument slúži ako vaša referencia — nevkladá sa do promptov asistentov.",
+    "placeholder": "# Plán pracovného priestoru\n\nDefinujte ciele, míľniky a úlohy pre tento pracovný priestor..."
+  },
+  "credentials": {
+    "loading": "Načítavanie poverení…",
+    "intro": "Uložené šifrovane na serveri. Tajomstvá sa nikdy nezobrazujú — iba maskovaný náhľad.",
+    "state": {
+      "notSet": "Nenastavené",
+      "saved": "Uložené",
+      "fromEnv": "Z .env",
+      "set": "Nastavené",
+      "withPreview": "{{source}} · {{preview}}",
+      "willClear": "Bude vymazané pri uložení"
+    },
+    "input": {
+      "keepCurrent": "Ponechajte prázdne pre zachovanie aktuálnej hodnoty",
+      "notSet": "Nenastavené"
+    },
+    "reveal": {
+      "show": "Zobraziť {{label}}",
+      "hide": "Skryť {{label}}"
+    },
+    "clear": "Vymazať",
+    "undo": "Späť",
+    "save": "Uložiť poverenia",
+    "savedState": "Uložené",
+    "loadError": "Načítanie poverení zlyhalo",
+    "saveError": "Uloženie poverení zlyhalo",
+    "group": {
+      "anthropic": {
+        "title": "Prístup ku Claude",
+        "hint": "Asistenti bežia cez Claude Code CLI. Zadajte buď API kľúč, alebo nastavovací token z `claude setup-token` (používa vaše predplatné Claude). Ak sú nastavené oba, vyhráva nastavovací token. Platí okamžite po uložení."
+      },
+      "openai": {
+        "title": "Prístup k OpenAI",
+        "hint": "Používané asistentmi OpenAI. Vytvorte kľúč na platform.openai.com/api-keys. Platí okamžite po uložení."
+      },
+      "perplexity": {
+        "title": "Prístup k Perplexity",
+        "hint": "Používané asistentmi Perplexity. Vytvorte kľúč na perplexity.ai/settings/api. Platí okamžite po uložení."
+      },
+      "github": {
+        "title": "GitHub OAuth",
+        "hint": "Umožňuje „Prihlásiť sa cez GitHub“. Vytvorte OAuth aplikáciu v GitHub → Developer settings."
+      },
+      "google": {
+        "title": "Google OAuth",
+        "hint": "Umožňuje „Prihlásiť sa cez Google“. Vytvorte OAuth poverenia v konzole Google Cloud."
+      },
+      "smtp": {
+        "title": "E-mail (SMTP)",
+        "hint": "Používa ho Email uzol na plátne na odoslanie výstupu workflowu. SMTP secure: „true“ pre port 465 (implicitné TLS), „false“ pre 587 (STARTTLS). Použije sa okamžite po uložení; nechaj SMTP host prázdny pre vypnutie."
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "technical-writer",
+  "name": "Technical Writer",
+  "description": "Clear docs, guides, and API references from code.",
+  "icon": "BookOpen",
+  "category": "Content & Marketing",
+  "purpose": "writing",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "Grep", "Glob"],
+  "tags": ["documentation", "docs", "guides", "api-reference", "writing"],
+  "order": 15
+}

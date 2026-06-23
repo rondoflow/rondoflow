@@ -1,0 +1,10 @@
+{
+  "id": "operate-linux-systems-safely",
+  "name": "operate-linux-systems-safely",
+  "description": "Operate Linux systems avoiding permission traps, silent failures, and common admin mistakes.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

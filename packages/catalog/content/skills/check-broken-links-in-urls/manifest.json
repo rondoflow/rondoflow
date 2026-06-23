@@ -1,0 +1,10 @@
+{
+  "id": "check-broken-links-in-urls",
+  "name": "check-broken-links-in-urls",
+  "description": "Error: --url required. Use when you need link checker capabilities. Triggers on: link checker, url, depth, timeout, max, format.",
+  "category": "Community",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

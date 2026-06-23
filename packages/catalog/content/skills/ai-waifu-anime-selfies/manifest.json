@@ -1,0 +1,10 @@
+{
+  "id": "ai-waifu-anime-selfies",
+  "name": "ai-waifu-anime-selfies",
+  "description": "Your AI waifu companion that sends anime-style selfies",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.14",
+  "icon": "puzzle",
+  "order": 1000
+}

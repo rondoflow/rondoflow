@@ -1,0 +1,10 @@
+{
+  "id": "terminal-calendar-scheduling-app",
+  "name": "terminal-calendar-scheduling-app",
+  "description": "A text-based calendar and scheduling application. Use strictly for CLI-based calendar management.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

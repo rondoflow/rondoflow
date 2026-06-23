@@ -1,0 +1,10 @@
+{
+  "id": "settlement-witness-verification",
+  "name": "settlement-witness-verification",
+  "description": "\\---",
+  "category": "Community",
+  "author": "community",
+  "version": "0.0.11",
+  "icon": "puzzle",
+  "order": 1000
+}

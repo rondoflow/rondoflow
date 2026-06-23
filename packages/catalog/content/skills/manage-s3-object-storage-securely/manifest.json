@@ -1,0 +1,10 @@
+{
+  "id": "manage-s3-object-storage-securely",
+  "name": "manage-s3-object-storage-securely",
+  "description": "Work with S3-compatible object storage with proper security, lifecycle policies, and access patterns.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@rondoflow/server",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch --env-file=../../.env src/index.ts",
+    "build": "tsc",
+    "start": "node --env-file=../../.env dist/index.js",
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.0",
+    "@fastify/multipart": "^9.4.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@prisma/client": "^6.5.0",
+    "@rondoflow/shared": "*",
+    "better-auth": "^1.5.5",
+    "croner": "^10.0.1",
+    "fastify": "^5.2.0",
+    "nodemailer": "^6.9.16",
+    "openai": "^6.42.0",
+    "socket.io": "^4.8.0",
+    "zod": "^3.24.0"
+  },
+  "prisma": {
+    "seed": "tsx --env-file=../../.env prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/nodemailer": "^6.4.17",
+    "@vitest/coverage-v8": "^4.1.0",
+    "prisma": "^6.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.0"
+  }
+}

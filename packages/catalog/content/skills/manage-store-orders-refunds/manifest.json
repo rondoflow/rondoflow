@@ -1,0 +1,10 @@
+{
+  "id": "manage-store-orders-refunds",
+  "name": "manage-store-orders-refunds",
+  "description": "Manage Clawver orders. List orders, track status, process refunds, generate download links. Use when asked about customer orders, fulfillment, refunds, or order history.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "puzzle",
+  "order": 1000
+}

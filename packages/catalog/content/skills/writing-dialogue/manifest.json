@@ -1,0 +1,10 @@
+{
+  "id": "writing-dialogue",
+  "name": "writing-dialogue",
+  "description": "Diagnoses and repairs dialogue for subtext, voice differentiation, exposition, and forward momentum. Use when dialogue sounds wrong, on-the-nose, or when characters all sound the same. Triggers: 'the dialogue sounds wrong', 'dialogue feels on the nose', 'dialogue review', 'characters sound the same', 'dialogue fix', 'dialogue is too direct', 'the dialogue explains too much'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

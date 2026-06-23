@@ -1,0 +1,10 @@
+{
+  "id": "testflight-app-store-release-flow",
+  "name": "testflight-app-store-release-flow",
+  "description": "End-to-end release workflows for TestFlight and App Store using asc publish, builds, versions, and submit commands. Use when asked to upload a build, distribute to TestFlight, or submit to App Store.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

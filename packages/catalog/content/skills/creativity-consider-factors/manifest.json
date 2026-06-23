@@ -1,0 +1,10 @@
+{
+  "id": "creativity-consider-factors",
+  "name": "creativity-consider-factors",
+  "description": "Apply Edward de Bono's CAF (Consider All Factors) tool to map every relevant factor before making a decision or taking action. Use when the user is about to decide something important, wants to make sure they haven't missed anything, is planning an action and needs to think through consequences, or has been surprised by things they didn't anticipate. CAF is the pre-flight checklist for consequential decisions.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

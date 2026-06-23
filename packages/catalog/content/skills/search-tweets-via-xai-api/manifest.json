@@ -1,0 +1,10 @@
+{
+  "id": "search-tweets-via-xai-api",
+  "name": "search-tweets-via-xai-api",
+  "description": "Search X (Twitter) posts using the xAI API. Use when the user wants to find tweets, search X/Twitter, look up what people are saying on X, or find social media posts about a topic.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

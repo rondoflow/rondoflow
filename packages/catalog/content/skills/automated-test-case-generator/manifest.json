@@ -1,0 +1,10 @@
+{
+  "id": "automated-test-case-generator",
+  "name": "automated-test-case-generator",
+  "description": "Automated test case generator. Unit tests, integration tests, end-to-end tests, mock objects, test fixtures, coverage analysis, edge case generation.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

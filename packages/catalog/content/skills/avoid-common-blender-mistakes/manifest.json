@@ -1,0 +1,10 @@
+{
+  "id": "avoid-common-blender-mistakes",
+  "name": "avoid-common-blender-mistakes",
+  "description": "Avoid common Blender mistakes — transform application, modifier order, UV seams, and export settings for game engines.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "task-communication-scheduling-assistant",
+  "name": "task-communication-scheduling-assistant",
+  "description": "Manage tasks, communications, and scheduling with proactive and organized support.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

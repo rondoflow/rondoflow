@@ -1,0 +1,10 @@
+{
+  "id": "setup-python-projects-and-environments",
+  "name": "setup-python-projects-and-environments",
+  "description": "Use Python for practical project setup, dependency install, script execution, and environment troubleshooting with safe defaults. Use when tasks involve pyproject.toml or requirements.txt, virtual environment setup, running Python scripts/tests, packaging basics, or fixing commo…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

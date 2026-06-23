@@ -1,0 +1,10 @@
+{
+  "id": "search-youtube-videos-channels-trends",
+  "name": "search-youtube-videos-channels-trends",
+  "description": "YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

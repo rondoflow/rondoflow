@@ -1,0 +1,10 @@
+{
+  "id": "decision-premortem-analysis",
+  "name": "decision-premortem-analysis",
+  "description": "Imagines the decision has been made and failed — then diagnoses why. Breaks the commitment bias that prevents honest risk assessment after a direction is chosen. Triggers: 'pre-mortem', 'imagine this failed', 'what could go wrong', 'assume this doesn't work', 'failure mode analysis'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

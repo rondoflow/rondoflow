@@ -1,0 +1,10 @@
+{
+  "id": "densify-summaries-chain-of-density",
+  "name": "densify-summaries-chain-of-density",
+  "description": "Iteratively densify text summaries using Chain-of-Density technique. Use when compressing verbose documentation, condensing requirements, or creating executive summaries while preserving information density.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "onedrive-file-helper",
+  "name": "onedrive-file-helper",
+  "description": "OneDrive API integration with managed OAuth via Microsoft Graph. Manage files, folders, and sharing. Use this skill when users want to upload, download, organize, or share files in OneDrive. For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-g…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "check-square",
+  "order": 1000
+}

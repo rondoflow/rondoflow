@@ -1,0 +1,10 @@
+{
+  "id": "ai-video-editor",
+  "name": "ai-video-editor",
+  "description": "Raw assets + Requirements in, result video out. Edit any type of video with Sparki (the video agent powered by Gemini multimodal AI).",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

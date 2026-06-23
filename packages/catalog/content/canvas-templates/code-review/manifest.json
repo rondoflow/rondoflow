@@ -1,0 +1,40 @@
+{
+  "id": "code-review",
+  "name": "Code Review Pipeline",
+  "description": "A three-stage pipeline with a writer, reviewer, and security auditor.",
+  "icon": "GitPullRequest",
+  "order": 0,
+  "nodes": [
+    {
+      "key": "writer",
+      "type": "agent",
+      "position": { "x": 100, "y": 200 },
+      "name": "Code Writer",
+      "description": "Writes and iterates on code solutions",
+      "model": "sonnet",
+      "purpose": "coding"
+    },
+    {
+      "key": "reviewer",
+      "type": "agent",
+      "position": { "x": 400, "y": 200 },
+      "name": "Code Reviewer",
+      "description": "Reviews code for quality and correctness",
+      "model": "opus",
+      "purpose": "review"
+    },
+    {
+      "key": "security-reviewer",
+      "type": "agent",
+      "position": { "x": 700, "y": 200 },
+      "name": "Security Reviewer",
+      "description": "Audits code for vulnerabilities and security issues",
+      "model": "opus",
+      "purpose": "review"
+    }
+  ],
+  "edges": [
+    { "source": "writer", "target": "reviewer", "edgeType": "flow" },
+    { "source": "reviewer", "target": "security-reviewer", "edgeType": "flow" }
+  ]
+}

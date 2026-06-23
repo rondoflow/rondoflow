@@ -1,0 +1,10 @@
+{
+  "id": "book-tattoo-services",
+  "name": "book-tattoo-services",
+  "description": "Book tattoo services through Lokuli MCP. Use when user needs to find and book tattoo. Triggers on requests like \"book a tattoo\", \"find tattoo near me\", or any tattoo service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

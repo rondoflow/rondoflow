@@ -1,0 +1,305 @@
+---
+title: Safety Rules
+description: Constrain what Assistants can do with layered Safety Rules that resolve most-restrictive-wins, plus human approvals — and learn exactly which run modes enforce them.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Safety Rules
+
+Safety Rules (internally *policies*) are how RondoFlow keeps Assistants (agents) inside the lines. A rule can block dangerous commands, require your approval before a tool runs, and cap timeouts, file sizes, and spend.
+
+The guiding principle is simple: **the most restrictive setting always wins.** You can layer rules without fear that a permissive layer will quietly loosen a stricter one.
+
+<Callout type="warning">
+Not every run mode enforces every part of a Safety Rule. Command blocking and the human-approval gate fire **only on interactive single-Assistant runs** (the Chat / Run-an-Assistant path). Multi-agent runs and the AI helper passes run headless and skip per-command gating — the budget cap and the spawn timeouts are still enforced everywhere. See [What enforces what](#what-enforces-what) before you rely on a rule.
+</Callout>
+
+## The three layers
+
+Safety Rules attach at one of three levels. The resolver loads all of them and merges them from least specific to most specific.
+
+| Level | Internal `level` | Scope | Typical use |
+| --- | --- | --- | --- |
+| Global | `global` | Every Assistant in the workspace | Org-wide guardrails (block `rm -rf /`, cap budgets) |
+| Assistant | `agent` | A single Assistant | Tighten or extend rules for one risky Assistant |
+| Conversation | `session` | One Conversation (session) run | Temporary tightening for a specific run |
+
+Load order is **global → Assistant → Conversation**. Because every merge step can only *tighten* a value, a more specific rule can never relax a broader one.
+
+<Callout type="important">
+**Conversation (session) level rules are supported by the resolver but are not wired into the interactive run path today.** The Chat / Run-an-Assistant path resolves the effective policy *before* the Conversation (session) record exists, calling `resolvePolicy(agentId)` with no session id, and caches that result for the whole run. So in practice only **global** and **Assistant** rules take effect on real runs. A `session`-level rule you create through the API is stored and merged correctly by the resolver, but nothing currently passes the session id at run time. Treat the Conversation layer as reserved.
+</Callout>
+
+## How resolution works (most restrictive wins)
+
+When the resolver computes the effective rule for an Assistant, each field merges with its own strategy:
+
+| Field | Merge strategy | Meaning |
+| --- | --- | --- |
+| `maxTimeout` | minimum | The smallest timeout across all layers |
+| `maxFileSize` | minimum | The smallest file-size cap across all layers |
+| `maxBudgetUsd` | minimum | The smallest budget across all layers |
+| `blockedCommands` | union | Every blocked pattern from every layer (additive, never shrinks) |
+| `requireApproval` | union, escalating | All approval patterns combined; if **any** layer sets `true`, everything needs approval |
+| `permissionMode` | most restrictive | Stays the least-strict mode only when **all** layers agree |
+
+For `permissionMode`, restrictiveness is ranked (most to least): `default` > `plan` > `acceptEdits` > `dontAsk`. Any single layer asking for `default` forces `default` for the whole run.
+
+<Callout type="info">
+Numeric fields take the minimum, lists take the union, `requireApproval` escalates to "approve everything" if any layer demands it, and `permissionMode` only stays relaxed when every layer agrees. There is no way to widen a rule from a more specific layer.
+</Callout>
+
+## Rule fields
+
+Every Safety Rule stores a `rules` object. All fields are optional — only what you set participates in the merge; anything omitted falls back to the built-in default.
+
+| Field | Type | Default | What it does |
+| --- | --- | --- | --- |
+| `blockedCommands` | `string[]` | `[]` | Patterns that are always blocked; a match stops the tool call |
+| `requireApproval` | `string[]` or `boolean` | `[]` | Patterns that pause for your approval; `true` means approve every tool |
+| `maxTimeout` | `number` (ms) | `300000` (5 min) | Maximum run time |
+| `maxFileSize` | `number` (bytes) | `10485760` (10 MB) | Maximum file size cap |
+| `maxBudgetUsd` | `number` | `100` | Maximum spend per run, in US dollars |
+| `permissionMode` | `'default' \| 'plan' \| 'acceptEdits' \| 'dontAsk'` | `dontAsk` | How the underlying CLI handles tool permissions |
+
+<Callout type="warning">
+These defaults are the baseline used when **no** rule sets a value. The moment you add a stricter rule at any layer, the minimum (or union) takes over — so a global `maxBudgetUsd` of `50` overrides the `100` default everywhere.
+</Callout>
+
+### `permissionMode` vs an Assistant's Mode
+
+`permissionMode` on a Safety Rule is distinct from an Assistant's own **Mode** (Plan / Default / Edit / Full). An Assistant's Mode maps to a CLI permission string first, then any Safety Rule `permissionMode` is merged on top toward stricter:
+
+| Assistant Mode | CLI permission string |
+| --- | --- |
+| Plan | `plan` |
+| Default | `default` |
+| Edit | `acceptEdits` |
+| Full | `bypassPermissions` |
+
+`bypassPermissions` ranks below every policy mode, so any rule-set `permissionMode` overrides a Full Assistant toward stricter. Note that several headless run paths (chains, the Director/Planner/Advisor passes, loops, discussions, the Structurer, scheduled runs) hardcode `bypassPermissions` and skip the merge entirely — see [What enforces what](#what-enforces-what).
+
+### How patterns are matched
+
+`blockedCommands` and `requireApproval` patterns are matched against the command an Assistant wants to run:
+
+- For the **Bash** tool, RondoFlow matches against the actual `command` string.
+- For every other tool (such as `Write` or `WebFetch`), it matches against the tool name.
+
+Matching is **case-sensitive**. A pattern matches if the subject **equals** it, **contains** it, or **starts with** it. So a blocked pattern of `git push` matches `git push origin main`, and a pattern of `rm` matches both `rm file.txt` and `npm` — keep patterns specific to avoid false positives.
+
+Evaluation order per tool call:
+
+<Steps>
+### Extract the command
+
+The effective command string is pulled from the tool input (Bash `command`, or the tool name for everything else).
+
+### Check blocked commands
+
+If it matches any `blockedCommands` pattern, the call is **blocked** with a reason — no approval, no exceptions.
+
+### Check require-approval
+
+If it matches any `requireApproval` pattern (or approval is set to `true`), the call is **paused** for human review.
+
+### Otherwise allow
+
+If nothing matched, the tool runs.
+</Steps>
+
+<Callout type="info">
+This is a **detect-and-hold** model, not a kernel sandbox. Gating runs in the `onToolUse` callback *after* the CLI has already emitted the `tool_use` event — RondoFlow stops the Assistant and closes the session at that point. Native pre-execution blocking is on the roadmap (see [Security](/docs/reference/security)) but is not implemented today, so a blocked pattern prevents the Assistant from *continuing*, not from a tool having been requested.
+</Callout>
+
+## What enforces what
+
+This is the most important thing to internalize about Safety Rules: **command blocking and the human-approval gate are interactive-only.**
+
+| Run mode | `blockedCommands` / `requireApproval` | Budget cap (`maxBudgetUsd`) | Spawn timeouts |
+| --- | --- | --- | --- |
+| Interactive single Assistant (Chat / Run) | Enforced (via `checkToolUse` on every `tool_use`) | Enforced | Enforced |
+| Workflow / Chain (DAG or Director) | **Not** enforced (runs `bypassPermissions`) | Enforced | Enforced |
+| Loops, Discussions | **Not** enforced (`bypassPermissions`) | Enforced | Enforced |
+| Scheduled runs | **Not** enforced (`bypassPermissions`) | Enforced | Enforced |
+| Director / Planner / Advisor / Structurer passes | **Not** enforced (`bypassPermissions`) | Enforced | Enforced |
+
+The headless run paths spawn the CLI with `permissionMode: 'bypassPermissions'` and never call the policy checker, so a `blockedCommands` or `requireApproval` pattern has **no effect** on a [Workflow](/docs/guides/workflows) run, a [Loop](/docs/guides/loops), a [Discussion](/docs/guides/discussions), or a [scheduled task](/docs/guides/schedules). Their enforced guardrails are the budget cap and the spawn idle / wall-clock timeouts.
+
+<Callout type="warning">
+Workflows have their own, separate gate: an "approve before each step" mode (`perStep`) that pauses before every agent step in a chain. That is a coarse whole-step pause, **not** the per-command `requireApproval` pattern gate. If you need a specific destructive command to be blocked or held, that protection exists only on interactive single-Assistant runs today.
+</Callout>
+
+## The budget cap
+
+`maxBudgetUsd` is the one guardrail enforced across every run mode and every provider. It is passed straight to the CLI as `--max-budget-usd`, a real spend ceiling the CLI enforces itself — distinct from RondoFlow's own analytics cost estimates.
+
+The **global** per-run budget (the "Max Budget" control) does not live in the Safety Rules API. It is stored on a single canonical global Policy row and managed through its own endpoints:
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/settings/budget` | Read the global spend cap (`null` = no cap) |
+| `PUT` | `/api/settings/budget` | Set or clear the cap (`maxBudgetUsd`: positive, max `1000`, or `null`) |
+
+<Callout type="info">
+Setting the budget is gated by the generic **write** capability (editor+), not by admin — so any editor can change the workspace spend cap. Compare with credential editing, which is admin-only. See [Users & roles](/docs/guides/users).
+</Callout>
+
+## Human approvals
+
+When a tool call matches a `requireApproval` pattern on an interactive run, the run **pauses** (the Assistant goes to `waiting_approval`) and RondoFlow surfaces an approval dialog ("Action Required"). The Assistant cannot proceed until you respond.
+
+The dialog shows:
+
+- The Assistant name and the tool being requested.
+- A plain-language description of what it wants to do.
+- The exact command, with an automatic **risk badge** (high / medium / low) computed purely from the command string by regex, independent of which policy pattern matched.
+- A countdown to auto-dismiss.
+
+Risk tiers are assigned like this:
+
+| Tier | Triggering patterns (examples) |
+| --- | --- |
+| **High** | `rm -rf`, `DROP TABLE`, `TRUNCATE`, `FORMAT`, `chmod 777`, `sudo`, `eval`, raw-disk redirects (`> /dev/sd…`) |
+| **Medium** | `git push`, `git force`, `deploy`, `publish`, `npm publish`, `write`, `delete` |
+| **Low** | everything else |
+
+You have three choices:
+
+| Action | Result | Shortcut |
+| --- | --- | --- |
+| **Approve** | The command runs as shown | `Enter` |
+| **Edit & Approve** | Edit the command first, then run the edited version | — |
+| **Reject** | The command is denied | `Esc` |
+
+<Callout type="important">
+Approvals are ephemeral and time-boxed. An unanswered request **auto-rejects after about 5 minutes** (the default approval timeout). A watchdog sweeps expired requests every 10 seconds, so a forgotten dialog fails safe — it is denied, never silently approved.
+</Callout>
+
+<Callout type="warning">
+Pending approvals live **in memory only** — they are not persisted. If the server restarts or crashes while a request is open, the pending approval is lost and the Assistant can be left stuck at `waiting_approval` in the database. Stop and re-run the Assistant to recover.
+</Callout>
+
+## Worked example: resolution in action
+
+Suppose two layers apply to one Assistant run (global + Assistant — the layers that actually take effect on interactive runs):
+
+```jsonc
+// Global Safety Rule
+{
+  "maxBudgetUsd": 200,
+  "blockedCommands": ["rm -rf /"],
+  "permissionMode": "dontAsk"
+}
+// Assistant Safety Rule
+{
+  "maxBudgetUsd": 100,
+  "blockedCommands": ["DROP TABLE"],
+  "requireApproval": ["git push"],
+  "permissionMode": "default"
+}
+```
+
+The resolved rule the Assistant runs under is:
+
+```json
+{
+  "maxBudgetUsd": 100,
+  "blockedCommands": ["rm -rf /", "DROP TABLE"],
+  "requireApproval": ["git push"],
+  "maxTimeout": 300000,
+  "maxFileSize": 10485760,
+  "permissionMode": "default"
+}
+```
+
+Why:
+
+- **Budget** → minimum of `200 / 100` = **`100`**.
+- **Blocked commands** → the union of every layer's list.
+- **Require approval** → the union of all patterns (no layer set `true`, so it stays a list).
+- **Timeout / file size** → no layer set them, so the defaults stand.
+- **Permission mode** → the Assistant rule asked for `default`, which is the most restrictive, so it wins even though the global layer said `dontAsk`.
+
+A `session`-level layer would merge into this the same way (minimum / union), but as noted above it is not passed at run time today, so it would not actually affect a live run.
+
+## The Global Safety panel
+
+The **Global Safety Rules** panel previews workspace-wide guardrails: a default safety level (*Cautious* / *Balanced* / *Autonomous*), a **Blocked Commands** list, a **Require Approval** list, and a default timeout.
+
+<Callout type="warning">
+This panel does **not** persist its edits today. The safety-level radio, the blocked / approval list edits, and the timeout input are all local UI state with no save action — closing the panel discards your changes, and nothing is written to the Safety Rules API. Use the [Safety Rules API](#the-safety-rules-api) (for `blockedCommands` / `requireApproval` and other rule fields) and the budget endpoint (for the spend cap) to make changes that actually take effect.
+</Callout>
+
+The lists you see in the panel mirror the canonical global Policy row that RondoFlow seeds — a `global`-level Policy named **"Default Safety Rules"** with:
+
+- `blockedCommands`: `rm -rf /`, `DROP TABLE`, `FORMAT`
+- `requireApproval`: `rm`, `git push`, `npm publish`, `docker rm`
+- `maxTimeout`: `300`, `permissionMode`: `default`
+
+That row is created or updated whenever the global budget is set via `PUT /api/settings/budget`; the budget value is stored alongside these rules on the same Policy.
+
+## The Safety Rules API
+
+Safety Rules are managed under `/api/policies`. Responses use the standard envelope (`{ success, data?, error? }`).
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/policies` | List rules; filter by `level` and/or `agentId` query params |
+| `GET` | `/api/policies/:id` | Fetch one rule (includes its Assistant and Conversation) |
+| `POST` | `/api/policies` | Create a rule |
+| `PATCH` | `/api/policies/:id` | Update a rule |
+| `DELETE` | `/api/policies/:id` | Delete a rule |
+
+A create request validates `name` (1–100 chars), `level` (`global` / `agent` / `session`), the `rules` object, and optional `agentId` / `sessionId`.
+
+<Tabs items={['Create a global rule', 'List Assistant rules']}>
+<Tabs.Tab>
+```bash
+curl -X POST http://localhost:3001/api/policies \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Org guardrails",
+    "level": "global",
+    "rules": {
+      "blockedCommands": ["rm -rf /", "DROP TABLE"],
+      "requireApproval": ["git push", "npm publish"],
+      "maxBudgetUsd": 50,
+      "permissionMode": "default"
+    }
+  }'
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+curl "http://localhost:3001/api/policies?level=agent&agentId=AGENT_ID"
+```
+</Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+To scope a rule to one Assistant, set `level: "agent"` and pass its `agentId`. Leave both `agentId` and `sessionId` off for a `global` rule. A `level: "session"` rule with a `sessionId` is accepted and stored, but is not currently applied at run time (see the [three-layers](#the-three-layers) note).
+</Callout>
+
+## Tips
+
+- **Block, don't just approve.** `blockedCommands` is a hard stop; `requireApproval` still lets the command run after a click. Use blocking for anything truly catastrophic — on interactive runs.
+- **Use the budget cap for headless runs.** Since command gating does not apply to Workflows, Loops, Discussions, and scheduled tasks, the `maxBudgetUsd` cap and the spawn timeouts are your real guardrails there. Set a sensible global budget.
+- **Start global, tighten per Assistant.** Put your non-negotiables (a hard budget cap, a stricter `permissionMode`) at the global level, then add Assistant rules where you need more restriction. (The Conversation layer is reserved.)
+- **Be specific with patterns.** Because matching includes substring and prefix checks and is case-sensitive, an overly short pattern (like `rm`) can match more than you intend.
+- **Mind the approval timeout.** Approvals auto-reject after ~5 minutes, so long-unattended interactive runs that hit an approval gate will stall and then fail safe.
+
+## Related
+
+<Cards>
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Users & roles" href="/docs/guides/users" />
+  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="Settings" href="/docs/guides/settings" />
+</Cards>

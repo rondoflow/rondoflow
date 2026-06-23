@@ -1,0 +1,186 @@
+---
+title: Security Model
+description: How RondoFlow isolates spawned processes, encrypts credentials, validates input, and enforces authorization and safety rules.
+---
+
+import { Callout } from 'nextra/components'
+
+# Security Model
+
+RondoFlow runs locally and starts (spawns) real Claude Code CLI processes that can read files, run shell commands, and call tools. That power demands a layered defense. This page describes how RondoFlow keeps your machine, your credentials, and your data safe across every boundary: process startup, the environment passed to child processes, credential storage, input validation, authorization, and Safety Rule enforcement.
+
+<Callout type="important">
+RondoFlow is local-first and supports multiple users with role-based access (admin / editor / viewer) over a **single shared workspace** — there is no per-user or per-tenant data isolation, so every authenticated user sees the same pool of resources and access is gated by role, not ownership. The protections below harden the boundary between RondoFlow and the processes/tools it starts, and between the HTTP/WebSocket surface and unauthenticated or under-privileged callers. They do not make it safe to expose a RondoFlow instance directly to the public internet. See [Self-Hosting](/docs/reference/self-hosting).
+</Callout>
+
+## Process safety
+
+Every Assistant (Agent) that runs on the Claude Code backend runs as a child process started with Node's `child_process.spawn`. The spawner follows strict rules to eliminate command-injection risk:
+
+- **Never `shell: true`.** The CLI is started directly with an argument array, so nothing in a prompt, tool list, or directory path is ever interpreted by a shell.
+- **Arguments are arrays, not strings.** The prompt is always the final positional argument, placed after an explicit `--` end-of-options separator so variadic flags (`--allowedTools`, `--add-dir`) can never swallow it.
+- **No `execSync`.** Synchronous external calls use `spawnSync` with an args array — never a concatenated command string.
+- **Structured output only.** The CLI is started with `--output-format stream-json` (and the `--verbose` it requires), so RondoFlow parses typed events instead of scraping free-form text.
+- **Whole-tree termination.** On Unix the child is started in its own process group (`detached: true`) so Stop kills the entire tree via a negative PID; on Windows `taskkill /T /F` does the same.
+
+When RondoFlow runs as root inside a container (a common deployment), the CLI refuses `--dangerously-skip-permissions` unless the environment is marked sandboxed. RondoFlow sets `IS_SANDBOX=1` only for that exact case — running as root *and* the run requested bypass permissions — and the env allowlist never forwards `IS_SANDBOX` otherwise.
+
+### Spawn timeouts reap stalled runs
+
+A spawned CLI that hangs — on a never-resolving permission prompt, a stuck network call, or a wedged tool — would otherwise hold a slot indefinitely. Two timers guard against that. Both are killed cleanly on completion and never hold the Node process open during shutdown.
+
+| Timer | Env var | Default | Behaviour |
+| --- | --- | --- | --- |
+| Idle / inactivity | `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` | `300000` (5 min) | Resets on every stream event, so long-lived interactive agents survive. Fires only after a true silence; `0` disables it. |
+| Absolute wall-clock | `RONDOFLOW_SPAWN_MAX_MS` | `0` (off) | Hard cap measured from spawn, never reset. Off by default for interactive agents; one-shot generators (Director / Planner / Advisor / Scheduler) pass their own. |
+
+When either fires, the whole process tree is killed and the run surfaces as a `TIMEOUT_ERROR`, so a hung CLI is reaped rather than left running. The scheduler relies on the idle timeout to reap stalled headless plan prompts.
+
+## Environment isolation
+
+A spawned child does **not** inherit RondoFlow's full environment. The spawner builds a fresh environment from a small allowlist (`PATH`, `HOME`, `USERPROFILE`, `LANG`, `TERM`, and the Windows runtime equivalents — `APPDATA`, `LOCALAPPDATA`, `TEMP`, `TMP`, `SystemRoot`, `ComSpec`) plus the output-token ceiling. Everything else must be explicitly and safely added.
+
+<Callout type="important">
+Server secrets are stripped from every child process. `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `RONDOFLOW_SECRET` are on a hard blocklist — even if a workspace "variable" resource tries to supply one of those names, it is dropped before the child starts. The comparison uppercases each key before matching, so any casing of those names is blocked. The database connection string and the key that protects your stored secrets never reach a tool-running process.
+</Callout>
+
+### What does reach the child
+
+| Source | Forwarded? | Notes |
+| --- | --- | --- |
+| Allowlisted system vars | Yes | `PATH`, `HOME`, locale, terminal, and Windows runtime vars |
+| `CLAUDE_CODE_MAX_OUTPUT_TOKENS` | Yes | Defaults to `128000`; overridable via `.env` or a workspace variable |
+| The winning Claude credential | Yes (exactly one) | See below |
+| Workspace "variable" resources | Yes, unless blocklisted | Your own non-secret config and decrypted secrets |
+| `DATABASE_URL`, `BETTER_AUTH_SECRET`, `RONDOFLOW_SECRET` | No | Stripped, compared case-insensitively |
+
+### One Claude credential, deterministically chosen
+
+For a Claude Code agent, RondoFlow forwards exactly one Claude auth value. A setup token (`CLAUDE_CODE_OAUTH_TOKEN`, from `claude setup-token`) wins over an API key (`ANTHROPIC_API_KEY`), so an ambient API key can never silently override the credential you chose. If neither is configured, nothing is forwarded and the CLI falls back to its own stored credentials. This precedence is shared by every Claude-invoking path (the spawner and the WorkflowGenerator's direct invocation), so it cannot be bypassed.
+
+When spawn-time tracing is enabled (`RONDOFLOW_DEBUG_SPAWN=1`), the forwarded credential is **masked** in logs — only a short identifying prefix and the length are shown — and the `--mcp-config` value (which can embed Connection (MCP Server) credentials) is redacted entirely.
+
+### Other provider backends
+
+Not every Assistant runs through the Claude Code CLI. An Assistant can also target an OpenAI (`OPENAI_API_KEY`) or Perplexity (`PERPLEXITY_API_KEY`) backend, in which case it runs through an API-provider runner instead of `spawn`. For those runs the prompt builder skips the Claude-CLI machinery entirely — no tool allowlist, no MCP config, no `--add-dir` — and forwards only the relevant provider API key. The "one Claude credential" rules above govern the Claude Code path specifically; a non-Claude Assistant never receives a Claude credential at all. Those provider keys are managed in Settings and encrypted at rest the same way Claude credentials are (see below).
+
+## Credential handling
+
+Provider keys, OAuth secrets, and SMTP credentials are managed through Settings and persisted in the database. Workspace secret variables and Settings credentials are both encrypted at rest with the same scheme.
+
+- **AES-256-GCM at rest.** Secret values are encrypted with `aes-256-gcm` (a 96-bit random IV per value plus a 128-bit authentication tag) before they are written to the database. This covers workspace secret variables *and* the secret rows in the `Setting` table — `ANTHROPIC_API_KEY`, `CLAUDE_CODE_OAUTH_TOKEN`, `OPENAI_API_KEY`, `PERPLEXITY_API_KEY`, `SMTP_PASS`, and the GitHub/Google OAuth client secrets. Non-secret rows (OAuth client IDs, SMTP host/port/from) are stored in plaintext because they are not sensitive.
+- **DB values override `.env` at boot.** On startup the server loads stored credentials from the `Setting` table and writes the decrypted values into `process.env`, overriding anything supplied in `.env`. So a credential configured through Settings always wins over the same key in the environment file.
+- **Secrets never leave the server in full.** When a workspace resource is serialized for the API, the secret value is omitted entirely — credentials never reach the frontend.
+- **Masked status only.** The Settings credential view reports presence and a masked preview (for example, the last four characters as `••••abcd`). Non-secret values like OAuth client IDs are shown in full so you can confirm what is configured; secrets never are.
+
+<Callout type="warning">
+**Encryption-key casing — a known code/doc mismatch.** The encryption module reads the **lowercase** env var `rondoflow_SECRET`, falling back to `BETTER_AUTH_SECRET`. (Only the child-process blocklist uses the uppercase `RONDOFLOW_SECRET`, and it uppercases keys before comparing, so blocking works regardless of casing.) On a case-sensitive OS (Linux/macOS) an operator who sets `RONDOFLOW_SECRET` will **not** have it picked up for encryption — it silently falls back to `BETTER_AUTH_SECRET`. Until the casing is reconciled in code, rely on `BETTER_AUTH_SECRET` (auto-generated by `npm run setup` and always required) as the reliable encryption key.
+</Callout>
+
+<Callout type="warning">
+Whichever key the code resolves derives the key that protects every stored secret. Treat it like the master key it is: keep it out of version control, and rotating it invalidates previously encrypted secret values (workspace secrets and Settings credentials alike — decryption fails loudly on a GCM tag mismatch).
+</Callout>
+
+## Input validation
+
+RondoFlow validates input at every system boundary.
+
+- **Zod at the edges.** Request bodies and query strings are parsed with Zod schemas (with explicit min/max bounds, enums, and URL validation) so malformed input is rejected before it touches the database or the engine.
+- **UUID validation.** Route path parameters such as `workspaceId` and resource `id` are matched against a UUID regex before any database call, blocking malformed or probing identifiers early.
+- **Path-traversal protection on filesystem routes.** Any name containing `..`, `/`, or `\` is rejected. The two filesystem write paths handle naming differently:
+  - **Uploaded resource files** are stored under a server-generated UUID name (the original filename is rejected if it contains traversal characters), so the caller never controls the on-disk name.
+  - **Saved workflow-output files** (`POST /api/fs/save`) keep the caller-supplied filename but reject traversal characters and re-check that the resolved path still starts inside the target directory before writing.
+- **Symlink-safe output reads.** The workflow-output reader (`GET /api/fs/read`) uses `lstat` so a planted symlink cannot redirect a read outside the directory, and scopes reads to the known `workflow-output-*` naming convention.
+- **Bounded reads.** File preview is capped (5 MB) and directory listings are capped (500 entries) to bound memory and syscall fan-out.
+- **CSV injection guarding.** Audit-log CSV export escapes per RFC 4180 and neutralizes spreadsheet formula triggers (`=`, `+`, `-`, `@`) in user-controlled cells.
+
+## Authorization
+
+Authentication is handled by Better Auth with session cookies.
+
+- **Sign-in methods.** Email/password (minimum 8, maximum 128 characters) plus optional GitHub and Google OAuth — each social provider activates only when its client ID is configured.
+- **Invite-only — no self-registration.** Open sign-up is disabled: `emailAndPassword.disableSignUp` is set and both OAuth providers set `disableImplicitSignUp`, so OAuth can only sign in an account that already exists. New accounts are created only by an admin through the user-management API, or by the env-bootstrapped first admin at seed time. These remain valid *sign-in* methods; only *sign-up* is disabled.
+- **Session validation everywhere.** A `preHandler` hook validates the session on every non-public route. The only public routes are `/api/health`, `/api/auth-providers` (which returns booleans only — no credential values — so the login page can hide unconfigured social buttons), and Better Auth's own `/api/auth` / `/api/auth/*` routes. Everything else returns `401` without a valid session.
+- **WebSocket auth.** Socket.IO connections are rejected unless the handshake carries a valid session cookie, and each client joins a per-user room so server-to-client events are scoped to their owner rather than broadcast.
+- **CORS enforced.** Both HTTP and the Socket.IO server restrict origins to `UI_ORIGIN` (default `http://localhost:3000`) with `credentials: true`, so a hostile page in another origin cannot drive the API with the user's cookies.
+
+### Role-based access control
+
+Every account carries one of three global roles, ranked `viewer < editor < admin`, and a capability matrix (single-sourced in `@rondoflow/shared`) maps each capability to the minimum role that holds it:
+
+| Capability | Minimum role | Grants |
+| --- | --- | --- |
+| `read` | viewer | See every resource in the shared workspace (read-only) |
+| `write` | editor | Create, edit, and delete resources |
+| `run` | editor | Run workflows, Assistants (agents), chains, Conversations (sessions), loops, and the Director / Planner / Advisor |
+| `manageUsers` | admin | Invite, change roles, deactivate, and delete users |
+| `manageGlobalSettings` | admin | Manage global credential settings |
+
+The default role is **viewer** and role resolution fails closed — any unknown or missing role collapses to viewer.
+
+- **Default-deny REST gate.** A second `preHandler` hook authorizes every request by HTTP method and path, denying by default. `/api/users` and `/api/settings/credentials` require admin (`manageUsers`) for *any* method, including `GET`. Reads (`GET`/`HEAD`/`OPTIONS`) are open to any authenticated user (viewer+). Paths matching run verbs (`start`, `stop`, `pause`, `resume`, `run-now`, `execute`) require `run` (editor+). Any other mutating method (`POST`/`PUT`/`PATCH`/`DELETE`) requires `write` (editor+). A newly added mutating route is therefore protected automatically.
+- **Banned users rejected.** The authenticate hook rejects deactivated (banned) users with `403` "Your account has been deactivated", invalidating their sessions even if the cookie is still otherwise valid.
+- **Matching WebSocket gate.** Socket.IO enforces the same boundary: viewers are read-only, and run-class events (chain execute/stop, agent start/stop/message, discussion start, Director and approval responses, loops, the Advisor) require editor or above, denying viewers with a `POLICY_ERROR`.
+- **UI mirror is advisory only.** The frontend mirrors the same capability matrix and defaults to viewer until the session resolves (hiding the palette, disabling drag/connect/delete on the Workspace (Canvas) for viewers), but this is purely cosmetic — the server hooks are the real boundary.
+
+See the [Users guide](/docs/guides/users) for how roles map to day-to-day actions and how admins manage accounts.
+
+## Safety Rule enforcement
+
+[Safety Rules](/docs/guides/safety-rules) (Policies) constrain what an Assistant may do, and they resolve with **most-restrictive-wins** semantics across three layers — global, agent, and session.
+
+| Field | Merge rule |
+| --- | --- |
+| Numeric limits (`maxTimeout`, `maxFileSize`, `maxBudgetUsd`) | Minimum value wins |
+| `blockedCommands` | Union — additive, lists never shrink |
+| `requireApproval` | Union of patterns; any layer setting `true` escalates to approve-everything |
+| `permissionMode` | Escalates toward the strictest mode (`default` > `plan` > `acceptEdits` > `dontAsk`) |
+
+Because a session layer can only ever tighten the values inherited from global and agent layers, a narrower scope can never relax a broader restriction. Defaults are a 5-minute timeout, a 10 MB file-size cap, and a 100 USD budget ceiling.
+
+At runtime each tool invocation is checked against the resolved rules: blocked commands first (denied outright), then require-approval patterns (allowed only after a human approves). A blocked command is denied; a command matching a require-approval pattern is held until someone approves it.
+
+<Callout type="warning">
+**Headless paths bypass the runtime approval/command gate by design.** Several no-human-in-the-loop paths run with `permissionMode: 'bypassPermissions'` so their tools can execute without an interactive approval that would never come: discussion participant turns, the Director, Planner, Advisor, loop iterations, the PRD pipeline, and the AI structured-extractor (used by the Structurer card). These do **not** stop at the per-tool approval gate — instead they are bounded by a per-run spend cap (`maxBudgetUsd`, below). Do not assume every run is approval-gated; interactive single-agent and chain runs are, but these orchestration paths trade tool gating for a budget ceiling.
+</Callout>
+
+### Per-run budget cap
+
+Independently of the per-policy `maxBudgetUsd`, RondoFlow has a single global spend ceiling exposed in Settings as **Max Budget**. It is forwarded to the CLI as `--max-budget-usd` and is resolved as the minimum of the run's configured budget and the resolved policy budget.
+
+- **Stored on the canonical global Policy row**, not an env var — the seed creates that row (`d0000000-0000-0000-0000-000000000001`) and the budget lives in its `maxBudgetUsd` rule.
+- **Managed via `GET` / `PUT /api/settings/budget`**, which is `run`-gated (editor+), not admin. `null` clears the cap (no flag forwarded); the API rejects values above `1000`.
+
+### Human approvals with timeout
+
+When a tool needs approval, RondoFlow registers a pending request and notifies the user.
+
+- **Default timeout of 5 minutes.** A watchdog sweeps every 10 seconds and auto-rejects any request that has exceeded its timeout, emitting an `APPROVAL_TIMEOUT` error and returning the Assistant to idle. A run can never hang indefinitely waiting on a human.
+- **Explicit decisions are recorded.** Approving or rejecting via `/api/approvals/:id/approve` or `/api/approvals/:id/reject` records an activity event, so every grant and denial is auditable.
+
+## Rate limiting and resource caps
+
+RondoFlow guards against abuse and runaway resource use:
+
+- **Global rate limit.** A generous IP-keyed ceiling (5000 requests/minute) protects every route, including `/api/auth/*`, and returns a `429` rather than a masked `500` when exceeded.
+- **Tighter per-route limits.** Sign-in is limited to 30 requests/minute to deter credential brute-forcing, AI workflow generation is limited to 10 requests/minute because it is expensive, and the Email card's send endpoint (`POST /api/email/send`) is limited to 10 requests/minute.
+- **Email send is a gated execution surface.** `POST /api/email/send` requires the `run` capability (editor+, not just `write`), validates recipients/subject/body with Zod (up to 50 valid addresses, a 255-char subject, a 5 MB HTML body cap), and collapses any CR/LF in the subject to defeat header injection. A delivery failure returns `502` rather than a generic error. See the [Data Nodes guide](/docs/guides/data-nodes) for how the Email card uses this.
+- **Upload size cap.** File uploads are limited to 50 MB at both the multipart parser and the storage layer.
+- **Saved-dataset caps.** The Save-to-DB card caps each persisted dataset at 5000 rows and ~2 MB of row JSON, so a runaway Structurer extraction can't write unbounded data.
+- **Export row cap.** Audit-log CSV export is capped at the 5000 most recent matching events; the file is annotated when results are truncated.
+
+## At a glance
+
+| Concern | Mechanism |
+| --- | --- |
+| Command injection | No `shell: true`; arrays of args; `--` separator; no `execSync` |
+| Hung / stalled runs | Idle timeout (5 min default) + optional wall-clock cap; whole-tree kill → `TIMEOUT_ERROR` |
+| Secret leakage to children | Env allowlist; `DATABASE_URL` / `BETTER_AUTH_SECRET` / `RONDOFLOW_SECRET` stripped (case-insensitive) |
+| Credential confusion | Exactly one Claude credential forwarded, setup token over API key; non-Claude backends get only their provider key |
+| Secrets at rest | AES-256-GCM, scrypt-derived key, masked in API and UI; covers workspace secrets and Settings credentials |
+| Malformed input | Zod schemas, UUID validation, path-traversal checks, symlink-safe output reads |
+| Unauthorized access | Better Auth sessions on HTTP and WebSocket, CORS to `UI_ORIGIN`, invite-only sign-up |
+| Privilege escalation / role enforcement | Role-based default-deny gate on REST + WebSocket (viewer/editor/admin), banned users rejected, fail-closed viewer default |
+| Dangerous tool use | Safety Rules, most-restrictive-wins, human approvals with timeout (headless paths bounded by budget instead) |
+| Runaway spend | Global per-run `--max-budget-usd` cap on the canonical global Policy |
+| Abuse / runaway use | Global + per-route rate limits, upload, dataset, and export caps |

@@ -1,0 +1,10 @@
+{
+  "id": "linkedin-api-integration",
+  "name": "linkedin-api-integration",
+  "description": "LinkedIn API integration with managed OAuth. Share posts, manage profile, run ads, and access LinkedIn features. Use this skill when users want to share content on LinkedIn, manage ad campaigns, get profile/organization information, or interact with LinkedIn's platform. For othe…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "message-circle",
+  "order": 1000
+}

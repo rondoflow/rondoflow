@@ -1,0 +1,10 @@
+{
+  "id": "summarize-urls-and-files",
+  "name": "summarize-urls-and-files",
+  "description": "Summarize URLs or files with the summarize CLI (web, PDFs, images, audio, YouTube).",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

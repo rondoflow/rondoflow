@@ -1,0 +1,10 @@
+{
+  "id": "analyze-labour-contractions-baby-logs",
+  "name": "analyze-labour-contractions-baby-logs",
+  "description": "Analyze contraction JSON and baby log JSON to assess mum's labour/contraction situation and baby's feeding and diaper status. Use when the user provides (or references) contractions_*.json and babyLogs_*.json files and wants to know if mum is safe and baby is healthy, or asks fo…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

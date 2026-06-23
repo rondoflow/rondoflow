@@ -1,0 +1,10 @@
+{
+  "id": "atlassian-jira-cli-reference",
+  "name": "atlassian-jira-cli-reference",
+  "description": "Reference guide for the Atlassian CLI (acli) - a command-line tool for interacting with Jira Cloud and Atlassian organization administration. Use this skill when the user wants to perform Jira operations (create/edit/search/transition work items, manage projects, boards, sprints…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

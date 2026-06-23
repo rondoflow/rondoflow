@@ -1,0 +1,10 @@
+{
+  "id": "build-mobile-applications",
+  "name": "build-mobile-applications",
+  "description": "Build mobile applications with proper lifecycle handling, offline support, and platform conventions.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

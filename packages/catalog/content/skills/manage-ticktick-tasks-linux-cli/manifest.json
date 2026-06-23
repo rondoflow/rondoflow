@@ -1,0 +1,10 @@
+{
+  "id": "manage-ticktick-tasks-linux-cli",
+  "name": "manage-ticktick-tasks-linux-cli",
+  "description": "Manage TickTick tasks (add, list, complete) via the local `tickrs` CLI.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

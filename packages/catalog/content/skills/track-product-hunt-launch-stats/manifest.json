@@ -1,0 +1,10 @@
+{
+  "id": "track-product-hunt-launch-stats",
+  "name": "track-product-hunt-launch-stats",
+  "description": "Track your Product Hunt launch stats (Rank, Upvotes, Comments) in real-time via CLI.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

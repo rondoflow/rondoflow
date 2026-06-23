@@ -1,0 +1,10 @@
+{
+  "id": "multi-language-code-generator",
+  "name": "multi-language-code-generator",
+  "description": "Multi-language code generator. Generate functions, classes, API endpoints, CRUD operations, test code, refactoring suggestions, language conversion guides.",
+  "category": "Development",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "code",
+  "order": 1000
+}

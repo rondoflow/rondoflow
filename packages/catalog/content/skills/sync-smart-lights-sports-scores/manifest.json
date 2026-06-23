@@ -1,0 +1,10 @@
+{
+  "id": "sync-smart-lights-sports-scores",
+  "name": "sync-smart-lights-sports-scores",
+  "description": "Track live NFL, NBA, NHL, or MLB games and automatically change Hue light colors based on which team is leading. Use when user wants to sync smart lights with live sports scores for visual game tracking. Supports NFL, NBA, NHL, and MLB games with customizable team colors.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

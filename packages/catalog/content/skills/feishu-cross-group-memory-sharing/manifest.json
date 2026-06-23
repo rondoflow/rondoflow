@@ -1,0 +1,10 @@
+{
+  "id": "feishu-cross-group-memory-sharing",
+  "name": "feishu-cross-group-memory-sharing",
+  "description": "Cross-group memory, search, and event sharing for OpenClaw Feishu agents",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

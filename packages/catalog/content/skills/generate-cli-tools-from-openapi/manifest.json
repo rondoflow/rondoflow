@@ -1,0 +1,10 @@
+{
+  "id": "generate-cli-tools-from-openapi",
+  "name": "generate-cli-tools-from-openapi",
+  "description": "Generate CLI tools from OpenAPI specs. Built for AI agents who hate writing curl commands.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

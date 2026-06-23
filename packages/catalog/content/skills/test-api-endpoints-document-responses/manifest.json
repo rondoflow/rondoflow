@@ -1,0 +1,10 @@
+{
+  "id": "test-api-endpoints-document-responses",
+  "name": "test-api-endpoints-document-responses",
+  "description": "Test API endpoints and document responses. Define tests in plain English, run them, get formatted results. Agent-driven Postman alternative.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

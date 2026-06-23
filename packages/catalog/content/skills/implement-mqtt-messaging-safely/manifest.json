@@ -1,0 +1,10 @@
+{
+  "id": "implement-mqtt-messaging-safely",
+  "name": "implement-mqtt-messaging-safely",
+  "description": "Implement MQTT messaging avoiding security, QoS, and connection management pitfalls.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

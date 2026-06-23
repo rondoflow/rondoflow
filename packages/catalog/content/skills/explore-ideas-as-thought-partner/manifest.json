@@ -1,0 +1,10 @@
+{
+  "id": "explore-ideas-as-thought-partner",
+  "name": "explore-ideas-as-thought-partner",
+  "description": "A conversational creative thought partner that reveals hidden brilliance in your ideas through critical observations and paradox hunting. Use when someone wants to explore ideas, discover breakthrough insights, crystallize unnamed concepts, or develop original frameworks for wri…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

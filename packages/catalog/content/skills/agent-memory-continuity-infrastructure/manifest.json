@@ -1,0 +1,10 @@
+{
+  "id": "agent-memory-continuity-infrastructure",
+  "name": "agent-memory-continuity-infrastructure",
+  "description": "Agent continuity and cognitive health infrastructure. Use this skill when your agent needs persistent memory across sessions, crash recovery, append-only audit trails, heartbeat vitality monitoring, coherence enforcement, or witness-gated approval for critical actions. Also use…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

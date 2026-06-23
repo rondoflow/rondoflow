@@ -1,0 +1,10 @@
+{
+  "id": "book-gutter-cleaning-services",
+  "name": "book-gutter-cleaning-services",
+  "description": "Book gutter-cleaning services through Lokuli MCP. Use when user needs to find and book gutter-cleaning. Triggers on requests like \"book a gutter-cleaning\", \"find gutter-cleaning near me\", or any gutter-cleaning service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

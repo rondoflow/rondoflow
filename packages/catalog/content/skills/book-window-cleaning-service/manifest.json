@@ -1,0 +1,10 @@
+{
+  "id": "book-window-cleaning-service",
+  "name": "book-window-cleaning-service",
+  "description": "Book window-cleaning services through Lokuli MCP. Use when user needs to find and book window-cleaning. Triggers on requests like \"book a window-cleaning\", \"find window-cleaning near me\", or any window-cleaning service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

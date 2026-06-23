@@ -1,0 +1,10 @@
+{
+  "id": "multi-agent-implementation-workflow",
+  "name": "multi-agent-implementation-workflow",
+  "description": "Jeffrey Emanuel's multi-agent implementation workflow using NTM, Agent Mail, Beads, and BV. The execution phase that follows planning and bead creation. Includes exact prompts used.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

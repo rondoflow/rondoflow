@@ -1,0 +1,10 @@
+{
+  "id": "sensory-structured-observation",
+  "name": "sensory-structured-observation",
+  "description": "Applies disciplined observation to a situation — suspending interpretation to see what's actually there before deciding what it means. Triggers: 'observe this carefully', 'structured observation', 'what do you actually see', 'suspend interpretation', 'look more carefully'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

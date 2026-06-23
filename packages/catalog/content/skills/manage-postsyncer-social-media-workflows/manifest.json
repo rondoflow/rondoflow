@@ -1,0 +1,10 @@
+{
+  "id": "manage-postsyncer-social-media-workflows",
+  "name": "manage-postsyncer-social-media-workflows",
+  "description": "Manage your PostSyncer social media workflows.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

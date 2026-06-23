@@ -1,0 +1,10 @@
+{
+  "id": "extract-xiaohongshu-note-metadata",
+  "name": "extract-xiaohongshu-note-metadata",
+  "description": "Extract metadata from Xiaohongshu (XHS) share or discovery URLs by parsing window.__INITIAL_STATE__ and returning note details. Use when asked to fetch XHS page content, note metadata, video info, or engagement stats from a public XHS link.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

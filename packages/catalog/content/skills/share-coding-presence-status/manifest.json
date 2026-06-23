@@ -1,0 +1,10 @@
+{
+  "id": "share-coding-presence-status",
+  "name": "share-coding-presence-status",
+  "description": "Social presence layer for AI coding agents. See who's coding right now and share ephemeral vibes.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

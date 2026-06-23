@@ -1,0 +1,10 @@
+{
+  "id": "ip-geolocation-lookup",
+  "name": "ip-geolocation-lookup",
+  "description": "Perform IP geolocation lookups using ipinfo.io API. Convert IP addresses to geographic data including city, region, country, postal code, timezone, and coordinates. Use when geolocating IPs, enriching IP data, or analyzing geographic distribution.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

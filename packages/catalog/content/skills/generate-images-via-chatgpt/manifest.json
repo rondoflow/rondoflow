@@ -1,0 +1,10 @@
+{
+  "id": "generate-images-via-chatgpt",
+  "name": "generate-images-via-chatgpt",
+  "description": "Generate images with GPT Image 2 (ChatGPT Images 2.0) inside Claude Code, using your existing ChatGPT Plus or Pro subscription — no separate OpenAI access, no per-image billing. Supports text-to-image, image-to-image editing, style transfer, and multi-reference composition via t…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

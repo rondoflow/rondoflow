@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-business-management-agent",
+  "name": "autonomous-business-management-agent",
+  "description": "Turn an OpenClaw agent into an autonomous AI Chief that runs a business. Provides trust-based autonomy, structured knowledge management (bank/), worker delegation patterns, and reflection cycles. Use when setting up a new agent as a business operator, when onboarding a human, wh…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

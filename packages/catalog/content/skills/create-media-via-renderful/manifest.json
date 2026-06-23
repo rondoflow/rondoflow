@@ -1,0 +1,10 @@
+{
+  "id": "create-media-via-renderful",
+  "name": "create-media-via-renderful",
+  "description": "Use Renderful from OpenClaw for image/video/audio/3D creation with model discovery, quote-before-generate workflow, deterministic polling, and insufficient-funds/x402 fallback.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

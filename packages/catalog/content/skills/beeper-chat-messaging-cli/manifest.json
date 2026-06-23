@@ -1,0 +1,10 @@
+{
+  "id": "beeper-chat-messaging-cli",
+  "name": "beeper-chat-messaging-cli",
+  "description": "Beeper Desktop CLI for chats, messages, search, and reminders.",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.9.0",
+  "icon": "message-circle",
+  "order": 1000
+}

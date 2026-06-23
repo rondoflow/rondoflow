@@ -1,0 +1,10 @@
+{
+  "id": "epistemology-epistemic-status",
+  "name": "epistemology-epistemic-status",
+  "description": "Produces an honest, rigorous calibration of what you know vs. believe vs. assume vs. hope across a domain. Assigns explicit epistemic statuses to claims and flags when high-confidence claims rest on lower-confidence foundations. Draws from the rationalist tradition of explicit epistemic labeling. Use when you say 'how certain should I be', 'what do we actually know here', 'I want an honest read of our assumptions', 'separate what we know from what we're guessing', 'give me an epistemic audit', 'I want to stop conflating confident with correct', or when producing analysis where the confidence level matters as much as the content.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

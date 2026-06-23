@@ -1,0 +1,10 @@
+{
+  "id": "ai-tutor-homework-help",
+  "name": "ai-tutor-homework-help",
+  "description": "AI tutor and homework help powered by CellCog. Tutoring, study guides, exam prep, coding tutorials, language learning, math help, science explanations, practice problems — every subject, every level. Explains concepts five different ways: diagrams, analogies, worked examples, in…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "code",
+  "order": 1000
+}

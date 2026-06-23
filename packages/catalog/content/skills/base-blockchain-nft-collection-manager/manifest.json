@@ -1,0 +1,10 @@
+{
+  "id": "base-blockchain-nft-collection-manager",
+  "name": "base-blockchain-nft-collection-manager",
+  "description": "Create and manage NFT collections on Base blockchain. Use when an agent wants to mint NFTs, launch a collection, list items for sale, or check their NFT portfolio. Handles contract deployment, lazy minting, and edition tracking. Platform pays deployment gas.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

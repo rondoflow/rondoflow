@@ -1,0 +1,10 @@
+{
+  "id": "process-code-review-feedback-rigorously",
+  "name": "process-code-review-feedback-rigorously",
+  "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "water-or-land-coordinate-check",
+  "name": "water-or-land-coordinate-check",
+  "description": "Check if geographic coordinates are over water or land using the IsItWater API.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

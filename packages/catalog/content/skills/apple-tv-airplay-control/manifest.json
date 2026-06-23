@@ -1,0 +1,10 @@
+{
+  "id": "apple-tv-airplay-control",
+  "name": "apple-tv-airplay-control",
+  "description": "Control Apple TV, HomePod, and AirPlay devices via pyatv (scan, stream, playback, volume, navigation).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

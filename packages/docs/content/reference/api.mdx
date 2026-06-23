@@ -1,0 +1,572 @@
+---
+title: API Reference
+description: REST endpoints for RondoFlow — conventions, auth, the response envelope, and a catalog of every route grouped by resource.
+---
+
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# API Reference
+
+RondoFlow's backend is a Fastify server that exposes a REST API under the `/api` base path. The drag-and-drop Workspace (Canvas) UI talks to it over plain HTTP, while live execution events stream separately over Socket.IO. This page documents the HTTP surface: conventions, authentication, and a catalog of every route grouped by resource.
+
+<Callout type="info">
+The API server listens on port `3001` by default. All paths below are relative to that host, e.g. `http://localhost:3001/api/health`.
+</Callout>
+
+## Conventions
+
+### Base path
+
+Every endpoint is mounted under `/api`. There is no version prefix.
+
+### Response envelope
+
+All responses use a single consistent envelope, so the UI never has to parse Fastify's default error shape:
+
+```ts
+{
+  success: boolean
+  data?: unknown      // present on success
+  error?: string      // present on failure
+  meta?: {            // present on paginated lists
+    total: number
+    page: number
+    limit: number
+  }
+}
+```
+
+- **Success** responses set `success: true` and put the payload in `data`. Created resources return `201`; accepted-but-async actions (loops, chains, pipelines) return `202`.
+- **Failure** responses set `success: false` and put a human-readable string in `error`. This holds even for uncaught throws, body-parse failures, and unknown paths — the global error and not-found handlers guarantee the envelope.
+
+Common status codes:
+
+| Status | Meaning |
+| --- | --- |
+| `200` | OK |
+| `201` | Resource created |
+| `202` | Accepted — work started asynchronously |
+| `400` | Validation error (Zod) or bad input |
+| `401` | Not authenticated |
+| `403` | Forbidden — your role lacks the capability, or your account is deactivated (banned) |
+| `404` | Resource not found |
+| `429` | Rate limit exceeded |
+| `500` | Internal server error |
+| `502` | Upstream/delivery failure — e.g. the SMTP server rejected the message on `POST /api/email/send` (`EMAIL_SEND_FAILED`) |
+
+<Callout type="warning">
+In production, unclassified `500` errors return a generic `"Internal server error"` message — internal details (Prisma table names, file paths, stack traces) are logged server-side but never leaked to the client. In development the real message is returned to aid debugging.
+</Callout>
+
+### Input validation
+
+Request bodies and query strings are validated with [Zod](https://zod.dev) at the route boundary. Invalid input returns `400` with a message describing the offending field(s). UUID path params are checked against a UUID pattern before any database call on several resources (resources, workspace memories).
+
+### Authentication
+
+The API uses cookie/session authentication powered by [Better Auth](https://www.better-auth.com). Sign-in and OAuth callbacks are handled under `/api/auth/*`. A `preHandler` hook validates the session cookie on every non-public route; if there is no valid session it returns `401` with `{ success: false, error: "Authentication required" }`. A second `preHandler` then applies a default-deny **role gate** to the authenticated request (see [Role-based authorization](#role-based-authorization)).
+
+<Callout type="warning">
+Sign-**up** is **invite-only**. Open self-registration is disabled — accounts are created by an administrator (email/password or an admin-provisioned OAuth identity), and OAuth never self-provisions a new user. Sign-**in** is unchanged: email/password plus optional GitHub/Google. See [Security Model](/docs/reference/security) for the bootstrap flow.
+</Callout>
+
+Public (no-auth) paths:
+
+| Path | Notes |
+| --- | --- |
+| `/api/health` | Health check |
+| `/api/auth/*` | All Better Auth endpoints (sign-in, OAuth, session; self-service sign-up is disabled) |
+| `/api/auth-providers` | Which social sign-in providers are configured (booleans only) — read by the login page before authentication |
+
+<Callout type="info">
+`/api/auth-providers` is a sibling of the Better Auth prefix, not part of it: the auth whitelist matches `/api/auth/` (with the trailing slash), so this path is explicitly opted into the public set. It returns only `{ github: boolean, google: boolean }` — never credential values — so it is safe to serve pre-auth.
+</Callout>
+
+Because auth relies on cookies, browser requests must send credentials. CORS is locked to the UI origin (`UI_ORIGIN`, default `http://localhost:3000`) with `credentials: true`, and allows the `GET, POST, PUT, PATCH, DELETE, OPTIONS` methods. Socket.IO connections are authenticated the same way — the session cookie is validated on the handshake.
+
+<Tabs items={['fetch (browser)', 'curl']}>
+<Tabs.Tab>
+```ts
+// Cookies are sent automatically when credentials are included.
+const res = await fetch('http://localhost:3001/api/agents', {
+  credentials: 'include',
+})
+const { success, data } = await res.json()
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+# -b/-c persist the session cookie established by sign-in.
+curl -s http://localhost:3001/api/agents \
+  -b cookies.txt -c cookies.txt
+```
+</Tabs.Tab>
+</Tabs>
+
+### Role-based authorization
+
+RondoFlow is a single **shared team Workspace**, not a multi-tenant system: every authenticated user sees the same pool of resources. Access is gated by **role**, not by per-user ownership. `userId` columns are retained for attribution and audit only, not for data isolation.
+
+There are three ranked global roles — **viewer < editor < admin**:
+
+- **viewer** — read-only. Can list and read everything, but cannot create, edit, delete, or run anything.
+- **editor** — adds the `write` and `run` capabilities: create/edit/delete resources and run workflows, Assistants, chains, discussions, loops, emails, and the Director/Planner/Advisor.
+- **admin** — adds `manageUsers` and `manageGlobalSettings`: user management and the global credential settings surface.
+
+New accounts default to `viewer` (fail-closed). Enforcement is a default-deny `preHandler` keyed on HTTP method + path:
+
+- Paths under `/api/users` and `/api/settings/credentials` are **admin-only** for **any** method, including `GET` — they are the default-deny `ADMIN_PREFIXES`, gated by the `manageUsers` capability.
+- Reads (`GET`/`HEAD`/`OPTIONS`) on every other route are open to any authenticated user (viewer and up).
+- Mutating run actions — paths matching `start`/`stop`/`pause`/`resume`/`run-now`/`execute` — require **editor** (`run`).
+- Any other `POST`/`PUT`/`PATCH`/`DELETE` requires **editor** (`write`).
+
+Because the gate is default-deny, a newly added mutating route is protected automatically. A request whose role lacks the required capability returns `403`. Socket.IO mirrors this — viewers are read-only there too. See [Security Model](/docs/reference/security).
+
+<Callout type="info">
+The admin-only gate on `/api/settings/credentials` comes from the `ADMIN_PREFIXES` rule (the `manageUsers` capability), not from `manageGlobalSettings` — both require admin, so the effective access is identical. Other `/api/settings/*` writes that fall outside that prefix (for example `PUT /api/settings/budget`) are only `write`-gated, so an editor can change the global budget.
+</Callout>
+
+### Rate limits
+
+Rate limiting is global and keyed by client IP. The default ceiling is generous so the polling UI is unaffected; a few abuse-prone routes set tighter per-route limits.
+
+| Scope | Limit | Window |
+| --- | --- | --- |
+| Global (all routes) | 5000 requests | 1 minute |
+| `/api/auth/*` | 30 requests | 1 minute |
+| `POST /api/workflows/generate` | 10 requests | 1 minute |
+| `POST /api/email/send` | 10 requests | 1 minute |
+
+Exceeding a limit returns `429` with a `"Rate limit exceeded — retry in Ns"` message.
+
+### Health check
+
+```bash
+GET /api/health
+```
+
+Returns `{ status, timestamp, prerequisites, engine }` where `engine` reports `runningAgents`, `queuedAgents`, and `pendingApprovals`. Along with `/api/auth/*` and `/api/auth-providers`, this is one of the few endpoints reachable without a session.
+
+---
+
+## Endpoint catalog
+
+The sections below list every resource and its endpoints. Path params are written `:name`; query params are noted in the purpose column.
+
+### Auth
+
+Handled by Better Auth. The catch-all route below proxies all auth traffic (sign-in, sign-up, OAuth providers, session lookup). See [Configuration](/docs/getting-started/configuration) for enabling GitHub/Google OAuth.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `ALL` | `/api/auth/*` | Better Auth handler — sign-in, sign-up, OAuth, session, sign-out (rate-limited, public) |
+
+### Assistants (agents)
+
+Assistants are the core executable unit. See [Assistants](/docs/guides/assistants).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/agents` | List Assistants (`?facilitator=true` to filter Facilitators) |
+| `GET` | `/api/agents/:id` | Get one Assistant with skills, Safety Rules, memories, and external folders |
+| `POST` | `/api/agents` | Create an Assistant (API-backed providers require `providerConfig`) |
+| `PATCH` | `/api/agents/:id` | Update an Assistant (also accepts canvas position, loop, and team fields) |
+| `DELETE` | `/api/agents/:id` | Delete an Assistant |
+
+On create, `provider` is one of `claude-code`, `openai`, or `perplexity`; `openai`/`perplexity` Assistants must include a `providerConfig`. See [Providers](/docs/providers).
+
+#### Assistant skills (subresource)
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/agents/:agentId/skills/:skillId` | Attach a Skill to an Assistant (upsert; body: `priority`, `enabled`) |
+| `DELETE` | `/api/agents/:agentId/skills/:skillId` | Detach a Skill from an Assistant |
+| `GET` | `/api/agents/:agentId/skills/conflicts` | Heuristic conflict warnings across the Assistant's enabled Skills |
+
+#### Assistant memories (subresource)
+
+See [Memory](/docs/guides/memory).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/agents/:agentId/memories` | List memories (pinned + important first) |
+| `POST` | `/api/agents/:agentId/memories` | Create or upsert a memory by `key` |
+| `PATCH` | `/api/agents/:agentId/memories/:memoryId` | Update a memory (partial) |
+| `PATCH` | `/api/agents/:agentId/memories/:memoryId/pin` | Pin or unpin a memory |
+| `DELETE` | `/api/agents/:agentId/memories/:memoryId` | Delete a memory |
+
+#### Assistant connections (MCP subresource)
+
+See [Connections](/docs/guides/connections).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/agents/:agentId/mcp` | List Connections assigned to an Assistant |
+| `POST` | `/api/agents/:agentId/mcp/:mcpServerId` | Assign a Connection to an Assistant |
+| `DELETE` | `/api/agents/:agentId/mcp/:mcpServerId` | Unassign a Connection from an Assistant |
+
+#### Assistant external folders (subresource)
+
+See [External Folders](/docs/guides/external-folders).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/agents/:agentId/external-folders/:folderId` | Attach an external folder (body: `priority`, `enabled`) |
+| `DELETE` | `/api/agents/:agentId/external-folders/:folderId` | Detach an external folder |
+
+#### Assistant loops (subresource)
+
+See [Loops](/docs/guides/loops).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/agents/:id/loop/start` | Start a loop (requires `loopEnabled`; returns `202`) |
+| `POST` | `/api/agents/:id/loop/stop` | Stop the active loop |
+| `GET` | `/api/agents/:id/loop/status` | Loop active state and current iteration |
+| `POST` | `/api/agents/:id/loop/approve` | Resolve a manual-approval loop gate |
+
+### Workspaces & Canvas
+
+A Workspace (Canvas) holds the visual layout of Cards and edges. See [Canvas](/docs/guides/canvas).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/workspaces` | List Workspaces with their saved layouts |
+| `POST` | `/api/workspaces` | Create a Workspace (optional `workingDirectory`) |
+| `PATCH` | `/api/workspaces/:id` | Rename or set the working directory (path is validated to exist) |
+| `DELETE` | `/api/workspaces/:id` | Delete a Workspace (the last one cannot be deleted) |
+| `GET` | `/api/workspaces/detect-directory` | Return the server's `cwd` for onboarding auto-fill |
+| `GET` | `/api/workspaces/:id/canvas` | Get the most recent Canvas layout (nodes/edges/viewport) |
+| `PUT` | `/api/workspaces/:id/canvas` | Save the Canvas layout (upsert by name) |
+| `PATCH` | `/api/workspaces/:id/context` | Update the Workspace context document |
+| `PATCH` | `/api/workspaces/:id/plan` | Update the Workspace plan document |
+
+#### Canvas transfer (export / import)
+
+Share a whole Workspace as a self-contained bundle. See [Connections](/docs/guides/connections) and [Canvas](/docs/guides/canvas).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/workspaces/:id/export` | Export the Canvas plus all referenced Assistant/Skill/Connection definitions (secrets excluded) |
+| `POST` | `/api/canvas/import` | Import a bundle, recreating entities and returning an import report (16 MB body limit) |
+
+#### Workspace resources (subresource)
+
+See [Resources](/docs/guides/resources).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/workspaces/:workspaceId/resources` | List resources (`?type=file\|url\|note\|variable`) |
+| `POST` | `/api/workspaces/:workspaceId/resources` | Create a url/note/variable resource (secret variables are encrypted) |
+| `POST` | `/api/workspaces/:workspaceId/resources/upload` | Upload a file resource (multipart, 50 MB max) |
+| `GET` | `/api/workspaces/:workspaceId/resources/:id` | Get one resource (secret values are never returned) |
+| `PATCH` | `/api/workspaces/:workspaceId/resources/:id` | Update a resource |
+| `DELETE` | `/api/workspaces/:workspaceId/resources/:id` | Delete a resource (removes the file from disk for file resources) |
+| `GET` | `/api/workspaces/:workspaceId/resources/:id/download` | Stream a file resource as an attachment |
+
+#### Workspace memories (subresource)
+
+See [Memory](/docs/guides/memory).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/workspaces/:workspaceId/memories` | List Workspace memories (`?source=` and `?pinned=true`) |
+| `POST` | `/api/workspaces/:workspaceId/memories` | Create or upsert a Workspace memory by `key` |
+| `PATCH` | `/api/workspaces/:workspaceId/memories/:id` | Update a Workspace memory (partial) |
+| `PATCH` | `/api/workspaces/:workspaceId/memories/:id/pin` | Pin or unpin a Workspace memory |
+| `DELETE` | `/api/workspaces/:workspaceId/memories/:id` | Delete a Workspace memory |
+
+### Runs
+
+Historical workflow/chain executions, with token and cost rollups. See [Monitoring](/docs/guides/monitoring).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/runs` | List runs, newest first (`?workspaceId=`, `?page=`, `?limit=` up to 100; returns `meta`) |
+| `GET` | `/api/runs/:chainId` | Get one run with all steps and the full event transcript, enriched with Assistant names |
+
+### Datasets
+
+Structured datasets produced by the **Structure** (Structurer) → **Save to DB** Card pipeline on the Canvas. A Save-to-DB step persists a typed dataset (schema + rows) to the `StructuredDataset`/`StructuredRow` tables; these read-only endpoints back the **Saved Datasets** panel and its CSV export. See [Data Nodes](/docs/guides/data-nodes).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/datasets` | List dataset summaries, newest first (`?workspaceId=`, `?page=`, `?limit=` up to 100 default 30; returns `meta`) |
+| `GET` | `/api/datasets/:id` | Get one dataset with its schema and a paginated slice of rows (`?page=`, `?limit=` up to 500 default 100; `meta.total` is the dataset's `rowCount`) |
+
+<Callout type="info">
+The Save-to-DB step caps each dataset at 5000 rows and ~2 MB of serialized data; oversized datasets are rejected at write time. Datasets are part of the shared team pool — an optional `workspaceId` narrows the list view. See [Data Nodes](/docs/guides/data-nodes) for the full pipeline.
+</Callout>
+
+### Skills
+
+Built-in catalog, git installs, and custom Skills. See [Skills](/docs/guides/skills).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/skills` | List installed Skills |
+| `GET` | `/api/skills/:id` | Get one Skill with its Assistant attachments |
+| `POST` | `/api/skills` | Create a Skill record |
+| `DELETE` | `/api/skills/:id` | Delete a Skill record |
+| `GET` | `/api/skills/catalog` | List built-in marketplace Skills (body content omitted) |
+| `POST` | `/api/skills/install` | Install from the catalog or git (`source: marketplace\|git`) |
+| `POST` | `/api/skills/install/git` | Install from a git URL (clones only `SKILL.md` + manifest, no code execution) |
+| `POST` | `/api/skills/install/custom` | Create a user-authored Skill from `content` |
+| `DELETE` | `/api/skills/:id/uninstall` | Remove the Skill record and its directory on disk |
+
+### Safety Rules (policies)
+
+Policies that constrain what an Assistant may do. Resolution is most-restrictive-wins. See [Safety Rules](/docs/guides/safety-rules).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/policies` | List Safety Rules (`?level=global\|agent\|session`, `?agentId=`) |
+| `GET` | `/api/policies/:id` | Get one Safety Rule with its Assistant/Conversation |
+| `POST` | `/api/policies` | Create a Safety Rule |
+| `PATCH` | `/api/policies/:id` | Update a Safety Rule |
+| `DELETE` | `/api/policies/:id` | Delete a Safety Rule |
+
+### Discussions
+
+Multi-Assistant discussions run by a Facilitator (Moderator). See [Discussions](/docs/guides/discussions).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/discussions` | List discussions with Facilitator and participants |
+| `GET` | `/api/discussions/:id` | Get one discussion with its recent Conversations |
+| `POST` | `/api/discussions` | Create a discussion (`format: brainstorm\|review\|deliberation`) |
+| `PATCH` | `/api/discussions/:id` | Update a discussion (name, topic, status, conclusion, rounds) |
+| `DELETE` | `/api/discussions/:id` | Delete a discussion |
+| `PATCH` | `/api/discussions/:id/moderator` | Change the Facilitator of a draft discussion |
+| `POST` | `/api/discussions/:id/start` | Start the discussion engine (events stream over Socket.IO) |
+| `POST` | `/api/discussions/:id/pause` | Pause after the current turn |
+| `POST` | `/api/discussions/:id/resume` | Resume a paused discussion |
+| `GET` | `/api/discussions/:id/transcript` | Full message transcript of the most recent Conversation |
+
+#### Participants (subresource)
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/discussions/:id/participants` | Add a participant (`role: participant\|observer\|devil_advocate`) |
+| `DELETE` | `/api/discussions/:id/participants/:agentId` | Remove a participant |
+
+### Schedules
+
+Cron-based recurring runs of a workflow or Assistant. See [Schedules](/docs/guides/schedules).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/schedules` | List schedules |
+| `POST` | `/api/schedules` | Create a schedule (`type: workflow\|agent`, cron `schedule`, `timezone`) |
+| `PATCH` | `/api/schedules/:id` | Update a schedule (re-registers or unregisters the cron job) |
+| `DELETE` | `/api/schedules/:id` | Delete a schedule |
+| `POST` | `/api/schedules/:id/run-now` | Execute a schedule immediately (async) |
+
+<Callout type="warning">
+A schedule's `directorEnabled` flag is accepted by the API and stored on the row, but the Scheduler engine never reads it — the Director does **not** run on scheduled tasks. Scheduled `agent` tasks also run with a generic helper prompt rather than the Assistant's real persona, skills, or model. See [Schedules](/docs/guides/schedules).
+</Callout>
+
+### Conversations (sessions)
+
+Records of Assistant/discussion runs and their messages. See [Monitoring](/docs/guides/monitoring).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/sessions` | List Conversations (`?agentId=`, `?page=`, `?limit=` up to 100; returns `meta`) |
+| `GET` | `/api/sessions/:id` | Get one Conversation with messages and Safety Rules |
+
+### Connections (MCP servers)
+
+Registry of external MCP servers. See [Connections](/docs/guides/connections). Per-Assistant assignment lives under the [Assistant connections](#assistant-connections-mcp-subresource) subresource above.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/mcp-servers` | List registered Connections |
+| `GET` | `/api/mcp-servers/:id` | Get one Connection with its Assistant assignments |
+| `POST` | `/api/mcp-servers` | Register a Connection (`command`, `args`, `env`) |
+| `PATCH` | `/api/mcp-servers/:id` | Update a Connection (partial) |
+| `DELETE` | `/api/mcp-servers/:id` | Delete a Connection (assignments cascade) |
+
+### External folders
+
+Mounted host directories an Assistant may access. See [External Folders](/docs/guides/external-folders). Per-Assistant attachment lives under the [Assistant external folders](#assistant-external-folders-subresource) subresource above.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/external-folders` | List registered folders |
+| `GET` | `/api/external-folders/available` | Scan the mount root for directories available to register |
+| `POST` | `/api/external-folders` | Register a folder (path is validated and canonicalized) |
+| `PATCH` | `/api/external-folders/:id` | Update name/description/read-only (path is immutable) |
+| `DELETE` | `/api/external-folders/:id` | Unregister a folder (attachments cascade) |
+
+### Activity
+
+Filterable audit log. See [Monitoring](/docs/guides/monitoring).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/activity` | List activity events (`?workspaceId=`, `?agentId=`, `?type=`, `?search=`, `?from=`, `?to=`, `?page=`, `?limit=` up to 200) |
+| `GET` | `/api/activity/types` | Distinct event types with counts (for filter dropdowns) |
+| `GET` | `/api/activity/export` | CSV download of the filtered log (capped at 5000 rows, formula-injection safe) |
+
+### Analytics
+
+Token and cost aggregation. See [Monitoring](/docs/guides/monitoring).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/analytics/cost` | Cost/token breakdown by model, day, and Workspace (`?days=` 1-90, `?workspaceId=`, `?agentId=`) |
+
+### Git
+
+Run git operations against a Workspace's working directory. See [Git](/docs/guides/git). Reads are open to any authenticated user; write operations (stage, commit, push, branch, checkout) require the `run`/`write` capability (editor+) and act on the Workspace's configured working directory.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/git/status` | Working-tree status (`?workspaceId=`) |
+| `GET` | `/api/git/log` | Recent commits (`?limit=` up to 200, `?workspaceId=`) |
+| `GET` | `/api/git/branches` | List branches |
+| `GET` | `/api/git/diff` | Diff (`?file=`, `?workspaceId=`) |
+| `GET` | `/api/git/remote` | Remote origin URL |
+| `POST` | `/api/git/stage` | Stage files (`paths[]`) |
+| `POST` | `/api/git/unstage` | Unstage files (`paths[]`) |
+| `POST` | `/api/git/commit` | Commit staged changes (`message`) |
+| `POST` | `/api/git/checkout` | Switch to an existing branch |
+| `POST` | `/api/git/branch` | Create and switch to a new branch |
+| `POST` | `/api/git/push` | Push to origin |
+
+### Approvals
+
+Pending tool-permission requests raised mid-run. See [Safety Rules](/docs/guides/safety-rules). Approvals also stream over Socket.IO and auto-reject on timeout.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/approvals` | List pending approvals |
+| `GET` | `/api/approvals/count` | Pending count (for the notification badge) |
+| `POST` | `/api/approvals/:id/approve` | Approve a pending tool request |
+| `POST` | `/api/approvals/:id/reject` | Reject a pending tool request |
+
+### Users (admin)
+
+Admin-only user management for the shared Workspace. **Every route requires the admin role** (the `manageUsers` capability); the entire `/api/users` prefix is one of the default-deny `ADMIN_PREFIXES`. These routes wrap the Better Auth admin plugin and record each action to the audit log. See [Security Model](/docs/reference/security).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/users` | List users (`?search=` email contains, `?limit=` 1-200 default 100, `?offset=` default 0; returns `{ users, total }`) |
+| `POST` | `/api/users` | Create/invite a user (body: `email`, `name` 1-200, `password` 8-128, `role` `admin\|editor\|viewer` default `viewer`; returns `201`) |
+| `PATCH` | `/api/users/:id/role` | Change a user's role (body: `role`) — you cannot change your own admin role (`400`) |
+| `POST` | `/api/users/:id/deactivate` | Ban a user, rejecting their sessions (body: optional `banReason`, max 500) — you cannot deactivate your own account |
+| `POST` | `/api/users/:id/reactivate` | Unban a user |
+| `DELETE` | `/api/users/:id` | Permanently delete a user — you cannot delete your own account |
+
+Audit events emitted: `user_invited`, `user_role_changed`, `user_deactivated`, `user_reactivated`, `user_deleted`.
+
+### Settings & credentials
+
+Provider/OAuth/SMTP credentials and the global budget cap. See [Settings](/docs/guides/settings) and [Configuration](/docs/reference/configuration).
+
+The `/api/settings/credentials` prefix is **admin-only** — it is one of the default-deny `ADMIN_PREFIXES` (the `manageUsers` capability), so every method, including `GET`, requires admin. The budget endpoints sit outside that prefix and follow the generic gate: `GET` is open to any authenticated user, and `PUT` needs the `write` capability (editor+). The public `GET /api/auth-providers` lives in this route file too.
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/auth-providers` | **Public.** Which social sign-in providers are configured (`{ github, google }` booleans) — read by the login page |
+| `GET` | `/api/settings/credentials` | Masked status of every managed credential (never returns raw secrets) — admin |
+| `PUT` | `/api/settings/credentials` | Upsert or clear credentials; rebuilds auth when OAuth config changes — admin |
+| `GET` | `/api/settings/budget` | Get the global per-run spend cap (`{ maxBudgetUsd }`; `null` = no cap) |
+| `PUT` | `/api/settings/budget` | Set the global spend cap (`maxBudgetUsd`: positive, max 1000, or `null` to clear) — editor+ |
+
+For each credential field: omit to leave unchanged, send `""` to clear (restoring the `.env` fallback), or send a value to set it. Managed keys include `anthropicApiKey`, `claudeCodeOauthToken`, `openaiApiKey`, `perplexityApiKey`, the GitHub/Google OAuth client ID/secret pairs, and the SMTP fields (`smtpHost`, `smtpPort`, `smtpSecure`, `smtpUser`, `smtpPass`, `smtpFrom`) that power the Email Card.
+
+<Callout type="info">
+The global budget (`maxBudgetUsd`) is **not** an env var — it is stored on the canonical global Safety Rule (Policy) and forwarded to spawned Assistants as `--max-budget-usd`. `null` removes the cap. See [Security Model](/docs/reference/security).
+</Callout>
+
+### Email
+
+Send a workflow's combined Assistant output as an HTML email via SMTP — the REST surface behind the **Email** Card on the Canvas. See [Data Nodes](/docs/guides/data-nodes).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/email/send` | Send an email (body: `recipients[]` 1-50 valid addresses, `subject` 1-255, `html` up to 5 MB, optional `text` up to 5 MB; returns `{ accepted }`). Rate-limited to **10/min**; requires the `run` capability (editor+) |
+| `GET` | `/api/email/status` | Non-secret config view (`{ configured, host?, port?, secure?, from? }`) for the "Email configured: yes/no" indicator |
+
+`POST /api/email/send` collapses CR/LF in the subject (header-injection defense) and validates every recipient address server-side. When SMTP is not configured it returns `400` with `"Email is not configured. Set SMTP_HOST and SMTP_FROM."`; when the SMTP server refuses delivery it returns `502` with code `EMAIL_SEND_FAILED`.
+
+<Callout type="warning">
+SMTP is read from the `SMTP_*` environment variables **or** the admin credential surface (group `smtp`; a DB-stored value overrides `.env`). At minimum `SMTP_HOST` and `SMTP_FROM` must be set, or the feature stays disabled. The Email Card itself is **opt-in** — its "enabled" toggle defaults to **off**, so building a workflow never sends mail. See [Data Nodes](/docs/guides/data-nodes) and [Configuration](/docs/reference/configuration).
+</Callout>
+
+### Workflow generation
+
+AI-generated multi-Assistant workflows from a task description. See [Workflows](/docs/guides/workflows).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/workflows/generate` | Generate a workflow from a `description` (10-1000 chars) |
+
+<Callout type="important">
+This route is rate-limited to **10 requests per minute** because each call spawns a Claude Code subprocess that bills real tokens.
+</Callout>
+
+### Saved workflows
+
+Reusable, named workflow definitions. See [Workflows](/docs/guides/workflows).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/saved-workflows` | List saved workflows (newest first) |
+| `POST` | `/api/saved-workflows` | Save a workflow definition |
+| `DELETE` | `/api/saved-workflows/:id` | Delete a saved workflow |
+
+### Chains & PRDs
+
+DAG execution and the PRD-to-stories pipeline. See [Orchestration](/docs/guides/orchestration).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/chains/execute` | Start a DAG run (`steps[]`, `edges[]`, `initialMessage`; cycles are rejected; returns `202`) |
+| `POST` | `/api/chains/stop` | Stop a running chain by `chainId` |
+| `GET` | `/api/prds` | List PRDs with story counts |
+| `POST` | `/api/prds` | Create a PRD |
+| `GET` | `/api/prds/:id` | Get one PRD with its stories |
+| `POST` | `/api/prds/:id/stories` | Add a story |
+| `PATCH` | `/api/prds/:prdId/stories/:storyId` | Update a story (status, priority, acceptance criteria) |
+| `POST` | `/api/prds/:id/pipeline/start` | Start the PRD pipeline with an Assistant (returns `202`) |
+| `POST` | `/api/prds/:id/pipeline/stop` | Stop the PRD pipeline |
+
+<Callout type="warning">
+The PRD pipeline is a **backend/experimental** capability. The engine, the `/api/prds` routes, and the PRD/Story models exist, but the Canvas trigger that would start a pipeline is currently a no-op stub — there is no ready-to-use UI for it today. Treat these endpoints as a programmatic surface, not a finished feature.
+</Callout>
+
+### Claude CLI status
+
+Probe Claude API connectivity and auth — drives the Start (Spawn) Card's Test button and the pre-run gate. See [Claude Code provider](/docs/providers/claude-code).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/claude/test-connection` | Live connectivity + auth probe (always `200`; failure is reported as `{ ok: false }` in `data`) |
+
+### Filesystem
+
+Browse the host filesystem and read/write workflow output files (path-traversal guarded). These back the **Output** Card's destination-directory picker and "Open saved file" affordance. See [Data Nodes](/docs/guides/data-nodes).
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/fs/browse` | List subdirectories of a path (for directory pickers) |
+| `POST` | `/api/fs/save` | Save text to a file in a directory |
+| `GET` | `/api/fs/outputs` | List saved workflow-output files in a directory |
+| `GET` | `/api/fs/read` | Read one workflow-output file's contents |
+
+---
+
+## Related
+
+<Cards>
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
+  <Cards.Card title="Data Model" href="/docs/reference/data-model" />
+  <Cards.Card title="Configuration & Env Vars" href="/docs/reference/configuration" />
+  <Cards.Card title="Security Model" href="/docs/reference/security" />
+</Cards>

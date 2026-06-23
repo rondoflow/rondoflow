@@ -1,0 +1,10 @@
+{
+  "id": "austrian-online-grocery-shopping",
+  "name": "austrian-online-grocery-shopping",
+  "description": "Austrian online grocery shopping via gurkerl.at. Use when user asks about \"groceries\", \"Einkauf\", \"Lebensmittel bestellen\", \"Gurkerl\", shopping cart, or wants to search/order food online in Austria.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.6",
+  "icon": "puzzle",
+  "order": 1000
+}

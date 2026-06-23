@@ -1,0 +1,10 @@
+{
+  "id": "dependency-health-and-update-plan",
+  "name": "dependency-health-and-update-plan",
+  "description": "Smart dependency health check — security audit, outdated detection, unused deps, and prioritized update plan",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

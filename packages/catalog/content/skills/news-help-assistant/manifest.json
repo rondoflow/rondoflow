@@ -1,0 +1,10 @@
+{
+  "id": "news-help-assistant",
+  "name": "news-help-assistant",
+  "description": "NewsHelp exposes its structure via URL patterns.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

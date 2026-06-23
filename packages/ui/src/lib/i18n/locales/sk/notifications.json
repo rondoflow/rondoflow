@@ -1,0 +1,51 @@
+{
+  "panel": {
+    "title": "Oznámenia",
+    "regionLabel": "Oznámenia",
+    "listLabel": "Položky oznámení"
+  },
+  "unread": {
+    "suffix": ", neprečítané",
+    "count_one": "{{count}} neprečítané",
+    "count_few": "{{count}} neprečítané",
+    "count_other": "{{count}} neprečítaných"
+  },
+  "action": {
+    "markAllRead": "Označiť všetky ako prečítané",
+    "markAllReadLabel": "Označiť všetky oznámenia ako prečítané",
+    "review": "Skontrolovať",
+    "reviewLabel": "Skontrolovať žiadosť o schválenie",
+    "dismissLabel": "Zavrieť oznámenie: {{title}}"
+  },
+  "empty": {
+    "title": "Žiadne oznámenia"
+  },
+  "time": {
+    "justNow": "práve teraz",
+    "minutesAgo_one": "pred {{count}} min",
+    "minutesAgo_few": "pred {{count}} min",
+    "minutesAgo_other": "pred {{count}} min",
+    "hoursAgo_one": "pred {{count}} h",
+    "hoursAgo_few": "pred {{count}} h",
+    "hoursAgo_other": "pred {{count}} h",
+    "daysAgo_one": "pred {{count}} d",
+    "daysAgo_few": "pred {{count}} d",
+    "daysAgo_other": "pred {{count}} d"
+  },
+  "event": {
+    "approvalRequired": {
+      "title": "Vyžaduje sa schválenie asistenta"
+    },
+    "agentError": {
+      "title": "Asistent narazil na chybu"
+    },
+    "agentDone": {
+      "title": "Asistent dokončil úlohu",
+      "description": "Asistent {{id}} dokončil svoju úlohu."
+    }
+  },
+  "approval": {
+    "approve": "Schváliť",
+    "reject": "Zamietnuť"
+  }
+}

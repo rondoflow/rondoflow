@@ -1,0 +1,10 @@
+{
+  "id": "messari-crypto-data",
+  "name": "messari-crypto-data",
+  "description": "Crypto market intelligence powered by Messari's REST API. Provides real-time access to Messari AI (chat completions over 30TB+ crypto data), Signal (sentiment, mindshare, trending narratives), Metrics (prices, volumes, fundamentals for 34,000+ assets across 210+ exchanges), News…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

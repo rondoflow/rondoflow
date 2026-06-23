@@ -1,0 +1,10 @@
+{
+  "id": "guided-meditation-practice-tracker",
+  "name": "guided-meditation-practice-tracker",
+  "description": "Build a meditation practice with guided sessions, streaks, and mindfulness reminders",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

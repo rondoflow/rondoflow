@@ -1,0 +1,10 @@
+{
+  "id": "merge-self-improvement-proactivity",
+  "name": "merge-self-improvement-proactivity",
+  "description": "A unified OpenClaw skill that merges self-improvement and proactivity: learn from corrections, maintain active state, recover context fast, and keep work moving with clear boundaries.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

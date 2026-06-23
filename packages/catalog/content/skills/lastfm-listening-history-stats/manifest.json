@@ -1,0 +1,10 @@
+{
+  "id": "lastfm-listening-history-stats",
+  "name": "lastfm-listening-history-stats",
+  "description": "Access Last.fm listening history, music stats, and discovery. Query recent tracks, top artists/albums/tracks, loved tracks, similar artists, and global charts.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "image",
+  "order": 1000
+}

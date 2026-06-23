@@ -1,0 +1,10 @@
+{
+  "id": "log-agent-activity-dashboard",
+  "name": "log-agent-activity-dashboard",
+  "description": "Log agent activities to Mission Claw dashboard with token usage tracking. Use when completing significant tasks, subagent work, or any action worth recording in the activity feed. Triggers on task completion, activity logging, or tracking agent work.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "coins",
+  "order": 1000
+}

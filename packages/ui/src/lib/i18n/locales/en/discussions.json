@@ -1,0 +1,277 @@
+{
+  "format": {
+    "brainstorm": {
+      "label": "Brainstorm",
+      "description": "Open-ended idea generation and exploration"
+    },
+    "review": {
+      "label": "Review",
+      "description": "Structured evaluation of a proposal or artifact"
+    },
+    "deliberation": {
+      "label": "Debate",
+      "description": "Adversarial exchange to stress-test a position"
+    }
+  },
+  "role": {
+    "participant": {
+      "label": "Participant",
+      "tooltip": "Actively contributes ideas and responses throughout the discussion."
+    },
+    "observer": {
+      "label": "Observer",
+      "tooltip": "Listens and summarises but does not contribute turns."
+    },
+    "devilAdvocate": {
+      "label": "Devil's Advocate",
+      "tooltip": "Challenges every proposal to stress-test assumptions."
+    },
+    "moderator": {
+      "label": "Moderator"
+    }
+  },
+  "validation": {
+    "topicRequired": "Topic is required.",
+    "facilitatorRequired": "A facilitator must be selected.",
+    "participantRequired": "At least one participant must be added."
+  },
+  "wizard": {
+    "stepIndicator": "Step {{current}} of {{total}}",
+    "title": {
+      "topic": "New Discussion — Topic",
+      "team": "New Discussion — Team",
+      "settings": "New Discussion — Settings"
+    },
+    "description": "Create a new multi-agent discussion in {{total}} steps.",
+    "topic": {
+      "label": "What should the team discuss?",
+      "placeholder": "Describe the topic, question, or proposal to discuss…",
+      "hint": "Be specific — a focused topic produces a better discussion.",
+      "styleLabel": "Discussion style"
+    },
+    "team": {
+      "heading": "Choose your team",
+      "facilitatorLabel": "Facilitator",
+      "facilitatorHint": "The facilitator moderates the discussion and produces the final synthesis.",
+      "selectPlaceholder": "Select a facilitator…",
+      "groupFacilitators": "Facilitators",
+      "groupAllAssistants": "All Assistants",
+      "newButton": "New",
+      "createNamePlaceholder": "Facilitator name",
+      "createDescPlaceholder": "Description (optional)",
+      "createSubmit": "Create & Select",
+      "creating": "Creating...",
+      "participantsLabel": "Participants",
+      "participantsEmpty": "No participants yet. Add at least one agent.",
+      "participantAgentLabel": "Participant {{index}} agent",
+      "participantRoleLabel": "Participant {{index}} role",
+      "roleDescriptionLabel": "Role description",
+      "removeParticipant": "Remove participant {{index}}",
+      "addParticipant": "Add another participant"
+    },
+    "settings": {
+      "roundsLabel": "Number of rounds",
+      "autoLabel": "Auto (facilitator decides)",
+      "autoHint": "The facilitator evaluates progress after each round and decides when to conclude.",
+      "fixedLabel": "Fixed rounds",
+      "fixedHint": "Run exactly this many rounds regardless of progress.",
+      "roundsInputLabel": "Number of rounds",
+      "estimatesTitle": "Estimates",
+      "estimatedCost": "Estimated cost",
+      "costRange": "${{min}} – ${{max}}",
+      "estimatedTime": "Estimated time",
+      "timeValue": "~{{minutes}} min",
+      "participants": "Participants",
+      "rounds": "Rounds",
+      "auto": "Auto",
+      "estimatesNote": "Estimates assume Sonnet for the moderator and Haiku for participants. Actual costs vary."
+    },
+    "footer": {
+      "back": "Back",
+      "backLabel": "Go to previous step",
+      "next": "Next",
+      "nextLabel": "Go to next step",
+      "start": "Start",
+      "startLabel": "Start discussion"
+    }
+  },
+  "timeline": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "saidLabel": "{{name}} said",
+    "moderatorDecisionLabel": "Moderator decision",
+    "conclusionLabel": "Discussion conclusion",
+    "conclusionTitle": "Conclusion",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyLabel": "Copy conclusion to clipboard",
+    "download": "Download",
+    "downloadLabel": "Download conclusion as Markdown",
+    "topicLabel": "Topic: {{topic}}",
+    "empty": {
+      "draftTitle": "Discussion not started",
+      "draftHint": "Press Start to begin the discussion. Turns will appear here in real time.",
+      "waitingTitle": "Waiting for first turn...",
+      "waitingHint": "The discussion has started. Turns will appear here as agents respond."
+    },
+    "roundOf": "Round {{current}} of {{max}}",
+    "round": "Round {{current}}",
+    "status": {
+      "active": "Active",
+      "concluded": "Concluded",
+      "draft": "Draft"
+    },
+    "turnsLabel": "Discussion turns",
+    "exportHeading": "Discussion Conclusion",
+    "exportTopic": "**Topic:** {{topic}}"
+  },
+  "controls": {
+    "toolbarLabel": "Discussion controls",
+    "round": {
+      "concluded": "Concluded",
+      "of": "Round {{current}} of {{max}}",
+      "current": "Round {{current}}",
+      "notStarted": "Not started"
+    },
+    "status": {
+      "draft": "Draft",
+      "active": "Active",
+      "concluded": "Concluded"
+    },
+    "statusLabel": "Discussion status: {{status}}",
+    "start": "Start",
+    "startLabel": "Start discussion",
+    "pause": "Pause",
+    "pauseLabel": "Pause discussion",
+    "stop": "Stop",
+    "stopLabel": "Stop discussion",
+    "resume": "Resume",
+    "resumeLabel": "Resume discussion",
+    "export": "Export",
+    "exportLabel": "Export discussion",
+    "stopDialog": {
+      "title": "Stop Discussion?",
+      "description": "This will permanently stop the discussion. Any unsaved progress will be lost and the discussion cannot be restarted.",
+      "confirm": "Stop Discussion"
+    }
+  },
+  "list": {
+    "status": {
+      "draft": "Draft",
+      "active": "Active",
+      "concluded": "Concluded"
+    },
+    "openLabel": "Open discussion: {{name}}",
+    "title": "Discussions",
+    "facilitators": "Facilitators",
+    "facilitatorsLabel": "Manage facilitators",
+    "newDiscussion": "New Discussion",
+    "newDiscussionLabel": "Create new discussion",
+    "panelLabel": "Discussions list",
+    "description": "All team discussions. Click one to open it.",
+    "listLabel": "Discussion list",
+    "empty": {
+      "title": "No discussions yet",
+      "hint": "Start a team discussion to see it here."
+    }
+  },
+  "panel": {
+    "label": "Discussion: {{name}}",
+    "labelEmpty": "Discussion panel",
+    "description": "Live transcript and controls for the discussion \"{{topic}}\".",
+    "descriptionEmpty": "No discussion selected.",
+    "status": {
+      "active": "Active",
+      "concluded": "Concluded",
+      "draft": "Draft"
+    },
+    "closeLabel": "Close discussion panel",
+    "empty": {
+      "title": "No discussion selected",
+      "hint": "Open Discussions from the top bar and pick one to view it here."
+    },
+    "exportTitle": "# Discussion: {{name}}",
+    "exportTopic": "**Topic:** {{topic}}",
+    "exportConclusion": "## Conclusion"
+  },
+  "facilitators": {
+    "title": "Facilitators",
+    "newButton": "New",
+    "presetLabel": "Start from a preset",
+    "namePlaceholder": "Facilitator name",
+    "descPlaceholder": "Description (optional)",
+    "personaPlaceholder": "Persona / instructions (optional — leave blank for a generic facilitator)",
+    "model": {
+      "opus": "Opus",
+      "sonnet": "Sonnet",
+      "haiku": "Haiku"
+    },
+    "creating": "Creating...",
+    "loading": "Loading...",
+    "empty": {
+      "title": "No facilitators yet.",
+      "hint": "Create one to moderate discussions.",
+      "createFirst": "Create your first facilitator"
+    },
+    "builtin": "Built-in",
+    "deleteLabel": "Delete {{name}}",
+    "defaultPersona": "You are {{name}}, a skilled discussion facilitator. You guide discussions, ensure all participants are heard, synthesize viewpoints, and keep conversations productive and focused."
+  },
+  "chat": {
+    "step": "Step {{index}}: ",
+    "stepRunning": "Running ",
+    "working": "Working…",
+    "agentCompleted": "{{name}} completed",
+    "viewConversationTitle": "Click to view full agent conversation",
+    "tokens_one": "{{count}} token",
+    "tokens_other": "{{count}} tokens",
+    "workflowCompleted": "Workflow completed",
+    "tokensSuffix_one": "· {{formattedCount}} token",
+    "tokensSuffix_other": "· {{formattedCount}} tokens",
+    "outputs": "Outputs",
+    "outputsLabel": "View saved workflow outputs",
+    "outputsTitle": "View all saved outputs",
+    "savingOutput": "Saving output…",
+    "openResult": "Open result",
+    "openResultLabel": "Open the saved workflow result",
+    "openResultTitle": "Open the saved result",
+    "saveLabel": "Save workflow output to project folder",
+    "saveTitle": "Save output to project folder",
+    "directorEvaluating": "Director evaluating...",
+    "director": "Director",
+    "directorSuggestsRedirect": "Director suggests redirect",
+    "approveRedirect": "Approve Redirect",
+    "continueForward": "Continue Forward",
+    "approveStep": "Approve step {{index}}",
+    "approveAndRun": "Approve & run",
+    "stopFlow": "Stop flow",
+    "resolved": "Resolved",
+    "redirectApproved": "Redirect approved — re-running {{name}}",
+    "redirectDeclined": "Redirect declined — continuing forward",
+    "advisorAnalyzing": "Advisor analyzing workflow...",
+    "streamingLabel": "Streaming",
+    "emptyTitle": "Run your workflow",
+    "emptyHint": "Send a message below to start the chain. Each agent will process in order.",
+    "logLabel": "Workflow log",
+    "approvalMode": {
+      "auto": "Auto",
+      "autoTitle": "Auto — run every step and its tools without asking",
+      "step": "Step",
+      "stepTitle": "Step-by-step — confirm before each agent step runs",
+      "groupLabel": "Workflow approval mode"
+    },
+    "executionLog": "Execution Log",
+    "stepsCount_one": "{{count}} step",
+    "stepsCount_other": "{{count}} steps",
+    "runningSuffix": "— running",
+    "viewOutputs": "View saved outputs",
+    "clearLog": "Clear log",
+    "inputPlaceholderRunning": "Send additional instructions… (Ctrl+Enter)",
+    "inputPlaceholderIdle": "Describe what the workflow should do… (Ctrl+Enter to run)",
+    "inputLabel": "Workflow message input",
+    "stopWorkflow": "Stop workflow",
+    "startingWorkflow": "Starting workflow…",
+    "runWorkflow": "Run workflow",
+    "typeMessageFirst": "Type a message first"
+  }
+}

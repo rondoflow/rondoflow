@@ -1,0 +1,10 @@
+{
+  "id": "hosted-browser-automation-for-agents",
+  "name": "hosted-browser-automation-for-agents",
+  "description": "Hosted browser automation API for agents. Screenshots, Playwright scripts, workflows — no local Chrome needed.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

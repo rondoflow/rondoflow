@@ -1,0 +1,10 @@
+{
+  "id": "xcrawl-keyword-search-tasks",
+  "name": "xcrawl-keyword-search-tasks",
+  "description": "Use this skill for XCrawl search tasks, including keyword search request design, location and language controls, result analysis, and follow-up crawl or scrape planning.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "globe",
+  "order": 1000
+}

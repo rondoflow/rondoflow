@@ -1,0 +1,10 @@
+{
+  "id": "nascar-information-tool",
+  "name": "nascar-information-tool",
+  "description": "A dedicated NASCAR AI agent built to analyze, debate, and discuss",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "plaintext-accounting-finance-advisor",
+  "name": "plaintext-accounting-finance-advisor",
+  "description": "Professional personal finance advisor specializing in plain-text accounting with Beancount and Fava. Use when users need help with: (1) Analyzing spending habits and financial patterns from Beancount files, (2) Creating or understanding Beancount transactions and syntax, (3) Fin…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

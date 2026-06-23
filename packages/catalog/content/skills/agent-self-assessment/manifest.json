@@ -1,0 +1,10 @@
+{
+  "id": "agent-self-assessment",
+  "name": "agent-self-assessment",
+  "description": "Comprehensive compliance and security self-assessment for AI agents. 14-check framework producing a structured threat model + compliance report with RED/AMBER/GREEN ratings across security, governance, EU AI Act readiness, oversight quality, and NIST alignment domains. Includes…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.3.3",
+  "icon": "bot",
+  "order": 1000
+}

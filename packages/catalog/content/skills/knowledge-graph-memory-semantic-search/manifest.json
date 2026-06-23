@@ -1,0 +1,10 @@
+{
+  "id": "knowledge-graph-memory-semantic-search",
+  "name": "knowledge-graph-memory-semantic-search",
+  "description": "A comprehensive knowledge graph memory system with semantic search, episodic memory, working memory, automatic context injection, and per-agent isolation.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.2.2",
+  "icon": "bot",
+  "order": 1000
+}

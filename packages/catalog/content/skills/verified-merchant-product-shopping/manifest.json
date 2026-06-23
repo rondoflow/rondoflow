@@ -1,0 +1,10 @@
+{
+  "id": "verified-merchant-product-shopping",
+  "name": "verified-merchant-product-shopping",
+  "description": "Search, compare, and buy products from verified merchants. Returns structured product data with Decision Packs (pros, cons, best_for, allergens, verified pricing) instead of raw web scraping. No CAPTCHAs, no auth required. ~980 products across 10 merchants. Use when user wants t…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

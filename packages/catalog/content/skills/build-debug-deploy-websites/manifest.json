@@ -1,0 +1,10 @@
+{
+  "id": "build-debug-deploy-websites",
+  "name": "build-debug-deploy-websites",
+  "description": "Build, debug, and deploy websites with HTML, CSS, JavaScript, modern frameworks, and production best practices.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

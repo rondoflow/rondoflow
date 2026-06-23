@@ -1,0 +1,10 @@
+{
+  "id": "block-edits-to-protected-files",
+  "name": "block-edits-to-protected-files",
+  "description": "Hook that blocks destructive edits to protected identity files. For Claude Code CLI and OpenClaw.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.9.72",
+  "icon": "bot",
+  "order": 1000
+}

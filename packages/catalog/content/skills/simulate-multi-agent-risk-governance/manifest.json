@@ -1,0 +1,10 @@
+{
+  "id": "simulate-multi-agent-risk-governance",
+  "name": "simulate-multi-agent-risk-governance",
+  "description": "SWARM: System-Wide Assessment of Risk in Multi-agent systems. 38 agent types, 29 governance levers, 55 scenarios. Study emergent risks, phase transitions, and governance cost paradoxes.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "bot",
+  "order": 1000
+}

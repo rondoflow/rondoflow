@@ -1,0 +1,10 @@
+{
+  "id": "remove-google-analytics-from-project",
+  "name": "remove-google-analytics-from-project",
+  "description": "Safely remove Google Analytics from a project. Cleans up all tracking code, dependencies, and environment variables.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

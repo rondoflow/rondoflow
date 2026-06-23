@@ -1,0 +1,10 @@
+{
+  "id": "pay-x402-endpoints-tron-trc20",
+  "name": "pay-x402-endpoints-tron-trc20",
+  "description": "Pay for x402-enabled Agent endpoints using TRC20 tokens (USDT/USDD) on TRON",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

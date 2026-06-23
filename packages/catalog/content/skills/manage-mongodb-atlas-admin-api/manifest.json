@@ -1,0 +1,10 @@
+{
+  "id": "manage-mongodb-atlas-admin-api",
+  "name": "manage-mongodb-atlas-admin-api",
+  "description": "browse MongoDB Atlas Admin API specifications and execute operations (if credentials provided).",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

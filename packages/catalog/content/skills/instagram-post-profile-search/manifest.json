@@ -1,0 +1,10 @@
+{
+  "id": "instagram-post-profile-search",
+  "name": "instagram-post-profile-search",
+  "description": "Instagram Search — Search 400M+ Instagram posts, reels, and profiles. Find influencers, track hashtags, analyze engagement, and export data. No Instagram API or Meta developer account needed — works through Xpoz MCP.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "bot",
+  "order": 1000
+}

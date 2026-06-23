@@ -1,0 +1,10 @@
+{
+  "id": "crosschain-usdc-balance-gateway",
+  "name": "crosschain-usdc-balance-gateway",
+  "description": "Unified crosschain USDC balance via Circle Gateway + Circle Programmable Wallets. Deposit USDC on any supported chain, check your unified balance, and instantly mint USDC on any destination chain in <500ms — no bridging, no raw private keys.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "logic-fixer",
+  "name": "logic-fixer",
+  "description": "Take broken reasoning — a flawed argument, contradictory spec, unsound plan, or invalid inference — diagnose exactly what's wrong, and produce a corrected version. Use when you have reasoning that doesn't hold and you want it fixed, not just critiqued. TRIGGERS: 'fix this reasoning', 'repair this argument', 'this logic is broken, fix it', 'make this argument sound', 'my reasoning is circular, help', any situation where broken reasoning needs to be made valid rather than just flagged. Pairs with logic-argument-validation (which diagnoses) and logic-council (which pressure-tests) — this skill fixes.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

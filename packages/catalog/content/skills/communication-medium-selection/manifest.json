@@ -1,0 +1,10 @@
+{
+  "id": "communication-medium-selection",
+  "name": "communication-medium-selection",
+  "description": "Matches the message to the right channel and format — the same content in the wrong medium loses most of its effect. Triggers: 'which channel', 'email vs meeting', 'should this be async or sync', 'medium fit', 'how should I deliver this'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

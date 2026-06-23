@@ -1,0 +1,10 @@
+{
+  "id": "reliable-websocket-connections",
+  "name": "reliable-websocket-connections",
+  "description": "Implement reliable WebSocket connections with proper reconnection, heartbeats, and scaling.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

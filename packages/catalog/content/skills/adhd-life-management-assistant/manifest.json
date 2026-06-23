@@ -1,0 +1,10 @@
+{
+  "id": "adhd-life-management-assistant",
+  "name": "adhd-life-management-assistant",
+  "description": "ADHD-friendly life management assistant for OpenClaw. Helps with daily planning, task breakdown, time management, prioritization, body doubling, dopamine regulation, and maintaining routines. Use when the user asks for help organizing their life, staying on top of tasks, beating…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

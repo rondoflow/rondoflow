@@ -1,0 +1,10 @@
+{
+  "id": "setup-https-tls-certificates",
+  "name": "setup-https-tls-certificates",
+  "description": "Set up HTTPS, manage TLS certificates, and debug secure connection issues.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "code",
+  "order": 1000
+}

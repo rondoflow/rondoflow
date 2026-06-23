@@ -1,0 +1,10 @@
+{
+  "id": "generate-edit-images-via-grok",
+  "name": "generate-edit-images-via-grok",
+  "description": "Generate and edit images via Grok API from the command line. Cross-platform secure credential storage for xAI API key. Supports batch generation, aspect ratios, and style transfer.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.2.1",
+  "icon": "image",
+  "order": 1000
+}

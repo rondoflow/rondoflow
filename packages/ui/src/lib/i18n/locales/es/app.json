@@ -1,0 +1,175 @@
+{
+  "error": {
+    "title": "Algo salió mal",
+    "fallback": "Se produjo un error inesperado. Inténtelo de nuevo.",
+    "errorId": "ID de error: {{digest}}",
+    "tryAgain": "Intentar de nuevo",
+    "goHome": "Ir al inicio"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "description": "La página que busca no existe.",
+    "back": "Volver a rondoflow"
+  },
+  "agentStream": {
+    "error": {
+      "timeout": "La solicitud agotó el tiempo de espera. Inténtelo de nuevo.",
+      "rateLimit": "Demasiadas solicitudes. Espere un momento antes de volver a intentarlo.",
+      "network": "Se produjo un error de red. Compruebe su conexión y vuelva a intentarlo.",
+      "overloaded": "El servicio está temporalmente sobrecargado. Inténtelo de nuevo en breve.",
+      "auth": "Error de autenticación. Compruebe la configuración de su API.",
+      "contextLength": "La conversación es demasiado larga. Considere borrar el chat.",
+      "processError": "No se pudo iniciar el proceso del asistente. Asegúrese de que Claude Code esté instalado y configurado.",
+      "approvalTimeout": "La solicitud de aprobación agotó el tiempo de espera.",
+      "unexpected": "Se produjo un error inesperado. Inténtelo de nuevo.",
+      "cannotReachServerRaw": "No se puede contactar con el servidor de rondoflow",
+      "cannotReachServer": "No se puede contactar con el servidor. Asegúrese de que el backend esté en ejecución: npm run dev:server"
+    }
+  },
+  "workspace": {
+    "defaultName": "Mi espacio de trabajo",
+    "numberedName": "Espacio de trabajo {{n}}"
+  },
+  "toast": {
+    "edgeDeleted": "Conexión eliminada.",
+    "nodeDeleted": "Tarjeta eliminada.",
+    "undo": "Deshacer",
+    "runNotPermitted": "Su rol no permite ejecutar flujos de trabajo",
+    "saveFailed": "No se pudo guardar el lienzo.",
+    "autosaveFailed": "No se pudieron autoguardar tus cambios — podrían perderse al recargar.",
+    "retry": "Reintentar"
+  },
+  "notify": {
+    "workflowGenerationFailed": {
+      "title": "Error al generar el flujo de trabajo",
+      "description": "No se pudo generar un flujo de trabajo con varios asistentes. Se creará un asistente simple en su lugar. Consulte los registros del servidor para más detalles."
+    },
+    "workspaceCreateFailed": {
+      "title": "No se pudo crear el espacio de trabajo",
+      "description": "No se pudo crear el espacio de trabajo. Asegúrese de que el servidor esté en ejecución e inténtelo de nuevo."
+    },
+    "discussionCreateFailed": {
+      "title": "No se pudo crear la discusión",
+      "description": "No se pudo guardar la discusión. Asegúrese de que el servidor esté en ejecución."
+    },
+    "canvasExported": {
+      "title": "Espacio de trabajo exportado",
+      "description_one": "Se guardó {{file}} ({{count}} asistente).",
+      "description_other": "Se guardó {{file}} ({{count}} asistentes)."
+    },
+    "exportFailed": {
+      "title": "Error de exportación",
+      "description": "No se pudo exportar este espacio de trabajo."
+    },
+    "imported": {
+      "title": "Importado «{{name}}»"
+    },
+    "importFailed": {
+      "title": "Error de importación",
+      "description": "No se pudo importar este archivo del espacio de trabajo."
+    }
+  },
+  "import": {
+    "tooLarge": "Este archivo del espacio de trabajo es demasiado grande para importarlo (límite de 16 MB).",
+    "invalidJson": "Ese archivo no es un JSON válido.",
+    "agents_one": "{{count}} asistente",
+    "agents_other": "{{count}} asistentes",
+    "skillsInstalled": "{{count}} habilidad(es) instalada(s)",
+    "skillsSkipped": "{{count}} habilidad(es) omitida(s)",
+    "mcpServers": "{{count}} conexión(es) (MCP)"
+  },
+  "connection": {
+    "testFailed": "La prueba de conexión falló"
+  },
+  "log": {
+    "startTesting": "Inicio: probando la conexión con la API de Claude…",
+    "startConnectionFailed": "Inicio: la conexión falló — {{message}}",
+    "startConnection": "Inicio: {{message}}",
+    "noAgents": "No hay asistentes en el espacio de trabajo. Añada al menos 2 asistentes conectados para ejecutar un flujo de trabajo.",
+    "connectTwoAgents": "Conecte al menos 2 asistentes con conexiones para formar una cadena de flujo de trabajo.",
+    "agentSaveFailed": "No se pudo guardar el asistente «{{name}}» en la base de datos. Vuelva a crearlo.",
+    "cannotConnectServer": "No se puede conectar con el servidor. Asegúrese de que el backend esté en ejecución en el puerto 3001.",
+    "conditionWarning": "⚠ {{warning}}",
+    "startingWorkflowAuto": "Iniciando flujo de trabajo con {{count}} pasos (aprobación automática)",
+    "startingWorkflowPerStep": "Iniciando flujo de trabajo con {{count}} pasos (aprobación paso a paso)",
+    "stoppedByUser": "Flujo de trabajo detenido por el usuario",
+    "outputSavedTo": "Resultado guardado en {{path}}",
+    "saveFailed": "Error al guardar: {{error}}",
+    "unknownError": "Error desconocido",
+    "autoSaveFailed": "Error al guardar automáticamente el resultado: {{error}}",
+    "outputNoMatch": "Salida «{{name}}»: no hay resultados de asistente coincidentes para guardar",
+    "outputNodeSaved": "Salida «{{name}}» guardada en {{path}}",
+    "outputNodeSaveFailed": "Error al guardar la salida «{{name}}»: {{error}}",
+    "redirectApproved": "Redirección aprobada",
+    "continuingForward": "Continuando adelante",
+    "skipReasonConditionNotMet": "condición de rama no cumplida",
+    "skipReasonErrorCascade": "un paso anterior falló",
+    "skipReasonNoActivePath": "ninguna ruta activa",
+    "stepSkipped": "{{agentName}}: omitido ({{reason}})",
+    "completedSteps": "Se completaron {{done}} de {{total}} pasos",
+    "completedStepsSkipped": "Se completaron {{done}} de {{total}} pasos ({{skipped}} omitidos)",
+    "stepError": "{{agentName}}: {{error}}",
+    "workflowStoppedReason": "Flujo de trabajo detenido — {{reason}}",
+    "plannerAnalyzing": "El planificador está analizando el flujo de trabajo...",
+    "plannerSuggests_one": "El planificador sugiere {{count}} cambio: {{analysis}}",
+    "plannerSuggests_other": "El planificador sugiere {{count}} cambios: {{analysis}}",
+    "plannerApproved": "El planificador aprobó el flujo de trabajo: {{analysis}}",
+    "plannerError": "Error del planificador: {{error}}",
+    "advisorAnalyzing": "Analizando la ejecución del flujo de trabajo...",
+    "advisorFailed": "El análisis del asesor falló: {{error}}",
+    "noStepHistory": "Aún no hay historial de conversación disponible para {{agentName}}.",
+    "emailSent": "Email «{{name}}» enviado a {{count}} destinatario(s): {{to}}",
+    "emailSendFailed": "No se pudo enviar el email «{{name}}»: {{error}}",
+    "emailNoRecipients": "Email «{{name}}»: sin destinatarios",
+    "emailNoMatch": "Email «{{name}}»: sin salida de agente coincidente para enviar"
+  },
+  "fallbackAgent": {
+    "agentLabel": "Asistente",
+    "stepLabel": "Asistente {{index}}"
+  },
+  "output": {
+    "defaultName": "Salida"
+  },
+  "savedWorkflow": {
+    "description_one": "Flujo de trabajo generado con {{count}} asistente",
+    "description_other": "Flujo de trabajo generado con {{count}} asistentes"
+  },
+  "banner": {
+    "viewOnly": "Acceso de solo lectura — la edición y la ejecución están deshabilitadas"
+  },
+  "coaching": {
+    "connectNodes": "Conecte los asistentes arrastrando de un conector a otro"
+  },
+  "agentChat": {
+    "sheetTitleWith": "Chat con {{name}}",
+    "sheetTitle": "Chat del asistente",
+    "empty": "Seleccione un asistente para empezar a chatear"
+  },
+  "sheet": {
+    "activity": "Actividad",
+    "auditLog": "Registro de auditoría",
+    "memory": "Memoria",
+    "workspaceContext": "Contexto del espacio de trabajo",
+    "costDashboard": "Panel de costes",
+    "analytics": "Analíticas",
+    "directorSettings": "Configuración del director",
+    "outputSettings": "Configuración de salida",
+    "conditionSettings": "Configuración de condición",
+    "workflowChat": "Chat del flujo de trabajo",
+    "workspacePlan": "Plan del espacio de trabajo",
+    "emailSettings": "Configuración de correo",
+    "structurerSettings": "Configuración del estructurador",
+    "dbSaveSettings": "Configuración de guardar en base de datos",
+    "httpRequestSettings": "Ajustes de solicitud HTTP",
+    "duckduckgoSearchSettings": "Ajustes de búsqueda DuckDuckGo",
+    "sakanaAiSettings": "Ajustes de Sakana AI"
+  },
+  "empty": {
+    "selectWorkspace": "Seleccione primero un espacio de trabajo"
+  },
+  "email": {
+    "defaultName": "Email",
+    "defaultSubject": "Salida del flujo"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "general-purpose-agent",
+  "name": "general-purpose-agent",
+  "description": "Use this skill when the user wants to produce a short video (5–60 seconds). Supports any video type: product ads, TikTok/Instagram/YouTube content, brand videos, explainers, social clips. USE FOR: video production, AI video, make a video, product video, brand video, promotional…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.3.4",
+  "icon": "bot",
+  "order": 1000
+}

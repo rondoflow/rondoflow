@@ -1,0 +1,10 @@
+{
+  "id": "book-brake-repair-services",
+  "name": "book-brake-repair-services",
+  "description": "Book brake-service services through Lokuli MCP. Use when user needs to find and book brake-service. Triggers on requests like \"book a brake-service\", \"find brake-service near me\", or any brake-service service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

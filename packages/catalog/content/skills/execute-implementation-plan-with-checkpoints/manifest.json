@@ -1,0 +1,10 @@
+{
+  "id": "execute-implementation-plan-with-checkpoints",
+  "name": "execute-implementation-plan-with-checkpoints",
+  "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-mermaid-diagrams-2",
+  "name": "generate-mermaid-diagrams-2",
+  "description": "Create software diagrams using Mermaid syntax. Use when users need to create, visualize, or document software through diagrams including class diagrams, sequence diagrams, flowcharts, ERDs, C4 architecture diagrams, state diagrams, git graphs, and other diagram types. Triggers i…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cache-reuse-prior-agent-code",
+  "name": "cache-reuse-prior-agent-code",
+  "description": "Cache and reuse code from prior AI agent executions via Raysurfer. Search before coding, upload after success.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

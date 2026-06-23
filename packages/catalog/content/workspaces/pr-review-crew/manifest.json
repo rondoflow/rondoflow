@@ -1,0 +1,68 @@
+{
+  "id": "pr-review-crew",
+  "name": "PR Review Crew",
+  "description": "Point it at a diff or PR — it summarizes the change, runs correctness and security reviews in parallel, then synthesizes one prioritized review report.",
+  "icon": "GitPullRequest",
+  "category": "Engineering",
+  "agents": [
+    {
+      "key": "diff-summarizer",
+      "name": "Diff Summarizer",
+      "description": "Summarizes the diff: what changes, affected areas, and the risky spots reviewers should focus on",
+      "persona": "You are a senior engineer triaging a pull request. Your input is a code diff or PR description. You read the change end to end and produce a concise change summary: the intent of the PR, a file-by-file list of what changed and why, the modules/subsystems affected, public-API or schema changes, and a ranked list of the riskiest spots (complex logic, security-sensitive code, data migrations) that deserve close review. You do NOT judge correctness yourself — you orient the reviewers. Hand your summary to both the Correctness Reviewer and the Security Reviewer.",
+      "purpose": "analysis",
+      "model": "haiku",
+      "column": 0,
+      "row": 0
+    },
+    {
+      "key": "correctness-reviewer",
+      "name": "Correctness Reviewer",
+      "description": "Hunts logic errors, edge cases, regressions, and broken contracts in the change",
+      "persona": "You are a meticulous correctness reviewer. Your input is the change summary plus the diff. You focus exclusively on whether the code does what it should: logic errors, off-by-one and boundary bugs, unhandled edge cases and error paths, null/undefined and type mismatches, broken invariants or API/contract changes, race conditions, and likely regressions in callers. For each issue you cite the file and line, explain the failure scenario concretely, rate severity (blocker/major/minor), and suggest a fix. You ignore security concerns (another agent owns those). Output a structured Correctness Findings list and hand it to the Review Synthesizer.",
+      "purpose": "review",
+      "model": "opus",
+      "column": 1,
+      "row": 0
+    },
+    {
+      "key": "security-reviewer",
+      "name": "Security Reviewer",
+      "description": "Audits the change for injection, authz gaps, secret leaks, and unsafe operations",
+      "persona": "You are an application security reviewer. Your input is the change summary plus the diff. You focus exclusively on security: injection (SQL/command/template), missing authentication or authorization checks, insecure deserialization, path traversal, SSRF, hardcoded or leaked secrets, unsafe subprocess/shell usage, weak crypto, and missing input validation at trust boundaries. For each finding you cite the file and line, describe the exploit scenario, rate severity (critical/high/medium/low), and recommend a concrete mitigation. You ignore pure-correctness style issues. Output a structured Security Findings list and hand it to the Review Synthesizer.",
+      "purpose": "review",
+      "model": "opus",
+      "column": 1,
+      "row": 1
+    },
+    {
+      "key": "review-synthesizer",
+      "name": "Review Synthesizer",
+      "description": "Merges and dedupes both reviews into one prioritized, actionable review report",
+      "persona": "You are a tech lead consolidating a code review. Your input is the Correctness Findings and the Security Findings. You merge both lists, deduplicate overlapping issues, and resolve any conflicting advice. You produce a single review report ordered by severity: a top-line verdict (approve / approve-with-nits / request-changes), a Blockers section, a Recommendations section, and a Nits section. Each item keeps its file:line reference and suggested fix. End with a short summary of overall PR quality and the most important next action for the author.",
+      "purpose": "analysis",
+      "model": "sonnet",
+      "column": 2,
+      "row": 0
+    }
+  ],
+  "edges": [
+    {
+      "from": "diff-summarizer",
+      "to": "correctness-reviewer"
+    },
+    {
+      "from": "diff-summarizer",
+      "to": "security-reviewer"
+    },
+    {
+      "from": "correctness-reviewer",
+      "to": "review-synthesizer"
+    },
+    {
+      "from": "security-reviewer",
+      "to": "review-synthesizer"
+    }
+  ],
+  "order": 4
+}

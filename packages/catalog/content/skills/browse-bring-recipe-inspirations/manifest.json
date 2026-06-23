@@ -1,0 +1,10 @@
+{
+  "id": "browse-bring-recipe-inspirations",
+  "name": "browse-bring-recipe-inspirations",
+  "description": "Use when user wants to browse recipe inspirations from Bring! shopping app. For discovering recipes, viewing recipe details (name, author, type, images), or filtering by tags. Note - cannot import ingredients (API limitation).",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "image",
+  "order": 1000
+}

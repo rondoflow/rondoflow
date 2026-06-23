@@ -1,0 +1,10 @@
+{
+  "id": "analyze-visualize-and-report-data",
+  "name": "analyze-visualize-and-report-data",
+  "description": "Data analysis and visualization. Query databases, generate reports, automate spreadsheets, and turn raw data into clear, actionable insights. Use when (1) you need to analyze, visualize, or explain data; (2) the user wants reports, dashboards, or metrics turned into a decision;…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

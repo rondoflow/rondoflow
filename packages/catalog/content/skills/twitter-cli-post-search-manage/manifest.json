@@ -1,0 +1,10 @@
+{
+  "id": "twitter-cli-post-search-manage",
+  "name": "twitter-cli-post-search-manage",
+  "description": "Twitter/X CLI wrapper using bird — post tweets, reply, read, search, and manage your timeline. Fast GraphQL-based X CLI.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

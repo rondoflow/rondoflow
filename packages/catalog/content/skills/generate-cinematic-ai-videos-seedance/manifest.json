@@ -1,0 +1,10 @@
+{
+  "id": "generate-cinematic-ai-videos-seedance",
+  "name": "generate-cinematic-ai-videos-seedance",
+  "description": "Generate AI videos using ByteDance's Seedance 1.5 Pro — a native audio-visual joint generation model with cinematic camera control, multi-language lip-sync, and synchronized audio generation. Supports text-to-video and image-to-video, up to 720p resolution, and 5-12 second durat…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.2",
+  "icon": "image",
+  "order": 1000
+}

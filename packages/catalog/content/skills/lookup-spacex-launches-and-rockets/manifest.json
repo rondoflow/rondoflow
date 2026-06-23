@@ -1,0 +1,10 @@
+{
+  "id": "lookup-spacex-launches-and-rockets",
+  "name": "lookup-spacex-launches-and-rockets",
+  "description": "CLI for AI agents to lookup SpaceX launches and rockets for their humans. No auth required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

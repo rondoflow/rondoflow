@@ -1,0 +1,10 @@
+{
+  "id": "generate-images-comfyui-api",
+  "name": "generate-images-comfyui-api",
+  "description": "Generate images via ComfyUI API (localhost:8188) using Flux2 workflow. Supports structured JSON prompts sent directly as positive prompt parameter, seed/steps customization. Async watcher via sub-agent for low-latency, token-efficient polling (every 5s).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "coins",
+  "order": 1000
+}

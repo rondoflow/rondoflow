@@ -1,0 +1,10 @@
+{
+  "id": "football-value-betting-finder",
+  "name": "football-value-betting-finder",
+  "description": "Professional football bet analysis skill. Generates data-driven bet slips based on form, H2H, standings, injuries and value analysis. Includes result tracking with hitrate and ROI. Use when the user asks for a football bet, bet slip, accumulator, tips, or picks.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

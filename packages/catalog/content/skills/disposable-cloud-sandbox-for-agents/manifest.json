@@ -1,0 +1,10 @@
+{
+  "id": "disposable-cloud-sandbox-for-agents",
+  "name": "disposable-cloud-sandbox-for-agents",
+  "description": "Lybic Sandbox is a cloud sandbox built for agents and automation workflows. Think of it as a disposable cloud computer you can spin up on demand. Agents can perform GUI actions like seeing the screen, clicking, typing, and handling pop ups, which makes it a great fit for legacy…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.3",
+  "icon": "bot",
+  "order": 1000
+}

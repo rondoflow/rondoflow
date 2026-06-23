@@ -1,0 +1,10 @@
+{
+  "id": "feishu-common-utilities",
+  "name": "feishu-common-utilities",
+  "description": "Shared Feishu authentication and API helper for OpenClaw Feishu skills.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "code",
+  "order": 1000
+}

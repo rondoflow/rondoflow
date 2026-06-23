@@ -1,0 +1,10 @@
+{
+  "id": "bookkeeping-financial-tax-manager",
+  "name": "bookkeeping-financial-tax-manager",
+  "description": "Manage bookkeeping, financial statements, and tax planning with sound accounting practices.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

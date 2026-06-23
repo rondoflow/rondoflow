@@ -1,0 +1,10 @@
+{
+  "id": "avoid-common-grafana-mistakes",
+  "name": "avoid-common-grafana-mistakes",
+  "description": "Avoid common Grafana mistakes — query pitfalls, variable templating, alerting traps, and provisioning gotchas.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

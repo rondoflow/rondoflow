@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-images",
+  "name": "generate-ai-images",
+  "description": "Use when the user needs image generation or image transformation through the IMA Open API, including text-to-image, image-to-image, style transfer, or reference-image continuity, and the agent should use the setup, doctor, and live-catalog-aware runtime in this repo.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "bot",
+  "order": 1000
+}

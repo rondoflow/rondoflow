@@ -1,0 +1,10 @@
+{
+  "id": "multi-agent-system-designer",
+  "name": "multi-agent-system-designer",
+  "description": "Agent Designer - Multi-Agent System Architecture",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "bot",
+  "order": 1000
+}

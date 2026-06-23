@@ -1,0 +1,10 @@
+{
+  "id": "ai-image-generation-via-cellcog",
+  "name": "ai-image-generation-via-cellcog",
+  "description": "AI image generation powered by CellCog. Create images, edit photos, consistent characters, product photography, reference-based images, sets of images, style transfer. Professional image creation with AI.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

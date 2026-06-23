@@ -1,0 +1,10 @@
+{
+  "id": "rssaurus-feed-reader-cli",
+  "name": "rssaurus-feed-reader-cli",
+  "description": "Use the RSSaurus command-line client (Go binary `rssaurus`) to interact with https://rssaurus.com from the terminal: authenticate (`rssaurus auth login/whoami`), list feeds/items, print item URLs for piping, open URLs, and perform triage actions (mark read/unread, bulk mark-read…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

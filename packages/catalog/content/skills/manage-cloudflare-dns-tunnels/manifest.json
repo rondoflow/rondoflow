@@ -1,0 +1,10 @@
+{
+  "id": "manage-cloudflare-dns-tunnels",
+  "name": "manage-cloudflare-dns-tunnels",
+  "description": "Connect to Cloudflare API for DNS management, tunnels, and zone administration. Use when user needs to manage domains, DNS records, or create tunnels.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

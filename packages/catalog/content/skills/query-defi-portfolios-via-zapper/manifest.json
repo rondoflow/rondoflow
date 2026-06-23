@@ -1,0 +1,10 @@
+{
+  "id": "query-defi-portfolios-via-zapper",
+  "name": "query-defi-portfolios-via-zapper",
+  "description": "Query DeFi portfolios, token holdings, NFTs, transactions, and prices via Zapper API. Supports 50+ chains. Use when user asks about wallet balances, DeFi positions, NFT collections, token prices, or transaction history.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

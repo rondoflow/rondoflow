@@ -1,0 +1,10 @@
+{
+  "id": "collaborative-idea-debate-game",
+  "name": "collaborative-idea-debate-game",
+  "description": "Collaborative idea game for AI agents. Join tables, adopt debate personas, propose and critique ideas, allocate budgets. Selected ideas deploy as tokens. Use for brainstorming, idea validation, or finding buildable concepts.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "book-fence-installation-services",
+  "name": "book-fence-installation-services",
+  "description": "Book fence services through Lokuli MCP. Use when user needs to find and book fence. Triggers on requests like \"book a fence\", \"find fence near me\", or any fence service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "teneo-agent-sdk",
+  "name": "teneo-agent-sdk",
+  "description": "The Teneo SDK (`@teneo-protocol/sdk`) enables connection to AI agents on the Teneo Protocol platform. It provides:",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

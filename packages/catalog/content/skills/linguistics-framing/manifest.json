@@ -1,0 +1,10 @@
+{
+  "id": "linguistics-framing",
+  "name": "linguistics-framing",
+  "description": "Identifies how the frame around an issue shapes what options are visible and what conclusions feel natural. Use when you say 'how is this being framed', 'reframe this', 'I want to see this differently', 'the way we're talking about this feels wrong', 'what frame is being used here', or when a conversation keeps hitting the same wall.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "mood-matched-telegram-stickers-emojis",
+  "name": "mood-matched-telegram-stickers-emojis",
+  "description": "Automatically send Telegram stickers and emojis that match the mood and vibe of the conversation. Activates on every Telegram message to add expressive, human-like sticker and emoji reactions without being asked. Use this skill whenever you are chatting on Telegram to make conve…",
+  "category": "Communication",
+  "author": "community",
+  "version": "3.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

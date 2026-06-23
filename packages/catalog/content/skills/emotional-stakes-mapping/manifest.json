@@ -1,0 +1,10 @@
+{
+  "id": "emotional-stakes-mapping",
+  "name": "emotional-stakes-mapping",
+  "description": "Maps what each stakeholder actually cares about underneath their stated position — because addressing the stated position while missing the real stake accomplishes nothing. TRIGGERS: 'what do they actually want', 'underlying stakes', 'what's really at stake', 'beneath the position', 'why won't they agree'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

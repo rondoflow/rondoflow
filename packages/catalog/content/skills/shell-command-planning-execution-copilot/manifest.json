@@ -1,0 +1,10 @@
+{
+  "id": "shell-command-planning-execution-copilot",
+  "name": "shell-command-planning-execution-copilot",
+  "description": "Local shell copilot for command planning, safe execution, preview-first workflows, output summarization, privacy-aware history controls, and step-by-step terminal help. Use whenever the user wants to run terminal commands, inspect files, debug shell issues, automate local tasks,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

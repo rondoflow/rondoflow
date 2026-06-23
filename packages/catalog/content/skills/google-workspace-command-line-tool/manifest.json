@@ -1,0 +1,10 @@
+{
+  "id": "google-workspace-command-line-tool",
+  "name": "google-workspace-command-line-tool",
+  "description": "name: gogcli",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

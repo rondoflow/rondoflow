@@ -1,0 +1,10 @@
+{
+  "id": "bridge-connector-skill",
+  "name": "bridge-connector-skill",
+  "description": "> **The Intelligent Connection Bridge**: A high-signal scouting agent that runs nightly to bridge you with the right people.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

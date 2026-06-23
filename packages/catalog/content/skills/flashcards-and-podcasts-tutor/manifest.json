@@ -1,0 +1,10 @@
+{
+  "id": "flashcards-and-podcasts-tutor",
+  "name": "flashcards-and-podcasts-tutor",
+  "description": "Integrates with the EchoDecks External API for flashcard management, AI generation, and audio study sessions.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

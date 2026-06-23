@@ -1,0 +1,78 @@
+{
+  "panel": {
+    "title": "Tareas programadas",
+    "newSchedule": "Nueva programación",
+    "empty": "Aún no hay tareas programadas."
+  },
+  "task": {
+    "active": "Activa",
+    "paused": "Pausada",
+    "last": "Última: {{value}}",
+    "lastStatus": "({{status}})",
+    "next": "Siguiente: {{value}}",
+    "noValue": "—",
+    "action": {
+      "runNow": "Ejecutar ahora",
+      "pause": "Pausar",
+      "resume": "Reanudar",
+      "delete": "Eliminar"
+    }
+  },
+  "dialog": {
+    "title": "Nueva tarea programada",
+    "placeholder": {
+      "name": "Nombre de la programación",
+      "message": "Mensaje / instrucción de la tarea",
+      "cron": "Expresión cron (p. ej. 0 9 * * 1-5)",
+      "timezone": "Zona horaria"
+    },
+    "type": {
+      "agent": "Asistente",
+      "workflow": "Flujo de trabajo"
+    },
+    "select": {
+      "agent": "Selecciona un asistente",
+      "workflow": "Selecciona un espacio de trabajo",
+      "searchPlaceholder": "Buscar…",
+      "emptyAgent": "No se encontraron asistentes",
+      "emptyWorkflow": "No se encontraron espacios de trabajo"
+    },
+    "scheduleLabel": "Programación",
+    "create": "Crear programación"
+  },
+  "preset": {
+    "everyHour": "Cada hora",
+    "every2Hours": "Cada 2 horas",
+    "everyDay9am": "Todos los días a las 9:00",
+    "weekdays9am": "Días laborables a las 9:00",
+    "everyMonday9am": "Cada lunes a las 9:00"
+  },
+  "loop": {
+    "title": "Bucle autónomo",
+    "description": "El asistente se vuelve a ejecutar automáticamente hasta que se cumplan los criterios",
+    "toggle": {
+      "enable": "Activar bucle autónomo",
+      "disable": "Desactivar bucle autónomo"
+    },
+    "completionCriteria": "Criterios de finalización",
+    "criteria": {
+      "regex": "Coincidencia de expresión regular",
+      "testPass": "Las pruebas pasan",
+      "manual": "Revisión manual",
+      "maxIterations": "Solo número máximo de iteraciones"
+    },
+    "criteriaPlaceholder": {
+      "regex": "p. ej. DONE|COMPLETE|SUCCESS",
+      "testPass": "p. ej. npm test"
+    },
+    "field": {
+      "pattern": "Patrón",
+      "command": "Comando"
+    },
+    "maxIterations": "Número máximo de iteraciones",
+    "maxIterationsAriaLabel": "Número máximo de iteraciones del bucle",
+    "iterationCap_one": "El bucle se detendrá después de {{count}} iteración aunque no se cumplan los criterios.",
+    "iterationCap_other": "El bucle se detendrá después de {{count}} iteraciones aunque no se cumplan los criterios.",
+    "warning": "Los bucles autónomos consumen tokens de forma continua. Supervise el uso y establezca un límite de iteraciones razonable."
+  }
+}

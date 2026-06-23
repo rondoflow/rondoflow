@@ -1,0 +1,10 @@
+{
+  "id": "comprehensive-openclaw-security-audit",
+  "name": "comprehensive-openclaw-security-audit",
+  "description": "Comprehensive security audit for OpenClaw. Scans 7 domains (runtime, channels, agents, cron, skills, sessions, network), supports 3 expertise levels, context-aware analysis, and visual dashboard. Read-only with localized reports.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.8.0",
+  "icon": "bot",
+  "order": 1000
+}

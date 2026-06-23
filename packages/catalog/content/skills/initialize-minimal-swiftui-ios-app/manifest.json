@@ -1,0 +1,10 @@
+{
+  "id": "initialize-minimal-swiftui-ios-app",
+  "name": "initialize-minimal-swiftui-ios-app",
+  "description": "Initialize a minimal SwiftUI iOS app in the current directory by generating a single `.xcodeproj` with XcodeGen (no workspaces, packages, or tests unless explicitly requested).",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

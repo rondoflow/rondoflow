@@ -1,0 +1,10 @@
+{
+  "id": "extract-google-maps-reviews",
+  "name": "extract-google-maps-reviews",
+  "description": "This skill is designed to help users automatically extract reviews from Google Maps via the Google Maps Reviews API. Agent should proactively apply this skill when users request to find reviews for local businesses (e.g., coffee shops, clinics), monitor customer feedback for a s…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "bot",
+  "order": 1000
+}

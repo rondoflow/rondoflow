@@ -1,0 +1,10 @@
+{
+  "id": "usdc-escrow-agent-payments-base",
+  "name": "usdc-escrow-agent-payments-base",
+  "description": "Create and manage USDC escrows for agent-to-agent payments on Base Sepolia. 30% gas savings, batch operations, dispute resolution.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

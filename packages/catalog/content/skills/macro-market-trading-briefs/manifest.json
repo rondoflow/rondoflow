@@ -1,0 +1,10 @@
+{
+  "id": "macro-market-trading-briefs",
+  "name": "macro-market-trading-briefs",
+  "description": "Thesis-driven macro-to-execution market workflow in natural Chinese or English. Generate A-share and U.S. equity Morning Briefs, Intraday Alerts, Close Reviews, Weekly Regime Resets, and pre-trade sanity checks. Use when the user asks for an A-share morning brief, a U.S. morning…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.11",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,175 @@
+{
+  "error": {
+    "title": "Something went wrong",
+    "fallback": "An unexpected error occurred. Please try again.",
+    "errorId": "Error ID: {{digest}}",
+    "tryAgain": "Try Again",
+    "goHome": "Go Home"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist.",
+    "back": "Back to rondoflow"
+  },
+  "agentStream": {
+    "error": {
+      "timeout": "The request timed out. Please try again.",
+      "rateLimit": "Too many requests. Please wait a moment before trying again.",
+      "network": "A network error occurred. Check your connection and retry.",
+      "overloaded": "The service is temporarily overloaded. Please try again shortly.",
+      "auth": "Authentication failed. Please check your API configuration.",
+      "contextLength": "The conversation is too long. Consider clearing the chat.",
+      "processError": "The assistant process failed to start. Make sure Claude Code is installed and configured.",
+      "approvalTimeout": "The approval request timed out.",
+      "unexpected": "An unexpected error occurred. Please try again.",
+      "cannotReachServerRaw": "Cannot reach the rondoflow server",
+      "cannotReachServer": "Cannot reach the server. Make sure the backend is running: npm run dev:server"
+    }
+  },
+  "workspace": {
+    "defaultName": "My Workspace",
+    "numberedName": "Workspace {{n}}"
+  },
+  "toast": {
+    "edgeDeleted": "Connection deleted.",
+    "nodeDeleted": "Node deleted.",
+    "undo": "Undo",
+    "runNotPermitted": "Your role does not permit running workflows",
+    "saveFailed": "Couldn't save the canvas.",
+    "autosaveFailed": "Couldn't autosave your changes — they may be lost on reload.",
+    "retry": "Retry"
+  },
+  "notify": {
+    "workflowGenerationFailed": {
+      "title": "Workflow generation failed",
+      "description": "Could not generate a multi-agent workflow. Creating a simple assistant instead. Check server logs for details."
+    },
+    "workspaceCreateFailed": {
+      "title": "Could not create workspace",
+      "description": "The workspace could not be created. Make sure the server is running and try again."
+    },
+    "discussionCreateFailed": {
+      "title": "Could not create discussion",
+      "description": "Failed to save the discussion. Make sure the server is running."
+    },
+    "canvasExported": {
+      "title": "Canvas exported",
+      "description_one": "Saved {{file}} ({{count}} assistant).",
+      "description_other": "Saved {{file}} ({{count}} assistants)."
+    },
+    "exportFailed": {
+      "title": "Export failed",
+      "description": "Could not export this canvas."
+    },
+    "imported": {
+      "title": "Imported \"{{name}}\""
+    },
+    "importFailed": {
+      "title": "Import failed",
+      "description": "Could not import this canvas file."
+    }
+  },
+  "import": {
+    "tooLarge": "This canvas file is too large to import (limit 16 MB).",
+    "invalidJson": "That file is not valid JSON.",
+    "agents_one": "{{count}} assistant",
+    "agents_other": "{{count}} assistants",
+    "skillsInstalled": "{{count}} skill(s) installed",
+    "skillsSkipped": "{{count}} skill(s) skipped",
+    "mcpServers": "{{count}} MCP server(s)"
+  },
+  "connection": {
+    "testFailed": "Connection test failed"
+  },
+  "log": {
+    "startTesting": "Start: testing Claude API connection…",
+    "startConnectionFailed": "Start: connection failed — {{message}}",
+    "startConnection": "Start: {{message}}",
+    "noAgents": "No agents on the canvas. Add at least 2 connected agents to run a workflow.",
+    "connectTwoAgents": "Connect at least 2 agents with edges to form a workflow chain.",
+    "agentSaveFailed": "Agent \"{{name}}\" could not be saved to database. Please recreate it.",
+    "cannotConnectServer": "Cannot connect to server. Make sure the backend is running on port 3001.",
+    "conditionWarning": "⚠ {{warning}}",
+    "startingWorkflowAuto": "Starting workflow with {{count}} steps (auto-approve)",
+    "startingWorkflowPerStep": "Starting workflow with {{count}} steps (step-by-step approval)",
+    "stoppedByUser": "Workflow stopped by user",
+    "outputSavedTo": "Output saved to {{path}}",
+    "saveFailed": "Failed to save: {{error}}",
+    "unknownError": "Unknown error",
+    "autoSaveFailed": "Failed to auto-save output: {{error}}",
+    "outputNoMatch": "Output \"{{name}}\": no matching agent output to save",
+    "outputNodeSaved": "Output \"{{name}}\" saved to {{path}}",
+    "outputNodeSaveFailed": "Output \"{{name}}\" failed to save: {{error}}",
+    "redirectApproved": "Redirect approved",
+    "continuingForward": "Continuing forward",
+    "skipReasonConditionNotMet": "branch condition not met",
+    "skipReasonErrorCascade": "an upstream step failed",
+    "skipReasonNoActivePath": "no active path",
+    "stepSkipped": "{{agentName}}: skipped ({{reason}})",
+    "completedSteps": "Completed {{done}} of {{total}} steps",
+    "completedStepsSkipped": "Completed {{done}} of {{total}} steps ({{skipped}} skipped)",
+    "stepError": "{{agentName}}: {{error}}",
+    "workflowStoppedReason": "Workflow stopped — {{reason}}",
+    "plannerAnalyzing": "Planner is analyzing the workflow...",
+    "plannerSuggests_one": "Planner suggests {{count}} change: {{analysis}}",
+    "plannerSuggests_other": "Planner suggests {{count}} changes: {{analysis}}",
+    "plannerApproved": "Planner approved the workflow: {{analysis}}",
+    "plannerError": "Planner error: {{error}}",
+    "advisorAnalyzing": "Analyzing workflow run...",
+    "advisorFailed": "Advisor analysis failed: {{error}}",
+    "noStepHistory": "No conversation history available for {{agentName}} yet.",
+    "emailSent": "Email \"{{name}}\" sent to {{count}} recipient(s): {{to}}",
+    "emailSendFailed": "Email \"{{name}}\" failed to send: {{error}}",
+    "emailNoRecipients": "Email \"{{name}}\": no recipients set",
+    "emailNoMatch": "Email \"{{name}}\": no matching agent output to send"
+  },
+  "fallbackAgent": {
+    "agentLabel": "Agent",
+    "stepLabel": "Agent {{index}}"
+  },
+  "output": {
+    "defaultName": "Output"
+  },
+  "savedWorkflow": {
+    "description_one": "Generated workflow with {{count}} agent",
+    "description_other": "Generated workflow with {{count}} agents"
+  },
+  "banner": {
+    "viewOnly": "View-only access — editing and running are disabled"
+  },
+  "coaching": {
+    "connectNodes": "Connect assistants by dragging from one handle to another"
+  },
+  "agentChat": {
+    "sheetTitleWith": "Chat with {{name}}",
+    "sheetTitle": "Agent chat",
+    "empty": "Select an assistant to start chatting"
+  },
+  "sheet": {
+    "activity": "Activity",
+    "auditLog": "Audit Log",
+    "memory": "Memory",
+    "workspaceContext": "Workspace Context",
+    "costDashboard": "Cost Dashboard",
+    "analytics": "Analytics",
+    "directorSettings": "Director Settings",
+    "outputSettings": "Output Settings",
+    "conditionSettings": "Condition Settings",
+    "workflowChat": "Workflow Chat",
+    "workspacePlan": "Workspace Plan",
+    "emailSettings": "Email Settings",
+    "structurerSettings": "Structurer Settings",
+    "dbSaveSettings": "Save to Database Settings",
+    "httpRequestSettings": "HTTP Request Settings",
+    "duckduckgoSearchSettings": "DuckDuckGo Search Settings",
+    "sakanaAiSettings": "Sakana AI Settings"
+  },
+  "empty": {
+    "selectWorkspace": "Select a workspace first"
+  },
+  "email": {
+    "defaultName": "Email",
+    "defaultSubject": "Workflow output"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "on-device-text-image-anonymization",
+  "name": "on-device-text-image-anonymization",
+  "description": "HaS (Hide and Seek) on-device text and image anonymization. Text: 8 languages (zh/en/fr/de/es/pt/ja/ko), open-set entity types. Image: 21 privacy categories (face, fingerprint, ID card, passport, license plate, etc.). Use when: (1) anonymizing text before sending to cloud LLMs t…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "image",
+  "order": 1000
+}

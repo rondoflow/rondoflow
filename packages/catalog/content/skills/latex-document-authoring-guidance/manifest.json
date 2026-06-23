@@ -1,0 +1,10 @@
+{
+  "id": "latex-document-authoring-guidance",
+  "name": "latex-document-authoring-guidance",
+  "description": "Write LaTeX documents with correct syntax, packages, and compilation workflow.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

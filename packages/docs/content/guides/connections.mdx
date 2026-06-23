@@ -1,0 +1,260 @@
+---
+title: Connections (MCP)
+description: Register Model Context Protocol servers as Connections and give your Assistants extra tools.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Connections (MCP)
+
+A **Connection** (internally an *MCP Server*) is an external [Model Context Protocol](https://modelcontextprotocol.io) server that you register once and then assign to one or more Assistants (Agents). Once assigned, the server's tools become available to that Assistant when it runs — filesystem access, a database client, a web API wrapper, and so on.
+
+Connections are how you extend an Assistant beyond its built-in capabilities without writing custom code. You define how to start the server (a command plus arguments and environment variables), and RondoFlow wires it into the Assistant's runtime configuration.
+
+<Callout type="info">
+A Connection's `type` selects its **transport**. **`stdio`** (the default) is a local process RondoFlow starts and talks to over standard input/output. **`http`** and **`sse`** are *remote* servers reached over a URL, with optional authentication. Pick `stdio` for a server you run on the same machine, and `http`/`sse` for a hosted one.
+</Callout>
+
+<Callout type="warning">
+Connections apply to **Claude Code** Assistants only — the default provider. OpenAI and Perplexity Assistants run through HTTP APIs and skip MCP entirely at spawn time, so any Connection assigned to one has no effect. (Those providers expose their own built-in tools, such as web search and deep research, configured on the Assistant instead.)
+</Callout>
+
+## Two ways an Assistant gets tools
+
+A single Assistant can pull MCP servers from two independent sources, which RondoFlow merges at run time:
+
+| Source | Where it comes from | Naming in the merged config |
+| --- | --- | --- |
+| **Direct Connection** | An MCP server you register and assign to the Assistant | Plain registered name (e.g. `filesystem`) |
+| **Skill-bundled** | A [Skill](/docs/guides/skills) installed on the Assistant that ships its own `mcpConfig` | Namespaced as `{skillName}/{serverName}` |
+
+This split lets a Skill bring its own tools along with it, while you stay free to attach extra standalone Connections on top. A Skill's `mcpConfig` is declared in its `rondoflow.json` manifest (or in the `SKILL.md` frontmatter that gets merged with it) and is also stdio-only — see [Skills](/docs/guides/skills) for how to bundle one.
+
+## Register a Connection
+
+Open the **MCP Connections** panel and add a server. Which fields apply depends on the chosen transport:
+
+| Field | Transport | Required | Notes |
+| --- | --- | --- | --- |
+| `name` | all | yes | 1–100 chars, unique across all Connections |
+| `description` | all | no | Optional free-form string; no enforced maximum (only `name` is length-bounded) |
+| `type` | all | no | Transport: `stdio` (default), `http`, or `sse` |
+| `command` | stdio | yes (stdio) | Executable to start, e.g. `npx`, `python`, or an absolute path |
+| `args` | stdio | no | Array of arguments; defaults to `[]` |
+| `env` | stdio | no | Map of environment variables passed to the process |
+| `url` | http / sse | yes (remote) | Endpoint URL of the remote MCP server |
+| `auth` | http / sse | no | Optional authentication for the remote server — see [Authenticating a remote Connection](#authenticating-a-remote-connection). Secret fields are encrypted at rest. |
+
+In the UI, the form swaps between the local and remote fields as you pick the transport. For **stdio**, arguments are entered comma-separated and split into the args array, and environment variables are entered as key/value pairs. A typical local filesystem server looks like this:
+
+```text
+Name:    filesystem
+Type:    stdio
+Command: npx
+Args:    -y, @modelcontextprotocol/server-filesystem, /tmp
+```
+
+A **remote** server instead takes a URL and (optionally) an auth method:
+
+```text
+Name:    docs-search
+Type:    http
+URL:     https://mcp.example.com/sse
+Auth:    Bearer token
+```
+
+<Callout type="warning">
+The `env` map is stored as-is and may contain secrets (API keys, tokens). Treat the Connection record as sensitive and avoid logging the raw server response in shared environments. When you export a Workspace (Canvas) as a shareable bundle (format `rondoflow-canvas`), each Connection's `env` is **stripped from the bundle**, so secrets are never shared on export/import — re-add them after importing.
+</Callout>
+
+<Callout type="info">
+The MCP Connections panel may show a per-server **Test** button. It is currently a placeholder that reports a mock result — not a live connectivity check against the server.
+</Callout>
+
+## Authenticating a remote Connection
+
+A remote (`http` / `sse`) Connection can carry an `auth` object so RondoFlow can reach a protected server. Four methods are supported:
+
+| Method | `auth.type` | What it sends | Fields |
+| --- | --- | --- | --- |
+| **None** | `none` | Nothing — an open server | — |
+| **Bearer token** | `bearer` | `Authorization: Bearer <token>` | `token` |
+| **Custom header** | `header` | An arbitrary header, e.g. `X-API-Key: <value>` | `headerName`, `headerValue` |
+| **OAuth2 (client credentials)** | `oauth2_client_credentials` | Exchanges client credentials for an access token, then sends `Authorization: Bearer <token>` | `tokenUrl`, `clientId`, `clientSecret`, optional `scope` |
+
+<Callout type="warning">
+The secret fields — the bearer `token`, the custom `headerValue`, and the OAuth2 `clientSecret` — are **encrypted at rest** (AES-GCM). The API never returns them: reads come back in a *redacted* shape that only reports whether each secret is set, and the editor shows a "secret is set — leave blank to keep" hint so you can change other fields without re-entering it.
+</Callout>
+
+At spawn time a remote Connection's auth is resolved into request headers before the merged config is handed to the CLI: a bearer or custom header is injected directly, while OAuth2 client-credentials are first exchanged at the `tokenUrl` for a short-lived access token. A `stdio` Connection has no `auth` — it relies on `env` instead.
+
+## Add a Connection card on the canvas
+
+Connections are also a first-class node (Card) on the Workspace (Canvas). Drag the **Connection** card (the plug icon, purple accent) from the palette onto the canvas, then draw an edge from it to an Assistant card. That visual link is an **association edge** — the same kind used by Skill and Safety Rule cards.
+
+<Callout type="info">
+Connection cards attach to **Assistants only**. RondoFlow rejects an edge from a Connection to anything other than an Assistant card and shows a toast explaining why. The Connection card is gated behind the *full* interface tier.
+</Callout>
+
+See [The canvas](/docs/guides/canvas) for the full card catalog and edge types.
+
+## Assign a Connection to an Assistant
+
+<Steps>
+### Register the Connection
+
+Create the MCP server once (see above). It now exists in your Connection library independent of any Assistant.
+
+### Attach it to an Assistant
+
+Assign the Connection to the Assistant that needs it — either by drawing the edge on the canvas or via the API. The same Connection can be attached to multiple Assistants — assignments are idempotent (an upsert), so re-attaching is a no-op rather than an error.
+
+### Run the Assistant
+
+When the Assistant starts, RondoFlow builds its merged MCP config and exposes the server's tools to the run.
+</Steps>
+
+To remove access, detach the Connection from the Assistant. Detaching only removes the link — the Connection itself stays in your library. Deleting a Connection outright cascades: all of its Assistant assignments are removed automatically by the database.
+
+## How the merged config is built
+
+When an Assistant runs, the MCP config builder assembles one `mcpServers` map from both sources:
+
+<Steps>
+### Load Skill-bundled servers
+
+It reads the Assistant's **enabled** Skills (ordered by priority, ascending) and pulls each Skill's `mcpConfig`. A Skill's config may be a single server, or a map of `serverName → config` — both shapes are supported. Each entry is registered under a namespaced logical name:
+
+- A map entry becomes `{skillName}/{serverName}`.
+- A single-server config becomes `{skillName}/default`.
+
+### Load direct Connections
+
+It reads every MCP server assigned directly to the Assistant and registers each under its **plain registered name** (no namespace).
+
+### Detect conflicts
+
+For every server it computes a signature of `command::args`. If two or more sources resolve to the **same** signature, that signature is reported as a conflict, listing the logical names (sources) that produced it.
+</Steps>
+
+The result is a structure shaped like this:
+
+```ts
+interface MergedMcpConfig {
+  readonly mcpServers: Readonly<Record<string, McpServerConfig>>
+  readonly conflicts: ReadonlyArray<{
+    readonly name: string          // human-readable "command args"
+    readonly sources: readonly string[]  // logical names that collided
+  }>
+}
+```
+
+Only the `mcpServers` map is forwarded to the spawned Claude Code CLI (as the `--mcp-config` argument); the `conflicts` list is internal metadata used for diagnostics. The serialized config is redacted in logged spawn arguments so secrets in `env` never reach logs.
+
+### Why namespacing matters
+
+Because Skill-sourced servers are prefixed with the Skill name, two different Skills can each bundle a server called `search` without clobbering each other — they become `web-tools/search` and `docs/search`. Direct Connections keep their plain names, so you control those names directly through the unique `name` field.
+
+<Callout type="important">
+A conflict means multiple sources start the **exact same** command + arguments — usually a Skill and a direct Connection both providing the identical server. Both entries still appear in the merged map under their own names; the conflict list is a heads-up so you can drop the redundant one.
+</Callout>
+
+## Connections API
+
+All routes return the standard `{ success, data?, error?, meta? }` envelope. They sit behind the default-deny auth middleware: `GET` reads are open to any authenticated user, while the mutating verbs (`POST`/`PATCH`/`DELETE`, including assign/unassign) require the `write` capability — that is, an editor or higher role. See [Users & roles](/docs/guides/users) for the capability matrix.
+
+### Manage Connections
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/mcp-servers` | List all Connections (newest first) |
+| `GET` | `/api/mcp-servers/:id` | Get one Connection, including its Assistant assignments |
+| `POST` | `/api/mcp-servers` | Register a new Connection (returns `201`) |
+| `PATCH` | `/api/mcp-servers/:id` | Update fields on a Connection (partial) |
+| `DELETE` | `/api/mcp-servers/:id` | Delete a Connection (cascades assignments) |
+
+### Attach / detach to an Assistant
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/agents/:agentId/mcp/:mcpServerId` | Assign a Connection to an Assistant (idempotent, returns `201`) |
+| `DELETE` | `/api/agents/:agentId/mcp/:mcpServerId` | Unassign a Connection from an Assistant |
+| `GET` | `/api/agents/:agentId/mcp` | List the Connections assigned to an Assistant |
+
+Create example:
+
+```bash
+curl -X POST http://localhost:3001/api/mcp-servers \
+  -H 'content-type: application/json' \
+  -d '{
+    "name": "filesystem",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
+    "env": { "READONLY": "1" }
+  }'
+```
+
+Remote (`http`/`sse`) Connection with bearer auth:
+
+```bash
+curl -X POST http://localhost:3001/api/mcp-servers \
+  -H 'content-type: application/json' \
+  -d '{
+    "name": "docs-search",
+    "type": "http",
+    "url": "https://mcp.example.com/sse",
+    "auth": { "type": "bearer", "token": "sk-..." }
+  }'
+```
+
+Attach example:
+
+```bash
+curl -X POST http://localhost:3001/api/agents/AGENT_ID/mcp/SERVER_ID
+```
+
+## Data model
+
+Two tables back Connections:
+
+```prisma
+model McpServer {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  type        String   @default("stdio") // 'stdio' | 'http' | 'sse'
+  command     String?  // stdio transport only
+  args        String[]
+  env         Json?
+  url         String?  // http/sse transport only
+  auth        Json?    // { type, ... } — secret fields encrypted at rest
+  createdAt   DateTime @default(now())
+
+  agents AgentMcpServer[]
+}
+
+model AgentMcpServer {
+  agentId     String
+  mcpServerId String
+
+  agent     Agent     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  mcpServer McpServer @relation(fields: [mcpServerId], references: [id], onDelete: Cascade)
+
+  @@id([agentId, mcpServerId])
+}
+```
+
+`AgentMcpServer` is a join table with a composite primary key, so each Assistant–Connection pairing is unique and deleting either side cascades the link away.
+
+## Related
+
+<Cards>
+  <Cards.Card title="Skills" href="/docs/guides/skills" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="The canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="Data nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Data model" href="/docs/reference/data-model" />
+  <Cards.Card title="API reference" href="/docs/reference/api" />
+</Cards>

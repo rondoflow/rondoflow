@@ -1,0 +1,10 @@
+{
+  "id": "build-personal-document-management-system",
+  "name": "build-personal-document-management-system",
+  "description": "Build a personal document system for instant access to IDs, contracts, certificates, and important files.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

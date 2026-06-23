@@ -1,0 +1,353 @@
+{
+  "toolbar": {
+    "stop": {
+      "label": "Stop",
+      "ariaLabel": "Stop workflow",
+      "tooltipTitle": "Stop",
+      "tooltipBody": "Stops the current run and terminates every active agent immediately."
+    },
+    "run": {
+      "label": "Run",
+      "ariaLabel": "Run workflow",
+      "coaching": "Your workflow is ready. Hit Run to describe the task and start.",
+      "tooltipTitle": "Run workflow",
+      "tooltipBody": "Opens the Execution Log, where you describe the task and start the run. Each agent then runs in dependency order, passing its output on to the next."
+    },
+    "director": {
+      "label": "Director",
+      "evaluating": "Evaluating",
+      "tooltipTitle": "Director",
+      "tooltipBodyBefore": "Steers the workflow ",
+      "tooltipBodyWhileRuns": "while it runs",
+      "tooltipBodyMid": ". After each step it reviews the agent's output and decides whether to ",
+      "tooltipBodyContinue": "continue",
+      "tooltipBodyToNext": " to the next agent, ",
+      "tooltipBodyRedirect": "redirect",
+      "tooltipBodyRedirectNote": " (re-run a step with new guidance), or ",
+      "tooltipBodyConclude": "conclude",
+      "tooltipBodyEarly": " early.",
+      "toggleOn": "On — click to disable",
+      "toggleOff": "Off — click to enable",
+      "action": {
+        "continue": "continue",
+        "redirect": "redirect",
+        "conclude": "conclude"
+      }
+    },
+    "planner": {
+      "label": "Planner",
+      "planning": "Planning",
+      "tooltipTitle": "Planner",
+      "tooltipBody": "Analyzes your workflow before it runs. It reviews the agents and how they're connected, then suggests improvements or changes to agents up front — so issues are caught before execution starts.",
+      "toggleOn": "On — click to disable",
+      "toggleOff": "Off — click to enable"
+    },
+    "advisor": {
+      "label": "Advisor",
+      "tooltipTitle": "Advisor",
+      "tooltipBody": "Analyzes a completed run and suggests improvements — better agent personas, prompts, or workflow structure — based on what actually happened.",
+      "analyzing": "Analyzing…",
+      "clickToAnalyze": "Click to analyze the last run"
+    },
+    "chat": {
+      "open": "Open workflow chat",
+      "close": "Close workflow chat",
+      "tooltipTitle": "Workflow Chat",
+      "tooltipBody": "Opens the chat & execution log — watch agents run live, read their full raw output, and send follow-up messages to the workflow.",
+      "toggleOpen": "Open — click to close",
+      "toggleClosed": "Click to open"
+    },
+    "assistants": {
+      "label": "Assistants",
+      "tooltipTitle": "Assistants",
+      "tooltipBody": "Browse and manage every assistant in this workspace — open the full list to create, edit, or inspect them."
+    },
+    "plan": {
+      "label": "Plan"
+    },
+    "resources": {
+      "label": "Resources"
+    },
+    "externalFolders": {
+      "label": "External Folders"
+    },
+    "save": {
+      "ariaLabel": "Save canvas",
+      "label": "Save",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "titleSaving": "Saving…",
+      "titleDirty": "Unsaved changes — click to save",
+      "titleSaved": "Canvas saved"
+    },
+    "progress": {
+      "running": "Running…"
+    }
+  },
+  "template": {
+    "card": {
+      "nodeCount_one": "{{count}} node",
+      "nodeCount_other": "{{count}} nodes",
+      "use": "Use this template",
+      "load": "Load template: {{name}}"
+    },
+    "dialog": {
+      "title": "Canvas Templates",
+      "description": "Start from a pre-built layout. You can customise everything after loading."
+    },
+    "saved": {
+      "heading": "My Workflows",
+      "agentCount_one": "{{count}} agent",
+      "agentCount_other": "{{count}} agents",
+      "withDescription": "{{label}} — {{description}}",
+      "delete": "Delete {{name}}"
+    },
+    "builtIn": {
+      "heading": "Built-in Templates",
+      "listLabel": "Available canvas templates"
+    }
+  },
+  "palette": {
+    "toolbarLabel": "Drag to canvas",
+    "coaching": "Drag assistants and skills onto the canvas to build your team",
+    "addAria": "Add {{label}} — drag onto the canvas, or click to place it",
+    "dragOrClick": "drag or click",
+    "item": {
+      "assistant": "Assistant",
+      "openaiAssistant": "OpenAI Assistant",
+      "perplexityAssistant": "Perplexity Assistant",
+      "skill": "Skill",
+      "safetyRule": "Safety Rule",
+      "resource": "Resource",
+      "connection": "Connection",
+      "condition": "Condition",
+      "output": "Output",
+      "note": "Note",
+      "email": "Email",
+      "structurer": "Structure",
+      "dbSave": "Save to DB",
+      "httpRequest": "HTTP Request",
+      "duckduckgoSearch": "DuckDuckGo Search",
+      "sakanaAi": "Sakana AI"
+    }
+  },
+  "loop": {
+    "progress": "Loop progress: {{iteration}} of {{max}}"
+  },
+  "finder": {
+    "title": "Find a node",
+    "placeholder": "Search nodes by name...",
+    "empty": "No matching nodes",
+    "emptyHint": "Try a different name or node type.",
+    "untitled": "Untitled"
+  },
+  "placeholder": {
+    "title": "Welcome to Rondoflow!",
+    "intro": "RondoFlow gives you a visual Workspace where you place specialized Assistants (agents) as Cards (nodes), wire them together, and run the whole thing as a workflow.",
+    "describePlaceholder": "Describe a task and we'll build the workspace…",
+    "describeButton": "Generate",
+    "describeAriaLabel": "Describe the task to generate a workspace",
+    "generating": "Generating your workspace…",
+    "or": "or",
+    "useTemplate": "Use a Template",
+    "createAssistant": "Create an Assistant",
+    "continueToWorkspace": "Continue to your workspace"
+  },
+  "default": {
+    "agentName": "New Agent",
+    "skillName": "New Skill",
+    "policyName": "New Policy",
+    "mcpName": "MCP Server",
+    "resourceLabel": "Resources",
+    "outputName": "Output",
+    "conditionName": "Condition",
+    "emailName": "Email",
+    "structurerName": "Structurer",
+    "dbSaveName": "Save to DB",
+    "httpRequestName": "HTTP Request",
+    "duckduckgoSearchName": "DuckDuckGo Search",
+    "sakanaAiName": "Sakana AI"
+  },
+  "node": {
+    "shell": {
+      "inputTitle": "Input — connect another node into this one",
+      "inputAria": "Input port",
+      "branchOutputTitle": "Branch output: {{label}} — drag to connect",
+      "branchOutputAria": "Branch output: {{label}}",
+      "outputTitle": "Output — drag to connect to another node",
+      "outputAria": "Output port",
+      "enableStep": "Enable step",
+      "skipStep": "Skip step"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "agent": {
+      "aria": "Agent: {{name}}, status: {{status}}",
+      "outputLabel": "Output",
+      "deepResearch": "Deep Research",
+      "scheduleTitle": "Has scheduled task",
+      "instructionsLabel": "Instructions"
+    },
+    "skill": {
+      "aria": "Skill: {{name}}",
+      "outputLabel": "Skill",
+      "description": "Attach a reusable skill to an assistant.",
+      "fieldLabel": "Skill",
+      "assignAria": "Assign a skill to this node",
+      "assignedSkill": "Assigned skill",
+      "assignPlaceholder": "Assign skill…",
+      "installedSkills": "Skills",
+      "loading": "Loading…",
+      "empty": "No skills available yet.",
+      "loadingShort": "…"
+    },
+    "start": {
+      "title": "Start",
+      "outputLabel": "Begin",
+      "description": "Entry point — tests the Claude API connection before the flow runs.",
+      "aria": "Start: tests the Claude API connection",
+      "testAria": "Test Claude API connection",
+      "testLabel": "Test",
+      "fieldLabel": "Claude API",
+      "testFailed": "Connection test failed",
+      "status": {
+        "idle": "Not tested yet",
+        "testing": "Testing connection…",
+        "success": "Connected",
+        "error": "Connection failed"
+      }
+    },
+    "output": {
+      "aria": "Output: {{name}}",
+      "description": "Saves output from the agents wired into it",
+      "processLabel": "Process",
+      "formatLabel": "Format",
+      "destinationLabel": "Destination",
+      "allAgents": "All agents",
+      "noAgents": "No agents connected",
+      "connectedAgents_one": "{{count}} connected agent",
+      "connectedAgents_other": "{{count}} connected agents",
+      "workspaceFolder": "Workspace folder",
+      "openTitle": "Open {{name}}",
+      "openAria": "Open saved output {{name}}",
+      "openSaved": "Open saved output"
+    },
+    "stickyNote": {
+      "placeholder": "Type a note...",
+      "empty": "Double-click to edit..."
+    },
+    "resource": {
+      "defaultLabel": "Resources",
+      "outputLabel": "Resources",
+      "aria": "Resources node: {{fileCount}} files, {{linkCount}} links, {{noteCount}} notes, {{variableCount}} variables",
+      "description": "Shared files, links, notes and variables.",
+      "files_one": "{{count}} file",
+      "files_other": "{{count}} files",
+      "links_one": "{{count}} link",
+      "links_other": "{{count}} links",
+      "notes_one": "{{count}} note",
+      "notes_other": "{{count}} notes",
+      "vars_one": "{{count}} var",
+      "vars_other": "{{count}} vars"
+    },
+    "condition": {
+      "aria": "Condition: {{name}}",
+      "description": "Routes the previous assistant's output to the first matching branch",
+      "else": "Else",
+      "elseSuffix": "{{label}} (default)",
+      "branch": "Branch"
+    },
+    "mcp": {
+      "aria": "MCP Server: {{name}}",
+      "outputLabel": "Tools",
+      "subtitle": "MCP server",
+      "secured": "secured"
+    },
+    "policy": {
+      "aria": "Policy: {{name}}, level: {{level}}",
+      "outputLabel": "Policy",
+      "description": "{{level}}-level security policy.",
+      "level": {
+        "global": "Global",
+        "agent": "Agent",
+        "session": "Session"
+      }
+    },
+    "email": {
+      "aria": "Email: {{name}}",
+      "description": "Emails output from the agents wired into it",
+      "processLabel": "Send from",
+      "recipientsLabel": "Recipients",
+      "subjectLabel": "Subject",
+      "allAgents": "All agents",
+      "noAgents": "No agents connected",
+      "connectedAgents_one": "{{count}} connected agent",
+      "connectedAgents_other": "{{count}} connected agents",
+      "recipientCount_one": "{{count}} recipient",
+      "recipientCount_other": "{{count}} recipients",
+      "noRecipients": "No recipients",
+      "noSubject": "No subject",
+      "sent": "Sent",
+      "sendFailed": "Send failed",
+      "sendingOff": "Sending off"
+    },
+    "structurer": {
+      "aria": "Structurer: {{name}}",
+      "description": "Converts agent output into structured rows",
+      "processLabel": "Source",
+      "formatLabel": "Format",
+      "outputLabel": "Dataset",
+      "allAgents": "All agents",
+      "noAgents": "No agents connected",
+      "connectedAgents_one": "{{count}} connected agent",
+      "connectedAgents_other": "{{count}} connected agents",
+      "modeParse": "Parse",
+      "modeAi": "AI",
+      "lastRunLabel": "Last run",
+      "rowCount_one": "{{count}} row",
+      "rowCount_other": "{{count}} rows"
+    },
+    "dbSave": {
+      "aria": "Save to DB: {{name}}",
+      "description": "Saves the structured dataset to the database",
+      "labelLabel": "Label",
+      "lastRunLabel": "Last run",
+      "savedRows_one": "{{count}} row saved",
+      "savedRows_other": "{{count}} rows saved"
+    },
+    "httpRequest": {
+      "aria": "HTTP Request: {{name}}",
+      "description": "Calls an external HTTP API",
+      "outputLabel": "Response",
+      "requestLabel": "Request",
+      "noUrl": "No URL set",
+      "lastRunLabel": "Last run",
+      "status": "Status {{status}}"
+    },
+    "duckduckgoSearch": {
+      "aria": "DuckDuckGo Search: {{name}}",
+      "description": "Searches the web with DuckDuckGo",
+      "outputLabel": "Results",
+      "queryLabel": "Query",
+      "noQuery": "No query set",
+      "optionsLabel": "Options",
+      "options": "{{max}} results · {{region}}",
+      "lastRunLabel": "Last run",
+      "results": "{{n}} result(s)"
+    },
+    "sakanaAi": {
+      "aria": "Sakana AI: {{name}}",
+      "description": "Runs a Sakana AI completion",
+      "outputLabel": "Completion",
+      "modelLabel": "Model",
+      "promptLabel": "Prompt",
+      "noModel": "No model set",
+      "noPrompt": "No prompt set"
+    }
+  },
+  "edge": {
+    "delete": "Delete connection"
+  }
+}

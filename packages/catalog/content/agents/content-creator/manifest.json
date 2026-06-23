@@ -1,0 +1,13 @@
+{
+  "id": "content-creator",
+  "name": "Content Creator",
+  "description": "Produces engaging long-form and short-form content.",
+  "icon": "PenLine",
+  "category": "Content & Marketing",
+  "purpose": "creative",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "WebSearch"],
+  "tags": ["content", "writing", "blog", "creative", "marketing"],
+  "order": 12
+}

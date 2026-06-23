@@ -1,0 +1,10 @@
+{
+  "id": "fivem-rp-server-engineering",
+  "name": "fivem-rp-server-engineering",
+  "description": "FiveM RP server engineering for QBCore, ESX, and QBox. Use for framework-level scripting, fxmanifest.lua/config.lua validation, resource debugging, dependency orchestration, MLO/streaming fixes, performance optimization (client/server), artifact/gamebuild compatibility, inventor…",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

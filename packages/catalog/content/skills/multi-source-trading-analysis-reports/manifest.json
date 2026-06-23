@@ -1,0 +1,10 @@
+{
+  "id": "multi-source-trading-analysis-reports",
+  "name": "multi-source-trading-analysis-reports",
+  "description": "Multi-source trading analyzer (`/drunk-trading-analyzer`) combining crypto data (TradingView), stock data (Alpha Vantage), and market intelligence (Yahoo Finance) into unified analysis reports with price trends, technical indicators, and sentiment analysis.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.6",
+  "icon": "coins",
+  "order": 1000
+}

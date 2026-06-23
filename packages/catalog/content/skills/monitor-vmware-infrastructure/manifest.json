@@ -1,0 +1,10 @@
+{
+  "id": "monitor-vmware-infrastructure",
+  "name": "monitor-vmware-infrastructure",
+  "description": "Use this skill for safe, risk-free queries of VMware infrastructure — code-level enforced safety means no destructive operations exist in the codebase. Directly handles: list VMs/hosts/datastores/clusters, check active alarms with remediation hints, view recent events, get VM de…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.5.14",
+  "icon": "server",
+  "order": 1000
+}

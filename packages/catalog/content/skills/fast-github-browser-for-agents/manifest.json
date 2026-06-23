@@ -1,0 +1,10 @@
+{
+  "id": "fast-github-browser-for-agents",
+  "name": "fast-github-browser-for-agents",
+  "description": "Fast, no-JavaScript GitHub browser optimized for AI agents. Browse public repos, read files, view READMEs with sub-500ms load times. PRO adds private repo access via GitHub OAuth.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

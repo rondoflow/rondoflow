@@ -1,0 +1,10 @@
+{
+  "id": "agent-casino-gambling",
+  "name": "agent-casino-gambling",
+  "description": "Interact with MoltCasino - a 3D Vegas-style casino built for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

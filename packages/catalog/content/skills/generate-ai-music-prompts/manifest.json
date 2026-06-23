@@ -1,0 +1,10 @@
+{
+  "id": "generate-ai-music-prompts",
+  "name": "generate-ai-music-prompts",
+  "description": "Generate AI music with optimized prompts, style control, and production-ready audio output.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

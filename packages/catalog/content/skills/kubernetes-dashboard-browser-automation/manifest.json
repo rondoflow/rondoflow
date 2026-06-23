@@ -1,0 +1,10 @@
+{
+  "id": "kubernetes-dashboard-browser-automation",
+  "name": "kubernetes-dashboard-browser-automation",
+  "description": "Browser automation for Kubernetes dashboards and web UIs. Use when interacting with Kubernetes Dashboard, Grafana, ArgoCD UI, or other web interfaces. Requires MCP_BROWSER_ENABLED=true.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

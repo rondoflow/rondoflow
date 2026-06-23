@@ -1,0 +1,10 @@
+{
+  "id": "telegram-api-integration",
+  "name": "telegram-api-integration",
+  "description": "Telegram Bot API integration with managed authentication. Send messages, manage chats, handle updates, and interact with users through your Telegram bot. Use this skill when users want to send messages, create polls, manage bot commands, or interact with Telegram chats. For othe…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "message-circle",
+  "order": 1000
+}

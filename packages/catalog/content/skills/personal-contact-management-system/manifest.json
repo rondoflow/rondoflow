@@ -1,0 +1,10 @@
+{
+  "id": "personal-contact-management-system",
+  "name": "personal-contact-management-system",
+  "description": "Build a personal contact system with details, interactions, birthdays, and smart reminders.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

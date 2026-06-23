@@ -1,0 +1,10 @@
+{
+  "id": "alpaca-stock-crypto-trading",
+  "name": "alpaca-stock-crypto-trading",
+  "description": "Trade stocks and crypto via Alpaca API. Use for market data (quotes, bars, news), placing orders (market, limit, stop), checking positions, portfolio management, and account info. Supports both paper and live trading. Use when user asks about stock prices, wants to buy/sell secu…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

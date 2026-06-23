@@ -1,0 +1,10 @@
+{
+  "id": "clone-personality-digital-twin",
+  "name": "clone-personality-digital-twin",
+  "description": "Create AI digital twins of real people from WhatsApp chat history exports. Clone your friends, colleagues, or contacts into AI agents that talk, think, and react like them. Use when the user wants to: create a digital twin, clone a WhatsApp contact into an AI agent, build a pers…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

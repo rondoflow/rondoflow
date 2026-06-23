@@ -1,0 +1,10 @@
+{
+  "id": "airtable-records-automation",
+  "name": "airtable-records-automation",
+  "description": "Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

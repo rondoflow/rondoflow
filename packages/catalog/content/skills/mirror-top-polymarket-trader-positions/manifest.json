@@ -1,0 +1,10 @@
+{
+  "id": "mirror-top-polymarket-trader-positions",
+  "name": "mirror-top-polymarket-trader-positions",
+  "description": "Mirror positions from top Polymarket traders using Simmer API. Size-weighted aggregation across multiple wallets.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.8.5",
+  "icon": "coins",
+  "order": 1000
+}

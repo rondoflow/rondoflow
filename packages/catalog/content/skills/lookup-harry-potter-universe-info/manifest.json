@@ -1,0 +1,10 @@
+{
+  "id": "lookup-harry-potter-universe-info",
+  "name": "lookup-harry-potter-universe-info",
+  "description": "CLI for AI agents to lookup Harry Potter universe info for their humans. Uses HP-API. No auth required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

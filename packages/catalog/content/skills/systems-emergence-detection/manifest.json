@@ -1,0 +1,10 @@
+{
+  "id": "systems-emergence-detection",
+  "name": "systems-emergence-detection",
+  "description": "Identifies system-level properties that exist nowhere in any individual component. Use when asked about 'emergent behavior', 'components are fine but the system isn't', 'why does the whole behave like this', or 'what creates this property'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

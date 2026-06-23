@@ -1,0 +1,10 @@
+{
+  "id": "search-israel-rail-train-schedules",
+  "name": "search-israel-rail-train-schedules",
+  "description": "Search for Israel Rail train schedules using the railil CLI. Find routes between stations with fuzzy search, filter by date/time, and output in various formats (JSON, Markdown, Table).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

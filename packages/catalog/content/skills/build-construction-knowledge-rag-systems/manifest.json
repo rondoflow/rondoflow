@@ -1,0 +1,10 @@
+{
+  "id": "build-construction-knowledge-rag-systems",
+  "name": "build-construction-knowledge-rag-systems",
+  "description": "Build RAG systems for construction knowledge bases. Create searchable AI-powered construction document systems",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "bot",
+  "order": 1000
+}

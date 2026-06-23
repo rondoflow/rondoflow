@@ -1,0 +1,10 @@
+{
+  "id": "build-automated-component-pipelines",
+  "name": "build-automated-component-pipelines",
+  "description": "Build automated pipelines with reusable components, data flow between nodes, and state management.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

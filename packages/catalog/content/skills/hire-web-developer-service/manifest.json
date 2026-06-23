@@ -1,0 +1,10 @@
+{
+  "id": "hire-web-developer-service",
+  "name": "hire-web-developer-service",
+  "description": "Book web-developer services through Lokuli MCP. Use when user needs to find and book web-developer. Triggers on requests like \"book a web-developer\", \"find web-developer near me\", or any web-developer service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

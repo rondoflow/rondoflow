@@ -1,0 +1,10 @@
+{
+  "id": "secure-secret-handoff-human",
+  "name": "secure-secret-handoff-human",
+  "description": "Secure secret handoff from human to AI. Use when you need sensitive information from the user (API keys, passwords, tokens, credentials, secrets). Never ask for secrets via chat — use Confidant instead.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "code",
+  "order": 1000
+}

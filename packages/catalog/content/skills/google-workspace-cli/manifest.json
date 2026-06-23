@@ -1,0 +1,10 @@
+{
+  "id": "google-workspace-cli",
+  "name": "google-workspace-cli",
+  "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

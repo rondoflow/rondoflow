@@ -1,0 +1,10 @@
+{
+  "id": "send-messages-eink-display",
+  "name": "send-messages-eink-display",
+  "description": "This skill sends content to a TRMNL e-ink display device using the webhook API.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

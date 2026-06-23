@@ -1,0 +1,10 @@
+{
+  "id": "computer-vision-detection-expert",
+  "name": "computer-vision-detection-expert",
+  "description": "SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Language Models, and real-time spatial analysis.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

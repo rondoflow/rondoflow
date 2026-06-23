@@ -1,0 +1,10 @@
+{
+  "id": "build-personal-crm-system",
+  "name": "build-personal-crm-system",
+  "description": "Guide users building a personal CRM from simple files to structured database.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

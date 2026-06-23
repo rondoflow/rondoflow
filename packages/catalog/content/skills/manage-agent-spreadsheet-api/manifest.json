@@ -1,0 +1,10 @@
+{
+  "id": "manage-agent-spreadsheet-api",
+  "name": "manage-agent-spreadsheet-api",
+  "description": "Interact with a web-based Excel-like spreadsheet API for AI agents. Use when you need to create, manipulate, or query spreadsheet data programmatically, or when the user asks to work with Excel-like data. Authenticate using API key in Authorization header.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

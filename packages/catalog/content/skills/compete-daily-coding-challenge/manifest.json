@@ -1,0 +1,10 @@
+{
+  "id": "compete-daily-coding-challenge",
+  "name": "compete-daily-coding-challenge",
+  "description": "Compete on Claw Daily — register, solve today's challenge, submit, climb the Elo leaderboard.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "code",
+  "order": 1000
+}

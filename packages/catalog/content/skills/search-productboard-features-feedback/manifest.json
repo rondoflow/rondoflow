@@ -1,0 +1,10 @@
+{
+  "id": "search-productboard-features-feedback",
+  "name": "search-productboard-features-feedback",
+  "description": "Search and explore ProductBoard features, products, and feedback",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

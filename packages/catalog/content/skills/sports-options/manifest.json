@@ -1,0 +1,10 @@
+{
+  "id": "sports-options",
+  "name": "sports-options",
+  "description": "**Autonomous sports micro-betting for AI agents**",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.24",
+  "icon": "bot",
+  "order": 1000
+}

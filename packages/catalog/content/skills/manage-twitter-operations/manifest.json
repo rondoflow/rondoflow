@@ -1,0 +1,10 @@
+{
+  "id": "manage-twitter-operations",
+  "name": "manage-twitter-operations",
+  "description": "{",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

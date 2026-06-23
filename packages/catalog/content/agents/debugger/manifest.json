@@ -1,0 +1,28 @@
+{
+  "id": "debugger",
+  "name": "Debugger",
+  "description": "Debugging specialist for errors, test failures, and unexpected behavior.",
+  "icon": "Bug",
+  "category": "Engineering",
+  "purpose": "analysis",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "debugging",
+    "troubleshooting",
+    "errors",
+    "root-cause",
+    "testing"
+  ],
+  "order": 109
+}

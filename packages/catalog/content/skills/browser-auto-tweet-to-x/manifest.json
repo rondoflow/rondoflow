@@ -1,0 +1,10 @@
+{
+  "id": "browser-auto-tweet-to-x",
+  "name": "browser-auto-tweet-to-x",
+  "description": "Automate X posts via browser control - bypass $200/month API costs.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

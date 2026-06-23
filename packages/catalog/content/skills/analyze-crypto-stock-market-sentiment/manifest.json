@@ -1,0 +1,10 @@
+{
+  "id": "analyze-crypto-stock-market-sentiment",
+  "name": "analyze-crypto-stock-market-sentiment",
+  "description": "Aggregates and analyzes market sentiment for specific crypto or stock tickers by scanning news and social signals. Useful for quick vibe checks before trading.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

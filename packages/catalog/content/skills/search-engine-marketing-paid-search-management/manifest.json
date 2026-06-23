@@ -1,0 +1,10 @@
+{
+  "id": "search-engine-marketing-paid-search-management",
+  "name": "search-engine-marketing-paid-search-management",
+  "description": "Search engine marketing strategy, keyword bidding, quality score optimization, and paid search campaign management",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

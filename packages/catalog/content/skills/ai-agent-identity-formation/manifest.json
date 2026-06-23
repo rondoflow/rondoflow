@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-identity-formation",
+  "name": "ai-agent-identity-formation",
+  "description": "Identity formation, portraits, resurrection, and evolution for AI agents via SOUL.md",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.2",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-near-protocol-accounts",
+  "name": "manage-near-protocol-accounts",
+  "description": "Secure multi-account management for NEAR Protocol with encrypted credential storage, account switching, and balance aggregation.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

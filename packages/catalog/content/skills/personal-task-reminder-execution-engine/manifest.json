@@ -1,0 +1,10 @@
+{
+  "id": "personal-task-reminder-execution-engine",
+  "name": "personal-task-reminder-execution-engine",
+  "description": "Personal execution engine for tasks, projects, reminders, commitments, follow-ups, and next actions. Use whenever the user mentions something they need to do, remember, plan, follow up on, prioritize, or make progress on. Also use when the user feels overwhelmed, brain-fogged, u…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "3.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

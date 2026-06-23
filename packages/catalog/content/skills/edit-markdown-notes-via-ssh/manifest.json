@@ -1,0 +1,10 @@
+{
+  "id": "edit-markdown-notes-via-ssh",
+  "name": "edit-markdown-notes-via-ssh",
+  "description": "Read and edit Markdown notes on your personal computer via SSH tunnel. Use when the user asks to read, create, or append to notes in their vault.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.2.6",
+  "icon": "check-square",
+  "order": 1000
+}

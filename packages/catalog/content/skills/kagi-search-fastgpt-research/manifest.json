@@ -1,0 +1,10 @@
+{
+  "id": "kagi-search-fastgpt-research",
+  "name": "kagi-search-fastgpt-research",
+  "description": "Use the bundled Python scripts to call Kagi’s API from the OpenClaw host.",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

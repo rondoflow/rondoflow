@@ -1,0 +1,10 @@
+{
+  "id": "control-powerpoint-app-sessions",
+  "name": "control-powerpoint-app-sessions",
+  "description": "Control PowerPoint app sessions, slides, notes, export, and presentation state with osascript workflows.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

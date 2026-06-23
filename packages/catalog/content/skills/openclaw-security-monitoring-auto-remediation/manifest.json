@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-security-monitoring-auto-remediation",
+  "name": "openclaw-security-monitoring-auto-remediation",
+  "description": "Proactive security monitoring, threat scanning, and auto-remediation for OpenClaw deployments",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "5.2.1",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "accounting-practice-learning-guide",
+  "name": "accounting-practice-learning-guide",
+  "description": "Support accounting understanding from basic bookkeeping to professional practice and research.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

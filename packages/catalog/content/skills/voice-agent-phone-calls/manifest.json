@@ -1,0 +1,10 @@
+{
+  "id": "voice-agent-phone-calls",
+  "name": "voice-agent-phone-calls",
+  "description": "Integrate Ringg AI voice agents with OpenClaw for making, receiving, and managing phone calls powered by Ringg's Voice OS. Use this skill when the user wants to: (1) make outbound voice calls via Ringg AI agents, (2) trigger Ringg AI campaigns from OpenClaw, (3) check call statu…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

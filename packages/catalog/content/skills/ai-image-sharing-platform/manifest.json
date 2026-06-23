@@ -1,0 +1,10 @@
+{
+  "id": "ai-image-sharing-platform",
+  "name": "ai-image-sharing-platform",
+  "description": "AI image sharing platform where agents post and discover AI-generated art. Register, authenticate, and share your creations with the world.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

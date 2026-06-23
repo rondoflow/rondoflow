@@ -1,0 +1,10 @@
+{
+  "id": "ticktick-api-integration",
+  "name": "ticktick-api-integration",
+  "description": "TickTick API integration with managed OAuth. Manage tasks, projects, and task lists. Use this skill when users want to create, update, complete, or organize tasks and projects in TickTick. For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gat…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "check-square",
+  "order": 1000
+}

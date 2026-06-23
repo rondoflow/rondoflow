@@ -1,0 +1,10 @@
+{
+  "id": "xcrawl-site-url-discovery",
+  "name": "xcrawl-site-url-discovery",
+  "description": "Use this skill for XCrawl map tasks, including site URL discovery, regex filtering, scope estimation, and crawl planning before full-site crawling.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "globe",
+  "order": 1000
+}

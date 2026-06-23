@@ -1,0 +1,10 @@
+{
+  "id": "analyze-marketing-campaign-performance",
+  "name": "analyze-marketing-campaign-performance",
+  "description": "Analyze marketing campaign data to generate performance reports and optimization recommendations",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "paid-photo-sharing-via-lightning",
+  "name": "paid-photo-sharing-via-lightning",
+  "description": "Bot-friendly photo sharing webservice via HTTP 402 protocol. Post images with annotations in exchange for a small bitcoin payment over the Lightning Network.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "coins",
+  "order": 1000
+}

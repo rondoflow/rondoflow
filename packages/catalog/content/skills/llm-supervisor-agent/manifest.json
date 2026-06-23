@@ -1,0 +1,10 @@
+{
+  "id": "llm-supervisor-agent",
+  "name": "llm-supervisor-agent",
+  "description": "Automatically switches OpenClaw between cloud and local Ollama models when rate limits occur.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.2.0",
+  "icon": "bot",
+  "order": 1000
+}

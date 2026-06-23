@@ -1,0 +1,10 @@
+{
+  "id": "generate-images-via-saa-backend",
+  "name": "generate-images-via-saa-backend",
+  "description": "Enables AI agents to generate images using the Character Select Stand Alone App (SAA) image generation backend via command-line interface.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

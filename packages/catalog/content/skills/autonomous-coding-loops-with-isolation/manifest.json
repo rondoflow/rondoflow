@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-coding-loops-with-isolation",
+  "name": "autonomous-coding-loops-with-isolation",
+  "description": "Run high-signal autonomous coding loops with Soulforge (feature-dev/bugfix/review-loop) using strict worktree isolation, review gates, and scoped fix cycles.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "bot",
+  "order": 1000
+}

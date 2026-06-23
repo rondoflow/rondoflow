@@ -1,0 +1,10 @@
+{
+  "id": "coding-workflow-plan-verify",
+  "name": "coding-workflow-plan-verify",
+  "description": "Coding workflow with planning, implementation, verification, and testing for clean software development.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "code",
+  "order": 1000
+}

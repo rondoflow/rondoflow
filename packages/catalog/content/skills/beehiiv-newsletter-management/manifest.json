@@ -1,0 +1,10 @@
+{
+  "id": "beehiiv-newsletter-management",
+  "name": "beehiiv-newsletter-management",
+  "description": "beehiiv API integration with managed OAuth. Manage newsletter publications, subscriptions, posts, custom fields, segments, and automations. Use this skill when users want to manage newsletter subscribers, create posts, organize segments, or integrate with beehiiv publications. F…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

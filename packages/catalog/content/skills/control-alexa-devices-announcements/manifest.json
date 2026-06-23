@@ -1,0 +1,10 @@
+{
+  "id": "control-alexa-devices-announcements",
+  "name": "control-alexa-devices-announcements",
+  "description": "Control Alexa devices via VoiceMonkey API v2 - make announcements, trigger routines, start flows, and display media.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

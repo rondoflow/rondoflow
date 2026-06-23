@@ -1,0 +1,10 @@
+{
+  "id": "heygen-text-to-speech",
+  "name": "heygen-text-to-speech",
+  "description": "Generate speech audio from text using HeyGen's Starfish TTS model. Use when: (1) Generating standalone speech audio files from text, (2) Converting text to speech with voice selection and speed control, (3) Creating audio for voiceovers, narration, or podcasts, (4) Working with…",
+  "category": "Media",
+  "author": "community",
+  "version": "2.23.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "seo-audits-content-keyword-link-building",
+  "name": "seo-audits-content-keyword-link-building",
+  "description": "SEO specialist agent with site audits, content writing, keyword research, technical fixes, link building, and ranking strategies.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

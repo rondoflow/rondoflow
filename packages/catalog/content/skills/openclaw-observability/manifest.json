@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-observability",
+  "name": "openclaw-observability",
+  "description": "Tools for monitoring OpenClaw health, costs, and logs.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

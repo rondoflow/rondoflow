@@ -1,0 +1,10 @@
+{
+  "id": "score-cross-border-ecommerce-markets",
+  "name": "score-cross-border-ecommerce-markets",
+  "description": "Cross-border e-commerce expansion advisor. Scores target markets on 8 weighted dimensions (market size, ecommerce penetration, competition, regulatory complexity, logistics infrastructure, payment ecosystem, cultural distance, IP protection), compares 5 fulfillment models with c…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.0.2",
+  "icon": "coins",
+  "order": 1000
+}

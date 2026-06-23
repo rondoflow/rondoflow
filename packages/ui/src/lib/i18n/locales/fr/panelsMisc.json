@@ -1,0 +1,501 @@
+{
+  "prd": {
+    "dialog": {
+      "title": "Document d'exigences produit"
+    },
+    "field": {
+      "titleLabel": "Titre du PRD",
+      "titlePlaceholder": "Nom de la fonctionnalité ou titre de l'épopée…"
+    },
+    "stories": {
+      "heading": "Récits ({{count}})",
+      "add": "Ajouter un récit",
+      "addFirst": "Ajouter le premier récit",
+      "empty": "Aucun récit pour le moment",
+      "listLabel": "Récits utilisateur",
+      "rowTitlePlaceholder": "Titre du récit…",
+      "rowTitleLabel": "Titre du récit",
+      "priorityLabel": "Priorité {{priority}}",
+      "statusButtonLabel": "État : {{status}}. Cliquez pour faire avancer.",
+      "collapse": "Réduire le récit",
+      "expand": "Développer le récit",
+      "remove": "Retirer le récit",
+      "acceptanceLabel": "Critères d'acceptation",
+      "acceptancePlaceholder": "Étant donné… Quand… Alors…"
+    },
+    "status": {
+      "pending": "En attente",
+      "inProgress": "En cours",
+      "passed": "Réussi",
+      "failed": "Échoué"
+    },
+    "progress": {
+      "passed": "{{passed}}/{{total}} réussis",
+      "failed": "{{count}} échoués",
+      "barLabel": "{{passed}} récits réussis sur {{total}}"
+    },
+    "validation": {
+      "noStories": "Ajoutez au moins un récit avant de démarrer le pipeline.",
+      "emptyTitles_one": "{{count}} titre de récit est vide. Renseignez-le d'abord.",
+      "emptyTitles_other": "{{count}} titres de récit sont vides. Renseignez-les d'abord."
+    },
+    "cost": {
+      "label": "Coût estimé :",
+      "value": "~{{amount}} $"
+    },
+    "start": "Démarrer le pipeline"
+  },
+  "output": {
+    "log": {
+      "panelLabel": "Journal des sorties de workflow enregistrées",
+      "title": "Journal des sorties",
+      "summary_one": "{{count}} sortie enregistrée dans {{dir}}",
+      "summary_other": "{{count}} sorties enregistrées dans {{dir}}",
+      "metaSeparator": "{{time}} · {{size}}",
+      "back": "Retour à la liste des sorties",
+      "copy": "Copier",
+      "copied": "Copié",
+      "copyLabel": "Copier la sortie dans le presse-papiers",
+      "download": "Télécharger",
+      "downloadLabel": "Télécharger le fichier de sortie",
+      "refreshLabel": "Actualiser la liste des sorties",
+      "loadingOutputs": "Chargement des sorties enregistrées…",
+      "empty": {
+        "title": "Aucune sortie enregistrée",
+        "description": "Exécutez un workflow et enregistrez sa sortie pour la voir ici."
+      },
+      "error": {
+        "loadList": "Échec du chargement des sorties",
+        "readFile": "Échec de la lecture du fichier"
+      }
+    }
+  },
+  "review": {
+    "dialog": {
+      "title": "Examiner le workflow généré",
+      "nameLabel": "Nom du workflow"
+    },
+    "model": {
+      "opus": "Opus (approfondi)",
+      "sonnet": "Sonnet (équilibré)",
+      "haiku": "Haiku (rapide)"
+    },
+    "agent": {
+      "nameLabel": "Nom de l'assistant {{index}}",
+      "modelLabel": "Modèle de l'assistant {{index}}",
+      "personaLabel": "Personnalité de l'assistant {{index}}",
+      "remove": "Retirer {{name}}",
+      "removeSkill": "Retirer la compétence {{skill}}"
+    },
+    "executionFlow": "Flux d'exécution",
+    "director": {
+      "title": "Orchestration par le directeur",
+      "description": "Le coordinateur IA évalue chaque étape et décide de l'action suivante"
+    },
+    "saveTemplate": "Enregistrer comme modèle",
+    "addToCanvas": "Ajouter à l'espace de travail"
+  },
+  "advisor": {
+    "category": {
+      "agent": "Assistant",
+      "skill": "Compétence",
+      "order": "Ordre",
+      "quality": "Qualité"
+    },
+    "action": {
+      "applySkill": "Appliquer « {{skill}} »",
+      "updatePersona": "Mettre à jour la personnalité",
+      "applied": "Appliqué",
+      "failed": "Échoué"
+    },
+    "title": "Conseiller de workflow",
+    "objectiveMet": "Objectif atteint",
+    "objectiveNotMet": "Objectif non atteint",
+    "allGood": "Tout semble en ordre — aucune amélioration nécessaire."
+  },
+  "director": {
+    "title": "Directeur",
+    "subtitle": "Orchestrateur de workflow",
+    "toggleLabel": "Activer/désactiver le directeur",
+    "rigor": {
+      "label": "Niveau de critique",
+      "sliderLabel": "Niveau de critique",
+      "setLabel": "Définir la rigueur sur {{level}}",
+      "minLabel": "Souple",
+      "maxLabel": "Exigeant",
+      "level": {
+        "relaxed": {
+          "label": "Souple",
+          "description": "Continue presque toujours. Redirige uniquement en cas d'erreurs critiques."
+        },
+        "lenient": {
+          "label": "Indulgent",
+          "description": "Accepte la plupart des sorties. Redirige uniquement lorsqu'un élément important manque."
+        },
+        "balanced": {
+          "label": "Équilibré",
+          "description": "Niveau par défaut. Évalue la qualité équitablement, suggère des améliorations lorsque cela en vaut la peine."
+        },
+        "strict": {
+          "label": "Strict",
+          "description": "Exigences plus élevées. Attend un travail approfondi et peut rediriger pour des sorties incomplètes."
+        },
+        "demanding": {
+          "label": "Exigeant",
+          "description": "Barre très haute. Attend une sortie complète et prête pour la production à chaque étape."
+        }
+      }
+    },
+    "customInstructions": {
+      "label": "Instructions personnalisées",
+      "help": "Instructions supplémentaires pour le directeur lors de l'évaluation des sorties des assistants. Elles sont ajoutées à la consigne système.",
+      "placeholder": "ex. : Toujours s'assurer que le code inclut des types TypeScript. Prioriser la sécurité sur la performance..."
+    },
+    "howItWorks": {
+      "title": "Fonctionnement du directeur",
+      "evaluates": "Évalue la sortie de chaque assistant après l'achèvement",
+      "contextualizes": "Contextualise les messages afin que l'assistant suivant comprenne l'ensemble du tableau",
+      "redirects": "Peut rediriger (réessayer) une étape si la qualité de la sortie est insuffisante",
+      "concludes": "Peut conclure le workflow en avance si l'objectif est déjà atteint",
+      "learns": "Apprend des schémas entre les exécutions pour améliorer les évaluations futures"
+    }
+  },
+  "history": {
+    "panelLabel": "Historique d'exécution",
+    "title": "Historique d'exécution",
+    "description": "Toutes les exécutions de workflow passées et leurs journaux d'exécution."
+  },
+  "condition": {
+    "title": "Condition",
+    "subtitle": "Router vers la première branche correspondante",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Condition"
+    },
+    "hint": {
+      "withAgent": "Comparé à la dernière ligne de {{agent}}, sans tenir compte de la casse. La première branche correspondante s'exécute ; la branche par défaut s'exécute si aucune ne correspond.",
+      "noAgent": "Comparé à la dernière ligne de l'assistant précédent, sans tenir compte de la casse. La première branche correspondante s'exécute ; la branche par défaut s'exécute si aucune ne correspond."
+    },
+    "branches": {
+      "heading": "Branches",
+      "total": "{{count}} au total",
+      "labelPlaceholder": "Libellé de la branche",
+      "labelAria": "Libellé de la branche {{index}}",
+      "remove": "Retirer la branche {{index}}",
+      "removeTitle": "Retirer la branche",
+      "patternAria": "Motif de la branche {{index}}",
+      "kind": {
+        "contains": "Contient",
+        "regex": "Correspond à la regex"
+      },
+      "patternPlaceholder": {
+        "contains": "approved, lgtm",
+        "regex": "^DECISION:\\s*GO$"
+      },
+      "default": "Branche par défaut (s'exécute si aucune ne correspond)",
+      "setDefault": "Définir comme branche par défaut",
+      "addLabel": "Ajouter :",
+      "empty": "Aucune branche pour le moment. Ajoutez-en une, puis faites glisser un lien de sa poignée vers un assistant en aval.",
+      "noDefault": "Aucune branche par défaut — si aucune condition ne correspond, le flux s'arrête sur ce chemin."
+    },
+    "preset": {
+      "approved": "Approuvé",
+      "rejected": "Rejeté",
+      "custom": "Personnalisé"
+    },
+    "regexInvalid": "Expression régulière invalide"
+  },
+  "outputNode": {
+    "title": "Sortie",
+    "subtitle": "Traiter et enregistrer la sortie d'exécution",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Sortie"
+    },
+    "docTitle": {
+      "label": "Titre du document",
+      "placeholder": "Facultatif — titre pour le markdown/HTML formaté"
+    },
+    "savingFrom": "Enregistrement des sorties de",
+    "savingHint": "Connectez des assistants à cette carte Sortie sur l'espace de travail pour choisir lesquelles enregistrer.",
+    "allAgents": "Tous les assistants de l'exécution.",
+    "noAgents": "Aucun assistant connecté pour le moment — faites glisser un lien d'un assistant vers cette carte Sortie. Sans connexion, elle n'enregistre rien.",
+    "unknownAgent": "Assistant inconnu",
+    "format": {
+      "label": "Format",
+      "selectLabel": "Format de sortie"
+    },
+    "destination": {
+      "label": "Enregistrer dans",
+      "browse": "Parcourir",
+      "custom": "Dossier personnalisé",
+      "default": "Dossier de l'espace de travail (par défaut)",
+      "reset": "Réinitialiser à l'espace de travail"
+    }
+  },
+  "assistants": {
+    "title": "Assistants",
+    "new": "Nouveau",
+    "empty": {
+      "title": "Aucun assistant pour le moment.",
+      "create": "Créez votre premier assistant"
+    },
+    "delete": "Supprimer {{name}}"
+  },
+  "tool": {
+    "toggleLabel": "Outil : {{name}}. Cliquez pour {{action}} les détails.",
+    "expand": "développer",
+    "collapse": "réduire",
+    "running": "En cours",
+    "completed": "Terminé",
+    "input": "Entrée",
+    "output": "Sortie"
+  },
+  "emailNode": {
+    "title": "E-mail",
+    "subtitle": "Envoyer la sortie d'exécution par e-mail",
+    "enabled": {
+      "label": "Envoyer après chaque exécution",
+      "hint": "Désactivé par défaut. Lorsqu'elle est activée, cette carte envoie la sortie sélectionnée par e-mail chaque fois que le workflow se termine."
+    },
+    "name": {
+      "label": "Nom",
+      "placeholder": "E-mail"
+    },
+    "subject": {
+      "label": "Objet",
+      "placeholder": "Facultatif — par défaut « Sortie du workflow »"
+    },
+    "recipients": {
+      "label": "Destinataires",
+      "placeholder": "a@example.com, b@example.com",
+      "hint": "Adresses e-mail séparées par des virgules.",
+      "count_one": "{{count}} destinataire valide",
+      "count_other": "{{count}} destinataires valides",
+      "invalid": "Invalide : {{list}}"
+    },
+    "sendingFrom": "Envoi par e-mail de la sortie de",
+    "sendingHint": "Connectez des assistants à cette carte E-mail sur l'espace de travail pour choisir quelle sortie envoyer.",
+    "allAgents": "Tous les assistants de l'exécution.",
+    "noAgents": "Aucun assistant connecté pour le moment — faites glisser un lien d'un assistant vers cette carte E-mail. Sans connexion, elle n'envoie rien.",
+    "unknownAgent": "Assistant inconnu"
+  },
+  "structurerNode": {
+    "title": "Structureur",
+    "subtitle": "Convertir la sortie de l'assistant en données structurées",
+    "unknownAgent": "Assistant inconnu",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Structureur"
+    },
+    "sourceFrom": "Structuration depuis",
+    "sourceHint": "Piloté par les assistants reliés à cette carte sur l'espace de travail.",
+    "allAgents": "Tous les assistants de l'exécution.",
+    "noAgents": "Aucun assistant connecté pour le moment — faites glisser un lien d'un assistant vers cette carte.",
+    "format": {
+      "label": "Format",
+      "selectLabel": "Format de sortie"
+    },
+    "mode": {
+      "label": "Mode d'extraction",
+      "parse": "Analyser",
+      "ai": "Extraction par IA",
+      "parseHint": "Extraire de façon déterministe le JSON ou les tableaux déjà présents dans la sortie. Aucun coût supplémentaire.",
+      "aiHint": "Lancer une passe Claude pour extraire des lignes structurées à partir d'un texte libre."
+    },
+    "instructions": {
+      "label": "Instructions d'extraction",
+      "placeholder": "Conseils facultatifs pour l'extracteur IA…"
+    },
+    "schema": {
+      "heading": "Schéma",
+      "total": "{{count}} colonnes",
+      "hint": "Déclarez les colonnes/champs à extraire. Laissez vide pour les déduire.",
+      "keyPlaceholder": "clé",
+      "keyAria": "Clé de la colonne {{index}}",
+      "remove": "Retirer la colonne {{index}}",
+      "labelPlaceholder": "Libellé",
+      "labelAria": "Libellé de la colonne {{index}}",
+      "typeAria": "Type de la colonne {{index}}",
+      "type": {
+        "string": "Texte",
+        "number": "Nombre",
+        "boolean": "Booléen",
+        "date": "Date"
+      },
+      "add": "Ajouter une colonne",
+      "empty": "Aucune colonne — l'extracteur déduira les champs à partir du contenu."
+    }
+  },
+  "dbSaveNode": {
+    "title": "Enregistrer dans la base de données",
+    "subtitle": "Persister le jeu de données structuré",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Enregistrer en BD"
+    },
+    "datasetLabel": {
+      "label": "Libellé du jeu de données",
+      "placeholder": "Facultatif — nomme le jeu de données enregistré",
+      "hint": "Utilise le nom du jeu de données du structureur lorsqu'il est vide."
+    },
+    "savingFrom": "Enregistrement du jeu de données depuis",
+    "noUpstream": "Aucun structureur connecté pour le moment — reliez une carte Structureur à celle-ci.",
+    "lastSaved_one": "La dernière exécution a enregistré {{count}} ligne.",
+    "lastSaved_other": "La dernière exécution a enregistré {{count}} lignes.",
+    "viewDatasets": "Voir les jeux de données enregistrés"
+  },
+  "datasets": {
+    "panelLabel": "Jeux de données enregistrés",
+    "title": "Jeux de données enregistrés",
+    "back": "Retour à la liste",
+    "rowCount_one": "{{count}} ligne",
+    "rowCount_other": "{{count}} lignes",
+    "summary_one": "{{count}} jeu de données",
+    "summary_other": "{{count}} jeux de données",
+    "downloadCsv": "Télécharger le CSV",
+    "csv": "CSV",
+    "refresh": "Actualiser",
+    "error": {
+      "loadList": "Échec du chargement des jeux de données.",
+      "loadDetail": "Échec du chargement du jeu de données."
+    },
+    "empty": {
+      "title": "Aucun jeu de données enregistré",
+      "description": "Exécutez un workflow avec une carte Enregistrer en BD pour stocker des données structurées ici."
+    },
+    "emptyRows": {
+      "title": "Aucune ligne",
+      "description": "Ce jeu de données n'a aucune ligne."
+    },
+    "listMeta": "{{rows}} lignes · {{format}} · {{time}}"
+  },
+  "httpRequestNode": {
+    "title": "Requête HTTP",
+    "subtitle": "Appeler une API externe en cours de workflow.",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Requête HTTP"
+    },
+    "request": {
+      "label": "Requête",
+      "methodLabel": "Méthode HTTP",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "hint": "L'URL, les en-têtes et le corps acceptent l'espace réservé {{token}} — il est remplacé par la sortie en amont."
+    },
+    "query": {
+      "heading": "Paramètres de requête",
+      "keyPlaceholder": "nom",
+      "valuePlaceholder": "valeur",
+      "add": "Ajouter un paramètre",
+      "empty": "Aucun paramètre de requête.",
+      "remove": "Retirer le paramètre {{index}}"
+    },
+    "headers": {
+      "heading": "En-têtes",
+      "keyPlaceholder": "En-tête",
+      "valuePlaceholder": "valeur",
+      "add": "Ajouter un en-tête",
+      "empty": "Aucun en-tête.",
+      "remove": "Retirer l'en-tête {{index}}"
+    },
+    "body": {
+      "label": "Corps",
+      "placeholder": "{ \"query\": \"...\" }",
+      "hint": "Envoyé avec POST, PUT et PATCH. Prend en charge l'espace réservé {{token}}.",
+      "mode": {
+        "json": "JSON",
+        "form": "Formulaire",
+        "raw": "Brut"
+      }
+    },
+    "timeout": {
+      "label": "Délai d'expiration (secondes)",
+      "hint": "La requête échoue si aucune réponse n'arrive à temps."
+    },
+    "response": {
+      "label": "Réponse transmise en aval",
+      "body": "Corps uniquement",
+      "full": "Complet (statut + en-têtes)",
+      "hint": "Choisissez ce que reçoivent les cartes en aval : uniquement le corps de la réponse, ou une enveloppe JSON avec le statut et les en-têtes."
+    }
+  },
+  "duckduckgoSearchNode": {
+    "title": "Recherche DuckDuckGo",
+    "subtitle": "Rechercher sur le web en cours de workflow.",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Recherche DuckDuckGo"
+    },
+    "query": {
+      "label": "Requête de recherche",
+      "placeholder": "Requête de recherche",
+      "hint": "La requête accepte l'espace réservé {{token}} — il est remplacé par la sortie en amont."
+    },
+    "maxResults": {
+      "label": "Nombre maximal de résultats"
+    },
+    "region": {
+      "label": "Région",
+      "placeholder": "us-en",
+      "hint": "Code de région DuckDuckGo, ex. us-en, uk-en, de-de. Laissez vide pour aucune région."
+    },
+    "safeSearch": {
+      "label": "SafeSearch",
+      "strict": "Strict",
+      "moderate": "Modéré",
+      "off": "Désactivé"
+    },
+    "timeLimit": {
+      "label": "Plage temporelle",
+      "any": "À tout moment",
+      "d": "Dernier jour",
+      "w": "Dernière semaine",
+      "m": "Dernier mois",
+      "y": "Dernière année"
+    },
+    "output": {
+      "label": "Résultats transmis en aval",
+      "text": "Texte",
+      "json": "JSON",
+      "hint": "Choisissez ce que reçoivent les cartes en aval : une liste lisible, ou un tableau JSON d'enregistrements."
+    }
+  },
+  "sakanaAiNode": {
+    "title": "Sakana AI",
+    "subtitle": "Exécutez une complétion Sakana AI pendant le workflow.",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Sakana AI"
+    },
+    "apiUrl": {
+      "label": "URL API",
+      "placeholder": "https://api.sakana.ai/v1/chat/completions"
+    },
+    "model": {
+      "label": "Modèle",
+      "placeholder": "sakana-chat"
+    },
+    "systemPrompt": {
+      "label": "Prompt système",
+      "placeholder": "Instruction système optionnelle..."
+    },
+    "prompt": {
+      "label": "Prompt",
+      "placeholder": "Résumez {{input}}",
+      "hint": "Le prompt accepte le marqueur {{token}} : il est remplacé par la sortie amont."
+    },
+    "temperature": {
+      "label": "Température"
+    },
+    "maxTokens": {
+      "label": "Tokens max"
+    },
+    "output": {
+      "label": "Sortie transmise en aval",
+      "text": "Texte",
+      "json": "JSON",
+      "hint": "Choisissez ce que reçoivent les nœuds suivants : texte de complétion ou réponse JSON complète."
+    }
+  }
+}

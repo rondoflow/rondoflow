@@ -1,0 +1,13 @@
+{
+  "id": "copywriter",
+  "name": "Copywriter",
+  "description": "Persuasive marketing copy that converts.",
+  "icon": "Megaphone",
+  "category": "Content & Marketing",
+  "purpose": "writing",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit"],
+  "tags": ["copywriting", "ads", "landing-page", "conversion", "marketing"],
+  "order": 14
+}

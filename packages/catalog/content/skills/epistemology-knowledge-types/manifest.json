@@ -1,0 +1,10 @@
+{
+  "id": "epistemology-knowledge-types",
+  "name": "epistemology-knowledge-types",
+  "description": "Maps what kind of knowing is actually in play for a claim or question. Distinguishes a priori from a posteriori knowledge; propositional (knowing that) from procedural (knowing how) from acquaintance (knowing of); and knowledge sourced from perception, inference, testimony, intuition, or memory. Use when you say 'what kind of claim is this', 'is this something we can reason our way to or do we need evidence', 'they're treating this as obvious but I don't think it is', 'is this really an empirical question', or when you need to assess what standards of justification apply before testing whether a claim is true.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

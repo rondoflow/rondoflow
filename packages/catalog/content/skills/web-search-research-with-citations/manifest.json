@@ -1,0 +1,10 @@
+{
+  "id": "web-search-research-with-citations",
+  "name": "web-search-research-with-citations",
+  "description": "High-accuracy web search and research via Parallel.ai API. Optimized for AI agents with rich excerpts and citations.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

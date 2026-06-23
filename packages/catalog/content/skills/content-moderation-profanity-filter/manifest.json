@@ -1,0 +1,10 @@
+{
+  "id": "content-moderation-profanity-filter",
+  "name": "content-moderation-profanity-filter",
+  "description": "Content moderation plugin for OpenClaw/Moltbot AI agents. Use when building chatbots that need profanity filtering, moderating user messages in Discord/Slack/Telegram bots, or adding content moderation to OpenClaw agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

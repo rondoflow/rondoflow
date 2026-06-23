@@ -1,0 +1,10 @@
+{
+  "id": "diagnose-conversation-context-health",
+  "name": "diagnose-conversation-context-health",
+  "description": "Visualize and diagnose OpenClaw context window usage. Generates a terminal-rendered breakdown showing workspace files (status, chars, tokens), installed skills inventory, and token budget allocation across bootstrap components. Use when: (1) user asks about context window health…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "coins",
+  "order": 1000
+}

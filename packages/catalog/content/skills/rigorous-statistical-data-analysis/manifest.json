@@ -1,0 +1,10 @@
+{
+  "id": "rigorous-statistical-data-analysis",
+  "name": "rigorous-statistical-data-analysis",
+  "description": "Turn raw data into decisions with statistical rigor, proper methodology, and awareness of analytical pitfalls.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

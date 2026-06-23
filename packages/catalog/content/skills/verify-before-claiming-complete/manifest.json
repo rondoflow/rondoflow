@@ -1,0 +1,10 @@
+{
+  "id": "verify-before-claiming-complete",
+  "name": "verify-before-claiming-complete",
+  "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

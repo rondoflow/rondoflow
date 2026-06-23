@@ -1,0 +1,10 @@
+{
+  "id": "semantic-cache-llm-responses",
+  "name": "semantic-cache-llm-responses",
+  "description": "This skill should be used when the user asks to \"enable semantic caching\", \"cache LLM responses\", \"reduce API costs\", \"speed up AI responses\", \"configure LangCache\", \"search the semantic cache\", \"store responses in cache\", or mentions Redis LangCache, semantic similarity caching…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

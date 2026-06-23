@@ -1,0 +1,10 @@
+{
+  "id": "creativity-assumption-excavator",
+  "name": "creativity-assumption-excavator",
+  "description": "Surface and challenge the hidden assumptions in any problem, plan, or framing. Use when the user feels stuck despite trying multiple approaches, a problem seems intractable, a plan keeps failing for unclear reasons, something 'obvious' keeps producing unexpected results, or before using any other creative thinking tool when the problem itself might be wrongly framed. This is the prerequisite skill — run it when the ground itself might be wrong.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

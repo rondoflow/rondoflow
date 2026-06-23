@@ -1,0 +1,10 @@
+{
+  "id": "manage-homelab-cluster",
+  "name": "manage-homelab-cluster",
+  "description": "Manage multi-tier AI inference clusters for homelabs. Health monitoring, expert MoE routing, automatic node recovery, and model deployment across Ollama and llama.cpp nodes. Covers GPU memory planning, Docker volume strategies for large models, sequential startup patterns to avo…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

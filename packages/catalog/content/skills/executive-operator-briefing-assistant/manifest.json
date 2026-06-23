@@ -1,0 +1,10 @@
+{
+  "id": "executive-operator-briefing-assistant",
+  "name": "executive-operator-briefing-assistant",
+  "description": "Run the agent like an executive operator with calm briefings, sharp prioritization, context recovery, and proactive follow-through.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

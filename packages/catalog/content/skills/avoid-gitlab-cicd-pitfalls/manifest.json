@@ -1,0 +1,10 @@
+{
+  "id": "avoid-gitlab-cicd-pitfalls",
+  "name": "avoid-gitlab-cicd-pitfalls",
+  "description": "Avoid common GitLab CI/CD mistakes — rules gotchas, silent failures, and YAML merge traps.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

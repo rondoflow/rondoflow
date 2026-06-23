@@ -1,0 +1,10 @@
+{
+  "id": "create-logos-and-visual-systems",
+  "name": "create-logos-and-visual-systems",
+  "description": "Create logos, interfaces, and visual systems with principles of hierarchy, branding, and usability.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "book-wheel-alignment-services",
+  "name": "book-wheel-alignment-services",
+  "description": "Book alignment services through Lokuli MCP. Use when user needs to find and book alignment. Triggers on requests like \"book a alignment\", \"find alignment near me\", or any alignment service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

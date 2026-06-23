@@ -1,0 +1,10 @@
+{
+  "id": "query-opensea-nft-marketplace-data",
+  "name": "query-opensea-nft-marketplace-data",
+  "description": "Query OpenSea NFT marketplace data via official MCP server. Get floor prices, trending collections, token prices, wallet balances, swap quotes, and NFT holdings. Supports Ethereum, Base, Polygon, Solana, and other major chains. Requires OpenSea developer account for MCP token.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

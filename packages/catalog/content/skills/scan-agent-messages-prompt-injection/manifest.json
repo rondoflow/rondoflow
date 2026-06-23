@@ -1,0 +1,10 @@
+{
+  "id": "scan-agent-messages-prompt-injection",
+  "name": "scan-agent-messages-prompt-injection",
+  "description": "AI agent security and trust verification. Scan messages, agent cards, and A2A communications for prompt injection, jailbreaks, and malicious patterns. Use when protecting agents from attacks, verifying external agents, or scanning untrusted content.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

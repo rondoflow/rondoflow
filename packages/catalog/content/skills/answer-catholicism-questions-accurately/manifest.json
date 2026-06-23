@@ -1,0 +1,10 @@
+{
+  "id": "answer-catholicism-questions-accurately",
+  "name": "answer-catholicism-questions-accurately",
+  "description": "Help answer questions about Catholicism accurately and respectfully (Catechism-first). Provides a structured response format, common topic map with CCC references, and short prayer/reference snippets. Use when the user asks about Catholic teaching, Catholic practice, sacraments,…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

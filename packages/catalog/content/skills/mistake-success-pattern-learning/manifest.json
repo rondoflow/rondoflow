@@ -1,0 +1,10 @@
+{
+  "id": "mistake-success-pattern-learning",
+  "name": "mistake-success-pattern-learning",
+  "description": "Auto-analyze mistake and success patterns and reflect in skills",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

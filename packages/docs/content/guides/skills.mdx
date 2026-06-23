@@ -1,0 +1,254 @@
+---
+title: Skills
+description: Reusable instruction sets you install, optionally bundle a Connection, and attach to Assistants with priority.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+import { FileTree } from 'nextra/components'
+
+# Skills
+
+A **Skill** is a reusable set of instructions you can attach to one or more Assistants (internally "Agents"). Each Skill is a `SKILL.md` file: Markdown that teaches an Assistant how to approach a task — a code reviewer's checklist, a writing coach's editing rules, a data analyst's rigor. A Skill can also bundle a Connection (an MCP server config) so the Assistant gains extra tools when the Skill is enabled.
+
+Skills keep behavior modular. Instead of cramming every instruction into one Assistant's Personality (internally "Persona"), you compose capabilities by stacking small, focused Skills — and reuse the same Skill across many Assistants.
+
+## How Skills are applied
+
+When an Assistant starts (internally "spawns"), RondoFlow loads every Skill that is **enabled** for that Assistant, ordered by **priority** (ascending). Each enabled Skill's `SKILL.md` body is collected under a `## Skill: <name>` heading and forwarded to the spawned Claude Code CLI through its **own** flag — `--append-system-prompt` — which is separate from the Persona, which is passed via `--system-prompt`. Keeping the two apart means a Skill's instructions never overwrite the Personality; they're layered on top of it. If a Skill carries a Connection (MCP) config, that server is also registered for the run, so its tools become available alongside any other Connections.
+
+<Callout type="info">
+Only **enabled** Skills are loaded, and they are applied in **priority** order (lowest number first). Reordering Skills in the Assistant changes the order their instructions appear in the prompt.
+</Callout>
+
+The append-prompt mechanism is also used for Assistants running on API providers (OpenAI, Perplexity). Those providers run over an HTTP API rather than the Claude Code CLI, so the Persona and the enabled Skills are combined into the request's system prompt — Skills still apply — while the Claude-CLI-only concerns (model mapping, allowed-tool lists, MCP registration, external folders) are skipped. See [Connections](/docs/guides/connections) for the provider differences in detail.
+
+## Built-in catalog
+
+RondoFlow ships a large built-in catalog of ready-to-install Skills — **2,300+** entries spanning categories like *AI & Agents*, *Finance & Crypto*, *Development*, *Data & Analytics*, *Media*, *Productivity*, *DevOps & Infra*, *Content & Writing*, and more. A handful are first-party (authored by `rondoflow`); the vast majority are contributed by the **`community`**. The catalog ships in the [`@rondoflow/catalog`](/docs/reference/architecture#content-catalog) package.
+
+Browse it in the **Skill Marketplace** panel (open it from an Assistant to install and attach in one step, or stand-alone to just install). The Marketplace derives its **category chips from the loaded catalog** — each chip shows the category and its count — and a search box matches a Skill's name, description, or category.
+
+The five first-party Skills make good starting points:
+
+| Skill | Category | What it does |
+| --- | --- | --- |
+| Code Review (`code-review`) | Development | Reviews code for quality, bugs, security issues, and best practices |
+| Writing Assistant (`writing-assistant`) | Writing | Helps write clear, engaging content — blog posts, emails, and docs |
+| Data Analysis (`data-analysis`) | Analysis | Analyzes datasets, finds patterns, and writes clear summaries and insights |
+| API Designer (`api-designer`) | Development | Designs RESTful APIs with proper endpoints, schemas, and documentation |
+| Test Writer (`test-writer`) | Development | Writes test suites with coverage across unit, integration, and edge cases |
+
+A Skill's `author` is `rondoflow` for the first-party entries (all at version `1.0.0`) and `community` for contributed ones. The catalog's `icon` values are lucide icon names used in the UI — they are not stored on installed Skills.
+
+## Installing Skills
+
+There are three ways to add a Skill. All of them write to `~/.rondoflow/skills/<name>/` and register a record in the database.
+
+<Tabs items={['Marketplace', 'Git repository', 'Custom']}>
+<Tabs.Tab>
+
+Install a built-in Skill straight from the catalog.
+
+<Steps>
+### Open the Marketplace
+
+Open the Skill Marketplace, either stand-alone or from a specific Assistant (so the Skill is also attached to it).
+
+### Browse and pick
+
+Use the search box and category chips to find a Skill, then click a card to read its full details.
+
+### Install
+
+Click **Install** (or **Add**, in attach mode). RondoFlow writes the catalog's `SKILL.md` to `~/.rondoflow/skills/<name>/`, validates it, and creates the record.
+</Steps>
+
+Marketplace install is idempotent — installing an already-installed Skill is safe and simply re-uses the existing files.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+Import a Skill from any Git repository via the **Import** tab.
+
+The repository must contain a `SKILL.md` file at its root. For safety, RondoFlow does **not** run the repo's code: it clones with `--depth 1 --no-checkout`, disables Git hooks (`core.hooksPath=/dev/null`), and checks out **only** `SKILL.md`, the optional `rondoflow.json` metadata file, and — as a fallback when `SKILL.md` is absent — a lowercase `skill.md`. The content is validated before it is moved into place.
+
+```text
+Requirements
+• A SKILL.md file at the repository root (or a lowercase skill.md)
+• The repository must be publicly accessible (or credentials configured)
+• An optional rondoflow.json may override SKILL.md frontmatter and declare an MCP (Connection) config
+```
+
+The Skill name is derived from the final path segment of the URL (cleaned to letters, digits, hyphens, and underscores). A repository can also ship a `rondoflow.json` whose values override the `SKILL.md` frontmatter and may declare an MCP (Connection) config.
+
+<Callout type="warning">
+For a **Git import**, only `SKILL.md`, `skill.md`, and `rondoflow.json` are ever retrieved. A `README.md` does **not** work as a fallback here — it is checked only when validating a directory that already exists on disk, not during a fresh clone. The Marketplace import hint that mentions `package.json` or `mcp.json` is misleading: those files are never checked out or read. To bundle a Connection, put the `mcpConfig` in `rondoflow.json` (or in the `SKILL.md` frontmatter merged with it).
+</Callout>
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+Author your own Skill inline from the **Create** tab — no repository required. Provide:
+
+- **Name** — letters, digits, hyphens, and underscores only
+- **Description** — what the Skill helps the Assistant do
+- **Category** — optional (e.g. Development, Writing, Analysis)
+- **Instructions** — the body of the Skill (becomes the `SKILL.md` content)
+
+RondoFlow generates valid frontmatter for you and writes the file to `~/.rondoflow/skills/<name>/SKILL.md`. Custom Skills are recorded with `author: custom` and version `1.0.0`. The description and category are normalized to a single quote-safe line, and both must contain visible text (a whitespace-only value is rejected). The instructions field must not be empty.
+
+</Tabs.Tab>
+</Tabs>
+
+<Callout type="warning">
+Skill names must be unique and match `^[a-zA-Z0-9_-]+$`. Installing a Skill whose name already exists is rejected (Marketplace re-uses the existing install instead). Names containing `..` are blocked to prevent path traversal, and a name that fails the regex is rejected before any filesystem operation.
+</Callout>
+
+### Skill metadata
+
+Every Skill stores the following fields, parsed from the `SKILL.md` frontmatter (and merged with `rondoflow.json`, which wins on conflicts):
+
+| Field | Notes |
+| --- | --- |
+| `name` | Unique, required, slug-like (`^[a-zA-Z0-9_-]+$`) |
+| `description` | Required short summary |
+| `category` | Optional grouping (drives filtering and conflict heuristics) |
+| `author` | Optional; `rondoflow` for catalog, `custom` for inline Skills |
+| `version` | Optional semantic version (e.g. `1.0.0`) |
+| `icon` | Optional; lucide icon name for catalog entries |
+| `source` | `marketplace`, `git`, or `custom` |
+| `mcpConfig` | Optional bundled Connection (see below) |
+
+`mcpConfig` describes a stdio MCP server bundled with the Skill. The common shape is a single server object:
+
+```json
+{
+  "type": "stdio",
+  "command": "my-mcp-server",
+  "args": ["--flag", "value"],
+  "env": { "API_TOKEN": "..." }
+}
+```
+
+You can also declare **multiple** servers by storing `mcpConfig` as a map of server name → config (any object without a top-level `command` key is treated as a map):
+
+```json
+{
+  "search": { "type": "stdio", "command": "search-mcp", "args": [] },
+  "fetch":  { "type": "stdio", "command": "fetch-mcp",  "args": [] }
+}
+```
+
+When a Skill carries an MCP config, its servers are registered for any Assistant that has the Skill enabled, namespaced to avoid collisions: a single-object config registers as `<skillName>/default`, and each entry in a map registers as `<skillName>/<serverName>`. See [Connections](/docs/guides/connections) for how MCP servers are wired into a run.
+
+### On-disk layout
+
+Installed Skills live under your home directory:
+
+<FileTree>
+<FileTree.Folder name="~/.rondoflow" defaultOpen>
+<FileTree.Folder name="skills" defaultOpen>
+<FileTree.Folder name="code-review" defaultOpen>
+<FileTree.File name="SKILL.md" />
+</FileTree.Folder>
+<FileTree.Folder name="my-custom-skill">
+<FileTree.File name="SKILL.md" />
+</FileTree.Folder>
+<FileTree.Folder name="imported-skill">
+<FileTree.File name="SKILL.md" />
+<FileTree.File name="rondoflow.json" />
+</FileTree.Folder>
+</FileTree.Folder>
+</FileTree.Folder>
+</FileTree>
+
+A valid `SKILL.md` is YAML frontmatter (at least `name` and `description`) followed by the instruction body:
+
+```text
+---
+name: code-review
+description: Reviews code for quality, bugs, security issues, and best practices
+category: Development
+author: rondoflow
+version: 1.0.0
+---
+
+# Code Review Skill
+
+You are an expert code reviewer...
+```
+
+<Callout type="info">
+RondoFlow's frontmatter parser is a minimal YAML subset — simple `key: value` pairs only (surrounding quotes are stripped, `#` comment lines and blank lines are ignored). Keep frontmatter flat; nested or multi-line YAML values won't be parsed. Richer metadata, including the `mcpConfig`, belongs in `rondoflow.json`.
+</Callout>
+
+## Attaching a Skill to an Assistant
+
+A Skill does nothing until it is attached to an Assistant. Each attachment has two controls:
+
+- **Priority** — an integer (default `0`) that sets the order Skills are applied. Lower numbers apply first. When you install or add a Skill from the Marketplace in attach mode, it gets `max + 1` so it lands at the bottom of the existing order.
+- **Enabled** — a toggle (default `on`). Disabled Skills stay attached but are skipped at run time, so you can mute a Skill without removing it.
+
+There are two ways to attach a Skill:
+
+<Tabs items={['Assistant drawer', 'Skill card on the canvas']}>
+<Tabs.Tab>
+
+Open the Assistant's **Skills** tab in the Assistant drawer to manage attachments: toggle enabled/disabled, drag to reorder priority, or remove a Skill. Installing from the Marketplace while an Assistant is open both installs and attaches in one step.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+On the Workspace (internally "Canvas"), drag a **Skill** card (internally "Node") from the palette — it shows a puzzle-piece icon and a blue accent. Use the card's in-card dropdown to pick one of your installed Skills; selecting one renames the card and records the Skill's id, name, and category so the assignment is saved with the Workspace. Drawing a wire from the Skill card to an Assistant card creates an **association** edge that attaches the Skill — the visual equivalent of adding it in the drawer.
+
+</Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+The attach action upserts the full `(priority, enabled)` pair. The UI is careful not to re-attach an already-attached Skill on install, which would otherwise reset your priority and enabled choices back to the defaults.
+</Callout>
+
+## Conflict detection
+
+When an Assistant has two or more **enabled** Skills, RondoFlow runs heuristic conflict detection and surfaces warnings. It checks each pair of enabled Skills (ordered by priority) for:
+
+| Type | Trigger | Meaning |
+| --- | --- | --- |
+| `scope_overlap` | Two Skills share the same `category` | Their instructions may overlap or contradict each other |
+| `duplicate_tools` | Two Skills' Connections use the same MCP server `command` | Only one MCP server instance can register per command |
+
+These are advisory, not blocking — they help you spot incompatible or redundant Skill combinations (for example, two same-category Skills whose advice pulls in different directions, or two Skills bundling the same Connection). Resolve them by disabling one Skill, adjusting priority, or removing a duplicate. Separately, the prompt builder logs a warning at spawn time when two MCP servers with the same `command` + `args` signature come from different sources.
+
+## Skills API
+
+Skills are managed over the REST API. Responses use the standard `{ success, data?, error?, meta? }` envelope.
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/skills/catalog` | List built-in catalog entries (`SKILL.md` body stripped) |
+| `GET` | `/api/skills` | List installed Skills |
+| `GET` | `/api/skills/:id` | Get one Skill, including the Assistants it is attached to |
+| `POST` | `/api/skills/install` | Install from `marketplace` or `git` (body: `name`, `source`, `gitUrl?`) |
+| `POST` | `/api/skills/install/git` | Install from a Git repo (body: `name`, `gitUrl`) |
+| `POST` | `/api/skills/install/custom` | Create an inline Skill (body: `name`, `description`, `category?`, `content`) |
+| `DELETE` | `/api/skills/:id` | Remove the Skill record |
+| `DELETE` | `/api/skills/:id/uninstall` | Remove the record **and** delete its directory |
+| `POST` | `/api/agents/:agentId/skills/:skillId` | Attach a Skill (body: `priority?`, `enabled?`) |
+| `DELETE` | `/api/agents/:agentId/skills/:skillId` | Detach a Skill from an Assistant |
+| `GET` | `/api/agents/:agentId/skills/conflicts` | Get heuristic conflict warnings for the Assistant |
+
+<Callout type="important">
+`DELETE /api/skills/:id` removes only the database record. To also delete the on-disk Skill directory under `~/.rondoflow/skills/`, use `DELETE /api/skills/:id/uninstall`. The Marketplace "Uninstall" button removes the record.
+</Callout>
+
+## Related
+
+<Cards>
+<Cards.Card title="Assistants" href="/docs/guides/assistants" />
+<Cards.Card title="Connections" href="/docs/guides/connections" />
+<Cards.Card title="Terminology (glossary)" href="/docs/concepts/terminology" />
+<Cards.Card title="Skills API reference" href="/docs/reference/api" />
+</Cards>

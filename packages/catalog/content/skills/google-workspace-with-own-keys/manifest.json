@@ -1,0 +1,10 @@
+{
+  "id": "google-workspace-with-own-keys",
+  "name": "google-workspace-with-own-keys",
+  "description": "Google Calendar and Gmail integration using your own GCP project credentials (BYoK — Bring Your Own Key). Direct OAuth2 auth against your own Google Cloud project. Read calendars, events, and emails across multiple Google accounts. Use this skill when users want to check their c…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

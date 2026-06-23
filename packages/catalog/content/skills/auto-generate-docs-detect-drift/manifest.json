@@ -1,0 +1,10 @@
+{
+  "id": "auto-generate-docs-detect-drift",
+  "name": "auto-generate-docs-detect-drift",
+  "description": "Auto-generate docs from code and detect documentation drift via git hooks. Free README gen + paid living docs.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

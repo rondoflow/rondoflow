@@ -1,0 +1,10 @@
+{
+  "id": "cold-outreach-skill",
+  "name": "cold-outreach-skill",
+  "description": "Generate high-converting cold outreach (email, SMS, LinkedIn DM) using battle-tested frameworks from Hormozi's $100M Leads, Cleverly, Hypergen, and SalesHandy analysis of 100K+ campaigns.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

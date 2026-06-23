@@ -1,0 +1,10 @@
+{
+  "id": "onvif-camera-ptz-rtsp-control",
+  "name": "onvif-camera-ptz-rtsp-control",
+  "description": "ONVIF PTZ control + RTSP capture + camera discovery. Works with any ONVIF Profile S/T camera. Tested with TP-Link, Hikvision, Dahua, Reolink, Amcrest, Axis.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

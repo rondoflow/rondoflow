@@ -1,0 +1,10 @@
+{
+  "id": "apify-actor-web-scraper",
+  "name": "apify-actor-web-scraper",
+  "description": "Run Apify Actors (web scrapers, crawlers, automation tools) and retrieve their results using the Apify REST API with curl. Use when the user wants to scrape a website, extract data from the web, run an Apify Actor, crawl pages, or get results from Apify datasets.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "globe",
+  "order": 1000
+}

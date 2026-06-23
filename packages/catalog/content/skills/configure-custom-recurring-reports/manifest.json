@@ -1,0 +1,10 @@
+{
+  "id": "configure-custom-recurring-reports",
+  "name": "configure-custom-recurring-reports",
+  "description": "Configure custom recurring reports. User defines data sources, skill handles scheduling and formatting.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "chart-bar",
+  "order": 1000
+}

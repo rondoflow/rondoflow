@@ -1,0 +1,10 @@
+{
+  "id": "manage-zotero-library-references",
+  "name": "manage-zotero-library-references",
+  "description": "Command-line interface for Zotero - search your Zotero library, add/edit notes, read attachments, and manage bibliographic references from the terminal.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

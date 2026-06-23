@@ -1,0 +1,10 @@
+{
+  "id": "learn-visual-design-preferences",
+  "name": "learn-visual-design-preferences",
+  "description": "Auto-learns your visual preferences. Adapts to UI, graphics, video, and any creative work.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

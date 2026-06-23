@@ -1,0 +1,10 @@
+{
+  "id": "writing-report",
+  "name": "writing-report",
+  "description": "Writes and audits business reports, briefing documents, and information reports for answer-first structure, precision, hierarchy, and navigability. Use when a report buries its findings, is written for the writer rather than the reader, or lacks clear structure. Triggers: 'write a report', 'report writing', 'business report', 'briefing document', 'information report', 'research summary', 'the report isn't clear', 'buries the findings'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

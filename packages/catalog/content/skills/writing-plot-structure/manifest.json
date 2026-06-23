@@ -1,0 +1,10 @@
+{
+  "id": "writing-plot-structure",
+  "name": "writing-plot-structure",
+  "description": "Diagnoses structural failures in a story using the five-beat dramatic framework — inciting incident, first turning point, midpoint, dark night, climax. Use when a plot isn't working, the middle drags, momentum is lost, or the story feels loose. Triggers: 'the story isn't working', 'plot structure', 'my middle drags', 'the plot feels loose', 'story structure', 'momentum problem', 'the structure is off'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

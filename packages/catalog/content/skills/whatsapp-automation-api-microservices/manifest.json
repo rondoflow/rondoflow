@@ -1,0 +1,10 @@
+{
+  "id": "whatsapp-automation-api-microservices",
+  "name": "whatsapp-automation-api-microservices",
+  "description": "Complete WhatsApp automation API with microservices architecture. Send messages, interactive buttons, lists, carousels, polls, manage instances, groups, catalogs and webhooks. Features Admin Panel (free), Phone Calls, RCS Messaging, SMS, Virtual Numbers (Pro).",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

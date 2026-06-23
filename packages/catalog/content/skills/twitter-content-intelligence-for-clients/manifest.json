@@ -1,0 +1,10 @@
+{
+  "id": "twitter-content-intelligence-for-clients",
+  "name": "twitter-content-intelligence-for-clients",
+  "description": "The `xurl` skill is designed to transform Twitter from passive scrolling into a powerful insight engine, authority builder, and lead radar, specifically tailored for engaging WordPress and Shopify clients. It goes beyond simple summaries to provide actionable intelligence for co…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

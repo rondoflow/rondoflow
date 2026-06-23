@@ -1,0 +1,286 @@
+{
+  "purpose": {
+    "general": "General",
+    "writing": "Redacción",
+    "coding": "Programación",
+    "analysis": "Análisis",
+    "chat": "Conversación",
+    "review": "Revisión",
+    "research": "Investigación",
+    "creative": "Creativo",
+    "data": "Datos"
+  },
+  "tool": {
+    "read": "Leer archivos",
+    "write": "Escribir archivos",
+    "edit": "Editar archivos",
+    "bash": "Ejecutar comandos (Bash)",
+    "glob": "Buscar archivos (Glob)",
+    "grep": "Buscar en contenidos (Grep)",
+    "ls": "Listar directorios (LS)",
+    "webFetch": "Obtener páginas web (WebFetch)",
+    "webSearch": "Buscar en la web (WebSearch)",
+    "todoWrite": "Gestionar una lista de tareas (TodoWrite)"
+  },
+  "permissionMode": {
+    "default": {
+      "label": "Predeterminado",
+      "description": "Comprobaciones de permisos estándar"
+    },
+    "edit": {
+      "label": "Aceptar ediciones",
+      "description": "Aceptar automáticamente las ediciones de archivos (sin bash/git)"
+    },
+    "full": {
+      "label": "Acceso completo",
+      "description": "Leer, escribir y ejecutar git/bash sin confirmaciones"
+    }
+  },
+  "status": {
+    "idle": "Inactivo",
+    "running": "En ejecución",
+    "waiting": "Esperando",
+    "error": "Error"
+  },
+  "tab": {
+    "configure": "Configurar",
+    "capabilities": "Capacidades",
+    "safety": "Seguridad",
+    "history": "Historial"
+  },
+  "field": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "purpose": "Propósito",
+    "model": "Modelo",
+    "tools": "Herramientas",
+    "customModelId": "ID de modelo personalizado"
+  },
+  "placeholder": {
+    "name": "Nombre del asistente",
+    "description": "¿Qué hace este asistente?",
+    "persona": "Eres un asistente útil que...",
+    "customModel": "claude-opus-4-5",
+    "scopePath": "/ruta/al/directorio"
+  },
+  "hint": {
+    "personaSystemPrompt": "Esto se convierte en la instrucción del sistema que guía el comportamiento del asistente.",
+    "deepResearchModel": "Las ejecuciones de investigación profunda usan automáticamente un modelo de investigación profunda dedicado.",
+    "perplexitySearches": "Los modelos Perplexity Sonar buscan en la web automáticamente en cada ejecución.",
+    "customModel": "Opcional. Introduzca un ID de modelo completo para anular el nivel anterior. Déjelo vacío para usar el nivel seleccionado."
+  },
+  "toggle": {
+    "webSearch": {
+      "label": "Búsqueda web",
+      "description": "Permita que el asistente busque en la web durante una ejecución."
+    },
+    "deepResearch": {
+      "label": "Investigación profunda",
+      "description": "Usa un modelo de investigación profunda dedicado. Más lento y costoso, y activa la búsqueda web automáticamente."
+    }
+  },
+  "safety": {
+    "level": "Nivel de seguridad",
+    "levelAria": "Nivel de seguridad",
+    "cautious": {
+      "label": "Cauteloso",
+      "description": "Requiere aprobación para todas las acciones"
+    },
+    "balanced": {
+      "label": "Equilibrado",
+      "description": "Requiere aprobación solo para comandos destructivos"
+    },
+    "autonomous": {
+      "label": "Autónomo",
+      "description": "Se ejecuta sin solicitudes de aprobación"
+    },
+    "toolsApiNote": "Los asistentes de <0>{{provider}}</0> gestionan sus herramientas (búsqueda web, investigación profunda) en la pestaña <1>Configurar</1>. Los permisos de archivos y comandos por herramienta no se aplican a los asistentes de {{provider}}.",
+    "toolsAllNote": "Todas las herramientas están habilitadas (autónomo). Elija <1>Equilibrado</1> arriba para conceder herramientas específicas en su lugar."
+  },
+  "action": {
+    "addPath": "Añadir ruta",
+    "removePath": "Eliminar {{path}}",
+    "addTool": "Añadir herramienta",
+    "removeTool": "Eliminar {{tool}}"
+  },
+  "advanced": {
+    "teams": {
+      "title": "Equipos de agentes",
+      "description": "Permitir que este agente se coordine con otros agentes",
+      "enableAria": "Habilitar equipos de agentes",
+      "disableAria": "Deshabilitar equipos de agentes"
+    },
+    "permissionMode": "Modo de permisos",
+    "permissionModeAria": "Modo de permisos"
+  },
+  "conversations": {
+    "emptyTitle": "Aún no hay conversaciones",
+    "emptyDescription": "Empiece a conversar para ver su historial aquí",
+    "listAria": "Conversaciones anteriores",
+    "sessionTitle": "Conversación {{id}}",
+    "messageCount_one": "{{count}} mensaje",
+    "messageCount_other": "{{count}} mensajes",
+    "statusActive": "activa",
+    "statusEnded": "finalizada"
+  },
+  "drawer": {
+    "noAssistant": "Ningún asistente seleccionado",
+    "configureAria": "Configurar {{name}}",
+    "loadError": "No se pudo cargar este asistente.",
+    "validationNameRequired": "El nombre es obligatorio",
+    "validationPersonaRequired": "La personalidad es obligatoria",
+    "saveFailed": "Error al guardar — inténtelo de nuevo",
+    "unsavedChanges": "Cambios sin guardar",
+    "allChangesSaved": "Todos los cambios guardados",
+    "noChanges": "Sin cambios"
+  },
+  "create": {
+    "simple": {
+      "titleDescribe": "Crear un asistente",
+      "titlePreview": "Vista previa",
+      "titleConfirm": "Confirmar",
+      "descDescribe": "Describa en lenguaje sencillo lo que quiere que haga este asistente.",
+      "descPreview": "Revise la configuración generada antes de crear.",
+      "descConfirm": "Su asistente está listo para crearse.",
+      "stepProgressAria": "Progreso de pasos",
+      "describePlaceholder": "P. ej. Quiero un asistente que revise mi código y sugiera mejoras, se centre en TypeScript y explique cada cambio que realiza.",
+      "describeHint": "Sea tan descriptivo como quiera — tono, área de enfoque, cosas a evitar.",
+      "recommendedModel": "Modelo recomendado",
+      "recommendedBadge": "Recomendado",
+      "costPerMessage": "~${{cost}}/msj",
+      "confirmSummary": "Se creará <0>{{name}}</0> con el propósito <1>{{purpose}}</1> usando el modelo <2>{{model}}</2>.",
+      "confirmHint": "Puede ajustar todos los ajustes después de la creación desde el panel del asistente.",
+      "browseTemplates": "Explorar plantillas",
+      "configureManually": "Configurar manualmente",
+      "generating": "Generando...",
+      "continue": "Continuar",
+      "looksGood": "Se ve bien",
+      "createAssistant": "Crear asistente"
+    },
+    "advanced": {
+      "titleCustomise": "Personalizar plantilla",
+      "titleNew": "Nuevo asistente — Avanzado",
+      "descCustomise": "Revise y ajuste la configuración prerrellenada y, a continuación, cree.",
+      "descNew": "Configure cada detalle manualmente.",
+      "namePlaceholder": "Mi asistente",
+      "descriptionPlaceholder": "Resumen breve de lo que hace este asistente",
+      "scopePathPlaceholder": "/ruta/al/directorio",
+      "toolsPlaceholder": "read_files, run_commands, ...",
+      "browseTemplates": "Explorar plantillas",
+      "simpleMode": "Modo simple",
+      "createAssistant": "Crear asistente"
+    }
+  },
+  "template": {
+    "useTemplateAria": "Usar plantilla: {{name}}",
+    "title": "Empezar desde una plantilla",
+    "description": "Elija un asistente preconfigurado para empezar rápido. Puede ajustar todo antes de crear.",
+    "searchPlaceholder": "Buscar plantillas (p. ej. SEO, frontend, datos)",
+    "searchAria": "Buscar plantillas",
+    "noMatch": "Ninguna plantilla coincide con «{{query}}».",
+    "describeWithAi": "Describir con IA",
+    "startFromScratch": "Empezar desde cero",
+    "quickPickPlaceholder": "Ir a una plantilla…",
+    "quickPickSearch": "Buscar plantillas…",
+    "quickPickEmpty": "No se encontraron plantillas"
+  },
+  "model": {
+    "selectionAria": "Selección de modelo",
+    "recommended": "Recomendado",
+    "costPerMessage": "~${{cost}}/msj",
+    "whyRecommended": "Por qué se recomienda"
+  },
+  "chat": {
+    "running": "En ejecución",
+    "completed": "Completado",
+    "toolAria": "Herramienta: {{tool}}. Haga clic para {{action}} los detalles.",
+    "toolExpand": "expandir",
+    "toolCollapse": "contraer",
+    "toolInput": "Entrada",
+    "toolOutput": "Salida",
+    "errorTitle": "Algo salió mal",
+    "tokenTooltip": "Entrada: {{input}} tokens, Salida: {{output}} tokens",
+    "tokenSummary": "{{tokens}} tokens · ${{cost}}",
+    "emptyTitle": "Inicie una conversación",
+    "emptyDescription": "Envíe un mensaje a continuación para empezar a conversar con este asistente.",
+    "messagesAria": "Mensajes de la conversación",
+    "workspaceFilesAria": "Archivos del espacio de trabajo",
+    "workspaceFilesTitle": "Archivos del espacio de trabajo",
+    "noFiles": "Aún no hay archivos en el espacio de trabajo.",
+    "fileMention": "[archivo: {{name}}]",
+    "messagePlaceholder": "Escriba al asistente… (Ctrl+Enter para enviar)",
+    "messageInputAria": "Entrada de mensaje",
+    "attachFileAria": "Adjuntar archivo del espacio de trabajo",
+    "attachFileTitle": "Adjuntar archivo del espacio de trabajo",
+    "stopAria": "Detener generación",
+    "stopTitle": "Detener generación",
+    "sendAria": "Enviar mensaje",
+    "sendTitle": "Enviar mensaje (Ctrl+Enter)",
+    "purposeLabel": "Propósito: {{purpose}}",
+    "resourcesLabel": "Recursos:",
+    "resourcesNone": "ninguno",
+    "resourcesMore": "{{names}} +{{remaining}} más",
+    "manageResources": "Gestionar",
+    "manageResourcesAria": "Gestionar recursos del espacio de trabajo",
+    "editAria": "Editar ajustes del asistente",
+    "clearAria": "Borrar conversación"
+  },
+  "skills": {
+    "emptyTitle": "No se han añadido habilidades",
+    "emptyDescription": "Explore el mercado para añadir capacidades.",
+    "browseMarketplace": "Explorar mercado",
+    "listAria": "Habilidades asociadas a este asistente",
+    "priorityAria": "Prioridad {{priority}}",
+    "enableAria": "Habilitar {{name}}",
+    "disableAria": "Deshabilitar {{name}}",
+    "removeAria": "Eliminar {{name}}",
+    "addSkill": "Añadir habilidad",
+    "addSkillAria": "Abrir el mercado de habilidades para añadir una habilidad",
+    "quickAttachPlaceholder": "Adjuntar una habilidad…",
+    "quickAttachSearch": "Buscar habilidades…",
+    "quickAttachEmpty": "No se encontraron habilidades",
+    "quickAttachOverflow": "Siga escribiendo para acotar los resultados…"
+  },
+  "folders": {
+    "emptyTitle": "No hay carpetas externas adjuntas",
+    "emptyDescription": "Adjunte un directorio del host que este asistente pueda leer o escribir.",
+    "attachFolder": "Adjuntar carpeta",
+    "listAria": "Carpetas externas asociadas a este asistente",
+    "priorityAria": "Prioridad {{priority}}",
+    "readOnly": "RO",
+    "enableAria": "Habilitar {{name}}",
+    "disableAria": "Deshabilitar {{name}}",
+    "removeAria": "Eliminar {{name}}",
+    "attachFolderAria": "Abrir carpetas externas para adjuntar una carpeta"
+  },
+  "mcp": {
+    "addRemoveAria": "{{action}} {{name}} {{managed}}",
+    "addAction": "Añadir",
+    "removeAction": "Eliminar",
+    "managedBySkill": "(gestionado por habilidad)",
+    "emptyTitle": "No hay servidores MCP registrados",
+    "emptyDescription": "Añada conexiones MCP para ampliar las capacidades de este agente.",
+    "manageConnections": "Gestionar conexiones",
+    "assignedTitle": "Asignados ({{count}})",
+    "assignedAria": "Servidores MCP asignados",
+    "availableTitle": "Disponibles ({{count}})",
+    "availableAria": "Servidores MCP disponibles",
+    "skillManagedNote": "Los servidores <0>gestionados por habilidad</0> se añaden automáticamente cuando se habilita una habilidad. Deshabilite la habilidad para eliminarlos."
+  },
+  "memory": {
+    "title": "Memoria del agente",
+    "rememberAcrossSessions": "Recordar entre conversaciones",
+    "disabledNote": "La memoria está desactivada — las entradas guardadas a continuación no se inyectan en las ejecuciones de este agente, y no se captura nada automáticamente, hasta que la habilite.",
+    "pin": "Fijar",
+    "unpin": "Dejar de fijar",
+    "autoCaptured": "capturado automáticamente · solo lectura",
+    "keyPlaceholder": "Clave",
+    "valuePlaceholder": "Valor",
+    "addMemoryAria": "Añadir memoria",
+    "source": {
+      "manual": "manual",
+      "auto": "automático",
+      "director": "director"
+    }
+  }
+}

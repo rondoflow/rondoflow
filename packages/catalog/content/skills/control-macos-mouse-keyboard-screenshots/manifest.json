@@ -1,0 +1,10 @@
+{
+  "id": "control-macos-mouse-keyboard-screenshots",
+  "name": "control-macos-mouse-keyboard-screenshots",
+  "description": "A high-fidelity automation bridge for macOS (Darwin) that enables agents to perceive the desktop state and execute precise mouse and keyboard interactions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

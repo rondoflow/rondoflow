@@ -1,0 +1,10 @@
+{
+  "id": "personal-home-inventory-tracking",
+  "name": "personal-home-inventory-tracking",
+  "description": "Build a personal inventory system for home items, valuables, and equipment tracking.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

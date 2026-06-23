@@ -1,0 +1,10 @@
+{
+  "id": "revolut-business-banking-api-cli",
+  "name": "revolut-business-banking-api-cli",
+  "description": "Revolut Business API CLI — accounts, balances, transactions, counterparties, payments, FX exchange, CSV export. Auto-refreshes OAuth tokens. Business accounts only (not personal).",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

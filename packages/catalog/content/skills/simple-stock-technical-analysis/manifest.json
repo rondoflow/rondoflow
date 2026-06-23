@@ -1,0 +1,10 @@
+{
+  "id": "simple-stock-technical-analysis",
+  "name": "simple-stock-technical-analysis",
+  "description": "Simple technical analysis for stocks (Tencent, Xiaomi, Tesla, NVIDIA, etc.). Calculates moving averages (SMA20, SMA50), RSI (14-day), price position in 20-day range, and provides buy/hold/sell signals based on technical indicators. No external dependencies required - uses only P…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * RondoFlow landing - light theme. Tokens live in tailwind.config.ts; this file
+ * holds base element styles, the brand mark, and a few decorative utilities for
+ * the flow visuals. Geist (--font-sans / --font-mono) is injected by next/font
+ * via the variable classes on <html> in layout.tsx.
+ */
+
+/* Theme tokens as RGB channels so Tailwind's `rgb(var(--x) / <alpha>)` colors
+ * support opacity modifiers. Light is the default; `.dark` (set on <html> by the
+ * theme toggle / no-FOUC script) flips them. Node-status colors stay fixed. */
+:root {
+  color-scheme: light;
+  --paper: 255 255 255;
+  --surface: 246 247 249;
+  --surface2: 238 240 243;
+  --line: 228 231 235;
+  --ink: 22 22 22;
+  --muted: 91 97 104;
+  --faint: 138 144 152;
+  --accent-ink: 27 95 209;
+  --grid-line: rgba(22, 22, 22, 0.045);
+}
+
+.dark {
+  color-scheme: dark;
+  --paper: 10 10 10;
+  --surface: 21 22 26;
+  --surface2: 31 33 38;
+  --line: 39 42 48;
+  --ink: 240 241 243;
+  --muted: 161 167 176;
+  --faint: 110 117 126;
+  --accent-ink: 125 170 255;
+  --grid-line: rgba(255, 255, 255, 0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: rgb(var(--paper));
+  color: rgb(var(--ink));
+  font-feature-settings: 'cv11', 'ss01';
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(60, 131, 245, 0.18);
+}
+
+/* FAQ accordions use <details>; hide the native disclosure marker. */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
+}
+
+/* Visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid theme('colors.accent.DEFAULT');
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Brand mark ─────────────────────────────────────────────────────────── */
+.rf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.rf-logo-mark {
+  display: inline-flex;
+  height: 1.6rem;
+  width: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.45rem;
+  /* Auto-inverts with the theme: dark square + light glyph in light mode, and
+   * the reverse in dark mode (matches the app's docs logo). */
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* ── Decorative utilities ───────────────────────────────────────────────── */
+
+/* Faint dot/line grid - the "canvas" backdrop, like the app's React Flow pane. */
+.canvas-grid {
+  background-image: radial-gradient(circle at center, var(--grid-line) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Soft radial wash behind the hero. */
+.hero-glow {
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(60, 131, 245, 0.1), transparent 70%),
+    radial-gradient(40% 40% at 80% 20%, rgba(33, 196, 93, 0.08), transparent 70%);
+}
+
+/* Flow edges - mirror the app's rondoflowEdge. Explicit keyframes so the
+ * marching dash works without depending on a Tailwind animate-* utility. */
+@keyframes dashdraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes edgepulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fx-edge {
+  fill: none;
+  stroke-linecap: round;
+}
+/* Execution chain - ink animated dash (app's active flow edge). */
+.fx-flow {
+  stroke-width: 2.5;
+  stroke-dasharray: 8 5;
+  stroke-dashoffset: 13;
+  animation: dashdraw 0.55s linear infinite;
+}
+/* Glow underlay for the currently-running segment. */
+.fx-glow {
+  stroke-width: 7;
+  stroke-opacity: 0.16;
+  filter: drop-shadow(0 0 6px currentColor);
+  animation: edgepulse 2s ease-in-out infinite;
+}
+/* Orchestrator connectors - accent dotted, slower march. */
+.fx-orch {
+  stroke-width: 1.75;
+  stroke-dasharray: 2 5;
+  stroke-dashoffset: 7;
+  animation: dashdraw 0.9s linear infinite;
+}
+/* Skill → agent association - muted, static dashes (app's association edge). */
+.fx-assoc {
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  stroke-opacity: 0.5;
+}
+/* A pulse that rides along an edge (position driven by SVG animateMotion). */
+.flow-dot {
+  filter: drop-shadow(0 0 5px currentColor);
+}
+/* Mobile connector - a glow flowing downward along the rail. */
+.flow-rail {
+  background-image: linear-gradient(to bottom, transparent, currentColor, transparent);
+  background-size: 100% 240%;
+  background-repeat: no-repeat;
+  animation: flowdown 1.4s linear infinite;
+}
+@keyframes flowdown {
+  from {
+    background-position: 50% -120%;
+  }
+  to {
+    background-position: 50% 120%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, rgb(var(--ink)) 30%, rgb(var(--accent-ink)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Light/dark split of the screenshot. The dark half is the same image with a
+ * dark-mode filter, masked to one side of a 30° line through the centre. The
+ * mask and the divider line share the same 30deg axis so they align exactly. */
+.screenshot-dark {
+  filter: invert(1) hue-rotate(180deg) brightness(0.96);
+  -webkit-mask-image: linear-gradient(30deg, #000 0 50%, transparent 50% 100%);
+  mask-image: linear-gradient(30deg, #000 0 50%, transparent 50% 100%);
+}
+.screenshot-split {
+  background-image: linear-gradient(
+    30deg,
+    transparent calc(50% - 1px),
+    rgba(120, 126, 134, 0.7) calc(50% - 1px),
+    rgba(120, 126, 134, 0.7) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+}
+
+/* Scroll reveal - only armed when JS adds `.reveal-ready` to <html> (skipped
+ * under reduced motion), so content is always visible without JS. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-ready [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Active nav link (scroll-spy). */
+[data-nav][aria-current='true'] {
+  color: rgb(var(--ink));
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .fx-flow,
+  .fx-orch {
+    stroke-dashoffset: 0;
+  }
+  .flow-dot {
+    display: none;
+  }
+  .flow-rail {
+    animation: none;
+    background: currentColor;
+  }
+}

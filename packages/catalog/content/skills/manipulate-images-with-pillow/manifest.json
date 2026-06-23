@@ -1,0 +1,10 @@
+{
+  "id": "manipulate-images-with-pillow",
+  "name": "manipulate-images-with-pillow",
+  "description": "Classic image manipulation with Python Pillow - resize, crop, composite, format conversion, watermarks, brightness/contrast adjustments, and web optimization. Use this skill when post-processing AI-generated images, preparing images for web delivery, batch processing image direc…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.3.0",
+  "icon": "image",
+  "order": 1000
+}

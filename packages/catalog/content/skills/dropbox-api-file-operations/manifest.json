@@ -1,0 +1,10 @@
+{
+  "id": "dropbox-api-file-operations",
+  "name": "dropbox-api-file-operations",
+  "description": "Dropbox API integration with managed OAuth. Files, folders, search, metadata, and cloud storage. Use this skill when users want to manage files and folders in Dropbox, search content, or work with file metadata. For other third party apps, use the api-gateway skill (https://claw…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "pencil",
+  "order": 1000
+}

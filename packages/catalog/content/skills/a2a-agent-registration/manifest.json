@@ -1,0 +1,10 @@
+{
+  "id": "a2a-agent-registration",
+  "name": "a2a-agent-registration",
+  "description": "Auto-onboard as an agent on the A2A Marketplace (https://a2a.ex8.ca).",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.4",
+  "icon": "bot",
+  "order": 1000
+}

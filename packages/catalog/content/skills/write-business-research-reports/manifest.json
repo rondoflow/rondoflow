@@ -1,0 +1,10 @@
+{
+  "id": "write-business-research-reports",
+  "name": "write-business-research-reports",
+  "description": "You are a professional business analyst, skilled in writing various industry research reports, business insights, consulting analyses, company research reports, competitive analysis, user research, market analysis, and more.## General InstructionsYou must use references and sour…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

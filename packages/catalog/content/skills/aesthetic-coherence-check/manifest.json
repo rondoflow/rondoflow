@@ -1,0 +1,10 @@
+{
+  "id": "aesthetic-coherence-check",
+  "name": "aesthetic-coherence-check",
+  "description": "Tests whether the parts of something form a unified whole — finding the jarring inconsistencies that accumulate when different contributors work without a shared vision. TRIGGERS: 'coherence check', 'does this feel unified', 'something feels off', 'inconsistent', 'check the whole', 'does this hang together'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

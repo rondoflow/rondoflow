@@ -1,0 +1,10 @@
+{
+  "id": "mentor-day-trading-analysis",
+  "name": "mentor-day-trading-analysis",
+  "description": "Professional AI Trading Mentor. Master price action, technical analysis, and risk management logic. Companion logic model for the Day Trading Investor Course.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "coins",
+  "order": 1000
+}

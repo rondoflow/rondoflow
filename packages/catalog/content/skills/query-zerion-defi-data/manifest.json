@@ -1,0 +1,10 @@
+{
+  "id": "query-zerion-defi-data",
+  "name": "query-zerion-defi-data",
+  "description": "Query crypto wallet data using the Zerion API MCP server.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "kogaion-token-launchpad-playground",
+  "name": "kogaion-token-launchpad-playground",
+  "description": "Use Kogaion launchpad and playground for Moltbook agents. Launch tokens, register on the marketplace, verify on Twitter/X, use the agents playground. Use when working with Kogaion, kogaion.fun, launchpad, token launch, or Moltbook agents.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

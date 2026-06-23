@@ -1,0 +1,10 @@
+{
+  "id": "query-polymarket-markets-and-odds",
+  "name": "query-polymarket-markets-and-odds",
+  "description": "Query Polymarket prediction markets - check odds, trending markets, search events, track prices and momentum. Includes watchlist alerts, resolution calendar, momentum scanner, and paper trading (simulated, no real money).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

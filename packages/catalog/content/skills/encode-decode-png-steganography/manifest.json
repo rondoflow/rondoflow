@@ -1,0 +1,10 @@
+{
+  "id": "encode-decode-png-steganography",
+  "name": "encode-decode-png-steganography",
+  "description": "Decode and embed Stegstr payloads in PNG images. Use when the user needs to extract hidden Nostr data from a Stegstr image, encode a payload into a cover PNG, or work with steganographic social networking (Nostr-in-images). Supports CLI (stegstr-cli decode, detect, embed, post)…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

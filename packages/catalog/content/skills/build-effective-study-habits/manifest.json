@@ -1,0 +1,10 @@
+{
+  "id": "build-effective-study-habits",
+  "name": "build-effective-study-habits",
+  "description": "Build effective study habits with spaced repetition, active recall, and session tracking",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

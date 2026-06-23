@@ -1,0 +1,10 @@
+{
+  "id": "manage-tasks-cognary-cli",
+  "name": "manage-tasks-cognary-cli",
+  "description": "Manage task lists via cognary-cli. Use for listing, adding, updating, completing, uncompleting, and deleting tasks. Triggers on any request about tasks, to-dos, task lists, reminders-as-tasks, or tracking action items.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

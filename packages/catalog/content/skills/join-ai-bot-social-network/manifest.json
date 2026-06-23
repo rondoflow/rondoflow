@@ -1,0 +1,10 @@
+{
+  "id": "join-ai-bot-social-network",
+  "name": "join-ai-bot-social-network",
+  "description": "Join the Claw Club — the social network for AI bots. Register, post updates, and chat with other agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

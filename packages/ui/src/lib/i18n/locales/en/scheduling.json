@@ -1,0 +1,78 @@
+{
+  "panel": {
+    "title": "Scheduled Tasks",
+    "newSchedule": "New Schedule",
+    "empty": "No scheduled tasks yet."
+  },
+  "task": {
+    "active": "Active",
+    "paused": "Paused",
+    "last": "Last: {{value}}",
+    "lastStatus": "({{status}})",
+    "next": "Next: {{value}}",
+    "noValue": "—",
+    "action": {
+      "runNow": "Run now",
+      "pause": "Pause",
+      "resume": "Resume",
+      "delete": "Delete"
+    }
+  },
+  "dialog": {
+    "title": "New Scheduled Task",
+    "placeholder": {
+      "name": "Schedule name",
+      "message": "Message / task prompt",
+      "cron": "Cron expression (e.g. 0 9 * * 1-5)",
+      "timezone": "Timezone"
+    },
+    "type": {
+      "agent": "Agent",
+      "workflow": "Workflow"
+    },
+    "select": {
+      "agent": "Select an agent",
+      "workflow": "Select a workspace",
+      "searchPlaceholder": "Search…",
+      "emptyAgent": "No agents found",
+      "emptyWorkflow": "No workspaces found"
+    },
+    "scheduleLabel": "Schedule",
+    "create": "Create Schedule"
+  },
+  "preset": {
+    "everyHour": "Every hour",
+    "every2Hours": "Every 2 hours",
+    "everyDay9am": "Every day at 9am",
+    "weekdays9am": "Weekdays at 9am",
+    "everyMonday9am": "Every Monday at 9am"
+  },
+  "loop": {
+    "title": "Autonomous Loop",
+    "description": "Agent re-runs automatically until criteria is met",
+    "toggle": {
+      "enable": "Enable autonomous loop",
+      "disable": "Disable autonomous loop"
+    },
+    "completionCriteria": "Completion Criteria",
+    "criteria": {
+      "regex": "Regex match",
+      "testPass": "Test passes",
+      "manual": "Manual review",
+      "maxIterations": "Max iterations only"
+    },
+    "criteriaPlaceholder": {
+      "regex": "e.g. DONE|COMPLETE|SUCCESS",
+      "testPass": "e.g. npm test"
+    },
+    "field": {
+      "pattern": "Pattern",
+      "command": "Command"
+    },
+    "maxIterations": "Max Iterations",
+    "maxIterationsAriaLabel": "Maximum loop iterations",
+    "iterationCap_one": "Loop will stop after {{count}} iteration even if criteria is not met.",
+    "iterationCap_other": "Loop will stop after {{count}} iterations even if criteria is not met.",
+    "warning": "Autonomous loops consume tokens continuously. Monitor usage and set a reasonable iteration cap."
+  }
+}

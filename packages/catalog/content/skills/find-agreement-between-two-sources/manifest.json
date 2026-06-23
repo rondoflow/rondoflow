@@ -1,0 +1,10 @@
+{
+  "id": "find-agreement-between-two-sources",
+  "name": "find-agreement-between-two-sources",
+  "description": "Discover what two sources agree on — find the signal in the noise.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "arxiv-paper-download-summarizer",
+  "name": "arxiv-paper-download-summarizer",
+  "description": "Tool-only paper processing skill with a manual language parameter: supports batch artifact download for many papers or single-paper download, then the model manually reads source/PDF and writes summary.md in the selected language. Use when per-paper comprehension should be model…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

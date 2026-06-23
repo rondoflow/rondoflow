@@ -1,0 +1,10 @@
+{
+  "id": "backup-restore-openclaw-data",
+  "name": "backup-restore-openclaw-data",
+  "description": "Backup and restore OpenClaw data. Use when user asks to create backups, set up automatic backup schedules, restore from backup, or manage backup rotation. Handles ~/.openclaw directory archiving with proper exclusions.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

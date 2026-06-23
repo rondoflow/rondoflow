@@ -1,0 +1,10 @@
+{
+  "id": "github-access-via-personal-tokens",
+  "name": "github-access-via-personal-tokens",
+  "description": "Interact with GitHub using Personal Access Tokens. Secure, user-controlled access - no OAuth, no full account access. Clone, push, branch, PR, issues. Use when user wants to work with GitHub repos.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

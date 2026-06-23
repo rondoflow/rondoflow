@@ -1,0 +1,10 @@
+{
+  "id": "detect-construction-data-anomalies",
+  "name": "detect-construction-data-anomalies",
+  "description": "Detect anomalies and outliers in construction data: unusual costs, schedule variances, productivity spikes. Statistical and ML-based detection methods.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

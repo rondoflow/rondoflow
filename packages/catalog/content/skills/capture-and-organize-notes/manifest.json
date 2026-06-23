@@ -1,0 +1,10 @@
+{
+  "id": "capture-and-organize-notes",
+  "name": "capture-and-organize-notes",
+  "description": "Used to capture and organize notes, ideas, quotes, and journal entries with automatic tagging, linking, and knowledge graph maintenance.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

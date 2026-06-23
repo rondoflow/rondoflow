@@ -1,0 +1,10 @@
+{
+  "id": "keap-crm-automation-management",
+  "name": "keap-crm-automation-management",
+  "description": "Keap API integration with managed OAuth. Manage contacts, companies, tags, tasks, orders, opportunities, and campaigns for CRM and marketing automation. Use this skill when users want to create and manage contacts, apply tags, track opportunities, or automate marketing workflows…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "check-square",
+  "order": 1000
+}

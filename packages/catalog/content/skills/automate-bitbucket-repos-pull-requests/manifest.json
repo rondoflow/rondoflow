@@ -1,0 +1,10 @@
+{
+  "id": "automate-bitbucket-repos-pull-requests",
+  "name": "automate-bitbucket-repos-pull-requests",
+  "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio). Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

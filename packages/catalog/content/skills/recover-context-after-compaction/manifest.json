@@ -1,0 +1,10 @@
+{
+  "id": "recover-context-after-compaction",
+  "name": "recover-context-after-compaction",
+  "description": "Automatically recover working context after session compaction or when continuation is implied but context is missing. Works across Discord, Slack, Telegram, Signal, and other supported channels.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "browser-based-google-search-scraper",
+  "name": "browser-based-google-search-scraper",
+  "description": "Search Google using scrapling and return structured results (title, link, snippet). Invoke when user asks to search Google or find information online. Your device should be able to lanuch broswer with UI.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "globe",
+  "order": 1000
+}

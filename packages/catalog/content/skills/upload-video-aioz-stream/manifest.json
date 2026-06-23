@@ -1,0 +1,10 @@
+{
+  "id": "upload-video-aioz-stream",
+  "name": "upload-video-aioz-stream",
+  "description": "Quick upload video to AIOZ Stream API. Create video objects with default or custom encoding configurations, upload the file, complete the upload, then return the video link to the user.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

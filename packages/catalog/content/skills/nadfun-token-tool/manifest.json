@@ -1,0 +1,10 @@
+{
+  "id": "nadfun-token-tool",
+  "name": "nadfun-token-tool",
+  "description": "**The Monad token launchpad with bonding curves.** Trade tokens, launch your own, monitor events—all with pure viem.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

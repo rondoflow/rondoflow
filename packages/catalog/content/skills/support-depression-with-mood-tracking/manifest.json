@@ -1,0 +1,10 @@
+{
+  "id": "support-depression-with-mood-tracking",
+  "name": "support-depression-with-mood-tracking",
+  "description": "Daily support for depression with mood tracking, behavioral activation, and self-care",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

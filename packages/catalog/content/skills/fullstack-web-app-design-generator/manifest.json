@@ -1,0 +1,10 @@
+{
+  "id": "fullstack-web-app-design-generator",
+  "name": "fullstack-web-app-design-generator",
+  "description": "Turns ideas into live, full-stack web applications with editable code, built-in database, user authentication, and hosting. Anima is the design agent in the AI swarm, giving agents design awareness and brand consistency when building interfaces. Three input paths: describe what…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

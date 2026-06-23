@@ -1,0 +1,10 @@
+{
+  "id": "podio-integration-tool",
+  "name": "podio-integration-tool",
+  "description": "Podio API integration with managed OAuth. Manage workspaces, apps, items, tasks, and comments. Use this skill when users want to read, create, update, or delete Podio items, manage tasks, or interact with Podio apps and workspaces. For other third party apps, use the api-gateway…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

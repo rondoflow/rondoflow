@@ -1,0 +1,10 @@
+{
+  "id": "epistemology",
+  "name": "epistemology",
+  "description": "Entry point for the epistemology toolkit. Routes to the right skill based on your situation. Use when you say 'what do I actually know here', 'is this knowable', 'how certain should I be', 'what would justify believing this', 'what kind of claim is this', 'am I confusing assumption with knowledge', 'what are the limits of what we can establish', or want philosophical rigor applied to questions of knowledge without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

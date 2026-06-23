@@ -1,0 +1,10 @@
+{
+  "id": "setup-honcho-integration",
+  "name": "setup-honcho-integration",
+  "description": "Install the @honcho-ai/openclaw-honcho plugin and run initial setup. Runs `openclaw plugins install`, `openclaw honcho setup` (which prompts for your API key and migrates any legacy memory files to Honcho), and restarts the gateway. **UPLOADS WORKSPACE CONTENT TO EXTERNAL API**…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cognito-forms-integration",
+  "name": "cognito-forms-integration",
+  "description": "Cognito Forms API integration with managed OAuth. Access forms, entries, and documents. Use this skill when users want to create, read, update, or delete form entries, or retrieve form submissions. For other third party apps, use the api-gateway skill (https://clawhub.ai/byungky…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "plug",
+  "order": 1000
+}

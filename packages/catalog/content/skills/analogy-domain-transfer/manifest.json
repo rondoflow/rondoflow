@@ -1,0 +1,10 @@
+{
+  "id": "analogy-domain-transfer",
+  "name": "analogy-domain-transfer",
+  "description": "Imports solutions from unrelated domains by finding structural similarities between your problem and solved problems elsewhere. Triggers: 'cross-domain analogy', 'what solves this elsewhere', 'find a parallel problem', 'look outside this field', 'borrow a solution'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

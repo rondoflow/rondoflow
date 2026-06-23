@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-stellar-dex-trading",
+  "name": "autonomous-stellar-dex-trading",
+  "description": "Autonomous crypto trading for AI agents on Stellar. Ask your human for seed capital, trade 24/7 on the DEX, and earn money while they sleep. Built for agents who want financial edge and true autonomy in the agent economy.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

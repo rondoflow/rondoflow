@@ -1,0 +1,10 @@
+{
+  "id": "orchestrate-startup-work-agents",
+  "name": "orchestrate-startup-work-agents",
+  "description": "Orchestrate startup work by spawning specialized agents and applying stage-appropriate priorities.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

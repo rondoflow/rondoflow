@@ -1,0 +1,10 @@
+{
+  "id": "bitcoin-native-identity-provider",
+  "name": "bitcoin-native-identity-provider",
+  "description": "Integrate HODLXXI as a Bitcoin-native identity provider that bridges OAuth2/OIDC, Lightning LNURL-Auth, and a minimal signed inter-agent execution loop for secure job handoff.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

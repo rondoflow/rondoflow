@@ -1,0 +1,10 @@
+{
+  "id": "control-nordvpn-linux-cli",
+  "name": "control-nordvpn-linux-cli",
+  "description": "Control NordVPN on Linux via the `nordvpn` CLI (connect/disconnect, choose country/city/group, read status, tweak settings, manage allowlist). Use for automation that needs region routing or temporary VPN tunneling.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "plug",
+  "order": 1000
+}

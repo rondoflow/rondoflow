@@ -1,0 +1,172 @@
+{
+  "scope": {
+    "label": "Rozsah",
+    "workspace": "Tento pracovný priestor",
+    "global": "Všetky pracovné priestory"
+  },
+  "dashboard": {
+    "overview": "Prehľad",
+    "periodDays": "{{count}}d",
+    "card": {
+      "assistantsRunning": "{{count}} spustených",
+      "assistants": "Asistenti",
+      "discussions": "Diskusie",
+      "schedulesActive": "{{count}} aktívnych",
+      "schedules": "Plány",
+      "skills": "Zručnosti",
+      "totalCost": "Celkové náklady",
+      "sessions": "Konverzácie",
+      "tokens": "Tokeny"
+    },
+    "usage": {
+      "heading": "Využitie (posledných {{count}} dní)",
+      "empty": {
+        "title": "Zatiaľ žiadne údaje o využití",
+        "hint": "Spustite asistentov alebo pracovné postupy a uvidíte tu analytiku."
+      }
+    },
+    "metric": {
+      "cost": "Náklady",
+      "tokens": "Tokeny"
+    },
+    "chart": {
+      "title": "{{metric}} v čase",
+      "totalCost": "(spolu ${{amount}})",
+      "totalTokens": "(spolu {{amount}}k)",
+      "noneRecorded": "V tomto období neboli zaznamenané žiadne {{metric}}",
+      "ariaPerDay": "{{label}} za deň počas {{count}} dní",
+      "barTitle": "{{day}} — {{value}}",
+      "costValue": "${{amount}}",
+      "tokensValue": "{{amount}}k tokenov"
+    },
+    "costByModel": "Náklady podľa modelu",
+    "tokenSplit": "Rozdelenie tokenov",
+    "tokenInput": "vstup",
+    "tokenOutput": "výstup",
+    "costByWorkspace": "Náklady podľa pracovného priestoru"
+  },
+  "audit": {
+    "range": {
+      "last24h": "Posledných 24 hodín",
+      "last7d": "Posledných 7 dní",
+      "last30d": "Posledných 30 dní",
+      "allTime": "Celé obdobie"
+    },
+    "search": {
+      "placeholder": "Hľadať udalosti…",
+      "ariaLabel": "Hľadať v protokole auditu"
+    },
+    "filter": {
+      "eventType": "Typ udalosti",
+      "allTypes": "Všetky typy",
+      "typeOption": "{{label}} ({{count}})",
+      "timeRange": "Časové obdobie"
+    },
+    "exportCsv": "Exportovať CSV",
+    "loadError": "Nepodarilo sa načítať protokol auditu",
+    "count_one": "{{count}} udalosť",
+    "count_few": "{{count}} udalosti",
+    "count_other": "{{count}} udalostí",
+    "matchingFilters": " zodpovedajúcich filtrom",
+    "emptyFiltered": "Žiadne udalosti auditu nezodpovedajú týmto filtrom.",
+    "column": {
+      "time": "Čas",
+      "type": "Typ",
+      "event": "Udalosť"
+    },
+    "pagination": {
+      "pageOf": "Strana {{page}} z {{total}}",
+      "previous": "Predchádzajúca strana",
+      "next": "Nasledujúca strana"
+    },
+    "detail": {
+      "category": "Kategória",
+      "eventId": "ID udalosti",
+      "assistantId": "ID asistenta",
+      "workspaceId": "ID pracovného priestoru"
+    }
+  },
+  "activity": {
+    "empty": {
+      "title": "Zatiaľ žiadna aktivita",
+      "hint": "Spustite asistenta a uvidíte tu udalosti."
+    },
+    "group": {
+      "today": "Dnes",
+      "yesterday": "Včera"
+    }
+  },
+  "run": {
+    "status": {
+      "running": "Spustené",
+      "completed": "Dokončené",
+      "failed": "Zlyhalo",
+      "stopped": "Zastavené"
+    },
+    "detail": {
+      "fallbackTitle": "Spustenie pracovného postupu",
+      "back": "Späť na zoznam spustení",
+      "open": "Otvoriť",
+      "openTooltip": "Otvoriť toto spustenie v paneli pracovného postupu",
+      "emptyTitle": "Žiadne záznamy v protokole",
+      "emptyHint": "Toto spustenie nemá zaznamenaný protokol vykonávania.",
+      "loadError": "Toto spustenie sa nepodarilo načítať"
+    },
+    "list": {
+      "title": "História vykonávania",
+      "loadingRun": "Načítava sa spustenie…",
+      "loadError": "Nepodarilo sa načítať spustenia",
+      "errorTitle": "Históriu sa nepodarilo načítať",
+      "emptyTitle": "Zatiaľ žiadne spustenia",
+      "emptyHint": "Spustite pracovný postup a zobrazí sa tu.",
+      "count_one": "{{count}} spustenie",
+      "count_few": "{{count}} spustenia",
+      "count_other": "{{count}} spustení",
+      "steps": "{{done}}/{{total}} krokov",
+      "tokens": "{{amount}} tok",
+      "cost": "${{amount}}",
+      "loadMore": "Načítať ďalšie ({{remaining}})"
+    }
+  },
+  "session": {
+    "status": {
+      "active": "Aktívna",
+      "ended": "Ukončená",
+      "error": "Chyba"
+    },
+    "filter": {
+      "fromDate": "Filtrovať od dátumu",
+      "toDate": "Filtrovať do dátumu",
+      "to": "do",
+      "clear": "Vymazať filter dátumu"
+    },
+    "card": {
+      "ariaLabel": "Konverzácia z {{date}}, {{count}} správ",
+      "prefix": "Konverzácia",
+      "messages_one": "{{count}} správa",
+      "messages_few": "{{count}} správy",
+      "messages_other": "{{count}} správ"
+    },
+    "empty": {
+      "filteredTitle": "Žiadne konverzácie v tomto rozsahu",
+      "filteredHint": "Skúste upraviť filter dátumu.",
+      "title": "Zatiaľ žiadne konverzácie",
+      "hint": "Začnite konverzovať s asistentom a uvidíte tu svoju históriu."
+    },
+    "title": "História konverzácií",
+    "count_one": "{{count}} konverzácia",
+    "count_few": "{{count}} konverzácie",
+    "count_other": "{{count}} konverzácií",
+    "listAria": "Minulé konverzácie"
+  },
+  "cost": {
+    "empty": {
+      "title": "Zatiaľ žiadne údaje o využití",
+      "hint": "Spustite asistentov a uvidíte tu sledovanie nákladov."
+    },
+    "totalCost": "Celkové náklady",
+    "sessions": "Konverzácie",
+    "tokens": "Tokeny",
+    "byModel": "Náklady podľa modelu (posledných {{count}} dní)"
+  }
+}

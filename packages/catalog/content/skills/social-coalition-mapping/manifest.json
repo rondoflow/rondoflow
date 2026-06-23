@@ -1,0 +1,10 @@
+{
+  "id": "social-coalition-mapping",
+  "name": "social-coalition-mapping",
+  "description": "Maps who needs to be aligned, who already is, and how to build the coalition a proposal needs to succeed. Triggers: 'coalition building', 'who do I need to get on board', 'map the support', 'build alignment', 'who will support this', 'who will block this'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

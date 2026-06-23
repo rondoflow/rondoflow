@@ -1,0 +1,10 @@
+{
+  "id": "automate-builds-tests-deployments",
+  "name": "automate-builds-tests-deployments",
+  "description": "Automate builds, tests, and deployments across web, mobile, and backend applications.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

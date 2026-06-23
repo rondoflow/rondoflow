@@ -1,0 +1,10 @@
+{
+  "id": "resource-leverage-mapping",
+  "name": "resource-leverage-mapping",
+  "description": "Finds the highest-leverage use of available resources — where the same input produces the most output. Triggers: 'resource leverage', 'highest-leverage use', 'where should we put our energy', 'maximize impact', 'leverage mapping'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trade-hyperliquid-perps-smart-routing",
+  "name": "trade-hyperliquid-perps-smart-routing",
+  "description": "Trade on Hyperliquid's perp markets (native + HIP-3) with intelligent order routing and cross-market splitting. Use when the user wants to trade crypto, stocks, or commodities on Hyperliquid, get best execution across fragmented markets, split large orders across multiple venues…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "coins",
+  "order": 1000
+}

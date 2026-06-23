@@ -1,0 +1,10 @@
+{
+  "id": "command-line-task-scheduler",
+  "name": "command-line-task-scheduler",
+  "description": "Scheduler - command-line tool for everyday use Use when you need scheduler.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

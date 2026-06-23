@@ -1,0 +1,10 @@
+{
+  "id": "bitcoin-lightning-pay-per-use-ai-gateway",
+  "name": "bitcoin-lightning-pay-per-use-ai-gateway",
+  "description": "Pay-per-use AI gateway via Bitcoin Lightning. No API keys, no account — pay sats, get inference. Supports Anthropic (claude-opus-4-5-20251101, claude-sonnet-4-20250514, claude-haiku-4-5-20251001), OpenAI, Together.ai (Llama 4, DeepSeek), Mistral, and Google Gemini 2.5. L402 prot…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "coins",
+  "order": 1000
+}

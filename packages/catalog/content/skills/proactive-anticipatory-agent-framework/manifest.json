@@ -1,0 +1,10 @@
+{
+  "id": "proactive-anticipatory-agent-framework",
+  "name": "proactive-anticipatory-agent-framework",
+  "description": "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

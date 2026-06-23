@@ -1,0 +1,10 @@
+{
+  "id": "resource-waste-audit",
+  "name": "resource-waste-audit",
+  "description": "Finds where resources are being lost, duplicated, or underused — the seven wastes applied to knowledge work. Triggers: 'waste audit', 'where are we wasting resources', 'inefficiency audit', 'find the waste', 'what's being duplicated', 'resource leakage'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

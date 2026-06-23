@@ -1,0 +1,10 @@
+{
+  "id": "manage-mamo-defi-yield-base",
+  "name": "manage-mamo-defi-yield-base",
+  "description": "Interact with Mamo DeFi yield strategies on Base (Moonwell). Deposit/withdraw USDC, cbBTC, MAMO, or ETH into automated yield strategies. Check APY rates and account status.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

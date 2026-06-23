@@ -1,0 +1,10 @@
+{
+  "id": "clean-up-conversation-context",
+  "name": "clean-up-conversation-context",
+  "description": "Use when: prompt context is bloating (slow replies, rising cost, noisy transcripts) and you want a ranked offender list + reversible plan. Don't use when: you want automatic deletions or unattended config edits. Output: an audit-only report (top offenders + 3-8 lowest-risk fixes…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "multi-platform-b2b-lead-generation",
+  "name": "multi-platform-b2b-lead-generation",
+  "description": "Generates B2B/B2C leads by scraping Google Maps, websites, Instagram, TikTok, Facebook, LinkedIn, YouTube, and Google Search. Use when user asks to find leads, prospects, businesses, build lead lists, enrich contacts, or scrape profiles for sales outreach.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

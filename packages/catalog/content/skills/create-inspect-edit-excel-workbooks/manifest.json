@@ -1,0 +1,10 @@
+{
+  "id": "create-inspect-edit-excel-workbooks",
+  "name": "create-inspect-edit-excel-workbooks",
+  "description": "Create, inspect, and edit Microsoft Excel workbooks and XLSX files with reliable formulas, dates, types, formatting, recalculation, and template preservation. Use when (1) the task is about Excel, `.xlsx`, `.xlsm`, `.xls`, `.csv`, or `.tsv`; (2) formulas, formatting, workbook st…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "audit-tasks-flatnotes-against-github",
+  "name": "audit-tasks-flatnotes-against-github",
+  "description": "Thoroughly audit Tasks.md + Flatnotes for drift and accuracy; use GitHub (gh CLI) as source of truth to detect stale notes/cards and missing links. Produces a report and an optional fix plan.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

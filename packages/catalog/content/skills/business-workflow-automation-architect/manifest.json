@@ -1,0 +1,10 @@
+{
+  "id": "business-workflow-automation-architect",
+  "name": "business-workflow-automation-architect",
+  "description": "Turn your AI agent into a business automation architect. Design, document, implement, and monitor automated workflows across sales, ops, finance, HR, and support — no n8n or Zapier required.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

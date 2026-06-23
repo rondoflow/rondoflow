@@ -1,0 +1,10 @@
+{
+  "id": "setup-authenticate-xpoz-mcp",
+  "name": "setup-authenticate-xpoz-mcp",
+  "description": "Set up and authenticate the Xpoz MCP server for social media intelligence. Required by all Xpoz skills. Handles server configuration, OAuth login, and connection verification with minimal user interaction.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "resource-allocation-analysis",
+  "name": "resource-allocation-analysis",
+  "description": "Distributes limited resources across competing needs — making the trade-offs explicit rather than implicit. Triggers: 'resource allocation', 'how do we distribute this', 'competing priorities', 'trade-off analysis', 'how do we split this', 'allocation decision'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

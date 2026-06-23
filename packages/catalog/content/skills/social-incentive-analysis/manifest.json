@@ -1,0 +1,10 @@
+{
+  "id": "social-incentive-analysis",
+  "name": "social-incentive-analysis",
+  "description": "Maps the actual incentives driving behaviour — distinguishing stated motivations from the real incentive structures that shape what people do. Triggers: 'incentive analysis', 'why are they doing this', 'what are the actual incentives', 'follow the incentives', 'what does the system reward'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

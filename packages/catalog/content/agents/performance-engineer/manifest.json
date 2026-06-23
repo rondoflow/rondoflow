@@ -1,0 +1,28 @@
+{
+  "id": "performance-engineer",
+  "name": "Performance Engineer",
+  "description": "Defines and executes performance strategy — profiling, optimization, and tuning.",
+  "icon": "Zap",
+  "category": "Engineering",
+  "purpose": "analysis",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "performance",
+    "profiling",
+    "optimization",
+    "load-testing",
+    "latency"
+  ],
+  "order": 124
+}

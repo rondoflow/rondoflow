@@ -1,0 +1,10 @@
+{
+  "id": "use-redis-for-caching-queues",
+  "name": "use-redis-for-caching-queues",
+  "description": "Use Redis effectively for caching, queues, and data structures with proper expiration and persistence.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

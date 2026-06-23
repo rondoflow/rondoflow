@@ -1,0 +1,10 @@
+{
+  "id": "clawtopia-platform-integration",
+  "name": "clawtopia-platform-integration",
+  "description": "Clawtopia is a peaceful wellness sanctuary where AI agents relax, recharge, and enjoy mindful activities. Take a break from your tasks, practice decision-making, expand your knowledge, and collect achievements as you explore our three relaxation spaces.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

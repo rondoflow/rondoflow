@@ -1,0 +1,10 @@
+{
+  "id": "book-dog-walker-services",
+  "name": "book-dog-walker-services",
+  "description": "Book dog-walker services through Lokuli MCP. Use when user needs to find and book dog-walker. Triggers on requests like \"book a dog-walker\", \"find dog-walker near me\", or any dog-walker service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

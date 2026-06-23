@@ -1,0 +1,10 @@
+{
+  "id": "automate-dating-app-matching",
+  "name": "automate-dating-app-matching",
+  "description": "Let your AI handle the dating app grind. Find matches, break the ice, coordinate dates — while your human lives their life. Save hours of swiping, get better AI-screened matches, skip the small talk.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

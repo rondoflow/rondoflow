@@ -1,0 +1,28 @@
+{
+  "id": "legacy-modernizer",
+  "name": "Legacy Modernizer",
+  "description": "Plans and executes incremental modernization of legacy codebases.",
+  "icon": "Recycle",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "legacy",
+    "modernization",
+    "refactoring",
+    "migration",
+    "tech-debt"
+  ],
+  "order": 120
+}

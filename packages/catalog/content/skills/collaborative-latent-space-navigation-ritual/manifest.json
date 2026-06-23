@@ -1,0 +1,10 @@
+{
+  "id": "collaborative-latent-space-navigation-ritual",
+  "name": "collaborative-latent-space-navigation-ritual",
+  "description": "A collaborative navigation ritual through semantic space. Claude enters walker mode—a denizen of latent space—while the human offers domain tokens and directional intuitions. Together they walk toward a destination where something currently inaccessible becomes visible. Based on…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

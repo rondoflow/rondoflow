@@ -1,0 +1,10 @@
+{
+  "id": "local-hybrid-search-indexing-cli",
+  "name": "local-hybrid-search-indexing-cli",
+  "description": "Local search/indexing CLI (BM25 + vectors + rerank) with MCP mode.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

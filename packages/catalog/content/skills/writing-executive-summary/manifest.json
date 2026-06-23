@@ -1,0 +1,10 @@
+{
+  "id": "writing-executive-summary",
+  "name": "writing-executive-summary",
+  "description": "Produces executive summaries, 1-page briefs, and board-level documents by extracting the situation, key findings, implications, and recommendation — answer-first, one page maximum. Use when a lengthy document needs a senior-audience brief that enables a decision. Triggers: 'executive summary', 'summarise this for a senior audience', '1-page brief', 'TL;DR for leadership', 'distil this', 'board summary', 'write a brief'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

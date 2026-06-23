@@ -1,0 +1,10 @@
+{
+  "id": "create-manage-disposable-email-inboxes",
+  "name": "create-manage-disposable-email-inboxes",
+  "description": "Create and manage temporary disposable email inboxes",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "message-circle",
+  "order": 1000
+}

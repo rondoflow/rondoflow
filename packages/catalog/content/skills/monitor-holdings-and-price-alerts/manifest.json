@@ -1,0 +1,10 @@
+{
+  "id": "monitor-holdings-and-price-alerts",
+  "name": "monitor-holdings-and-price-alerts",
+  "description": "Monitor stock/crypto holdings, get price alerts, track portfolio performance",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

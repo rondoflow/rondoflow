@@ -1,0 +1,10 @@
+{
+  "id": "list-and-snapshot-webcams",
+  "name": "list-and-snapshot-webcams",
+  "description": "Liste und Snapshot-Abruf von Webcams (insb. foto-webcam.eu). Verwende diese Skill-Anleitung, wenn John „webcam <nummer>“ schreibt, eine Webcam-Favoritenliste pflegen will, oder wenn ein aktuelles Snapshot-Bild von einer foto-webcam.eu Webcam als JPG im Chat gesendet werden soll.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

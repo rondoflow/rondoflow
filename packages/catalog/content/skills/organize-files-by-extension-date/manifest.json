@@ -1,0 +1,10 @@
+{
+  "id": "organize-files-by-extension-date",
+  "name": "organize-files-by-extension-date",
+  "description": "Organize files in directories by grouping them into folders based on their extensions or date. Includes Dry-Run, Recursive, and Undo capabilities.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trading212-api-trade-execution",
+  "name": "trading212-api-trade-execution",
+  "description": "This skill should be used when the user asks to \"connect to Trading 212\", \"authenticate Trading 212 API\", \"place a trade\", \"buy stock\", \"sell shares\", \"place market order\",, \"place pending order\", \"place limit order\", \"cancel order\", \"check my balance\", \"view account summary\", \"…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

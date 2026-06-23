@@ -1,0 +1,10 @@
+{
+  "id": "karakeep-bookmark-saving",
+  "name": "karakeep-bookmark-saving",
+  "description": "Save bookmarks to Karakeep (self-hosted bookmark manager). Use when the user wants to save a URL, bookmark a link, or add something to their reading list.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

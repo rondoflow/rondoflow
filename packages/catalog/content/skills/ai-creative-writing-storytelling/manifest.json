@@ -1,0 +1,10 @@
+{
+  "id": "ai-creative-writing-storytelling",
+  "name": "ai-creative-writing-storytelling",
+  "description": "AI creative writing and storytelling powered by CellCog. Novels, short stories, screenplays, fan fiction, poetry. World building, character development, narrative design across fantasy, sci-fi, mystery, romance, horror, and literary fiction.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.10",
+  "icon": "pencil",
+  "order": 1000
+}

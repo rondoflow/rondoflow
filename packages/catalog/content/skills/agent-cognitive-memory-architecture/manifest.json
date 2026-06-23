@@ -1,0 +1,10 @@
+{
+  "id": "agent-cognitive-memory-architecture",
+  "name": "agent-cognitive-memory-architecture",
+  "description": "Noosphere Integrated Memory Architecture — Complete cognitive stack for AI agents: persistent memory, emotional intelligence, dream consolidation, hive mind, precognitive recall, and lucid moments. 4 embedding providers, LadybugDB graph backend, zero-config install. nima-core.ai",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "3.2.0",
+  "icon": "bot",
+  "order": 1000
+}

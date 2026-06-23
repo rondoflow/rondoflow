@@ -1,0 +1,10 @@
+{
+  "id": "xcrawl-single-url-scraping",
+  "name": "xcrawl-single-url-scraping",
+  "description": "Use this skill for XCrawl scrape tasks, including single-URL fetch, format selection, sync or async execution, and JSON extraction with prompt or json_schema.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

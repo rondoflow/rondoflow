@@ -1,0 +1,79 @@
+{
+  "panel": {
+    "title": "Naplánované úlohy",
+    "newSchedule": "Nový plán",
+    "empty": "Zatiaľ žiadne naplánované úlohy."
+  },
+  "task": {
+    "active": "Aktívne",
+    "paused": "Pozastavené",
+    "last": "Posledné: {{value}}",
+    "lastStatus": "({{status}})",
+    "next": "Ďalšie: {{value}}",
+    "noValue": "—",
+    "action": {
+      "runNow": "Spustiť teraz",
+      "pause": "Pozastaviť",
+      "resume": "Obnoviť",
+      "delete": "Odstrániť"
+    }
+  },
+  "dialog": {
+    "title": "Nová naplánovaná úloha",
+    "placeholder": {
+      "name": "Názov plánu",
+      "message": "Správa / zadanie úlohy",
+      "cron": "Cron výraz (napr. 0 9 * * 1-5)",
+      "timezone": "Časové pásmo"
+    },
+    "type": {
+      "agent": "Asistent",
+      "workflow": "Pracovný postup"
+    },
+    "select": {
+      "agent": "Vyberte asistenta",
+      "workflow": "Vyberte pracovný priestor",
+      "searchPlaceholder": "Hľadať…",
+      "emptyAgent": "Nenašli sa žiadni asistenti",
+      "emptyWorkflow": "Nenašli sa žiadne pracovné priestory"
+    },
+    "scheduleLabel": "Plán",
+    "create": "Vytvoriť plán"
+  },
+  "preset": {
+    "everyHour": "Každú hodinu",
+    "every2Hours": "Každé 2 hodiny",
+    "everyDay9am": "Každý deň o 9:00",
+    "weekdays9am": "V pracovné dni o 9:00",
+    "everyMonday9am": "Každý pondelok o 9:00"
+  },
+  "loop": {
+    "title": "Autonómna slučka",
+    "description": "Asistent sa automaticky znova spúšťa, kým nie sú splnené kritériá",
+    "toggle": {
+      "enable": "Zapnúť autonómnu slučku",
+      "disable": "Vypnúť autonómnu slučku"
+    },
+    "completionCriteria": "Kritériá dokončenia",
+    "criteria": {
+      "regex": "Zhoda regulárneho výrazu",
+      "testPass": "Test prejde",
+      "manual": "Manuálna kontrola",
+      "maxIterations": "Len maximálny počet iterácií"
+    },
+    "criteriaPlaceholder": {
+      "regex": "napr. DONE|COMPLETE|SUCCESS",
+      "testPass": "napr. npm test"
+    },
+    "field": {
+      "pattern": "Vzor",
+      "command": "Príkaz"
+    },
+    "maxIterations": "Maximálny počet iterácií",
+    "maxIterationsAriaLabel": "Maximálny počet iterácií slučky",
+    "iterationCap_one": "Slučka sa zastaví po {{count}} iterácii, aj keď kritériá nie sú splnené.",
+    "iterationCap_few": "Slučka sa zastaví po {{count}} iteráciách, aj keď kritériá nie sú splnené.",
+    "iterationCap_other": "Slučka sa zastaví po {{count}} iteráciách, aj keď kritériá nie sú splnené.",
+    "warning": "Autonómne slučky priebežne spotrebúvajú tokeny. Sledujte spotrebu a nastavte primeraný limit iterácií."
+  }
+}

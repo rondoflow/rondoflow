@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-tool-preference-learning",
+  "name": "adaptive-tool-preference-learning",
+  "description": "Learns your tool preferences while staying capable of using anything. Adapts to your stack.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

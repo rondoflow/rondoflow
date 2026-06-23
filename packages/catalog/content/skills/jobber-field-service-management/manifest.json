@@ -1,0 +1,10 @@
+{
+  "id": "jobber-field-service-management",
+  "name": "jobber-field-service-management",
+  "description": "Jobber API integration with managed OAuth. Manage clients, jobs, invoices, quotes, properties, and team members for field service businesses. Use this skill when users want to create and manage service jobs, clients, quotes, invoices, or access scheduling data. For other third p…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

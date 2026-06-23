@@ -1,0 +1,10 @@
+{
+  "id": "learn-personal-decision-patterns",
+  "name": "learn-personal-decision-patterns",
+  "description": "Self-learn your decision patterns to safely build its own decision-making over time.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

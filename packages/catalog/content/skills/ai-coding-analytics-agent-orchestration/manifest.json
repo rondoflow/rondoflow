@@ -1,0 +1,10 @@
+{
+  "id": "ai-coding-analytics-agent-orchestration",
+  "name": "ai-coding-analytics-agent-orchestration",
+  "description": "AI coding analytics and agent orchestration via the `tribe` CLI. Search sessions, manage knowledge, orchestrate agents with MUSE and CIRCUIT. Deploy your own instance at tribeclaw.com in minutes.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

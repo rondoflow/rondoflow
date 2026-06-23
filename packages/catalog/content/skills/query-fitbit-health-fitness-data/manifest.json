@@ -1,0 +1,10 @@
+{
+  "id": "query-fitbit-health-fitness-data",
+  "name": "query-fitbit-health-fitness-data",
+  "description": "Query Fitbit health data including sleep, heart rate, activity, SpO2, and breathing rate. Use when user asks about their fitness, sleep quality, steps, or health metrics.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "telegram-mini-app-canvas-renderer",
+  "name": "telegram-mini-app-canvas-renderer",
+  "description": "Telegram Mini App Canvas with terminal and optional Control UI proxy. Renders agent-generated content (HTML, markdown, A2UI) in a Telegram Mini App; push with `tg-canvas push`. Includes a JWT-gated browser terminal (server-side PTY/bash — high privilege, shell access to server).…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.2.6",
+  "icon": "bot",
+  "order": 1000
+}

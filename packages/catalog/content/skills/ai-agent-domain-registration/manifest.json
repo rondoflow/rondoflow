@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-domain-registration",
+  "name": "ai-agent-domain-registration",
+  "description": "Register and manage ICANN domains for AI agents. Wallet authentication (SIWE/SIWS), USDC payments on Base or Solana, full DNS management.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

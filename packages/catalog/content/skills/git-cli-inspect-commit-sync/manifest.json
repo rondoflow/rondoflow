@@ -1,0 +1,10 @@
+{
+  "id": "git-cli-inspect-commit-sync",
+  "name": "git-cli-inspect-commit-sync",
+  "description": "Helper for using the Git CLI to inspect, stage, commit, branch, and synchronize code changes. Use when the user wants to understand or perform Git operations from the command line, including safe status checks, diffs, branching, stashing, and syncing with remotes.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "plug",
+  "order": 1000
+}

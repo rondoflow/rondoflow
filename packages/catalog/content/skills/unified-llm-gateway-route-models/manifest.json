@@ -1,0 +1,10 @@
+{
+  "id": "unified-llm-gateway-route-models",
+  "name": "unified-llm-gateway-route-models",
+  "description": "Unified LLM Gateway - One API for 70+ AI models. Route to GPT, Claude, Gemini, Grok and more with a single API key.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

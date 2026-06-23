@@ -1,0 +1,10 @@
+{
+  "id": "anticipate-needs-improve-over-time",
+  "name": "anticipate-needs-improve-over-time",
+  "description": "Anticipates needs, keeps work moving, and improves through use so the agent gets more proactive over time.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

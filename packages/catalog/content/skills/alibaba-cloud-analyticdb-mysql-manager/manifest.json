@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-cloud-analyticdb-mysql-manager",
+  "name": "alibaba-cloud-analyticdb-mysql-manager",
+  "description": "Manage Alibaba Cloud AnalyticDB for MySQL (ADB) via OpenAPI/SDK. Use whenever the user needs AnalyticDB resource lifecycle and configuration operations, status checks, or troubleshooting ADB API and cluster workflow issues.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

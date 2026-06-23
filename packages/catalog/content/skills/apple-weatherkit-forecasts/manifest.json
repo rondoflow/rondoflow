@@ -1,0 +1,10 @@
+{
+  "id": "apple-weatherkit-forecasts",
+  "name": "apple-weatherkit-forecasts",
+  "description": "Access Apple WeatherKit REST API for detailed weather forecasts using JWT authentication.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

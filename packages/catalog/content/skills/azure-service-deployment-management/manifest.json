@@ -1,0 +1,10 @@
+{
+  "id": "azure-service-deployment-management",
+  "name": "azure-service-deployment-management",
+  "description": "Deploy, monitor, and manage Azure services with battle-tested patterns.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

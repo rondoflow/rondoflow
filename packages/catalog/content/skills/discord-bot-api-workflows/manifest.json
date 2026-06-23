@@ -1,0 +1,10 @@
+{
+  "id": "discord-bot-api-workflows",
+  "name": "discord-bot-api-workflows",
+  "description": "OpenClaw skill for Discord Bot API workflows, covering interactions, commands, messages, and operations using direct HTTPS requests.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "message-circle",
+  "order": 1000
+}

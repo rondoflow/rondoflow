@@ -1,0 +1,10 @@
+{
+  "id": "personalized-news-briefings",
+  "name": "personalized-news-briefings",
+  "description": "Personalized news briefings that learn your interests, formats, and timing preferences.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

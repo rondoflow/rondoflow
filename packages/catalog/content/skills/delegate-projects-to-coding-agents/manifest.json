@@ -1,0 +1,10 @@
+{
+  "id": "delegate-projects-to-coding-agents",
+  "name": "delegate-projects-to-coding-agents",
+  "description": "Architecture-first workflow for delegating complex projects to AI coding agents. Ensures code fits the system before it's written.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

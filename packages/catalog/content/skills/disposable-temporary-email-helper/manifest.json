@@ -1,0 +1,10 @@
+{
+  "id": "disposable-temporary-email-helper",
+  "name": "disposable-temporary-email-helper",
+  "description": "This skill provides a Python CLI script to interact with the hosted Vortex API (GET /emails/{email}, DELETE /emails/{email}/clear).",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

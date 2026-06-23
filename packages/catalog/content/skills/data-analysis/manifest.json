@@ -1,0 +1,10 @@
+{
+  "id": "data-analysis",
+  "name": "data-analysis",
+  "description": "Analyzes datasets, identifies patterns, and creates clear summaries and insights",
+  "category": "Analysis",
+  "author": "rondoflow",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 2
+}

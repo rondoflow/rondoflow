@@ -1,0 +1,28 @@
+{
+  "id": "golang-pro",
+  "name": "Golang Pro",
+  "description": "Architects and refactors robust, concurrent, high-performance Go applications.",
+  "icon": "Binary",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "go",
+    "golang",
+    "concurrency",
+    "performance",
+    "backend"
+  ],
+  "order": 117
+}

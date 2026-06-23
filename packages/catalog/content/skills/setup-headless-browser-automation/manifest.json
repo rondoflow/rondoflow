@@ -1,0 +1,10 @@
+{
+  "id": "setup-headless-browser-automation",
+  "name": "setup-headless-browser-automation",
+  "description": "Set up headless browser automation in Clawdbot using Playwright Chromium. Use when configuring browser tools for WSL/Linux environments, installing browser dependencies, or enabling headless web automation. Handles Chromium installation, system library dependencies, and Clawdbot…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

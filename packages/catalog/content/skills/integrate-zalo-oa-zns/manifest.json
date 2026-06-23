@@ -1,0 +1,10 @@
+{
+  "id": "integrate-zalo-oa-zns",
+  "name": "integrate-zalo-oa-zns",
+  "description": "Provide a practical baseline for integrating Zalo (OA/ZNS): auth, messaging, webhooks, and operational considerations.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

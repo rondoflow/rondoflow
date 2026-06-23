@@ -1,0 +1,10 @@
+{
+  "id": "narrative-tension-mapping",
+  "name": "narrative-tension-mapping",
+  "description": "Finds or creates the tension that makes communication worth paying attention to. Use when asked 'this feels flat', 'no one's engaging', 'make this compelling', 'find the tension', 'what's the story here', or 'add stakes'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

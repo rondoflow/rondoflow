@@ -1,0 +1,268 @@
+---
+title: Planner, Director & Advisor
+description: RondoFlow's three AI orchestration helpers that tune your workflow before, during, and after a run.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Planner, Director & Advisor
+
+RondoFlow ships three AI helpers that watch over a workflow at different points in its lifecycle. They do not run your task — they reason *about* it: tuning the setup before you start, steering it while it runs, and reviewing it once it finishes.
+
+All three live on the unified workflow toolbar at the top of the Workspace (Canvas), and each is independent — turn on any combination you like.
+
+| Helper | When it runs | What it does | Output |
+| --- | --- | --- | --- |
+| **Planner** | Before the run (pre-flight) | Reviews Assistants, models, skills, and execution order | Suggested changes you can review before starting |
+| **Director** | During the run, after each step | Evaluates the step's output and picks the next move | A decision: continue, redirect, or conclude |
+| **Advisor** | After the run completes | Analyzes the whole run against the objective | Categorized, applyable improvement suggestions |
+
+<Callout type="info">
+All three are **editor+** features, gated behind the `run` capability. Viewers don't see the Run, Stop, Director, Planner, or Advisor controls at all, and the server rejects an analysis request from a viewer with *"Your role does not permit running analysis."* See [Users & roles](/docs/guides/users) for the capability model.
+</Callout>
+
+### Default state
+
+When you open a Workspace, **Director is on by default** and **Planner is off**. The Advisor isn't a toggle — its button only appears after a run has finished. You change any of these per-Workspace from the toolbar.
+
+### Cost and runtime footprint
+
+Each helper is a single, bounded JSON-only call: it reasons in JSON, grants the model no tools, runs with `bypassPermissions` (so nothing it returns can actually execute), and is capped at a 90-second wall-clock. Each also has its own model and a small per-call USD budget:
+
+| Helper | Model | Budget cap |
+| --- | --- | --- |
+| Planner | `claude-sonnet-4-5-20250514` | $0.10 |
+| Director | `claude-haiku-4-5-20251001` | $0.05 (per step) |
+| Advisor | the model you pick (default `claude-haiku-4-5-20251001`) | $0.10 |
+
+<Callout type="info">
+The Director runs once **per step**, so its per-call cost is small but it accrues across a long chain. The Planner and Advisor each run once per execution.
+</Callout>
+
+## Planner (before the run)
+
+The Planner is an **opt-in** pre-execution pass — it's off by default, so enable it on the toolbar before you run. When on, it inspects your workflow *before* the first Assistant (Agent) starts, looks at the whole picture, and suggests targeted improvements so problems are caught up front.
+
+It evaluates five things:
+
+- Whether each Assistant's Personality (Persona) suits its role
+- Whether the model tier (opus / sonnet / haiku) fits the work
+- Whether the execution order makes sense
+- Whether any Assistant should gain or lose [Skills](/docs/guides/skills)
+- Whether the workflow needs more Assistants or can be simplified
+
+### What it can suggest
+
+The Planner returns a short `analysis` plus two independent kinds of change:
+
+**Per-Assistant changes** — each targets one Assistant and may include any of:
+
+| Change | Meaning |
+| --- | --- |
+| `persona` | Rewritten Personality text |
+| `model` | A different tier — `opus`, `sonnet`, or `haiku` |
+| `addSkills` | Skill IDs to attach (validated against the catalog) |
+| `removeSkills` | Skill IDs to detach |
+
+Per-Assistant changes are capped to the most impactful set — **at most five**.
+
+**Execution-order (edge) changes** — the Planner can also suggest adding or removing an edge between two Assistants, each with a `reason`. These are capped at **three**.
+
+It also reports an `approved` flag. When the workflow is already well configured, the Planner sets `approved: true` and returns no changes. The point of both caps is signal, not noise.
+
+<Callout type="info">
+The Planner only suggests skills that exist in RondoFlow's catalog. Any unknown skill ID it returns is filtered out before you see it, so you can't accidentally apply something that isn't installed.
+</Callout>
+
+<Callout type="warning">
+The Planner's result shape also includes `addAgents` / `removeAgents` fields, but the current engine never populates them — they're always returned empty. The Planner reasons about whether the workflow needs more or fewer Assistants, but it expresses that only through its text `analysis`, not as applyable add/remove actions.
+</Callout>
+
+### Using the Planner
+
+<Steps>
+### Enable it
+
+Click **Planner** on the workflow toolbar (it starts off). When it's on, the badge turns cyan with a small status dot.
+
+### Start the run
+
+Run the workflow as usual. The Planner runs first — the badge shows **Planning** with a spinner while it analyzes.
+
+### Review the result
+
+The Execution Log reports the outcome: either *"Planner approved the workflow"* with its assessment, or *"Planner suggests N changes"* with a summary. Read the suggestions and decide what to apply before the Assistants begin their work.
+</Steps>
+
+## Director (during the run)
+
+The Director is a mid-run orchestrator (the Facilitator-style steerer for chained workflows). It's **on by default**. After **every** step completes, it reads that step's output and decides what happens next.
+
+### The three decisions
+
+| Action | What happens |
+| --- | --- |
+| `continue` | Move to the next step, passing a contextualized message that bundles the full output forward |
+| `redirect` | Re-run the **same** step with sharper instructions, because something important was missing |
+| `conclude` | End the workflow early — the objective is already met |
+
+Because the next Assistant sees *only* the message the Director writes, the Director always embeds the previous step's full output inside that message. It also detects the working language and tells the next Assistant to reply in the same language, so multi-step runs stay consistent.
+
+### Director in branching workflows
+
+In a workflow with [Condition](/docs/guides/data-nodes#condition) Cards, the **branch conditions own forward routing — not the Director**. RondoFlow computes which successor each step's output enables, and the Director's prompt is told which Assistant(s) come next. In that mode the Director is purely a **quality gate**:
+
+- `continue` proceeds along whichever branch the conditions selected — the Director cannot pick the path.
+- `redirect` can only retry the **current** step. If the Director ever proposes a divergent `targetStepIndex` (jumping to a different step), it is intentionally ignored — the graph, never the Director, decides what runs next.
+- `conclude` still stops the whole workflow early.
+
+The Director is honored in **both** run modes: parallel DAG runs and sequential Director walks. See [Workflows](/docs/guides/workflows) for how the DAG and conditional routing work.
+
+### Criticism level (rigor)
+
+A 1–5 slider controls how demanding the Director is when judging output quality.
+
+| Level | Mode | Behavior |
+| --- | --- | --- |
+| 1 | Relaxed | Almost always continues; redirects only on critical, unusable errors |
+| 2 | Lenient | Accepts most outputs; redirects only when something important is missing |
+| 3 | Balanced *(default)* | Evaluates fairly; redirects for meaningful gaps, not minor ones |
+| 4 | Strict | Higher bar; redirects for incomplete output or missing requirements |
+| 5 | Demanding | Expects comprehensive, production-ready work from every step |
+
+You can also add **custom instructions** that get appended to the Director's evaluation prompt — for example, *"Always ensure code includes TypeScript types"* or *"Prioritize security over performance."*
+
+<Callout type="warning">
+The rigor slider and custom-instructions inputs live in a dedicated Director drawer, but that drawer currently has **no discoverable trigger** in the toolbar — clicking **Director** only toggles the helper on or off. The values *are* fully wired into a run when set: a Workspace defaults to **Balanced (3)** with no custom instructions, and those defaults are what most runs use today.
+</Callout>
+
+### Redirect approval
+
+Redirects are throttled so a step can't loop forever:
+
+- **First redirect** on a step is auto-approved — no prompt.
+- **Second redirect** on the same step asks you to approve or decline it.
+- Once the retry ceiling for a step is hit (max two retries), the Director is forced to **continue**, and a synthetic *"Max retries exceeded"* decision is shown so the override is visible.
+
+<Callout type="warning">
+A high criticism level can trigger more redirects, which means more agent runs and higher cost. Start at Balanced (3) and raise it only when output quality genuinely needs to be tighter.
+</Callout>
+
+### Graceful failure
+
+The Director is advisory, so a failed evaluation **never aborts the run**. If its spawn times out, the CLI errors, or the response can't be parsed, the Director degrades to a safe fallback — `continue` (or `conclude` if it was the last step) — and records *why* verbatim in the decision's reasoning. That reason is surfaced in the UI and saved in run history, so a Director hiccup looks like *"this step was passed on unreviewed"* rather than a dead workflow.
+
+### Continuous planning and memory
+
+The Director does more than route steps:
+
+- **Mid-run suggestions** — it can emit optional `agentSuggestions` (a Personality tweak or a model change for an Assistant) when it spots a concrete improvement for future steps. These surface live during execution through the same UI channel as the Planner's result (`chain:planner_result`) — think of it as a "continuous planner."
+- **Learnings** — when it notices a recurring pattern (for example, an Assistant that keeps forgetting something), it records a *learning* into agent [Memory](/docs/guides/memory). On later runs the Director loads recent learnings back in, so the workflow improves over time.
+
+<Callout type="info">
+A Director learning is saved against the **first Assistant in the chain** (`agentIds[0]`), not necessarily the one that exhibited the pattern — so all of a chain's learnings accumulate on its lead Assistant. Each is tagged with the `director` source, and on the next run the Director loads up to **20** of these `director:learning:` memories across the chain's Assistants (newest first) back into its context. You can view and manage them alongside other memories.
+</Callout>
+
+### Using the Director
+
+<Steps>
+### Toggle it
+
+Click **Director** on the toolbar to turn it on or off. The badge glows purple when on (it's on by default).
+
+### Watch it steer
+
+As the run proceeds, the badge shows **Evaluating** while the Director thinks, then displays its latest decision — `continue`, `redirect`, or `conclude` — and the target Assistant inline.
+
+### Respond to redirects
+
+If a second redirect is proposed on the same step, approve or decline it from the prompt in the Execution Log.
+</Steps>
+
+## Advisor (after the run)
+
+The Advisor is a post-run reviewer. Once a workflow finishes, it compares what actually happened against the original objective and produces concrete suggestions for next time.
+
+### What it reports
+
+The Advisor returns an `overallAssessment`, an `objectiveMet` verdict (shown as an *Objective met* / *Objective not met* badge), and a list of suggestions. Each suggestion carries a **category** and a **severity**.
+
+**Categories:**
+
+| Category | Focus |
+| --- | --- |
+| `agent_improvement` | Personality or configuration changes for an Assistant |
+| `skill_recommendation` | Catalog skills that would help an Assistant |
+| `step_order` | Reordering, adding, or removing steps |
+| `output_quality` | Gaps between the objective and the actual output |
+
+**Severity:** `info`, `warning`, or `suggestion`.
+
+### Applyable actions
+
+Many suggestions come with an action you can apply in one click:
+
+- **Apply skill** (`apply_skill`) — attaches a recommended Skill to the named Assistant.
+- **Update Personality** (`update_persona`) — replaces an Assistant's Personality with the Advisor's rewritten text.
+
+Each action payload carries the target `agentId`, so the button knows exactly which Assistant to change. The button reflects progress (loading, **Applied**, or **Failed**) as it runs.
+
+<Callout type="info">
+The Advisor's prompt asks the model for the **~5 most impactful** suggestions, but the engine hard-caps the result at **ten** — so you may occasionally see more than five. Treat five as the target, ten as the ceiling.
+</Callout>
+
+### Using the Advisor
+
+<Steps>
+### Finish a run
+
+The **Advisor** button appears on the toolbar once a workflow has completed.
+
+### Analyze
+
+Click it. The button shows **Analyzing** with a spinner, then the Advisor card opens in the chat/log panel with the assessment and suggestions. By default it analyzes with `claude-haiku-4-5-20251001`; you can pick a different model from the Advisor controls.
+
+### Apply what helps
+
+Use the inline **Apply** / **Update Personality** buttons to act on a suggestion immediately, or just read the assessment and adjust your Workspace by hand.
+</Steps>
+
+<Callout type="info">
+The Advisor reviews the most recent completed run for the chain. Run your workflow first, then click Advisor — there has to be a finished run for it to analyze.
+</Callout>
+
+## Combining the three
+
+The helpers compose naturally across one execution:
+
+<Tabs items={['Pre-flight', 'In-flight', 'Post-flight']}>
+<Tabs.Tab>
+**Planner** tunes the setup before anything runs — right model, right skills, sensible order, and edge add/remove suggestions. Enable it (it's off by default), apply its suggestions, then start.
+</Tabs.Tab>
+<Tabs.Tab>
+**Director** keeps the run on track step by step, redirecting weak output and concluding early when the goal is met. It also surfaces mid-run agent suggestions and banks learnings for future runs — and degrades safely if its own evaluation fails.
+</Tabs.Tab>
+<Tabs.Tab>
+**Advisor** closes the loop — it tells you what to change so the *next* run is better, with one-click actions to apply Skills and Personalities.
+</Tabs.Tab>
+</Tabs>
+
+A common rhythm: enable the Planner (Director is already on) for the run, then click the Advisor when it finishes. Apply the Advisor's changes, and the next run starts from a stronger baseline — which the Planner then refines again.
+
+<Callout type="warning">
+These helpers steer **canvas runs**. Scheduled tasks are different: even though a schedule exposes a *Director* toggle, the scheduler engine never reads it, so the Director does **not** run on scheduled workflows. See [Schedules](/docs/guides/schedules) for what headless runs do and don't do.
+</Callout>
+
+## Related
+
+<Cards>
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Skills" href="/docs/guides/skills" />
+  <Cards.Card title="Memory" href="/docs/guides/memory" />
+  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+</Cards>

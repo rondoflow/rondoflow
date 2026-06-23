@@ -1,0 +1,10 @@
+{
+  "id": "guided-breathing-exercise",
+  "name": "guided-breathing-exercise",
+  "description": "**When to use:** User has a task they want to do or want you to do, or they feel frustrated, upset, stressed, or expressing negative emotions about their work, tasks, or the system itself.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

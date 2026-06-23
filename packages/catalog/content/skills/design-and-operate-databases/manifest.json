@@ -1,0 +1,10 @@
+{
+  "id": "design-and-operate-databases",
+  "name": "design-and-operate-databases",
+  "description": "Design and operate databases avoiding common scaling, reliability, and data integrity traps.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

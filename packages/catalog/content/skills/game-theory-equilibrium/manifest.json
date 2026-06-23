@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-equilibrium",
+  "name": "game-theory-equilibrium",
+  "description": "Finds the stable outcome of a strategic interaction — the point where no player can improve their result by changing their strategy alone. Triggers: 'Nash equilibrium', 'dominant strategy', 'what's the stable outcome', 'equilibrium analysis', 'payoff matrix', 'what will rational players do', 'where will this land'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

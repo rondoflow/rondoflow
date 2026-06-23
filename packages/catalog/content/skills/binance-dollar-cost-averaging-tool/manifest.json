@@ -1,0 +1,10 @@
+{
+  "id": "binance-dollar-cost-averaging-tool",
+  "name": "binance-dollar-cost-averaging-tool",
+  "description": "Binance Dollar-Cost Averaging (DCA) tool for automated and manual recurring crypto purchases. Use when the user wants to plan DCA strategies, execute recurring buys on Binance, check DCA projections, view trade history, or manage a systematic buying schedule for any trading pair…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "coins",
+  "order": 1000
+}

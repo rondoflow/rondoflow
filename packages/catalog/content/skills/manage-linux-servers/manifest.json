@@ -1,0 +1,10 @@
+{
+  "id": "manage-linux-servers",
+  "name": "manage-linux-servers",
+  "description": "Manage Linux servers with user administration, process control, storage, and system maintenance.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

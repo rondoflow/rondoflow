@@ -1,0 +1,10 @@
+{
+  "id": "book-hvac-services",
+  "name": "book-hvac-services",
+  "description": "Book hvac services through Lokuli MCP. Use when user needs to find and book hvac. Triggers on requests like \"book a hvac\", \"find hvac near me\", or any hvac service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

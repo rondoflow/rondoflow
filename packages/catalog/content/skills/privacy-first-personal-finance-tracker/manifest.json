@@ -1,0 +1,10 @@
+{
+  "id": "privacy-first-personal-finance-tracker",
+  "name": "privacy-first-personal-finance-tracker",
+  "description": "Privacy-first personal finance tracker with local SQLite storage",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

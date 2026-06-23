@@ -1,0 +1,10 @@
+{
+  "id": "writing-voice-consistency",
+  "name": "writing-voice-consistency",
+  "description": "Extracts a voice fingerprint from strong existing passages and uses it to audit and repair voice departures. Use when multiple contributors have created a fractured document, when brand voice has drifted, or when the writing doesn't sound like one person. Triggers: 'the voice isn't consistent', 'voice consistency', 'this doesn't sound like us', 'multi-author document', 'maintain voice', 'brand voice', 'the writing sounds like different people'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

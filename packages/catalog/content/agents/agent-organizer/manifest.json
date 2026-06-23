@@ -1,0 +1,26 @@
+{
+  "id": "agent-organizer",
+  "name": "Agent Organizer",
+  "description": "Master orchestrator that analyzes requirements and assembles the right team of agents for complex tasks.",
+  "icon": "Network",
+  "category": "Research & Ops",
+  "purpose": "general",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash"
+  ],
+  "tags": [
+    "orchestration",
+    "multi-agent",
+    "planning",
+    "delegation",
+    "workflow"
+  ],
+  "order": 100
+}

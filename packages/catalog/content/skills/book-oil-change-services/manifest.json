@@ -1,0 +1,10 @@
+{
+  "id": "book-oil-change-services",
+  "name": "book-oil-change-services",
+  "description": "Book oil-change services through Lokuli MCP. Use when user needs to find and book oil-change. Triggers on requests like \"book a oil-change\", \"find oil-change near me\", or any oil-change service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

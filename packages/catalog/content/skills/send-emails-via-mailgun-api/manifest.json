@@ -1,0 +1,10 @@
+{
+  "id": "send-emails-via-mailgun-api",
+  "name": "send-emails-via-mailgun-api",
+  "description": "Send emails via Mailgun API. Use when the user needs to send emails programmatically, such as newsletters, notifications, alerts, or automated reports. Requires MAILGUN_API_KEY and MAILGUN_DOMAIN environment variables to be configured.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "message-circle",
+  "order": 1000
+}

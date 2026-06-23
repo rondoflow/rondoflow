@@ -1,0 +1,10 @@
+{
+  "id": "firecrawl-web-scraping-crawling",
+  "name": "firecrawl-web-scraping-crawling",
+  "description": "Web scraping and crawling with Firecrawl API. Fetch webpage content as markdown, take screenshots, extract structured data, search the web, and crawl documentation sites. Use when the user needs to scrape a URL, get current web info, capture a screenshot, extract specific data f…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

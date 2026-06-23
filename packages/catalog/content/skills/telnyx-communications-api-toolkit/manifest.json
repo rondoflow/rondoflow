@@ -1,0 +1,10 @@
+{
+  "id": "telnyx-communications-api-toolkit",
+  "name": "telnyx-communications-api-toolkit",
+  "description": "Complete Telnyx toolkit — ready-to-use tools (STT, TTS, RAG, Networking, 10DLC) plus SDK documentation for JavaScript, Python, Go, Java, and Ruby.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "bot",
+  "order": 1000
+}

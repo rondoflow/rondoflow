@@ -1,0 +1,10 @@
+{
+  "id": "renderful-ai-media-creation",
+  "name": "renderful-ai-media-creation",
+  "description": "Generate images and videos via renderful.ai API (FLUX, Kling, Sora, WAN, etc.) with crypto payments. Use when the user wants to create AI images, videos, or needs a crypto-friendly generation service. Triggers: renderful, renderful.ai, generate image, generate video, crypto paym…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

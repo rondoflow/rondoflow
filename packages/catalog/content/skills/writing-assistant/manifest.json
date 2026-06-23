@@ -1,0 +1,10 @@
+{
+  "id": "writing-assistant",
+  "name": "writing-assistant",
+  "description": "Helps write clear, engaging content including blog posts, emails, and documentation",
+  "category": "Writing",
+  "author": "rondoflow",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1
+}

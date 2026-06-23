@@ -1,0 +1,10 @@
+{
+  "id": "self-improving-conversation-quality-agent",
+  "name": "self-improving-conversation-quality-agent",
+  "description": "Self-improving agent system that analyzes conversation quality, identifies improvement opportunities, and continuously optimizes response strategies.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

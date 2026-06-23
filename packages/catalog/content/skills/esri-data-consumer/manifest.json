@@ -1,0 +1,10 @@
+{
+  "id": "esri-data-consumer",
+  "name": "esri-data-consumer",
+  "description": "Paid client skill for Esri Workflow Smell Detector via x402 (Base/USDC). Use when you want to run a deterministic automation preflight scan on an ArcGIS Pro project snapshot by calling https://api.x402layer.cc/e/esri-smells (HTTP 402 payment flow).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

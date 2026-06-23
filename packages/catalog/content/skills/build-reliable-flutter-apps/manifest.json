@@ -1,0 +1,10 @@
+{
+  "id": "build-reliable-flutter-apps",
+  "name": "build-reliable-flutter-apps",
+  "description": "Build reliable Flutter apps avoiding state loss, widget rebuild traps, and async pitfalls.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

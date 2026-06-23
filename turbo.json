@@ -1,0 +1,26 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "dist/**", "out/**", "public/_pagefind/**"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "outputs": [],
+      "inputs": ["src/**/*.ts", "src/**/*.tsx", "vitest.config.ts", "tsconfig.json"],
+      "env": ["CI", "NODE_ENV"]
+    },
+    "test:coverage": {
+      "outputs": ["coverage/**"],
+      "inputs": ["src/**/*.ts", "src/**/*.tsx", "vitest.config.ts", "tsconfig.json"],
+      "env": ["CI", "NODE_ENV"]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "postgresql-pglite-pro",
+  "name": "PostgreSQL & Pglite Pro",
+  "description": "Expert in PostgreSQL and Pglite — architecture, tuning, and in-browser databases.",
+  "icon": "Database",
+  "category": "Data & Analytics",
+  "purpose": "data",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "postgresql",
+    "pglite",
+    "database",
+    "performance",
+    "sql"
+  ],
+  "order": 125
+}

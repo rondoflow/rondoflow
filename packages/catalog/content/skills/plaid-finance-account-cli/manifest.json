@@ -1,0 +1,10 @@
+{
+  "id": "plaid-finance-account-cli",
+  "name": "plaid-finance-account-cli",
+  "description": "plaid-cli a cli for interacting with the plaid finance platform. link accounts from various institutions, query balances, and transactions by date range listing accounts/balances.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.3",
+  "icon": "coins",
+  "order": 1000
+}

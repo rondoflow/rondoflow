@@ -1,0 +1,10 @@
+{
+  "id": "shadcn-ui-component-documentation",
+  "name": "shadcn-ui-component-documentation",
+  "description": "Complete shadcn/ui documentation. Beautifully designed components built with Radix UI and Tailwind CSS. Copy-paste into your apps. Covers installation, components, theming, forms, charts, and framework integrations.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

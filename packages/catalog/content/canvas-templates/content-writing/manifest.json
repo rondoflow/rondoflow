@@ -1,0 +1,40 @@
+{
+  "id": "content-writing",
+  "name": "Content Writing Team",
+  "description": "Researcher feeds a writer who hands off to an editor for polishing.",
+  "icon": "FileText",
+  "order": 1,
+  "nodes": [
+    {
+      "key": "researcher",
+      "type": "agent",
+      "position": { "x": 100, "y": 200 },
+      "name": "Researcher",
+      "description": "Gathers and synthesises background information",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "writer",
+      "type": "agent",
+      "position": { "x": 400, "y": 200 },
+      "name": "Writer",
+      "description": "Drafts compelling content from research",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "editor",
+      "type": "agent",
+      "position": { "x": 700, "y": 200 },
+      "name": "Editor",
+      "description": "Polishes and refines written content",
+      "model": "sonnet",
+      "purpose": "review"
+    }
+  ],
+  "edges": [
+    { "source": "researcher", "target": "writer", "edgeType": "flow" },
+    { "source": "writer", "target": "editor", "edgeType": "flow" }
+  ]
+}

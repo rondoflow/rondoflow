@@ -1,0 +1,10 @@
+{
+  "id": "finance-analysis-skill",
+  "name": "finance-analysis-skill",
+  "description": "Personal finance memory layer. Parse statements, store transactions, query spending.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "coins",
+  "order": 1000
+}

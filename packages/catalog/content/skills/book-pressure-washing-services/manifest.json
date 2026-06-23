@@ -1,0 +1,10 @@
+{
+  "id": "book-pressure-washing-services",
+  "name": "book-pressure-washing-services",
+  "description": "Book pressure-washing services through Lokuli MCP. Use when user needs to find and book pressure-washing. Triggers on requests like \"book a pressure-washing\", \"find pressure-washing near me\", or any pressure-washing service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

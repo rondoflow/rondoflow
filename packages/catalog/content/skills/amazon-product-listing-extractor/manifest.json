@@ -1,0 +1,10 @@
+{
+  "id": "amazon-product-listing-extractor",
+  "name": "amazon-product-listing-extractor",
+  "description": "This skill helps users extract structured product listings from Amazon, including titles, ASINs, prices, ratings, and specifications. Use this skill when users want to search for products on Amazon, find the best selling brand products, track price changes for items, get a list…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

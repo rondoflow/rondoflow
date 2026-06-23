@@ -1,0 +1,10 @@
+{
+  "id": "schedule-group-meeting-via-poll",
+  "name": "schedule-group-meeting-via-poll",
+  "description": "Schedule a meeting for humans and their agents. Creates a scheduling poll, distributes it, collects votes, and finds the best time. Use when someone needs to find a time that works for a group. A Doodle alternative built for the age of AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

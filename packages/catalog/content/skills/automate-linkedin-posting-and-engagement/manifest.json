@@ -1,0 +1,10 @@
+{
+  "id": "automate-linkedin-posting-and-engagement",
+  "name": "automate-linkedin-posting-and-engagement",
+  "description": "Your agent builds your LinkedIn presence while you sleep. Schedule posts, auto-engage with target accounts, run personalized DM sequences, and never miss an engagement opportunity. Handles connection requests, profile visiting campaigns, post engagement, and follow-up sequences…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

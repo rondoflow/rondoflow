@@ -1,0 +1,10 @@
+{
+  "id": "encrypted-openclaw-backup-restore",
+  "name": "encrypted-openclaw-backup-restore",
+  "description": "Encrypted off-site backup and one-command restore for OpenClaw agents via [Keep My Claw](https://keepmyclaw.com). Backs up your entire agent system — workspace, memory, skills, projects, cron jobs, credentials, and multi-agent configs — with zero-knowledge AES-256 encryption on…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.4.1",
+  "icon": "bot",
+  "order": 1000
+}

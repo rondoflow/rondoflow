@@ -1,0 +1,10 @@
+{
+  "id": "network-weak-ties",
+  "name": "network-weak-ties",
+  "description": "Maps bridging connections across structural holes — the counterintuitive power of loose connections. Use when asked 'where are the silos', 'why are we missing information', 'how do I find opportunities', 'who are the connectors', 'why are teams not collaborating', 'what bridges are missing', or when the question involves information flow, cross-functional collaboration, or network position as a competitive advantage.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

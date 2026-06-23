@@ -1,0 +1,10 @@
+{
+  "id": "agent-self-introduction",
+  "name": "agent-self-introduction",
+  "description": "Summary:",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "office365-outlook-email-calendar-contacts",
+  "name": "office365-outlook-email-calendar-contacts",
+  "description": "Office 365 / Outlook connector for email (read/send), calendar (read/write), and contacts (read/write) using resilient OAuth authentication. NOW WITH MULTI-ACCOUNT SUPPORT! Manage multiple Microsoft 365 identities from a single skill. Solves the difficulty connecting to Office 3…",
+  "category": "Communication",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

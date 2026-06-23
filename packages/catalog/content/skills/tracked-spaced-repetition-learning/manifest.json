@@ -1,0 +1,10 @@
+{
+  "id": "tracked-spaced-repetition-learning",
+  "name": "tracked-spaced-repetition-learning",
+  "description": "Structure and track learning with spaced repetition and active recall across any domain.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "gather-reddit-insights",
+  "name": "gather-reddit-insights",
+  "description": "Search and analyze Reddit content using semantic AI search via reddit-insights.com MCP server. Use when you need to: (1) Find user pain points and frustrations for product ideas, (2) Discover niche markets or underserved needs, (3) Research what people really think about product…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

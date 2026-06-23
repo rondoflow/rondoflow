@@ -1,0 +1,10 @@
+{
+  "id": "manage-clickup-tasks-docs",
+  "name": "manage-clickup-tasks-docs",
+  "description": "Manage ClickUp tasks, docs, time tracking, comments, chat, and search via official MCP. OAuth authentication required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "broker-external-data-access-credentials",
+  "name": "broker-external-data-access-credentials",
+  "description": "Before making any broker requests, check whether you already have access to a Permissions Broker API key in your local secrets (for example, an environment variable like `PB_API_KEY`).",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.9",
+  "icon": "chart-bar",
+  "order": 1000
+}

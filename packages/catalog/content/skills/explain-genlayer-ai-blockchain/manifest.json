@@ -1,0 +1,10 @@
+{
+  "id": "explain-genlayer-ai-blockchain",
+  "name": "explain-genlayer-ai-blockchain",
+  "description": "GenLayer is a decentralized protocol where multiple LLMs reach consensus on complex tasks and decisions—the first AI-native blockchain.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

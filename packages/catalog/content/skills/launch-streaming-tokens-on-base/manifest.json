@@ -1,0 +1,10 @@
+{
+  "id": "launch-streaming-tokens-on-base",
+  "name": "launch-streaming-tokens-on-base",
+  "description": "Launch tokens on Streme (streme.fun) - the streaming token platform on Base. Use when deploying SuperTokens with built-in staking rewards, Uniswap V3 liquidity, and optional vesting vaults. Triggers on \"launch token on streme\", \"deploy streme token\", \"create supertoken\", or any…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "search-and-lookup-books",
+  "name": "search-and-lookup-books",
+  "description": "CLI for AI agents to search and lookup books for their humans. Uses Open Library API. No auth required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

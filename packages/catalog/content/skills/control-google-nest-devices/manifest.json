@@ -1,0 +1,10 @@
+{
+  "id": "control-google-nest-devices",
+  "name": "control-google-nest-devices",
+  "description": "Control Google Nest devices via the Smart Device Management (SDM) API using curl + jq.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

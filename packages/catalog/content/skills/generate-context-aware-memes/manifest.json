@@ -1,0 +1,10 @@
+{
+  "id": "generate-context-aware-memes",
+  "name": "generate-context-aware-memes",
+  "description": "AI-powered meme generator that creates perfect, context-aware memes from any topic or situation. Use when user wants to create memes, needs reaction images, wants to make jokes visual, or needs viral social media content. Automatically selects optimal meme templates and generate…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

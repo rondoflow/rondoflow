@@ -1,0 +1,10 @@
+{
+  "id": "tradingview-multi-asset-market-screener",
+  "name": "tradingview-multi-asset-market-screener",
+  "description": "Screen markets across 6 asset classes using TradingView data. API pre-filters + pandas computed signals. YAML-driven strategies.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

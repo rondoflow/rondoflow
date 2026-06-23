@@ -1,0 +1,43 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/components/**/*.tsx", "src/app/**/*.tsx"],
+      "excludedFiles": [
+        "src/components/ui/**",
+        "src/app/loading.tsx",
+        "**/*.test.tsx"
+      ],
+      "plugins": ["i18next"],
+      "rules": {
+        "i18next/no-literal-string": [
+          "warn",
+          {
+            "mode": "jsx-text-only",
+            "words": {
+              "exclude": [
+                "[0-9!-/:-@\\[-`{-~]+",
+                "RondoFlow",
+                "rondoflow",
+                "GitHub",
+                "Google",
+                "Ctrl\\+K"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

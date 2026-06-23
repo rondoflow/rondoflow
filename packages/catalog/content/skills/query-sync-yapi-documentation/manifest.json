@@ -1,0 +1,10 @@
+{
+  "id": "query-sync-yapi-documentation",
+  "name": "query-sync-yapi-documentation",
+  "description": "Query and sync YApi interface documentation. Use when user mentions \"yapi 接口文档\", YAPI docs, asks for request/response details, or needs docs sync. Also triggers when user pastes a YApi URL that matches the configured base_url.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

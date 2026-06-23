@@ -1,0 +1,10 @@
+{
+  "id": "animated-desktop-pet-with-voice",
+  "name": "animated-desktop-pet-with-voice",
+  "description": "Give OpenClaw a body — a tiny fluid glass ball desktop pet with voice cloning, 15+ eye expressions, desktop lyrics overlay, and 7 mood colors. Electron-based, pure CSS/JS animation.",
+  "category": "Media",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "image",
+  "order": 1000
+}

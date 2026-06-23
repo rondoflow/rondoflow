@@ -1,0 +1,10 @@
+{
+  "id": "send-messages-via-beeper-cli",
+  "name": "send-messages-via-beeper-cli",
+  "description": "Read and send messages via Beeper CLI. Supports WhatsApp, Telegram, Signal, Instagram, Twitter/X, LinkedIn, Facebook Messenger and more.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

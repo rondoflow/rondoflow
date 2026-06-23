@@ -1,0 +1,10 @@
+{
+  "id": "advertising-intelligence-tool",
+  "name": "advertising-intelligence-tool",
+  "description": "Manage Google Ads & Meta (Facebook) Ads from your AI coding tool. 102 MCP tools for auditing, creating, and optimizing ad accounts using natural language.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.3.0",
+  "icon": "bot",
+  "order": 1000
+}

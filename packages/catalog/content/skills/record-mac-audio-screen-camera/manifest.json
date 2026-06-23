@@ -1,0 +1,10 @@
+{
+  "id": "record-mac-audio-screen-camera",
+  "name": "record-mac-audio-screen-camera",
+  "description": "A macOS command-line tool for recording audio, screen, and camera output. Designed for both human users and AI agents operating in a terminal.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.2.0",
+  "icon": "bot",
+  "order": 1000
+}

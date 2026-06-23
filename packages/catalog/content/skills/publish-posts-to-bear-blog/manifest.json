@@ -1,0 +1,10 @@
+{
+  "id": "publish-posts-to-bear-blog",
+  "name": "publish-posts-to-bear-blog",
+  "description": "Publish blog posts to Bear Blog platform. Supports user-provided markdown, AI-generated content, and auto-generated diagrams.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.13",
+  "icon": "pencil",
+  "order": 1000
+}

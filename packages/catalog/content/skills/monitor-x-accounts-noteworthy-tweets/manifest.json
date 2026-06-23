@@ -1,0 +1,10 @@
+{
+  "id": "monitor-x-accounts-noteworthy-tweets",
+  "name": "monitor-x-accounts-noteworthy-tweets",
+  "description": "Monitor specific X/Twitter accounts and surface noteworthy tweets on a configurable schedule. Filters for high-value content about technology and trends, excluding political rage bait. Use when user wants to manage their X account list, run a manual check, or update filtering cr…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

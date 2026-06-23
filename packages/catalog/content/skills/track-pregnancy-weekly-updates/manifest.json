@@ -1,0 +1,10 @@
+{
+  "id": "track-pregnancy-weekly-updates",
+  "name": "track-pregnancy-weekly-updates",
+  "description": "Track pregnancy journey with weekly updates, symptom logging, and milestone countdowns",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

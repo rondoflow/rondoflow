@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-iterated",
+  "name": "game-theory-iterated",
+  "description": "Analyses long-run repeated interactions — how cooperation forms, how trust is built, how defection spirals start, and which strategies sustain cooperation. Triggers: 'repeated game', 'iterated strategy', 'long-run relationship', 'reputation effects', 'how do I sustain cooperation', 'tit for tat', 'shadow of the future', 'will they defect', 'ongoing relationship after betrayal', 'how do we recover from this'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

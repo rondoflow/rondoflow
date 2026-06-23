@@ -1,0 +1,10 @@
+{
+  "id": "book-manicure-services",
+  "name": "book-manicure-services",
+  "description": "Book manicure services through Lokuli MCP. Use when user needs to find and book manicure. Triggers on requests like \"book a manicure\", \"find manicure near me\", or any manicure service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "track-hackathon-deadlines-submissions",
+  "name": "track-hackathon-deadlines-submissions",
+  "description": "Track hackathon deadlines, manage submission checklists, and monitor progress. Use when managing multiple hackathons, checking what's due soon, marking requirements complete, or extracting hackathon information from URLs to auto-populate deadlines and requirements.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,13 @@
+{
+  "id": "seo-specialist",
+  "name": "SEO Specialist",
+  "description": "On-page, technical, and content SEO recommendations.",
+  "icon": "TrendingUp",
+  "category": "SEO & Search",
+  "purpose": "research",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch", "Read", "Write"],
+  "tags": ["seo", "search", "on-page", "technical-seo", "marketing", "ranking"],
+  "order": 7
+}

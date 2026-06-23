@@ -1,0 +1,10 @@
+{
+  "id": "query-chemistry-pubchem-rdkit",
+  "name": "query-chemistry-pubchem-rdkit",
+  "description": "Chemistry agent skill for PubChem API queries (compound info/properties, structures/SMILES/images, synthesis routes/references) + RDKit cheminformatics (SMILES to molecule props/logP/TPSA, 2D PNG/SVG viz, Morgan fingerprints, retrosynthesis/BRICS disconnects, multi-step synth pl…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

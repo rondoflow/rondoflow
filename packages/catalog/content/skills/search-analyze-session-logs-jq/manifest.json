@@ -1,0 +1,10 @@
+{
+  "id": "search-analyze-session-logs-jq",
+  "name": "search-analyze-session-logs-jq",
+  "description": "Search and analyze your own session logs (older/parent conversations) using jq.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

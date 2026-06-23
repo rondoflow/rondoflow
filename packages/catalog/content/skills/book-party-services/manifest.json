@@ -1,0 +1,10 @@
+{
+  "id": "book-party-services",
+  "name": "book-party-services",
+  "description": "Book party services through Lokuli MCP. Use when user needs to find and book party. Triggers on requests like \"book a party\", \"find party near me\", or any party service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

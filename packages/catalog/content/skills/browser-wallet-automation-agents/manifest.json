@@ -1,0 +1,10 @@
+{
+  "id": "browser-wallet-automation-agents",
+  "name": "browser-wallet-automation-agents",
+  "description": "Universal browser wallet automation for AI agents. Supports 10 wallets including MetaMask, Rabby, Phantom, Trust Wallet, OKX, Coinbase, and more. EVM + Solana. Configurable guardrails with spend limits, chain allowlists, and approval thresholds.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

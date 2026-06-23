@@ -1,0 +1,10 @@
+{
+  "id": "crosschain-token-infrastructure-launchpad",
+  "name": "crosschain-token-infrastructure-launchpad",
+  "description": "Token Layer - Censorship resistant crosschain public token infrastructure. Launch once, trade everywhere.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

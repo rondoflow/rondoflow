@@ -1,0 +1,10 @@
+{
+  "id": "personal-journaling-reflection-practice",
+  "name": "personal-journaling-reflection-practice",
+  "description": "Build a personal journaling practice with prompts, reflection, and pattern discovery.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

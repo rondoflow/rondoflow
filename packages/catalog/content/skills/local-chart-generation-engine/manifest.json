@@ -1,0 +1,10 @@
+{
+  "id": "local-chart-generation-engine",
+  "name": "local-chart-generation-engine",
+  "description": "Local-first chart generation engine for trends, comparisons, distributions, and quick visual explanations. Use whenever the user wants to visualize data, compare numbers, plot a trend, turn CSV or JSON into a chart, or decide which chart type fits a dataset best. Generates chart…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

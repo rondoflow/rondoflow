@@ -1,0 +1,10 @@
+{
+  "id": "headless-agent-browser-automation-cli",
+  "name": "headless-agent-browser-automation-cli",
+  "description": "Headless browser automation CLI optimized for AI agents with accessibility tree snapshots and ref-based element selection",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "day-to-day-git-version-control",
+  "name": "day-to-day-git-version-control",
+  "description": "Git commits, branches, rebases, merges, conflict resolution, history recovery, team workflows, and the commands needed for safe day-to-day version control. Use when (1) the task touches Git, a repository, commits, branches, merges, rebases, or pull requests; (2) history safety,…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "check-square",
+  "order": 1000
+}

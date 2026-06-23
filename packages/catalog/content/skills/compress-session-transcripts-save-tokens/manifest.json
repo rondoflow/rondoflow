@@ -1,0 +1,10 @@
+{
+  "id": "compress-session-transcripts-save-tokens",
+  "name": "compress-session-transcripts-save-tokens",
+  "description": "Claw Compactor v6.0 — 50%+ savings through rule-based compression, dictionary encoding, session observation compression, and progressive context loading.",
+  "category": "Community",
+  "author": "community",
+  "version": "6.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

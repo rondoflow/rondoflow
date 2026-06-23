@@ -1,0 +1,10 @@
+{
+  "id": "book-catering-services",
+  "name": "book-catering-services",
+  "description": "Book catering services through Lokuli MCP. Use when user needs to find and book catering. Triggers on requests like \"book a catering\", \"find catering near me\", or any catering service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

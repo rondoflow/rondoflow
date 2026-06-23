@@ -1,0 +1,10 @@
+{
+  "id": "neural-web-search-research",
+  "name": "neural-web-search-research",
+  "description": "Neural web search, content extraction, company and people research, code search, and deep research via the Exa MCP server. Use when you need to: (1) search the web with semantic understanding — not just keywords, (2) find research papers, news, tweets, companies, or people, (3)…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

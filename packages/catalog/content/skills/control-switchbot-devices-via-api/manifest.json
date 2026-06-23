@@ -1,0 +1,10 @@
+{
+  "id": "control-switchbot-devices-via-api",
+  "name": "control-switchbot-devices-via-api",
+  "description": "Control and query SwitchBot devices using the official OpenAPI (v1.1). Use when the user asks to list SwitchBot devices, get device status, or send commands (turn on/off, press, set mode, lock/unlock, curtain open %, IR air conditioner, lights, fans, robot vacuums, keypads, etc.…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "code",
+  "order": 1000
+}

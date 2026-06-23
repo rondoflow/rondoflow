@@ -1,0 +1,10 @@
+{
+  "id": "temporal-horizon-mapping",
+  "name": "temporal-horizon-mapping",
+  "description": "Maps consequences of a decision across short, medium, and long time horizons. Use when asked about 'time horizons', 'what does this look like in 5 years', 'short-term vs long-term', 'map the implications over time', or 'think through the long-term'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

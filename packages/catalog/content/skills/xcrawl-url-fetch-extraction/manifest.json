@@ -1,0 +1,10 @@
+{
+  "id": "xcrawl-url-fetch-extraction",
+  "name": "xcrawl-url-fetch-extraction",
+  "description": "Use this skill as the default XCrawl entry point for direct XCrawl requests, including single-URL fetch, format selection, sync or async execution, and JSON extraction with prompt or json_schema.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

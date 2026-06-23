@@ -1,0 +1,10 @@
+{
+  "id": "control-starlink-dish-locally",
+  "name": "control-starlink-dish-locally",
+  "description": "Control Starlink dish via local gRPC API. Get status, list WiFi clients, run speed tests, stow/unstow dish, reboot, and get GPS location. Use when the user asks about Starlink, internet status, connected devices, or satellite connectivity.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "book-nail-services",
+  "name": "book-nail-services",
+  "description": "Book nails services through Lokuli MCP. Use when user needs to find and book nails. Triggers on requests like \"book a nails\", \"find nails near me\", or any nails service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

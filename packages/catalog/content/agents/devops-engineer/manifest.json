@@ -1,0 +1,13 @@
+{
+  "id": "devops-engineer",
+  "name": "DevOps Engineer",
+  "description": "Automates CI/CD, containers, and infrastructure.",
+  "icon": "Container",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"],
+  "tags": ["ci", "cd", "docker", "infra", "devops", "automation"],
+  "order": 2
+}

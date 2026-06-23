@@ -1,0 +1,10 @@
+{
+  "id": "provide-health-symptom-wellness-guidance",
+  "name": "provide-health-symptom-wellness-guidance",
+  "description": "Provide health information, symptom guidance, and wellness support with appropriate medical boundaries.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

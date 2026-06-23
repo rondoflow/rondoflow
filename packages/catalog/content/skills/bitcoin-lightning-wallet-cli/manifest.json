@@ -1,0 +1,10 @@
+{
+  "id": "bitcoin-lightning-wallet-cli",
+  "name": "bitcoin-lightning-wallet-cli",
+  "description": "CLI for bitcoin lightning wallet operations using Nostr Wallet Connect (NIP-47). Use when the user needs to send/receive payments, check wallet balance, create invoices, convert between fiat and sats, or work with lightning addresses.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.2",
+  "icon": "coins",
+  "order": 1000
+}

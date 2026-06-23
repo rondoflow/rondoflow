@@ -1,0 +1,10 @@
+{
+  "id": "adapt-writing-voice-improve-clarity",
+  "name": "adapt-writing-voice-improve-clarity",
+  "description": "Adapt to writing voice, improve clarity, and remember style preferences across sessions.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

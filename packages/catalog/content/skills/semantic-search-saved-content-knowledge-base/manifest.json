@@ -1,0 +1,10 @@
+{
+  "id": "semantic-search-saved-content-knowledge-base",
+  "name": "semantic-search-saved-content-knowledge-base",
+  "description": "Give your agent a searchable knowledge brain - semantic search, topic synthesis, and action tracking across your saved YouTube videos, articles, Reddit threads, X posts, and PDFs",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

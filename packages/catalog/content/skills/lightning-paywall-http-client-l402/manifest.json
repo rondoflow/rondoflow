@@ -1,0 +1,10 @@
+{
+  "id": "lightning-paywall-http-client-l402",
+  "name": "lightning-paywall-http-client-l402",
+  "description": "Install and use lnget, a Lightning-native HTTP client with automatic L402 payment support. Use when downloading files behind Lightning paywalls, managing L402 tokens, checking Lightning backend status, or making HTTP requests that may require micropayments.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

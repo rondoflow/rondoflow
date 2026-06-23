@@ -1,0 +1,10 @@
+{
+  "id": "investigation-triangulation",
+  "name": "investigation-triangulation",
+  "description": "Verifies a claim across genuinely independent sources, distinguishing amplification from true corroboration. Use when you want to know if multiple sources actually confirm something — 'can I verify this from multiple angles', 'do independent sources agree', 'is this confirmed by more than one source', 'are these sources actually independent', 'how well-corroborated is this claim'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

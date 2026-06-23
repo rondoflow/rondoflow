@@ -1,0 +1,10 @@
+{
+  "id": "book-chiropractor-services",
+  "name": "book-chiropractor-services",
+  "description": "Book chiropractor services through Lokuli MCP. Use when user needs to find and book chiropractor. Triggers on requests like \"book a chiropractor\", \"find chiropractor near me\", or any chiropractor service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-notes-bookmarks-notebooks",
+  "name": "manage-notes-bookmarks-notebooks",
+  "description": "Manage notes, bookmarks, and notebooks using the nb CLI. Create, list, search, and organize notes across multiple notebooks with Git-backed versioning.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "check-square",
+  "order": 1000
+}

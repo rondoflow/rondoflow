@@ -1,0 +1,10 @@
+{
+  "id": "kubernetes-velero-backup-restore",
+  "name": "kubernetes-velero-backup-restore",
+  "description": "Kubernetes backup and restore with Velero. Use when creating backups, restoring applications, managing disaster recovery, or migrating workloads between clusters.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

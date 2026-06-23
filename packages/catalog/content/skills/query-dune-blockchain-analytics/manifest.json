@@ -1,0 +1,10 @@
+{
+  "id": "query-dune-blockchain-analytics",
+  "name": "query-dune-blockchain-analytics",
+  "description": "Dune Analytics API skill for querying, analyzing, and uploading blockchain data. Use this skill whenever the user mentions Dune, on-chain data, blockchain analytics, token trading volume, DEX activity, wallet tracking, Solana/EVM transaction analysis, or wants to explore crypto…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "coins",
+  "order": 1000
+}

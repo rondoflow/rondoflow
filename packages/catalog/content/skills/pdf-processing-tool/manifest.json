@@ -1,0 +1,10 @@
+{
+  "id": "pdf-processing-tool",
+  "name": "pdf-processing-tool",
+  "description": "PDF.co API integration with managed OAuth. Convert, merge, split, edit PDFs and extract data. Use this skill when users want to convert PDFs to/from other formats, merge or split PDFs, add watermarks or text, extract text/tables, or parse invoices. For other third party apps, us…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

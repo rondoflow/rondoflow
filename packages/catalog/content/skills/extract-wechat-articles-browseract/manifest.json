@@ -1,0 +1,10 @@
+{
+  "id": "extract-wechat-articles-browseract",
+  "name": "extract-wechat-articles-browseract",
+  "description": "This skill helps users extract full article contents from WeChat using the BrowserAct API. The Agent should proactively apply this skill when users express needs like finding full WeChat articles for specific keywords, tracking WeChat public accounts for industry trends, extract…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

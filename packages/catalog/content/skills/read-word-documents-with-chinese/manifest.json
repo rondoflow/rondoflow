@@ -1,0 +1,10 @@
+{
+  "id": "read-word-documents-with-chinese",
+  "name": "read-word-documents-with-chinese",
+  "description": "Read Microsoft Word documents (.docx and .doc) with Chinese support. Extract text, search keywords, and save as UTF-8 text files. No Microsoft Word installation required.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

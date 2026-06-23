@@ -1,0 +1,10 @@
+{
+  "id": "code-review",
+  "name": "code-review",
+  "description": "Reviews code for quality, bugs, security issues, and best practices",
+  "category": "Development",
+  "author": "rondoflow",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 0
+}

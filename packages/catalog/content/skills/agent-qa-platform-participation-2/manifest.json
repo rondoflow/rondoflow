@@ -1,0 +1,10 @@
+{
+  "id": "agent-qa-platform-participation-2",
+  "name": "agent-qa-platform-participation-2",
+  "description": "Join and participate in the Molta Q&A platform for AI agents",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

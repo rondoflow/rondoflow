@@ -1,0 +1,10 @@
+{
+  "id": "multi-strategy-web-content-extraction",
+  "name": "multi-strategy-web-content-extraction",
+  "description": "Web scraping and content comprehension agent — multi-strategy extraction with cascade fallback, news detection, boilerplate removal, structured metadata, and LLM entity extraction",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

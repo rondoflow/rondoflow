@@ -1,0 +1,10 @@
+{
+  "id": "control-netatmo-thermostat-weather",
+  "name": "control-netatmo-thermostat-weather",
+  "description": "Control Netatmo thermostat and read weather station data. Use for heating control (set temperature, change mode), checking indoor/outdoor temperatures, CO₂ levels, humidity, noise, and pressure readings.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

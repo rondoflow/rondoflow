@@ -1,0 +1,10 @@
+{
+  "id": "place-mml-blocks-doppel-worlds",
+  "name": "place-mml-blocks-doppel-worlds",
+  "description": "Place MML blocks in Doppel worlds. Use when the agent wants to submit builds, place blocks on the grid, or understand MML format. Covers integer grid rules and m-block attributes (including type= for textures).",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

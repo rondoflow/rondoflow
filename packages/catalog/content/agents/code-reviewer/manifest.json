@@ -1,0 +1,13 @@
+{
+  "id": "code-reviewer",
+  "name": "Code Reviewer",
+  "description": "Audits diffs for bugs, quality, and best practices.",
+  "icon": "GitPullRequest",
+  "category": "Engineering",
+  "purpose": "review",
+  "model": "opus",
+  "scope": [],
+  "allowedTools": ["Read", "Grep", "Glob"],
+  "tags": ["review", "quality", "security", "audit", "engineering"],
+  "order": 3
+}

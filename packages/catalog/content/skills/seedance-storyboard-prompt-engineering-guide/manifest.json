@@ -1,0 +1,10 @@
+{
+  "id": "seedance-storyboard-prompt-engineering-guide",
+  "name": "seedance-storyboard-prompt-engineering-guide",
+  "description": "Professional Seedance 2.0 / Jimeng (即梦) Storyboard & Prompt Engineering Guide. Create movie-grade 9:16 vlogs, cinematic AI video prompts, and auto-audio scripts from multimodal inputs. Optimized for Claude Code, Cursor, and OpenClaw.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

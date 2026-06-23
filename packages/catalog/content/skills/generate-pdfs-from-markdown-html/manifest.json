@@ -1,0 +1,10 @@
+{
+  "id": "generate-pdfs-from-markdown-html",
+  "name": "generate-pdfs-from-markdown-html",
+  "description": "Generate professional PDFs from Markdown, HTML, data, or code. Reports, invoices, contracts, and documents with best practices.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "globe",
+  "order": 1000
+}

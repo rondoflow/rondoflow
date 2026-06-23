@@ -1,0 +1,10 @@
+{
+  "id": "control-sonos-speakers",
+  "name": "control-sonos-speakers",
+  "description": "Control Sonos speakers (discover/status/play/volume/group).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

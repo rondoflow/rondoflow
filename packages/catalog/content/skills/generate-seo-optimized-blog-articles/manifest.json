@@ -1,0 +1,10 @@
+{
+  "id": "generate-seo-optimized-blog-articles",
+  "name": "generate-seo-optimized-blog-articles",
+  "description": "Generate fully SEO-optimized blog posts and articles with keyword research, competitor analysis, and SERP-aware content. Use when creating SEO content, blog posts, articles, or content for clients.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

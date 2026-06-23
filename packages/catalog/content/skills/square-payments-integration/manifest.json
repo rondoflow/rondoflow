@@ -1,0 +1,10 @@
+{
+  "id": "square-payments-integration",
+  "name": "square-payments-integration",
+  "description": "Square API integration with managed OAuth. Process payments, manage customers, orders, catalog, inventory, invoices, loyalty programs, team members, and more. Use this skill when users want to accept payments, manage point-of-sale operations, track inventory, handle invoicing, m…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "plug",
+  "order": 1000
+}

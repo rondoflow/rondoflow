@@ -1,0 +1,10 @@
+{
+  "id": "dnd-5e-player-dm-toolkit",
+  "name": "dnd-5e-player-dm-toolkit",
+  "description": "D&D 5e toolkit for players and DMs. Roll dice, look up spells and monsters, generate characters, create encounters, and spawn NPCs. Uses the official D&D 5e SRD API.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

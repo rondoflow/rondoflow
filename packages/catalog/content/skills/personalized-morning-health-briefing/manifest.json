@@ -1,0 +1,10 @@
+{
+  "id": "personalized-morning-health-briefing",
+  "name": "personalized-morning-health-briefing",
+  "description": "Compose a personalized morning briefing using sleep, biometrics, calendar, and weather data from the Fulcra Life API. Adapts tone and detail to how your human actually slept.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,175 @@
+{
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "fallback": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "errorId": "Fehler-ID: {{digest}}",
+    "tryAgain": "Erneut versuchen",
+    "goHome": "Zur Startseite"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht.",
+    "back": "Zurück zu rondoflow"
+  },
+  "agentStream": {
+    "error": {
+      "timeout": "Die Zeit für die Anfrage ist abgelaufen. Bitte versuchen Sie es erneut.",
+      "rateLimit": "Zu viele Anfragen. Bitte warten Sie einen Moment, bevor Sie es erneut versuchen.",
+      "network": "Ein Netzwerkfehler ist aufgetreten. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+      "overloaded": "Der Dienst ist vorübergehend überlastet. Bitte versuchen Sie es in Kürze erneut.",
+      "auth": "Authentifizierung fehlgeschlagen. Bitte überprüfen Sie Ihre API-Konfiguration.",
+      "contextLength": "Die Konversation ist zu lang. Erwägen Sie, den Chat zu leeren.",
+      "processError": "Der Assistenten-Prozess konnte nicht gestartet werden. Stellen Sie sicher, dass Claude Code installiert und konfiguriert ist.",
+      "approvalTimeout": "Die Zeit für die Genehmigungsanfrage ist abgelaufen.",
+      "unexpected": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "cannotReachServerRaw": "Der rondoflow-Server ist nicht erreichbar",
+      "cannotReachServer": "Der Server ist nicht erreichbar. Stellen Sie sicher, dass das Backend läuft: npm run dev:server"
+    }
+  },
+  "workspace": {
+    "defaultName": "Mein Arbeitsbereich",
+    "numberedName": "Arbeitsbereich {{n}}"
+  },
+  "toast": {
+    "edgeDeleted": "Verbindung gelöscht.",
+    "nodeDeleted": "Karte gelöscht.",
+    "undo": "Rückgängig",
+    "runNotPermitted": "Ihre Rolle erlaubt das Ausführen von Workflows nicht",
+    "saveFailed": "Der Arbeitsbereich konnte nicht gespeichert werden.",
+    "autosaveFailed": "Ihre Änderungen konnten nicht automatisch gespeichert werden — sie gehen beim Neuladen möglicherweise verloren.",
+    "retry": "Wiederholen"
+  },
+  "notify": {
+    "workflowGenerationFailed": {
+      "title": "Workflow-Generierung fehlgeschlagen",
+      "description": "Es konnte kein Multi-Agent-Workflow generiert werden. Stattdessen wird ein einfacher Assistent erstellt. Prüfen Sie die Server-Protokolle für Details."
+    },
+    "workspaceCreateFailed": {
+      "title": "Arbeitsbereich konnte nicht erstellt werden",
+      "description": "Der Arbeitsbereich konnte nicht erstellt werden. Stellen Sie sicher, dass der Server läuft, und versuchen Sie es erneut."
+    },
+    "discussionCreateFailed": {
+      "title": "Diskussion konnte nicht erstellt werden",
+      "description": "Die Diskussion konnte nicht gespeichert werden. Stellen Sie sicher, dass der Server läuft."
+    },
+    "canvasExported": {
+      "title": "Arbeitsbereich exportiert",
+      "description_one": "{{file}} gespeichert ({{count}} Assistent).",
+      "description_other": "{{file}} gespeichert ({{count}} Assistenten)."
+    },
+    "exportFailed": {
+      "title": "Export fehlgeschlagen",
+      "description": "Dieser Arbeitsbereich konnte nicht exportiert werden."
+    },
+    "imported": {
+      "title": "\"{{name}}\" importiert"
+    },
+    "importFailed": {
+      "title": "Import fehlgeschlagen",
+      "description": "Diese Arbeitsbereich-Datei konnte nicht importiert werden."
+    }
+  },
+  "import": {
+    "tooLarge": "Diese Arbeitsbereich-Datei ist zu groß für den Import (Grenze 16 MB).",
+    "invalidJson": "Diese Datei ist kein gültiges JSON.",
+    "agents_one": "{{count}} Assistent",
+    "agents_other": "{{count}} Assistenten",
+    "skillsInstalled": "{{count}} Skill(s) installiert",
+    "skillsSkipped": "{{count}} Skill(s) übersprungen",
+    "mcpServers": "{{count}} MCP-Server"
+  },
+  "connection": {
+    "testFailed": "Verbindungstest fehlgeschlagen"
+  },
+  "log": {
+    "startTesting": "Start: Claude-API-Verbindung wird getestet…",
+    "startConnectionFailed": "Start: Verbindung fehlgeschlagen — {{message}}",
+    "startConnection": "Start: {{message}}",
+    "noAgents": "Keine Assistenten im Arbeitsbereich. Fügen Sie mindestens 2 verbundene Assistenten hinzu, um einen Workflow auszuführen.",
+    "connectTwoAgents": "Verbinden Sie mindestens 2 Assistenten mit Verbindungen, um eine Workflow-Kette zu bilden.",
+    "agentSaveFailed": "Assistent \"{{name}}\" konnte nicht in der Datenbank gespeichert werden. Bitte erstellen Sie ihn neu.",
+    "cannotConnectServer": "Verbindung zum Server nicht möglich. Stellen Sie sicher, dass das Backend auf Port 3001 läuft.",
+    "conditionWarning": "⚠ {{warning}}",
+    "startingWorkflowAuto": "Workflow mit {{count}} Schritten wird gestartet (automatisch genehmigen)",
+    "startingWorkflowPerStep": "Workflow mit {{count}} Schritten wird gestartet (schrittweise Genehmigung)",
+    "stoppedByUser": "Workflow vom Benutzer gestoppt",
+    "outputSavedTo": "Ausgabe gespeichert unter {{path}}",
+    "saveFailed": "Speichern fehlgeschlagen: {{error}}",
+    "unknownError": "Unbekannter Fehler",
+    "autoSaveFailed": "Automatisches Speichern der Ausgabe fehlgeschlagen: {{error}}",
+    "outputNoMatch": "Ausgabe \"{{name}}\": keine passende Assistenten-Ausgabe zum Speichern",
+    "outputNodeSaved": "Ausgabe \"{{name}}\" gespeichert unter {{path}}",
+    "outputNodeSaveFailed": "Ausgabe \"{{name}}\" konnte nicht gespeichert werden: {{error}}",
+    "redirectApproved": "Umleitung genehmigt",
+    "continuingForward": "Wird fortgesetzt",
+    "skipReasonConditionNotMet": "Verzweigungsbedingung nicht erfüllt",
+    "skipReasonErrorCascade": "ein vorgelagerter Schritt ist fehlgeschlagen",
+    "skipReasonNoActivePath": "kein aktiver Pfad",
+    "stepSkipped": "{{agentName}}: übersprungen ({{reason}})",
+    "completedSteps": "{{done}} von {{total}} Schritten abgeschlossen",
+    "completedStepsSkipped": "{{done}} von {{total}} Schritten abgeschlossen ({{skipped}} übersprungen)",
+    "stepError": "{{agentName}}: {{error}}",
+    "workflowStoppedReason": "Workflow gestoppt — {{reason}}",
+    "plannerAnalyzing": "Der Planer analysiert den Workflow...",
+    "plannerSuggests_one": "Der Planer schlägt {{count}} Änderung vor: {{analysis}}",
+    "plannerSuggests_other": "Der Planer schlägt {{count}} Änderungen vor: {{analysis}}",
+    "plannerApproved": "Der Planer hat den Workflow genehmigt: {{analysis}}",
+    "plannerError": "Planer-Fehler: {{error}}",
+    "advisorAnalyzing": "Workflow-Ausführung wird analysiert...",
+    "advisorFailed": "Berater-Analyse fehlgeschlagen: {{error}}",
+    "noStepHistory": "Für {{agentName}} ist noch kein Konversationsverlauf verfügbar.",
+    "emailSent": "E-Mail \"{{name}}\" an {{count}} Empfänger gesendet: {{to}}",
+    "emailSendFailed": "E-Mail \"{{name}}\" konnte nicht gesendet werden: {{error}}",
+    "emailNoRecipients": "E-Mail \"{{name}}\": keine Empfänger festgelegt",
+    "emailNoMatch": "E-Mail \"{{name}}\": keine passende Assistenten-Ausgabe zum Senden"
+  },
+  "fallbackAgent": {
+    "agentLabel": "Assistent",
+    "stepLabel": "Assistent {{index}}"
+  },
+  "output": {
+    "defaultName": "Ausgabe"
+  },
+  "savedWorkflow": {
+    "description_one": "Generierter Workflow mit {{count}} Assistenten",
+    "description_other": "Generierter Workflow mit {{count}} Assistenten"
+  },
+  "banner": {
+    "viewOnly": "Nur-Lese-Zugriff — Bearbeiten und Ausführen sind deaktiviert"
+  },
+  "coaching": {
+    "connectNodes": "Verbinden Sie Assistenten, indem Sie von einem Anschluss zu einem anderen ziehen"
+  },
+  "agentChat": {
+    "sheetTitleWith": "Chat mit {{name}}",
+    "sheetTitle": "Assistenten-Chat",
+    "empty": "Wählen Sie einen Assistenten aus, um den Chat zu starten"
+  },
+  "sheet": {
+    "activity": "Aktivität",
+    "auditLog": "Audit-Protokoll",
+    "memory": "Speicher",
+    "workspaceContext": "Arbeitsbereich-Kontext",
+    "costDashboard": "Kosten-Dashboard",
+    "analytics": "Analysen",
+    "directorSettings": "Director-Einstellungen",
+    "outputSettings": "Ausgabe-Einstellungen",
+    "conditionSettings": "Bedingungs-Einstellungen",
+    "workflowChat": "Workflow-Chat",
+    "workspacePlan": "Arbeitsbereich-Plan",
+    "emailSettings": "E-Mail-Einstellungen",
+    "structurerSettings": "Strukturierer-Einstellungen",
+    "dbSaveSettings": "Einstellungen zum Speichern in Datenbank",
+    "httpRequestSettings": "HTTP-Anfrage-Einstellungen",
+    "duckduckgoSearchSettings": "DuckDuckGo-Suche-Einstellungen",
+    "sakanaAiSettings": "Sakana-AI-Einstellungen"
+  },
+  "empty": {
+    "selectWorkspace": "Wählen Sie zuerst einen Arbeitsbereich aus"
+  },
+  "email": {
+    "defaultName": "E-Mail",
+    "defaultSubject": "Workflow-Ausgabe"
+  }
+}

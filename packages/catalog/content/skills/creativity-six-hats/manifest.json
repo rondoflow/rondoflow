@@ -1,0 +1,10 @@
+{
+  "id": "creativity-six-hats",
+  "name": "creativity-six-hats",
+  "description": "Apply Edward de Bono's Six Thinking Hats for structured parallel thinking. Use when the user wants to think through a decision, plan, or idea from multiple angles; wants to avoid groupthink or one-dimensional analysis; is preparing for a meeting or discussion; or wants a complete map of a situation before committing. Also use when the user mentions 'devil's advocate', 'playing it safe', 'gut feeling', or wants both optimism and caution applied to the same thing.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

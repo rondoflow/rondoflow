@@ -1,0 +1,10 @@
+{
+  "id": "free-email-address-for-agents",
+  "name": "free-email-address-for-agents",
+  "description": "Get a FREE email address \"you@sendclaw.com\" - Email for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.7.7",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,192 @@
+---
+title: Git Integration
+description: Use the built-in Git panel to stage, commit, branch, and push changes in your Workspace's project folder.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Git Integration
+
+RondoFlow ships with a built-in Git panel so you can review and commit the work your assistants produce without leaving the app. The panel is scoped to a single Workspace's (Canvas's) project folder — the working directory — and every operation runs against that one repository.
+
+The panel is a right-side sheet with three tabs (Status, Log, Branches), a repository header showing the current branch and ahead/behind counts, and a footer for committing and pushing. It refreshes automatically and never invokes a shell.
+
+<Callout type="info">
+Git operations always target the **working directory** configured for the active Workspace. If no folder is set, the panel shows "No repository selected" — set one before running any Git action.
+</Callout>
+
+## Opening the Git panel
+
+The Git panel is a right-side sheet bound to the active Workspace, keyed by the Workspace ID and its working directory.
+
+<Callout type="warning">
+There is currently **no toolbar button, Browse menu entry, command-palette command, or keyboard shortcut** that opens the Git panel. It is rendered into the page but is only opened programmatically (the internal panel state `{ type: 'git' }`). Treat the panel as a present-but-not-yet-surfaced feature: the full backend API (below) is live and gated, but the UI entry point has not been wired up. If you need Git today, the [API endpoints](#api-endpoints) work directly.
+</Callout>
+
+## Setting the project folder
+
+Each Workspace stores a working directory. When the panel is open it reads that directory and, if it's empty, lets you point the Workspace at a folder on the host.
+
+<Steps>
+### Open the Git panel
+
+With the Git panel open for the active Workspace, the header shows the repository path next to a folder icon.
+
+### Edit the directory
+
+Click the pencil (edit) icon and type an absolute path such as `/home/you/projects/my-app`, then confirm. This saves `workingDirectory` on the Workspace via `PATCH /api/workspaces/:id`.
+
+### Confirm it loaded
+
+The panel re-reads Status, Log, and Branches for the new folder, and shows the remote origin URL (if any) under the path.
+</Steps>
+
+<Callout type="warning">
+The folder must already be a Git repository. If `git` is not installed or the path isn't a repo, the panel surfaces the underlying error in a red banner at the top.
+</Callout>
+
+## Status tab
+
+The Status tab lists every change in the working tree, split into two groups:
+
+- **Staged** — changes already added to the index. Each row has an unstage action, plus an **Unstage All** button.
+- **Changes** — unstaged and untracked files. Each row has a stage action, plus a **Stage All** button.
+
+When there's nothing to commit, the tab shows "Working tree clean."
+
+Each file is tagged with a single-letter status badge:
+
+| Badge | Meaning    |
+| ----- | ---------- |
+| `A`   | added      |
+| `M`   | modified   |
+| `D`   | deleted    |
+| `R`   | renamed    |
+| `?`   | untracked  |
+
+Staging a file calls `git add`; unstaging calls `git restore --staged`. After either action the Status view refreshes so the file moves between groups. Status is parsed from `git status --porcelain=v2 --branch`, so a single file that has both staged and unstaged edits can appear in both groups.
+
+<Callout type="info">
+The parser only recognizes `A`, `D`, and `R` explicitly; **any other porcelain status it doesn't recognize is shown as Modified (`M`)**. So a copied (`C`), type-changed (`T`), or unmerged (`U`) entry surfaces with an `M` badge rather than its true Git code. Untracked files always show `?`. Only `A`, `M`, `D`, `R`, and `?` are ever displayed.
+</Callout>
+
+<Callout type="info">
+Paths are validated before any stage, unstage, or diff runs. Paths containing `..`, starting with `/`, or using a Windows drive prefix (like `C:`) are rejected — staging is confined to files inside the repository.
+</Callout>
+
+## Diffs
+
+You can request the diff for a specific file (or the whole working tree). Diffs come from `git diff` and are returned as plain text, so you can review exactly what changed before staging or committing.
+
+## Log tab
+
+The Log tab shows recent commits — by default the latest **30** (the API accepts a `limit` from 1 to 200). Each entry shows the commit message, the short hash, the author, and a relative date ("just now", "2h ago", "3d ago", or a short calendar date for older commits). When the repository has no history, it shows "No commits yet."
+
+## Branches tab
+
+The Branches tab lists local branches and marks the current `HEAD` with a check. From here you can:
+
+- **Switch branches** — click any non-current branch to check it out (`git switch`). The current branch is highlighted and not clickable.
+- **Create a branch** — click **New Branch**, enter a name, and confirm. This creates and switches to the new branch from the current `HEAD` (`git switch -c`).
+
+Branch names are validated on both the client and the server against the pattern `^[\w./-]+$`. Only letters, numbers, `_`, `/`, `-`, and `.` are allowed — anything else is rejected before Git runs.
+
+After a switch or create, the panel refreshes Status, Branches, and Log so the view reflects the new `HEAD`.
+
+## Committing and pushing
+
+The footer at the bottom of the panel handles commits and pushes.
+
+<Tabs items={['Commit', 'Push']}>
+<Tabs.Tab>
+Type a message in the commit box and click **Commit**. The button is disabled until you have at least one staged file and a non-empty message, and it shows the staged count, e.g. **Commit (3)**.
+
+- Press `Ctrl/Cmd + Enter` in the message box to commit without reaching for the button.
+- Messages are limited to 1000 characters.
+- On success the message box clears and Status and Log refresh; the new commit's short hash is returned.
+
+The commit runs `git commit -m "<your message>"` — it commits the staged index, exactly like the command line.
+</Tabs.Tab>
+<Tabs.Tab>
+Click **Push** to run `git push` for the current branch. When the branch is ahead of its upstream, the header and the Push button show the **ahead** count; a **behind** count appears when the upstream has commits you don't have yet.
+
+A push that fails (for example, missing upstream or rejected non-fast-forward) does not throw — the error message is returned in the `{ success: false, message }` envelope and shown in the banner so you can resolve it and try again.
+</Tabs.Tab>
+</Tabs>
+
+<Callout type="info">
+The ahead/behind indicators come from `git status --branch` and update automatically. The Status view auto-refreshes every 10 seconds while the panel is open (Log and Branches are not on the timer); you can force a full refresh of all three with the refresh button in the header.
+</Callout>
+
+## How it stays safe
+
+Two guarantees apply to every Git action:
+
+- **Workspace resolution, not per-user isolation.** Before a command runs, the server resolves the Workspace by ID and returns a `404` (`NotFoundError`, "Workspace with id … not found") **only if no such Workspace exists**. If the Workspace exists, the server uses its `workingDirectory` regardless of who created it. RondoFlow treats Git as a **shared team pool**: any authenticated user with a sufficient role may operate on any Workspace's repository. There is no per-user repository isolation — access is gated by role (below), not by ownership.
+- **No shell.** Git runs through a direct process call (`git` with an explicit argument array), never `shell: true` and never `execSync`. Combined with path and branch-name validation, this prevents shell injection through file names, branch names, or commit messages.
+
+### Who can do what (roles)
+
+The Git API is gated by RondoFlow's default-deny role middleware. None of the Git paths contain a run/execute segment, so the mutating endpoints fall under the **`write`** capability rather than `run`:
+
+| Capability | Role required | Git endpoints |
+| ---------- | ------------- | ------------- |
+| Read (any authenticated user) | `viewer`+ | `GET` status, log, branches, diff, remote |
+| Write | `editor`+ | `POST` stage, unstage, commit, checkout, branch, push |
+
+In other words, **viewers can read the Git panel** — Status, Log, Branches, and Diffs — **but cannot stage, unstage, commit, create or switch branches, or push.** Those mutating actions require the editor (write) role. See [Users & Roles](/docs/guides/users) for the full capability matrix.
+
+## API endpoints
+
+The panel is a thin client over a small Git API. Every endpoint accepts an optional `workspaceId` (query string for `GET`, body field for `POST`) that selects which Workspace's working directory to operate in; it must be a UUID. Responses use the standard `{ success, data?, error? }` envelope.
+
+| Method & path           | Purpose                                              | Input                              | Min role |
+| ----------------------- | ---------------------------------------------------- | ---------------------------------- | -------- |
+| `GET /api/git/status`   | Current branch, ahead/behind, and changed files      | `workspaceId?`                     | viewer   |
+| `GET /api/git/branches` | List local branches with the current one flagged     | `workspaceId?`                     | viewer   |
+| `GET /api/git/log`      | Recent commits (newest first)                        | `limit?` (1–200, default 30), `workspaceId?` | viewer |
+| `GET /api/git/diff`     | Diff for a file or the whole working tree            | `file?`, `workspaceId?`            | viewer   |
+| `GET /api/git/remote`   | Remote `origin` URL (or `null`)                      | `workspaceId?`                     | viewer   |
+| `POST /api/git/stage`   | Stage one or more files                              | `paths[]`, `workspaceId?`          | editor   |
+| `POST /api/git/unstage` | Unstage one or more files                            | `paths[]`, `workspaceId?`          | editor   |
+| `POST /api/git/commit`  | Commit the staged index; returns the new short hash  | `message` (1–1000 chars), `workspaceId?` | editor |
+| `POST /api/git/checkout`| Switch to an existing branch                         | `branch`, `workspaceId?`           | editor   |
+| `POST /api/git/branch`  | Create and switch to a new branch (returns `201`)    | `name`, `startPoint?`, `workspaceId?` | editor |
+| `POST /api/git/push`    | Push the current branch; returns `{ success, message }` | `workspaceId?`                  | editor   |
+
+### Example: stage and commit
+
+```bash
+# Stage two files in the active Workspace's repo
+curl -X POST http://localhost:3001/api/git/stage \
+  -H 'Content-Type: application/json' \
+  -d '{"paths":["src/app.ts","README.md"],"workspaceId":"<workspace-uuid>"}'
+
+# Commit them
+curl -X POST http://localhost:3001/api/git/commit \
+  -H 'Content-Type: application/json' \
+  -d '{"message":"Update app and docs","workspaceId":"<workspace-uuid>"}'
+```
+
+The commit response data looks like:
+
+```json
+{ "success": true, "data": { "hash": "a1b2c3d", "message": "Update app and docs" } }
+```
+
+<Callout type="warning">
+These mutating endpoints require an authenticated session with the `editor` (or `admin`) role. A `viewer` calling `stage`/`commit`/`branch`/`push` receives a `403` from the role middleware; an unauthenticated request receives a `401`.
+</Callout>
+
+## Related
+
+<Cards>
+  <Cards.Card title="Workspaces & Canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="External Folders" href="/docs/guides/external-folders" />
+  <Cards.Card title="Users & Roles" href="/docs/guides/users" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="API Reference" href="/docs/reference/api" />
+</Cards>

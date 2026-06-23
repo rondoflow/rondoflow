@@ -1,0 +1,10 @@
+{
+  "id": "build-e2e-test-suites",
+  "name": "build-e2e-test-suites",
+  "description": "Build reliable, fast E2E test suites with Playwright and Cypress. Critical user journey coverage, flaky test elimination, CI/CD integration.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1",
+  "icon": "globe",
+  "order": 1000
+}

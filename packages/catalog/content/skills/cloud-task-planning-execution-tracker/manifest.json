@@ -1,0 +1,10 @@
+{
+  "id": "cloud-task-planning-execution-tracker",
+  "name": "cloud-task-planning-execution-tracker",
+  "description": "Cloud Task Planning & Execution for OpenClaw. Makes your agent's work transparent and trackable. Structure all actions into persistent tasks with context notes. Watch progress unfold in real-time via web or mobile — no more \"what are you working on?\" interruptions.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

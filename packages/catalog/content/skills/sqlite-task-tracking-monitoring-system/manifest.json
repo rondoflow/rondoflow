@@ -1,0 +1,10 @@
+{
+  "id": "sqlite-task-tracking-monitoring-system",
+  "name": "sqlite-task-tracking-monitoring-system",
+  "description": "Complete task tracking system with SQLite persistence, automatic creation, notifications, heartbeat monitoring, and stuck task recovery. Replaces task-queue-heartbeat, auto-track, and notification skills. Use for all task management needs.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

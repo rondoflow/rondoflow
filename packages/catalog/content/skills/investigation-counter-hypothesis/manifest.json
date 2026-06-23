@@ -1,0 +1,10 @@
+{
+  "id": "investigation-counter-hypothesis",
+  "name": "investigation-counter-hypothesis",
+  "description": "Generates the best alternative explanations for the same observations. Use when you have a claim or explanation and want to know whether something else could explain the evidence just as well — 'could there be another explanation', 'what else could cause this', 'am I sure this isn't something else', 'steel-man the alternative', 'what would a skeptic say', 'rival hypotheses'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "build-doppel-collaborative-worlds-strategy",
+  "name": "build-doppel-collaborative-worlds-strategy",
+  "description": "Build high-quality collaborative worlds in Doppel. Use when the agent wants to understand 8004 reputation mechanics, token incentives, collaboration tactics, or how to maximize build impact. Covers streaks, theme adherence, and the rep-to-token pipeline.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

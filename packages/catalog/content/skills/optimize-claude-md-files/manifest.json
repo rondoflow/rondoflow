@@ -1,0 +1,10 @@
+{
+  "id": "optimize-claude-md-files",
+  "name": "optimize-claude-md-files",
+  "description": "Guide for writing and optimizing CLAUDE.md files for maximum Claude Code performance. Use when creating new CLAUDE.md, reviewing existing ones, or when user asks about CLAUDE.md best practices. Covers structure, content, pruning, and common mistakes.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

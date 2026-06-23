@@ -1,0 +1,10 @@
+{
+  "id": "audit-construction-data-sources",
+  "name": "audit-construction-data-sources",
+  "description": "Comprehensive audit of all construction data sources and systems. Map data flows, identify silos, assess quality, and create integration roadmap.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

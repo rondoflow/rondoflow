@@ -1,0 +1,10 @@
+{
+  "id": "assist-creator-rights-management",
+  "name": "assist-creator-rights-management",
+  "description": "Standardize provenance, attribution, and licensing metadata at creation time so your content travels cleanly across platforms.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1",
+  "icon": "pencil",
+  "order": 1000
+}

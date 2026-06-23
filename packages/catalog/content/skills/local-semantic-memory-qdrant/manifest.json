@@ -1,0 +1,10 @@
+{
+  "id": "local-semantic-memory-qdrant",
+  "name": "local-semantic-memory-qdrant",
+  "description": "Local semantic memory with Qdrant and Transformers.js. Store, search, and recall conversation context using vector embeddings (fully local, no API keys).",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.10",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "record-share-coding-sessions",
+  "name": "record-share-coding-sessions",
+  "description": "Record, export, and share your AI coding sessions as replayable buildlogs",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cluster-api-lifecycle-management",
+  "name": "cluster-api-lifecycle-management",
+  "description": "Cluster API lifecycle management for provisioning, scaling, and upgrading Kubernetes clusters. Use when managing cluster infrastructure or multi-cluster operations.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

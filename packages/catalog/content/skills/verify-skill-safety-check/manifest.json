@@ -1,0 +1,10 @@
+{
+  "id": "verify-skill-safety-check",
+  "name": "verify-skill-safety-check",
+  "description": "Security check for ClawHub skills powered by Koi. Query the Clawdex API before installing any skill to verify it's safe.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

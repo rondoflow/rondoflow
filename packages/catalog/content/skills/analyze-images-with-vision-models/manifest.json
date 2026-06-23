@@ -1,0 +1,10 @@
+{
+  "id": "analyze-images-with-vision-models",
+  "name": "analyze-images-with-vision-models",
+  "description": "Analyze images using the built-in vision capabilities of multimodal AI models.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

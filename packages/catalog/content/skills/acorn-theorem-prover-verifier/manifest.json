@@ -1,0 +1,10 @@
+{
+  "id": "acorn-theorem-prover-verifier",
+  "name": "acorn-theorem-prover-verifier",
+  "description": "Verify and write proofs using the Acorn theorem prover for mathematical and cryptographic formalization. Use when working with Acorn proof files (.ac), verifying theorems, formalizing mathematical or cryptographic protocols, or writing proofs in the Acorn language. Triggers on:…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

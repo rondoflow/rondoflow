@@ -1,0 +1,10 @@
+{
+  "id": "demo-x402-payment-fetch-image",
+  "name": "demo-x402-payment-fetch-image",
+  "description": "Demo of x402 payment protocol by fetching a protected image. Triggers: '演示x402-payment' or 'demo x402-payment'",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

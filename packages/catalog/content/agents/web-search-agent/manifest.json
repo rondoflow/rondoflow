@@ -1,0 +1,13 @@
+{
+  "id": "web-search-agent",
+  "name": "Web Search Agent",
+  "description": "Fast, focused web search and source gathering.",
+  "icon": "Globe",
+  "category": "SEO & Search",
+  "purpose": "research",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch"],
+  "tags": ["search", "web", "research", "sources", "lookup"],
+  "order": 9
+}

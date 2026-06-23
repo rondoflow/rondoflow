@@ -1,0 +1,10 @@
+{
+  "id": "book-handyman-services",
+  "name": "book-handyman-services",
+  "description": "Book handyman services through Lokuli MCP. Use when user needs to find and book handyman. Triggers on requests like \"book a handyman\", \"find handyman near me\", or any handyman service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pinchtab-browser-automation",
+  "name": "pinchtab-browser-automation",
+  "description": "Use this skill when a task needs browser automation through PinchTab: open a website, inspect interactive elements, click through flows, fill out forms, scrape page text, log into sites with a persistent profile, export screenshots or PDFs, manage multiple browser instances, or…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.10.0",
+  "icon": "globe",
+  "order": 1000
+}

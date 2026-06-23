@@ -1,0 +1,10 @@
+{
+  "id": "call-evm-json-rpc-endpoints",
+  "name": "call-evm-json-rpc-endpoints",
+  "description": "Call RouteMesh's unified JSON-RPC endpoint (lb.routeme.sh) for any EVM chainId using a helper script. Use when you need to fetch onchain data (eth_* methods), debug RPC responses, or demo RouteMesh routing for a chain/method.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

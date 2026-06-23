@@ -1,0 +1,10 @@
+{
+  "id": "create-python-data-visualizations",
+  "name": "create-python-data-visualizations",
+  "description": "Professional data visualization using Python (matplotlib, seaborn, plotly). Create publication-quality static charts, statistical visualizations, and interactive plots. Use when generating charts/graphs/plots from data, creating infographics with data components, or producing sc…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

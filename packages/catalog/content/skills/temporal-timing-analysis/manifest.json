@@ -1,0 +1,10 @@
+{
+  "id": "temporal-timing-analysis",
+  "name": "temporal-timing-analysis",
+  "description": "Assesses whether now is the right time to act, wait, or prepare. Use when asked 'is now the right time', 'should we wait', 'are we too early', 'timing this decision', 'when to move', or 'momentum'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

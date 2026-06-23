@@ -1,0 +1,10 @@
+{
+  "id": "build-and-operate-online-stores",
+  "name": "build-and-operate-online-stores",
+  "description": "Build and operate online stores with payment security, inventory management, marketplace integration, and conversion optimization.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,158 @@
+{
+  "users": {
+    "title": "Users",
+    "description": "Manage who can access this workspace and what they can do.",
+    "invite": {
+      "heading": "Invite a user",
+      "placeholder": {
+        "name": "Name",
+        "email": "Email",
+        "password": "Temporary password (8+ chars)"
+      },
+      "submit": "Create user",
+      "validation": "Email, name, and an 8+ character password are required",
+      "created": "Created {{email}}"
+    },
+    "badge": {
+      "you": "You",
+      "deactivated": "Deactivated"
+    },
+    "role": {
+      "changed": "{{email}} is now {{role}}",
+      "selfTitle": "You cannot change your own role",
+      "admin": {
+        "label": "admin",
+        "description": "Full access — manages users and everything an editor can do"
+      },
+      "editor": {
+        "label": "editor",
+        "description": "Create, edit, delete, and run workflows on the shared workspace"
+      },
+      "viewer": {
+        "label": "viewer",
+        "description": "Read-only — can view but not edit or run"
+      }
+    },
+    "action": {
+      "reactivate": "Reactivate",
+      "deactivate": "Deactivate",
+      "deleteUser": "Delete user"
+    },
+    "toast": {
+      "reactivated": "{{email}} reactivated",
+      "deactivated": "{{email}} deactivated",
+      "deleted": "{{email}} deleted",
+      "requestFailed": "Request failed"
+    },
+    "empty": "No users yet.",
+    "delete": {
+      "title": "Delete user?",
+      "description": "Permanently delete {{email}}. Their activity history is retained but they can no longer sign in. This cannot be undone."
+    }
+  },
+  "mcp": {
+    "title": "MCP Connections",
+    "description": "Manage external Model Context Protocol servers",
+    "add": "Add Connection",
+    "empty": {
+      "title": "No connections yet",
+      "description": "Add an MCP server to extend agent capabilities."
+    },
+    "list": {
+      "ariaLabel": "MCP server connections"
+    },
+    "card": {
+      "editAria": "Edit {{name}}",
+      "deleteAria": "Delete {{name}}",
+      "test": "Test Connection",
+      "testing": "Testing…",
+      "connected": "Connected",
+      "failed": "Failed"
+    },
+    "dialog": {
+      "addTitle": "Add MCP Connection",
+      "editTitle": "Edit MCP Connection",
+      "save": "Save Connection"
+    },
+    "field": {
+      "name": "Name",
+      "namePlaceholder": "e.g. filesystem",
+      "description": "Description",
+      "descriptionPlaceholder": "What does this server provide?",
+      "command": "Command",
+      "commandPlaceholder": "npx, python, /usr/bin/my-server",
+      "args": "Arguments (comma-separated)",
+      "argsPlaceholder": "-y, @modelcontextprotocol/server-filesystem, /tmp",
+      "env": "Environment Variables",
+      "envKeyPlaceholder": "KEY",
+      "envValuePlaceholder": "value",
+      "envAdd": "Add",
+      "envRemoveAria": "Remove env var",
+      "transport": "Transport",
+      "transportStdio": "Local (stdio)",
+      "transportHttp": "HTTP",
+      "transportSse": "SSE",
+      "url": "Server URL",
+      "urlPlaceholder": "https://example.com/mcp",
+      "auth": "Authentication",
+      "authNone": "None",
+      "authBearer": "Bearer token",
+      "authHeader": "Header",
+      "authOauth2": "OAuth2",
+      "token": "Bearer token",
+      "tokenPlaceholder": "Paste token or OAuth access token",
+      "secretKeep": "•••••• (leave blank to keep)",
+      "headerName": "Header name",
+      "headerNamePlaceholder": "X-API-Key",
+      "headerValue": "Header value",
+      "headerValuePlaceholder": "secret value",
+      "tokenUrl": "Token URL",
+      "tokenUrlPlaceholder": "https://example.com/oauth/token",
+      "clientId": "Client ID",
+      "clientIdPlaceholder": "client id",
+      "clientSecret": "Client secret",
+      "clientSecretPlaceholder": "client secret",
+      "scope": "Scope",
+      "scopePlaceholder": "optional, space-separated",
+      "oauthHint": "Token and OAuth2 secrets are encrypted at rest and sent to the agent at run time. Interactive browser OAuth is not supported for spawned agents — use a token or OAuth2 client credentials."
+    }
+  },
+  "approval": {
+    "title": "Action Required",
+    "description": "An agent is requesting permission to run a command. Review it carefully before approving.",
+    "waiting": "Waiting for approval",
+    "intent": "What the agent wants to do",
+    "command": "Command",
+    "commandAria": "Command to be executed",
+    "editCommandAria": "Edit command",
+    "edit": "Edit & Approve",
+    "cancelEdit": "Cancel edit",
+    "editToggleAria": "Edit command before approving",
+    "approve": "Approve",
+    "approveEdit": "Approve Edit",
+    "approveAria": "Approve this command",
+    "approveEditAria": "Approve with edited command",
+    "reject": "Reject",
+    "rejectAria": "Reject this command",
+    "shortcuts": "Enter = Approve · Esc = Reject",
+    "countdown": {
+      "label": "Auto-dismiss",
+      "autoDismissAria": "Auto-dismiss in {{time}}"
+    },
+    "risk": {
+      "levelAria": "Risk level: {{label}}",
+      "high": {
+        "label": "High Risk",
+        "reason": "This command may cause irreversible changes."
+      },
+      "medium": {
+        "label": "Medium Risk",
+        "reason": "This command modifies external state."
+      },
+      "low": {
+        "label": "Low Risk",
+        "reason": "No obvious destructive patterns detected."
+      }
+    }
+  }
+}

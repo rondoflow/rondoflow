@@ -1,0 +1,10 @@
+{
+  "id": "monitor-codex-cli-sessions",
+  "name": "monitor-codex-cli-sessions",
+  "description": "List/inspect/watch local OpenAI Codex sessions (CLI + VS Code) using the CodexMonitor Homebrew formula.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

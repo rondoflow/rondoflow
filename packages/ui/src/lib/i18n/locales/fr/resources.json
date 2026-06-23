@@ -1,0 +1,293 @@
+{
+  "browser": {
+    "title": "Ressources de l'espace de travail",
+    "refresh": "Actualiser les ressources",
+    "close": "Fermer le panneau des ressources",
+    "tabAriaLabel": "Onglet {{tab}}",
+    "tablistLabel": "Onglets des ressources",
+    "loadingAria": "Chargement des ressources",
+    "tab": {
+      "files": "Fichiers",
+      "links": "Liens",
+      "notes": "Notes",
+      "variables": "Variables"
+    },
+    "summaryFormat": "{{files}} · {{links}} · {{notes}} · {{variables}}",
+    "summary": {
+      "files_one": "{{count}} fichier",
+      "files_other": "{{count}} fichiers",
+      "links_one": "{{count}} lien",
+      "links_other": "{{count}} liens",
+      "notes_one": "{{count}} note",
+      "notes_other": "{{count}} notes",
+      "variables_one": "{{count}} variable",
+      "variables_other": "{{count}} variables"
+    }
+  },
+  "files": {
+    "dropzone": "Déposez des fichiers ici ou cliquez pour parcourir",
+    "uploading": "Téléversement de {{name}}…",
+    "empty": "Aucun fichier téléversé pour l'instant.",
+    "listLabel": "Fichiers téléversés",
+    "renameAria": "Renommer le fichier",
+    "size.unknown": "—",
+    "preview": "Aperçu",
+    "previewAria": "Aperçu de {{name}}",
+    "download": "Télécharger",
+    "downloadAria": "Télécharger {{name}}",
+    "rename": "Renommer",
+    "renameItemAria": "Renommer {{name}}",
+    "deleteItemAria": "Supprimer {{name}}"
+  },
+  "links": {
+    "add": "Ajouter un lien",
+    "empty": "Aucun lien ajouté pour l'instant.",
+    "listLabel": "Liens de l'espace de travail",
+    "placeholder": {
+      "url": "URL *",
+      "title": "Titre",
+      "description": "Description (facultatif)"
+    },
+    "aria": {
+      "url": "URL du lien",
+      "title": "Titre du lien",
+      "description": "Description du lien"
+    },
+    "open": "Ouvrir le lien",
+    "openAria": "Ouvrir {{name}}",
+    "deleteItemAria": "Supprimer {{name}}"
+  },
+  "notes": {
+    "add": "Ajouter une note",
+    "empty": "Aucune note ajoutée pour l'instant.",
+    "listLabel": "Notes de l'espace de travail",
+    "placeholder": {
+      "title": "Titre de la note *",
+      "content": "Rédigez votre note ici…"
+    },
+    "aria": {
+      "title": "Titre de la note",
+      "content": "Contenu de la note",
+      "expand": "Développer la note : {{name}}",
+      "collapse": "Réduire la note : {{name}}",
+      "edit": "Modifier la note {{name}}",
+      "delete": "Supprimer la note {{name}}"
+    },
+    "autoSave": "Enregistrement automatique à la perte du focus · {{date}}"
+  },
+  "variables": {
+    "add": "Ajouter une variable",
+    "empty": "Aucune variable ajoutée pour l'instant.",
+    "listLabel": "Variables de l'espace de travail",
+    "placeholder": {
+      "key": "Clé *",
+      "value": "Valeur"
+    },
+    "aria": {
+      "key": "Clé de la variable",
+      "value": "Valeur de la variable",
+      "secret": "Variable secrète",
+      "editValue": "Modifier la valeur de {{name}}"
+    },
+    "secretLabel": "Secret (masquer la valeur)",
+    "showValue": "Afficher la valeur",
+    "hideValue": "Masquer la valeur",
+    "show": "Afficher",
+    "hide": "Masquer",
+    "editItemAria": "Modifier {{name}}",
+    "deleteItemAria": "Supprimer {{name}}"
+  },
+  "externalFolders": {
+    "title": "Dossiers externes",
+    "ariaLabel": "Dossiers externes",
+    "refresh": "Actualiser",
+    "description": "Enregistrez les répertoires hôtes montés dans le conteneur et attachez-les aux assistants",
+    "attachNotice": "L'enregistrement ou l'attachement d'un dossier l'ajoutera à l'assistant sélectionné.",
+    "empty": {
+      "title": "Aucun dossier externe monté",
+      "intro": "Le serveur s'exécute dans Docker, les dossiers hôtes doivent donc être montés (bind-mount) dans le conteneur. Montez un répertoire, puis il apparaît ici automatiquement.",
+      "step1Prefix": "Définissez",
+      "step1Mid": "dans",
+      "step1Suffix": "(ou ajoutez un bind mount sous",
+      "step1End": "dans",
+      "step1Tail": ").",
+      "step2": "Redémarrez le conteneur du serveur.",
+      "step3": "Cliquez sur Actualiser — les dossiers montés s'affichent ci-dessous.",
+      "rootMissing": "La racine de montage n'est pas encore présente dans le conteneur."
+    },
+    "readOnlyBadge": "Lecture seule",
+    "added": "Ajouté",
+    "attach": "Attacher",
+    "deleteAria": "Supprimer {{name}}",
+    "delete": "Supprimer",
+    "pickPlaceholder": "Choisissez un dossier monté…",
+    "placeholder": {
+      "containerPath": "/external/my-project",
+      "name": "Nom d'affichage",
+      "description": "Description (facultatif)"
+    },
+    "aria": {
+      "containerPath": "Chemin dans le conteneur",
+      "name": "Nom",
+      "description": "Description"
+    },
+    "readOnlyLabelPrefix": "Lecture seule (monté avec",
+    "readOnlyLabelSuffix": ")",
+    "register": "Enregistrer",
+    "registerFolder": "Enregistrer un dossier",
+    "error": {
+      "required": "Le nom et le chemin dans le conteneur sont obligatoires",
+      "registerFailed": "Échec de l'enregistrement du dossier"
+    }
+  },
+  "marketplace": {
+    "title": "Compétences",
+    "ariaLabel": "Compétences",
+    "description": "Parcourez et gérez les compétences de vos assistants",
+    "attachNotice": "L'ajout d'une compétence l'attachera à l'assistant sélectionné.",
+    "tab": {
+      "browse": "Parcourir",
+      "installed": "Installées",
+      "installedCount": "Installées ({{count}})",
+      "create": "Créer",
+      "import": "Importer"
+    },
+    "category": {
+      "all": "Toutes",
+      "development": "Développement",
+      "writing": "Rédaction",
+      "analysis": "Analyse",
+      "research": "Recherche"
+    },
+    "browse": {
+      "searchPlaceholder": "Rechercher des compétences...",
+      "searchAria": "Rechercher des compétences",
+      "filterLabel": "Filtrer par catégorie",
+      "loading": "Chargement des compétences…",
+      "emptyCatalog": "Aucune compétence disponible dans le catalogue",
+      "emptyMatch": "Aucune compétence ne correspond à « {{query}} »",
+      "listLabel": "Compétences disponibles",
+      "chipAria": "{{category}} ({{count}} compétences)"
+    },
+    "card": {
+      "version": "v{{version}}",
+      "viewDetailsAria": "Voir les détails de {{name}}",
+      "actionAria": "{{action}} {{name}}",
+      "adding": "Ajout",
+      "installing": "Installation",
+      "added": "Ajoutée",
+      "installed": "Installée",
+      "add": "Ajouter",
+      "install": "Installer",
+      "installFailed": "Échec de l'installation"
+    },
+    "installed": {
+      "empty": "Aucune compétence installée pour l'instant",
+      "emptyHint": "Parcourez la place de marché pour ajouter des capacités !",
+      "listLabel": "Compétences installées",
+      "uninstallAria": "Désinstaller {{name}}"
+    },
+    "create": {
+      "intro": "Rédigez votre propre compétence. Le nom et les instructions deviennent un fichier SKILL.md local que vous pouvez attacher aux assistants.",
+      "nameLabel": "Nom",
+      "namePlaceholder": "my-custom-skill",
+      "nameAria": "Nom de la compétence",
+      "nameInvalid": "Seuls les lettres, les chiffres, les tirets et les traits de soulignement sont autorisés.",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Ce que cette compétence aide l'assistant à faire",
+      "descriptionAria": "Description de la compétence",
+      "categoryLabel": "Catégorie",
+      "categoryOptional": "(facultatif)",
+      "categoryPlaceholder": "Développement, Rédaction, Analyse…",
+      "categoryAria": "Catégorie de la compétence",
+      "instructionsLabel": "Instructions",
+      "instructionsPlaceholder": "Vous êtes un expert en…\n\n## Consignes\n- …",
+      "instructionsAria": "Instructions de la compétence",
+      "creating": "Création",
+      "submit": "Créer la compétence",
+      "success": "« {{name}} » créée et installée.",
+      "failed": "Échec de la création de la compétence"
+    },
+    "edit": {
+      "title": "Modifier {{name}}",
+      "intro": "Mettez à jour les détails et les instructions de cette compétence. L'enregistrement réécrit son fichier SKILL.md local.",
+      "nameReadonly": "Le nom ne peut pas être modifié après la création d'une compétence.",
+      "submit": "Enregistrer les modifications",
+      "saving": "Enregistrement",
+      "success": "« {{name}} » mise à jour.",
+      "failed": "Échec de la mise à jour de la compétence",
+      "backAria": "Retour aux détails de la compétence"
+    },
+    "import": {
+      "label": "URL du dépôt Git",
+      "intro": "Importez une compétence personnalisée depuis un dépôt Git.",
+      "placeholder": "https://github.com/user/skill-repo",
+      "aria": "URL du dépôt Git",
+      "importing": "Importation",
+      "submit": "Importer",
+      "success": "« {{name}} » importée avec succès.",
+      "failed": "Échec de l'importation",
+      "requirements": "Prérequis",
+      "req1Prefix": "Le dépôt doit contenir un fichier",
+      "req1Suffix": "à la racine",
+      "req2": "Le dépôt doit être accessible publiquement ou des identifiants doivent être configurés",
+      "req3Prefix": "Un",
+      "req3Mid": "ou",
+      "req3Suffix": "définit les outils disponibles"
+    }
+  },
+  "detail": {
+    "back": "Retour",
+    "backAria": "Retour à la place de marché",
+    "version": "v{{version}}",
+    "installedOn_one": "Installée sur {{count}} assistant",
+    "installedOn_other": "Installée sur {{count}} assistants",
+    "descriptionHeading": "Description",
+    "whatItDoesHeading": "Ce que fait cette compétence",
+    "whatItDoesBody": "Cette compétence étend votre assistant avec des capacités supplémentaires. Une fois installée, votre assistant peut utiliser les outils et workflows fournis par cette compétence pour accomplir les tâches pertinentes.",
+    "sourcePrefix": "Source : {{url}}",
+    "sourceHeading": "Source",
+    "addToAssistant": "Ajouter à l'assistant",
+    "addedToAssistant": "Ajoutée à l'assistant",
+    "adding": "Ajout...",
+    "uninstall": "Désinstaller la compétence",
+    "uninstalling": "Désinstallation...",
+    "install": "Installer la compétence",
+    "installing": "Installation...",
+    "installFailed": "Échec de l'installation de la compétence",
+    "uninstallFailed": "Échec de la désinstallation de la compétence",
+    "edit": "Modifier",
+    "editAria": "Modifier {{name}}",
+    "editFailed": "Impossible d'ouvrir l'éditeur"
+  },
+  "memory": {
+    "selectWorkspace": "Sélectionnez d'abord un espace de travail",
+    "empty": "Aucune mémoire pour l'instant",
+    "emptyHint": "Les faits de l'espace de travail et les apprentissages capturés automatiquement apparaissent ici et sont partagés avec chaque agent.",
+    "source": {
+      "manual": "manuel",
+      "auto": "auto",
+      "director": "directeur"
+    },
+    "placeholder": {
+      "key": "Clé",
+      "value": "Valeur"
+    },
+    "addAria": "Ajouter une mémoire",
+    "unpin": "Détacher",
+    "pin": "Épingler",
+    "readOnly": "capturé automatiquement · lecture seule"
+  },
+  "errors": {
+    "loadResources": "Échec du chargement des ressources",
+    "uploadFailed": "Échec du téléversement",
+    "createResource": "Échec de la création de la ressource",
+    "updateResource": "Échec de la mise à jour de la ressource",
+    "deleteResource": "Échec de la suppression de la ressource",
+    "loadFolders": "Échec du chargement des dossiers externes",
+    "scanFolders": "Échec de l'analyse des dossiers montés",
+    "registerFolder": "Échec de l'enregistrement du dossier",
+    "updateFolder": "Échec de la mise à jour du dossier",
+    "deleteFolder": "Échec de la suppression du dossier"
+  }
+}

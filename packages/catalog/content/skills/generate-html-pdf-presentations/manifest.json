@@ -1,0 +1,10 @@
+{
+  "id": "generate-html-pdf-presentations",
+  "name": "generate-html-pdf-presentations",
+  "description": "Generate professional HTML and PDF presentations from markdown content, URLs, or topics. Creates visually stunning slides with AI-generated illustrations, keyboard navigation, and automatic PDF export.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

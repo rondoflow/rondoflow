@@ -1,0 +1,10 @@
+{
+  "id": "query-and-index-elasticsearch",
+  "name": "query-and-index-elasticsearch",
+  "description": "Query and index Elasticsearch with proper mappings, analyzers, and search patterns.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "kubernetes-mistake-avoidance-guidance",
+  "name": "kubernetes-mistake-avoidance-guidance",
+  "description": "Avoid common Kubernetes mistakes — resource limits, probe configuration, selector mismatches, and RBAC pitfalls.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

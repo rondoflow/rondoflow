@@ -1,0 +1,10 @@
+{
+  "id": "query-treeline-personal-finances",
+  "name": "query-treeline-personal-finances",
+  "description": "Chat with your finances from Treeline Money. Query balances, spending, budgets, and transactions.",
+  "category": "Community",
+  "author": "community",
+  "version": "26.4.2101",
+  "icon": "puzzle",
+  "order": 1000
+}

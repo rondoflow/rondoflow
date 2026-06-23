@@ -1,0 +1,10 @@
+{
+  "id": "logic-check",
+  "name": "logic-check",
+  "description": "A fast, comprehensive logic report on any argument, plan, or reasoning — validates premises, tests inference, detects fallacies, surfaces hidden assumptions, and produces a verdict. Lighter than logic-council (no peer review), heavier than logic-argument-validation (covers the whole reasoning, not just one argument). Triggers: 'logic check', 'quick logic review', 'check my reasoning', 'is this sound', 'full logic check', any request for a complete logical assessment.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

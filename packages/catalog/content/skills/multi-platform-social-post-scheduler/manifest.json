@@ -1,0 +1,10 @@
+{
+  "id": "multi-platform-social-post-scheduler",
+  "name": "multi-platform-social-post-scheduler",
+  "description": "Schedule and manage social media posts across Instagram, X (Twitter), Bluesky, TikTok, Threads, LinkedIn, Facebook, Pinterest, and YouTube using the AdaptlyPost API. Use when the user wants to schedule social media posts, manage social media content, upload media for social post…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "image",
+  "order": 1000
+}

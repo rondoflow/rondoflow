@@ -1,0 +1,10 @@
+{
+  "id": "teach-solve-explore-mathematics",
+  "name": "teach-solve-explore-mathematics",
+  "description": "Teach, solve, and explore mathematics across all levels with adaptive depth and rigor.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

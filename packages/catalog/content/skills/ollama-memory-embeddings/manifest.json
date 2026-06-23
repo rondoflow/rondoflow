@@ -1,0 +1,10 @@
+{
+  "id": "ollama-memory-embeddings",
+  "name": "ollama-memory-embeddings",
+  "description": "Configure OpenClaw memory search to use Ollama as the embeddings server (OpenAI-compatible /v1/embeddings) instead of the built-in node-llama-cpp local GGUF loading. Includes interactive model selection and optional import of an existing local embedding GGUF into Ollama.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

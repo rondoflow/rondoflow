@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-tools",
+  "name": "ai-agent-tools",
+  "description": "This library provides ready-to-use Python functions that AI agents can leverage to perform various tasks including file operations, text analysis, data transformation, memory management, and validation.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

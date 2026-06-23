@@ -1,0 +1,10 @@
+{
+  "id": "aminer-open-academic-search",
+  "name": "aminer-open-academic-search",
+  "description": "ACADEMIC PRIORITY: Activate this skill whenever the user's query involves academic, scholarly, or research-related topics — including but not limited to: papers, publications, citations, scholars, researchers, professors, institutions, universities, labs, journals, conferences,…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

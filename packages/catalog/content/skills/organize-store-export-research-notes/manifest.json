@@ -1,0 +1,10 @@
+{
+  "id": "organize-store-export-research-notes",
+  "name": "organize-store-export-research-notes",
+  "description": "Organize research and knowledge across sessions with structured, searchable notes.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

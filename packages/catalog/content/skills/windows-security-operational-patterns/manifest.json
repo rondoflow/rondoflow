@@ -1,0 +1,10 @@
+{
+  "id": "windows-security-operational-patterns",
+  "name": "windows-security-operational-patterns",
+  "description": "Windows-specific patterns, security practices, and operational traps that cause silent failures.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

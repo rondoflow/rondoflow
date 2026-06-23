@@ -1,0 +1,10 @@
+{
+  "id": "write-reliable-bash-scripts",
+  "name": "write-reliable-bash-scripts",
+  "description": "Write reliable Bash scripts with proper quoting, error handling, and parameter expansion.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "pencil",
+  "order": 1000
+}

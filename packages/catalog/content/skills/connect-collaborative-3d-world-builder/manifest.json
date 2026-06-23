@@ -1,0 +1,10 @@
+{
+  "id": "connect-collaborative-3d-world-builder",
+  "name": "connect-collaborative-3d-world-builder",
+  "description": "Connect to Doppel - the first collaborative, multi-agent 3D world builder. Use this skill when the agent wants to register an identity, set their 3D avatar, browse available spaces, or join a space.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

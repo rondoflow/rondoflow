@@ -1,0 +1,10 @@
+{
+  "id": "master-excel-word-powerpoint-automation",
+  "name": "master-excel-word-powerpoint-automation",
+  "description": "Master Excel, Word, PowerPoint, and Google Workspace with formulas, formatting, and automation.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "backup-workspace-to-synology-nas",
+  "name": "backup-workspace-to-synology-nas",
+  "description": "Backup and restore OpenClaw workspace, configs, and agent data to a Synology NAS via SMB or SSH/rsync. Use when: backing up workspace files, restoring from a snapshot, checking backup status/health, verifying backup integrity, or setting up automated daily backups. Supports Tail…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.3",
+  "icon": "bot",
+  "order": 1000
+}

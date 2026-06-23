@@ -1,0 +1,10 @@
+{
+  "id": "real-time-server-security-monitoring-dashboard",
+  "name": "real-time-server-security-monitoring-dashboard",
+  "description": "Real-time security monitoring dashboard for OpenClaw and Linux server infrastructure. Monitors gateway status, network security, public exposure, system updates, SSH access, TLS certificates, and resource usage.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

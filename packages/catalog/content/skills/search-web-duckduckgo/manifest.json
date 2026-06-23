@@ -1,0 +1,10 @@
+{
+  "id": "search-web-duckduckgo",
+  "name": "search-web-duckduckgo",
+  "description": "Search the web using DuckDuckGo. Free, no API key required. Use when the user asks to search the web, look something up, find information online, research a topic, or when you need to find current information that isn't in your training data. Also use when web_search tool is una…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "prompt-injection-detection-security",
+  "name": "prompt-injection-detection-security",
+  "description": "Prompt injection detection and security scanning for OpenClaw agents. Installs the ai-sentinel plugin via OpenClaw CLI, configures plugin settings, and offers local (Community) or remote (Pro) classification with dashboard reporting. All configuration changes require explicit us…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.8",
+  "icon": "bot",
+  "order": 1000
+}

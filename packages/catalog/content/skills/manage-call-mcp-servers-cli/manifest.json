@@ -1,0 +1,10 @@
+{
+  "id": "manage-call-mcp-servers-cli",
+  "name": "manage-call-mcp-servers-cli",
+  "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

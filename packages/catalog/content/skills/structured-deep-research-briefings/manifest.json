@@ -1,0 +1,10 @@
+{
+  "id": "structured-deep-research-briefings",
+  "name": "structured-deep-research-briefings",
+  "description": "Deep research on any topic with structured analysis, source evaluation, and synthesis. Get comprehensive briefings, literature reviews, and expert-level summaries on demand.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,302 @@
+{
+  "tabs": {
+    "ariaLabel": "Pracovné priestory",
+    "renameInput": "Premenovať pracovný priestor",
+    "rename": "Premenovať {{name}}",
+    "delete": "Odstrániť {{name}}",
+    "deleteLastDisabled": "Posledný pracovný priestor nie je možné odstrániť",
+    "new": "Nový pracovný priestor",
+    "create": "Vytvoriť nový pracovný priestor",
+    "export": "Exportovať plátno",
+    "exportTooltip": "Exportovať plátno (zdieľať nastavenie)",
+    "import": "Importovať plátno",
+    "importTooltip": "Importovať plátno zo súboru",
+    "info": "Informácie o pracovnom priestore {{name}}"
+  },
+  "info": {
+    "title": "Informácie o pracovnom priestore",
+    "description": "Konfigurácia a štatistiky behov tohto pracovného priestoru (len na čítanie).",
+    "loading": "Načítavam informácie o pracovnom priestore…",
+    "section": {
+      "runs": "Behy",
+      "usage": "Spotreba tokenov",
+      "config": "Konfigurácia",
+      "content": "Plátno a obsah"
+    },
+    "stat": {
+      "totalRuns": "Spolu behov",
+      "completed": "Dokončené",
+      "failed": "Zlyhané",
+      "running": "Bežiace",
+      "avgDuration": "Priem. trvanie",
+      "maxDuration": "Najdlhší beh",
+      "totalDuration": "Celkový čas behu",
+      "totalSteps": "Spolu krokov",
+      "cost": "Celkové náklady",
+      "sessions": "Relácie",
+      "inputTokens": "Vstupné tokeny",
+      "outputTokens": "Výstupné tokeny",
+      "nodes": "Uzly",
+      "edges": "Spojenia",
+      "resources": "Zdroje",
+      "memories": "Pamäte"
+    },
+    "field": {
+      "workingDirectory": "Pracovný adresár",
+      "notSet": "Nenastavené",
+      "created": "Vytvorené",
+      "updated": "Naposledy upravené",
+      "documents": "Dokumenty",
+      "contextDoc": "Kontext",
+      "planDoc": "Plán",
+      "none": "Žiadne",
+      "workspaceId": "ID pracovného priestoru",
+      "lastRun": "Posledný beh",
+      "firstRun": "Prvý beh",
+      "stopped": "Zastavené behy",
+      "canvasLayouts": "Rozloženia plátna",
+      "canvasUpdated": "Plátno upravené",
+      "activityEvents": "Udalosti aktivity",
+      "lastActivity": "Posledná aktivita"
+    }
+  },
+  "search": {
+    "label": "Hľadať",
+    "tooltip": "Hľadať (Ctrl+K)"
+  },
+  "createDialog": {
+    "title": "Nový pracovný priestor",
+    "description": "Začnite s prázdnym plátnom alebo si vyberte preddefinovaný tok, potom ho pomenujte a zvoľte projektový priečinok, v ktorom pracuje.",
+    "startFrom": "Začať z",
+    "templateGroup": "Šablóna pracovného priestoru",
+    "blankTitle": "Prázdny pracovný priestor",
+    "blankDescription": "Začnite s prázdnym plátnom.",
+    "agentCount_one": "{{count}} asistent",
+    "agentCount_few": "{{count}} asistenti",
+    "agentCount_other": "{{count}} asistentov",
+    "namePlaceholder": "Názov pracovného priestoru…",
+    "nameLabel": "Názov nového pracovného priestoru",
+    "selectFolder": "Vybrať projektový priečinok",
+    "selectFolderPlaceholder": "Vybrať projektový priečinok…",
+    "submitFromFlow": "Vytvoriť z toku",
+    "submit": "Vytvoriť pracovný priestor"
+  },
+  "deleteDialog": {
+    "title": "Odstrániť pracovný priestor",
+    "description": "Odstrániť „{{name}}“? Týmto sa odstránia všetky rozloženia plátna a zdroje spojené s týmto pracovným priestorom. Túto akciu nie je možné vrátiť späť."
+  },
+  "palette": {
+    "ariaLabel": "Paleta príkazov",
+    "placeholder": "Zadajte príkaz alebo vyhľadávajte...",
+    "listLabel": "Príkazy",
+    "empty": "Nenašli sa žiadne príkazy pre „{{query}}“",
+    "navigate": "navigovať",
+    "select": "vybrať",
+    "results_one": "{{count}} výsledok",
+    "results_few": "{{count}} výsledky",
+    "results_other": "{{count}} výsledkov"
+  },
+  "category": {
+    "assistants": "Asistenti",
+    "canvas": "Plátno",
+    "navigation": "Navigácia",
+    "actions": "Akcie",
+    "templates": "Šablóny"
+  },
+  "command": {
+    "assistantCreate": {
+      "label": "Vytvoriť nového asistenta",
+      "description": "Pridajte nového asistenta AI do svojho pracovného priestoru"
+    },
+    "assistantList": {
+      "label": "Zobraziť všetkých asistentov",
+      "description": "Prehliadajte a spravujte existujúcich asistentov"
+    },
+    "canvasFit": {
+      "label": "Prispôsobiť zobrazeniu",
+      "description": "Priblížte a posuňte tak, aby boli zobrazené všetky uzly"
+    },
+    "canvasClear": {
+      "label": "Vymazať plátno",
+      "description": "Odstráňte všetky uzly a spojenia z plátna"
+    },
+    "canvasZoomIn": {
+      "label": "Priblížiť",
+      "description": "Zvýšiť úroveň priblíženia"
+    },
+    "canvasZoomOut": {
+      "label": "Oddialiť",
+      "description": "Znížiť úroveň priblíženia"
+    },
+    "navAssistants": {
+      "label": "Otvoriť asistentov",
+      "description": "Prehliadajte a spravujte asistentov"
+    },
+    "navFacilitators": {
+      "label": "Otvoriť facilitátorov",
+      "description": "Spravujte facilitátorov diskusií"
+    },
+    "navDiscussions": {
+      "label": "Otvoriť diskusie",
+      "description": "Prehliadajte diskusie viacerých asistentov"
+    },
+    "navActivity": {
+      "label": "Otvoriť aktivitu",
+      "description": "Kanál vykonávania asistentov v reálnom čase"
+    },
+    "navAudit": {
+      "label": "Otvoriť protokol auditu",
+      "description": "Úplná stopa auditu systémových akcií"
+    },
+    "navHistory": {
+      "label": "Otvoriť históriu",
+      "description": "Minulé spustenia a vykonávania pracovných postupov"
+    },
+    "navAnalytics": {
+      "label": "Otvoriť analytiku",
+      "description": "Spotreba tokenov, náklady a výkon"
+    },
+    "navSkills": {
+      "label": "Otvoriť trhovisko zručností",
+      "description": "Prehliadajte a inštalujte zručnosti"
+    },
+    "navMemory": {
+      "label": "Otvoriť pamäť",
+      "description": "Spravujte trvalú pamäť asistentov"
+    },
+    "navSchedules": {
+      "label": "Otvoriť plány",
+      "description": "Spravujte opakujúce sa spustenia pracovných postupov"
+    },
+    "navSafety": {
+      "label": "Otvoriť bezpečnostné pravidlá",
+      "description": "Spravujte bezpečnostné zásady a ochranné mechanizmy"
+    },
+    "actionUndo": {
+      "label": "Späť",
+      "description": "Vrátiť späť poslednú akciu"
+    },
+    "actionRedo": {
+      "label": "Znovu",
+      "description": "Zopakovať predtým vrátenú akciu"
+    },
+    "actionShortcuts": {
+      "label": "Klávesové skratky",
+      "description": "Zobraziť všetky klávesové skratky"
+    },
+    "templateCodeReview": {
+      "label": "Načítať: Postup kontroly kódu",
+      "description": "Pisateľ → Recenzent → Bezpečnostný recenzent"
+    },
+    "templateContentWriting": {
+      "label": "Načítať: Tím pre tvorbu obsahu",
+      "description": "Výskumník → Pisateľ → Editor"
+    },
+    "templateResearch": {
+      "label": "Načítať: Výskumný asistent",
+      "description": "Samostatný výskumný robot so zručnosťami webového vyhľadávania a analýzy dát"
+    },
+    "templateBrainstorm": {
+      "label": "Načítať: Tím pre brainstorming",
+      "description": "Kreatívec, analytik, diablov advokát a facilitátor"
+    }
+  },
+  "bottomBar": {
+    "ready": "Pripravené",
+    "running": "{{count}} spustených",
+    "tokens": "{{tokens}} tokenov ({{cost}})",
+    "documentation": "Dokumentácia",
+    "notifications": "Upozornenia",
+    "notificationsUnread": "Upozornenia, {{count}} neprečítaných",
+    "undo": "Späť",
+    "undoTooltip": "Späť (Ctrl+Z)",
+    "redo": "Znovu",
+    "redoTooltip": "Znovu (Ctrl+Shift+Z)",
+    "zoomOut": "Oddialiť",
+    "zoomIn": "Priblížiť",
+    "fitView": "Prispôsobiť zobrazeniu"
+  },
+  "userMenu": {
+    "trigger": "Používateľské menu",
+    "item": {
+      "activity": "Aktivita",
+      "audit": "Protokol auditu",
+      "analytics": "Analytika",
+      "users": "Používatelia",
+      "restartOnboarding": "Spustiť sprievodcu odznova",
+      "settings": "Nastavenia",
+      "signOut": "Odhlásiť sa"
+    }
+  },
+  "quickRun": {
+    "deselect": "Zrušiť výber asistenta",
+    "taskPlaceholder": "Zadajte úlohu a stlačte Enter...",
+    "searchPlaceholder": "Hľadať asistentov...",
+    "hintRun": "Enter na spustenie",
+    "hintSelectFirst": "Najprv vyberte asistenta",
+    "hintClose": "Esc na zatvorenie"
+  },
+  "shortcuts": {
+    "title": "Klávesové skratky",
+    "footer": "Stlačením <0></0> alebo <1></1> zatvoríte",
+    "category": {
+      "canvas": "Plátno",
+      "nodes": "Uzly",
+      "navigation": "Navigácia",
+      "editing": "Úpravy"
+    },
+    "panCanvas": "Posúvať plátno",
+    "zoomIn": "Priblížiť",
+    "zoomOut": "Oddialiť",
+    "fitView": "Prispôsobiť zobrazeniu",
+    "selectAll": "Vybrať všetko",
+    "newAgent": "Nový asistent",
+    "deleteSelected": "Odstrániť vybrané",
+    "commandPalette": "Paleta príkazov",
+    "toggleSkills": "Prepnúť bočný panel zručností",
+    "shortcutHelp": "Pomocník skratiek",
+    "replayTips": "Znova prehrať úvodné tipy",
+    "duplicate": "Duplikovať výber",
+    "findNode": "Nájsť uzol",
+    "closeDeselect": "Zatvoriť / zrušiť výber",
+    "undo": "Späť",
+    "redo": "Znovu",
+    "redoAlt": "Znovu (alt.)"
+  },
+  "favorites": {
+    "label": "Obľúbené",
+    "moreCount": "{{count}} ďalších obľúbených"
+  },
+  "browse": {
+    "trigger": "Prehliadať panely",
+    "searchPlaceholder": "Hľadať panely…",
+    "empty": "Žiadne zodpovedajúce panely",
+    "group": {
+      "people": "Ľudia",
+      "runData": "Údaje spustení",
+      "system": "Systém"
+    },
+    "item": {
+      "history": "História",
+      "skills": "Zručnosti",
+      "externalFolders": "Externé priečinky",
+      "memory": "Pamäť",
+      "schedules": "Plány",
+      "discussions": "Diskusie"
+    }
+  },
+  "cliBanner": {
+    "title": "Rozhranie Claude Code CLI sa nenašlo",
+    "description": "rondoflow vyžaduje na spúšťanie asistentov Claude Code. Nainštalujte ho pomocou:",
+    "checkAgain": "Skontrolovať znova",
+    "installGuide": "Sprievodca inštaláciou"
+  },
+  "tier": {
+    "simpleMode_one": "Jednoduchý režim — k dispozícii je {{count}} ďalšia funkcia",
+    "simpleMode_few": "Jednoduchý režim — k dispozícii sú {{count}} ďalšie funkcie",
+    "simpleMode_other": "Jednoduchý režim — k dispozícii je {{count}} ďalších funkcií",
+    "standardMode_one": "Štandardný režim — k dispozícii je {{count}} ďalšia funkcia",
+    "standardMode_few": "Štandardný režim — k dispozícii sú {{count}} ďalšie funkcie",
+    "standardMode_other": "Štandardný režim — k dispozícii je {{count}} ďalších funkcií"
+  }
+}

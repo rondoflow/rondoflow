@@ -1,0 +1,10 @@
+{
+  "id": "design-openclaw-heartbeat-files",
+  "name": "design-openclaw-heartbeat-files",
+  "description": "Design better OpenClaw HEARTBEAT.md files with adaptive cadence, safe checks, and cron handoffs for precise schedules.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "server",
+  "order": 1000
+}

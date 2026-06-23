@@ -1,0 +1,10 @@
+{
+  "id": "network-effects",
+  "name": "network-effects",
+  "description": "Analyzes how value scales with participation — tipping points, lock-in, and winner-take-all dynamics. Use when asked 'do we have network effects', 'when will we hit critical mass', 'why is our competitor hard to displace', 'are we winner-take-all', 'how do we defend our position', 'what's our moat', or when analyzing platforms, marketplaces, or any product where more users make the product better.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

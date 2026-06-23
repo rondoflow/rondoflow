@@ -1,0 +1,10 @@
+{
+  "id": "scrapling-anti-bot-stealth-scraping",
+  "name": "scrapling-anti-bot-stealth-scraping",
+  "description": "Scrape web pages using Scrapling with anti-bot bypass (like Cloudflare Turnstile), stealth headless browsing, spiders framework, adaptive scraping, and JavaScript rendering. Use when asked to scrape, crawl, or extract data from websites; web_fetch fails; the site has anti-bot pr…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.4.7",
+  "icon": "globe",
+  "order": 1000
+}

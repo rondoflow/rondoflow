@@ -1,0 +1,10 @@
+{
+  "id": "crypto-wallets-and-payments-agents",
+  "name": "crypto-wallets-and-payments-agents",
+  "description": "Create wallets, transfer tokens, and enable payments between agents. Perfect for bug bounty programs, rewards systems, and agent-to-agent transactions.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.7",
+  "icon": "coins",
+  "order": 1000
+}

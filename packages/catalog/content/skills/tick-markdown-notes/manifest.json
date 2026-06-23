@@ -1,0 +1,10 @@
+{
+  "id": "tick-markdown-notes",
+  "name": "tick-markdown-notes",
+  "description": "Coordinate work across human and AI agents using structured Markdown files. Users interact naturally with you, and you maintain tasks transparently in TICK.md.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.3.3",
+  "icon": "bot",
+  "order": 1000
+}

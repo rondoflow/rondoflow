@@ -1,0 +1,10 @@
+{
+  "id": "whatsapp-voice-to-voice-chat",
+  "name": "whatsapp-voice-to-voice-chat",
+  "description": "Handles voice-to-voice conversations on WhatsApp. Automatically transcribes incoming audio and responds with local TTS audio. Use when the user wants to \"talk\" instead of type.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

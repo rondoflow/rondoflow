@@ -1,0 +1,10 @@
+{
+  "id": "bridge-openclaw-with-n8n-homeassistant",
+  "name": "bridge-openclaw-with-n8n-homeassistant",
+  "description": "Bridge OpenClaw with your n8n instance for Home Assistant automation.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-migration",
+  "name": "openclaw-migration",
+  "description": "When the workspace is in the middle of renaming the Clawd project to OpenClaw, this skill lives in the repo so everyone—human or helper—can follow the same migration playbook. It outlines what gets moved, renamed, and tested as we align the codebase, docs, and tooling with the n…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

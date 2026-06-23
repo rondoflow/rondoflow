@@ -1,0 +1,10 @@
+{
+  "id": "build-reliable-backend-services",
+  "name": "build-reliable-backend-services",
+  "description": "Build reliable backend services with proper error handling, security, and observability.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

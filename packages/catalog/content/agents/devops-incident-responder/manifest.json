@@ -1,0 +1,28 @@
+{
+  "id": "devops-incident-responder",
+  "name": "DevOps Incident Responder",
+  "description": "Leads incident response with root-cause analysis and durable fixes for production systems.",
+  "icon": "Siren",
+  "category": "Engineering",
+  "purpose": "general",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "devops",
+    "incident",
+    "root-cause",
+    "production",
+    "monitoring"
+  ],
+  "order": 111
+}

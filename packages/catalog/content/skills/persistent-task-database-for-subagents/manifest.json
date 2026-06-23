@@ -1,0 +1,10 @@
+{
+  "id": "persistent-task-database-for-subagents",
+  "name": "persistent-task-database-for-subagents",
+  "description": "OpenClaw's persistent task database. Coordinate sub-agents, checkpoint progress, survive session boundaries.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.24.1",
+  "icon": "bot",
+  "order": 1000
+}

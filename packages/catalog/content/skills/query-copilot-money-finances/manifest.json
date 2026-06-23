@@ -1,0 +1,10 @@
+{
+  "id": "query-copilot-money-finances",
+  "name": "query-copilot-money-finances",
+  "description": "Query Copilot Money personal finance data (accounts, transactions, net worth, holdings, asset allocation) and refresh bank connections. Use when the user asks about finances, account balances, recent transactions, net worth, investment allocation, or wants to sync/refresh bank d…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.2",
+  "icon": "coins",
+  "order": 1000
+}

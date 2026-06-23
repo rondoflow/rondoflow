@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-quality-engineering-code-swarm",
+  "name": "autonomous-quality-engineering-code-swarm",
+  "description": "Autonomous quality engineering swarm that forges production-ready code through continuous behavioral verification, exhaustive E2E testing, and self-healing fix loops. Combines DDD+ADR+TDD methodology with BDD/Gherkin specifications, 7 quality gates, defect prediction, chaos test…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

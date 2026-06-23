@@ -1,0 +1,10 @@
+{
+  "id": "organize-deduplicate-analyze-files",
+  "name": "organize-deduplicate-analyze-files",
+  "description": "Safely organize, deduplicate, and analyze files with intelligent bulk operations and full undo support.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

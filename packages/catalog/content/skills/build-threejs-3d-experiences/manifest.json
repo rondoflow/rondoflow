@@ -1,0 +1,10 @@
+{
+  "id": "build-threejs-3d-experiences",
+  "name": "build-threejs-3d-experiences",
+  "description": "Build 3D web experiences with proper resource management and performance patterns.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

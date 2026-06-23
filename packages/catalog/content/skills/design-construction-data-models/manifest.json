@@ -1,0 +1,10 @@
+{
+  "id": "design-construction-data-models",
+  "name": "design-construction-data-models",
+  "description": "Design data models for construction projects. Create entity-relationship diagrams, define schemas, and generate database structures.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

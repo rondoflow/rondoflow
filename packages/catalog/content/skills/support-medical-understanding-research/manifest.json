@@ -1,0 +1,10 @@
+{
+  "id": "support-medical-understanding-research",
+  "name": "support-medical-understanding-research",
+  "description": "Support medical understanding from patient education to clinical practice and research.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

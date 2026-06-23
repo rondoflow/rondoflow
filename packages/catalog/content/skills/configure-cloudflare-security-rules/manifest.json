@@ -1,0 +1,10 @@
+{
+  "id": "configure-cloudflare-security-rules",
+  "name": "configure-cloudflare-security-rules",
+  "description": "Configures and manages Cloudflare DNS, caching, security rules, rate limiting, and Workers",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "server",
+  "order": 1000
+}

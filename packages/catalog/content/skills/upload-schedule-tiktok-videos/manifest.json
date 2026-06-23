@@ -1,0 +1,10 @@
+{
+  "id": "upload-schedule-tiktok-videos",
+  "name": "upload-schedule-tiktok-videos",
+  "description": "Upload, schedule, and batch-manage TikTok videos via browser automation. Use when: user wants to upload a video to TikTok, schedule a TikTok post, batch upload multiple TikTok videos, or scan a directory for uploadable videos. NOT for: TikTok analytics, downloading videos, or ma…",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "image",
+  "order": 1000
+}

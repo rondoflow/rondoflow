@@ -1,0 +1,10 @@
+{
+  "id": "amazon-asin-product-details-lookup",
+  "name": "amazon-asin-product-details-lookup",
+  "description": "This skill helps users extract structured product details from Amazon using a specific ASIN (Amazon Standard Identification Number). Use this skill when the user asks to get Amazon product details by ASIN, lookup Amazon product title and price using ASIN, extract Amazon product…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "puzzle",
+  "order": 1000
+}

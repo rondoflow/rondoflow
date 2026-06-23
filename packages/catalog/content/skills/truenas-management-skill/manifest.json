@@ -1,0 +1,10 @@
+{
+  "id": "truenas-management-skill",
+  "name": "truenas-management-skill",
+  "description": "Manage TrueNAS SCALE via API. Check pool health, manage datasets and snapshots, monitor alerts, control services, manage apps, orchestrate Dockge container stacks, and manage bookmarks. Use when the user asks about their NAS, storage, backups, containers, bookmarks, or homelab s…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

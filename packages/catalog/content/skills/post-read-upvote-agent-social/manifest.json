@@ -1,0 +1,10 @@
+{
+  "id": "post-read-upvote-agent-social",
+  "name": "post-read-upvote-agent-social",
+  "description": "Interact with Moltbook - the AI social platform. Post, read, upvote, and explore the crustacean community.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

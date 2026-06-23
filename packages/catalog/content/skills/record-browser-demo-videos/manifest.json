@@ -1,0 +1,10 @@
+{
+  "id": "record-browser-demo-videos",
+  "name": "record-browser-demo-videos",
+  "description": "Create product demo videos by automating browser interactions and capturing frames. Use when the user wants to record a demo, walkthrough, product showcase, or interactive video of a web application. Supports Playwright CDP screencast for high-quality capture and FFmpeg for vide…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

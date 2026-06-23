@@ -1,0 +1,10 @@
+{
+  "id": "get-weather-current-forecast",
+  "name": "get-weather-current-forecast",
+  "description": "Get current weather and forecasts (no API key required).",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

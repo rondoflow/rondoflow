@@ -1,0 +1,46 @@
+{
+  "name": "rondoflow",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:ui": "turbo dev --filter=@rondoflow/ui",
+    "dev:server": "turbo dev --filter=@rondoflow/server",
+    "dev:docs": "turbo dev --filter=@rondoflow/docs",
+    "dev:landing": "turbo dev --filter=@rondoflow/landing",
+    "build": "turbo build",
+    "catalog:build": "tsx packages/catalog/scripts/build-catalog.ts",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "generate": "prisma generate --schema=packages/server/prisma/schema.prisma",
+    "db:migrate": "npx prisma migrate dev --schema=packages/server/prisma/schema.prisma",
+    "db:seed": "npx prisma db seed --schema=packages/server/prisma/schema.prisma",
+    "db:studio": "npx prisma studio --schema=packages/server/prisma/schema.prisma",
+    "docker:up": "docker compose up -d postgres",
+    "docker:down": "docker compose down",
+    "docker:all": "docker compose up --build",
+    "docker:all:detach": "docker compose up --build -d",
+    "setup": "npm install && npm run catalog:build && node scripts/setup-env.js && docker compose up -d --wait postgres && npm run db:migrate && npm run db:seed",
+    "test": "turbo test",
+    "test:coverage": "turbo test:coverage"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2",
+    "prettier": "^3.5.0",
+    "tsx": "^4.19.0",
+    "turbo": "^2.5.0",
+    "zod": "4.3.6"
+  },
+  "prisma": {
+    "seed": "tsx --env-file=.env packages/server/prisma/seed.ts"
+  }
+}

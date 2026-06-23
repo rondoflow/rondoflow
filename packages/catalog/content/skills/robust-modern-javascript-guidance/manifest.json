@@ -1,0 +1,10 @@
+{
+  "id": "robust-modern-javascript-guidance",
+  "name": "robust-modern-javascript-guidance",
+  "description": "Write robust JavaScript with async patterns, type coercion handling, and modern ES2023+ features.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "pencil",
+  "order": 1000
+}

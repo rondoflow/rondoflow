@@ -1,0 +1,10 @@
+{
+  "id": "indonesia-prayer-times-lookup",
+  "name": "indonesia-prayer-times-lookup",
+  "description": "Ambil jadwal sholat (imsak, subuh, dzuhur, ashar, maghrib, isya) untuk kota/kabupaten di Indonesia dari API Muslim api.myquran.com (sumber Kemenag Bimas Islam). Gunakan saat user minta jadwal sholat hari ini / tanggal tertentu / 1 bulan untuk lokasi tertentu, atau butuh mencari…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "pr-review-merge-workflow",
+  "name": "pr-review-merge-workflow",
+  "description": "Standard PR review and merge workflow for task-driven development. Use when reviewing a programmer agent PR linked to a task, deciding merge vs change request, handling post-merge actions (Trello + branch cleanup), and sending a clear outcome handoff.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

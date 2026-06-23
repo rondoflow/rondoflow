@@ -1,0 +1,10 @@
+{
+  "id": "convert-office-documents-to-markdown",
+  "name": "convert-office-documents-to-markdown",
+  "description": "Convert office documents (PDF, DOC, DOCX, PPTX) to Markdown format. This skill uses the word-extractor library for .doc support and provides full OpenClaw integration.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "plug",
+  "order": 1000
+}

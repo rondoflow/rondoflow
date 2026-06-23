@@ -1,0 +1,10 @@
+{
+  "id": "create-feishu-interactive-cards",
+  "name": "create-feishu-interactive-cards",
+  "description": "Create and send interactive cards to Feishu (Lark) with buttons, forms, polls, and rich UI elements. Use when replying to Feishu messages and there is ANY uncertainty - send an interactive card instead of plain text to let users choose via buttons. Automatically handles callback…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

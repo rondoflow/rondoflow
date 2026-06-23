@@ -1,0 +1,10 @@
+{
+  "id": "control-eight-sleep-pods",
+  "name": "control-eight-sleep-pods",
+  "description": "Control Eight Sleep pods (status, temperature, alarms, schedules).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

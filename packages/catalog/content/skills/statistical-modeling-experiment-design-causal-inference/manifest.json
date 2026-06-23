@@ -1,0 +1,10 @@
+{
+  "id": "statistical-modeling-experiment-design-causal-inference",
+  "name": "statistical-modeling-experiment-design-causal-inference",
+  "description": "World-class senior data scientist skill specialising in statistical modeling, experiment design, causal inference, and predictive analytics. Covers A/B testing (sample sizing, two-proportion z-tests, Bonferroni correction), difference-in-differences, feature engineering pipeline…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "scan-code-patent-patterns",
+  "name": "scan-code-patent-patterns",
+  "description": "Scan your codebase for distinctive patterns — get structured scoring and evidence for patent consultation. NOT legal advice.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

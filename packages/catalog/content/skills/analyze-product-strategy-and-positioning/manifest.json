@@ -1,0 +1,10 @@
+{
+  "id": "analyze-product-strategy-and-positioning",
+  "name": "analyze-product-strategy-and-positioning",
+  "description": "Product strategy analysis for any consumer product. Competitive analysis, market sizing (TAM/SAM/SOM), pricing strategy, launch readiness assessment, and positioning. Built from 20 years of PM experience across consumer electronics, gaming, and mobile.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

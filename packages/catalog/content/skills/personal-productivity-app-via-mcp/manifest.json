@@ -1,0 +1,10 @@
+{
+  "id": "personal-productivity-app-via-mcp",
+  "name": "personal-productivity-app-via-mcp",
+  "description": "Personal productivity app with Ideas/Tasks, Journal, Habits, Package tracking, Lists, and more via MCP",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.20260202",
+  "icon": "bot",
+  "order": 1000
+}

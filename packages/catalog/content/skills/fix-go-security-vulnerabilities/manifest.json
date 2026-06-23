@@ -1,0 +1,10 @@
+{
+  "id": "fix-go-security-vulnerabilities",
+  "name": "fix-go-security-vulnerabilities",
+  "description": "Identify, assess, and fix security vulnerabilities in Go modules using govulncheck. Handle common vulnerabilities like JWT issues and ensure application stability during fixes.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

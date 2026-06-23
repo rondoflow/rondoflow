@@ -1,0 +1,29 @@
+{
+  "id": "cloud-architect",
+  "name": "Cloud Architect",
+  "description": "Designs scalable, secure, cost-efficient AWS/Azure/GCP infrastructure with Terraform.",
+  "icon": "Cloud",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "cloud",
+    "aws",
+    "azure",
+    "gcp",
+    "terraform",
+    "infrastructure"
+  ],
+  "order": 105
+}

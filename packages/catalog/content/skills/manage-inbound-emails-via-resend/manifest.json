@@ -1,0 +1,10 @@
+{
+  "id": "manage-inbound-emails-via-resend",
+  "name": "manage-inbound-emails-via-resend",
+  "description": "Manage received (inbound) emails and attachments via Resend API. Use when user asks about their emails, received messages, or email attachments.",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "search-pubmed-with-edirect-cli",
+  "name": "search-pubmed-with-edirect-cli",
+  "description": "Search and retrieve literature from PubMed using NCBI's EDirect command-line tools. ⚠️ Advanced skill requiring manual installation.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.4.4",
+  "icon": "puzzle",
+  "order": 1000
+}

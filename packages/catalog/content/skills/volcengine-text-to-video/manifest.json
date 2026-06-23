@@ -1,0 +1,10 @@
+{
+  "id": "volcengine-text-to-video",
+  "name": "volcengine-text-to-video",
+  "description": "AI video generation workflow on Volcengine. Use when users need text-to-video, image-to-video, generation parameter tuning, or async task troubleshooting for video jobs.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

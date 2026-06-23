@@ -1,0 +1,10 @@
+{
+  "id": "advanced-ffmpeg-media-processing",
+  "name": "advanced-ffmpeg-media-processing",
+  "description": "Use when performing video/audio processing tasks including transcoding, filtering, streaming, metadata manipulation, or complex filtergraph operations with FFmpeg.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

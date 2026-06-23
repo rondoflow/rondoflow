@@ -1,0 +1,10 @@
+{
+  "id": "generate-energy-optimized-daily-plan",
+  "name": "generate-energy-optimized-daily-plan",
+  "description": "Generate an energy-optimized, time-blocked daily plan",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

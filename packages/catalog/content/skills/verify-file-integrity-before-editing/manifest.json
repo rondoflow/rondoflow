@@ -1,0 +1,10 @@
+{
+  "id": "verify-file-integrity-before-editing",
+  "name": "verify-file-integrity-before-editing",
+  "description": "Know the file you're editing is the file you think it is — verify integrity before you act",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.5.1",
+  "icon": "pencil",
+  "order": 1000
+}

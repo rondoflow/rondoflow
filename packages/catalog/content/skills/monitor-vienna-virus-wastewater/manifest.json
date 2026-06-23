@@ -1,0 +1,10 @@
+{
+  "id": "monitor-vienna-virus-wastewater",
+  "name": "monitor-vienna-virus-wastewater",
+  "description": "Virus-Monitoring für Wien (Abwasser + Sentinel)",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

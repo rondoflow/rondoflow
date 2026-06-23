@@ -1,0 +1,10 @@
+{
+  "id": "writing-scene-construction",
+  "name": "writing-scene-construction",
+  "description": "Diagnoses and repairs individual scenes using the want/obstacle/outcome framework. Every scene must change the story's state. Use when a scene feels flat, static, or purposeless. Triggers: 'this scene isn't working', 'scene construction', 'scene feels flat', 'scene review', 'fix this scene', 'the scene doesn't do anything', 'should I cut this scene'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

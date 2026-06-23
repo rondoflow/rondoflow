@@ -1,0 +1,10 @@
+{
+  "id": "systeme-marketing-integration",
+  "name": "systeme-marketing-integration",
+  "description": "Systeme.io API integration with managed OAuth. Manage contacts, tags, courses, communities, and subscriptions. Use this skill when users want to manage Systeme.io contacts, enroll students in courses, manage community memberships, or handle subscriptions. For other third party a…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "plug",
+  "order": 1000
+}

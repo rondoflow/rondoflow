@@ -1,0 +1,10 @@
+{
+  "id": "search-summarize-xiaohongshu-posts",
+  "name": "search-summarize-xiaohongshu-posts",
+  "description": "Searches Xiaohongshu(小红书) for a given keyword, extracts the top N posts (including texts, images, and user comments), and then synthesizes a comprehensive final analytical report. Use this skill whenever the user wants to search Xiaohongshu for a specific topic, compile research…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "image",
+  "order": 1000
+}

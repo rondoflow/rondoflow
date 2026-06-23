@@ -1,0 +1,10 @@
+{
+  "id": "comprehensive-ghost-cms-content-integration",
+  "name": "comprehensive-ghost-cms-content-integration",
+  "description": "Comprehensive Ghost CMS integration for creating, publishing, scheduling, and managing blog content, newsletters, members, and analytics. Use when working with Ghost blogs for content creation (drafts, publishing, scheduling), member/subscriber management (tiers, newsletters), c…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.8",
+  "icon": "chart-bar",
+  "order": 1000
+}

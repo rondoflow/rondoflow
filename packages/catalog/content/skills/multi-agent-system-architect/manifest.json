@@ -1,0 +1,10 @@
+{
+  "id": "multi-agent-system-architect",
+  "name": "multi-agent-system-architect",
+  "description": "Transforms your OpenClaw agent from a reactive question-answerer into a proactive autonomous executor. ARCHITECT takes any high-level goal, decomposes it into a dependency-aware task graph, executes each step with validation, self-corrects on failure, and delivers results — all…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

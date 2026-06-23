@@ -1,0 +1,10 @@
+{
+  "id": "monitor-solar-weather-conditions",
+  "name": "monitor-solar-weather-conditions",
+  "description": "Monitor solar weather conditions including geomagnetic storms, solar flares, aurora forecasts, and solar wind data. Uses NOAA Space Weather Prediction Center real-time data.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "maximize-deep-work-focus-sessions",
+  "name": "maximize-deep-work-focus-sessions",
+  "description": "Maximize deep work with focus sessions, distraction logging, and productivity tracking",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

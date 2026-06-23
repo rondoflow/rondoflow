@@ -1,0 +1,10 @@
+{
+  "id": "analyze-meta-ads-campaigns",
+  "name": "analyze-meta-ads-campaigns",
+  "description": "Le campanhas, conjuntos, anuncios e criativos no Meta Ads para diagnostico, relatorios e recomendacoes operacionais usando somente o MCP brijr/meta-mcp.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

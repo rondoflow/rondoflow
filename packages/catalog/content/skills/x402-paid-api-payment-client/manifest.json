@@ -1,0 +1,10 @@
+{
+  "id": "x402-paid-api-payment-client",
+  "name": "x402-paid-api-payment-client",
+  "description": "Make x402 payments to access gated APIs and content. Fetch paid resources, check wallet balance, and create payment links. Use when encountering 402 Payment Required responses or when the user wants to pay for web resources with crypto.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.2.6",
+  "icon": "coins",
+  "order": 1000
+}

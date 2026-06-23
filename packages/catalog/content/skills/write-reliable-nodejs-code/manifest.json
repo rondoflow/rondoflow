@@ -1,0 +1,10 @@
+{
+  "id": "write-reliable-nodejs-code",
+  "name": "write-reliable-nodejs-code",
+  "description": "Write reliable Node.js avoiding event loop blocking, async pitfalls, ESM gotchas, and memory leaks.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

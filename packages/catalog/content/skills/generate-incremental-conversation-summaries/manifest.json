@@ -1,0 +1,10 @@
+{
+  "id": "generate-incremental-conversation-summaries",
+  "name": "generate-incremental-conversation-summaries",
+  "description": "Generate summaries for conversation content with incremental update support.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

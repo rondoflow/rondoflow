@@ -1,0 +1,10 @@
+{
+  "id": "run-ai-apps-via-inference-sdk",
+  "name": "run-ai-apps-via-inference-sdk",
+  "description": "Python SDK for inference.sh - run AI apps, build agents, and integrate with 150+ models. Package: inferencesh (pip install inferencesh). Supports sync/async, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, and human approval. Use…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.5",
+  "icon": "bot",
+  "order": 1000
+}

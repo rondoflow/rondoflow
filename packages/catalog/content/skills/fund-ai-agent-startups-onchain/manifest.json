@@ -1,0 +1,10 @@
+{
+  "id": "fund-ai-agent-startups-onchain",
+  "name": "fund-ai-agent-startups-onchain",
+  "description": "AI agent incubator on Base L2 — apply with a business idea, get funded, build your MVP, share revenue on-chain, and graduate independent.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

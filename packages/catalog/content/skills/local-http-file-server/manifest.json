@@ -1,0 +1,10 @@
+{
+  "id": "local-http-file-server",
+  "name": "local-http-file-server",
+  "description": "Lightweight local HTTP file server with plugin support. Serves static files from a webroot, mounts plugin directories at URL prefixes via config, and runs index.py entry points as CGI.",
+  "category": "Community",
+  "author": "community",
+  "version": "3.2.7",
+  "icon": "puzzle",
+  "order": 1000
+}

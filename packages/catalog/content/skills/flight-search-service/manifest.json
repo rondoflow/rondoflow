@@ -1,0 +1,10 @@
+{
+  "id": "flight-search-service",
+  "name": "flight-search-service",
+  "description": "Search flights and discover travel destinations using the Jinko MCP server. Provides two core capabilities: (1) Destination discovery — find where to travel based on criteria like budget, climate, or activities when the user has no specific destination in mind, and (2) Specific…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

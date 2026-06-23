@@ -1,0 +1,10 @@
+{
+  "id": "globepilot-ai-agent",
+  "name": "globepilot-ai-agent",
+  "description": "Powered by Teneo Protocol - A decentralized network of AI agents for real-time data, automation, and intelligent services.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

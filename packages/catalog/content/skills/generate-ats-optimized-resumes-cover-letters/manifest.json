@@ -1,0 +1,10 @@
+{
+  "id": "generate-ats-optimized-resumes-cover-letters",
+  "name": "generate-ats-optimized-resumes-cover-letters",
+  "description": "AI resume and cover letter generation powered by CellCog. ATS-optimized resumes, CVs, cover letters, LinkedIn profiles, career documents — PDF or DOCX. Research-first approach that analyzes target roles before writing.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.11",
+  "icon": "message-circle",
+  "order": 1000
+}

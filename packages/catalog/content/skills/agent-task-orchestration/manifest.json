@@ -1,0 +1,10 @@
+{
+  "id": "agent-task-orchestration",
+  "name": "agent-task-orchestration",
+  "description": "Deterministically coordinates autonomous planning and execution across available skills under strict guardrails. Use only when the user explicitly activates this skill by name to run autonomously until a stop command is issued. Trigger keywords include: \"use autonomous-skill-orc…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

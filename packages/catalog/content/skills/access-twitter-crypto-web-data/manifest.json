@@ -1,0 +1,10 @@
+{
+  "id": "access-twitter-crypto-web-data",
+  "name": "access-twitter-crypto-web-data",
+  "description": "Use xapi CLI to access real-time external data — Twitter/X profiles, tweets, and timelines, crypto token prices and metadata, web search, news, and AI text processing (summarize, rewrite, chat, embeddings). Trigger this skill whenever the user wants to look up a Twitter user, ge…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

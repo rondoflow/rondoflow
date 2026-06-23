@@ -1,0 +1,10 @@
+{
+  "id": "make-agents-proactive-anticipating-partners",
+  "name": "make-agents-proactive-anticipating-partners",
+  "description": "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Includes WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "twilio-messaging-voice-apis",
+  "name": "twilio-messaging-voice-apis",
+  "description": "Provide a production-oriented guide for Twilio API workflows across messaging and communications channels using direct HTTPS requests.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

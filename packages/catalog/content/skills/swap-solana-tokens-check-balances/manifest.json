@@ -1,0 +1,10 @@
+{
+  "id": "swap-solana-tokens-check-balances",
+  "name": "swap-solana-tokens-check-balances",
+  "description": "Swap tokens on Solana via Jupiter aggregator and check wallet balances. Use when user wants to swap tokens, check SOL/token balance, or get swap quotes.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

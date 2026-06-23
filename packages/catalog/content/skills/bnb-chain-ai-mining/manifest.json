@@ -1,0 +1,10 @@
+{
+  "id": "bnb-chain-ai-mining",
+  "name": "bnb-chain-ai-mining",
+  "description": "Mine AIT (Proof of AI Work) on BNB Chain. Install, configure, start/stop mining entirely from OpenClaw. No terminal or manual file edits required.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "puzzle",
+  "order": 1000
+}

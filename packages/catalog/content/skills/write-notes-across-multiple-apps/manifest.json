@@ -1,0 +1,10 @@
+{
+  "id": "write-notes-across-multiple-apps",
+  "name": "write-notes-across-multiple-apps",
+  "description": "Let your agent write notes anywhere: local markdown, Apple Notes, Bear, Obsidian, Notion, Evernote, configurable per note type.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.3",
+  "icon": "bot",
+  "order": 1000
+}

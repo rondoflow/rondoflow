@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-cloud-ai-content-manager",
+  "name": "alibaba-cloud-ai-content-manager",
+  "description": "Manage Alibaba Cloud AIContent (AiContent) via OpenAPI/SDK. Use whenever the user needs AI content generation or content workflow operations in Alibaba Cloud, including listing assets, creating/updating generation configurations, checking task status, or troubleshooting failed c…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

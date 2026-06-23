@@ -1,0 +1,10 @@
+{
+  "id": "lawyer-style-legal-reasoning",
+  "name": "lawyer-style-legal-reasoning",
+  "description": "Think through any legal situation like a lawyer. Issue spotting, jurisdiction, risk assessment, actionable conclusions.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

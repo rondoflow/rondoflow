@@ -1,0 +1,10 @@
+{
+  "id": "parse-generate-agent-protocol-commands",
+  "name": "parse-generate-agent-protocol-commands",
+  "description": "Parse and generate MLSCP (Micro LLM Swarm Communication Protocol) commands. Use when communicating with other agents efficiently, parsing compressed commands, or generating token-efficient instructions. Reduces token usage by 70-80% compared to natural language.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ai-budget-financial-tracking",
+  "name": "ai-budget-financial-tracking",
+  "description": "Intelligent budget tracking and financial management library for AI agents - expense tracking, income management, budgets, savings goals, and LLM-powered insights",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

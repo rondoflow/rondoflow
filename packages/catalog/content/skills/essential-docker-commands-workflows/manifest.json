@@ -1,0 +1,10 @@
+{
+  "id": "essential-docker-commands-workflows",
+  "name": "essential-docker-commands-workflows",
+  "description": "Essential Docker commands and workflows for container management, image operations, and debugging.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

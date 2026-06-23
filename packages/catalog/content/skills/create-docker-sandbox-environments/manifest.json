@@ -1,0 +1,10 @@
+{
+  "id": "create-docker-sandbox-environments",
+  "name": "create-docker-sandbox-environments",
+  "description": "Create and manage Docker sandboxed VM environments for safe agent execution. Use when running untrusted code, exploring packages, or isolating agent workloads. Supports Claude, Codex, Copilot, Gemini, and Kiro agents with network proxy controls.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

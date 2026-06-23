@@ -1,0 +1,10 @@
+{
+  "id": "build-products-with-discovery-roadmapping",
+  "name": "build-products-with-discovery-roadmapping",
+  "description": "Build products users love with discovery, prioritization, roadmapping, and cross-functional leadership.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

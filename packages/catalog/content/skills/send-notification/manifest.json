@@ -1,0 +1,10 @@
+{
+  "id": "send-notification",
+  "name": "send-notification",
+  "description": "Use when sending notifications to users from an AI agent. Covers channel selection, timing, formatting, and avoiding notification fatigue.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

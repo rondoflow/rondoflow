@@ -1,0 +1,10 @@
+{
+  "id": "investment-portfolio-tracking-analysis",
+  "name": "investment-portfolio-tracking-analysis",
+  "description": "Track investments with buy/sell records, allocation charts, and P/L analysis. Use when managing a stock or crypto portfolio, rebalancing, or comparing assets.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "4.0.0",
+  "icon": "coins",
+  "order": 1000
+}

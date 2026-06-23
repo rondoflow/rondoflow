@@ -1,0 +1,10 @@
+{
+  "id": "build-bluebubbles-messaging-plugin",
+  "name": "build-bluebubbles-messaging-plugin",
+  "description": "Build or update the BlueBubbles external channel plugin for Clawdbot (extension package, REST send/probe, webhook inbound).",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

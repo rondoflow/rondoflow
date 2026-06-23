@@ -1,0 +1,10 @@
+{
+  "id": "youtube-video-access-clone",
+  "name": "youtube-video-access-clone",
+  "description": "Fetch YouTube transcripts via APIFY API (works from cloud IPs, bypasses YouTube bot detection).",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

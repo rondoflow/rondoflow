@@ -1,0 +1,10 @@
+{
+  "id": "relay-whatsapp-dms-agent",
+  "name": "relay-whatsapp-dms-agent",
+  "description": "WhatsApp message relay for OpenClaw v0.2.0. Routes third-party DMs to a relay agent that forwards them to the main agent via sessions_send. The main agent notifies the owner with a suggested response. Supports direct number allowlists.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.2.1",
+  "icon": "bot",
+  "order": 1000
+}

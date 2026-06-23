@@ -1,0 +1,10 @@
+{
+  "id": "avantis-leverage-trading",
+  "name": "avantis-leverage-trading",
+  "description": "Execute leverage trading on Avantis (Base). Long/short crypto, forex, commodities with up to 100x leverage. Uses Python SDK with direct wallet integration.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

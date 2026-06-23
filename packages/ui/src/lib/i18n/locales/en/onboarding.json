@@ -1,0 +1,113 @@
+{
+  "wizard": {
+    "title": "Welcome to rondoflow"
+  },
+  "coaching": {
+    "dismiss": "Dismiss tip"
+  },
+  "checklist": {
+    "title": "Getting started",
+    "progress": "{{done}}/{{total}}",
+    "addNode": "Add an assistant to the canvas",
+    "connectNodes": "Connect two nodes",
+    "runWorkflow": "Run your workflow",
+    "done": "Nice work — you built and ran your first workflow! 🎉",
+    "dismiss": "Dismiss checklist",
+    "collapse": "Collapse",
+    "expand": "Expand"
+  },
+  "action": {
+    "continue": "Continue",
+    "skip": "Skip",
+    "browse": "Browse",
+    "go": "Go"
+  },
+  "directory": {
+    "heading": "Where does your code live?",
+    "description": "rondoflow works with your local files through Claude Code. Point it to your project folder.",
+    "placeholder": "/home/user/projects/my-app",
+    "hint": "This can be changed later in Workspace settings.",
+    "error": {
+      "required": "A working directory is required for rondoflow to function."
+    },
+    "cli": {
+      "checking": "Checking Claude Code CLI...",
+      "detected": "Claude Code detected",
+      "notDetected": "Claude Code not detected — install it first",
+      "installHint": "Run:",
+      "checkAgain": "Check Again"
+    },
+    "auth": {
+      "missing": "No Claude credential configured yet",
+      "hintSet": "Set",
+      "hintOrRun": ", or run",
+      "hintAndSet": "and set",
+      "hintTail": "to use your Claude subscription. You can also add it later in Settings."
+    }
+  },
+  "workMode": {
+    "heading": "How do you want to work?",
+    "description": "Choose how much control you want. You can switch modes anytime in Settings.",
+    "quick": {
+      "title": "Quick Start",
+      "description": "Describe what you want, rondoflow handles the rest. Best for trying things out."
+    },
+    "full": {
+      "title": "Full Control",
+      "description": "Build agent teams with skills, safety rules, and custom workflows. For power users."
+    }
+  },
+  "firstAction": {
+    "heading": "Describe your task.",
+    "headingAccent": "The workspace builds itself.",
+    "description": "Type what needs to happen — you'll see which assistants get created and how they connect before you run anything.",
+    "taskPlaceholder": "e.g. Summarize the competition and email a report",
+    "taskAriaLabel": "Describe what you want to build",
+    "generating": "Generating...",
+    "divider": "or",
+    "suggest": {
+      "research": "Research the market and prepare a report",
+      "review": "Review a pull request and suggest fixes",
+      "data": "Process a CSV, clean the data and save it"
+    },
+    "gallery": {
+      "heading": "Templates",
+      "hint": "or describe a task on the left and we'll assemble it"
+    },
+    "preview": {
+      "heading": "Preview",
+      "live": "assembling",
+      "idle": "preview",
+      "caption": "Roughly what we'll build — review and tweak after it's created.",
+      "start": "Task input",
+      "output": "Result",
+      "email": "Email report"
+    },
+    "template": {
+      "title": "Start from Template",
+      "subtitle": "Pre-built workflows"
+    },
+    "create": {
+      "title": "Create an Assistant",
+      "subtitle": "Build from scratch"
+    }
+  },
+  "toast": {
+    "dismiss": "Dismiss"
+  },
+  "folderPicker": {
+    "title": "Select Project Folder",
+    "pathPlaceholder": "Type a path...",
+    "home": "Home",
+    "up": "Up",
+    "git": "git",
+    "homeAriaLabel": "Go to home directory",
+    "upAriaLabel": "Go to parent directory",
+    "empty": "No subdirectories",
+    "footerHint": "Double-click to enter a folder. Click \"Select\" to use the current folder.",
+    "select": "Select This Folder",
+    "error": {
+      "browse": "Failed to browse directory"
+    }
+  }
+}

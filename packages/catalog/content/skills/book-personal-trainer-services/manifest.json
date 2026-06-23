@@ -1,0 +1,10 @@
+{
+  "id": "book-personal-trainer-services",
+  "name": "book-personal-trainer-services",
+  "description": "Book personal-trainer services through Lokuli MCP. Use when user needs to find and book personal-trainer. Triggers on requests like \"book a personal-trainer\", \"find personal-trainer near me\", or any personal-trainer service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

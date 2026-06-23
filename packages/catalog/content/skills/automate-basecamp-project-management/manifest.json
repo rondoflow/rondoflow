@@ -1,0 +1,10 @@
+{
+  "id": "automate-basecamp-project-management",
+  "name": "automate-basecamp-project-management",
+  "description": "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio). Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

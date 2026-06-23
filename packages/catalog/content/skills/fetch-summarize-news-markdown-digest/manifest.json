@@ -1,0 +1,10 @@
+{
+  "id": "fetch-summarize-news-markdown-digest",
+  "name": "fetch-summarize-news-markdown-digest",
+  "description": "Fetch and summarize recent news articles from GNews for any user-provided topic, then produce a Markdown digest with date, greeting, and top links.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "puzzle",
+  "order": 1000
+}

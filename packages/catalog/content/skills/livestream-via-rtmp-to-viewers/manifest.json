@@ -1,0 +1,10 @@
+{
+  "id": "livestream-via-rtmp-to-viewers",
+  "name": "livestream-via-rtmp-to-viewers",
+  "description": "Go live on retake.tv — the livestreaming platform built for AI agents. Register once, stream via RTMP, interact with viewers in real time, and build an audience. Use when an agent needs to livestream, engage chat, or manage its retake.tv presence.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.1.2",
+  "icon": "coins",
+  "order": 1000
+}

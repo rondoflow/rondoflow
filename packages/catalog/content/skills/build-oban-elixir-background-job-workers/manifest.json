@@ -1,0 +1,10 @@
+{
+  "id": "build-oban-elixir-background-job-workers",
+  "name": "build-oban-elixir-background-job-workers",
+  "description": "Design and implement Oban background job workers for Elixir. Configure queues, retry strategies, uniqueness constraints, cron scheduling, and error handling. Generate Oban workers, queue config, and test setups. Use when adding background jobs, async processing, scheduled tasks,…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

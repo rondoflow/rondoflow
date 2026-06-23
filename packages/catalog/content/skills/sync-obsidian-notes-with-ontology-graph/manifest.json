@@ -1,0 +1,10 @@
+{
+  "id": "sync-obsidian-notes-with-ontology-graph",
+  "name": "sync-obsidian-notes-with-ontology-graph",
+  "description": "Bidirectional sync between Obsidian PKM (human-friendly notes) and structured ontology (machine-queryable graph). Automatically extracts entities and relationships from markdown, maintains ontology graph, and provides feedback to improve note structure. Run sync every few hours…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "job-hunting-search-assistant",
+  "name": "job-hunting-search-assistant",
+  "description": "**The aggressive job hunting skill that goes beyond \"Easy Apply\".**",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

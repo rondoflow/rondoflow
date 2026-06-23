@@ -1,0 +1,10 @@
+{
+  "id": "manage-bear-notes-cli",
+  "name": "manage-bear-notes-cli",
+  "description": "Create, search, and manage Bear notes via grizzly CLI.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "control-phantombuster-automation-agents",
+  "name": "control-phantombuster-automation-agents",
+  "description": "Control PhantomBuster automation agents via API. List agents, launch automations, get output/results, check status, and abort running agents. Use when the user needs to run LinkedIn scraping, Twitter automation, lead generation phantoms, or any PhantomBuster workflow.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "css-layout-typography-patterns",
+  "name": "css-layout-typography-patterns",
+  "description": "CSS implementation patterns for layout, typography, color, spacing, and responsive design. Complements ui-design (fundamentals) with code-focused examples.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "code",
+  "order": 1000
+}

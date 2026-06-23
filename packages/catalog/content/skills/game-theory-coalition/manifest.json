@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-coalition",
+  "name": "game-theory-coalition",
+  "description": "Analyses which coalitions form and how to divide gains fairly using cooperative game theory and the Shapley value. Triggers: 'coalition formation', 'who should we partner with', 'cooperative game theory', 'Shapley value', 'fair division', 'stable coalition', 'which coalition will form', 'equity split', 'power in a coalition', 'how should we divide this up fairly'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

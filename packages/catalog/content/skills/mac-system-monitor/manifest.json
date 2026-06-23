@@ -1,0 +1,10 @@
+{
+  "id": "mac-system-monitor",
+  "name": "mac-system-monitor",
+  "description": "Retrieve real-time hardware metrics from Apple Silicon Macs using mactop's TOON format. Provides CPU, RAM, GPU, power, thermal, network, disk I/O, and Thunderbolt bus information. Use when the user wants system stats, hardware monitoring, or performance metrics on Apple Silicon…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

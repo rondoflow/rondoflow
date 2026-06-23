@@ -1,0 +1,10 @@
+{
+  "id": "web-app-backend-deployment",
+  "name": "web-app-backend-deployment",
+  "description": "Deploy web apps with backend APIs, database, and file storage. Use when the user asks to deploy or publish a website or web app and wants a public URL. Uses HTTP API via curl.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "globe",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "research-social-media-across-platforms",
+  "name": "research-social-media-across-platforms",
+  "description": "Social Intelligence — AI-powered social media research across Twitter, Instagram, and Reddit. 1.5B+ posts indexed. Find experts, generate leads, monitor brands, analyze sentiment, discover influencers, and export data. The complete social intelligence toolkit for AI agents via M…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "bot",
+  "order": 1000
+}

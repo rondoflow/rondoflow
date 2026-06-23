@@ -1,0 +1,10 @@
+{
+  "id": "search-willhaben-classifieds-marketplace",
+  "name": "search-willhaben-classifieds-marketplace",
+  "description": "Willhaben CLI for searching Austria's largest classifieds marketplace. Search listings, view details, check seller profiles.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

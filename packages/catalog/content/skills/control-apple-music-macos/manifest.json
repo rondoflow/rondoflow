@@ -1,0 +1,10 @@
+{
+  "id": "control-apple-music-macos",
+  "name": "control-apple-music-macos",
+  "description": "Control Apple Music on macOS via the `clawtunes` CLI (play songs/albums/playlists, control playback, volume, shuffle, repeat, search, AirPlay). Use when a user asks to play music, search for songs, control audio playback, or manage Apple Music settings.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "image",
+  "order": 1000
+}

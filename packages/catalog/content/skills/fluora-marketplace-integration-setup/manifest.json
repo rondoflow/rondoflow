@@ -1,0 +1,10 @@
+{
+  "id": "fluora-marketplace-integration-setup",
+  "name": "fluora-marketplace-integration-setup",
+  "description": "Interactive setup wizard for Fluora marketplace integration. Clones fluora-mcp from GitHub, builds locally, generates wallet, and configures mcporter.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "coins",
+  "order": 1000
+}

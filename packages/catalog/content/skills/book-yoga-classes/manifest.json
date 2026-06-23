@@ -1,0 +1,10 @@
+{
+  "id": "book-yoga-classes",
+  "name": "book-yoga-classes",
+  "description": "Book yoga services through Lokuli MCP. Use when user needs to find and book yoga. Triggers on requests like \"book a yoga\", \"find yoga near me\", or any yoga service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

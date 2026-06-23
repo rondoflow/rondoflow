@@ -1,0 +1,10 @@
+{
+  "id": "test-runner",
+  "name": "test-runner",
+  "description": "Write and run tests across languages and frameworks.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

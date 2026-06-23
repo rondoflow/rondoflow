@@ -1,0 +1,10 @@
+{
+  "id": "general-purpose-skill",
+  "name": "general-purpose-skill",
+  "description": "Local, crash-safe persistent memory for OpenClaw agents. SQLite-backed by default. Semantic search, projects, scopes, auto-capture. After installing or updating, run: palaia doctor --fix to complete setup.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.7.3",
+  "icon": "bot",
+  "order": 1000
+}

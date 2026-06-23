@@ -1,0 +1,10 @@
+{
+  "id": "cashu-lightning-ecash-wallet",
+  "name": "cashu-lightning-ecash-wallet",
+  "description": "A Cashu ecash wallet CLI for Bitcoin and Lightning payments. Use when managing Cashu tokens, sending/receiving payments via Lightning (bolt11) or ecash, handling HTTP 402 X-Cashu payment requests, or viewing wallet history.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.15",
+  "icon": "coins",
+  "order": 1000
+}

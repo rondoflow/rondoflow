@@ -1,0 +1,10 @@
+{
+  "id": "build-optimize-debug-rag-pipelines",
+  "name": "build-optimize-debug-rag-pipelines",
+  "description": "Build, optimize, and debug RAG pipelines with chunking strategies, retrieval tuning, evaluation metrics, and production monitoring.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

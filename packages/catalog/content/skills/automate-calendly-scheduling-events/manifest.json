@@ -1,0 +1,10 @@
+{
+  "id": "automate-calendly-scheduling-events",
+  "name": "automate-calendly-scheduling-events",
+  "description": "Automate Calendly scheduling, event management, invitee tracking, availability checks, and organization administration via Rube MCP (Composio). Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

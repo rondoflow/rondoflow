@@ -1,0 +1,10 @@
+{
+  "id": "manage-codeberg-via-tea",
+  "name": "manage-codeberg-via-tea",
+  "description": "Interact with Codeberg using the `tea` CLI. Use `tea issue`, `tea pr`, `tea actions`, and `tea api` for issues, PRs, Actions, and advanced queries.",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

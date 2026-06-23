@@ -1,0 +1,10 @@
+{
+  "id": "unspecified-workspace-anchor-skill",
+  "name": "unspecified-workspace-anchor-skill",
+  "description": "Multi-agent workspace awareness and safety system. Discovers, lists, switches, and validates projects using environment-based naming to prevent agent drift.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

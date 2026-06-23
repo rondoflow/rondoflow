@@ -1,0 +1,10 @@
+{
+  "id": "lemon-squeezy-store-admin",
+  "name": "lemon-squeezy-store-admin",
+  "description": "Admin CLI for Lemon Squeezy stores. View orders, subscriptions, and customers.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

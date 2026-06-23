@@ -1,0 +1,10 @@
+{
+  "id": "generate-cinematic-widescreen-videos",
+  "name": "generate-cinematic-widescreen-videos",
+  "description": "If you can imagine it, CellCog can film it. Grand widescreen cinematics with consistent characters — what previously required million-dollar production budgets, now generated from a single prompt. Short films, music videos, brand films, cinematic productions — epic compositions,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

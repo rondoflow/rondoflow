@@ -1,0 +1,10 @@
+{
+  "id": "interact-with-gitea-cli",
+  "name": "interact-with-gitea-cli",
+  "description": "Interact with Gitea using the `tea` CLI. Use `tea issues`, `tea pulls`, `tea releases`, and other commands for issues, PRs, releases, and repository management.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

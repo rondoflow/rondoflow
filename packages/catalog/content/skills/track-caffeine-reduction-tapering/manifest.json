@@ -1,0 +1,10 @@
+{
+  "id": "track-caffeine-reduction-tapering",
+  "name": "track-caffeine-reduction-tapering",
+  "description": "Reduce or quit caffeine with withdrawal tracking, tapering plans, and energy milestones",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

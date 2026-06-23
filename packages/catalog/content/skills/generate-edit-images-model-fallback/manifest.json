@@ -1,0 +1,10 @@
+{
+  "id": "generate-edit-images-model-fallback",
+  "name": "generate-edit-images-model-fallback",
+  "description": "Nano Banana Pro with auto model fallback — generate/edit images via Gemini Image API. Run via: uv run {baseDir}/scripts/generate_image.py --prompt 'desc' --filename 'out.png' [--resolution 1K|2K|4K] [-i input.png]. Supports text-to-image + image-to-image (up to 14); 1K/2K/4K. Fa…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.4.4",
+  "icon": "bot",
+  "order": 1000
+}

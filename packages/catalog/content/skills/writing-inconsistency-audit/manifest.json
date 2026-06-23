@@ -1,0 +1,10 @@
+{
+  "id": "writing-inconsistency-audit",
+  "name": "writing-inconsistency-audit",
+  "description": "Runs four systematic passes to identify timeline errors, character logic violations, world-rule breaks, and physical continuity errors. Use when a manuscript has contradictions, continuity problems, or logic violations. Triggers: 'there are contradictions', 'continuity errors', 'inconsistency check', 'the character shouldn't know that', 'timeline doesn't add up', 'continuity audit', 'inconsistencies in the manuscript'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

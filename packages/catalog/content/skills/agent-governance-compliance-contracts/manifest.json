@@ -1,0 +1,10 @@
+{
+  "id": "agent-governance-compliance-contracts",
+  "name": "agent-governance-compliance-contracts",
+  "description": "Interact with AgentConstitution governance contracts on Base Sepolia. Check compliance, read rules, log actions, query governance state.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,13 @@
+{
+  "id": "data-analyst",
+  "name": "Data Analyst",
+  "description": "Explores datasets and turns numbers into clear insights.",
+  "icon": "BarChart3",
+  "category": "Data & Analytics",
+  "purpose": "data",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["Read", "Write", "Bash", "WebFetch"],
+  "tags": ["data", "analytics", "csv", "metrics", "insights", "reporting"],
+  "order": 5
+}

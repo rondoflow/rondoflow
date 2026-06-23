@@ -1,0 +1,10 @@
+{
+  "id": "vincent-twitter-integration",
+  "name": "vincent-twitter-integration",
+  "description": "Twitter/X.com data access for agents. Use this skill when users want to search tweets, look up user profiles, or retrieve recent tweets. Pay-per-call via Vincent credit system. Triggers on \"search tweets\", \"twitter\", \"X.com\", \"look up user\", \"tweet search\", \"twitter profile\", \"r…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

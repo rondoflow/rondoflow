@@ -1,0 +1,10 @@
+{
+  "id": "information-compression",
+  "name": "information-compression",
+  "description": "Applies lossy vs lossless compression thinking to representation and communication. Use when asked to 'cut this down', 'what can I remove', 'what's essential here', 'summarise without losing the key point', 'what must be preserved', or when a representation needs to be more efficient without becoming misleading.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

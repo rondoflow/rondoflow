@@ -1,0 +1,10 @@
+{
+  "id": "narrative",
+  "name": "narrative",
+  "description": "Entry point for the narrative toolkit. Routes to the right narrative skill based on your situation. Use when you say 'narrative', 'story', 'this feels flat', 'how do I structure this', 'the framing is wrong', 'who am I talking to', 'make this compelling', 'find the tension', or want narrative/storytelling help without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

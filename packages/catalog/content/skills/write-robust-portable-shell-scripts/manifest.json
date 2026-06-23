@@ -1,0 +1,10 @@
+{
+  "id": "write-robust-portable-shell-scripts",
+  "name": "write-robust-portable-shell-scripts",
+  "description": "Write robust, portable shell scripts. Use when parsing arguments, handling errors properly, writing POSIX-compatible scripts, managing temp files, running commands in parallel, managing background processes, or adding --help to scripts.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

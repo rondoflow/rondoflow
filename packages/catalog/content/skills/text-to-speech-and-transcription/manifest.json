@@ -1,0 +1,10 @@
+{
+  "id": "text-to-speech-and-transcription",
+  "name": "text-to-speech-and-transcription",
+  "description": "Give your agent a voice — and ears. The Cult of Carcinization is the bot-first gateway to ScrappyLabs TTS and STT. Speak with 20+ voices, design your own from a text description, transcribe audio to text, and evolve into a permanent bot identity. No human signup required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

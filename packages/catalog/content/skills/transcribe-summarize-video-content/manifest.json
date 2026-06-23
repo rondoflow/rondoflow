@@ -1,0 +1,10 @@
+{
+  "id": "transcribe-summarize-video-content",
+  "name": "transcribe-summarize-video-content",
+  "description": "Video summarization for Bilibili, Xiaohongshu, Douyin, and YouTube. Extract insights from video content through transcription and summarization.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.6.4",
+  "icon": "image",
+  "order": 1000
+}

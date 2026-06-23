@@ -1,0 +1,10 @@
+{
+  "id": "repurpose-articles-into-social-posts",
+  "name": "repurpose-articles-into-social-posts",
+  "description": "Turn any article into 10+ social media posts in seconds. AI-powered content repurposing for Twitter, LinkedIn, Bluesky, Telegram, Discord & more.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "message-circle",
+  "order": 1000
+}

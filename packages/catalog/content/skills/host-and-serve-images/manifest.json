@@ -1,0 +1,10 @@
+{
+  "id": "host-and-serve-images",
+  "name": "host-and-serve-images",
+  "description": "Upload images to img402.dev and get a public URL. Free tier: 1MB max, 7-day retention, no auth. Use when the agent needs a hosted image URL — for sharing in messages, embedding in documents, posting to social platforms, or any context that requires a public link to an image file.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

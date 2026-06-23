@@ -1,0 +1,51 @@
+name: Feature request
+description: Suggest an idea or improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. Please describe the problem you are trying to solve, not just the solution, so we can find the best fit.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What problem does this solve? What are you trying to accomplish that is hard or impossible today?
+      placeholder: I want to ... but currently ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any alternative solutions or features you have considered.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of RondoFlow does this relate to?
+      options:
+        - Canvas
+        - Agents
+        - Orchestration
+        - Discussions
+        - Skills
+        - Security
+        - Docs
+        - Other
+    validations:
+      required: true

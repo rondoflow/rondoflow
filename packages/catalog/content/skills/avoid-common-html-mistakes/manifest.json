@@ -1,0 +1,10 @@
+{
+  "id": "avoid-common-html-mistakes",
+  "name": "avoid-common-html-mistakes",
+  "description": "Avoid common HTML mistakes — accessibility gaps, form pitfalls, and SEO oversights.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

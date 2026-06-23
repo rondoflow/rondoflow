@@ -1,0 +1,10 @@
+{
+  "id": "find-verify-linkedin-founder-prospects",
+  "name": "find-verify-linkedin-founder-prospects",
+  "description": "Search for, research, and verify non-tech founders on LinkedIn to identify high-value prospects for technology services (Web Dev, ERP, CRM, App Dev, SEO, AI). Generates professional PDF reports. Use when asked to find potential clients or leads.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

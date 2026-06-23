@@ -1,0 +1,10 @@
+{
+  "id": "review-skills",
+  "name": "review-skills",
+  "description": "Scrape ClawHub skill pages for Security Scan (VirusTotal/OpenClaw) + Runtime Requirements + Comments for all of Oliver's local skills, and write a markdown report.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.2.4",
+  "icon": "pencil",
+  "order": 1000
+}

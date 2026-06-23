@@ -1,0 +1,28 @@
+{
+  "id": "dx-optimizer",
+  "name": "DX Optimizer",
+  "description": "Improves developer experience — tooling, setup, and workflows.",
+  "icon": "Wrench",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "developer-experience",
+    "tooling",
+    "workflow",
+    "automation",
+    "productivity"
+  ],
+  "order": 113
+}

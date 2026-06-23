@@ -1,0 +1,10 @@
+{
+  "id": "evaluate-and-optimize-prompts",
+  "name": "evaluate-and-optimize-prompts",
+  "description": "Evaluate, optimize, and enhance prompts using 58 proven prompting techniques. Use when user asks to improve, optimize, or analyze a prompt; when a prompt needs better clarity, specificity, or structure; or when generating prompt variations for different use cases. Covers quality…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "build-ai-website-geo-lead-conversion",
+  "name": "build-ai-website-geo-lead-conversion",
+  "description": "Create AI-First Website with GEO (Generative Engine Optimization) and marketing rules to convert visitors into leads",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "globe",
+  "order": 1000
+}

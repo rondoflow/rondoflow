@@ -1,0 +1,10 @@
+{
+  "id": "build-and-improve-resumes",
+  "name": "build-and-improve-resumes",
+  "description": "> AI-powered clawbot skill for resume & CV polishing, job customization, multi-format export, and professional scoring.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "pencil",
+  "order": 1000
+}

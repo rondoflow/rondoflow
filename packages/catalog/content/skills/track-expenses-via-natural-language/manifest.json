@@ -1,0 +1,10 @@
+{
+  "id": "track-expenses-via-natural-language",
+  "name": "track-expenses-via-natural-language",
+  "description": "Track expenses via natural language, get spending summaries, set budgets",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

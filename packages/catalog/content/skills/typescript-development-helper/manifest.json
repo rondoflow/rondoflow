@@ -1,0 +1,10 @@
+{
+  "id": "typescript-development-helper",
+  "name": "typescript-development-helper",
+  "description": "Provide best-practice coding conventions and generate standards-compliant TypeScript code.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "code",
+  "order": 1000
+}

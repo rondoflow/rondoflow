@@ -1,0 +1,10 @@
+{
+  "id": "ai-comic-manga-creation",
+  "name": "ai-comic-manga-creation",
+  "description": "Comic and manga creation powered by CellCog. Create comics, manga, webtoons, graphic novels, comic strips, visual storytelling, sequential art, character consistency. AI-powered comic creator.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "image",
+  "order": 1000
+}

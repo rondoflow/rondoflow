@@ -1,0 +1,10 @@
+{
+  "id": "hybrid-search-memory-system",
+  "name": "hybrid-search-memory-system",
+  "description": "Hybrid search memory system for AI agents. Manual search and storage - auto-capture is opt-in only.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.3",
+  "icon": "bot",
+  "order": 1000
+}

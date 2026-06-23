@@ -1,0 +1,10 @@
+{
+  "id": "build-readable-cross-linked-wikis",
+  "name": "build-readable-cross-linked-wikis",
+  "description": "Build wikis people actually read — structure pages, cross-link, and keep content fresh.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1",
+  "icon": "pencil",
+  "order": 1000
+}

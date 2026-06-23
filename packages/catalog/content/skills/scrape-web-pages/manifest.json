@@ -1,0 +1,10 @@
+{
+  "id": "scrape-web-pages",
+  "name": "scrape-web-pages",
+  "description": "Extract data from websites efficiently and ethically.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

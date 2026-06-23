@@ -1,0 +1,10 @@
+{
+  "id": "search-browse-hacker-news",
+  "name": "search-browse-hacker-news",
+  "description": "Search and browse Hacker News with API access to stories, comments, users, and hiring threads.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

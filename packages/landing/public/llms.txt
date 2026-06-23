@@ -1,0 +1,22 @@
+# RondoFlow
+
+> RondoFlow is a local-first, open-source visual orchestration platform for building and running
+> multi-agent Claude Code workflows on a drag-and-drop canvas. Connect agents, skills, security
+> policies, and resources, then execute multi-agent runs entirely on your own machine.
+
+RondoFlow is MIT-licensed and runs locally: a Next.js canvas UI talks to a Fastify backend that
+spawns the Claude Code CLI against your own files and tools. Your code, prompts, and keys never
+leave your machine. Agents can also run on OpenAI and Perplexity, so it is partly model-agnostic.
+A Planner tunes a workflow before the run, a Director steers each step during the run, and an
+Advisor reviews the result afterward. Use this file to find the canonical pages.
+
+## Pages
+
+- [RondoFlow home](https://rondoflow.dev/): what it is, capabilities, install, catalog, FAQ
+- [Compare](https://rondoflow.dev/compare/): RondoFlow vs Langflow, Flowise, Hiveflow.ai, Relay.app
+- [Documentation](https://docs.rondoflow.dev): setup, canvas, workflows, policies, API reference
+- [Source on GitHub](https://github.com/arzzen/rondoflow): MIT-licensed repository
+
+## Optional
+
+- [License (MIT)](https://github.com/arzzen/rondoflow/blob/master/LICENSE)

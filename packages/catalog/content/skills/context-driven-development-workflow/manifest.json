@@ -1,0 +1,10 @@
+{
+  "id": "context-driven-development-workflow",
+  "name": "context-driven-development-workflow",
+  "description": "Treat project context as a managed artifact alongside code. Use structured context documents (product.md, tech-stack.md, workflow.md) to enable consistent AI interactions and team alignment. Essential for projects using AI-assisted development.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

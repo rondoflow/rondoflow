@@ -1,0 +1,10 @@
+{
+  "id": "markdown-html-invoice-generator",
+  "name": "markdown-html-invoice-generator",
+  "description": "Creates professional invoices in markdown and HTML",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

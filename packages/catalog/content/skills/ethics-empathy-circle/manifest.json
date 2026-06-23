@@ -1,0 +1,10 @@
+{
+  "id": "ethics-empathy-circle",
+  "name": "ethics-empathy-circle",
+  "description": "Applies Jaron Lanier's Circle of Empathy framework to determine which entities deserve moral consideration and rights. Use when questions arise about AI personhood, machine rights, robot citizenship, algorithmic agency, animal rights, or any decision about which entities belong inside or outside the circle of moral concern. Triggers: 'does this AI deserve rights?', 'should we treat this system as a person?', 'circle of empathy', 'moral consideration', 'AI personhood', 'which entities matter morally', 'are we anthropomorphizing?', 'is this a category error?'",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

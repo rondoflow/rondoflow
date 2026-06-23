@@ -1,0 +1,10 @@
+{
+  "id": "creativity-provocation",
+  "name": "creativity-provocation",
+  "description": "Apply Edward de Bono's Provocation Operation (Po) to use deliberately absurd or impossible statements as springboards to new ideas. Use when the user wants to break out of conventional thinking, says 'let's try something radical', wants to use provocation as a creative tool, or is stuck and needs an unconventional jolt. Also trigger when the user uses the prefix 'Po:' before a statement.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

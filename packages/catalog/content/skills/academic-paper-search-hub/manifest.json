@@ -1,0 +1,10 @@
+{
+  "id": "academic-paper-search-hub",
+  "name": "academic-paper-search-hub",
+  "description": "Use this skill when users need to search academic papers, download research documents, extract citations, or gather scholarly information. Triggers include: requests to \"find papers on\", \"search research about\", \"download academic articles\", \"get citations for\", or any request i…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

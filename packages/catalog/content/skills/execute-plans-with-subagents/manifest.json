@@ -1,0 +1,10 @@
+{
+  "id": "execute-plans-with-subagents",
+  "name": "execute-plans-with-subagents",
+  "description": "Use when executing implementation plans with independent tasks in the current session",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

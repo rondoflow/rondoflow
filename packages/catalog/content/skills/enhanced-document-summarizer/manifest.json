@@ -1,0 +1,10 @@
+{
+  "id": "enhanced-document-summarizer",
+  "name": "enhanced-document-summarizer",
+  "description": "Enhanced document summarizer. Smart summary, bullet extraction, executive summary, chapter breakdown, multi-doc comparison, translate+summarize.",
+  "category": "Community",
+  "author": "community",
+  "version": "3.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

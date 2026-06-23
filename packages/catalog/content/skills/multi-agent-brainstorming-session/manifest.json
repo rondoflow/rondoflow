@@ -1,0 +1,10 @@
+{
+  "id": "multi-agent-brainstorming-session",
+  "name": "multi-agent-brainstorming-session",
+  "description": "Multi-agent war room for brainstorming, system design, architecture review, product specs, business strategy, or any complex problem. Use when a user wants to run a structured multi-agent session with specialist roles, when they mention \"war room\", when they need to brainstorm a…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

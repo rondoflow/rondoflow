@@ -1,0 +1,10 @@
+{
+  "id": "oura-ring-data-integration",
+  "name": "oura-ring-data-integration",
+  "description": "This tool allows retrieving health and biometric data from the Oura Ring API (V2) via a command-line interface. Use this to answer questions about the user's sleep, activity, readiness, and physiological stats.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

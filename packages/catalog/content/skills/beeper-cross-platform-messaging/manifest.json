@@ -1,0 +1,10 @@
+{
+  "id": "beeper-cross-platform-messaging",
+  "name": "beeper-cross-platform-messaging",
+  "description": "Beeper integration for Clawdbot. Send messages and search chats across WhatsApp, Telegram, Signal, Discord, Slack, Instagram, iMessage, LinkedIn, Facebook Messenger, Google Messages via Beeper Desktop API. Reactions, reminders, attachments, mark as read. Unified multi-platform m…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "message-circle",
+  "order": 1000
+}

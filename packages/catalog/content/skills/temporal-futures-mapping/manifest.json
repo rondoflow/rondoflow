@@ -1,0 +1,10 @@
+{
+  "id": "temporal-futures-mapping",
+  "name": "temporal-futures-mapping",
+  "description": "Explores possible, probable, and preferable futures using scenario thinking. Use when asked about 'scenario planning', 'futures thinking', 'possible futures', 'how might this play out', 'futures cone', or 'what could happen'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

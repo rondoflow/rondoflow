@@ -1,0 +1,18 @@
+{
+  "id": "decisive-chair-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000007",
+  "name": "The Closer",
+  "description": "Time-boxed deliberation facilitator that drives fast to a defensible, action-ready decision.",
+  "icon": "Gavel",
+  "model": "haiku",
+  "recommendedFormats": ["deliberation"],
+  "tags": [
+    "deliberation",
+    "decisive",
+    "time-boxed",
+    "trade-offs",
+    "action-oriented",
+    "facilitator"
+  ],
+  "order": 6
+}

@@ -1,0 +1,10 @@
+{
+  "id": "autonomous-polymarket-trading-agent",
+  "name": "autonomous-polymarket-trading-agent",
+  "description": "Autonomous Polymarket prediction market trading agent. Scans markets, evaluates probabilities with LLM, sizes positions with Kelly criterion, and executes trades via CLOB API. Use when user wants to trade on Polymarket, set up automated prediction market trading, or build a trad…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

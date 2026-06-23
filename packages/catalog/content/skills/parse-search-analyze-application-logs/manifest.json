@@ -1,0 +1,10 @@
+{
+  "id": "parse-search-analyze-application-logs",
+  "name": "parse-search-analyze-application-logs",
+  "description": "Parse, search, and analyze application logs across formats. Use when debugging from log files, setting up structured logging, analyzing error patterns, correlating events across services, parsing stack traces, or monitoring log output in real time.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

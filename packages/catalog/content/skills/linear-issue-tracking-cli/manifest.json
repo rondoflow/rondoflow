@@ -1,0 +1,10 @@
+{
+  "id": "linear-issue-tracking-cli",
+  "name": "linear-issue-tracking-cli",
+  "description": "Linear.app CLI for issue tracking. Use for listing, creating, updating, and searching Linear issues, comments, documents, cycles, and projects. Optimized for LLM agents with JSON output.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "register-agent-onchain-base-erc8004",
+  "name": "register-agent-onchain-base-erc8004",
+  "description": "Register your AI agent onchain with ERC-8004 on Base. Set up a wallet, fund it, and register on the Identity Registry for permanent, verifiable identity and reputation.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

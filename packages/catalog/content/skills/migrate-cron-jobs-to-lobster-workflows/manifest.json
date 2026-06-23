@@ -1,0 +1,10 @@
+{
+  "id": "migrate-cron-jobs-to-lobster-workflows",
+  "name": "migrate-cron-jobs-to-lobster-workflows",
+  "description": "Transform OpenClaw cron jobs into Lobster workflows. Analyze, inspect, and validate job migrations. Use when converting automations to deterministic, approval-gated workflows with resume capabilities.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

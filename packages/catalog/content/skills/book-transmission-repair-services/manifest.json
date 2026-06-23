@@ -1,0 +1,10 @@
+{
+  "id": "book-transmission-repair-services",
+  "name": "book-transmission-repair-services",
+  "description": "Book transmission services through Lokuli MCP. Use when user needs to find and book transmission. Triggers on requests like \"book a transmission\", \"find transmission near me\", or any transmission service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

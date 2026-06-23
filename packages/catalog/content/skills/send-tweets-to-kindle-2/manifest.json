@@ -1,0 +1,10 @@
+{
+  "id": "send-tweets-to-kindle-2",
+  "name": "send-tweets-to-kindle-2",
+  "description": "Send X/Twitter posts to Kindle for distraction-free reading. Use when user shares an X/Twitter link and wants to read it on Kindle, or asks to send a tweet/thread to their Kindle device.",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "message-circle",
+  "order": 1000
+}

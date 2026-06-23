@@ -1,0 +1,10 @@
+{
+  "id": "stream-runs-vizclaw-rooms",
+  "name": "stream-runs-vizclaw-rooms",
+  "description": "Connect OpenClaw-style runs to VizClaw live rooms from a ClawHub-installable skill. Use when you need quick room creation, JSONL/websocket bridging, trigger and agent event streaming, or safe overview-mode visualization.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

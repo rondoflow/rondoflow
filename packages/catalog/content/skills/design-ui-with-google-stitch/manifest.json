@@ -1,0 +1,10 @@
+{
+  "id": "design-ui-with-google-stitch",
+  "name": "design-ui-with-google-stitch",
+  "description": "Design, preview, and generate UI code using Google Stitch (via MCP). Helps developers choose the best UI by generating previews first, allowing iteration, and then exporting code.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

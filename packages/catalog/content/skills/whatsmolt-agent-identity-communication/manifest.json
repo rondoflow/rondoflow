@@ -1,0 +1,10 @@
+{
+  "id": "whatsmolt-agent-identity-communication",
+  "name": "whatsmolt-agent-identity-communication",
+  "description": "Agent identity, discovery, and communication via WhatsMolt. Use when: agent needs to check messages, discover other agents, send messages, manage its profile, or verify trust. NOT for: human-to-human email, real-time chat, or file transfers.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.3.2",
+  "icon": "bot",
+  "order": 1000
+}

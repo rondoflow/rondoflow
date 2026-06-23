@@ -1,0 +1,10 @@
+{
+  "id": "generate-pdf-docx-documents-ai",
+  "name": "generate-pdf-docx-documents-ai",
+  "description": "AI document generation powered by CellCog — PDF and DOCX. Resumes, contracts, reports, proposals, invoices, certificates, NDAs, letters, brochures, legal documents, cover letters, and professional documents. Research-backed content with professional design.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.13",
+  "icon": "pencil",
+  "order": 1000
+}

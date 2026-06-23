@@ -1,0 +1,10 @@
+{
+  "id": "monitor-google-search-trends",
+  "name": "monitor-google-search-trends",
+  "description": "Monitor Google Trends - get trending searches, compare keywords, and track interest over time. Use for market research, content planning, and trend analysis.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "query-curate-knowledge-base-cli",
+  "name": "query-curate-knowledge-base-cli",
+  "description": "Query and curate knowledge-base using ByteRover CLI. Use `brv query` for knowledge retrieval, `brv curate` for adding context, and `brv push/pull` for syncing.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.6.0",
+  "icon": "puzzle",
+  "order": 1000
+}

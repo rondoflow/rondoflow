@@ -1,0 +1,10 @@
+{
+  "id": "economics-opportunity-cost",
+  "name": "economics-opportunity-cost",
+  "description": "Maps the true cost of a choice by making explicit what is foregone. Triggers: 'opportunity cost', 'what am I giving up', 'what else could I do with this', 'hidden cost', 'what's the real cost of this', 'what are we not doing by doing this', any decision where the cost of the chosen path needs to be compared against the best alternative.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

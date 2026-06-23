@@ -1,0 +1,10 @@
+{
+  "id": "agent-commerce-identity-payments-arbitration",
+  "name": "agent-commerce-identity-payments-arbitration",
+  "description": "ERC-8004 identity, x402 payments, and arbitration protocol for autonomous agent commerce. The three rails for the machine economy.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.7.1",
+  "icon": "coins",
+  "order": 1000
+}

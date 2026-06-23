@@ -1,0 +1,10 @@
+{
+  "id": "manage-freedcamp-tasks-projects",
+  "name": "manage-freedcamp-tasks-projects",
+  "description": "Manage Freedcamp tasks, projects, groups, comments, notifications, and task lists via HMAC-SHA1 API credentials.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

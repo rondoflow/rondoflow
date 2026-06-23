@@ -1,0 +1,10 @@
+{
+  "id": "network",
+  "name": "network",
+  "description": "Entry point for the network analysis toolkit. Routes to the right network skill based on your situation. Use when you say 'network', 'who's connected to whom', 'how does this spread', 'who are the key players', 'why did this go viral', 'network effects', 'tipping point', 'weak ties', 'bridges between groups', or want network thinking applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

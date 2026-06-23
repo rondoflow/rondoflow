@@ -1,0 +1,10 @@
+{
+  "id": "control-word-app-via-osascript",
+  "name": "control-word-app-via-osascript",
+  "description": "Control Word app sessions, documents, selections, comments, export, and review state with osascript workflows.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "plug",
+  "order": 1000
+}

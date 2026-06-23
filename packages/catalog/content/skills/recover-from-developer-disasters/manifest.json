@@ -1,0 +1,10 @@
+{
+  "id": "recover-from-developer-disasters",
+  "name": "recover-from-developer-disasters",
+  "description": "Recover from developer disasters. Use when someone force-pushed to main, leaked credentials in git, ran out of disk space, killed the wrong process, corrupted a database, broke a deploy, locked themselves out of SSH, lost commits after a bad rebase, or hit any other \"oh no\" mome…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

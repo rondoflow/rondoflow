@@ -1,0 +1,10 @@
+{
+  "id": "generate-tailored-freelance-proposals",
+  "name": "generate-tailored-freelance-proposals",
+  "description": "Generate tailored freelance proposals for Upwork, Fiverr, Freelancer, and PeoplePerHour job listings. Use when writing proposals, bidding on gigs, or responding to client job posts.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

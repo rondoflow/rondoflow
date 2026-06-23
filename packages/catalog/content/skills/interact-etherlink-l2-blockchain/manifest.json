@@ -1,0 +1,10 @@
+{
+  "id": "interact-etherlink-l2-blockchain",
+  "name": "interact-etherlink-l2-blockchain",
+  "description": "Etherlink blockchain interaction - EVM-compatible L2 on Tezos. Supports mainnet and shadownet testnet via MCP server. Use for balance checks, transactions, smart contracts, and token operations on Etherlink.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

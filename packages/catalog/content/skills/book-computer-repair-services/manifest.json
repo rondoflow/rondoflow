@@ -1,0 +1,10 @@
+{
+  "id": "book-computer-repair-services",
+  "name": "book-computer-repair-services",
+  "description": "Book computer-repair services through Lokuli MCP. Use when user needs to find and book computer-repair. Triggers on requests like \"book a computer-repair\", \"find computer-repair near me\", or any computer-repair service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

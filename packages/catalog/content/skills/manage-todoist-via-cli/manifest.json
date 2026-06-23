@@ -1,0 +1,10 @@
+{
+  "id": "manage-todoist-via-cli",
+  "name": "manage-todoist-via-cli",
+  "description": "Manage Todoist tasks, projects, labels, and comments via the todoist CLI wrapper. Use when a user asks to add tasks, list todos, complete items, manage projects, or interact with their Todoist account.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

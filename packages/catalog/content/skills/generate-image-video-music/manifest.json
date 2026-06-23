@@ -1,0 +1,10 @@
+{
+  "id": "generate-image-video-music",
+  "name": "generate-image-video-music",
+  "description": "AI image, video, and music generation. Flux, Veo 3.1, Suno V5.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "image",
+  "order": 1000
+}

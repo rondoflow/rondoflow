@@ -1,0 +1,10 @@
+{
+  "id": "build-habits-with-streaks-reminders",
+  "name": "build-habits-with-streaks-reminders",
+  "description": "Build habits with streaks, reminders, and progress visualization",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

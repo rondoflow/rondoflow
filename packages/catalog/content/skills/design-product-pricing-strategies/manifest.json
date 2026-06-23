@@ -1,0 +1,10 @@
+{
+  "id": "design-product-pricing-strategies",
+  "name": "design-product-pricing-strategies",
+  "description": "Design pricing strategies for products, services, and subscriptions that maximize conversion and value.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

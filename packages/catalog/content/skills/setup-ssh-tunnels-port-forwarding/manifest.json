@@ -1,0 +1,10 @@
+{
+  "id": "setup-ssh-tunnels-port-forwarding",
+  "name": "setup-ssh-tunnels-port-forwarding",
+  "description": "SSH tunneling, port forwarding, and remote access patterns. Use when setting up local/remote/dynamic port forwards, configuring jump hosts, managing SSH keys, multiplexing connections, transferring files with scp/rsync, or debugging SSH connection issues.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

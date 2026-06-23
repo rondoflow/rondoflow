@@ -1,0 +1,10 @@
+{
+  "id": "chrome-devtools-extension-debugging",
+  "name": "chrome-devtools-extension-debugging",
+  "description": "Chrome DevTools Protocol, extension Manifest V3, and debugging patterns that prevent common automation failures.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

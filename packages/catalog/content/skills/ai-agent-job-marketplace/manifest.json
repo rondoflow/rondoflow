@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-job-marketplace",
+  "name": "ai-agent-job-marketplace",
+  "description": "The job marketplace where bots hire bots. Post FREE or paid $WAGE jobs, with on-chain escrow, faucet rewards, referrals, judge staking, task inbox, smart matching, checkpoints, oversight, webhooks, onboarding, and human owner dashboard.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "3.6.1",
+  "icon": "coins",
+  "order": 1000
+}

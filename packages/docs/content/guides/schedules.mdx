@@ -1,0 +1,200 @@
+---
+title: Schedules
+description: Run a workflow or a single assistant automatically on a cron schedule with timezone-aware recurring execution.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Schedules
+
+Schedules let RondoFlow run work for you on a recurring basis — no clicking required. You point a schedule at either a saved [Workflow](/docs/guides/workflows) or a single Assistant (internally an *agent*), give it a message and a cron expression, and the scheduler starts it at the times you define.
+
+Each schedule is timezone-aware, tracks its next run time and the status of its last run, and can be paused or resumed at any time.
+
+<Callout type="info">
+Scheduled runs are **headless** — they execute in the background with no canvas open and no interactive prompts. There is nobody present to answer permission requests, so scheduled runs use Claude Code's **`plan` permission mode** (read-only by default). They are best suited to read, analysis, and reporting tasks rather than work that needs approvals or filesystem writes.
+</Callout>
+
+## How it works
+
+The backend scheduler is built on [Croner](https://github.com/Hexagon/croner), a timezone-aware cron engine.
+
+- When you create or enable a schedule, the server registers a cron job from your expression and timezone.
+- On each tick, the scheduler sets `lastStatus` to `running` (and stamps `lastRunAt`), starts (spawns) the target, and records the outcome.
+- After a run finishes it resolves `lastStatus` to `success` or `error` and recomputes `nextRunAt` from the cron expression.
+- Real-time events (`schedule:run_start`, `schedule:run_complete`, `schedule:run_error`) are emitted over Socket.IO so the UI can reflect activity live.
+
+### Workflow vs. assistant targets
+
+The two target types behave quite differently under the hood — this is the most important thing to understand before you wire one up.
+
+| Target type | What actually runs |
+| --- | --- |
+| `agent` | A **generic helper assistant**, not your configured Assistant. The scheduler spawns Claude Code with a fixed system prompt (`"You are a helpful assistant executing a scheduled task…"`) and your `message` as the task. It does **not** load the target Assistant's persona (Persona), skills, allowed tools, or model — only the target id-prefix and your message are used. |
+| `workflow` | A saved Workflow run as a **simplified sequential chain**. Each agent in the saved workflow runs in turn with its real persona and model, and each one's output is passed forward as the input to the next. There are no DAG edges, no [Condition](/docs/guides/data-nodes) branches, and no [Director](/docs/guides/orchestration) — just a straight line through the agents. |
+
+<Callout type="warning">
+A `type: "agent"` schedule does **not** run the Assistant you configured on the canvas. It runs a stripped-down generic helper that only sees your message. If you need an Assistant's real persona, skills, and model, save it inside a one-agent Workflow and schedule the **workflow** instead.
+</Callout>
+
+<Callout type="info">
+The scheduler always spawns Claude Code (`ClaudeCodeSpawner`). It does **not** use RondoFlow's HTTP provider runners, so any OpenAI- or Perplexity-backed assistants inside a saved workflow will not run through their own provider on a scheduled run.
+</Callout>
+
+### Budget caps and stalled-run reaping
+
+Scheduled runs are hard-capped on spend and rely on an idle timeout to clean up stuck prompts, because no human is present to approve anything:
+
+- **Spend cap.** An `agent` task is capped at **$0.20**; each agent in a scheduled `workflow` is capped at **$0.15**.
+- **Idle reaping.** Because `plan` mode can stall on a permission prompt that no one will answer, the spawner's idle timeout (`RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`, default **5 minutes**, `0` disables) reaps a run that goes silent. A run still producing output is left alone, so a legitimately long task is not false-killed. There is no absolute wall-clock cap by default (`RONDOFLOW_SPAWN_MAX_MS` defaults to off).
+
+### Headless Output and Email side effects (workflows only)
+
+When a scheduled **workflow** finishes its agents, the scheduler also honors any saved [Output and Email cards](/docs/guides/data-nodes) (Cards = Nodes) baked into the workflow. This happens headlessly — there is no canvas — so the behavior differs slightly from an interactive run:
+
+- **Output cards** write the combined agent output to disk. The file goes to the card's configured destination directory, or — when none is set — falls back to a stable per-user folder at `~/.rondoflow/scheduled-outputs/` on the **server host**. Filenames look like `workflow-output-<ISO-timestamp>-<uuid8>.<ext>`, where the extension matches the chosen format.
+- **Email cards** send the combined output via SMTP. The body is always HTML (markdown→HTML via the shared `formatRunOutput`); the subject defaults to `Workflow output` if none is set. Email is **skipped (and logged) when SMTP is not configured** — i.e. `SMTP_HOST`/`SMTP_FROM` are unset and `readSmtpConfig()` returns nothing. See [Settings](/docs/guides/settings) and the [Data Nodes](/docs/guides/data-nodes) guide for SMTP configuration.
+- **Agents are matched by name.** Headless runs have no canvas node ids, so an Output or Email card that targets specific agents matches them by their **name**, not their canvas id. Keep agent names unique and stable inside a workflow you intend to schedule.
+
+<Callout type="info">
+Output and Email side effects are **best-effort**: a write failure or a send failure is logged and swallowed so one bad destination or recipient can't abort the whole scheduled task.
+</Callout>
+
+## Persistence and recovery
+
+Schedules are stored in PostgreSQL (the `ScheduledTask` model), so they survive restarts. On boot, the server scans for every **enabled** schedule and re-registers its cron job automatically — you do not need to recreate anything after a deploy or a crash. On graceful shutdown, all running cron jobs are stopped cleanly.
+
+## Creating a schedule in the UI
+
+Open the **Scheduled Tasks** panel and choose **New Schedule**.
+
+<Steps>
+### Name the schedule
+
+Give it a descriptive name so you can recognize it in the list.
+
+### Pick a target type
+
+Choose **Agent** (a single generic helper run) or **Workflow** (a saved workflow). Remember that **Agent** does not run your configured Assistant — see [Workflow vs. assistant targets](#workflow-vs-assistant-targets).
+
+### Choose the target
+
+Select the **Agent** or **Saved Workflow** the schedule should start.
+
+### Write the message
+
+Add the task prompt the target receives on each run. This is optional — leave it blank to use a default instruction.
+
+### Set the cron expression
+
+Click a preset or type your own cron expression (for example `0 9 * * 1-5`).
+
+### Confirm the timezone
+
+The dialog pre-fills your browser's timezone. Change it if you want runs to fire in a different zone.
+</Steps>
+
+The panel pre-populates a sensible default of `0 9 * * *` (every day at 9am) and offers these presets:
+
+| Preset | Cron |
+| --- | --- |
+| Every hour | `0 * * * *` |
+| Every 2 hours | `0 */2 * * *` |
+| Every day at 9am | `0 9 * * *` |
+| Weekdays at 9am | `0 9 * * 1-5` |
+| Every Monday at 9am | `0 9 * * 1` |
+
+### Managing existing schedules
+
+Each schedule card in the panel shows its cron expression, timezone, last run (with status color), and next run. From the card you can:
+
+- **Run now** — trigger an immediate run without waiting for the next tick.
+- **Pause / Resume** — toggle the schedule's enabled state. Pausing unregisters the cron job; resuming re-registers it.
+- **Delete** — remove the schedule and stop its cron job.
+
+## The schedules API
+
+Schedules are managed through a standard REST surface under `/api/schedules`. All responses use the common envelope: `{ success, data?, error? }`.
+
+| Method | Path | Description |
+| --- | --- | --- |
+| `GET` | `/api/schedules` | List all schedules, newest first. |
+| `POST` | `/api/schedules` | Create a schedule (and register its cron job). |
+| `PATCH` | `/api/schedules/:id` | Update a schedule; re-registers or unregisters its cron job based on `enabled`. |
+| `DELETE` | `/api/schedules/:id` | Delete a schedule and stop its cron job. |
+| `POST` | `/api/schedules/:id/run-now` | Trigger an immediate, asynchronous run. |
+
+### Create payload
+
+<Tabs items={['Agent', 'Workflow']}>
+<Tabs.Tab>
+```json
+{
+  "name": "Daily standup summary",
+  "type": "agent",
+  "targetId": "00000000-0000-0000-0000-000000000000",
+  "message": "Summarize yesterday's commits and open PRs.",
+  "schedule": "0 9 * * 1-5",
+  "timezone": "America/New_York"
+}
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```json
+{
+  "name": "Nightly report pipeline",
+  "type": "workflow",
+  "targetId": "11111111-1111-1111-1111-111111111111",
+  "message": "Run the nightly reporting workflow.",
+  "schedule": "0 2 * * *",
+  "timezone": "UTC"
+}
+```
+</Tabs.Tab>
+</Tabs>
+
+### Field reference
+
+| Field | Type | Required | Default | Notes |
+| --- | --- | --- | --- | --- |
+| `name` | string | yes | — | 1–200 characters. |
+| `description` | string | no | `""` | Up to 1000 characters. |
+| `type` | `"workflow"` \| `"agent"` | yes | — | The kind of target. |
+| `targetId` | UUID | yes | — | Saved Workflow ID or Agent ID. |
+| `message` | string | no | `""` | Task prompt, up to 5000 characters. |
+| `schedule` | string | yes | — | Cron expression, 1–100 characters. |
+| `timezone` | string | no | `"UTC"` | IANA timezone name. |
+| `directorEnabled` | boolean | no | `false` | Accepted and stored, but **currently a no-op** — see the callout below. |
+
+A `PATCH` accepts the same editable fields plus `enabled` to pause or resume a schedule. Sending `enabled: false` unregisters the cron job; `enabled: true` re-registers it.
+
+<Callout type="warning">
+**`directorEnabled` has no runtime effect today.** The field is validated by the API, stored on the `ScheduledTask` model, and present in the UI type, but the scheduler engine never reads it — scheduled runs **never** invoke the [Director](/docs/guides/orchestration). The create dialog in the Scheduled Tasks panel doesn't send the field at all, so it always defaults to `false`. Treat it as reserved for forward-compatibility, not a working toggle.
+</Callout>
+
+### Tracked run state
+
+Each schedule record exposes read-only run state you can poll via `GET /api/schedules`:
+
+| Field | Meaning |
+| --- | --- |
+| `enabled` | Whether the cron job is currently active. |
+| `lastRunAt` | Timestamp of the most recent run. |
+| `lastStatus` | `running` (in flight), then `success` or `error`. |
+| `nextRunAt` | Computed time of the next scheduled run. |
+
+<Callout type="warning">
+Cron expressions are evaluated in the schedule's timezone, not the server's. Double-check the timezone field if runs fire an hour off — daylight saving transitions are handled by Croner based on the IANA zone you choose.
+</Callout>
+
+## Related
+
+<Cards>
+<Cards.Card title="Workflows" href="/docs/guides/workflows" />
+<Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+<Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
+<Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+</Cards>

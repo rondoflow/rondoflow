@@ -1,0 +1,10 @@
+{
+  "id": "writing-technical",
+  "name": "writing-technical",
+  "description": "Writes and audits technical documentation, API docs, user guides, and specifications for completeness, sequence, precision, and audience calibration. Use when documentation is confusing, assumes too much knowledge, or leaves gaps a user can't bridge. Triggers: 'technical writing', 'API documentation', 'write documentation', 'user guide', 'technical docs', 'the documentation is confusing', 'write a spec', 'docs are missing steps'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

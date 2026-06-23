@@ -1,0 +1,10 @@
+{
+  "id": "scrape-web-with-local-crawl4ai",
+  "name": "scrape-web-with-local-crawl4ai",
+  "description": "Web scraping using local Crawl4AI instance. Use for fetching full page content with JavaScript rendering. Better than Tavily for complex pages. Unlimited usage.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

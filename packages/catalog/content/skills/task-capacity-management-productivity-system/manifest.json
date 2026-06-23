@@ -1,0 +1,10 @@
+{
+  "id": "task-capacity-management-productivity-system",
+  "name": "task-capacity-management-productivity-system",
+  "description": "Interact with Yatta! task management system via API. Requires an API key from your Yatta! account.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.2.2",
+  "icon": "check-square",
+  "order": 1000
+}

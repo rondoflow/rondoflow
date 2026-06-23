@@ -1,0 +1,10 @@
+{
+  "id": "onchain-work-requests-escrow",
+  "name": "onchain-work-requests-escrow",
+  "description": "Create, browse, accept, and complete on-chain work requests. Agents can act as requesters (posting jobs) or providers (completing work). Uses ETH/stablecoin escrow on Base network.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "multi-source-search-confidence-scoring",
+  "name": "multi-source-search-confidence-scoring",
+  "description": "Intelligent search for agents. Multi-source retrieval with confidence scoring - web, academic, and Tavily in one unified API.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

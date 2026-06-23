@@ -1,0 +1,280 @@
+{
+  "format": {
+    "brainstorm": {
+      "label": "Brainstorming",
+      "description": "Otvorené generovanie a skúmanie nápadov"
+    },
+    "review": {
+      "label": "Revízia",
+      "description": "Štruktúrované vyhodnotenie návrhu alebo artefaktu"
+    },
+    "deliberation": {
+      "label": "Debata",
+      "description": "Protichodná výmena na záťažové preverenie pozície"
+    }
+  },
+  "role": {
+    "participant": {
+      "label": "Účastník",
+      "tooltip": "Aktívne prispieva nápadmi a reakciami počas celej diskusie."
+    },
+    "observer": {
+      "label": "Pozorovateľ",
+      "tooltip": "Počúva a sumarizuje, ale neprispieva ťahmi."
+    },
+    "devilAdvocate": {
+      "label": "Diablov advokát",
+      "tooltip": "Spochybňuje každý návrh, aby záťažovo preveril predpoklady."
+    },
+    "moderator": {
+      "label": "Facilitátor"
+    }
+  },
+  "validation": {
+    "topicRequired": "Téma je povinná.",
+    "facilitatorRequired": "Musí byť vybraný facilitátor.",
+    "participantRequired": "Musí byť pridaný aspoň jeden účastník."
+  },
+  "wizard": {
+    "stepIndicator": "Krok {{current}} z {{total}}",
+    "title": {
+      "topic": "Nová diskusia — Téma",
+      "team": "Nová diskusia — Tím",
+      "settings": "Nová diskusia — Nastavenia"
+    },
+    "description": "Vytvorte novú viacasistentskú diskusiu v {{total}} krokoch.",
+    "topic": {
+      "label": "O čom by mal tím diskutovať?",
+      "placeholder": "Opíšte tému, otázku alebo návrh na diskusiu…",
+      "hint": "Buďte konkrétni — zameraná téma vedie k lepšej diskusii.",
+      "styleLabel": "Štýl diskusie"
+    },
+    "team": {
+      "heading": "Vyberte svoj tím",
+      "facilitatorLabel": "Facilitátor",
+      "facilitatorHint": "Facilitátor moderuje diskusiu a vytvára konečnú syntézu.",
+      "selectPlaceholder": "Vyberte facilitátora…",
+      "groupFacilitators": "Facilitátori",
+      "groupAllAssistants": "Všetci asistenti",
+      "newButton": "Nový",
+      "createNamePlaceholder": "Názov facilitátora",
+      "createDescPlaceholder": "Popis (voliteľné)",
+      "createSubmit": "Vytvoriť a vybrať",
+      "creating": "Vytvára sa...",
+      "participantsLabel": "Účastníci",
+      "participantsEmpty": "Zatiaľ žiadni účastníci. Pridajte aspoň jedného asistenta.",
+      "participantAgentLabel": "Asistent účastníka {{index}}",
+      "participantRoleLabel": "Rola účastníka {{index}}",
+      "roleDescriptionLabel": "Popis roly",
+      "removeParticipant": "Odstrániť účastníka {{index}}",
+      "addParticipant": "Pridať ďalšieho účastníka"
+    },
+    "settings": {
+      "roundsLabel": "Počet kôl",
+      "autoLabel": "Automaticky (rozhoduje facilitátor)",
+      "autoHint": "Facilitátor po každom kole vyhodnotí pokrok a rozhodne, kedy uzavrieť diskusiu.",
+      "fixedLabel": "Pevný počet kôl",
+      "fixedHint": "Spustiť presne tento počet kôl bez ohľadu na pokrok.",
+      "roundsInputLabel": "Počet kôl",
+      "estimatesTitle": "Odhady",
+      "estimatedCost": "Odhadované náklady",
+      "costRange": "${{min}} – ${{max}}",
+      "estimatedTime": "Odhadovaný čas",
+      "timeValue": "~{{minutes}} min",
+      "participants": "Účastníci",
+      "rounds": "Kolá",
+      "auto": "Automaticky",
+      "estimatesNote": "Odhady predpokladajú Sonnet pre facilitátora a Haiku pre účastníkov. Skutočné náklady sa môžu líšiť."
+    },
+    "footer": {
+      "back": "Späť",
+      "backLabel": "Prejsť na predchádzajúci krok",
+      "next": "Ďalej",
+      "nextLabel": "Prejsť na ďalší krok",
+      "start": "Spustiť",
+      "startLabel": "Spustiť diskusiu"
+    }
+  },
+  "timeline": {
+    "showMore": "Zobraziť viac",
+    "showLess": "Zobraziť menej",
+    "saidLabel": "{{name}} povedal",
+    "moderatorDecisionLabel": "Rozhodnutie facilitátora",
+    "conclusionLabel": "Záver diskusie",
+    "conclusionTitle": "Záver",
+    "copy": "Kopírovať",
+    "copied": "Skopírované",
+    "copyLabel": "Skopírovať záver do schránky",
+    "download": "Stiahnuť",
+    "downloadLabel": "Stiahnuť záver ako Markdown",
+    "topicLabel": "Téma: {{topic}}",
+    "empty": {
+      "draftTitle": "Diskusia nezačala",
+      "draftHint": "Stlačte Spustiť na začatie diskusie. Ťahy sa tu zobrazia v reálnom čase.",
+      "waitingTitle": "Čaká sa na prvý ťah...",
+      "waitingHint": "Diskusia začala. Ťahy sa tu zobrazia, keď asistenti odpovedia."
+    },
+    "roundOf": "Kolo {{current}} z {{max}}",
+    "round": "Kolo {{current}}",
+    "status": {
+      "active": "Aktívna",
+      "concluded": "Uzavretá",
+      "draft": "Koncept"
+    },
+    "turnsLabel": "Ťahy diskusie",
+    "exportHeading": "Záver diskusie",
+    "exportTopic": "**Téma:** {{topic}}"
+  },
+  "controls": {
+    "toolbarLabel": "Ovládacie prvky diskusie",
+    "round": {
+      "concluded": "Uzavretá",
+      "of": "Kolo {{current}} z {{max}}",
+      "current": "Kolo {{current}}",
+      "notStarted": "Nezačaté"
+    },
+    "status": {
+      "draft": "Koncept",
+      "active": "Aktívna",
+      "concluded": "Uzavretá"
+    },
+    "statusLabel": "Stav diskusie: {{status}}",
+    "start": "Spustiť",
+    "startLabel": "Spustiť diskusiu",
+    "pause": "Pozastaviť",
+    "pauseLabel": "Pozastaviť diskusiu",
+    "stop": "Zastaviť",
+    "stopLabel": "Zastaviť diskusiu",
+    "resume": "Pokračovať",
+    "resumeLabel": "Pokračovať v diskusii",
+    "export": "Exportovať",
+    "exportLabel": "Exportovať diskusiu",
+    "stopDialog": {
+      "title": "Zastaviť diskusiu?",
+      "description": "Týmto sa diskusia natrvalo zastaví. Akýkoľvek neuložený pokrok sa stratí a diskusiu nebude možné znova spustiť.",
+      "confirm": "Zastaviť diskusiu"
+    }
+  },
+  "list": {
+    "status": {
+      "draft": "Koncept",
+      "active": "Aktívna",
+      "concluded": "Uzavretá"
+    },
+    "openLabel": "Otvoriť diskusiu: {{name}}",
+    "title": "Diskusie",
+    "facilitators": "Facilitátori",
+    "facilitatorsLabel": "Spravovať facilitátorov",
+    "newDiscussion": "Nová diskusia",
+    "newDiscussionLabel": "Vytvoriť novú diskusiu",
+    "panelLabel": "Zoznam diskusií",
+    "description": "Všetky tímové diskusie. Kliknutím na jednu ju otvoríte.",
+    "listLabel": "Zoznam diskusií",
+    "empty": {
+      "title": "Zatiaľ žiadne diskusie",
+      "hint": "Spustite tímovú diskusiu, aby sa tu zobrazila."
+    }
+  },
+  "panel": {
+    "label": "Diskusia: {{name}}",
+    "labelEmpty": "Panel diskusie",
+    "description": "Živý prepis a ovládacie prvky pre diskusiu „{{topic}}“.",
+    "descriptionEmpty": "Nie je vybraná žiadna diskusia.",
+    "status": {
+      "active": "Aktívna",
+      "concluded": "Uzavretá",
+      "draft": "Koncept"
+    },
+    "closeLabel": "Zavrieť panel diskusie",
+    "empty": {
+      "title": "Nie je vybraná žiadna diskusia",
+      "hint": "Otvorte Diskusie z horného panela a vyberte jednu na jej zobrazenie."
+    },
+    "exportTitle": "# Diskusia: {{name}}",
+    "exportTopic": "**Téma:** {{topic}}",
+    "exportConclusion": "## Záver"
+  },
+  "facilitators": {
+    "title": "Facilitátori",
+    "newButton": "Nový",
+    "presetLabel": "Začať z predvoľby",
+    "namePlaceholder": "Názov facilitátora",
+    "descPlaceholder": "Popis (voliteľné)",
+    "personaPlaceholder": "Osobnosť / inštrukcie (voliteľné — ponechajte prázdne pre všeobecného facilitátora)",
+    "model": {
+      "opus": "Opus",
+      "sonnet": "Sonnet",
+      "haiku": "Haiku"
+    },
+    "creating": "Vytvára sa...",
+    "loading": "Načítava sa...",
+    "empty": {
+      "title": "Zatiaľ žiadni facilitátori.",
+      "hint": "Vytvorte jedného na moderovanie diskusií.",
+      "createFirst": "Vytvorte svojho prvého facilitátora"
+    },
+    "builtin": "Vstavaný",
+    "deleteLabel": "Odstrániť {{name}}",
+    "defaultPersona": "Ste {{name}}, skúsený facilitátor diskusií. Vediete diskusie, zabezpečujete, aby boli vypočutí všetci účastníci, syntetizujete názory a udržiavate konverzácie produktívne a zamerané."
+  },
+  "chat": {
+    "step": "Krok {{index}}: ",
+    "stepRunning": "Beží ",
+    "working": "Pracuje sa…",
+    "agentCompleted": "{{name}} dokončil",
+    "viewConversationTitle": "Kliknutím zobrazíte celú konverzáciu asistenta",
+    "tokens_one": "{{count}} token",
+    "tokens_few": "{{count}} tokeny",
+    "tokens_other": "{{count}} tokenov",
+    "workflowCompleted": "Pracovný postup dokončený",
+    "tokensSuffix_one": "· {{formattedCount}} token",
+    "tokensSuffix_few": "· {{formattedCount}} tokeny",
+    "tokensSuffix_other": "· {{formattedCount}} tokenov",
+    "outputs": "Výstupy",
+    "outputsLabel": "Zobraziť uložené výstupy pracovného postupu",
+    "outputsTitle": "Zobraziť všetky uložené výstupy",
+    "savingOutput": "Ukladá sa výstup…",
+    "openResult": "Otvoriť výsledok",
+    "openResultLabel": "Otvoriť uložený výsledok pracovného postupu",
+    "openResultTitle": "Otvoriť uložený výsledok",
+    "saveLabel": "Uložiť výstup pracovného postupu do priečinka projektu",
+    "saveTitle": "Uložiť výstup do priečinka projektu",
+    "directorEvaluating": "Riaditeľ vyhodnocuje...",
+    "director": "Riaditeľ",
+    "directorSuggestsRedirect": "Riaditeľ navrhuje presmerovanie",
+    "approveRedirect": "Schváliť presmerovanie",
+    "continueForward": "Pokračovať ďalej",
+    "approveStep": "Schváliť krok {{index}}",
+    "approveAndRun": "Schváliť a spustiť",
+    "stopFlow": "Zastaviť postup",
+    "resolved": "Vyriešené",
+    "redirectApproved": "Presmerovanie schválené — opätovné spustenie {{name}}",
+    "redirectDeclined": "Presmerovanie zamietnuté — pokračuje sa ďalej",
+    "advisorAnalyzing": "Poradca analyzuje pracovný postup...",
+    "streamingLabel": "Prenos",
+    "emptyTitle": "Spustite svoj pracovný postup",
+    "emptyHint": "Odošlite správu nižšie na spustenie reťazca. Každý asistent ho spracuje v poradí.",
+    "logLabel": "Záznam pracovného postupu",
+    "approvalMode": {
+      "auto": "Automaticky",
+      "autoTitle": "Automaticky — spustiť každý krok a jeho nástroje bez pýtania",
+      "step": "Krok",
+      "stepTitle": "Krok po kroku — potvrdiť pred spustením každého kroku asistenta",
+      "groupLabel": "Režim schvaľovania pracovného postupu"
+    },
+    "executionLog": "Záznam vykonávania",
+    "stepsCount_one": "{{count}} krok",
+    "stepsCount_few": "{{count}} kroky",
+    "stepsCount_other": "{{count}} krokov",
+    "runningSuffix": "— beží",
+    "viewOutputs": "Zobraziť uložené výstupy",
+    "clearLog": "Vymazať záznam",
+    "inputPlaceholderRunning": "Odoslať ďalšie inštrukcie… (Ctrl+Enter)",
+    "inputPlaceholderIdle": "Opíšte, čo má pracovný postup urobiť… (Ctrl+Enter na spustenie)",
+    "inputLabel": "Vstup správy pracovného postupu",
+    "stopWorkflow": "Zastaviť pracovný postup",
+    "startingWorkflow": "Spúšťa sa pracovný postup…",
+    "runWorkflow": "Spustiť pracovný postup",
+    "typeMessageFirst": "Najprv napíšte správu"
+  }
+}

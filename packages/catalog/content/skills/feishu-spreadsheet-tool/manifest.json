@@ -1,0 +1,10 @@
+{
+  "id": "feishu-spreadsheet-tool",
+  "name": "feishu-spreadsheet-tool",
+  "description": "Feishu online spreadsheet (Sheets) operations including create, read, write, append data, manage worksheets. Use when user mentions Feishu Sheets, online spreadsheet, electronic spreadsheet (not Bitable/multi-dimensional table). Supports: create spreadsheet, write/read cell valu…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

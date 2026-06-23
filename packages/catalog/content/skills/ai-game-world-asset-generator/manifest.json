@@ -1,0 +1,10 @@
+{
+  "id": "ai-game-world-asset-generator",
+  "name": "ai-game-world-asset-generator",
+  "description": "Other tools generate sprites. CellCog builds game worlds. #1 on DeepResearch Bench (Apr 2026) for deep game design reasoning — character-consistent art, sprites, tilesets, music, UI, 3D models, GDDs, level design, and game prototypes, all cohesive across every asset.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "image",
+  "order": 1000
+}

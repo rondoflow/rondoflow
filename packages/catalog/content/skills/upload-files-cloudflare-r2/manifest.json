@@ -1,0 +1,10 @@
+{
+  "id": "upload-files-cloudflare-r2",
+  "name": "upload-files-cloudflare-r2",
+  "description": "Upload files to Cloudflare R2 storage using wrangler CLI. Use when needing to upload images, videos, or files to R2 for CDN hosting, or manage R2 bucket contents. Triggers on \"upload to R2\", \"upload to Cloudflare\", \"上传到R2\", \"存到CDN\".",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

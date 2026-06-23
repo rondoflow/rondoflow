@@ -1,0 +1,10 @@
+{
+  "id": "manage-projects-and-tasks",
+  "name": "manage-projects-and-tasks",
+  "description": "Gestiona el sistema de proyectos interno basado en JSON. Permite crear tareas, moverlas por el tablero Kanban y sincronizar con Apple Reminders.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "solana-fairlaunch-dao-trading",
+  "name": "solana-fairlaunch-dao-trading",
+  "description": "Trade, govern, and communicate on Torch Market -- a Solana fair-launch DAO launchpad with bonding curves, community treasuries, and on-chain message boards. Create tokens, buy/sell on curves, vote on treasury outcomes, star tokens, and coordinate with humans and other AI agents.…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "coins",
+  "order": 1000
+}

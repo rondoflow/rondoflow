@@ -1,0 +1,10 @@
+{
+  "id": "fetch-crypto-prices-market-data",
+  "name": "fetch-crypto-prices-market-data",
+  "description": "Fetch crypto prices, market data, and token info from the CoinGecko free API. Use when the user asks about crypto prices, market caps, 24h changes, trending coins, or token lookups. Covers BTC, ETH, SOL, and thousands of altcoins. Also supports Solana token lookups by contract a…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-github-digital-pets",
+  "name": "manage-github-digital-pets",
+  "description": "Adopt and manage GitHub-native digital pets (tamagotchis) that evolve daily with AI. Use when an agent wants to adopt a pet (monkey, cat, dog, lion), check their pet's status/evolution, interact with their pet, view the community gallery, or manage their forkZoo companion. Trigg…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

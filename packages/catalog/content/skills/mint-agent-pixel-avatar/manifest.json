@@ -1,0 +1,10 @@
+{
+  "id": "mint-agent-pixel-avatar",
+  "name": "mint-agent-pixel-avatar",
+  "description": "Mint your unique AI agent avatar — CryptoPunks-style pixel art. Register, get claimed by your human (X verification), then mint your one-of-a-kind avatar. Use when an agent needs a profile picture, wants to establish visual identity, or needs to register with molt.avatar.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

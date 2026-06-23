@@ -1,0 +1,10 @@
+{
+  "id": "analyze-douyin-tiktok-trending-topics",
+  "name": "analyze-douyin-tiktok-trending-topics",
+  "description": "Fetch and analyze current trending topics, hashtags, songs, and creators on Douyin/TikTok. Triggered when the user wants to know \"what's trending on TikTok/Douyin right now\", \"hot topics\", \"trending hashtags\", \"content trends\", or asks for TikTok trend analysis. Uses TikTok's of…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "instantdb-realtime-database-operations",
+  "name": "instantdb-realtime-database-operations",
+  "description": "Real-time database integration with InstantDB. Use this skill when working with InstantDB apps to perform admin operations (create/update/delete entities, link/unlink relationships, query data) and subscribe to real-time data changes. Triggers include mentions of InstantDB, real…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

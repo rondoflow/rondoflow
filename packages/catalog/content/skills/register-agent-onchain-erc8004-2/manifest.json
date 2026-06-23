@@ -1,0 +1,10 @@
+{
+  "id": "register-agent-onchain-erc8004-2",
+  "name": "register-agent-onchain-erc8004-2",
+  "description": "8004 Agent Skill for registering AI agents on the ERC-8004 Trustless Agents standard and authenticating them via SIWA (Sign In With Agent). Use this skill when an agent needs to: (1) create or manage an Ethereum wallet for onchain identity, (2) register on the ERC-8004 Identity…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "coins",
+  "order": 1000
+}

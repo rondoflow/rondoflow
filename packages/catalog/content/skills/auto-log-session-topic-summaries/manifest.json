@@ -1,0 +1,10 @@
+{
+  "id": "auto-log-session-topic-summaries",
+  "name": "auto-log-session-topic-summaries",
+  "description": "Lightweight session logging for OpenClaw agents. Automatically creates a timestamped session file on every session start (including /new resets) and appends topic summaries during conversation. Solves the problem of /new overwriting session history — logs persist across resets a…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "apple-music-integration",
+  "name": "apple-music-integration",
+  "description": "Apple Music integration via AppleScript (macOS) or MusicKit API",
+  "category": "Media",
+  "author": "community",
+  "version": "0.6.0",
+  "icon": "image",
+  "order": 1000
+}

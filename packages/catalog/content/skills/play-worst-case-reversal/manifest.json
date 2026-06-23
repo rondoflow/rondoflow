@@ -1,0 +1,10 @@
+{
+  "id": "play-worst-case-reversal",
+  "name": "play-worst-case-reversal",
+  "description": "Deliberately designs the worst possible version — then reverses each failure mode into a design principle. Removes the pressure of being right and unlocks creative honesty that polite brainstorming suppresses. TRIGGERS: 'worst possible idea', 'how would you make this terrible', 'reverse brainstorm', 'design the failure', 'how would you deliberately fail'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

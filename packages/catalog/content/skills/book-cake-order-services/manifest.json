@@ -1,0 +1,10 @@
+{
+  "id": "book-cake-order-services",
+  "name": "book-cake-order-services",
+  "description": "Book cake services through Lokuli MCP. Use when user needs to find and book cake. Triggers on requests like \"book a cake\", \"find cake near me\", or any cake service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

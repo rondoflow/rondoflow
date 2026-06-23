@@ -1,0 +1,28 @@
+{
+  "id": "ml-engineer",
+  "name": "ML Engineer",
+  "description": "Manages the end-to-end lifecycle of production ML models — scalable and reliable.",
+  "icon": "Brain",
+  "category": "Data & Analytics",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "machine-learning",
+    "mlops",
+    "model-deployment",
+    "pipelines",
+    "monitoring"
+  ],
+  "order": 121
+}

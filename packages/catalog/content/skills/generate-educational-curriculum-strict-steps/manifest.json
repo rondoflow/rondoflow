@@ -1,0 +1,10 @@
+{
+  "id": "generate-educational-curriculum-strict-steps",
+  "name": "generate-educational-curriculum-strict-steps",
+  "description": "Intelligent educational curriculum generation system with strict step enforcement and human escalation policies",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

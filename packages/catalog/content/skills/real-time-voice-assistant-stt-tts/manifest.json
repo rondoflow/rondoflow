@@ -1,0 +1,10 @@
+{
+  "id": "real-time-voice-assistant-stt-tts",
+  "name": "real-time-voice-assistant-stt-tts",
+  "description": "Real-time voice assistant for OpenClaw. Streams mic audio through configurable STT (Deepgram or ElevenLabs) into your OpenClaw agent, then speaks the response via configurable TTS (Deepgram Aura or ElevenLabs). Sub-2s time-to-first-audio with full streaming at every stage.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "access-yahoo-finance-data",
+  "name": "access-yahoo-finance-data",
+  "description": "Access Yahoo Finance data including real-time pricing, fundamentals, analyst estimates, options, news, and historical data via the yahooquery Python library.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

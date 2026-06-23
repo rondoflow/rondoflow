@@ -1,0 +1,10 @@
+{
+  "id": "extract-construction-specification-data",
+  "name": "extract-construction-specification-data",
+  "description": "Extract structured data from construction specifications. Parse CSI sections, requirements, submittals, and product data from spec documents.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

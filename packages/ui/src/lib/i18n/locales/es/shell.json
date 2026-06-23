@@ -1,0 +1,298 @@
+{
+  "tabs": {
+    "ariaLabel": "Espacios de trabajo",
+    "renameInput": "Renombrar espacio de trabajo",
+    "rename": "Renombrar {{name}}",
+    "delete": "Eliminar {{name}}",
+    "deleteLastDisabled": "No se puede eliminar el último espacio de trabajo",
+    "new": "Nuevo espacio de trabajo",
+    "create": "Crear nuevo espacio de trabajo",
+    "export": "Exportar lienzo",
+    "exportTooltip": "Exportar lienzo (compartir configuración)",
+    "import": "Importar lienzo",
+    "importTooltip": "Importar lienzo desde archivo",
+    "info": "Información del espacio de trabajo {{name}}"
+  },
+  "info": {
+    "title": "Información del espacio de trabajo",
+    "description": "Configuración y estadísticas de ejecución de este espacio de trabajo (solo lectura).",
+    "loading": "Cargando información del espacio de trabajo…",
+    "section": {
+      "runs": "Ejecuciones",
+      "usage": "Uso de tokens",
+      "config": "Configuración",
+      "content": "Lienzo y contenido"
+    },
+    "stat": {
+      "totalRuns": "Ejecuciones totales",
+      "completed": "Completadas",
+      "failed": "Fallidas",
+      "running": "En ejecución",
+      "avgDuration": "Duración media",
+      "maxDuration": "Ejecución más larga",
+      "totalDuration": "Tiempo total",
+      "totalSteps": "Pasos totales",
+      "cost": "Coste total",
+      "sessions": "Sesiones",
+      "inputTokens": "Tokens de entrada",
+      "outputTokens": "Tokens de salida",
+      "nodes": "Nodos",
+      "edges": "Conexiones",
+      "resources": "Recursos",
+      "memories": "Memorias"
+    },
+    "field": {
+      "workingDirectory": "Directorio de trabajo",
+      "notSet": "Sin definir",
+      "created": "Creado",
+      "updated": "Última actualización",
+      "documents": "Documentos",
+      "contextDoc": "Contexto",
+      "planDoc": "Plan",
+      "none": "Ninguno",
+      "workspaceId": "ID del espacio de trabajo",
+      "lastRun": "Última ejecución",
+      "firstRun": "Primera ejecución",
+      "stopped": "Ejecuciones detenidas",
+      "canvasLayouts": "Diseños de lienzo",
+      "canvasUpdated": "Lienzo actualizado",
+      "activityEvents": "Eventos de actividad",
+      "lastActivity": "Última actividad"
+    }
+  },
+  "search": {
+    "label": "Buscar",
+    "tooltip": "Buscar (Ctrl+K)"
+  },
+  "createDialog": {
+    "title": "Nuevo espacio de trabajo",
+    "description": "Empiece en blanco o elija un flujo predefinido, luego asígnele un nombre y elija la carpeta de proyecto en la que trabaja.",
+    "startFrom": "Empezar desde",
+    "templateGroup": "Plantilla de espacio de trabajo",
+    "blankTitle": "Espacio de trabajo en blanco",
+    "blankDescription": "Empiece con un lienzo vacío.",
+    "agentCount_one": "{{count}} asistente",
+    "agentCount_other": "{{count}} asistentes",
+    "namePlaceholder": "Nombre del espacio de trabajo…",
+    "nameLabel": "Nombre del nuevo espacio de trabajo",
+    "selectFolder": "Seleccionar carpeta de proyecto",
+    "selectFolderPlaceholder": "Seleccionar carpeta de proyecto…",
+    "submitFromFlow": "Crear desde flujo",
+    "submit": "Crear espacio de trabajo"
+  },
+  "deleteDialog": {
+    "title": "Eliminar espacio de trabajo",
+    "description": "¿Eliminar «{{name}}»? Esto eliminará todos los diseños de lienzo y recursos asociados con este espacio de trabajo. Esta acción no se puede deshacer."
+  },
+  "palette": {
+    "ariaLabel": "Paleta de comandos",
+    "placeholder": "Escriba un comando o busque...",
+    "listLabel": "Comandos",
+    "empty": "No se encontraron comandos para «{{query}}»",
+    "navigate": "navegar",
+    "select": "seleccionar",
+    "results_one": "{{count}} resultado",
+    "results_other": "{{count}} resultados"
+  },
+  "category": {
+    "assistants": "Asistentes",
+    "canvas": "Lienzo",
+    "navigation": "Navegación",
+    "actions": "Acciones",
+    "templates": "Plantillas"
+  },
+  "command": {
+    "assistantCreate": {
+      "label": "Crear nuevo asistente",
+      "description": "Añada un nuevo asistente de IA a su espacio de trabajo"
+    },
+    "assistantList": {
+      "label": "Listar todos los asistentes",
+      "description": "Explore y gestione los asistentes existentes"
+    },
+    "canvasFit": {
+      "label": "Ajustar a la vista",
+      "description": "Amplíe y desplace para mostrar todos los nodos"
+    },
+    "canvasClear": {
+      "label": "Limpiar lienzo",
+      "description": "Elimine todos los nodos y conexiones del lienzo"
+    },
+    "canvasZoomIn": {
+      "label": "Acercar",
+      "description": "Aumentar el nivel de zoom"
+    },
+    "canvasZoomOut": {
+      "label": "Alejar",
+      "description": "Disminuir el nivel de zoom"
+    },
+    "navAssistants": {
+      "label": "Abrir asistentes",
+      "description": "Explore y gestione los asistentes"
+    },
+    "navFacilitators": {
+      "label": "Abrir facilitadores",
+      "description": "Gestione los facilitadores de discusión"
+    },
+    "navDiscussions": {
+      "label": "Abrir discusiones",
+      "description": "Explore discusiones entre varios asistentes"
+    },
+    "navActivity": {
+      "label": "Abrir actividad",
+      "description": "Flujo de ejecución de asistentes en tiempo real"
+    },
+    "navAudit": {
+      "label": "Abrir registro de auditoría",
+      "description": "Rastro de auditoría completo de las acciones del sistema"
+    },
+    "navHistory": {
+      "label": "Abrir historial",
+      "description": "Ejecuciones y procesos anteriores"
+    },
+    "navAnalytics": {
+      "label": "Abrir analíticas",
+      "description": "Consumo de tokens, coste y rendimiento"
+    },
+    "navSkills": {
+      "label": "Abrir mercado de habilidades",
+      "description": "Explore e instale habilidades"
+    },
+    "navMemory": {
+      "label": "Abrir memoria",
+      "description": "Gestione la memoria persistente de los asistentes"
+    },
+    "navSchedules": {
+      "label": "Abrir programaciones",
+      "description": "Gestione las ejecuciones recurrentes de procesos"
+    },
+    "navSafety": {
+      "label": "Abrir reglas de seguridad",
+      "description": "Gestione las políticas de seguridad y las salvaguardas"
+    },
+    "actionUndo": {
+      "label": "Deshacer",
+      "description": "Deshacer la última acción"
+    },
+    "actionRedo": {
+      "label": "Rehacer",
+      "description": "Rehacer la acción deshecha anteriormente"
+    },
+    "actionShortcuts": {
+      "label": "Atajos de teclado",
+      "description": "Ver todos los atajos de teclado"
+    },
+    "templateCodeReview": {
+      "label": "Cargar: Flujo de revisión de código",
+      "description": "Redactor → Revisor → Revisor de seguridad"
+    },
+    "templateContentWriting": {
+      "label": "Cargar: Equipo de redacción de contenido",
+      "description": "Investigador → Redactor → Editor"
+    },
+    "templateResearch": {
+      "label": "Cargar: Asistente de investigación",
+      "description": "Bot de investigación independiente con habilidades de búsqueda web y análisis de datos"
+    },
+    "templateBrainstorm": {
+      "label": "Cargar: Equipo de lluvia de ideas",
+      "description": "Creativo, analista, abogado del diablo y facilitador"
+    }
+  },
+  "bottomBar": {
+    "ready": "Listo",
+    "running": "{{count}} en ejecución",
+    "tokens": "{{tokens}} tokens ({{cost}})",
+    "documentation": "Documentación",
+    "notifications": "Notificaciones",
+    "notificationsUnread": "Notificaciones, {{count}} sin leer",
+    "undo": "Deshacer",
+    "undoTooltip": "Deshacer (Ctrl+Z)",
+    "redo": "Rehacer",
+    "redoTooltip": "Rehacer (Ctrl+Shift+Z)",
+    "zoomOut": "Alejar",
+    "zoomIn": "Acercar",
+    "fitView": "Ajustar a la vista"
+  },
+  "userMenu": {
+    "trigger": "Menú de usuario",
+    "item": {
+      "activity": "Actividad",
+      "audit": "Registro de auditoría",
+      "analytics": "Analíticas",
+      "users": "Usuarios",
+      "restartOnboarding": "Reiniciar tutorial",
+      "settings": "Configuración",
+      "signOut": "Cerrar sesión"
+    }
+  },
+  "quickRun": {
+    "deselect": "Deseleccionar asistente",
+    "taskPlaceholder": "Introduzca la tarea y pulse Intro...",
+    "searchPlaceholder": "Buscar asistentes...",
+    "hintRun": "Intro para ejecutar",
+    "hintSelectFirst": "Seleccione primero un asistente",
+    "hintClose": "Esc para cerrar"
+  },
+  "shortcuts": {
+    "title": "Atajos de teclado",
+    "footer": "Pulse <0></0> o <1></1> para cerrar",
+    "category": {
+      "canvas": "Lienzo",
+      "nodes": "Nodos",
+      "navigation": "Navegación",
+      "editing": "Edición"
+    },
+    "panCanvas": "Desplazar lienzo",
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar",
+    "fitView": "Ajustar a la vista",
+    "selectAll": "Seleccionar todo",
+    "newAgent": "Nuevo asistente",
+    "deleteSelected": "Eliminar lo seleccionado",
+    "commandPalette": "Paleta de comandos",
+    "toggleSkills": "Alternar barra lateral de habilidades",
+    "shortcutHelp": "Ayuda de atajos",
+    "replayTips": "Reproducir consejos de inicio",
+    "duplicate": "Duplicar selección",
+    "findNode": "Buscar nodo",
+    "closeDeselect": "Cerrar / deseleccionar",
+    "undo": "Deshacer",
+    "redo": "Rehacer",
+    "redoAlt": "Rehacer (alt.)"
+  },
+  "favorites": {
+    "label": "Favoritos",
+    "moreCount": "{{count}} favoritos más"
+  },
+  "browse": {
+    "trigger": "Explorar paneles",
+    "searchPlaceholder": "Buscar paneles…",
+    "empty": "No hay paneles coincidentes",
+    "group": {
+      "people": "Personas",
+      "runData": "Datos de ejecución",
+      "system": "Sistema"
+    },
+    "item": {
+      "history": "Historial",
+      "skills": "Habilidades",
+      "externalFolders": "Carpetas externas",
+      "memory": "Memoria",
+      "schedules": "Programaciones",
+      "discussions": "Discusiones"
+    }
+  },
+  "cliBanner": {
+    "title": "No se encontró la CLI de Claude Code",
+    "description": "rondoflow requiere Claude Code para ejecutar asistentes. Instálelo con:",
+    "checkAgain": "Comprobar de nuevo",
+    "installGuide": "Guía de instalación"
+  },
+  "tier": {
+    "simpleMode_one": "Modo simple — {{count}} función más disponible",
+    "simpleMode_other": "Modo simple — {{count}} funciones más disponibles",
+    "standardMode_one": "Modo estándar — {{count}} función más disponible",
+    "standardMode_other": "Modo estándar — {{count}} funciones más disponibles"
+  }
+}

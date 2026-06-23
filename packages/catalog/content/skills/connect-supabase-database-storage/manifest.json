@@ -1,0 +1,10 @@
+{
+  "id": "connect-supabase-database-storage",
+  "name": "connect-supabase-database-storage",
+  "description": "Connect to Supabase for database operations, vector search, and storage. Use for storing data, running SQL queries, similarity search with pgvector, and managing tables. Triggers on requests involving databases, vector stores, embeddings, or Supabase specifically.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

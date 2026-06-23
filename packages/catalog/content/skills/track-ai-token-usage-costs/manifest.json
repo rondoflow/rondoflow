@@ -1,0 +1,10 @@
+{
+  "id": "track-ai-token-usage-costs",
+  "name": "track-ai-token-usage-costs",
+  "description": "Track AI token usage and costs across providers. Import sessions, view dashboard, costs breakdown, and compare Max plan savings.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "track-intermittent-fasting-windows",
+  "name": "track-intermittent-fasting-windows",
+  "description": "Track intermittent fasting windows, extended fasts, and autophagy milestones",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

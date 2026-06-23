@@ -1,0 +1,10 @@
+{
+  "id": "instagram-reel-transcription-extraction",
+  "name": "instagram-reel-transcription-extraction",
+  "description": "Download Instagram Reels, transcribe audio, and extract captions. Share a reel URL and get back a full transcript with the original description.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

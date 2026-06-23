@@ -1,0 +1,10 @@
+{
+  "id": "check-foodora-order-status",
+  "name": "check-foodora-order-status",
+  "description": "Foodora-only CLI for checking past orders and active order status (Deliveroo WIP).",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

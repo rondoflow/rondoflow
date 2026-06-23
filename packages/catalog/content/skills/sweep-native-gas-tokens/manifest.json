@@ -1,0 +1,10 @@
+{
+  "id": "sweep-native-gas-tokens",
+  "name": "sweep-native-gas-tokens",
+  "description": "Sweep 100% of native gas tokens from EIP-7702 compatible chains. Leaves exactly zero balance. Supports 25 mainnet chains.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

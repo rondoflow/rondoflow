@@ -1,0 +1,10 @@
+{
+  "id": "manage-bangunai-blog-mdx-content",
+  "name": "manage-bangunai-blog-mdx-content",
+  "description": "Use when managing BangunAI Blog content, automating blog workflows, and writing MDX articles with BangunAI conventions. Supports Obsidian-like features (callouts, mermaid, LaTeX, wikilinks, backlinks, graph view).",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

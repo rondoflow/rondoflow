@@ -1,0 +1,10 @@
+{
+  "id": "sync-icloud-calendar-via-caldav",
+  "name": "sync-icloud-calendar-via-caldav",
+  "description": "Secure iCloud Calendar operations for OpenClaw with CalDAV and macOS native bridge providers. Use when tasks require calendar listing, event retrieval, event creation, event updates (including recurring series modes), event deletion, or credential setup via keyring/environment/c…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "2.4.1",
+  "icon": "check-square",
+  "order": 1000
+}

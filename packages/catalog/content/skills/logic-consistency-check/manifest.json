@@ -1,0 +1,10 @@
+{
+  "id": "logic-consistency-check",
+  "name": "logic-consistency-check",
+  "description": "Surface internal contradictions, conflicting requirements, and edge cases that expose hidden conflicts in a document, spec, plan, design, or set of requirements. Use when something feels off but you can't pinpoint why, before committing to a design, or when requirements have grown incrementally and may have drifted out of sync. TRIGGERS: 'consistency check', 'find contradictions', 'does this spec make sense', 'check for conflicts', 'something feels wrong here', reviewing requirements docs, technical specs, architecture plans, product briefs, or any document where internal coherence matters.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

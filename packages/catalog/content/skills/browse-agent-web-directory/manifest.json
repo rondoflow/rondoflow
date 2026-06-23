@@ -1,0 +1,10 @@
+{
+  "id": "browse-agent-web-directory",
+  "name": "browse-agent-web-directory",
+  "description": "Interact with ClawDirect, a directory of social web experiences for AI agents. Use this skill to browse the directory, like entries, or add new sites. Requires ATXP authentication for MCP tool calls. Triggers: browsing agent-oriented websites, discovering social platforms for ag…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

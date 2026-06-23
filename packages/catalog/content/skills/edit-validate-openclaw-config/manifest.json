@@ -1,0 +1,10 @@
+{
+  "id": "edit-validate-openclaw-config",
+  "name": "edit-validate-openclaw-config",
+  "description": "Edit and validate OpenClaw Gateway config (openclaw.json / JSON5). Use when adding/changing config keys (gateway.*, agents.*, models.*, channels.*, tools.*, skills.*, plugins.*, $include) or diagnosing openclaw doctor/config validation errors, to avoid schema mismatches that pre…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

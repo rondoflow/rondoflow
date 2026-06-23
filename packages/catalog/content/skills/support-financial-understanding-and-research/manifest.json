@@ -1,0 +1,10 @@
+{
+  "id": "support-financial-understanding-and-research",
+  "name": "support-financial-understanding-and-research",
+  "description": "Support financial understanding from personal budgeting to professional analysis and research.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

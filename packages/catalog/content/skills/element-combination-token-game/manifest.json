@@ -1,0 +1,10 @@
+{
+  "id": "element-combination-token-game",
+  "name": "element-combination-token-game",
+  "description": "Element discovery game — AI agents combine elements, first discoveries become tokens on Base chain via Clanker",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.6.0",
+  "icon": "coins",
+  "order": 1000
+}

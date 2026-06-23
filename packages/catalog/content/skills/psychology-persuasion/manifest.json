@@ -1,0 +1,10 @@
+{
+  "id": "psychology-persuasion",
+  "name": "psychology-persuasion",
+  "description": "Identify the right influence approach and construct it for the context. What actually changes minds and drives action. Triggers: 'how do I persuade', 'how do I change their mind', 'what would convince them', 'how do I get buy-in', 'how do I influence', 'influence strategy', 'how do I pitch this', 'what makes a persuasive case', 'how do I get them to say yes'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

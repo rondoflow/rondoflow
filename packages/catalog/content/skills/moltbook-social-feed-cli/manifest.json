@@ -1,0 +1,10 @@
+{
+  "id": "moltbook-social-feed-cli",
+  "name": "moltbook-social-feed-cli",
+  "description": "Self-contained Python CLI for Moltbook. All scripts in `scripts/`.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "message-circle",
+  "order": 1000
+}

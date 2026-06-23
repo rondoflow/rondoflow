@@ -1,0 +1,10 @@
+{
+  "id": "event-driven-email-monitoring-imap",
+  "name": "event-driven-email-monitoring-imap",
+  "description": "Event-driven email monitoring using IMAP IDLE protocol. Replaces polling with instant push notifications via OpenClaw webhooks. Use when setting up email monitoring, replacing hourly email checks, or implementing event-driven email processing. Monitors multiple IMAP accounts, tr…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "server",
+  "order": 1000
+}

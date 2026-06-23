@@ -1,0 +1,10 @@
+{
+  "id": "probability-expected-value-calculation",
+  "name": "probability-expected-value-calculation",
+  "description": "Calculates expected value to compare options under uncertainty. Use when asked about 'expected value', 'is this risk worth taking', 'EV calculation', 'compare these options', 'worth the risk', or 'asymmetric risk'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

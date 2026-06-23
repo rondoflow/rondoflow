@@ -1,0 +1,10 @@
+{
+  "id": "generate-daily-report",
+  "name": "generate-daily-report",
+  "description": "Track progress, report metrics, manage memory.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

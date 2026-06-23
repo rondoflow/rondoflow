@@ -1,0 +1,10 @@
+{
+  "id": "coding-execution-task-routing",
+  "name": "coding-execution-task-routing",
+  "description": "Coding execution skill for any implementation-focused agent. Current production path is claude-only with simple tasks direct, medium tasks preferring ACP run or direct acpx, and complex tasks handled via existing agent continuity plus context files instead of ACP session persist…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "3.0.6",
+  "icon": "bot",
+  "order": 1000
+}

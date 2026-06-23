@@ -1,0 +1,10 @@
+{
+  "id": "stream-coding-sessions-discord",
+  "name": "stream-coding-sessions-discord",
+  "description": "Stream coding agent sessions (Claude Code, Codex, Gemini CLI, etc.) to a Discord channel in real-time via webhook. Use when invoking coding agents and wanting transparent, observable dev sessions — no black box. Parses Claude Code's stream-json output into clean formatted Discor…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "4.1.0",
+  "icon": "bot",
+  "order": 1000
+}

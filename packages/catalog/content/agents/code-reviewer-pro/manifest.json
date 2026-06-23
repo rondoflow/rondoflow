@@ -1,0 +1,26 @@
+{
+  "id": "code-reviewer-pro",
+  "name": "Code Reviewer Pro",
+  "description": "Senior-level code review for quality, security, and maintainability.",
+  "icon": "FileCheck",
+  "category": "Engineering",
+  "purpose": "review",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "code-review",
+    "quality",
+    "security",
+    "maintainability",
+    "best-practices"
+  ],
+  "order": 106
+}

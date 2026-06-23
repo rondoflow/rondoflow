@@ -1,0 +1,10 @@
+{
+  "id": "communication-clarity-audit",
+  "name": "communication-clarity-audit",
+  "description": "Audits a communication for places where the message will be lost, misread, or misunderstood — before it's sent. Triggers: 'clarity audit', 'will this be understood', 'check my message', 'edit for clarity', 'where will this be misread'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

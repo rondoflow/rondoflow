@@ -1,0 +1,10 @@
+{
+  "id": "oauth-authentication-helper",
+  "name": "oauth-authentication-helper",
+  "description": "Automate OAuth login flows with user confirmation via Telegram. Supports 7 providers: Google, Apple, Microsoft, GitHub, Discord, WeChat, QQ. Features: - Auto-detect available OAuth options on login pages - Ask user to choose via Telegram when multiple options exist - Confirm bef…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

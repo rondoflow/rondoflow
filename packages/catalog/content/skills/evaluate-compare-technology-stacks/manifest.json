@@ -1,0 +1,10 @@
+{
+  "id": "evaluate-compare-technology-stacks",
+  "name": "evaluate-compare-technology-stacks",
+  "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

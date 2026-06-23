@@ -1,0 +1,28 @@
+{
+  "id": "product-manager",
+  "name": "Product Manager",
+  "description": "Defines product vision, strategy, and roadmaps; leads cross-functional delivery.",
+  "icon": "ClipboardList",
+  "category": "Research & Ops",
+  "purpose": "general",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "product",
+    "strategy",
+    "roadmap",
+    "discovery",
+    "stakeholders"
+  ],
+  "order": 126
+}

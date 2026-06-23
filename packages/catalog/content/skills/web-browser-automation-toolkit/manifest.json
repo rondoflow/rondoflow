@@ -1,0 +1,10 @@
+{
+  "id": "web-browser-automation-toolkit",
+  "name": "web-browser-automation-toolkit",
+  "description": "Activate when the user needs to interact with any website — browser automation, web scraping, screenshots, form filling, UI testing, monitoring, or building AI agents. Provides pre-verified page actions with step-by-step instructions and tested selectors.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "bot",
+  "order": 1000
+}

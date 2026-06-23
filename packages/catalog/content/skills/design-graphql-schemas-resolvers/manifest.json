@@ -1,0 +1,10 @@
+{
+  "id": "design-graphql-schemas-resolvers",
+  "name": "design-graphql-schemas-resolvers",
+  "description": "Design GraphQL schemas and resolvers with proper performance, security, and error handling.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

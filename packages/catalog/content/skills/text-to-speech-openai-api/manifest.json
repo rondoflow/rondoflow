@@ -1,0 +1,10 @@
+{
+  "id": "text-to-speech-openai-api",
+  "name": "text-to-speech-openai-api",
+  "description": "Text-to-speech via OpenAI Audio Speech API.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

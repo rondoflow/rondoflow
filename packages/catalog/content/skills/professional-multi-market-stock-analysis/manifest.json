@@ -1,0 +1,10 @@
+{
+  "id": "professional-multi-market-stock-analysis",
+  "name": "professional-multi-market-stock-analysis",
+  "description": "Professional stock analysis agent with strong capabilities in analyzing US, Hong Kong, and A-share markets. Provides stock recommendations based on market development potential and value judgment. Use when users need stock market analysis, individual stock recommendations, or ma…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

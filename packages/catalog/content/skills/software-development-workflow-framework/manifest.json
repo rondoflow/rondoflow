@@ -1,0 +1,10 @@
+{
+  "id": "software-development-workflow-framework",
+  "name": "software-development-workflow-framework",
+  "description": "Framework pengembangan perangkat lunak lengkap untuk tim ClawGator. Brainstorming, planning, eksekusi sistematis, TDD, debugging, code review, dan git worktrees. Trigger otomatis sebelum memulai proyek atau perubahan kode.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

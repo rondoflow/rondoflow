@@ -1,0 +1,10 @@
+{
+  "id": "local-speech-to-text-whisper",
+  "name": "local-speech-to-text-whisper",
+  "description": "Local speech-to-text with the Whisper CLI (no API key).",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "multi-chain-crypto-wallet-cli",
+  "name": "multi-chain-crypto-wallet-cli",
+  "description": "Manage crypto wallets (Ethereum, Solana, Polygon, Arbitrum, Base) via agent-wallet-cli. Use for checking balances, sending tokens (ETH/SOL/ERC-20/SPL), signing messages, managing approvals, viewing transaction history, x402 payments, and wallet lifecycle (init, unlock, lock, exp…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "coins",
+  "order": 1000
+}

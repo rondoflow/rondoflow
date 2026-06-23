@@ -1,0 +1,10 @@
+{
+  "id": "manage-tududi-tasks-projects-notes",
+  "name": "manage-tududi-tasks-projects-notes",
+  "description": "Manage tasks, projects, and notes in tududi (self-hosted task manager). Use for todo lists, task management, project organization.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

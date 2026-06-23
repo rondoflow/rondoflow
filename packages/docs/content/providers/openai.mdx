@@ -1,0 +1,146 @@
+---
+title: OpenAI
+description: Run RondoFlow Assistants on the OpenAI Responses API, with web search and deep-research modes.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# OpenAI
+
+RondoFlow can back an Assistant (internally an *Agent*) with OpenAI instead of the Claude Code CLI. An OpenAI Assistant talks directly to the **OpenAI Responses API** — streaming the reply, optionally letting the model search the web, and continuing the same conversation across turns.
+
+OpenAI Assistants run on the same execution wiring as every other Assistant, so they slot into [Workflows](/docs/guides/workflows), [Orchestration](/docs/guides/orchestration), and [Discussions](/docs/guides/discussions) without any special handling. They differ only in what runs behind the scenes: an HTTP API call rather than a started (*spawned*) local process.
+
+<Callout type="info">
+OpenAI is one of three providers. See the [AI Providers](/docs/providers) overview for how providers compare, and [Claude Code](/docs/providers/claude-code) / [Perplexity](/docs/providers/perplexity) for the others.
+</Callout>
+
+## Supported models
+
+The Assistant editor offers a curated list of chat models. The stored value is the raw model id sent to the Responses API, so the list can grow without code changes.
+
+| Model | Id | Notes |
+| --- | --- | --- |
+| GPT-4.1 | `gpt-4.1` | Most capable general model |
+| GPT-4.1 mini | `gpt-4.1-mini` | Balanced speed and quality — **default** |
+| GPT-4o | `gpt-4o` | Fast multimodal model |
+| o4-mini | `o4-mini` | Reasoning model, cost-efficient |
+
+The default model for a new OpenAI Assistant is `gpt-4.1-mini`.
+
+### Deep-research models
+
+When you turn on **Deep research**, RondoFlow ignores the chat model above and auto-switches the request to a dedicated deep-research model with web search forced on.
+
+| Mode | Id |
+| --- | --- |
+| Deep Research (fast) — **default** | `o4-mini-deep-research-2025-06-26` |
+| Deep Research (thorough) | `o3-deep-research-2025-06-26` |
+
+The fast model (`o4-mini-deep-research-2025-06-26`) is selected by default. Deep-research runs are agentic and can take many minutes, so RondoFlow uses a much wider request timeout for them (30 minutes vs. 10 minutes for a normal chat run).
+
+## Setup
+
+<Steps>
+### Add your OpenAI API key
+
+RondoFlow reads the key from the `OPENAI_API_KEY` environment variable. You can set it two ways:
+
+- **Settings → Credentials** (recommended) — paste your key under the **OpenAI** group. It applies immediately on save. See [Settings](/docs/guides/settings).
+- **Environment** — set `OPENAI_API_KEY` in your root `.env` before starting the server.
+
+```env
+OPENAI_API_KEY=sk-...
+```
+
+Create a key at `platform.openai.com/api-keys`.
+
+### Add an OpenAI Assistant to the Workspace
+
+Drag the **OpenAI Assistant** card (the Sparkles icon) from the palette onto the Workspace (*Canvas*). The provider is set to OpenAI at creation and is fixed for the life of that Assistant — there is no provider dropdown to convert an existing Claude Assistant to OpenAI. (Perplexity has its own palette card too.) See [Working with Assistants](/docs/guides/assistants).
+
+### Pick a model and tools
+
+Open the Assistant's editor. For an OpenAI Assistant the editor swaps in the OpenAI model dropdown and the tool toggles (below) in place of the Claude-CLI controls. Choose a chat model, enable the tools you want, and save — the choices are stored on the Assistant as its `providerConfig`.
+</Steps>
+
+<Callout type="warning">
+If `OPENAI_API_KEY` is missing, the run fails fast with: *"OPENAI_API_KEY is not configured. Add it in Settings → Credentials (OpenAI access)."* — add the key, then run again. A key set in **Settings → Credentials** is forwarded to the run and takes precedence over the process environment.
+</Callout>
+
+## Tools and modes
+
+Each OpenAI Assistant stores a small `providerConfig`: a `model` id plus two toggles.
+
+### Web search
+
+Turn on **Web search** to add OpenAI's `web_search` tool to the run. When the model searches, RondoFlow surfaces the activity in the run feed as tool-use / tool-result events, so you can see when it reaches out to the web. (These are mapped from OpenAI's `response.web_search_call.in_progress` / `…searching` events to a `tool_use` and from `…completed` to a `tool_result`; no search query payload is captured.) See [Monitoring](/docs/guides/monitoring).
+
+### Deep research
+
+Turn on **Deep research** to hand the task to a deep-research model. This:
+
+- Auto-switches the request to the configured deep-research model (the chat-model dropdown is disabled while it's on).
+- Forces web search on (the deep-research models require it) — the web-search toggle is locked.
+- Streams the model's progress through reasoning summaries (`reasoning.summary: 'auto'`) as it works.
+
+Deep research is slower and costlier than a normal chat run. Reach for it when you want a thorough, multi-source answer rather than a quick reply.
+
+### Multi-turn continuation
+
+Within a single run, follow-up messages continue the **same** conversation. RondoFlow captures the response id returned by each completed response and passes it as `previous_response_id` on the next turn, so the model keeps full context across turns without you resending history.
+
+## What carries over from a Claude Assistant
+
+An OpenAI Assistant shares the Assistant data model, but only the parts that map onto an API request are used at run time:
+
+- **Personality (*Persona*) and Skills** — both reach the model. The request `instructions` is the persona **plus** the markdown of any enabled Skills (each Skill's `SKILL.md` is appended), not the persona alone. The incoming message becomes the request `input`.
+- **Workspace and agent memory** — folded into the same prompt the way they are for any Assistant.
+
+Claude-CLI-only concerns are skipped for API providers: the allowed-tools list, [Connections (*MCP Servers*)](/docs/guides/connections), [external folders](/docs/guides/external-folders), and permission modes do not apply to an OpenAI Assistant. Its only tools are the `web_search` / deep-research capabilities driven by `providerConfig`.
+
+<Callout type="info">
+OpenAI runs inherit the same spawn timeouts as Claude runs, on top of the OpenAI client request timeout. The idle (inactivity) timeout — `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`, 5 minutes by default — resets on every streamed event, and the optional wall-clock cap (`RONDOFLOW_SPAWN_MAX_MS`, off by default) bounds the whole run. If either fires, the request is aborted with a timeout error. These layer on top of the 10-minute (chat) / 30-minute (deep research) Responses API client timeouts above.
+</Callout>
+
+## How `providerConfig` maps to the request
+
+The stored config drives model and tool selection at run time:
+
+```ts
+interface ProviderConfig {
+  model: string        // chat model id (ignored when deepResearch is on)
+  webSearch: boolean   // adds the web_search tool
+  deepResearch: boolean // auto-switches to a deep-research model
+  deepResearchModel?: string // optional explicit deep-research override
+}
+```
+
+- `deepResearch: false` → uses `model`; adds `{ type: 'web_search' }` only when `webSearch` is true.
+- `deepResearch: true` → uses `deepResearchModel` (or the fast default) and forces the `web_search_preview` tool, regardless of `model` / `webSearch`.
+
+## Cost estimates
+
+The Responses API does not return a dollar figure, so RondoFlow computes a **coarse** estimate from a built-in per-model rate table (USD per 1M tokens) and reports it on the run's usage event. Treat it as an approximation, not a billing source of truth.
+
+| Model | Input ($/1M) | Output ($/1M) |
+| --- | --- | --- |
+| `gpt-4.1` | 2 | 8 |
+| `gpt-4.1-mini` | 0.4 | 1.6 |
+| `gpt-4o` | 2.5 | 10 |
+| `o4-mini` | 1.1 | 4.4 |
+| `o4-mini-deep-research-2025-06-26` | 2 | 8 |
+| `o3-deep-research-2025-06-26` | 10 | 40 |
+
+Any model not in this table falls back to an estimate of $2 input / $8 output per 1M tokens.
+
+## Next steps
+
+<Cards>
+  <Cards.Card title="AI Providers overview" href="/docs/providers" />
+  <Cards.Card title="Perplexity provider" href="/docs/providers/perplexity" />
+  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
+  <Cards.Card title="Working with Assistants" href="/docs/guides/assistants" />
+</Cards>

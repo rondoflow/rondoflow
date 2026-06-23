@@ -1,0 +1,10 @@
+{
+  "id": "guided-leetcode-practice-integration",
+  "name": "guided-leetcode-practice-integration",
+  "description": "Use when the user wants to practice LeetCode problems, submit solutions, or set up LeetCode integration. Covers MCP server installation, learning-guided practice flow, solution submission, and authentication.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "bot",
+  "order": 1000
+}

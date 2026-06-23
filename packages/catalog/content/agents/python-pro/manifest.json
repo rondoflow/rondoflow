@@ -1,0 +1,28 @@
+{
+  "id": "python-pro",
+  "name": "Python Pro",
+  "description": "Writes clean, performant, idiomatic Python using advanced language features.",
+  "icon": "Braces",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "python",
+    "idiomatic",
+    "performance",
+    "async",
+    "typing"
+  ],
+  "order": 128
+}

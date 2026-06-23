@@ -1,0 +1,10 @@
+{
+  "id": "information-redundancy",
+  "name": "information-redundancy",
+  "description": "Maps where redundancy creates resilience and error correction versus where it creates waste. Use when asked about 'duplication', 'repetition', 'backup systems', 'is this redundant?', 'we're saying the same thing twice', 'single point of failure', or 'is this repetition helping or hurting'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

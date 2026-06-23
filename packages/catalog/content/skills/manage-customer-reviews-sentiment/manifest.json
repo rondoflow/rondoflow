@@ -1,0 +1,10 @@
+{
+  "id": "manage-customer-reviews-sentiment",
+  "name": "manage-customer-reviews-sentiment",
+  "description": "Handle Clawver customer reviews. Monitor ratings, craft responses, track sentiment trends. Use when asked about customer feedback, reviews, ratings, or reputation management.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "email-operations-skill",
+  "name": "email-operations-skill",
+  "description": "Use the mailbox CLI as a tool to read and manage email. OpenClaw handles",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

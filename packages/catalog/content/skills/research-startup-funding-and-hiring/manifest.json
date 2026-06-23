@@ -1,0 +1,10 @@
+{
+  "id": "research-startup-funding-and-hiring",
+  "name": "research-startup-funding-and-hiring",
+  "description": "Research startups, funding rounds, acquisitions, and hiring trends via startups.in",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

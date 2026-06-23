@@ -1,0 +1,10 @@
+{
+  "id": "investigation-source-trace",
+  "name": "investigation-source-trace",
+  "description": "Traces a claim back to its origin: who first made it, what evidence it rested on, and how it has been distorted in transmission. Use when you've heard something and want to know where it actually came from — 'where does this claim come from', 'who first said this', 'I've heard that X is true', 'trace the source', 'is this just a rumor', 'how did this become conventional wisdom'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

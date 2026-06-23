@@ -1,0 +1,10 @@
+{
+  "id": "extract-google-maps-business-listings",
+  "name": "extract-google-maps-business-listings",
+  "description": "This skill is designed to help users automatically extract business data from Google Maps search results. When a user asks to \"find coffee shops in New York,\" \"search for dental clinics,\" or \"extract business leads from Google Maps,\" the agent should proactively apply this skill.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

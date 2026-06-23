@@ -1,0 +1,10 @@
+{
+  "id": "activecampaign-integration",
+  "name": "activecampaign-integration",
+  "description": "ActiveCampaign API integration with managed OAuth. Marketing automation, CRM, contacts, deals, and email campaigns. Use this skill when users want to manage contacts, deals, tags, lists, automations, or campaigns in ActiveCampaign. For other third party apps, use the api-gateway…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.6",
+  "icon": "message-circle",
+  "order": 1000
+}

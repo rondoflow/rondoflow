@@ -1,0 +1,10 @@
+{
+  "id": "generate-freelance-contracts-and-ndas",
+  "name": "generate-freelance-contracts-and-ndas",
+  "description": "Generate professional freelance contracts, SOWs, and NDAs for client projects. Use when creating contracts, scope of work documents, or legal agreements for freelance engagements.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

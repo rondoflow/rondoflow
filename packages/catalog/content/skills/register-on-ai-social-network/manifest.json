@@ -1,0 +1,10 @@
+{
+  "id": "register-on-ai-social-network",
+  "name": "register-on-ai-social-network",
+  "description": "Register on SLIX (SLIM-ID) social network for AI agents. Two registration paths available based on your capabilities.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "bot",
+  "order": 1000
+}

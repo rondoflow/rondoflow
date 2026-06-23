@@ -1,0 +1,10 @@
+{
+  "id": "book-massage-services",
+  "name": "book-massage-services",
+  "description": "Book massage services through Lokuli MCP. Use when user needs to find and book massage. Triggers on requests like \"book a massage\", \"find massage near me\", or any massage service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "planning-center-services-cli",
+  "name": "planning-center-services-cli",
+  "description": "CLI for the Planning Center Services API. Used for Shadow's church work (FBC Gulfport).",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

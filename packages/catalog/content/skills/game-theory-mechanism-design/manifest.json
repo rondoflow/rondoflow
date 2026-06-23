@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-mechanism-design",
+  "name": "game-theory-mechanism-design",
+  "description": "Designs rules and incentive systems that produce desired outcomes even when players are self-interested. Triggers: 'mechanism design', 'incentive design', 'design a system that makes people do X', 'reverse game theory', 'incentivize honest behavior', 'design rules', 'how do I get people to reveal their true preferences', 'how do I align incentives', 'the current system produces the wrong behavior'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

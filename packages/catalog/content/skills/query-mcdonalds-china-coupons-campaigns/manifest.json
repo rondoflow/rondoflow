@@ -1,0 +1,10 @@
+{
+  "id": "query-mcdonalds-china-coupons-campaigns",
+  "name": "query-mcdonalds-china-coupons-campaigns",
+  "description": "Query McDonald's China MCP server via the mcd-cn CLI for campaign calendars, coupons, and auto-claiming. Use for human-friendly coupon lookup or JSON output for scripts.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

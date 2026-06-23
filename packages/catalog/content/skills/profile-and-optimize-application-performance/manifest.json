@@ -1,0 +1,10 @@
+{
+  "id": "profile-and-optimize-application-performance",
+  "name": "profile-and-optimize-application-performance",
+  "description": "Profile and optimize application performance. Use when diagnosing slow code, measuring CPU/memory usage, generating flame graphs, benchmarking functions, load testing APIs, finding memory leaks, or optimizing database queries.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

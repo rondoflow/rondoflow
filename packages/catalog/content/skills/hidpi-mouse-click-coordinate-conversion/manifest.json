@@ -1,0 +1,10 @@
+{
+  "id": "hidpi-mouse-click-coordinate-conversion",
+  "name": "hidpi-mouse-click-coordinate-conversion",
+  "description": "Universal HiDPI mouse click handling for Linux desktop automation. Auto-detects scale factor or allows calibration for any screen resolution/DPI. Converts Claude display coordinates to xdotool screen coordinates.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

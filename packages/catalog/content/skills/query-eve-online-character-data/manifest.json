@@ -1,0 +1,10 @@
+{
+  "id": "query-eve-online-character-data",
+  "name": "query-eve-online-character-data",
+  "description": "Query and manage EVE Online characters via the ESI (EVE Swagger Interface) REST API. Use when the user asks about EVE Online character data, wallet balance, ISK transactions, assets, skill queue, skill points, clone locations, implants, fittings, contracts, market orders, mail,…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "coins",
+  "order": 1000
+}

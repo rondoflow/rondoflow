@@ -1,0 +1,10 @@
+{
+  "id": "convert-extract-ocr-redact-documents",
+  "name": "convert-extract-ocr-redact-documents",
+  "description": "Document processing for OpenClaw — convert, extract, OCR, redact, sign, and watermark PDFs and Office documents using the Nutrient DWS API. Use when asked to convert documents (DOCX/XLSX/PPTX to PDF, PDF to images or Office formats), extract text or tables from PDFs, apply OCR t…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "image",
+  "order": 1000
+}

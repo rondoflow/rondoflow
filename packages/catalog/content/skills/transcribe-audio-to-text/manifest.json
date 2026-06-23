@@ -1,0 +1,10 @@
+{
+  "id": "transcribe-audio-to-text",
+  "name": "transcribe-audio-to-text",
+  "description": "Install and use the speechall CLI tool for speech-to-text transcription. Use when the user wants to: (1) transcribe audio or video files to text, (2) install speechall on macOS or Linux, (3) list available STT models and their capabilities, (4) use speaker diarization, subtitles…",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "image",
+  "order": 1000
+}

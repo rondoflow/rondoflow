@@ -1,0 +1,28 @@
+{
+  "id": "backend-architect",
+  "name": "Backend Architect",
+  "description": "Designs robust, scalable backend systems, APIs, and data models.",
+  "icon": "Building2",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "backend",
+    "architecture",
+    "api",
+    "microservices",
+    "scalability"
+  ],
+  "order": 104
+}

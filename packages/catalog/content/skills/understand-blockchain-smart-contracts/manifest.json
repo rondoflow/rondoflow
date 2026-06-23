@@ -1,0 +1,10 @@
+{
+  "id": "understand-blockchain-smart-contracts",
+  "name": "understand-blockchain-smart-contracts",
+  "description": "Understand blockchain technology, interact with smart contracts, and evaluate when distributed ledgers solve real problems.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

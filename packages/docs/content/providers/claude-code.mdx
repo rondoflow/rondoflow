@@ -1,0 +1,214 @@
+---
+title: Claude Code
+description: How RondoFlow runs Assistants on the default Claude Code provider — spawning the CLI, streaming events, models, tools, timeouts, and auth.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+# Claude Code
+
+Claude Code is RondoFlow's **default provider**. When an Assistant (internally an _agent_) has no other provider set, RondoFlow runs it by starting (spawning) the Claude Code CLI as a child process and streaming its structured output back into the Workspace (internally the _canvas_). This gives your Assistants the full Claude Code toolset — file edits, shell commands, web access, and Connections (MCP servers) — governed by the allowed tools you grant and the Safety Rules (internally _policies_) you attach.
+
+The provider id is `claude-code`. It is the value of `DEFAULT_AGENT_PROVIDER`, so any Assistant created without an explicit provider runs here.
+
+<Callout type="info">
+Looking for the API-backed providers instead? See [OpenAI](/docs/providers/openai) and [Perplexity](/docs/providers/perplexity). Those talk to an HTTP API rather than the CLI and have a different config shape.
+</Callout>
+
+## How it runs
+
+RondoFlow does not call an HTTP API for Claude Code Assistants. It launches the local `claude` binary as a subprocess and reads its output line by line.
+
+A few hard rules the spawner follows:
+
+- **Never `shell: true`.** The CLI is invoked with `child_process.spawn` and an **args array** — no shell interpolation, so nothing in a prompt or tool name can be interpreted as a shell command.
+- **Structured streaming.** The CLI is always run with `--print --output-format stream-json --verbose`. Each line of stdout is a JSON event that RondoFlow parses and forwards. (`--verbose` is mandatory here: the CLI refuses `--print --output-format stream-json` without it.)
+- **Process-group kill.** On Unix the child is started detached in its own process group, so Stopping a run kills the whole tree (on Windows, `taskkill /T /F`).
+- **No session persistence.** Each run uses `--no-session-persistence` and a fresh `--session-id`, so runs do not leak state into the local CLI session store.
+
+### The command, roughly
+
+The exact arguments are built per-run from the Assistant's configuration. A typical invocation looks like this:
+
+```bash
+claude \
+  --print \
+  --verbose \
+  --output-format stream-json \
+  --permission-mode <mode> \
+  --system-prompt "<persona + memory>" \
+  --session-id <uuid> \
+  --name rondoflow-<agentId> \
+  --no-session-persistence \
+  --model <model-id> \
+  --allowedTools Read,Write,Edit,Bash,... \
+  --max-budget-usd <n> \
+  --mcp-config '{"mcpServers":{...}}' \
+  --add-dir /path/to/folder \
+  -- \
+  "<the prompt>"
+```
+
+Flags that depend on configuration are emitted only when relevant: `--model` only when a model is resolved, `--allowedTools` only when the resolved list is non-empty, `--max-budget-usd` only when a budget cap is in effect (see [Budget caps](#budget-caps)), `--mcp-config` only when at least one Connection is configured, and `--add-dir` once per attached external folder. If the Assistant has an extra system prompt it is appended via `--append-system-prompt`.
+
+<Callout type="warning">
+The trailing `--` before the prompt is load-bearing. `--allowedTools` and `--add-dir` are variadic flags, so without the end-of-options separator the CLI would swallow the prompt as one of their values and exit with "Input must be provided". RondoFlow always emits `--` immediately before the message.
+</Callout>
+
+## Streamed events
+
+With `--output-format stream-json`, every stdout line is a JSON event. RondoFlow maps them onto the Workspace UI and run records:
+
+| Stream event | What RondoFlow does |
+| --- | --- |
+| `assistant` text block | Emits **text** to the Card (internally a _node_), marking it partial until `stop_reason` is set |
+| `assistant` `tool_use` block | Emits a **tool_use** event (tool name + input) so you can watch what the Assistant is doing |
+| `assistant` `tool_result` block | Emits a **tool_result** event with the tool's output |
+| `result` (terminal) | Final text, usage, and total cost; surfaces failures even when the CLI exits 0 |
+| `result` `usage` | Emits **usage** (input/output tokens) and uses the CLI's reported `total_cost_usd`, estimating cost only when the CLI omits it |
+| `system`, `init`, `ping`, `rate_limit_event` | Lifecycle/info events — tallied but not surfaced |
+
+<Callout type="info">
+Tool results are only parsed from `tool_result` blocks nested inside an `assistant` message. The Claude Code CLI typically surfaces tool results as separate `user` messages with `tool_result` content blocks; the spawner does not currently parse those, so most tool output you see in the UI comes from the `tool_use` events plus the Assistant's own narration.
+</Callout>
+
+<Callout type="important">
+The CLI can exit with code 0 yet report a failure inside its terminal `result` event (for example a `401` arrives as `subtype: "success", is_error: true, api_error_status: 401`). RondoFlow treats `is_error` as the authoritative signal — not the subtype — and raises a real error instead of completing with empty output. A run that finishes with no text and no captured error clue is reported as an EMPTY-output run so you can diagnose it rather than seeing a silent success.
+</Callout>
+
+## Models
+
+RondoFlow exposes three Claude tiers in the Assistant editor. Each tier maps to a concrete model id passed to the CLI via `--model`:
+
+| Tier (UI) | Model id |
+| --- | --- |
+| Opus | `claude-opus-4-5` |
+| Sonnet | `claude-sonnet-4-5` |
+| Haiku | `claude-haiku-4-5` |
+
+Model resolution order:
+
+1. If the Assistant has an explicit model set, it's used (a known tier is mapped to the id above; an arbitrary string is passed through as-is).
+2. Otherwise, if the Assistant has a **purpose**, a tier is recommended for it.
+3. Otherwise it falls back to **Sonnet**.
+
+<Callout type="info">
+RondoFlow also raises the per-response output ceiling for the child by setting `CLAUDE_CODE_MAX_OUTPUT_TOKENS` (default `128000`) so long results aren't truncated. The CLI clamps this to each model's true maximum, so a high value is safe across tiers. Override it in the root `.env` or via a workspace variable resource — see [Configuration](/docs/reference/configuration).
+</Callout>
+
+## Tools and permission modes
+
+Claude Code Assistants get **full tool access**, scoped by the allowed-tools list you grant and the [Safety Rules](/docs/guides/safety-rules) attached to the Assistant or set globally.
+
+### Allowed tools
+
+If an Assistant has no explicit allowlist, RondoFlow grants a sensible default set: `Read`, `Write`, `Edit`, `Bash`, `Glob`, `Grep`, `LS`, `WebFetch`, `WebSearch`, `TodoWrite`, `TodoRead`.
+
+A small **always-allowed baseline** — `Read`, `WebSearch`, `WebFetch` — is merged into every Assistant's resolved allowlist, even one that narrows itself (e.g. a reviewer limited to `Read`/`Grep`/`Glob` still gets web search and fetch). The full list is passed as a single comma-joined `--allowedTools` token.
+
+### Permission modes
+
+The Assistant's mode (and any Safety Rules) resolve to a CLI permission mode. The UI modes map as follows:
+
+| Mode (UI) | CLI permission mode | Behavior |
+| --- | --- | --- |
+| `plan` | `plan` | Reasons and plans without making changes |
+| `default` | `default` | Standard prompting behavior |
+| `edit` | `acceptEdits` | Auto-accepts file edits |
+| `full` | `bypassPermissions` | Writes files and runs commands without approval prompts |
+
+Safety Rules can tighten this: an Assistant-level rule overrides a global one, and the most restrictive mode wins. See [Safety Rules](/docs/guides/safety-rules) for resolution details.
+
+<Callout type="warning">
+`full` maps the CLI to `bypassPermissions` (`--dangerously-skip-permissions`), which the CLI refuses when running as root unless the environment is marked sandboxed. Server deployments often run as root in a container, so RondoFlow sets `IS_SANDBOX=1` automatically for exactly that case (root + bypass). See [Agents produce empty output](/docs/faq#agents-produce-empty-output) if a headless run produces nothing.
+</Callout>
+
+### Budget caps
+
+When a per-run budget is in effect, RondoFlow passes `--max-budget-usd <n>` so the CLI stops once estimated spend reaches the cap. The value is the minimum of the Assistant's own config and any resolved global/Assistant-level Safety Rule budget — most restrictive wins, just like permission modes. The global cap lives in **Settings → Advanced** ("Max Budget"); leave it unset for no cap. When no budget applies, the flag is omitted entirely.
+
+### Connections (MCP servers)
+
+Claude Code Assistants support [Connections](/docs/guides/connections) (internally _MCP servers_). RondoFlow merges the Assistant's Connection configs (plus any from enabled skills) into a single `--mcp-config` JSON payload passed to the CLI. The serialized config can embed credentials, so it is redacted in debug logs.
+
+## Spawn timeouts
+
+Every run is reaped if it stalls, so a hung process never holds a run open forever:
+
+| Timeout | Default | Env var | Behavior |
+| --- | --- | --- | --- |
+| Inactivity (idle) | 5 min (`300000` ms) | `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` | Resets on every stream event. Fires only after a true silence. Set to `0` to disable globally. |
+| Wall-clock cap | off (`0`) | `RONDOFLOW_SPAWN_MAX_MS` | Absolute cap from spawn, regardless of activity. Off by default; one-shot generators (Director, Planner, Advisor, Scheduler) set their own. |
+
+When either timer fires, RondoFlow kills the process tree and surfaces a "timed out" error (a `TIMEOUT_ERROR`). The idle timer is the one that reaps stalled headless runs — for example a scheduled plan-mode prompt that never resolves. See [Configuration](/docs/reference/configuration) for these and other operator env vars.
+
+## Authentication
+
+Claude Code needs a credential. RondoFlow supports two, in precedence order:
+
+| Env var | Source | Notes |
+| --- | --- | --- |
+| `CLAUDE_CODE_OAUTH_TOKEN` | `claude setup-token` | Bills against your Claude subscription. **Wins** if both are set. |
+| `ANTHROPIC_API_KEY` | Anthropic Console | Used only when no setup-token is present. |
+
+You can configure either credential two ways:
+
+- **Settings → Credentials** (recommended) — paste the value under the **Claude** (`anthropic`) group. It is stored AES-encrypted in the database, applies on save, and **overrides the `.env` value at boot** (loaded into the process environment at startup). See [Settings](/docs/guides/settings).
+- **Root `.env`** — set `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` directly. The setup-token still wins if both are present.
+
+<Callout type="important">
+RondoFlow forwards **exactly one** credential to the child — the winning one. An ambient `ANTHROPIC_API_KEY` can't silently override the setup-token you chose. If neither is set, the CLI falls back to whatever is stored in `~/.claude`; a clean container has none, so every run will 401 with empty output.
+</Callout>
+
+### A minimal, sanitized child environment
+
+The spawned CLI does **not** inherit your full environment. RondoFlow forwards only a safe allowlist — `PATH`, `HOME`, `LANG`, `TERM`, plus a few OS-specific paths node/npm need (`USERPROFILE`, `APPDATA`, `LOCALAPPDATA`, `TEMP`, `TMP`, `SystemRoot`, `ComSpec`) — alongside the resolved Claude credential and `CLAUDE_CODE_MAX_OUTPUT_TOKENS`.
+
+Server secrets are explicitly stripped from anything a caller passes in — `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `RONDOFLOW_SECRET` are never forwarded to a child, even via a workspace variable resource. See [Security](/docs/reference/security).
+
+```env
+# Set ONE in the root .env — setup-token wins if both are present.
+# (Or set either in Settings → Credentials, which overrides .env at boot.)
+CLAUDE_CODE_OAUTH_TOKEN=
+ANTHROPIC_API_KEY=
+```
+
+## Debugging a run
+
+When an Assistant "produces empty output," turn on spawn tracing:
+
+<Steps>
+### Set the flag
+
+Set `RONDOFLOW_DEBUG_SPAWN=1` (or `=true`) in the root `.env`, then restart the server.
+
+### Re-run the Assistant
+
+The spawner now logs the full CLI lifecycle: the resolved command and args, which credential was forwarded (masked), every stdout line and parsed stream-json event, all stderr, and the exit code.
+
+### Read the diagnostics line
+
+Even with tracing off, every failed or empty run logs a compact line — exit code, model, permission mode, prompt length, emitted text length, the stream-json event tally, and any captured stderr/non-JSON output. That's usually enough to spot the cause (an empty prompt, a `401`, a root + bypass mismatch).
+</Steps>
+
+Common empty-output causes:
+
+- **Empty prompt** — an upstream step produced no text to pass on. The spawner fails fast with that exact reason rather than launching a doomed process.
+- **Bad or missing credential** — a `401` surfaced as a non-JSON stdout line or in the `result` event's `is_error`.
+- **Root + `full` mode** without sandbox — handled automatically, but visible in the trace if something blocks it.
+- **Timed out** — the run stalled past the idle (or wall-clock) timeout and the process tree was killed. See [Spawn timeouts](#spawn-timeouts).
+
+See [Agents produce empty output](/docs/faq#agents-produce-empty-output) for the full triage checklist.
+
+## Related
+
+<Cards>
+  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+  <Cards.Card title="Connections (MCP)" href="/docs/guides/connections" />
+  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
+  <Cards.Card title="Providers overview" href="/docs/providers" />
+  <Cards.Card title="Configuration" href="/docs/reference/configuration" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+</Cards>

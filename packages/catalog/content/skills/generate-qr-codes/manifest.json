@@ -1,0 +1,10 @@
+{
+  "id": "generate-qr-codes",
+  "name": "generate-qr-codes",
+  "description": "Use this skill when users need to create QR codes for any purpose. Triggers include: requests to \"generate QR code\", \"create QR\", \"make a QR code for\", or mentions of encoding data into scannable codes. Supports URLs, text, WiFi credentials, vCards (contact information), email a…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

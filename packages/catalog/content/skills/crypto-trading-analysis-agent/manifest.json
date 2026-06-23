@@ -1,0 +1,10 @@
+{
+  "id": "crypto-trading-analysis-agent",
+  "name": "crypto-trading-analysis-agent",
+  "description": "Minara Agent API offers crypto trading analysis, swap intent conversion, perpetual trading suggestions, and prediction market analysis. Supports API Key and x402 (pay-per-use USDC).",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

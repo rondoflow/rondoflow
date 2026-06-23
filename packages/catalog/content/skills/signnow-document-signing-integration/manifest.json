@@ -1,0 +1,10 @@
+{
+  "id": "signnow-document-signing-integration",
+  "name": "signnow-document-signing-integration",
+  "description": "SignNow API integration with managed OAuth. E-signature platform for sending, signing, and managing documents. Use this skill when users want to upload documents, send signature invites, create templates, or manage e-signature workflows. For other third party apps, use the api-g…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "plug",
+  "order": 1000
+}

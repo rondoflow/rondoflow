@@ -1,0 +1,10 @@
+{
+  "id": "automate-web-form-interactions",
+  "name": "automate-web-form-interactions",
+  "description": "Automate web form interactions including login, file upload, text input, and form submission using Playwright. Use when user needs to automate website interactions, upload files to web forms, fill out forms with text input, click buttons, or submit data to web applications. Supp…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

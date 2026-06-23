@@ -1,0 +1,10 @@
+{
+  "id": "automate-cal-com-bookings",
+  "name": "automate-cal-com-bookings",
+  "description": "Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webhooks, and handle teams. Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

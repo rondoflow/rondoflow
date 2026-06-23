@@ -1,0 +1,10 @@
+{
+  "id": "audit-website-seo-and-issues",
+  "name": "audit-website-seo-and-issues",
+  "description": "Audit websites for SEO, performance, security, technical, content, and 15 other issue cateories with 230+ rules using the squirrelscan CLI. Returns LLM-optimized reports with health scores, broken links, meta tag analysis, and actionable recommendations. Use to discover and asse…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

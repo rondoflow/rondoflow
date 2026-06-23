@@ -1,0 +1,501 @@
+{
+  "prd": {
+    "dialog": {
+      "title": "Produktanforderungsdokument"
+    },
+    "field": {
+      "titleLabel": "PRD-Titel",
+      "titlePlaceholder": "Funktionsname oder Epic-Titel…"
+    },
+    "stories": {
+      "heading": "Stories ({{count}})",
+      "add": "Story hinzufügen",
+      "addFirst": "Erste Story hinzufügen",
+      "empty": "Noch keine Stories",
+      "listLabel": "User Stories",
+      "rowTitlePlaceholder": "Story-Titel…",
+      "rowTitleLabel": "Story-Titel",
+      "priorityLabel": "Priorität {{priority}}",
+      "statusButtonLabel": "Status: {{status}}. Klicken Sie zum Fortfahren.",
+      "collapse": "Story einklappen",
+      "expand": "Story ausklappen",
+      "remove": "Story entfernen",
+      "acceptanceLabel": "Akzeptanzkriterien",
+      "acceptancePlaceholder": "Angenommen… Wenn… Dann…"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "inProgress": "In Bearbeitung",
+      "passed": "Bestanden",
+      "failed": "Fehlgeschlagen"
+    },
+    "progress": {
+      "passed": "{{passed}}/{{total}} bestanden",
+      "failed": "{{count}} fehlgeschlagen",
+      "barLabel": "{{passed}} von {{total}} Stories bestanden"
+    },
+    "validation": {
+      "noStories": "Fügen Sie mindestens eine Story hinzu, bevor Sie die Pipeline starten.",
+      "emptyTitles_one": "{{count}} Story-Titel ist leer. Füllen Sie ihn zuerst aus.",
+      "emptyTitles_other": "{{count}} Story-Titel sind leer. Füllen Sie sie zuerst aus."
+    },
+    "cost": {
+      "label": "Geschätzte Kosten:",
+      "value": "~${{amount}}"
+    },
+    "start": "Pipeline starten"
+  },
+  "output": {
+    "log": {
+      "panelLabel": "Protokoll gespeicherter Workflow-Ausgaben",
+      "title": "Ausgabe-Protokoll",
+      "summary_one": "{{count}} gespeicherte Ausgabe in {{dir}}",
+      "summary_other": "{{count}} gespeicherte Ausgaben in {{dir}}",
+      "metaSeparator": "{{time}} · {{size}}",
+      "back": "Zurück zur Ausgabeliste",
+      "copy": "Kopieren",
+      "copied": "Kopiert",
+      "copyLabel": "Ausgabe in die Zwischenablage kopieren",
+      "download": "Herunterladen",
+      "downloadLabel": "Ausgabedatei herunterladen",
+      "refreshLabel": "Ausgabeliste aktualisieren",
+      "loadingOutputs": "Gespeicherte Ausgaben werden geladen…",
+      "empty": {
+        "title": "Keine gespeicherten Ausgaben",
+        "description": "Führen Sie einen Workflow aus und speichern Sie seine Ausgabe, um sie hier zu sehen."
+      },
+      "error": {
+        "loadList": "Ausgaben konnten nicht geladen werden",
+        "readFile": "Datei konnte nicht gelesen werden"
+      }
+    }
+  },
+  "review": {
+    "dialog": {
+      "title": "Generierten Workflow überprüfen",
+      "nameLabel": "Workflow-Name"
+    },
+    "model": {
+      "opus": "Opus (Tief)",
+      "sonnet": "Sonnet (Ausgewogen)",
+      "haiku": "Haiku (Schnell)"
+    },
+    "agent": {
+      "nameLabel": "Name von Assistent {{index}}",
+      "modelLabel": "Modell von Assistent {{index}}",
+      "personaLabel": "Persönlichkeit von Assistent {{index}}",
+      "remove": "{{name}} entfernen",
+      "removeSkill": "Skill {{skill}} entfernen"
+    },
+    "executionFlow": "Ausführungsablauf",
+    "director": {
+      "title": "Director-Orchestrierung",
+      "description": "Der KI-Koordinator bewertet jeden Schritt und entscheidet über die nächste Aktion"
+    },
+    "saveTemplate": "Als Vorlage speichern",
+    "addToCanvas": "Zum Arbeitsbereich hinzufügen"
+  },
+  "advisor": {
+    "category": {
+      "agent": "Assistent",
+      "skill": "Skill",
+      "order": "Reihenfolge",
+      "quality": "Qualität"
+    },
+    "action": {
+      "applySkill": "\"{{skill}}\" anwenden",
+      "updatePersona": "Persönlichkeit aktualisieren",
+      "applied": "Angewendet",
+      "failed": "Fehlgeschlagen"
+    },
+    "title": "Workflow-Berater",
+    "objectiveMet": "Ziel erreicht",
+    "objectiveNotMet": "Ziel nicht erreicht",
+    "allGood": "Alles sieht gut aus — keine Verbesserungen erforderlich."
+  },
+  "director": {
+    "title": "Director",
+    "subtitle": "Workflow-Orchestrator",
+    "toggleLabel": "Director umschalten",
+    "rigor": {
+      "label": "Kritikstufe",
+      "sliderLabel": "Kritikstufe",
+      "setLabel": "Strenge auf {{level}} setzen",
+      "minLabel": "Entspannt",
+      "maxLabel": "Anspruchsvoll",
+      "level": {
+        "relaxed": {
+          "label": "Entspannt",
+          "description": "Fährt fast immer fort. Leitet nur bei kritischen Fehlern um."
+        },
+        "lenient": {
+          "label": "Nachsichtig",
+          "description": "Akzeptiert die meisten Ausgaben. Leitet nur um, wenn etwas Wichtiges fehlt."
+        },
+        "balanced": {
+          "label": "Ausgewogen",
+          "description": "Standardstufe. Bewertet die Qualität fair, schlägt Verbesserungen vor, wenn lohnenswert."
+        },
+        "strict": {
+          "label": "Streng",
+          "description": "Höhere Standards. Erwartet gründliche Arbeit und kann bei unvollständigen Ausgaben umleiten."
+        },
+        "demanding": {
+          "label": "Anspruchsvoll",
+          "description": "Sehr hohe Messlatte. Erwartet umfassende, produktionsreife Ausgaben von jedem Schritt."
+        }
+      }
+    },
+    "customInstructions": {
+      "label": "Benutzerdefinierte Anweisungen",
+      "help": "Zusätzliche Anweisungen für den Director bei der Bewertung von Assistenten-Ausgaben. Diese werden an die Systemanweisung angehängt.",
+      "placeholder": "z. B. Stellen Sie immer sicher, dass der Code TypeScript-Typen enthält. Priorisieren Sie Sicherheit über Leistung..."
+    },
+    "howItWorks": {
+      "title": "So funktioniert der Director",
+      "evaluates": "Bewertet die Ausgabe jedes Assistenten nach Abschluss",
+      "contextualizes": "Kontextualisiert Nachrichten, damit der nächste Assistent das vollständige Bild versteht",
+      "redirects": "Kann einen Schritt umleiten (wiederholen), wenn die Ausgabequalität unzureichend ist",
+      "concludes": "Kann den Workflow frühzeitig beenden, wenn das Ziel bereits erreicht ist",
+      "learns": "Lernt Muster zwischen Ausführungen, um zukünftige Bewertungen zu verbessern"
+    }
+  },
+  "history": {
+    "panelLabel": "Ausführungsverlauf",
+    "title": "Ausführungsverlauf",
+    "description": "Alle vergangenen Workflow-Ausführungen und ihre Ausführungsprotokolle."
+  },
+  "condition": {
+    "title": "Bedingung",
+    "subtitle": "Zur ersten passenden Verzweigung leiten",
+    "name": {
+      "label": "Name",
+      "placeholder": "Bedingung"
+    },
+    "hint": {
+      "withAgent": "Abgeglichen mit der letzten Zeile von {{agent}}, Groß-/Kleinschreibung wird ignoriert. Die erste passende Verzweigung wird ausgeführt; die Standardverzweigung wird ausgeführt, wenn keine passt.",
+      "noAgent": "Abgeglichen mit der letzten Zeile des vorherigen Assistenten, Groß-/Kleinschreibung wird ignoriert. Die erste passende Verzweigung wird ausgeführt; die Standardverzweigung wird ausgeführt, wenn keine passt."
+    },
+    "branches": {
+      "heading": "Verzweigungen",
+      "total": "{{count}} insgesamt",
+      "labelPlaceholder": "Verzweigungsbezeichnung",
+      "labelAria": "Bezeichnung von Verzweigung {{index}}",
+      "remove": "Verzweigung {{index}} entfernen",
+      "removeTitle": "Verzweigung entfernen",
+      "patternAria": "Muster von Verzweigung {{index}}",
+      "kind": {
+        "contains": "Enthält",
+        "regex": "Entspricht Regex"
+      },
+      "patternPlaceholder": {
+        "contains": "approved, lgtm",
+        "regex": "^DECISION:\\s*GO$"
+      },
+      "default": "Standardverzweigung (wird ausgeführt, wenn keine passt)",
+      "setDefault": "Als Standardverzweigung festlegen",
+      "addLabel": "Hinzufügen:",
+      "empty": "Noch keine Verzweigungen. Fügen Sie eine hinzu und ziehen Sie dann eine Verbindung von ihrem Anschluss zu einem nachgelagerten Assistenten.",
+      "noDefault": "Keine Standardverzweigung — wenn keine Bedingung passt, stoppt der Ablauf auf diesem Pfad."
+    },
+    "preset": {
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt",
+      "custom": "Benutzerdefiniert"
+    },
+    "regexInvalid": "Ungültiger regulärer Ausdruck"
+  },
+  "outputNode": {
+    "title": "Ausgabe",
+    "subtitle": "Ausführungsausgabe verarbeiten & speichern",
+    "name": {
+      "label": "Name",
+      "placeholder": "Ausgabe"
+    },
+    "docTitle": {
+      "label": "Dokumenttitel",
+      "placeholder": "Optional — Überschrift für formatiertes Markdown/HTML"
+    },
+    "savingFrom": "Ausgaben werden gespeichert von",
+    "savingHint": "Verbinden Sie Assistenten mit diesem Ausgabe-Knoten im Arbeitsbereich, um auszuwählen, welche gespeichert werden.",
+    "allAgents": "Alle Assistenten in der Ausführung.",
+    "noAgents": "Noch keine Assistenten verbunden — ziehen Sie eine Verbindung von einem Assistenten in diesen Ausgabe-Knoten. Ohne Verbindungen wird nichts gespeichert.",
+    "unknownAgent": "Unbekannter Assistent",
+    "format": {
+      "label": "Format",
+      "selectLabel": "Ausgabeformat"
+    },
+    "destination": {
+      "label": "Speichern unter",
+      "browse": "Durchsuchen",
+      "custom": "Benutzerdefinierter Ordner",
+      "default": "Arbeitsbereich-Ordner (Standard)",
+      "reset": "Auf Arbeitsbereich zurücksetzen"
+    }
+  },
+  "assistants": {
+    "title": "Assistenten",
+    "new": "Neu",
+    "empty": {
+      "title": "Noch keine Assistenten.",
+      "create": "Erstellen Sie Ihren ersten Assistenten"
+    },
+    "delete": "{{name}} löschen"
+  },
+  "tool": {
+    "toggleLabel": "Tool: {{name}}. Klicken Sie, um Details zu {{action}}.",
+    "expand": "ausklappen",
+    "collapse": "einklappen",
+    "running": "Wird ausgeführt",
+    "completed": "Abgeschlossen",
+    "input": "Eingabe",
+    "output": "Ausgabe"
+  },
+  "emailNode": {
+    "title": "E-Mail",
+    "subtitle": "Ausführungsausgabe per E-Mail senden",
+    "enabled": {
+      "label": "Nach jeder Ausführung senden",
+      "hint": "Standardmäßig aus. Wenn aktiviert, sendet dieser Knoten die ausgewählte Ausgabe per E-Mail, sobald der Workflow abgeschlossen ist."
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "E-Mail"
+    },
+    "subject": {
+      "label": "Betreff",
+      "placeholder": "Optional — Standard ist \"Workflow-Ausgabe\""
+    },
+    "recipients": {
+      "label": "Empfänger",
+      "placeholder": "a@example.com, b@example.com",
+      "hint": "Durch Komma getrennte E-Mail-Adressen.",
+      "count_one": "{{count}} gültiger Empfänger",
+      "count_other": "{{count}} gültige Empfänger",
+      "invalid": "Ungültig: {{list}}"
+    },
+    "sendingFrom": "Ausgabe wird per E-Mail gesendet von",
+    "sendingHint": "Verbinden Sie Assistenten mit diesem E-Mail-Knoten im Arbeitsbereich, um auszuwählen, welche Ausgabe gesendet wird.",
+    "allAgents": "Alle Assistenten in der Ausführung.",
+    "noAgents": "Noch keine Assistenten verbunden — ziehen Sie eine Verbindung von einem Assistenten in diesen E-Mail-Knoten. Ohne Verbindungen wird nichts gesendet.",
+    "unknownAgent": "Unbekannter Assistent"
+  },
+  "structurerNode": {
+    "title": "Strukturierer",
+    "subtitle": "Assistenten-Ausgabe in strukturierte Daten umwandeln",
+    "unknownAgent": "Unbekannter Assistent",
+    "name": {
+      "label": "Name",
+      "placeholder": "Strukturierer"
+    },
+    "sourceFrom": "Wird strukturiert von",
+    "sourceHint": "Gesteuert durch die Assistenten, die im Arbeitsbereich mit diesem Knoten verbunden sind.",
+    "allAgents": "Alle Assistenten in der Ausführung.",
+    "noAgents": "Noch keine Assistenten verbunden — ziehen Sie eine Verbindung von einem Assistenten in diesen Knoten.",
+    "format": {
+      "label": "Format",
+      "selectLabel": "Ausgabeformat"
+    },
+    "mode": {
+      "label": "Extraktionsmodus",
+      "parse": "Parsen",
+      "ai": "KI-Extraktion",
+      "parseHint": "Extrahiert deterministisch JSON oder Tabellen, die bereits in der Ausgabe vorhanden sind. Keine zusätzlichen Kosten.",
+      "aiHint": "Führt einen Claude-Durchlauf aus, um strukturierte Zeilen aus Freitext zu extrahieren."
+    },
+    "instructions": {
+      "label": "Extraktionsanweisungen",
+      "placeholder": "Optionale Anleitung für den KI-Extraktor…"
+    },
+    "schema": {
+      "heading": "Schema",
+      "total": "{{count}} Spalten",
+      "hint": "Deklarieren Sie die zu extrahierenden Spalten/Felder. Leer lassen, um abzuleiten.",
+      "keyPlaceholder": "key",
+      "keyAria": "Schlüssel von Spalte {{index}}",
+      "remove": "Spalte {{index}} entfernen",
+      "labelPlaceholder": "Bezeichnung",
+      "labelAria": "Bezeichnung von Spalte {{index}}",
+      "typeAria": "Typ von Spalte {{index}}",
+      "type": {
+        "string": "Text",
+        "number": "Zahl",
+        "boolean": "Boolesch",
+        "date": "Datum"
+      },
+      "add": "Spalte hinzufügen",
+      "empty": "Keine Spalten — der Extraktor leitet die Felder aus dem Inhalt ab."
+    }
+  },
+  "dbSaveNode": {
+    "title": "In Datenbank speichern",
+    "subtitle": "Den strukturierten Datensatz persistieren",
+    "name": {
+      "label": "Name",
+      "placeholder": "In DB speichern"
+    },
+    "datasetLabel": {
+      "label": "Datensatz-Bezeichnung",
+      "placeholder": "Optional — benennt den gespeicherten Datensatz",
+      "hint": "Greift auf den Datensatznamen des Strukturierers zurück, wenn leer."
+    },
+    "savingFrom": "Datensatz wird gespeichert von",
+    "noUpstream": "Noch kein Strukturierer verbunden — verbinden Sie einen Strukturierer-Knoten mit diesem.",
+    "lastSaved_one": "Letzte Ausführung hat {{count}} Zeile gespeichert.",
+    "lastSaved_other": "Letzte Ausführung hat {{count}} Zeilen gespeichert.",
+    "viewDatasets": "Gespeicherte Datensätze anzeigen"
+  },
+  "datasets": {
+    "panelLabel": "Gespeicherte Datensätze",
+    "title": "Gespeicherte Datensätze",
+    "back": "Zurück zur Liste",
+    "rowCount_one": "{{count}} Zeile",
+    "rowCount_other": "{{count}} Zeilen",
+    "summary_one": "{{count}} Datensatz",
+    "summary_other": "{{count}} Datensätze",
+    "downloadCsv": "CSV herunterladen",
+    "csv": "CSV",
+    "refresh": "Aktualisieren",
+    "error": {
+      "loadList": "Datensätze konnten nicht geladen werden.",
+      "loadDetail": "Der Datensatz konnte nicht geladen werden."
+    },
+    "empty": {
+      "title": "Keine gespeicherten Datensätze",
+      "description": "Führen Sie einen Workflow mit einem In-DB-speichern-Knoten aus, um hier strukturierte Daten zu speichern."
+    },
+    "emptyRows": {
+      "title": "Keine Zeilen",
+      "description": "Dieser Datensatz hat keine Zeilen."
+    },
+    "listMeta": "{{rows}} Zeilen · {{format}} · {{time}}"
+  },
+  "httpRequestNode": {
+    "title": "HTTP-Anfrage",
+    "subtitle": "Eine externe API mitten im Workflow aufrufen.",
+    "name": {
+      "label": "Name",
+      "placeholder": "HTTP-Anfrage"
+    },
+    "request": {
+      "label": "Anfrage",
+      "methodLabel": "HTTP-Methode",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "hint": "Die URL, die Header und der Body akzeptieren den Platzhalter {{token}} — er wird durch die vorgelagerte Ausgabe ersetzt."
+    },
+    "query": {
+      "heading": "Query-Parameter",
+      "keyPlaceholder": "Name",
+      "valuePlaceholder": "Wert",
+      "add": "Parameter hinzufügen",
+      "empty": "Keine Query-Parameter.",
+      "remove": "Parameter {{index}} entfernen"
+    },
+    "headers": {
+      "heading": "Header",
+      "keyPlaceholder": "Header",
+      "valuePlaceholder": "Wert",
+      "add": "Header hinzufügen",
+      "empty": "Keine Header.",
+      "remove": "Header {{index}} entfernen"
+    },
+    "body": {
+      "label": "Body",
+      "placeholder": "{ \"query\": \"...\" }",
+      "hint": "Wird mit POST, PUT und PATCH gesendet. Unterstützt den Platzhalter {{token}}.",
+      "mode": {
+        "json": "JSON",
+        "form": "Form",
+        "raw": "Raw"
+      }
+    },
+    "timeout": {
+      "label": "Timeout (Sekunden)",
+      "hint": "Die Anfrage schlägt fehl, wenn nicht rechtzeitig eine Antwort eintrifft."
+    },
+    "response": {
+      "label": "Nachgelagert übergebene Antwort",
+      "body": "Nur Body",
+      "full": "Vollständig (Status + Header)",
+      "hint": "Wählen Sie, was nachgelagerte Knoten erhalten: nur den Antwort-Body oder einen JSON-Umschlag mit Status und Headern."
+    }
+  },
+  "duckduckgoSearchNode": {
+    "title": "DuckDuckGo-Suche",
+    "subtitle": "Mitten im Workflow im Web suchen.",
+    "name": {
+      "label": "Name",
+      "placeholder": "DuckDuckGo-Suche"
+    },
+    "query": {
+      "label": "Suchanfrage",
+      "placeholder": "Suchanfrage",
+      "hint": "Die Anfrage akzeptiert den Platzhalter {{token}} — er wird durch die vorgelagerte Ausgabe ersetzt."
+    },
+    "maxResults": {
+      "label": "Maximale Ergebnisse"
+    },
+    "region": {
+      "label": "Region",
+      "placeholder": "us-en",
+      "hint": "DuckDuckGo-Regionscode, z. B. us-en, uk-en, de-de. Leer lassen für keine Region."
+    },
+    "safeSearch": {
+      "label": "SafeSearch",
+      "strict": "Streng",
+      "moderate": "Moderat",
+      "off": "Aus"
+    },
+    "timeLimit": {
+      "label": "Zeitraum",
+      "any": "Jederzeit",
+      "d": "Letzter Tag",
+      "w": "Letzte Woche",
+      "m": "Letzter Monat",
+      "y": "Letztes Jahr"
+    },
+    "output": {
+      "label": "Nachgelagert übergebene Ergebnisse",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Wählen Sie, was nachgelagerte Knoten erhalten: eine lesbare Liste oder ein JSON-Array von Datensätzen."
+    }
+  },
+  "sakanaAiNode": {
+    "title": "Sakana AI",
+    "subtitle": "Führen Sie eine Sakana-AI-Vervollständigung im Workflow aus.",
+    "name": {
+      "label": "Name",
+      "placeholder": "Sakana AI"
+    },
+    "apiUrl": {
+      "label": "API-URL",
+      "placeholder": "https://api.sakana.ai/v1/chat/completions"
+    },
+    "model": {
+      "label": "Modell",
+      "placeholder": "sakana-chat"
+    },
+    "systemPrompt": {
+      "label": "System-Prompt",
+      "placeholder": "Optionale Systemanweisung..."
+    },
+    "prompt": {
+      "label": "Prompt",
+      "placeholder": "Fasse {{input}} zusammen",
+      "hint": "Der Prompt unterstützt den Platzhalter {{token}} – er wird durch die Upstream-Ausgabe ersetzt."
+    },
+    "temperature": {
+      "label": "Temperatur"
+    },
+    "maxTokens": {
+      "label": "Max. Tokens"
+    },
+    "output": {
+      "label": "Weitergegebene Ausgabe",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Wählen Sie, was nachgelagerte Knoten erhalten: Vervollständigungstext oder die vollständige JSON-Antwort."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "nudge-marketplace",
+  "name": "nudge-marketplace",
+  "description": "Launch and manage AI agents on the Nudge marketplace. Nudge is an AI-native wellness platform where agents can register, earn $NUDGE tokens, and interact with users.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "bash-shell-scripting-reference",
+  "name": "bash-shell-scripting-reference",
+  "description": "Shell scripting reference — Bash syntax, redirections, process substitution, signal handling, debugging techniques. Use when writing shell scripts, troubleshooting Bash behavior, or automating system tasks.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

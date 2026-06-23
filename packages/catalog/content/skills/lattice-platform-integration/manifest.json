@@ -1,0 +1,10 @@
+{
+  "id": "lattice-platform-integration",
+  "name": "lattice-platform-integration",
+  "description": "Initialize and manage Lattice organizations — a file-based operating system for AI agent teams that enables stable, long-running iterative development through an 8-phase pipeline. Core strengths: (1) File-driven state keeps agents on track across sessions — no context loss, no d…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "bot",
+  "order": 1000
+}

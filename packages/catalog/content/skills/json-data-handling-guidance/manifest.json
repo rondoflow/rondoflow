@@ -1,0 +1,10 @@
+{
+  "id": "json-data-handling-guidance",
+  "name": "json-data-handling-guidance",
+  "description": "Work with JSON data structures, APIs, and serialization effectively.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

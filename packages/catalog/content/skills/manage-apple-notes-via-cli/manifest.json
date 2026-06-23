@@ -1,0 +1,10 @@
+{
+  "id": "manage-apple-notes-via-cli",
+  "name": "manage-apple-notes-via-cli",
+  "description": "Manage Apple Notes via AppleScript CLI",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

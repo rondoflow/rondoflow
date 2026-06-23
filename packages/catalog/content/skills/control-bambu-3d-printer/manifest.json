@@ -1,0 +1,10 @@
+{
+  "id": "control-bambu-3d-printer",
+  "name": "control-bambu-3d-printer",
+  "description": "Bambu Lab 3D printer control and automation. Activate when user mentions: printer status, 3D printing, slice, analyze model, generate 3D, AMS filament, print monitor, Bambu Lab, or any 3D printing task. Full pipeline: search → generate → analyze → colorize → preview → open BS →…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

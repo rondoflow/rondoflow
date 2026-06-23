@@ -1,0 +1,10 @@
+{
+  "id": "human-approval-command-interception",
+  "name": "human-approval-command-interception",
+  "description": "Human-in-the-loop security layer. Intercepts high-risk commands and requires push notification approval.",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

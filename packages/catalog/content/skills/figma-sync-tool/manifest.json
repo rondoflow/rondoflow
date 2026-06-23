@@ -1,0 +1,10 @@
+{
+  "id": "figma-sync-tool",
+  "name": "figma-sync-tool",
+  "description": "Read Figma files, extract design tokens, generate React Native Expo TS or Web React + Tailwind code, write back to Figma, and diff local models against Figma for minimal patches. Triggers: \"pull figma\", \"sync figma\", \"figma to code\", \"push to figma\", \"diff figma\", \"extract desig…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

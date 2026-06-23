@@ -1,0 +1,10 @@
+{
+  "id": "monitor-rss-feeds-send-notifications",
+  "name": "monitor-rss-feeds-send-notifications",
+  "description": "Monitor RSS feeds and send notifications when new content is published. Use when user needs to track blog updates, news feeds, or any RSS source. Supports Feishu/Lark notifications and scheduled monitoring via cron.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

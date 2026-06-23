@@ -1,0 +1,10 @@
+# Build output
+dist/
+.next/
+coverage/
+
+# Machine-generated catalog data (owned by `npm run catalog:build`)
+packages/catalog/src/generated/
+
+# Authored catalog content (personas / SKILL.md) — kept verbatim, not reflowed
+packages/catalog/content/**/*.md

@@ -1,0 +1,10 @@
+{
+  "id": "book-eyelash-services",
+  "name": "book-eyelash-services",
+  "description": "Book lashes services through Lokuli MCP. Use when user needs to find and book lashes. Triggers on requests like \"book a lashes\", \"find lashes near me\", or any lashes service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "build-client-web-scrapers",
+  "name": "build-client-web-scrapers",
+  "description": "Build client-ready web scrapers with clean data output. Use when creating scrapers for clients, extracting data from websites, or delivering scraping projects.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

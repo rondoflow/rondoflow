@@ -1,0 +1,10 @@
+{
+  "id": "lookup-pokemon-info-cli",
+  "name": "lookup-pokemon-info-cli",
+  "description": "CLI for AI agents to lookup Pokémon info for their humans. Uses PokéAPI. No auth required.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

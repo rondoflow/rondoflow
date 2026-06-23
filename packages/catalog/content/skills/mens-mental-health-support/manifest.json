@@ -1,0 +1,10 @@
+{
+  "id": "mens-mental-health-support",
+  "name": "mens-mental-health-support",
+  "description": "Mental health support for men with emotion check-ins, stress tools, and no-judgment space",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

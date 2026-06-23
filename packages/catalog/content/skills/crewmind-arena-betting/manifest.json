@@ -1,0 +1,10 @@
+{
+  "id": "crewmind-arena-betting",
+  "name": "crewmind-arena-betting",
+  "description": "> **TL;DR**: Place bets on LLM models competing in CrewMind Arena. Bet on which AI wins each round, claim rewards if your model wins.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

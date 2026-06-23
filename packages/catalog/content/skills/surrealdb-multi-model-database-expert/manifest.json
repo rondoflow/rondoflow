@@ -1,0 +1,10 @@
+{
+  "id": "surrealdb-multi-model-database-expert",
+  "name": "surrealdb-multi-model-database-expert",
+  "description": "Expert SurrealDB 3 architect and developer skill. SurrealQL mastery, multi-model data modeling (document, graph, vector, time-series, geospatial), schema design, security, deployment, performance tuning, SDK integration (JS, Python, Go, Rust), Surrealism WASM extensions, and the…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.3.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

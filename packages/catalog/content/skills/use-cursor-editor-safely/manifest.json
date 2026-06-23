@@ -1,0 +1,10 @@
+{
+  "id": "use-cursor-editor-safely",
+  "name": "use-cursor-editor-safely",
+  "description": "Use Cursor safely across editor, CLI, rules, background agents, Bugbot, and MCP workflows with repo-aware context and reviewable execution.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

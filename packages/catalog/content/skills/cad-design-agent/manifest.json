@@ -1,0 +1,10 @@
+{
+  "id": "cad-design-agent",
+  "name": "cad-design-agent",
+  "description": "> Give your AI agent eyes for CAD work.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

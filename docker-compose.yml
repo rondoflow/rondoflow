@@ -1,0 +1,118 @@
+services:
+  # PostgreSQL 
+  postgres:
+    image: postgres:16-alpine
+    container_name: rondoflow-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: rondoflow
+      POSTGRES_USER: rondoflow
+      POSTGRES_PASSWORD: rondoflow_dev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rondoflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Backend (Fastify + Socket.IO) 
+  server:
+    build:
+      context: .
+      dockerfile: packages/server/Dockerfile
+    container_name: rondoflow-server
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: "3001"
+      DATABASE_URL: postgresql://rondoflow:rondoflow_dev@postgres:5432/rondoflow
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-change-me-generate-a-real-secret}
+      BETTER_AUTH_URL: http://localhost:3001
+      UI_ORIGIN: http://localhost:3000
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET:-}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      # In-container root that registered external folders must live under.
+      EXTERNAL_FOLDERS_CONTAINER_ROOT: ${EXTERNAL_FOLDERS_CONTAINER_ROOT:-/external}
+    volumes:
+      # Host directory bound to the in-container external folders root. Drop
+      # project folders under EXTERNAL_FOLDERS_HOST_PATH and they appear in the
+      # UI automatically. To mount specific host paths, add more bind mounts
+      # here — they MUST land under /external, e.g.:
+      #   - /home/me/projects/foo:/external/foo:rw   (read-write)
+      #   - /mnt/data/bar:/external/bar:ro           (read-only)
+      - ${EXTERNAL_FOLDERS_HOST_PATH:-./external}:/external:rw
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3001/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Frontend (Next.js) 
+  ui:
+    build:
+      context: .
+      dockerfile: packages/ui/Dockerfile
+      args:
+        # Baked into the /docs rewrite at BUILD time. External (absolute-URL)
+        # rewrites are frozen into routes-manifest.json by `next build`, so the
+        # runtime DOCS_ORIGIN below does NOT affect them — it must be set here.
+        # Must point at the docs service, not localhost.
+        DOCS_ORIGIN: http://docs:3002
+    container_name: rondoflow-ui
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NEXT_PUBLIC_SOCKET_URL: http://localhost:3001
+      # Upstream for the /docs reverse-proxy rewrite (see packages/ui/next.config.mjs).
+      # NOTE: kept for dev-mode parity, but for the standalone prod build the
+      # rewrite origin is baked from the build arg above, not this runtime value.
+      DOCS_ORIGIN: http://docs:3002
+    depends_on:
+      server:
+        condition: service_healthy
+      docs:
+        condition: service_healthy
+
+  # Documentation (Nextra static site) 
+  docs:
+    build:
+      context: .
+      dockerfile: packages/docs/Dockerfile
+    container_name: rondoflow-docs
+    ports:
+      - "3002:3002"
+    environment:
+      PORT: "3002"
+      HOSTNAME: "0.0.0.0"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3002/docs || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Database migrations (run once) 
+  migrate:
+    build:
+      context: .
+      dockerfile: packages/server/Dockerfile
+    container_name: rondoflow-migrate
+    environment:
+      DATABASE_URL: postgresql://rondoflow:rondoflow_dev@postgres:5432/rondoflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: npx prisma migrate deploy --schema=prisma/schema.prisma
+    restart: "no"
+
+volumes:
+  pgdata:

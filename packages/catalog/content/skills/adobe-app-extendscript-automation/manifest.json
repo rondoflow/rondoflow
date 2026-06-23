@@ -1,0 +1,10 @@
+{
+  "id": "adobe-app-extendscript-automation",
+  "name": "adobe-app-extendscript-automation",
+  "description": "Universal Adobe application automation via ExtendScript bridge. Supports Photoshop, Illustrator, InDesign, Premiere Pro, and After Effects.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.1.2",
+  "icon": "puzzle",
+  "order": 1000
+}

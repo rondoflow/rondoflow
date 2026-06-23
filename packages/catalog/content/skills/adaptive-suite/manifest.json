@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-suite",
+  "name": "adaptive-suite",
+  "description": "A continuously adaptive skill suite that empowers Clawdbot to act as a versatile coder, business analyst, project manager, web developer, data analyst, and NAS metadata scraper. It intelligently discovers free resources, adapts to user context, and ensures reliable, proven guida…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

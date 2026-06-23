@@ -1,0 +1,10 @@
+{
+  "id": "automate-deployments-and-cicd",
+  "name": "automate-deployments-and-cicd",
+  "description": "Automate deployments, manage infrastructure, and build reliable CI/CD pipelines.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

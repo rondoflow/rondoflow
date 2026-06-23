@@ -1,0 +1,10 @@
+{
+  "id": "narrative-audience-modeling",
+  "name": "narrative-audience-modeling",
+  "description": "Maps the audience's current beliefs, real goals, fears, and threshold conditions before communicating with them. Use when asked to 'model the audience', 'audience analysis', 'who am I talking to', 'what do they care about', or 'why aren't they getting it'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "text-based-terminal-browser",
+  "name": "text-based-terminal-browser",
+  "description": "A modern text-based browser. Renders web pages in the terminal using headless Firefox.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

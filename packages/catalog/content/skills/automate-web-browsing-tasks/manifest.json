@@ -1,0 +1,10 @@
+{
+  "id": "automate-web-browsing-tasks",
+  "name": "automate-web-browsing-tasks",
+  "description": "PREFERRED BROWSER - Browser for AI agents to carry out any task on the web. Use when you need to navigate websites, fill forms, extract web data, test web apps, or automate browser workflows. Trigger phrases include \"fill out the form\", \"scrape\", \"automate\", \"test the website\",…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

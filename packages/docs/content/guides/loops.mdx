@@ -1,0 +1,174 @@
+---
+title: Loops
+description: Run a single Assistant iteratively until a completion criterion is met, with a fresh process and progress log per iteration.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Loops
+
+A **loop** lets a single Assistant (internally an Agent) keep re-running on the same task until it meets a completion criterion or hits an iteration cap. It is the simplest form of autonomy in RondoFlow: one Assistant, many attempts, each building on what the last one learned.
+
+Loops are ideal for tasks that benefit from refinement — fix until tests pass, retry until output matches a pattern, or iterate with a human approving each round.
+
+## How the LoopEngine works
+
+The `LoopEngine` drives one Assistant through repeated runs. On each pass it:
+
+1. Builds the message for this iteration. The first iteration uses your original message verbatim; later iterations append a **progress log** summarizing what previous attempts produced, plus a note like `Iteration 3 of 10` instructing the Assistant to review prior work and improve on it.
+2. Starts (spawns) a **fresh process** for that single iteration.
+3. Collects the output, extracts a short learning (the first ~300 characters), and appends it to the progress log.
+4. Evaluates the completion criterion against the output to decide whether to stop or run again.
+
+The loop ends when the criterion is satisfied, when a manual review is rejected, when it fails, or when it exhausts the maximum iteration count.
+
+<Callout type="important">
+**Fresh process per iteration is the key design point.** Each iteration starts a brand-new process with no shared context window from prior runs — only the compact progress log is carried forward as text. This prevents the context-window degradation that accumulates when one long-lived process is asked to retry many times, while still letting each attempt benefit from a summary of what came before.
+</Callout>
+
+### Progress log
+
+Because the process restarts each time, the progress log is how knowledge crosses iteration boundaries. It is a list of short summaries — one per completed iteration — folded into the next iteration's message under a `## Progress Log` heading. The Assistant reads it as context and is told to do better than the previous attempts.
+
+## Completion criteria
+
+A loop stops early when its criterion is met. RondoFlow supports four criteria types. The user-facing label is on the left; the internal `type` value is in parentheses.
+
+| Criterion | Value field | Behavior |
+| --- | --- | --- |
+| Max iterations only (`max_iterations`) | none | Never stops early. The iteration cap is the only terminator. |
+| Regex match (`regex`) | a pattern | Stops when the iteration output matches the (case-insensitive) regex. Invalid patterns are treated as "keep going." |
+| Test passes (`test_pass`) | a command | Stops when the command exits with status `0`. Runs with a 60-second timeout. |
+| Manual review (`manual`) | none | Pauses after each iteration and waits for a human to approve or reject. |
+
+<Callout type="warning">
+The `test_pass` command is split on whitespace and run directly (never through a shell), so shell features like pipes, `&&`, globbing, or environment-variable expansion will not work. Use a single executable plus its arguments, for example `npm test`. See [Security](/docs/reference/security) for why RondoFlow never spawns a shell.
+</Callout>
+
+### Manual review
+
+When the criterion is `manual`, the engine emits a `manual_approval_required` event carrying the iteration number, the output, and a unique `loopId`, then waits. You resolve it by approving or rejecting:
+
+- **Approve** completes the loop with that iteration's output as the final result.
+- **Reject** fails the loop with `Manual approval was rejected by user`.
+
+When a loop is driven over Socket.IO (the in-app path, below), this same prompt surfaces as an `action_required` notification carrying **Approve** / **Reject** actions, rather than something you have to poll for.
+
+## Configuring a loop per Assistant
+
+Loop settings live on the Assistant itself, so each Assistant can have its own loop behavior. Open the Assistant's drawer and use the **Autonomous Loop** panel.
+
+<Steps>
+### Enable the loop
+
+Toggle **Autonomous Loop** on. The description reads "Agent re-runs automatically until criteria is met". Enabling it sets the criterion to the currently selected type; disabling it clears the criterion.
+
+### Choose a completion criterion
+
+Pick one of: **Regex match**, **Test passes**, **Manual review**, or **Max iterations only**. The first two reveal an input — a **Pattern** for regex (e.g. `DONE|COMPLETE|SUCCESS`) or a **Command** for tests (e.g. `npm test`).
+
+### Set the max iterations
+
+Drag the **Max Iterations** slider. The range is **1 to 100** and the default is **10**. The loop stops after this many iterations even if the criterion is never met.
+</Steps>
+
+These map to three fields on the Assistant: `loopEnabled` (boolean, default `false`), `loopCriteria` (the type plus its value), and `maxIterations` (integer, default `10`).
+
+<Callout type="warning">
+Autonomous loops consume tokens continuously — each iteration is a full run. Set a reasonable iteration cap and monitor usage. Spend per iteration is also bounded by the Assistant's budget setting.
+</Callout>
+
+## Watching a loop on the canvas
+
+When you start a loop over the in-app Socket.IO path, the Assistant's Card (internally a Node) on the Workspace (internally the Canvas) grows a **progress ring** — an SVG arc drawn just outside the card that fills as iterations complete, with an `iteration/max` badge (e.g. `3/10`) that pulses on each new pass.
+
+The ring subscribes to the server's `agent:loop_iteration` events for that Assistant and only appears once the first iteration reports in, so an idle Assistant shows nothing. It is purely a live indicator: stopping or completing the loop clears it on the next status update.
+
+## Lifecycle and events
+
+While a loop runs, the engine emits events. The in-app client subscribes to them over Socket.IO and you can also watch the broader run in [Monitoring](/docs/guides/monitoring):
+
+| Event | When it fires | Payload |
+| --- | --- | --- |
+| `iteration` | An iteration finishes | `iteration`, `maxIterations`, `output` |
+| `progress` | A learning is appended to the log | `iteration`, `learning` |
+| `manual_approval_required` | A `manual` iteration needs a decision | `iteration`, `output`, `loopId` |
+| `completed` | The criterion was met or the cap was reached | `totalIterations`, `finalOutput` |
+| `failed` | An iteration errored or manual review was rejected | `iteration`, `error` |
+
+<Callout type="info">
+**What `finalOutput` contains depends on why the loop ended.** When a criterion is met, `finalOutput` is that iteration's full output. When the loop instead **exhausts its iteration cap** without ever meeting a criterion, it still emits `completed`, but `finalOutput` is the **last progress-log entry** — the short (~300-character) learning summary, not the full final-iteration text. If you need the complete output of a capped run, capture it from the per-iteration `iteration` events as they arrive.
+</Callout>
+
+A loop can also be paused (it honors the pause state before the next iteration starts) and resumed, or stopped outright — stopping kills the current process and rejects any pending manual approval.
+
+## Driving a loop in the app (Socket.IO)
+
+The primary in-app way to run and observe a loop is over Socket.IO. The client emits typed events and the server streams progress back:
+
+| Direction | Event | Payload | Purpose |
+| --- | --- | --- | --- |
+| client → server | `loop:start` | `{ agentId, message }` | Start a loop on an Assistant. |
+| client → server | `loop:stop` | `{ agentId }` | Stop the active loop. |
+| client → server | `loop:approve` | `{ agentId, loopId, approved }` | Resolve a `manual` review. |
+| server → client | `agent:loop_iteration` | `{ agentId, iteration, maxIterations }` | Feeds the on-canvas progress ring. |
+
+The socket layer keeps its own active-loop registry per Assistant, surfaces each `progress` event as an `info` notification, and emits `manual_approval_required` as an `action_required` notification with **Approve** / **Reject** actions. Loop completion and failure arrive as notifications plus an `agent:status` update (`idle` or `error`).
+
+<Callout type="warning">
+**Only editor and admin roles may start, stop, or approve a loop.** Viewers are read-only: the socket path checks the caller's role and, on denial, returns an `agent:error` of type `POLICY_ERROR` ("Your role does not permit running or modifying workflows"). The HTTP routes below are likewise gated on the `run` capability. See [Users & roles](/docs/guides/users).
+</Callout>
+
+## Starting and stopping a loop over HTTP
+
+Loops are also controlled through the API under the Assistant's id. A loop must have `loopEnabled = true`, and only one loop can run per Assistant at a time.
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/agents/:id/loop/start` | Start a loop with an initial `message`. |
+| `POST` | `/api/agents/:id/loop/stop` | Stop the active loop. |
+| `GET` | `/api/agents/:id/loop/status` | Read whether a loop is active and its current state. |
+| `POST` | `/api/agents/:id/loop/approve` | Resolve a manual review with `{ loopId, approved }`. |
+
+```bash
+# Start a loop on an Assistant
+curl -X POST http://localhost:3001/api/agents/AGENT_ID/loop/start \
+  -H 'Content-Type: application/json' \
+  -d '{ "message": "Make the failing test suite pass." }'
+```
+
+The status endpoint returns the live `LoopState`: the current `iteration`, `maxIterations`, the `criteria`, the `status` (`running`, `paused`, `completed`, or `failed`), and the accumulated `progressLog`.
+
+<Callout type="info">
+The returned `LoopState` also carries a `sessionId` field, but it is always an empty string — the engine spins up a fresh, unexposed session id per iteration and never surfaces it. Ignore it.
+</Callout>
+
+<Callout type="info">
+Loop iterations run headless with permissions bypassed so tools execute without an in-run prompt. The only human gate is the optional per-iteration approval of the `manual` criterion. Scope each Assistant's allowed tools and budget carefully — see [Safety Rules](/docs/guides/safety-rules).
+</Callout>
+
+## Long-running loops and disconnect teardown
+
+A running loop is a long-lived run, so it is registered in RondoFlow's unified run registry, keyed by the owning user. If that user's **last** socket disconnects and does not return within a grace window, the loop is torn down automatically — the current process is killed and any pending manual approval is rejected.
+
+Teardown is on by default. Two operator env vars tune it:
+
+| Variable | Default | Effect |
+| --- | --- | --- |
+| `RONDOFLOW_TEARDOWN_ON_DISCONNECT` | on (set to `0` to disable) | Whether last-socket disconnect tears down a user's in-flight runs. |
+| `RONDOFLOW_TEARDOWN_GRACE_MS` | `60000` | How long to wait after the last socket leaves before tearing down — so a refresh, a new tab, or a transient reconnect does not kill an expensive loop. |
+
+A reconnect during the grace window cancels the pending teardown. All in-flight runs (including loops) are also torn down on server shutdown.
+
+## When to use a loop vs. other patterns
+
+A loop is for **one Assistant refining a single task**. If you need several Assistants working in sequence or in parallel, reach for a multi-step workflow instead.
+
+<Cards>
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+</Cards>

@@ -1,0 +1,10 @@
+{
+  "id": "local-hybrid-search-for-notes",
+  "name": "local-hybrid-search-for-notes",
+  "description": "Local hybrid search for markdown notes and docs. Use when searching notes, finding related content, or retrieving documents from indexed collections.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

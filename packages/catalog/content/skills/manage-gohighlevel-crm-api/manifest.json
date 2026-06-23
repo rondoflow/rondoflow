@@ -1,0 +1,10 @@
+{
+  "id": "manage-gohighlevel-crm-api",
+  "name": "manage-gohighlevel-crm-api",
+  "description": "Connect your AI assistant to GoHighLevel CRM via the official API v2. Manage contacts, conversations, calendars, pipelines, invoices, payments, workflows, and 30+ endpoint groups through natural language. Includes interactive setup wizard and 100+ pre-built, safe API commands. P…",
+  "category": "Integrations",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "plug",
+  "order": 1000
+}

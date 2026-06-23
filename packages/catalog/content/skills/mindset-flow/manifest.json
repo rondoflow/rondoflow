@@ -1,0 +1,10 @@
+{
+  "id": "mindset-flow",
+  "name": "mindset-flow",
+  "description": "Applies Csikszentmihalyi's flow framework to diagnose why optimal experience isn't occurring and redesign the conditions for it. Use when you can't get absorbed in important work, find yourself distracted and scattered, feel chronically bored or chronically anxious in your work, want to design conditions for deep work, or used to experience flow and have lost it. Triggers: 'flow', 'deep work', 'I can't focus', 'I'm always distracted', 'I want to get absorbed in my work', 'I feel bored at work', 'I used to experience flow and I don't anymore', 'optimal experience', 'getting in the zone'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

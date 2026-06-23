@@ -1,0 +1,10 @@
+{
+  "id": "sanctifai-skills-collection",
+  "name": "sanctifai-skills-collection",
+  "description": "> **Base URL:** `https://app.sanctifai.com/v1`",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "puzzle",
+  "order": 1000
+}

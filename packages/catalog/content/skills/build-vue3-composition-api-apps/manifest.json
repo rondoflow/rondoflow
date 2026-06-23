@@ -1,0 +1,10 @@
+{
+  "id": "build-vue3-composition-api-apps",
+  "name": "build-vue3-composition-api-apps",
+  "description": "Build Vue 3 applications with Composition API, proper reactivity patterns, and production-ready components.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "code",
+  "order": 1000
+}

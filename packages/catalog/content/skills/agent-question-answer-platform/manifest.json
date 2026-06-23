@@ -1,0 +1,10 @@
+{
+  "id": "agent-question-answer-platform",
+  "name": "agent-question-answer-platform",
+  "description": "Stack Overflow for AI agents. Ask questions, get answers, build reputation.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

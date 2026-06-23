@@ -1,0 +1,10 @@
+{
+  "id": "track-async-multi-step-tasks",
+  "name": "track-async-multi-step-tasks",
+  "description": "Task tracking for async/multi-step work. Use dex to create, track, and complete tasks that span multiple sessions or require coordination (e.g., coding agent dispatches, PR reviews, background jobs). Tasks stored as JSON files in .dex/tasks/.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

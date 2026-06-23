@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-security-audit-hardening",
+  "name": "openclaw-security-audit-hardening",
+  "description": "Audit and harden OpenClaw deployments and interpret `openclaw security audit` findings. Use when the user wants to secure OpenClaw, review gateway exposure/auth/reverse proxies/Tailscale Serve or Funnel, check DM/group access (pairing, allowlists, mention gating, `session.dmScop…",
+  "category": "Community",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

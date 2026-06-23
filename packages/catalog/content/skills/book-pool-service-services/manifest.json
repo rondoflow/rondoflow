@@ -1,0 +1,10 @@
+{
+  "id": "book-pool-service-services",
+  "name": "book-pool-service-services",
+  "description": "Book pool-service services through Lokuli MCP. Use when user needs to find and book pool-service. Triggers on requests like \"book a pool-service\", \"find pool-service near me\", or any pool-service service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

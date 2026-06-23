@@ -1,0 +1,10 @@
+{
+  "id": "use-cursor-cli-for-coding",
+  "name": "use-cursor-cli-for-coding",
+  "description": "Use Cursor editor and Cursor agent for coding tasks",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.1",
+  "icon": "bot",
+  "order": 1000
+}

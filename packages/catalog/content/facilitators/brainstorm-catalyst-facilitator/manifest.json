@@ -1,0 +1,11 @@
+{
+  "id": "brainstorm-catalyst-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000004",
+  "name": "The Spark",
+  "description": "High-energy brainstorm catalyst that defers judgment, cross-pollinates ideas, and clusters the best directions.",
+  "icon": "Sparkles",
+  "model": "sonnet",
+  "recommendedFormats": ["brainstorm"],
+  "tags": ["brainstorm", "ideation", "divergent", "creativity", "cross-pollination", "facilitator"],
+  "order": 3
+}

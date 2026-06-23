@@ -1,0 +1,10 @@
+{
+  "id": "agent-marketplace",
+  "name": "agent-marketplace",
+  "description": "Interact with the AgentMarket prediction market protocol on Base Sepolia. Create markets, trade YES/NO positions, provide liquidity, and resolve outcomes — all settled in USDC.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

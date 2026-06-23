@@ -1,0 +1,10 @@
+{
+  "id": "typed-knowledge-graph-agent-memory",
+  "name": "typed-knowledge-graph-agent-memory",
+  "description": "Typed knowledge graph for structured agent memory and composable skills. Use when creating/querying entities (Person, Project, Task, Event, Document), linking related objects, enforcing constraints, planning multi-step actions as graph transformations, or when skills need to sha…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "multilingual-text-to-speech-streaming",
+  "name": "multilingual-text-to-speech-streaming",
+  "description": "Stream free, professional text-to-speech from voiceless servers to Linux, macOS, or Android devices with 50+ voices in 30+ languages. Two architecture options for flexible deployment - server-side TTS with audio streaming (PulseAudio) OR efficient text streaming with receiver-si…",
+  "category": "Media",
+  "author": "community",
+  "version": "3.3.0",
+  "icon": "image",
+  "order": 1000
+}

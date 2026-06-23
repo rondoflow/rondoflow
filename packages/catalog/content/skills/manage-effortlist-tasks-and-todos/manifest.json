@@ -1,0 +1,10 @@
+{
+  "id": "manage-effortlist-tasks-and-todos",
+  "name": "manage-effortlist-tasks-and-todos",
+  "description": "Manage EffortList AI folders, tasks, and todos. Use when the user wants to organize their life, track projects, or manage schedules via the EffortList AI platform. Supports full CRUD operations, cascading deletes, and atomic undo/redo history for data integrity.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.10.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "fetch-comprehensive-stock-data",
+  "name": "fetch-comprehensive-stock-data",
+  "description": "Fetch comprehensive stock data from Simplywall.st. Use when user asks about stock prices, valuation, financials, dividend, or investment analysis for any global stock.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "coins",
+  "order": 1000
+}

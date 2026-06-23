@@ -1,0 +1,10 @@
+{
+  "id": "book-towing-services",
+  "name": "book-towing-services",
+  "description": "Book towing services through Lokuli MCP. Use when user needs to find and book towing. Triggers on requests like \"book a towing\", \"find towing near me\", or any towing service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

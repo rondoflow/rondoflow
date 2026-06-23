@@ -1,0 +1,10 @@
+{
+  "id": "find-core-ideas-across-sources",
+  "name": "find-core-ideas-across-sources",
+  "description": "Find the core that runs through everything — the ideas that survive across all your sources.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "chart-bar",
+  "order": 1000
+}

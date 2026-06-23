@@ -1,0 +1,10 @@
+{
+  "id": "manage-installed-skills-lifecycle",
+  "name": "manage-installed-skills-lifecycle",
+  "description": "Manage installed skills lifecycle: suggest by context, track installations, check updates, and cleanup unused.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "puzzle",
+  "order": 1000
+}

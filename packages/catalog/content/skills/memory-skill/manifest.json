@@ -1,0 +1,10 @@
+{
+  "id": "memory-skill",
+  "name": "memory-skill",
+  "description": "Memory-as-a-Service for AI agents. Store and recall memories with semantic vector search. 100 free calls per wallet, then x402 micropayments. Your wallet address is your identity.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.23.5",
+  "icon": "coins",
+  "order": 1000
+}

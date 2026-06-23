@@ -1,0 +1,10 @@
+{
+  "id": "shopify-store-marketing-strategy",
+  "name": "shopify-store-marketing-strategy",
+  "description": "Complete marketing strategy for Shopify stores. SEO, email marketing, paid ads, social media, conversion optimization, and retention tactics specifically tailored for Shopify/DTC brands.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

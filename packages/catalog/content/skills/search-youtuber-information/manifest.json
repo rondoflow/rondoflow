@@ -1,0 +1,10 @@
+{
+  "id": "search-youtuber-information",
+  "name": "search-youtuber-information",
+  "description": "Can search and get YouTuber information",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

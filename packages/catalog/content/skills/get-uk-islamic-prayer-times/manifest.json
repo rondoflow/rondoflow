@@ -1,0 +1,10 @@
+{
+  "id": "get-uk-islamic-prayer-times",
+  "name": "get-uk-islamic-prayer-times",
+  "description": "Get instant, accurate Islamic prayer times for any UK location. Auto-detects your city or accepts any UK location name (cities, towns, boroughs). Handles typos with smart fuzzy search. Shows Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha times in 12-hour format. Uses ISNA calculat…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

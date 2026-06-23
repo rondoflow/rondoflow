@@ -1,0 +1,362 @@
+{
+  "toolbar": {
+    "stop": {
+      "label": "Zastaviť",
+      "ariaLabel": "Zastaviť pracovný postup",
+      "tooltipTitle": "Zastaviť",
+      "tooltipBody": "Zastaví aktuálne spustenie a okamžite ukončí každého aktívneho asistenta."
+    },
+    "run": {
+      "label": "Spustiť",
+      "ariaLabel": "Spustiť pracovný postup",
+      "coaching": "Váš pracovný postup je pripravený. Stlačte Spustiť, opíšte úlohu a začnite.",
+      "tooltipTitle": "Spustiť pracovný postup",
+      "tooltipBody": "Otvorí denník vykonávania, kde opíšete úlohu a spustíte ju. Každý asistent sa potom spustí v poradí podľa závislostí a svoj výstup odovzdá ďalšiemu."
+    },
+    "director": {
+      "label": "Director",
+      "evaluating": "Vyhodnocuje sa",
+      "tooltipTitle": "Director",
+      "tooltipBodyBefore": "Riadi pracovný postup ",
+      "tooltipBodyWhileRuns": "počas jeho behu",
+      "tooltipBodyMid": ". Po každom kroku posúdi výstup asistenta a rozhodne, či má ",
+      "tooltipBodyContinue": "pokračovať",
+      "tooltipBodyToNext": " k ďalšiemu asistentovi, ",
+      "tooltipBodyRedirect": "presmerovať",
+      "tooltipBodyRedirectNote": " (zopakovať krok s novými pokynmi), alebo ",
+      "tooltipBodyConclude": "uzavrieť",
+      "tooltipBodyEarly": " predčasne.",
+      "toggleOn": "Zapnuté — kliknutím vypnete",
+      "toggleOff": "Vypnuté — kliknutím zapnete",
+      "action": {
+        "continue": "pokračovať",
+        "redirect": "presmerovať",
+        "conclude": "uzavrieť"
+      }
+    },
+    "planner": {
+      "label": "Planner",
+      "planning": "Plánuje sa",
+      "tooltipTitle": "Planner",
+      "tooltipBody": "Analyzuje váš pracovný postup pred jeho spustením. Preskúma asistentov a spôsob ich prepojenia a vopred navrhne vylepšenia alebo zmeny asistentov — aby sa problémy zachytili ešte pred začiatkom vykonávania.",
+      "toggleOn": "Zapnuté — kliknutím vypnete",
+      "toggleOff": "Vypnuté — kliknutím zapnete"
+    },
+    "advisor": {
+      "label": "Advisor",
+      "tooltipTitle": "Advisor",
+      "tooltipBody": "Analyzuje dokončené spustenie a na základe toho, čo sa skutočne stalo, navrhne vylepšenia — lepšie persóny asistentov, výzvy alebo štruktúru pracovného postupu.",
+      "analyzing": "Analyzuje sa…",
+      "clickToAnalyze": "Kliknutím analyzujete posledné spustenie"
+    },
+    "chat": {
+      "open": "Otvoriť konverzáciu pracovného postupu",
+      "close": "Zavrieť konverzáciu pracovného postupu",
+      "tooltipTitle": "Konverzácia pracovného postupu",
+      "tooltipBody": "Otvorí konverzáciu a denník vykonávania — sledujte asistentov v reálnom čase, čítajte ich úplný surový výstup a posielajte do pracovného postupu nadväzujúce správy.",
+      "toggleOpen": "Otvorené — kliknutím zavriete",
+      "toggleClosed": "Kliknutím otvoríte"
+    },
+    "assistants": {
+      "label": "Asistenti",
+      "tooltipTitle": "Asistenti",
+      "tooltipBody": "Prehliadajte a spravujte všetkých asistentov v tomto pracovnom priestore — otvorte úplný zoznam, kde ich môžete vytvoriť, upraviť alebo skontrolovať."
+    },
+    "plan": {
+      "label": "Plán"
+    },
+    "resources": {
+      "label": "Zdroje"
+    },
+    "externalFolders": {
+      "label": "Externé priečinky"
+    },
+    "save": {
+      "ariaLabel": "Uložiť plátno",
+      "label": "Uložiť",
+      "saving": "Ukladá sa…",
+      "saved": "Uložené",
+      "titleSaving": "Ukladá sa…",
+      "titleDirty": "Neuložené zmeny — kliknutím uložíte",
+      "titleSaved": "Plátno uložené"
+    },
+    "progress": {
+      "running": "Spúšťa sa…"
+    }
+  },
+  "template": {
+    "card": {
+      "nodeCount_one": "{{count}} uzol",
+      "nodeCount_few": "{{count}} uzly",
+      "nodeCount_other": "{{count}} uzlov",
+      "use": "Použiť túto šablónu",
+      "load": "Načítať šablónu: {{name}}"
+    },
+    "dialog": {
+      "title": "Šablóny plátna",
+      "description": "Začnite z vopred pripraveného rozloženia. Po načítaní si môžete všetko prispôsobiť."
+    },
+    "saved": {
+      "heading": "Moje pracovné postupy",
+      "agentCount_one": "{{count}} asistent",
+      "agentCount_few": "{{count}} asistenti",
+      "agentCount_other": "{{count}} asistentov",
+      "withDescription": "{{label}} — {{description}}",
+      "delete": "Odstrániť {{name}}"
+    },
+    "builtIn": {
+      "heading": "Zabudované šablóny",
+      "listLabel": "Dostupné šablóny plátna"
+    }
+  },
+  "palette": {
+    "toolbarLabel": "Presunúť na plátno",
+    "coaching": "Presúvajte asistentov a zručnosti na plátno a zostavte svoj tím",
+    "addAria": "Pridať {{label}} — presuňte na plátno alebo kliknutím umiestnite",
+    "dragOrClick": "presunúť alebo kliknúť",
+    "item": {
+      "assistant": "Asistent",
+      "openaiAssistant": "OpenAI Assistant",
+      "perplexityAssistant": "Perplexity Assistant",
+      "skill": "Zručnosť",
+      "safetyRule": "Bezpečnostné pravidlo",
+      "resource": "Zdroj",
+      "connection": "Pripojenie",
+      "condition": "Podmienka",
+      "output": "Výstup",
+      "note": "Poznámka",
+      "email": "Email",
+      "structurer": "Štruktúrovať",
+      "dbSave": "Uložiť do DB",
+      "httpRequest": "HTTP požiadavka",
+      "duckduckgoSearch": "Vyhľadávanie DuckDuckGo",
+      "sakanaAi": "Sakana AI"
+    }
+  },
+  "loop": {
+    "progress": "Priebeh cyklu: {{iteration}} z {{max}}"
+  },
+  "finder": {
+    "title": "Nájsť uzol",
+    "placeholder": "Hľadať uzly podľa názvu...",
+    "empty": "Žiadne zodpovedajúce uzly",
+    "emptyHint": "Skúste iný názov alebo typ uzla.",
+    "untitled": "Bez názvu"
+  },
+  "placeholder": {
+    "title": "Vitajte v Rondoflow!",
+    "intro": "RondoFlow vám poskytuje vizuálny pracovný priestor, kde umiestňujete špecializovaných asistentov (agentov) ako karty (uzly), prepájate ich a spúšťate celok ako pracovný postup.",
+    "describePlaceholder": "Opíšte úlohu a zostavíme pracovný priestor…",
+    "describeButton": "Vygenerovať",
+    "describeAriaLabel": "Opíšte úlohu na vygenerovanie pracovného priestoru",
+    "generating": "Generuje sa váš pracovný priestor…",
+    "or": "alebo",
+    "useTemplate": "Použiť šablónu",
+    "createAssistant": "Vytvoriť asistenta",
+    "continueToWorkspace": "Pokračovať do pracovného priestoru"
+  },
+  "default": {
+    "agentName": "Nový asistent",
+    "skillName": "Nová zručnosť",
+    "policyName": "Nové pravidlo",
+    "mcpName": "MCP server",
+    "resourceLabel": "Zdroje",
+    "outputName": "Výstup",
+    "conditionName": "Podmienka",
+    "emailName": "Email",
+    "structurerName": "Štruktúrovanie",
+    "dbSaveName": "Uložiť do DB",
+    "httpRequestName": "HTTP požiadavka",
+    "duckduckgoSearchName": "Vyhľadávanie DuckDuckGo",
+    "sakanaAiName": "Sakana AI"
+  },
+  "node": {
+    "shell": {
+      "inputTitle": "Vstup — pripojte do tohto uzla iný uzol",
+      "inputAria": "Vstupný port",
+      "branchOutputTitle": "Výstup vetvy: {{label}} — potiahnutím prepojíte",
+      "branchOutputAria": "Výstup vetvy: {{label}}",
+      "outputTitle": "Výstup — potiahnutím prepojíte s iným uzlom",
+      "outputAria": "Výstupný port",
+      "enableStep": "Povoliť krok",
+      "skipStep": "Preskočiť krok"
+    },
+    "actions": {
+      "edit": "Upraviť",
+      "delete": "Odstrániť"
+    },
+    "agent": {
+      "aria": "Asistent: {{name}}, stav: {{status}}",
+      "outputLabel": "Výstup",
+      "deepResearch": "Hĺbkový prieskum",
+      "scheduleTitle": "Má naplánovanú úlohu",
+      "instructionsLabel": "Inštrukcie"
+    },
+    "skill": {
+      "aria": "Zručnosť: {{name}}",
+      "outputLabel": "Zručnosť",
+      "description": "Pripojte k asistentovi opätovne použiteľnú zručnosť.",
+      "fieldLabel": "Zručnosť",
+      "assignAria": "Priradiť tomuto uzlu zručnosť",
+      "assignedSkill": "Priradená zručnosť",
+      "assignPlaceholder": "Priradiť zručnosť…",
+      "installedSkills": "Zručnosti",
+      "loading": "Načítava sa…",
+      "empty": "Zatiaľ nie sú dostupné žiadne zručnosti.",
+      "loadingShort": "…"
+    },
+    "start": {
+      "title": "Štart",
+      "outputLabel": "Začať",
+      "description": "Vstupný bod — pred spustením postupu otestuje pripojenie k rozhraniu Claude API.",
+      "aria": "Štart: testuje pripojenie k rozhraniu Claude API",
+      "testAria": "Otestovať pripojenie k rozhraniu Claude API",
+      "testLabel": "Otestovať",
+      "fieldLabel": "Claude API",
+      "testFailed": "Test pripojenia zlyhal",
+      "status": {
+        "idle": "Zatiaľ neotestované",
+        "testing": "Testuje sa pripojenie…",
+        "success": "Pripojené",
+        "error": "Pripojenie zlyhalo"
+      }
+    },
+    "output": {
+      "aria": "Výstup: {{name}}",
+      "description": "Ukladá výstup od asistentov, ktorí sú do neho prepojení",
+      "processLabel": "Spracovať",
+      "formatLabel": "Formát",
+      "destinationLabel": "Cieľ",
+      "allAgents": "Všetci asistenti",
+      "noAgents": "Nie sú pripojení žiadni asistenti",
+      "connectedAgents_one": "{{count}} pripojený asistent",
+      "connectedAgents_few": "{{count}} pripojení asistenti",
+      "connectedAgents_other": "{{count}} pripojených asistentov",
+      "workspaceFolder": "Priečinok pracovného priestoru",
+      "openTitle": "Otvoriť {{name}}",
+      "openAria": "Otvoriť uložený výstup {{name}}",
+      "openSaved": "Otvoriť uložený výstup"
+    },
+    "stickyNote": {
+      "placeholder": "Napíšte poznámku...",
+      "empty": "Dvojitým kliknutím upravíte..."
+    },
+    "resource": {
+      "defaultLabel": "Zdroje",
+      "outputLabel": "Zdroje",
+      "aria": "Uzol zdrojov: {{fileCount}} súborov, {{linkCount}} odkazov, {{noteCount}} poznámok, {{variableCount}} premenných",
+      "description": "Zdieľané súbory, odkazy, poznámky a premenné.",
+      "files_one": "{{count}} súbor",
+      "files_few": "{{count}} súbory",
+      "files_other": "{{count}} súborov",
+      "links_one": "{{count}} odkaz",
+      "links_few": "{{count}} odkazy",
+      "links_other": "{{count}} odkazov",
+      "notes_one": "{{count}} poznámka",
+      "notes_few": "{{count}} poznámky",
+      "notes_other": "{{count}} poznámok",
+      "vars_one": "{{count}} premenná",
+      "vars_few": "{{count}} premenné",
+      "vars_other": "{{count}} premenných"
+    },
+    "condition": {
+      "aria": "Podmienka: {{name}}",
+      "description": "Smeruje výstup predchádzajúceho asistenta do prvej zodpovedajúcej vetvy",
+      "else": "Inak",
+      "elseSuffix": "{{label}} (predvolené)",
+      "branch": "Vetva"
+    },
+    "mcp": {
+      "aria": "MCP server: {{name}}",
+      "outputLabel": "Nástroje",
+      "subtitle": "MCP server",
+      "secured": "zabezpečené"
+    },
+    "policy": {
+      "aria": "Pravidlo: {{name}}, úroveň: {{level}}",
+      "outputLabel": "Pravidlo",
+      "description": "Bezpečnostné pravidlo na úrovni {{level}}.",
+      "level": {
+        "global": "Globálna",
+        "agent": "Asistent",
+        "session": "Relácia"
+      }
+    },
+    "email": {
+      "aria": "Email: {{name}}",
+      "description": "Odošle e-mailom výstup pripojených agentov",
+      "processLabel": "Odoslať z",
+      "recipientsLabel": "Príjemcovia",
+      "subjectLabel": "Predmet",
+      "allAgents": "Všetci agenti",
+      "noAgents": "Žiadni pripojení agenti",
+      "connectedAgents_one": "{{count}} pripojený agent",
+      "connectedAgents_few": "{{count}} pripojení agenti",
+      "connectedAgents_other": "{{count}} pripojených agentov",
+      "recipientCount_one": "{{count}} príjemca",
+      "recipientCount_few": "{{count}} príjemcovia",
+      "recipientCount_other": "{{count}} príjemcov",
+      "noRecipients": "Žiadni príjemcovia",
+      "noSubject": "Bez predmetu",
+      "sent": "Odoslané",
+      "sendFailed": "Odoslanie zlyhalo",
+      "sendingOff": "Odosielanie vypnuté"
+    },
+    "structurer": {
+      "aria": "Štruktúrovanie: {{name}}",
+      "description": "Prevádza výstup agenta na štruktúrované riadky",
+      "processLabel": "Zdroj",
+      "formatLabel": "Formát",
+      "outputLabel": "Dataset",
+      "allAgents": "Všetci agenti",
+      "noAgents": "Žiadni pripojení agenti",
+      "connectedAgents_one": "{{count}} pripojený agent",
+      "connectedAgents_other": "{{count}} pripojených agentov",
+      "modeParse": "Parsovať",
+      "modeAi": "AI",
+      "lastRunLabel": "Posledný beh",
+      "rowCount_one": "{{count}} riadok",
+      "rowCount_other": "{{count}} riadkov"
+    },
+    "dbSave": {
+      "aria": "Uložiť do DB: {{name}}",
+      "description": "Uloží štruktúrovaný dataset do databázy",
+      "labelLabel": "Štítok",
+      "lastRunLabel": "Posledný beh",
+      "savedRows_one": "{{count}} uložený riadok",
+      "savedRows_other": "{{count}} uložených riadkov"
+    },
+    "httpRequest": {
+      "aria": "HTTP požiadavka: {{name}}",
+      "description": "Volá externé HTTP API",
+      "outputLabel": "Odpoveď",
+      "requestLabel": "Požiadavka",
+      "noUrl": "Žiadna URL",
+      "lastRunLabel": "Posledný beh",
+      "status": "Stav {{status}}"
+    },
+    "duckduckgoSearch": {
+      "aria": "Vyhľadávanie DuckDuckGo: {{name}}",
+      "description": "Vyhľadáva na webe cez DuckDuckGo",
+      "outputLabel": "Výsledky",
+      "queryLabel": "Dotaz",
+      "noQuery": "Žiadny dotaz",
+      "optionsLabel": "Možnosti",
+      "options": "{{max}} výsledkov · {{region}}",
+      "lastRunLabel": "Posledný beh",
+      "results": "{{n}} výsledkov"
+    },
+    "sakanaAi": {
+      "aria": "Sakana AI: {{name}}",
+      "description": "Spustí dokončenie cez Sakana AI",
+      "outputLabel": "Dokončenie",
+      "modelLabel": "Model",
+      "promptLabel": "Prompt",
+      "noModel": "Model nie je nastavený",
+      "noPrompt": "Prompt nie je nastavený"
+    }
+  },
+  "edge": {
+    "delete": "Odstrániť pripojenie"
+  }
+}

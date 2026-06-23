@@ -1,0 +1,10 @@
+{
+  "id": "manage-hetzner-cloud-resources",
+  "name": "manage-hetzner-cloud-resources",
+  "description": "Hetzner Cloud CLI for managing servers, volumes, firewalls, networks, DNS, and snapshots.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

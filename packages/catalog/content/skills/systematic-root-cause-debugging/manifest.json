@@ -1,0 +1,10 @@
+{
+  "id": "systematic-root-cause-debugging",
+  "name": "systematic-root-cause-debugging",
+  "description": "**NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST.**",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "define-multi-container-compose-apps",
+  "name": "define-multi-container-compose-apps",
+  "description": "Define multi-container applications with proper dependency handling, networking, and volume management.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

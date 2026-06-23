@@ -1,0 +1,10 @@
+{
+  "id": "manage-scope-creep-with-stoicism",
+  "name": "manage-scope-creep-with-stoicism",
+  "description": "A practical guide for maintaining composure and effectiveness when project boundaries expand unexpectedly. Apply Stoic philosophy to one of the most common sources of workplace frustration.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

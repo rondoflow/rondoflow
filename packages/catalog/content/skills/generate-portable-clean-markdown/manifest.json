@@ -1,0 +1,10 @@
+{
+  "id": "generate-portable-clean-markdown",
+  "name": "generate-portable-clean-markdown",
+  "description": "Generate clean, portable Markdown that renders correctly across parsers.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

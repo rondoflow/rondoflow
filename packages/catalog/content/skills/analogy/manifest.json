@@ -1,0 +1,10 @@
+{
+  "id": "analogy",
+  "name": "analogy",
+  "description": "Entry point for the analogy toolkit. Routes to the right analogy skill based on your situation. Use when you say 'analogy', 'is this like that', 'find a comparison', 'import a solution from elsewhere', 'fresh eyes on this', 'where does this metaphor break', or want analogical reasoning applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

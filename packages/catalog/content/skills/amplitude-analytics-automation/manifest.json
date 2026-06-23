@@ -1,0 +1,10 @@
+{
+  "id": "amplitude-analytics-automation",
+  "name": "amplitude-analytics-automation",
+  "description": "Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identification. Always search tools first for current schemas.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

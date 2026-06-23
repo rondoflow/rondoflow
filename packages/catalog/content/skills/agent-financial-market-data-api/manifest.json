@@ -1,0 +1,10 @@
+{
+  "id": "agent-financial-market-data-api",
+  "name": "agent-financial-market-data-api",
+  "description": "Market data API for AI agents. Equities, fixed income, crypto, and macro. Bitcoin Lightning micropayments.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.4.0",
+  "icon": "coins",
+  "order": 1000
+}

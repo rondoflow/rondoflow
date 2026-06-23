@@ -1,0 +1,10 @@
+{
+  "id": "download-videos-audio-with-ytdlp",
+  "name": "download-videos-audio-with-ytdlp",
+  "description": "A robust CLI wrapper for yt-dlp to download videos, playlists, and audio from YouTube and thousands of other sites. Supports format selection, quality control, metadata embedding, and cookie authentication.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

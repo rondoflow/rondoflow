@@ -1,0 +1,10 @@
+{
+  "id": "instantly-email-outreach-automation",
+  "name": "instantly-email-outreach-automation",
+  "description": "Instantly API integration with managed OAuth. Cold email outreach platform for managing campaigns, leads, accounts, and analytics. Use this skill when users want to create campaigns, manage leads, send emails, or view analytics. For other third party apps, use the api-gateway sk…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

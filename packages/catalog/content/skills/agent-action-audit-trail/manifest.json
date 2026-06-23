@@ -1,0 +1,10 @@
+{
+  "id": "agent-action-audit-trail",
+  "name": "agent-action-audit-trail",
+  "description": "Append-only, hash-chained audit log for AI agents. Records agent actions, tool calls, decisions, and external writes with provenance, timestamps, and sha256 chain integrity. Designed for compliance with EU AI Act Article 12 automatic event recording requirements for high-risk AI…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "bot",
+  "order": 1000
+}

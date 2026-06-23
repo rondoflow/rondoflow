@@ -1,0 +1,10 @@
+{
+  "id": "crypto-news-onchain-market-intelligence",
+  "name": "crypto-news-onchain-market-intelligence",
+  "description": "BlockBeats Skill covers over 1,500 information sources, including AI-driven insights, Hyperliquid on-chain data, and Polymarket market analytics. It also features robust keyword-based search functionality.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

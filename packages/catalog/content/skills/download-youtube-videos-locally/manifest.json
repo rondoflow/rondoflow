@@ -1,0 +1,10 @@
+{
+  "id": "download-youtube-videos-locally",
+  "name": "download-youtube-videos-locally",
+  "description": "Downloads YouTube videos to ~/Downloads. Use when user wants to download a YouTube video to their machine.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "image",
+  "order": 1000
+}

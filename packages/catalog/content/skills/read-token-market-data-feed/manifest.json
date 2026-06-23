@@ -1,0 +1,10 @@
+{
+  "id": "read-token-market-data-feed",
+  "name": "read-token-market-data-feed",
+  "description": "Read-only access to the GM3 Alertworthy feed, providing real-time token market data for analysis agents.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

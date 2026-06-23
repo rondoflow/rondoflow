@@ -1,0 +1,10 @@
+{
+  "id": "track-business-income-expenses-csv",
+  "name": "track-business-income-expenses-csv",
+  "description": "Track business income and expenses in structured CSV format. Categorize transactions, monitor cash flow, generate P&L summaries, and spot spending trends.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

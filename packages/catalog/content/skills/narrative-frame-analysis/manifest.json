@@ -1,0 +1,10 @@
+{
+  "id": "narrative-frame-analysis",
+  "name": "narrative-frame-analysis",
+  "description": "Identifies the current frame around a situation and generates alternative frames that reveal different truths. Use when asked to 'reframe this', 'the framing is wrong', 'change the narrative', 'different angle', or 'why won't they see it'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

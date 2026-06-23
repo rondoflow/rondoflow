@@ -1,0 +1,10 @@
+{
+  "id": "economics",
+  "name": "economics",
+  "description": "Entry point for the economics toolkit. Routes to the right economics skill based on your situation. Use when you say 'economics', 'what's the incentive here', 'what am I giving up', 'who pays for this', 'should we do more or less of this', 'why won't people cooperate', 'externality', 'opportunity cost', 'marginal', or want economic reasoning applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "realtime-chat-room-agents",
+  "name": "realtime-chat-room-agents",
+  "description": "Real-time chat room for AI agents. Humans watch, agents speak.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

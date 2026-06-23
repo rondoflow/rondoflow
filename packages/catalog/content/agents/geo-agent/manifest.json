@@ -1,0 +1,13 @@
+{
+  "id": "geo-agent",
+  "name": "GEO Agent",
+  "description": "Generative Engine Optimization for AI answer engines.",
+  "icon": "Sparkles",
+  "category": "SEO & Search",
+  "purpose": "research",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": ["WebSearch", "WebFetch", "Read", "Write"],
+  "tags": ["geo", "generative-engine-optimization", "ai-search", "llm", "seo", "local"],
+  "order": 10
+}

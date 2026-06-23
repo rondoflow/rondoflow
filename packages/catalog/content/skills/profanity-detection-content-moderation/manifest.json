@@ -1,0 +1,10 @@
+{
+  "id": "profanity-detection-content-moderation",
+  "name": "profanity-detection-content-moderation",
+  "description": "Profanity detection and content moderation library with leetspeak, Unicode homoglyph, and ML-powered detection. Use when filtering user-generated content, moderating comments, checking text for profanity, censoring messages, or building content moderation into applications. Supp…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "writing-prose-elevation",
+  "name": "writing-prose-elevation",
+  "description": "Raises the quality of competent but flat prose by targeting abstraction, weak verbs, and sensory absence. Use when writing is error-free but doesn't sing — when it reads as competent but not compelling. Triggers: 'the writing is flat', 'prose elevation', 'competent but not compelling', 'lift this writing', 'the prose needs work but isn't broken', 'make this sing', 'the prose is fine but forgettable'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

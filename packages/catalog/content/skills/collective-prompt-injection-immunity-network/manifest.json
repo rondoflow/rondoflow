@@ -1,0 +1,10 @@
+{
+  "id": "collective-prompt-injection-immunity-network",
+  "name": "collective-prompt-injection-immunity-network",
+  "description": "Collective immunity network for AI agents. When one agent detects a prompt injection attack, all connected agents become immune. Real-time pattern detection, community voting, and distributed threat intelligence. Built on top of prompt-guard.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "communication-objection-mapping",
+  "name": "communication-objection-mapping",
+  "description": "Maps likely objections before delivering a proposal — objections that are anticipated feel addressed; objections that land as surprises derail. Triggers: 'anticipate objections', 'what will they push back on', 'steelman the opposition', 'prepare for resistance', 'objection mapping'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

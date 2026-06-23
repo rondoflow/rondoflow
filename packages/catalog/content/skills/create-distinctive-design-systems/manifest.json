@@ -1,0 +1,10 @@
+{
+  "id": "create-distinctive-design-systems",
+  "name": "create-distinctive-design-systems",
+  "description": "Complete workflow for creating distinctive design systems from scratch. Orchestrates aesthetic documentation, token architecture, components, and motion. Use when starting a new design system or refactoring an existing one. Triggers on create design system, design tokens, design…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

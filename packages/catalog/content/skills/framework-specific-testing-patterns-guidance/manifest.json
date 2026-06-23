@@ -1,0 +1,10 @@
+{
+  "id": "framework-specific-testing-patterns-guidance",
+  "name": "framework-specific-testing-patterns-guidance",
+  "description": "Unit, integration, and E2E testing patterns with framework-specific guidance. Use when asked to \"write tests\", \"add test coverage\", \"testing strategy\", \"test this function\", \"create test suite\", \"fix flaky tests\", or \"improve test quality\".",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1",
+  "icon": "pencil",
+  "order": 1000
+}

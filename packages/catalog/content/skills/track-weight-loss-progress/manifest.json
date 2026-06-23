@@ -1,0 +1,10 @@
+{
+  "id": "track-weight-loss-progress",
+  "name": "track-weight-loss-progress",
+  "description": "Track weight loss journey with weigh-ins, trend analysis, and goal milestones",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

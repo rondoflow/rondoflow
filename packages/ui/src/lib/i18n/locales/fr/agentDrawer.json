@@ -1,0 +1,286 @@
+{
+  "purpose": {
+    "general": "Général",
+    "writing": "Rédaction",
+    "coding": "Codage",
+    "analysis": "Analyse",
+    "chat": "Chat",
+    "review": "Revue",
+    "research": "Recherche",
+    "creative": "Créatif",
+    "data": "Données"
+  },
+  "tool": {
+    "read": "Lire des fichiers",
+    "write": "Écrire des fichiers",
+    "edit": "Modifier des fichiers",
+    "bash": "Exécuter des commandes (Bash)",
+    "glob": "Trouver des fichiers (Glob)",
+    "grep": "Rechercher dans le contenu (Grep)",
+    "ls": "Lister les répertoires (LS)",
+    "webFetch": "Récupérer des pages web (WebFetch)",
+    "webSearch": "Rechercher sur le web (WebSearch)",
+    "todoWrite": "Gérer une liste de tâches (TodoWrite)"
+  },
+  "permissionMode": {
+    "default": {
+      "label": "Par défaut",
+      "description": "Vérifications de permissions standard"
+    },
+    "edit": {
+      "label": "Accepter les modifications",
+      "description": "Accepter automatiquement les modifications de fichiers (pas de bash/git)"
+    },
+    "full": {
+      "label": "Accès complet",
+      "description": "Lire, écrire et exécuter git/bash sans confirmation"
+    }
+  },
+  "status": {
+    "idle": "Inactif",
+    "running": "En cours",
+    "waiting": "En attente",
+    "error": "Erreur"
+  },
+  "tab": {
+    "configure": "Configurer",
+    "capabilities": "Capacités",
+    "safety": "Sécurité",
+    "history": "Historique"
+  },
+  "field": {
+    "name": "Nom",
+    "description": "Description",
+    "purpose": "Objectif",
+    "model": "Modèle",
+    "tools": "Outils",
+    "customModelId": "ID de modèle personnalisé"
+  },
+  "placeholder": {
+    "name": "Nom de l'assistant",
+    "description": "Que fait cet assistant ?",
+    "persona": "Vous êtes un assistant utile qui...",
+    "customModel": "claude-opus-4-5",
+    "scopePath": "/path/to/directory"
+  },
+  "hint": {
+    "personaSystemPrompt": "Ceci devient le prompt système qui guide le comportement de l'assistant.",
+    "deepResearchModel": "Les exécutions de recherche approfondie utilisent automatiquement un modèle dédié à la recherche approfondie.",
+    "perplexitySearches": "Les modèles Perplexity Sonar recherchent automatiquement sur le web à chaque exécution.",
+    "customModel": "Facultatif. Saisissez un ID de modèle complet pour remplacer le niveau ci-dessus. Laissez vide pour utiliser le niveau sélectionné."
+  },
+  "toggle": {
+    "webSearch": {
+      "label": "Recherche web",
+      "description": "Permettre à l'assistant de rechercher sur le web pendant une exécution."
+    },
+    "deepResearch": {
+      "label": "Recherche approfondie",
+      "description": "Utilise un modèle dédié à la recherche approfondie. Plus lent et plus coûteux, et active automatiquement la recherche web."
+    }
+  },
+  "safety": {
+    "level": "Niveau de sécurité",
+    "levelAria": "Niveau de sécurité",
+    "cautious": {
+      "label": "Prudent",
+      "description": "Nécessite une approbation pour toutes les actions"
+    },
+    "balanced": {
+      "label": "Équilibré",
+      "description": "Nécessite une approbation uniquement pour les commandes destructrices"
+    },
+    "autonomous": {
+      "label": "Autonome",
+      "description": "S'exécute sans demande d'approbation"
+    },
+    "toolsApiNote": "Les assistants <0>{{provider}}</0> gèrent leurs outils (recherche web, recherche approfondie) dans l'onglet <1>Configurer</1>. Les permissions de fichiers et de commandes par outil ne s'appliquent pas aux assistants {{provider}}.",
+    "toolsAllNote": "Tous les outils sont activés (autonome). Choisissez <1>Équilibré</1> ci-dessus pour accorder des outils spécifiques à la place."
+  },
+  "action": {
+    "addPath": "Ajouter un chemin",
+    "removePath": "Supprimer {{path}}",
+    "addTool": "Ajouter un outil",
+    "removeTool": "Supprimer {{tool}}"
+  },
+  "advanced": {
+    "teams": {
+      "title": "Équipes d'agents",
+      "description": "Autoriser cet agent à se coordonner avec d'autres agents",
+      "enableAria": "Activer les équipes d'agents",
+      "disableAria": "Désactiver les équipes d'agents"
+    },
+    "permissionMode": "Mode de permission",
+    "permissionModeAria": "Mode de permission"
+  },
+  "conversations": {
+    "emptyTitle": "Aucune conversation pour l'instant",
+    "emptyDescription": "Commencez à discuter pour voir votre historique ici",
+    "listAria": "Conversations passées",
+    "sessionTitle": "Session {{id}}",
+    "messageCount_one": "{{count}} message",
+    "messageCount_other": "{{count}} messages",
+    "statusActive": "active",
+    "statusEnded": "terminée"
+  },
+  "drawer": {
+    "noAssistant": "Aucun assistant sélectionné",
+    "configureAria": "Configurer {{name}}",
+    "loadError": "Impossible de charger cet assistant.",
+    "validationNameRequired": "Le nom est obligatoire",
+    "validationPersonaRequired": "Le persona est obligatoire",
+    "saveFailed": "Échec de l'enregistrement — réessayez",
+    "unsavedChanges": "Modifications non enregistrées",
+    "allChangesSaved": "Toutes les modifications enregistrées",
+    "noChanges": "Aucune modification"
+  },
+  "create": {
+    "simple": {
+      "titleDescribe": "Créer un assistant",
+      "titlePreview": "Aperçu",
+      "titleConfirm": "Confirmer",
+      "descDescribe": "Décrivez en langage naturel ce que vous voulez que cet assistant fasse.",
+      "descPreview": "Vérifiez la configuration générée avant de créer.",
+      "descConfirm": "Votre assistant est prêt à être créé.",
+      "stepProgressAria": "Progression des étapes",
+      "describePlaceholder": "Par ex. Je veux un assistant qui relit mon code et suggère des améliorations, se concentre sur TypeScript et explique chaque modification qu'il apporte.",
+      "describeHint": "Soyez aussi descriptif que vous le souhaitez — ton, domaine de concentration, choses à éviter.",
+      "recommendedModel": "Modèle recommandé",
+      "recommendedBadge": "Recommandé",
+      "costPerMessage": "~{{cost}} $/msg",
+      "confirmSummary": "<0>{{name}}</0> sera créé avec l'objectif <1>{{purpose}}</1> en utilisant le modèle <2>{{model}}</2>.",
+      "confirmHint": "Vous pouvez ajuster tous les paramètres après la création depuis le panneau de l'assistant.",
+      "browseTemplates": "Parcourir les modèles",
+      "configureManually": "Configurer manuellement",
+      "generating": "Génération...",
+      "continue": "Continuer",
+      "looksGood": "Ça me convient",
+      "createAssistant": "Créer l'assistant"
+    },
+    "advanced": {
+      "titleCustomise": "Personnaliser le modèle",
+      "titleNew": "Nouvel assistant — Avancé",
+      "descCustomise": "Vérifiez et ajustez la configuration pré-remplie, puis créez.",
+      "descNew": "Configurez chaque détail manuellement.",
+      "namePlaceholder": "Mon assistant",
+      "descriptionPlaceholder": "Résumé court de ce que fait cet assistant",
+      "scopePathPlaceholder": "/path/to/directory",
+      "toolsPlaceholder": "read_files, run_commands, ...",
+      "browseTemplates": "Parcourir les modèles",
+      "simpleMode": "Mode simple",
+      "createAssistant": "Créer l'assistant"
+    }
+  },
+  "template": {
+    "useTemplateAria": "Utiliser le modèle : {{name}}",
+    "title": "Partir d'un modèle",
+    "description": "Choisissez un assistant préconfiguré pour démarrer rapidement. Vous pouvez tout ajuster avant de créer.",
+    "searchPlaceholder": "Rechercher des modèles (par ex. SEO, frontend, données)",
+    "searchAria": "Rechercher des modèles",
+    "noMatch": "Aucun modèle ne correspond à « {{query}} ».",
+    "describeWithAi": "Décrire avec l'IA",
+    "startFromScratch": "Partir de zéro",
+    "quickPickPlaceholder": "Aller à un modèle…",
+    "quickPickSearch": "Rechercher des modèles…",
+    "quickPickEmpty": "Aucun modèle trouvé"
+  },
+  "model": {
+    "selectionAria": "Sélection du modèle",
+    "recommended": "Recommandé",
+    "costPerMessage": "~{{cost}} $/msg",
+    "whyRecommended": "Pourquoi recommandé"
+  },
+  "chat": {
+    "running": "En cours",
+    "completed": "Terminé",
+    "toolAria": "Outil : {{tool}}. Cliquez pour {{action}} les détails.",
+    "toolExpand": "développer",
+    "toolCollapse": "réduire",
+    "toolInput": "Entrée",
+    "toolOutput": "Sortie",
+    "errorTitle": "Une erreur s'est produite",
+    "tokenTooltip": "Entrée : {{input}} tokens, Sortie : {{output}} tokens",
+    "tokenSummary": "{{tokens}} tokens · {{cost}} $",
+    "emptyTitle": "Démarrer une conversation",
+    "emptyDescription": "Envoyez un message ci-dessous pour commencer à discuter avec cet assistant.",
+    "messagesAria": "Messages de la conversation",
+    "workspaceFilesAria": "Fichiers de l'espace de travail",
+    "workspaceFilesTitle": "Fichiers de l'espace de travail",
+    "noFiles": "Aucun fichier dans l'espace de travail pour l'instant.",
+    "fileMention": "[fichier : {{name}}]",
+    "messagePlaceholder": "Écrivez à l'assistant… (Ctrl+Entrée pour envoyer)",
+    "messageInputAria": "Saisie de message",
+    "attachFileAria": "Joindre un fichier depuis l'espace de travail",
+    "attachFileTitle": "Joindre un fichier de l'espace de travail",
+    "stopAria": "Arrêter la génération",
+    "stopTitle": "Arrêter la génération",
+    "sendAria": "Envoyer le message",
+    "sendTitle": "Envoyer le message (Ctrl+Entrée)",
+    "purposeLabel": "Objectif : {{purpose}}",
+    "resourcesLabel": "Ressources :",
+    "resourcesNone": "aucune",
+    "resourcesMore": "{{names}} +{{remaining}} de plus",
+    "manageResources": "Gérer",
+    "manageResourcesAria": "Gérer les ressources de l'espace de travail",
+    "editAria": "Modifier les paramètres de l'assistant",
+    "clearAria": "Effacer la conversation"
+  },
+  "skills": {
+    "emptyTitle": "Aucune compétence ajoutée",
+    "emptyDescription": "Parcourez la place de marché pour ajouter des capacités.",
+    "browseMarketplace": "Parcourir la place de marché",
+    "listAria": "Compétences attachées à cet assistant",
+    "priorityAria": "Priorité {{priority}}",
+    "enableAria": "Activer {{name}}",
+    "disableAria": "Désactiver {{name}}",
+    "removeAria": "Supprimer {{name}}",
+    "addSkill": "Ajouter une compétence",
+    "addSkillAria": "Ouvrir la place de marché des compétences pour ajouter une compétence",
+    "quickAttachPlaceholder": "Attacher une compétence…",
+    "quickAttachSearch": "Rechercher des compétences…",
+    "quickAttachEmpty": "Aucune compétence trouvée",
+    "quickAttachOverflow": "Continuez à taper pour affiner les résultats…"
+  },
+  "folders": {
+    "emptyTitle": "Aucun dossier externe attaché",
+    "emptyDescription": "Attachez un répertoire hôte que cet assistant peut lire ou écrire.",
+    "attachFolder": "Attacher un dossier",
+    "listAria": "Dossiers externes attachés à cet assistant",
+    "priorityAria": "Priorité {{priority}}",
+    "readOnly": "LS",
+    "enableAria": "Activer {{name}}",
+    "disableAria": "Désactiver {{name}}",
+    "removeAria": "Supprimer {{name}}",
+    "attachFolderAria": "Ouvrir les dossiers externes pour attacher un dossier"
+  },
+  "mcp": {
+    "addRemoveAria": "{{action}} {{name}} {{managed}}",
+    "addAction": "Ajouter",
+    "removeAction": "Supprimer",
+    "managedBySkill": "(géré par une compétence)",
+    "emptyTitle": "Aucun serveur MCP enregistré",
+    "emptyDescription": "Ajoutez des connexions MCP pour étendre les capacités de cet agent.",
+    "manageConnections": "Gérer les connexions",
+    "assignedTitle": "Attribués ({{count}})",
+    "assignedAria": "Serveurs MCP attribués",
+    "availableTitle": "Disponibles ({{count}})",
+    "availableAria": "Serveurs MCP disponibles",
+    "skillManagedNote": "Les serveurs <0>gérés par une compétence</0> sont ajoutés automatiquement lorsqu'une compétence est activée. Désactivez la compétence pour les supprimer."
+  },
+  "memory": {
+    "title": "Mémoire de l'agent",
+    "rememberAcrossSessions": "Mémoriser entre les sessions",
+    "disabledNote": "La mémoire est désactivée — les entrées enregistrées ci-dessous ne sont pas injectées dans les exécutions de cet agent, et rien n'est capturé automatiquement, tant que vous ne l'activez pas.",
+    "pin": "Épingler",
+    "unpin": "Détacher",
+    "autoCaptured": "capturé automatiquement · lecture seule",
+    "keyPlaceholder": "Clé",
+    "valuePlaceholder": "Valeur",
+    "addMemoryAria": "Ajouter une mémoire",
+    "source": {
+      "manual": "manuel",
+      "auto": "auto",
+      "director": "directeur"
+    }
+  }
+}

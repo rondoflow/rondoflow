@@ -1,0 +1,10 @@
+{
+  "id": "scan-fix-code-vulnerabilities",
+  "name": "scan-fix-code-vulnerabilities",
+  "description": "Scan, fix, and remediate security vulnerabilities in a local code repository using Mobb MCP/CLI. Use when the user asks to scan for vulnerabilities, run a security check, auto-fix issues, remediate findings, or apply Mobb fixes (e.g., \\\"scan this repo\\\", \\\"fix security issues\\\",…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "bot",
+  "order": 1000
+}

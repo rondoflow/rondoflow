@@ -1,0 +1,10 @@
+{
+  "id": "gurkerl-grocery-shopping-mcp",
+  "name": "gurkerl-grocery-shopping-mcp",
+  "description": "Gurkerl.at grocery shopping via MCP - search products, manage cart, orders, recipes, favorites.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

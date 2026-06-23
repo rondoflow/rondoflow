@@ -1,0 +1,10 @@
+{
+  "id": "google-workspace-email-management",
+  "name": "google-workspace-email-management",
+  "description": "Google Workspace via ClawEmail.com service — Gmail, Drive, Docs, Sheets, Slides, Calendar, Forms. Use PROACTIVELY when the user asks to send email, create documents, manage files, schedule events, or work with any Google service.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "message-circle",
+  "order": 1000
+}

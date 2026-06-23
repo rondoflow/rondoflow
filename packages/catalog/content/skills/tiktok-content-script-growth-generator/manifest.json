@@ -1,0 +1,10 @@
+{
+  "id": "tiktok-content-script-growth-generator",
+  "name": "tiktok-content-script-growth-generator",
+  "description": "TikTok content strategy and video script generator for any niche. Hook formulas, viral script structures, trend-riding tactics, and a systematic approach to growing from 0 to a monetizable TikTok audience.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

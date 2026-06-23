@@ -1,0 +1,10 @@
+{
+  "id": "linguistics",
+  "name": "linguistics",
+  "description": "Entry point for the linguistics toolkit. Routes to the right linguistics skill based on your situation. Use when you say 'linguistics', 'how is this framed', 'what does this word really mean', 'what is implied here', 'what does this word carry', 'how has this term changed', or want language analysis applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

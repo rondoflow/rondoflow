@@ -1,0 +1,10 @@
+{
+  "id": "technical-documentation-patterns-maintenance",
+  "name": "technical-documentation-patterns-maintenance",
+  "description": "Technical documentation patterns, structure, maintenance, and avoiding common documentation failures.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

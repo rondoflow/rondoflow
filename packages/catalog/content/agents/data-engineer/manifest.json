@@ -1,0 +1,28 @@
+{
+  "id": "data-engineer",
+  "name": "Data Engineer",
+  "description": "Builds and optimizes ETL/ELT pipelines, data warehouses, and streaming systems.",
+  "icon": "Boxes",
+  "category": "Data & Analytics",
+  "purpose": "data",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "etl",
+    "data-pipeline",
+    "data-warehouse",
+    "spark",
+    "streaming"
+  ],
+  "order": 107
+}

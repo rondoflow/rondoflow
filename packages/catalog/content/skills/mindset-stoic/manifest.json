@@ -1,0 +1,10 @@
+{
+  "id": "mindset-stoic",
+  "name": "mindset-stoic",
+  "description": "Applies the full Stoic toolkit as a practical thinking methodology. Use when you're caught in worry about outcomes you can't control, struggling with circumstances outside your power, suffering from what others think of you, facing adversity or loss, or wanting to develop equanimity. Triggers: 'stoic', 'what's in my control', 'I keep worrying about outcomes', 'help me accept this', 'I can't stop thinking about what might go wrong', 'someone else controls the outcome', 'dealing with adversity'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

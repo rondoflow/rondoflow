@@ -1,0 +1,10 @@
+{
+  "id": "operate-deepbook-trading-cli",
+  "name": "operate-deepbook-trading-cli",
+  "description": "Operate the deepbook CLI for DeepBook reads (REST/SSE), global ~/.deepbook config/account management, on-chain spot trading, top-level swap execution, balance-manager ops, and margin trading.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "coins",
+  "order": 1000
+}

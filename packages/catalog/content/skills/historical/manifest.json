@@ -1,0 +1,10 @@
+{
+  "id": "historical",
+  "name": "historical",
+  "description": "Entry point for the historical reasoning toolkit. Routes to the right historical skill based on your situation. Use when you say 'historical', 'has this happened before', 'what does history say', 'what cycle is this', 'what usually goes wrong', 'what's the lesson', or want historical reasoning applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "writing-line-editing",
+  "name": "writing-line-editing",
+  "description": "Applies five-category line-editing passes to identify and repair redundancy, nominalisations, passive voice, rhythmic monotony, and throat-clearing. Use when prose is clunky, wordy, or mechanically flawed. Triggers: 'the sentences are clunky', 'line editing', 'the prose is wordy', 'tighten this up', 'sentence-level editing', 'too many passive constructions', 'the writing is verbose'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

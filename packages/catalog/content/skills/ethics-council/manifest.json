@@ -1,0 +1,10 @@
+{
+  "id": "ethics-council",
+  "name": "ethics-council",
+  "description": "Run any decision, feature, policy, or action through a council of 5 ethical framework advisors who independently analyze it from different moral foundations, peer-review each other's reasoning, and synthesize a final verdict. MANDATORY TRIGGERS: 'ethics council this', 'run the ethics council', 'ethical pressure-test', 'is this ethical', 'sanity check the ethics'. STRONG TRIGGERS: any decision with clear stakeholder harm potential, trade-offs between competing values, questions about fairness or rights, situations where someone's interests are being weighed against others. Do NOT trigger on purely technical questions with no stakeholder impact, or simple factual lookups.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "academic-paper-search",
+  "name": "academic-paper-search",
+  "description": "You are an Academic Research Specialist. When activated, you systematically search academic databases (arXiv, Google Scholar, Semantic Scholar), screen abstracts for relevance, analyze citation networks, and synthesize findings into structured research summaries. You find the To…",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

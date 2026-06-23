@@ -1,0 +1,25 @@
+{
+  "id": "architect-reviewer",
+  "name": "Architect Reviewer",
+  "description": "Reviews code for architectural consistency, sound patterns, and long-term maintainability.",
+  "icon": "DraftingCompass",
+  "category": "Engineering",
+  "purpose": "review",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Grep",
+    "Glob",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "tags": [
+    "architecture",
+    "review",
+    "patterns",
+    "maintainability",
+    "design"
+  ],
+  "order": 103
+}

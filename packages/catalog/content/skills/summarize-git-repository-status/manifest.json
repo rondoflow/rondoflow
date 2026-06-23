@@ -1,0 +1,10 @@
+{
+  "id": "summarize-git-repository-status",
+  "name": "summarize-git-repository-status",
+  "description": "Get a quick summary of the current Git repository including status, recent commits, branches, and contributors.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

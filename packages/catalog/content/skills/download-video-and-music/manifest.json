@@ -1,0 +1,10 @@
+{
+  "id": "download-video-and-music",
+  "name": "download-video-and-music",
+  "description": "Download Video/Music from YouTube/Bilibili/X/etc.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.2.3",
+  "icon": "image",
+  "order": 1000
+}

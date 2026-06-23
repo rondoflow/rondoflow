@@ -1,0 +1,10 @@
+{
+  "id": "latex-academic-writing-assistant",
+  "name": "latex-academic-writing-assistant",
+  "description": "Professional LaTeX writing assistant. Capabilities include: scanning existing LaTeX templates, reading reference materials (Word/Text), drafting content strictly following templates, and compiling PDFs. Triggers include: 'write thesis', 'draft section', 'compile pdf', 'check lat…",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "pencil",
+  "order": 1000
+}

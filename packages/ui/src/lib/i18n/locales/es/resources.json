@@ -1,0 +1,293 @@
+{
+  "browser": {
+    "title": "Recursos del espacio de trabajo",
+    "refresh": "Actualizar recursos",
+    "close": "Cerrar panel de recursos",
+    "tabAriaLabel": "Pestaña {{tab}}",
+    "tablistLabel": "Pestañas de recursos",
+    "loadingAria": "Cargando recursos",
+    "tab": {
+      "files": "Archivos",
+      "links": "Enlaces",
+      "notes": "Notas",
+      "variables": "Variables"
+    },
+    "summaryFormat": "{{files}} · {{links}} · {{notes}} · {{variables}}",
+    "summary": {
+      "files_one": "{{count}} archivo",
+      "files_other": "{{count}} archivos",
+      "links_one": "{{count}} enlace",
+      "links_other": "{{count}} enlaces",
+      "notes_one": "{{count}} nota",
+      "notes_other": "{{count}} notas",
+      "variables_one": "{{count}} variable",
+      "variables_other": "{{count}} variables"
+    }
+  },
+  "files": {
+    "dropzone": "Suelte archivos aquí o haga clic para examinar",
+    "uploading": "Subiendo {{name}}…",
+    "empty": "Aún no se han subido archivos.",
+    "listLabel": "Archivos subidos",
+    "renameAria": "Renombrar archivo",
+    "size.unknown": "—",
+    "preview": "Vista previa",
+    "previewAria": "Vista previa de {{name}}",
+    "download": "Descargar",
+    "downloadAria": "Descargar {{name}}",
+    "rename": "Renombrar",
+    "renameItemAria": "Renombrar {{name}}",
+    "deleteItemAria": "Eliminar {{name}}"
+  },
+  "links": {
+    "add": "Añadir enlace",
+    "empty": "Aún no se han añadido enlaces.",
+    "listLabel": "Enlaces del espacio de trabajo",
+    "placeholder": {
+      "url": "URL *",
+      "title": "Título",
+      "description": "Descripción (opcional)"
+    },
+    "aria": {
+      "url": "URL del enlace",
+      "title": "Título del enlace",
+      "description": "Descripción del enlace"
+    },
+    "open": "Abrir enlace",
+    "openAria": "Abrir {{name}}",
+    "deleteItemAria": "Eliminar {{name}}"
+  },
+  "notes": {
+    "add": "Añadir nota",
+    "empty": "Aún no se han añadido notas.",
+    "listLabel": "Notas del espacio de trabajo",
+    "placeholder": {
+      "title": "Título de la nota *",
+      "content": "Escriba aquí su nota…"
+    },
+    "aria": {
+      "title": "Título de la nota",
+      "content": "Contenido de la nota",
+      "expand": "Expandir nota: {{name}}",
+      "collapse": "Contraer nota: {{name}}",
+      "edit": "Editar nota {{name}}",
+      "delete": "Eliminar nota {{name}}"
+    },
+    "autoSave": "Se guarda automáticamente al salir · {{date}}"
+  },
+  "variables": {
+    "add": "Añadir variable",
+    "empty": "Aún no se han añadido variables.",
+    "listLabel": "Variables del espacio de trabajo",
+    "placeholder": {
+      "key": "Clave *",
+      "value": "Valor"
+    },
+    "aria": {
+      "key": "Clave de la variable",
+      "value": "Valor de la variable",
+      "secret": "Variable secreta",
+      "editValue": "Editar el valor de {{name}}"
+    },
+    "secretLabel": "Secreto (ocultar valor)",
+    "showValue": "Mostrar valor",
+    "hideValue": "Ocultar valor",
+    "show": "Mostrar",
+    "hide": "Ocultar",
+    "editItemAria": "Editar {{name}}",
+    "deleteItemAria": "Eliminar {{name}}"
+  },
+  "externalFolders": {
+    "title": "Carpetas externas",
+    "ariaLabel": "Carpetas externas",
+    "refresh": "Actualizar",
+    "description": "Registre directorios del host montados en el contenedor y asócielos a los asistentes",
+    "attachNotice": "Registrar o asociar una carpeta la añadirá al asistente seleccionado.",
+    "empty": {
+      "title": "No hay carpetas externas montadas",
+      "intro": "El servidor se ejecuta en Docker, por lo que las carpetas del host deben montarse en el contenedor mediante bind-mount. Monte un directorio y aparecerá aquí automáticamente.",
+      "step1Prefix": "Establezca",
+      "step1Mid": "en",
+      "step1Suffix": "(o añada un bind-mount en",
+      "step1End": "en",
+      "step1Tail": ").",
+      "step2": "Reinicie el contenedor del servidor.",
+      "step3": "Haga clic en actualizar — las carpetas montadas aparecen abajo.",
+      "rootMissing": "La raíz de montaje aún no está presente en el contenedor."
+    },
+    "readOnlyBadge": "Solo lectura",
+    "added": "Añadido",
+    "attach": "Asociar",
+    "deleteAria": "Eliminar {{name}}",
+    "delete": "Eliminar",
+    "pickPlaceholder": "Elija una carpeta montada…",
+    "placeholder": {
+      "containerPath": "/external/my-project",
+      "name": "Nombre visible",
+      "description": "Descripción (opcional)"
+    },
+    "aria": {
+      "containerPath": "Ruta del contenedor",
+      "name": "Nombre",
+      "description": "Descripción"
+    },
+    "readOnlyLabelPrefix": "Solo lectura (montado con",
+    "readOnlyLabelSuffix": ")",
+    "register": "Registrar",
+    "registerFolder": "Registrar una carpeta",
+    "error": {
+      "required": "El nombre y la ruta del contenedor son obligatorios",
+      "registerFailed": "No se pudo registrar la carpeta"
+    }
+  },
+  "marketplace": {
+    "title": "Habilidades",
+    "ariaLabel": "Habilidades",
+    "description": "Explore y gestione habilidades para sus asistentes",
+    "attachNotice": "Añadir una habilidad la asociará al asistente seleccionado.",
+    "tab": {
+      "browse": "Explorar",
+      "installed": "Instaladas",
+      "installedCount": "Instaladas ({{count}})",
+      "create": "Crear",
+      "import": "Importar"
+    },
+    "category": {
+      "all": "Todas",
+      "development": "Desarrollo",
+      "writing": "Redacción",
+      "analysis": "Análisis",
+      "research": "Investigación"
+    },
+    "browse": {
+      "searchPlaceholder": "Buscar habilidades...",
+      "searchAria": "Buscar habilidades",
+      "filterLabel": "Filtrar por categoría",
+      "loading": "Cargando habilidades…",
+      "emptyCatalog": "No hay habilidades disponibles en el catálogo",
+      "emptyMatch": "Ninguna habilidad coincide con «{{query}}»",
+      "listLabel": "Habilidades disponibles",
+      "chipAria": "{{category}} ({{count}} habilidades)"
+    },
+    "card": {
+      "version": "v{{version}}",
+      "viewDetailsAria": "Ver detalles de {{name}}",
+      "actionAria": "{{action}} {{name}}",
+      "adding": "Añadiendo",
+      "installing": "Instalando",
+      "added": "Añadido",
+      "installed": "Instalado",
+      "add": "Añadir",
+      "install": "Instalar",
+      "installFailed": "Error al instalar"
+    },
+    "installed": {
+      "empty": "Aún no hay habilidades instaladas",
+      "emptyHint": "¡Explore el mercado para añadir capacidades!",
+      "listLabel": "Habilidades instaladas",
+      "uninstallAria": "Desinstalar {{name}}"
+    },
+    "create": {
+      "intro": "Escriba su propia habilidad. El nombre y las instrucciones se convierten en un SKILL.md local que puede asociar a los asistentes.",
+      "nameLabel": "Nombre",
+      "namePlaceholder": "my-custom-skill",
+      "nameAria": "Nombre de la habilidad",
+      "nameInvalid": "Solo se permiten letras, dígitos, guiones y guiones bajos.",
+      "descriptionLabel": "Descripción",
+      "descriptionPlaceholder": "Con qué ayuda esta habilidad al asistente",
+      "descriptionAria": "Descripción de la habilidad",
+      "categoryLabel": "Categoría",
+      "categoryOptional": "(opcional)",
+      "categoryPlaceholder": "Desarrollo, Redacción, Análisis…",
+      "categoryAria": "Categoría de la habilidad",
+      "instructionsLabel": "Instrucciones",
+      "instructionsPlaceholder": "Eres un experto en…\n\n## Directrices\n- …",
+      "instructionsAria": "Instrucciones de la habilidad",
+      "creating": "Creando",
+      "submit": "Crear habilidad",
+      "success": "«{{name}}» creada e instalada.",
+      "failed": "No se pudo crear la habilidad"
+    },
+    "edit": {
+      "title": "Editar {{name}}",
+      "intro": "Actualiza los detalles y las instrucciones de esta habilidad. Al guardar se reescribe su SKILL.md local.",
+      "nameReadonly": "El nombre no se puede cambiar después de crear una habilidad.",
+      "submit": "Guardar cambios",
+      "saving": "Guardando",
+      "success": "«{{name}}» actualizada.",
+      "failed": "No se pudo actualizar la habilidad",
+      "backAria": "Volver a los detalles de la habilidad"
+    },
+    "import": {
+      "label": "URL del repositorio Git",
+      "intro": "Importe una habilidad personalizada desde un repositorio Git.",
+      "placeholder": "https://github.com/user/skill-repo",
+      "aria": "URL del repositorio Git",
+      "importing": "Importando",
+      "submit": "Importar",
+      "success": "«{{name}}» importada correctamente.",
+      "failed": "Error al importar",
+      "requirements": "Requisitos",
+      "req1Prefix": "El repositorio debe contener un archivo",
+      "req1Suffix": "en la raíz",
+      "req2": "El repositorio debe ser de acceso público o tener las credenciales configuradas",
+      "req3Prefix": "Un",
+      "req3Mid": "o",
+      "req3Suffix": "define las herramientas disponibles"
+    }
+  },
+  "detail": {
+    "back": "Atrás",
+    "backAria": "Volver al mercado",
+    "version": "v{{version}}",
+    "installedOn_one": "Instalada en {{count}} asistente",
+    "installedOn_other": "Instalada en {{count}} asistentes",
+    "descriptionHeading": "Descripción",
+    "whatItDoesHeading": "Qué hace esta habilidad",
+    "whatItDoesBody": "Esta habilidad amplía su asistente con capacidades adicionales. Una vez instalada, su asistente puede usar las herramientas y flujos de trabajo proporcionados por esta habilidad para completar las tareas pertinentes.",
+    "sourcePrefix": "Origen: {{url}}",
+    "sourceHeading": "Origen",
+    "addToAssistant": "Añadir al asistente",
+    "addedToAssistant": "Añadida al asistente",
+    "adding": "Añadiendo...",
+    "uninstall": "Desinstalar habilidad",
+    "uninstalling": "Desinstalando...",
+    "install": "Instalar habilidad",
+    "installing": "Instalando...",
+    "installFailed": "No se pudo instalar la habilidad",
+    "uninstallFailed": "No se pudo desinstalar la habilidad",
+    "edit": "Editar",
+    "editAria": "Editar {{name}}",
+    "editFailed": "No se pudo abrir el editor"
+  },
+  "memory": {
+    "selectWorkspace": "Seleccione primero un espacio de trabajo",
+    "empty": "Aún no hay memoria",
+    "emptyHint": "Los datos del espacio de trabajo y los aprendizajes capturados automáticamente aparecen aquí y se comparten con todos los agentes.",
+    "source": {
+      "manual": "manual",
+      "auto": "auto",
+      "director": "director"
+    },
+    "placeholder": {
+      "key": "Clave",
+      "value": "Valor"
+    },
+    "addAria": "Añadir memoria",
+    "unpin": "Desfijar",
+    "pin": "Fijar",
+    "readOnly": "capturado automáticamente · solo lectura"
+  },
+  "errors": {
+    "loadResources": "No se pudieron cargar los recursos",
+    "uploadFailed": "Error al subir",
+    "createResource": "No se pudo crear el recurso",
+    "updateResource": "No se pudo actualizar el recurso",
+    "deleteResource": "No se pudo eliminar el recurso",
+    "loadFolders": "No se pudieron cargar las carpetas externas",
+    "scanFolders": "No se pudieron escanear las carpetas montadas",
+    "registerFolder": "No se pudo registrar la carpeta",
+    "updateFolder": "No se pudo actualizar la carpeta",
+    "deleteFolder": "No se pudo eliminar la carpeta"
+  }
+}

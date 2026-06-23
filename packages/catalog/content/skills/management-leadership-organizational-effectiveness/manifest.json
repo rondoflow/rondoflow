@@ -1,0 +1,10 @@
+{
+  "id": "management-leadership-organizational-effectiveness",
+  "name": "management-leadership-organizational-effectiveness",
+  "description": "Management principles, team leadership, and organizational effectiveness.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

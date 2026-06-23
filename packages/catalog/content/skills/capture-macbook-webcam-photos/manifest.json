@@ -1,0 +1,10 @@
+{
+  "id": "capture-macbook-webcam-photos",
+  "name": "capture-macbook-webcam-photos",
+  "description": "Capture photos from MacBook webcams. Use when user asks to take a photo, picture, snapshot, or see them. Two cameras available - Brio (front-facing on monitor) and FaceTime (side angle from MacBook).",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

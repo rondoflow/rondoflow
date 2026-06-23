@@ -1,0 +1,10 @@
+{
+  "id": "access-dashlane-vault-secrets",
+  "name": "access-dashlane-vault-secrets",
+  "description": "Access passwords, secure notes, secrets and OTP codes from Dashlane vault.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

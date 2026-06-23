@@ -1,0 +1,10 @@
+{
+  "id": "probability-base-rate-anchoring",
+  "name": "probability-base-rate-anchoring",
+  "description": "Anchors estimates in historical base rates before adjusting for specific factors. Use when asked 'what's the base rate', 'am I being too optimistic', 'outside view', 'reference class', 'how often does this actually happen', or 'historical frequency'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

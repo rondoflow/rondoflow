@@ -1,0 +1,10 @@
+{
+  "id": "book-haircut-services",
+  "name": "book-haircut-services",
+  "description": "Book haircut services through Lokuli MCP. Use when user needs to find and book haircut. Triggers on requests like \"book a haircut\", \"find haircut near me\", or any haircut service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

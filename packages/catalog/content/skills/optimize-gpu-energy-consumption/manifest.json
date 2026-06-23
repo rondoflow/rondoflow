@@ -1,0 +1,10 @@
+{
+  "id": "optimize-gpu-energy-consumption",
+  "name": "optimize-gpu-energy-consumption",
+  "description": "EcoLobster energy advisor: save 30-701% wasted GPU energy. RTX 5090 five-precision benchmarks (FP16/FP8/NF4/INT8-mixed/INT8-pure), 113+ measurements, dollar-cost and CO2 estimation, automatic energy trap detection.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.5.0",
+  "icon": "bot",
+  "order": 1000
+}

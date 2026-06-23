@@ -1,0 +1,10 @@
+{
+  "id": "book-lawyer-services",
+  "name": "book-lawyer-services",
+  "description": "Book lawyer services through Lokuli MCP. Use when user needs to find and book lawyer. Triggers on requests like \"book a lawyer\", \"find lawyer near me\", or any lawyer service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

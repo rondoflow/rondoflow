@@ -1,0 +1,286 @@
+---
+title: Discussions
+description: Run multi-assistant discussions where a Facilitator steers round-robin turns and synthesizes a final conclusion.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Discussions
+
+A **Discussion** brings several Assistants (internally "agents") together around a single topic. A dedicated **Facilitator** (the moderator Assistant) opens the conversation, picks who speaks next, evaluates progress after each turn, and finally writes a synthesis that wraps everything up.
+
+Unlike a [Workflow](/docs/guides/workflows) — a fixed graph of steps — a Discussion is steered live by the Facilitator. It decides how the conversation unfolds and when it is done.
+
+Each turn is a fresh, headless Claude Code process. There are no long-lived sessions: the running transcript is fed back in as context on every turn, and state is checkpointed to the database each round so a discussion can survive a server restart.
+
+<Callout type="info">
+RondoFlow shows friendly names in the UI. This page leads with those — Assistant (agent), Facilitator (moderator), Conversation (session) — and notes the internal term where it helps.
+</Callout>
+
+## When to use a Discussion
+
+- **Brainstorm** several angles on an open-ended problem before committing.
+- **Review** a plan, design, or piece of writing from multiple perspectives.
+- **Deliberate** toward a well-reasoned position when there are trade-offs.
+
+If you instead need a deterministic, repeatable pipeline, reach for a [Workflow](/docs/guides/workflows) or [Orchestration](/docs/guides/orchestration).
+
+## Formats
+
+You choose a **format** when you create a Discussion. The format is woven into every prompt the Facilitator and participants receive, shaping tone and goal.
+
+| Format | Intent | Style |
+| --- | --- | --- |
+| `brainstorm` | Open ideation | Encourage creative, divergent thinking and novel ideas |
+| `review` | Structured critique | Provide balanced evaluation, identify strengths and weaknesses |
+| `deliberation` | Evidence-based reasoning | Weigh arguments systematically and converge on a well-reasoned position |
+
+## Roles
+
+Every participant Assistant is assigned a **role** that tells it how to engage. Roles also color the turn cards in the live timeline.
+
+| Role | Speaks? | Instruction |
+| --- | --- | --- |
+| `participant` | Yes | Contribute your perspective clearly and build on what others have said. |
+| `observer` | No | Share observations without advocacy; stay analytical and neutral. |
+| `devil_advocate` | Yes | Challenge prevailing views, surface hidden assumptions, and stress-test arguments. |
+
+<Callout type="info">
+Observers are excluded from speaking turns — the Facilitator's round-robin fallback skips them. Use observers as a neutral lens, or simply add an extra participant or a devil's advocate when you want sharper debate.
+</Callout>
+
+## Facilitator presets
+
+A Facilitator is just an Assistant flagged `isFacilitator = true` whose **persona** (Personality) is injected verbatim as the moderator's system prompt. That persona is what shapes how turns get chosen and how the final synthesis reads, so picking the right one matters more than it looks.
+
+RondoFlow seeds **eight built-in Facilitator presets** as global Assistants, available to every workspace out of the box. Each one is a distinct moderation philosophy, tuned for particular formats, with a recommended model tier. They show up flagged "Built-in" and cannot be deleted.
+
+| Facilitator | Philosophy | Best for | Model |
+| --- | --- | --- | --- |
+| **The Socratic** | Question-only — exposes assumptions and demands evidence, deepening one thread until the reasoning is fully drawn out | `deliberation`, `review` | `sonnet` |
+| **The Contrarian** | Adversarial stress-tester — hunts premature consensus and surfaces the objections a conclusion must survive | `deliberation`, `review` | `opus` |
+| **The Bridge-Builder** | Convergence-seeking — finds hidden common ground and integrates every voice into one defensible position | `deliberation`, `review` | `sonnet` |
+| **The Spark** | High-energy ideation catalyst — defers judgment, cross-pollinates ideas, and clusters the best directions | `brainstorm` | `sonnet` |
+| **The Examiner** | Disciplined review — delivers evidence-backed, severity-ranked verdicts with actionable recommendations | `review` | `opus` |
+| **The Impartial Chair** | Scrupulously neutral, light-touch — allocates turns fairly and summarizes every view without taking sides | `brainstorm`, `review`, `deliberation` | `sonnet` |
+| **The Closer** | Time-boxed deliberation — drives fast to a defensible, action-ready decision | `deliberation` | `haiku` |
+| **The Equalizer** | Inclusion-first — protects psychological safety, balances airtime, and credits every voice by name | `brainstorm`, `deliberation` | `sonnet` |
+
+<Callout type="info">
+The recommended formats and model tier are guidance baked into each preset, not hard restrictions — any Facilitator can run any format. The model is just the preset's default; you can change it when you create a custom Facilitator from a preset.
+</Callout>
+
+You are not limited to the presets. You can **create your own Facilitator** (see [Creating a Facilitator](#creating-a-facilitator)), optionally starting from one of the eight preset styles as a one-click template.
+
+## How a Discussion runs
+
+The Facilitator-driven engine is a state machine. Each box below is a state; the Facilitator's decision after every turn determines whether the loop continues or moves to synthesis.
+
+```text
+setup
+  → facilitator opening        (pick first speaker + opening question)
+  → participant turn           (the chosen Assistant responds)
+  → facilitator evaluation     (continue, or synthesize?)
+       ├─ continue  → participant turn   (next speaker + new question)
+       └─ synthesize / max rounds reached → synthesis
+  → synthesis                  (Facilitator writes the conclusion)
+  → concluded
+```
+
+<Steps>
+### Setup
+
+You create the Discussion with a topic, a format, a Facilitator, participants (each with a role), and a **max rounds** cap. Starting it creates a Conversation (session) record to attach every message to and marks the Discussion `active`.
+
+### Facilitator opening
+
+The Facilitator is asked to choose the first participant and craft a focused opening question for them. It replies with a small structured JSON decision. If that output can't be parsed, the engine falls back to round-robin and a generic opening prompt — the discussion never stalls on a malformed response.
+
+### Participant turns (round-robin)
+
+The chosen Assistant runs as a fresh process and responds in plain text. Its answer is appended to the running transcript, persisted, and pushed to the live timeline. The round counter advances by one.
+
+### Facilitator evaluation
+
+After each turn the Facilitator sees the full transcript and decides:
+
+- **continue** — name the next participant and the question to ask them, or
+- **synthesize** — the discussion has covered enough ground.
+
+The evaluation prompt tells the Facilitator how many rounds remain; on the final round it is instructed that it **must** synthesize.
+
+### Synthesis
+
+When the Facilitator chooses to synthesize (or **max rounds** is reached), it writes a plain-prose conclusion that summarizes key perspectives, notes agreement and disagreement, and draws conclusions or recommendations.
+
+### Concluded
+
+The conclusion is saved to the Discussion, the Conversation is closed, and the status becomes `concluded`. You can read, copy, download, or export the result.
+</Steps>
+
+### How the Facilitator's decision is parsed
+
+The Facilitator is prompted to answer each opening and evaluation turn with a small JSON object (`decision`, `nextParticipantId`, `question`, optional `synthesis`, `reasoning`). That parsing is **best-effort**, not schema-enforced: the turn runs as an ordinary text completion (the CLI is not asked to validate against a JSON schema), and the engine extracts the decision heuristically — it strips any Markdown code fences, takes the text from the first `{` to the last `}`, and `JSON.parse`s that slice.
+
+If parsing fails or the object is missing required fields, the engine degrades gracefully rather than erroring:
+
+- A failed **opening** falls back to the first active participant and a generic opening question.
+- A failed **evaluation** continues round-robin while rounds remain, and synthesizes once they don't.
+
+### Max rounds and turn limits
+
+- **Max rounds** is configurable per Discussion (default `5`, minimum `1`). It is a hard ceiling: once the round count reaches it, the engine synthesizes regardless of what the Facilitator wants.
+- Each **participant turn** has a timeout of about 2 minutes; each **Facilitator turn** (opening, evaluation, synthesis) about 90 seconds.
+- If a participant times out or errors, the engine records a "timed out — no response" turn and keeps going rather than failing the whole Discussion.
+
+<Callout type="info">
+The creation wizard offers two ways to set rounds. **Auto** omits a fixed cap, so the server applies its default of `5` and leans on the Facilitator to synthesize early when the conversation is done. **Fixed** lets you pin an exact number (1–20 in the wizard). Either way the cap is a ceiling — there is no truly unbounded mode, and the engine will never run more rounds than the resolved max.
+</Callout>
+
+<Callout type="warning">
+Discussion turns run headlessly with no human in the loop, so they start the Claude Code CLI in `bypassPermissions` mode — there is nobody to answer a tool-permission prompt. Spend stays bounded by each Assistant's budget cap and [Safety Rules](/docs/guides/safety-rules). Review your [Safety Rules](/docs/guides/safety-rules) before letting tool-using Assistants debate.
+</Callout>
+
+## Pause, resume, and crash recovery
+
+- **Pause** takes effect cleanly between turns. The engine stores the upcoming participant and question, so **Resume** continues from exactly that next turn rather than restarting from the opening.
+- **State is checkpointed to the database after every round.** If the server restarts mid-discussion, the recorded progress (round count and accumulated transcript) is not lost. The checkpoint is written into the discussion's `conclusion` column as a `[checkpoint:round=N/max]` marker; the UI recognizes that marker and never displays it — only the real synthesis, written at the end, surfaces as the conclusion.
+- **Conclude** can be forced at any time: the Facilitator synthesizes from whatever transcript has accumulated so far.
+
+<Callout type="important">
+Pause, resume, and stop act on the live engine instance owned by the server that started the Discussion. If a Discussion was started elsewhere (or the server has since restarted), the in-memory controls report that it is not currently running — start it again to drive it.
+</Callout>
+
+## Creating a Discussion in the UI
+
+Open **Discussions** from the top bar, then create one with the three-step wizard.
+
+<Steps>
+### Topic and format
+
+Write the topic and pick a format (`brainstorm`, `review`, or `deliberation`). The format you choose here is woven into every prompt for the rest of the Discussion.
+
+### Pick a Facilitator and participants
+
+Choose the moderator Assistant that will steer the conversation. Built-in [Facilitator presets](#facilitator-presets) appear in their own group in the dropdown (alongside any custom Facilitators), and the rest of your Assistants are listed below them. You can also create a Facilitator inline here — see [Creating a Facilitator](#creating-a-facilitator).
+
+Then add the Assistants that will take part and set each one's role — `participant`, `observer`, or `devil_advocate`. You need at least one participant, and the chosen Facilitator can't also be a participant.
+
+### Rounds and review
+
+Choose the **round mode** — **Auto** (let the Facilitator synthesize when ready, capped at the server default of 5) or **Fixed** (pin an exact number, 1–20). The wizard shows a rough cost and time estimate based on your participant count and rounds, then press **Start**.
+</Steps>
+
+You can swap the Facilitator while the Discussion is still a **draft** (via the `PATCH /api/discussions/:id/moderator` route below).
+
+### Creating a Facilitator
+
+A Facilitator is created as an Assistant with `isFacilitator = true` (`POST /api/agents`). There are two ways to make one:
+
+- **Inline in the wizard** — the "New" button next to the Facilitator dropdown creates one from a name and description, with a generic facilitation persona.
+- **From the Facilitators panel** — open it to manage all Facilitators. Its create form lets you start from any of the eight [presets](#facilitator-presets) as a one-click style (which fills in the name, description, model, and full persona), or write your own persona from scratch. Built-in presets are badged and cannot be deleted; your own custom Facilitators can be removed there.
+
+<Callout type="info">
+Whatever persona you give a Facilitator becomes its moderator system prompt verbatim. If you write your own, describe *how it should run the room* — who it favors when picking the next speaker, when it decides the discussion is done, and the tone and shape of the final synthesis.
+</Callout>
+
+### Watching it live
+
+The Discussion panel streams the conversation as it happens:
+
+- A **round indicator** ("Round 2 of 5") and a status badge (Draft / Active / Concluded).
+- **Participant cards** with the Assistant's name and a colored role badge; long responses collapse with a "Show more" toggle.
+- **Facilitator cards** (gavel icon) showing each decision and its reasoning.
+- A highlighted **Conclusion card** once the Discussion concludes.
+
+Controls along the top let you **Start**, **Pause**, **Resume**, **Stop**, and **Export** (download the conclusion as Markdown). The live updates arrive over Socket.IO via `discussion:turn`, `discussion:moderator`, and `discussion:concluded` events.
+
+<Callout type="warning">
+**The Stop button currently behaves like Pause.** There is no client-initiated hard-stop event in the protocol today — clicking Stop emits a pause and halts cleanly between turns. A true hard stop (one that kills the in-flight turn's process and finalizes the discussion to `concluded`) only happens server-side during teardown: when your last browser tab fully disconnects, or when the server shuts down. So in practice, use **Pause** to step away and **Resume** to come back; a paused discussion can always be resumed.
+</Callout>
+
+## The conclusion
+
+The synthesis is stored on the Discussion as its `conclusion` and rendered in the Conclusion card. From there you can **Copy** it to the clipboard or **Download** / **Export** it as a Markdown file. The full turn-by-turn transcript is also persisted as messages on the Conversation and is available through the API.
+
+## Discussions API
+
+These routes provide an HTTP control surface over the same engine instances the live UI drives. All responses use the standard `{ success, data?, error?, meta? }` envelope.
+
+<Tabs items={['CRUD', 'Participants', 'Control', 'Transcript']}>
+<Tabs.Tab>
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/discussions` | List all discussions |
+| `GET` | `/api/discussions/:id` | Get one discussion (with recent sessions) |
+| `POST` | `/api/discussions` | Create a discussion |
+| `PATCH` | `/api/discussions/:id` | Update name, topic, format, status, conclusion, or max rounds |
+| `DELETE` | `/api/discussions/:id` | Delete a discussion |
+| `PATCH` | `/api/discussions/:id/moderator` | Change the Facilitator (draft only) |
+
+Create payload. `maxRounds` is optional — omit it (the wizard's **Auto** mode does this) to take the server default of `5`:
+
+```json
+{
+  "name": "Caching strategy review",
+  "topic": "Should we add a Redis cache in front of Postgres?",
+  "format": "deliberation",
+  "moderatorId": "agent_facilitator_id",
+  "maxRounds": 5,
+  "participants": [
+    { "agentId": "agent_a", "role": "participant" },
+    { "agentId": "agent_b", "role": "devil_advocate" }
+  ]
+}
+```
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/discussions/:id/participants` | Add or update a participant (upsert by role) |
+| `DELETE` | `/api/discussions/:id/participants/:agentId` | Remove a participant |
+
+```json
+{ "agentId": "agent_c", "role": "observer" }
+```
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/discussions/:id/start` | Start the engine and begin the loop |
+| `POST` | `/api/discussions/:id/pause` | Pause after the current turn |
+| `POST` | `/api/discussions/:id/resume` | Resume a paused discussion |
+
+Starting fails if the Discussion is already running, has already concluded, or has no participants.
+
+</Tabs.Tab>
+<Tabs.Tab>
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/discussions/:id/transcript` | Full message transcript of the most recent Conversation |
+
+The transcript response includes the topic, status, conclusion, and the ordered messages (with roles, content, timestamps, and token counts).
+
+</Tabs.Tab>
+</Tabs>
+
+See the full [API reference](/docs/reference/api) for the shared response envelope and error codes.
+
+## Related
+
+<Cards>
+  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
+  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
+  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+</Cards>

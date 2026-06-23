@@ -1,0 +1,10 @@
+{
+  "id": "register-and-manage-domains",
+  "name": "register-and-manage-domains",
+  "description": "The world's",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.5",
+  "icon": "puzzle",
+  "order": 1000
+}

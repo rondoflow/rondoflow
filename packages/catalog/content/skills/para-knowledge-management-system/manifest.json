@@ -1,0 +1,10 @@
+{
+  "id": "para-knowledge-management-system",
+  "name": "para-knowledge-management-system",
+  "description": "Manage PARA-based personal knowledge management (PKM) systems using Projects, Areas, Resources, and Archives organization method. Use when users need to (1) Create a new PARA knowledge base, (2) Organize or reorganize existing knowledge bases into PARA structure, (3) Decide wher…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

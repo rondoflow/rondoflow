@@ -1,0 +1,10 @@
+{
+  "id": "master-relational-databases-sql",
+  "name": "master-relational-databases-sql",
+  "description": "Master relational databases with SQL. Schema design, queries, performance, migrations for PostgreSQL, MySQL, SQLite, SQL Server.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "postiz-extension-tool-2",
+  "name": "postiz-extension-tool-2",
+  "description": "Schedule and manage social media posts via Postiz API (self-hosted or cloud). Direct API integration — no n8n dependency. Supports X/Twitter, LinkedIn, Bluesky with platform-specific character limits. Includes deduplication, scheduling, media upload, and thread creation. WHAT IT…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "message-circle",
+  "order": 1000
+}

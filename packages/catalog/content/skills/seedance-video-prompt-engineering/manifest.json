@@ -1,0 +1,10 @@
+{
+  "id": "seedance-video-prompt-engineering",
+  "name": "seedance-video-prompt-engineering",
+  "description": "Create high-control English prompts for **Seedance 2.0** and **Seedance 2.0 Fast** using multimodal references (image/video/audio/text).",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

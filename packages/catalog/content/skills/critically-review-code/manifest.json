@@ -1,0 +1,10 @@
+{
+  "id": "critically-review-code",
+  "name": "critically-review-code",
+  "description": "Conduct rigorous, adversarial code reviews with zero tolerance for mediocrity. Use when users ask to \"critically review\" my code or a PR, \"critique my code\", \"find issues in my code\", or \"what's wrong with this code\". Identifies security holes, lazy patterns, edge case failures,…",
+  "category": "Development",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "code",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "crypto-portfolio-market-data-cli",
+  "name": "crypto-portfolio-market-data-cli",
+  "description": "CLI for crypto portfolio tracking, market data, and CEX history. Use when the user asks about crypto prices, wallet balances, portfolio values, Coinbase/Binance holdings, or Polymarket predictions.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "provide-seekdb-database-documentation",
+  "name": "provide-seekdb-database-documentation",
+  "description": "Provides documentation and knowledge for seekdb database. When users ask about seekdb topics, automatically locate relevant documentation through the catalog file (from github).",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.0.6",
+  "icon": "chart-bar",
+  "order": 1000
+}

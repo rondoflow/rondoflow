@@ -1,0 +1,10 @@
+{
+  "id": "analyze-stocks-financial-market-data",
+  "name": "analyze-stocks-financial-market-data",
+  "description": "Analyze stocks and companies using financial market data. Get company profiles, technical insights, price charts, insider holdings, and SEC filings for comprehensive stock research.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

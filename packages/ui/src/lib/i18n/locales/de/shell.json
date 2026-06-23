@@ -1,0 +1,298 @@
+{
+  "tabs": {
+    "ariaLabel": "Arbeitsbereiche",
+    "renameInput": "Arbeitsbereich umbenennen",
+    "rename": "{{name}} umbenennen",
+    "delete": "{{name}} löschen",
+    "deleteLastDisabled": "Der letzte Arbeitsbereich kann nicht gelöscht werden",
+    "new": "Neuer Arbeitsbereich",
+    "create": "Neuen Arbeitsbereich erstellen",
+    "export": "Canvas exportieren",
+    "exportTooltip": "Canvas exportieren (Setup teilen)",
+    "import": "Canvas importieren",
+    "importTooltip": "Canvas aus Datei importieren",
+    "info": "Arbeitsbereich-Info für {{name}}"
+  },
+  "info": {
+    "title": "Arbeitsbereich-Info",
+    "description": "Schreibgeschützte Konfiguration und Laufstatistiken für diesen Arbeitsbereich.",
+    "loading": "Arbeitsbereich-Info wird geladen…",
+    "section": {
+      "runs": "Läufe",
+      "usage": "Token-Verbrauch",
+      "config": "Konfiguration",
+      "content": "Canvas & Inhalt"
+    },
+    "stat": {
+      "totalRuns": "Läufe insgesamt",
+      "completed": "Abgeschlossen",
+      "failed": "Fehlgeschlagen",
+      "running": "Läuft",
+      "avgDuration": "Durchschn. Dauer",
+      "maxDuration": "Längster Lauf",
+      "totalDuration": "Gesamtlaufzeit",
+      "totalSteps": "Schritte insgesamt",
+      "cost": "Gesamtkosten",
+      "sessions": "Sitzungen",
+      "inputTokens": "Eingabe-Token",
+      "outputTokens": "Ausgabe-Token",
+      "nodes": "Knoten",
+      "edges": "Verbindungen",
+      "resources": "Ressourcen",
+      "memories": "Erinnerungen"
+    },
+    "field": {
+      "workingDirectory": "Arbeitsverzeichnis",
+      "notSet": "Nicht festgelegt",
+      "created": "Erstellt",
+      "updated": "Zuletzt aktualisiert",
+      "documents": "Dokumente",
+      "contextDoc": "Kontext",
+      "planDoc": "Plan",
+      "none": "Keine",
+      "workspaceId": "Arbeitsbereich-ID",
+      "lastRun": "Letzter Lauf",
+      "firstRun": "Erster Lauf",
+      "stopped": "Gestoppte Läufe",
+      "canvasLayouts": "Canvas-Layouts",
+      "canvasUpdated": "Canvas aktualisiert",
+      "activityEvents": "Aktivitätsereignisse",
+      "lastActivity": "Letzte Aktivität"
+    }
+  },
+  "search": {
+    "label": "Suchen",
+    "tooltip": "Suchen (Strg+K)"
+  },
+  "createDialog": {
+    "title": "Neuer Arbeitsbereich",
+    "description": "Beginnen Sie leer oder wählen Sie einen vordefinierten Ablauf, benennen Sie ihn dann und wählen Sie den Projektordner, in dem er arbeitet.",
+    "startFrom": "Beginnen mit",
+    "templateGroup": "Arbeitsbereich-Vorlage",
+    "blankTitle": "Leerer Arbeitsbereich",
+    "blankDescription": "Mit einem leeren Canvas beginnen.",
+    "agentCount_one": "{{count}} Agent",
+    "agentCount_other": "{{count}} Agenten",
+    "namePlaceholder": "Name des Arbeitsbereichs…",
+    "nameLabel": "Name des neuen Arbeitsbereichs",
+    "selectFolder": "Projektordner auswählen",
+    "selectFolderPlaceholder": "Projektordner auswählen…",
+    "submitFromFlow": "Aus Ablauf erstellen",
+    "submit": "Arbeitsbereich erstellen"
+  },
+  "deleteDialog": {
+    "title": "Arbeitsbereich löschen",
+    "description": "„{{name}}“ löschen? Dadurch werden alle mit diesem Arbeitsbereich verbundenen Canvas-Layouts und Ressourcen entfernt. Diese Aktion kann nicht rückgängig gemacht werden."
+  },
+  "palette": {
+    "ariaLabel": "Befehlspalette",
+    "placeholder": "Befehl eingeben oder suchen...",
+    "listLabel": "Befehle",
+    "empty": "Keine Befehle gefunden für „{{query}}“",
+    "navigate": "navigieren",
+    "select": "auswählen",
+    "results_one": "{{count}} Ergebnis",
+    "results_other": "{{count}} Ergebnisse"
+  },
+  "category": {
+    "assistants": "Assistenten",
+    "canvas": "Canvas",
+    "navigation": "Navigation",
+    "actions": "Aktionen",
+    "templates": "Vorlagen"
+  },
+  "command": {
+    "assistantCreate": {
+      "label": "Neuen Assistenten erstellen",
+      "description": "Fügen Sie Ihrem Arbeitsbereich einen neuen KI-Assistenten hinzu"
+    },
+    "assistantList": {
+      "label": "Alle Assistenten auflisten",
+      "description": "Vorhandene Assistenten durchsuchen und verwalten"
+    },
+    "canvasFit": {
+      "label": "An Ansicht anpassen",
+      "description": "Zoomen und schwenken, um alle Knoten anzuzeigen"
+    },
+    "canvasClear": {
+      "label": "Canvas leeren",
+      "description": "Alle Knoten und Kanten vom Canvas entfernen"
+    },
+    "canvasZoomIn": {
+      "label": "Vergrößern",
+      "description": "Zoomstufe erhöhen"
+    },
+    "canvasZoomOut": {
+      "label": "Verkleinern",
+      "description": "Zoomstufe verringern"
+    },
+    "navAssistants": {
+      "label": "Assistenten öffnen",
+      "description": "Assistenten durchsuchen und verwalten"
+    },
+    "navFacilitators": {
+      "label": "Moderatoren öffnen",
+      "description": "Diskussionsmoderatoren verwalten"
+    },
+    "navDiscussions": {
+      "label": "Diskussionen öffnen",
+      "description": "Multi-Agenten-Diskussionen durchsuchen"
+    },
+    "navActivity": {
+      "label": "Aktivität öffnen",
+      "description": "Echtzeit-Feed der Agentenausführung"
+    },
+    "navAudit": {
+      "label": "Audit-Log öffnen",
+      "description": "Vollständiges Audit-Protokoll der Systemaktionen"
+    },
+    "navHistory": {
+      "label": "Verlauf öffnen",
+      "description": "Frühere Workflow-Läufe und Ausführungen"
+    },
+    "navAnalytics": {
+      "label": "Analysen öffnen",
+      "description": "Token-Verbrauch, Kosten und Leistung"
+    },
+    "navSkills": {
+      "label": "Skill-Marktplatz öffnen",
+      "description": "Skills durchsuchen und installieren"
+    },
+    "navMemory": {
+      "label": "Speicher öffnen",
+      "description": "Persistenten Agentenspeicher verwalten"
+    },
+    "navSchedules": {
+      "label": "Zeitpläne öffnen",
+      "description": "Wiederkehrende Workflow-Läufe verwalten"
+    },
+    "navSafety": {
+      "label": "Sicherheitsregeln öffnen",
+      "description": "Sicherheitsrichtlinien und Schutzvorkehrungen verwalten"
+    },
+    "actionUndo": {
+      "label": "Rückgängig",
+      "description": "Letzte Aktion rückgängig machen"
+    },
+    "actionRedo": {
+      "label": "Wiederherstellen",
+      "description": "Zuvor rückgängig gemachte Aktion wiederherstellen"
+    },
+    "actionShortcuts": {
+      "label": "Tastaturkürzel",
+      "description": "Alle Tastaturkürzel anzeigen"
+    },
+    "templateCodeReview": {
+      "label": "Laden: Code-Review-Pipeline",
+      "description": "Autor → Prüfer → Sicherheitsprüfer"
+    },
+    "templateContentWriting": {
+      "label": "Laden: Content-Writing-Team",
+      "description": "Rechercheur → Autor → Lektor"
+    },
+    "templateResearch": {
+      "label": "Laden: Recherche-Assistent",
+      "description": "Einzelner Recherche-Bot mit Websuche- und Datenanalyse-Skills"
+    },
+    "templateBrainstorm": {
+      "label": "Laden: Brainstorming-Team",
+      "description": "Kreativkopf, Analyst, Advocatus Diaboli und Moderator"
+    }
+  },
+  "bottomBar": {
+    "ready": "Bereit",
+    "running": "{{count}} laufen",
+    "tokens": "{{tokens}} Token ({{cost}})",
+    "documentation": "Dokumentation",
+    "notifications": "Benachrichtigungen",
+    "notificationsUnread": "Benachrichtigungen, {{count}} ungelesen",
+    "undo": "Rückgängig",
+    "undoTooltip": "Rückgängig (Strg+Z)",
+    "redo": "Wiederherstellen",
+    "redoTooltip": "Wiederherstellen (Strg+Umschalt+Z)",
+    "zoomOut": "Verkleinern",
+    "zoomIn": "Vergrößern",
+    "fitView": "An Ansicht anpassen"
+  },
+  "userMenu": {
+    "trigger": "Benutzermenü",
+    "item": {
+      "activity": "Aktivität",
+      "audit": "Audit-Log",
+      "analytics": "Analysen",
+      "users": "Benutzer",
+      "restartOnboarding": "Tour neu starten",
+      "settings": "Einstellungen",
+      "signOut": "Abmelden"
+    }
+  },
+  "quickRun": {
+    "deselect": "Agentenauswahl aufheben",
+    "taskPlaceholder": "Aufgabe eingeben und Enter drücken...",
+    "searchPlaceholder": "Agenten suchen...",
+    "hintRun": "Enter zum Ausführen",
+    "hintSelectFirst": "Wählen Sie zuerst einen Agenten aus",
+    "hintClose": "Esc zum Schließen"
+  },
+  "shortcuts": {
+    "title": "Tastaturkürzel",
+    "footer": "Drücken Sie <0></0> oder <1></1> zum Schließen",
+    "category": {
+      "canvas": "Canvas",
+      "nodes": "Knoten",
+      "navigation": "Navigation",
+      "editing": "Bearbeitung"
+    },
+    "panCanvas": "Canvas schwenken",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "fitView": "An Ansicht anpassen",
+    "selectAll": "Alles auswählen",
+    "newAgent": "Neuer Agent",
+    "deleteSelected": "Auswahl löschen",
+    "commandPalette": "Befehlspalette",
+    "toggleSkills": "Skill-Seitenleiste umschalten",
+    "shortcutHelp": "Tastaturkürzel-Hilfe",
+    "replayTips": "Onboarding-Tipps erneut abspielen",
+    "duplicate": "Auswahl duplizieren",
+    "findNode": "Knoten suchen",
+    "closeDeselect": "Schließen / Auswahl aufheben",
+    "undo": "Rückgängig",
+    "redo": "Wiederherstellen",
+    "redoAlt": "Wiederherstellen (Alt)"
+  },
+  "favorites": {
+    "label": "Favoriten",
+    "moreCount": "{{count}} weitere Favoriten"
+  },
+  "browse": {
+    "trigger": "Panels durchsuchen",
+    "searchPlaceholder": "Panels suchen…",
+    "empty": "Keine passenden Panels",
+    "group": {
+      "people": "Personen",
+      "runData": "Laufdaten",
+      "system": "System"
+    },
+    "item": {
+      "history": "Verlauf",
+      "skills": "Skills",
+      "externalFolders": "Externe Ordner",
+      "memory": "Speicher",
+      "schedules": "Zeitpläne",
+      "discussions": "Diskussionen"
+    }
+  },
+  "cliBanner": {
+    "title": "Claude Code CLI nicht gefunden",
+    "description": "rondoflow benötigt Claude Code, um Agenten auszuführen. Installieren Sie es mit:",
+    "checkAgain": "Erneut prüfen",
+    "installGuide": "Installationsanleitung"
+  },
+  "tier": {
+    "simpleMode_one": "Einfacher Modus – {{count}} weitere Funktion verfügbar",
+    "simpleMode_other": "Einfacher Modus – {{count}} weitere Funktionen verfügbar",
+    "standardMode_one": "Standardmodus – {{count}} weitere Funktion verfügbar",
+    "standardMode_other": "Standardmodus – {{count}} weitere Funktionen verfügbar"
+  }
+}

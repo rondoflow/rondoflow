@@ -1,0 +1,10 @@
+{
+  "id": "share-search-strategy-blueprints",
+  "name": "share-search-strategy-blueprints",
+  "description": "Search and share proven strategies as blueprints in a collective knowledge graph. Find what worked instead of reasoning from scratch.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,19 @@
+{
+  "id": "consensus-builder-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000003",
+  "name": "The Bridge-Builder",
+  "description": "Convergence-seeking facilitator that finds hidden common ground and integrates every voice into one defensible position.",
+  "icon": "Handshake",
+  "model": "sonnet",
+  "recommendedFormats": ["deliberation", "review"],
+  "tags": [
+    "consensus",
+    "deliberation",
+    "review",
+    "convergence",
+    "common-ground",
+    "synthesis",
+    "reconciliation"
+  ],
+  "order": 2
+}

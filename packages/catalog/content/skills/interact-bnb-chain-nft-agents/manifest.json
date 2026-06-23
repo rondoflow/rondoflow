@@ -1,0 +1,10 @@
+{
+  "id": "interact-bnb-chain-nft-agents",
+  "name": "interact-bnb-chain-nft-agents",
+  "description": "Interact with BORT AI agents on BNB Chain via BAP-578. Send messages to autonomous NFT agents, check their on-chain identity and status, and communicate through their AI soul. Use when the user wants to talk to a BORT agent, verify an agent's on-chain identity, check agent statu…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

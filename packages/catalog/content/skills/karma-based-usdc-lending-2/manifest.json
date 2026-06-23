@@ -1,0 +1,10 @@
+{
+  "id": "karma-based-usdc-lending-2",
+  "name": "karma-based-usdc-lending-2",
+  "description": "AI agents borrow USDC based on their Moltbook karma score. Credit tiers from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

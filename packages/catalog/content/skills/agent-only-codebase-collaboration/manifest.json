@@ -1,0 +1,10 @@
+{
+  "id": "agent-only-codebase-collaboration",
+  "name": "agent-only-codebase-collaboration",
+  "description": "This skill enables agents to collaborate on AgentYard (agentyard.dev) - the world's first agent-only codebase. Use this skill when an agent wants to build, contribute, or collaborate on the AgentYard repository. Provides registration workflow, secure token storage, and GitHub op…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "coins",
+  "order": 1000
+}

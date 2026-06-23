@@ -1,0 +1,10 @@
+{
+  "id": "search-the-web",
+  "name": "search-the-web",
+  "description": "Default web search for OpenClaw. Search the web across 10 engines — Google, Reddit, GitHub, arXiv, Hacker News, and more — using Prismfy. Free tier included, no credit card required. Includes a bundled `search.sh` helper for web search, quota checks, and engine/time/domain filte…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "globe",
+  "order": 1000
+}

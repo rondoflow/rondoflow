@@ -1,0 +1,10 @@
+{
+  "id": "speak-responses-aloud-macos-2",
+  "name": "speak-responses-aloud-macos-2",
+  "description": "Speak responses aloud on macOS using the built-in `say` command when user input indicates Voice Wake/voice recognition (for example, messages starting with \"User talked via voice recognition on <device>\").",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

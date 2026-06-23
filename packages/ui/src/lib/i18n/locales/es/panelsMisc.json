@@ -1,0 +1,501 @@
+{
+  "prd": {
+    "dialog": {
+      "title": "Documento de requisitos del producto"
+    },
+    "field": {
+      "titleLabel": "Título del PRD",
+      "titlePlaceholder": "Nombre de la función o título del épico…"
+    },
+    "stories": {
+      "heading": "Historias ({{count}})",
+      "add": "Añadir historia",
+      "addFirst": "Añadir primera historia",
+      "empty": "Aún no hay historias",
+      "listLabel": "Historias de usuario",
+      "rowTitlePlaceholder": "Título de la historia…",
+      "rowTitleLabel": "Título de la historia",
+      "priorityLabel": "Prioridad {{priority}}",
+      "statusButtonLabel": "Estado: {{status}}. Haga clic para avanzar.",
+      "collapse": "Contraer historia",
+      "expand": "Expandir historia",
+      "remove": "Eliminar historia",
+      "acceptanceLabel": "Criterios de aceptación",
+      "acceptancePlaceholder": "Dado… Cuando… Entonces…"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "inProgress": "En curso",
+      "passed": "Aprobada",
+      "failed": "Fallida"
+    },
+    "progress": {
+      "passed": "{{passed}}/{{total}} aprobadas",
+      "failed": "{{count}} fallidas",
+      "barLabel": "{{passed}} de {{total}} historias aprobadas"
+    },
+    "validation": {
+      "noStories": "Añada al menos una historia antes de iniciar la canalización.",
+      "emptyTitles_one": "{{count}} título de historia está vacío. Complételo primero.",
+      "emptyTitles_other": "{{count}} títulos de historia están vacíos. Complételos primero."
+    },
+    "cost": {
+      "label": "Coste est.:",
+      "value": "~${{amount}}"
+    },
+    "start": "Iniciar canalización"
+  },
+  "output": {
+    "log": {
+      "panelLabel": "Registro de salida del flujo de trabajo guardado",
+      "title": "Registro de salida",
+      "summary_one": "{{count}} salida guardada en {{dir}}",
+      "summary_other": "{{count}} salidas guardadas en {{dir}}",
+      "metaSeparator": "{{time}} · {{size}}",
+      "back": "Volver a la lista de salidas",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "copyLabel": "Copiar salida al portapapeles",
+      "download": "Descargar",
+      "downloadLabel": "Descargar archivo de salida",
+      "refreshLabel": "Actualizar lista de salidas",
+      "loadingOutputs": "Cargando salidas guardadas…",
+      "empty": {
+        "title": "No hay salidas guardadas",
+        "description": "Ejecute un flujo de trabajo y guarde su salida para verla aquí."
+      },
+      "error": {
+        "loadList": "No se pudieron cargar las salidas",
+        "readFile": "No se pudo leer el archivo"
+      }
+    }
+  },
+  "review": {
+    "dialog": {
+      "title": "Revisar el flujo de trabajo generado",
+      "nameLabel": "Nombre del flujo de trabajo"
+    },
+    "model": {
+      "opus": "Opus (Profundo)",
+      "sonnet": "Sonnet (Equilibrado)",
+      "haiku": "Haiku (Rápido)"
+    },
+    "agent": {
+      "nameLabel": "Nombre del asistente {{index}}",
+      "modelLabel": "Modelo del asistente {{index}}",
+      "personaLabel": "Personalidad del asistente {{index}}",
+      "remove": "Eliminar {{name}}",
+      "removeSkill": "Eliminar habilidad {{skill}}"
+    },
+    "executionFlow": "Flujo de ejecución",
+    "director": {
+      "title": "Orquestación de Director",
+      "description": "El coordinador de IA evalúa cada paso y decide la siguiente acción"
+    },
+    "saveTemplate": "Guardar como plantilla",
+    "addToCanvas": "Añadir al espacio de trabajo"
+  },
+  "advisor": {
+    "category": {
+      "agent": "Asistente",
+      "skill": "Habilidad",
+      "order": "Orden",
+      "quality": "Calidad"
+    },
+    "action": {
+      "applySkill": "Aplicar «{{skill}}»",
+      "updatePersona": "Actualizar personalidad",
+      "applied": "Aplicado",
+      "failed": "Fallido"
+    },
+    "title": "Asesor del flujo de trabajo",
+    "objectiveMet": "Objetivo cumplido",
+    "objectiveNotMet": "Objetivo no cumplido",
+    "allGood": "Todo se ve bien — no se necesitan mejoras."
+  },
+  "director": {
+    "title": "Director",
+    "subtitle": "Orquestador del flujo de trabajo",
+    "toggleLabel": "Activar Director",
+    "rigor": {
+      "label": "Nivel de crítica",
+      "sliderLabel": "Nivel de crítica",
+      "setLabel": "Establecer el rigor en {{level}}",
+      "minLabel": "Relajado",
+      "maxLabel": "Exigente",
+      "level": {
+        "relaxed": {
+          "label": "Relajado",
+          "description": "Casi siempre continúa. Solo redirige ante errores críticos."
+        },
+        "lenient": {
+          "label": "Indulgente",
+          "description": "Acepta la mayoría de las salidas. Redirige solo cuando falta algo importante."
+        },
+        "balanced": {
+          "label": "Equilibrado",
+          "description": "Nivel predeterminado. Evalúa la calidad de forma justa y sugiere mejoras cuando vale la pena."
+        },
+        "strict": {
+          "label": "Estricto",
+          "description": "Estándares más altos. Espera un trabajo minucioso y puede redirigir ante salidas incompletas."
+        },
+        "demanding": {
+          "label": "Exigente",
+          "description": "Listón muy alto. Espera una salida completa y lista para producción en cada paso."
+        }
+      }
+    },
+    "customInstructions": {
+      "label": "Instrucciones personalizadas",
+      "help": "Instrucciones adicionales para el Director al evaluar las salidas de los asistentes. Se añaden a las instrucciones del sistema.",
+      "placeholder": "p. ej., Asegúrese siempre de que el código incluya tipos de TypeScript. Priorice la seguridad sobre el rendimiento..."
+    },
+    "howItWorks": {
+      "title": "Cómo funciona el Director",
+      "evaluates": "Evalúa la salida de cada asistente tras completarse",
+      "contextualizes": "Contextualiza los mensajes para que el siguiente asistente comprenda el panorama completo",
+      "redirects": "Puede redirigir (reintentar) un paso si la calidad de la salida es insuficiente",
+      "concludes": "Puede concluir el flujo de trabajo antes de tiempo si el objetivo ya se ha cumplido",
+      "learns": "Aprende patrones entre ejecuciones para mejorar las evaluaciones futuras"
+    }
+  },
+  "history": {
+    "panelLabel": "Historial de ejecución",
+    "title": "Historial de ejecución",
+    "description": "Todas las ejecuciones anteriores del flujo de trabajo y sus registros de ejecución."
+  },
+  "condition": {
+    "title": "Condición",
+    "subtitle": "Dirigir a la primera rama coincidente",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Condición"
+    },
+    "hint": {
+      "withAgent": "Se compara con la última línea de {{agent}}, sin distinguir mayúsculas. Se ejecuta la primera rama coincidente; la rama predeterminada se ejecuta si ninguna coincide.",
+      "noAgent": "Se compara con la última línea del asistente anterior, sin distinguir mayúsculas. Se ejecuta la primera rama coincidente; la rama predeterminada se ejecuta si ninguna coincide."
+    },
+    "branches": {
+      "heading": "Ramas",
+      "total": "{{count}} en total",
+      "labelPlaceholder": "Etiqueta de la rama",
+      "labelAria": "Etiqueta de la rama {{index}}",
+      "remove": "Eliminar rama {{index}}",
+      "removeTitle": "Eliminar rama",
+      "patternAria": "Patrón de la rama {{index}}",
+      "kind": {
+        "contains": "Contiene",
+        "regex": "Coincide con expresión regular"
+      },
+      "patternPlaceholder": {
+        "contains": "approved, lgtm",
+        "regex": "^DECISION:\\s*GO$"
+      },
+      "default": "Rama predeterminada (se ejecuta si ninguna coincide)",
+      "setDefault": "Establecer como rama predeterminada",
+      "addLabel": "Añadir:",
+      "empty": "Aún no hay ramas. Añada una y luego arrastre un cable desde su conector hasta un asistente posterior.",
+      "noDefault": "No hay rama predeterminada — si ninguna condición coincide, el flujo se detiene en esta ruta."
+    },
+    "preset": {
+      "approved": "Aprobado",
+      "rejected": "Rechazado",
+      "custom": "Personalizado"
+    },
+    "regexInvalid": "Expresión regular no válida"
+  },
+  "outputNode": {
+    "title": "Salida",
+    "subtitle": "Procesar y guardar la salida de la ejecución",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Salida"
+    },
+    "docTitle": {
+      "label": "Título del documento",
+      "placeholder": "Opcional — encabezado para markdown/HTML con formato"
+    },
+    "savingFrom": "Guardando salidas de",
+    "savingHint": "Conecte asistentes a este nodo de salida en el espacio de trabajo para elegir cuáles guardar.",
+    "allAgents": "Todos los asistentes de la ejecución.",
+    "noAgents": "Aún no hay asistentes conectados — arrastre un cable desde un asistente hasta este nodo de salida. Sin conexiones no guarda nada.",
+    "unknownAgent": "Asistente desconocido",
+    "format": {
+      "label": "Formato",
+      "selectLabel": "Formato de salida"
+    },
+    "destination": {
+      "label": "Guardar en",
+      "browse": "Examinar",
+      "custom": "Carpeta personalizada",
+      "default": "Carpeta del espacio de trabajo (predeterminada)",
+      "reset": "Restablecer al espacio de trabajo"
+    }
+  },
+  "assistants": {
+    "title": "Asistentes",
+    "new": "Nuevo",
+    "empty": {
+      "title": "Aún no hay asistentes.",
+      "create": "Cree su primer asistente"
+    },
+    "delete": "Eliminar {{name}}"
+  },
+  "tool": {
+    "toggleLabel": "Herramienta: {{name}}. Haga clic para {{action}} los detalles.",
+    "expand": "expandir",
+    "collapse": "contraer",
+    "running": "En ejecución",
+    "completed": "Completado",
+    "input": "Entrada",
+    "output": "Salida"
+  },
+  "emailNode": {
+    "title": "Email",
+    "subtitle": "Enviar la salida del run por correo",
+    "enabled": {
+      "label": "Enviar tras cada ejecución",
+      "hint": "Desactivado por defecto. Cuando está activo, este nodo envía por correo la salida seleccionada cada vez que termina el flujo."
+    },
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Email"
+    },
+    "subject": {
+      "label": "Asunto",
+      "placeholder": "Opcional — por defecto «Salida del flujo»"
+    },
+    "recipients": {
+      "label": "Destinatarios",
+      "placeholder": "a@example.com, b@example.com",
+      "hint": "Direcciones de correo separadas por comas.",
+      "count_one": "{{count}} destinatario válido",
+      "count_other": "{{count}} destinatarios válidos",
+      "invalid": "No válidos: {{list}}"
+    },
+    "sendingFrom": "Enviar salida de",
+    "sendingHint": "Conecta agentes a este nodo Email en el lienzo para elegir qué salida enviar.",
+    "allAgents": "Todos los agentes del run.",
+    "noAgents": "Aún no hay agentes conectados — arrastra un cable desde un agente hasta este nodo Email. Sin conexiones no envía nada.",
+    "unknownAgent": "Agente desconocido"
+  },
+  "structurerNode": {
+    "title": "Estructurador",
+    "subtitle": "Convierte la salida del agente en datos estructurados",
+    "unknownAgent": "Agente desconocido",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Estructurador"
+    },
+    "sourceFrom": "Estructurando desde",
+    "sourceHint": "Determinado por los asistentes conectados a este nodo en el lienzo.",
+    "allAgents": "Todos los agentes de la ejecución.",
+    "noAgents": "Aún no hay asistentes conectados — conecta un asistente a este nodo.",
+    "format": {
+      "label": "Formato",
+      "selectLabel": "Formato de salida"
+    },
+    "mode": {
+      "label": "Modo de extracción",
+      "parse": "Analizar",
+      "ai": "Extracción IA",
+      "parseHint": "Extrae de forma determinista el JSON o las tablas ya presentes en la salida. Sin coste adicional.",
+      "aiHint": "Ejecuta Claude para extraer filas estructuradas del texto libre."
+    },
+    "instructions": {
+      "label": "Instrucciones de extracción",
+      "placeholder": "Orientación opcional para el extractor de IA…"
+    },
+    "schema": {
+      "heading": "Esquema",
+      "total": "{{count}} columnas",
+      "hint": "Declara las columnas/campos a extraer. Déjalo vacío para inferir.",
+      "keyPlaceholder": "clave",
+      "keyAria": "Clave de la columna {{index}}",
+      "remove": "Eliminar columna {{index}}",
+      "labelPlaceholder": "Etiqueta",
+      "labelAria": "Etiqueta de la columna {{index}}",
+      "typeAria": "Tipo de la columna {{index}}",
+      "type": {
+        "string": "Texto",
+        "number": "Número",
+        "boolean": "Booleano",
+        "date": "Fecha"
+      },
+      "add": "Añadir columna",
+      "empty": "Sin columnas — el extractor inferirá los campos del contenido."
+    }
+  },
+  "dbSaveNode": {
+    "title": "Guardar en base de datos",
+    "subtitle": "Persiste el conjunto estructurado",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Guardar en BD"
+    },
+    "datasetLabel": {
+      "label": "Etiqueta del conjunto",
+      "placeholder": "Opcional — nombra el conjunto guardado",
+      "hint": "Si se deja vacío, usa el nombre del conjunto del estructurador."
+    },
+    "savingFrom": "Guardando conjunto desde",
+    "noUpstream": "Aún no hay estructurador conectado — conecta un nodo Estructurador a este.",
+    "lastSaved_one": "La última ejecución guardó {{count}} fila.",
+    "lastSaved_other": "La última ejecución guardó {{count}} filas.",
+    "viewDatasets": "Ver conjuntos guardados"
+  },
+  "datasets": {
+    "panelLabel": "Conjuntos guardados",
+    "title": "Conjuntos guardados",
+    "back": "Volver a la lista",
+    "rowCount_one": "{{count}} fila",
+    "rowCount_other": "{{count}} filas",
+    "summary_one": "{{count}} conjunto",
+    "summary_other": "{{count}} conjuntos",
+    "downloadCsv": "Descargar CSV",
+    "csv": "CSV",
+    "refresh": "Actualizar",
+    "error": {
+      "loadList": "No se pudieron cargar los conjuntos.",
+      "loadDetail": "No se pudo cargar el conjunto."
+    },
+    "empty": {
+      "title": "Sin conjuntos guardados",
+      "description": "Ejecuta un flujo con un nodo Guardar en BD para almacenar datos estructurados aquí."
+    },
+    "emptyRows": {
+      "title": "Sin filas",
+      "description": "Este conjunto no tiene filas."
+    },
+    "listMeta": "{{rows}} filas · {{format}} · {{time}}"
+  },
+  "httpRequestNode": {
+    "title": "Solicitud HTTP",
+    "subtitle": "Llama a una API externa en el flujo.",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Solicitud HTTP"
+    },
+    "request": {
+      "label": "Solicitud",
+      "methodLabel": "Método HTTP",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "hint": "La URL, las cabeceras y el cuerpo aceptan el marcador {{token}}: se reemplaza por la salida anterior."
+    },
+    "query": {
+      "heading": "Parámetros de consulta",
+      "keyPlaceholder": "nombre",
+      "valuePlaceholder": "valor",
+      "add": "Añadir parámetro",
+      "empty": "Sin parámetros de consulta.",
+      "remove": "Eliminar parámetro {{index}}"
+    },
+    "headers": {
+      "heading": "Cabeceras",
+      "keyPlaceholder": "Cabecera",
+      "valuePlaceholder": "valor",
+      "add": "Añadir cabecera",
+      "empty": "Sin cabeceras.",
+      "remove": "Eliminar cabecera {{index}}"
+    },
+    "body": {
+      "label": "Cuerpo",
+      "placeholder": "{ \"query\": \"...\" }",
+      "hint": "Se envía con POST, PUT y PATCH. Admite el marcador {{token}}.",
+      "mode": {
+        "json": "JSON",
+        "form": "Formulario",
+        "raw": "Sin formato"
+      }
+    },
+    "timeout": {
+      "label": "Tiempo de espera (segundos)",
+      "hint": "La solicitud falla si no llega respuesta a tiempo."
+    },
+    "response": {
+      "label": "Respuesta enviada al siguiente",
+      "body": "Solo el cuerpo",
+      "full": "Completa (estado + cabeceras)",
+      "hint": "Elige qué reciben los nodos siguientes: solo el cuerpo, o un sobre JSON con estado y cabeceras."
+    }
+  },
+  "duckduckgoSearchNode": {
+    "title": "Búsqueda DuckDuckGo",
+    "subtitle": "Busca en la web en el flujo.",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Búsqueda DuckDuckGo"
+    },
+    "query": {
+      "label": "Consulta de búsqueda",
+      "placeholder": "Consulta de búsqueda",
+      "hint": "La consulta admite el marcador {{token}}: se reemplaza por la salida anterior."
+    },
+    "maxResults": {
+      "label": "Máx. resultados"
+    },
+    "region": {
+      "label": "Región",
+      "placeholder": "us-en",
+      "hint": "Código de región de DuckDuckGo, p. ej. us-en, uk-en, de-de. Déjalo vacío para ninguna región."
+    },
+    "safeSearch": {
+      "label": "SafeSearch",
+      "strict": "Estricto",
+      "moderate": "Moderado",
+      "off": "Desactivado"
+    },
+    "timeLimit": {
+      "label": "Rango de tiempo",
+      "any": "Cualquier momento",
+      "d": "Último día",
+      "w": "Última semana",
+      "m": "Último mes",
+      "y": "Último año"
+    },
+    "output": {
+      "label": "Resultados enviados al siguiente",
+      "text": "Texto",
+      "json": "JSON",
+      "hint": "Elige qué reciben los nodos siguientes: una lista legible o un array JSON de registros."
+    }
+  },
+  "sakanaAiNode": {
+    "title": "Sakana AI",
+    "subtitle": "Ejecuta una completación de Sakana AI durante el flujo.",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Sakana AI"
+    },
+    "apiUrl": {
+      "label": "URL de API",
+      "placeholder": "https://api.sakana.ai/v1/chat/completions"
+    },
+    "model": {
+      "label": "Modelo",
+      "placeholder": "sakana-chat"
+    },
+    "systemPrompt": {
+      "label": "Prompt del sistema",
+      "placeholder": "Instrucción de sistema opcional..."
+    },
+    "prompt": {
+      "label": "Prompt",
+      "placeholder": "Resume {{input}}",
+      "hint": "El prompt admite el marcador {{token}}: se reemplaza por la salida anterior."
+    },
+    "temperature": {
+      "label": "Temperatura"
+    },
+    "maxTokens": {
+      "label": "Máx. tokens"
+    },
+    "output": {
+      "label": "Salida enviada al siguiente",
+      "text": "Texto",
+      "json": "JSON",
+      "hint": "Elige qué reciben los nodos siguientes: texto de completación o la respuesta JSON completa."
+    }
+  }
+}

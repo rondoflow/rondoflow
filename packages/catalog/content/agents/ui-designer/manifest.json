@@ -1,0 +1,28 @@
+{
+  "id": "ui-designer",
+  "name": "UI Designer",
+  "description": "Designs visually appealing, intuitive, user-friendly interfaces.",
+  "icon": "Palette",
+  "category": "Engineering",
+  "purpose": "creative",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "ui",
+    "design",
+    "visual",
+    "components",
+    "design-system"
+  ],
+  "order": 134
+}

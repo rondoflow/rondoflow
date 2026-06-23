@@ -1,0 +1,10 @@
+{
+  "id": "ethics-data-audit",
+  "name": "ethics-data-audit",
+  "description": "Audit a data collection, retention, or sharing decision against ethical standards. Use when the user is making decisions about what data to collect, how long to keep it, who can access it, or who it's shared with. TRIGGERS: 'audit this data decision', 'is this data practice ok', 'data ethics check', any change to data models, privacy controls, analytics instrumentation, data sharing agreements, or retention policies. Goes beyond legal compliance — evaluates whether the practice is ethical, not just lawful.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

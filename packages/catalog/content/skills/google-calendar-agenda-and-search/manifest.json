@@ -1,0 +1,10 @@
+{
+  "id": "google-calendar-agenda-and-search",
+  "name": "google-calendar-agenda-and-search",
+  "description": "Use `gog` (gogcli) for Google Calendar: agenda (events list) and keyword search across calendars.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "hybrid-vector-temporal-knowledge-memory",
+  "name": "hybrid-vector-temporal-knowledge-memory",
+  "description": "Hybrid memory strategy combining OpenClaw's built-in vector memory with Graphiti temporal knowledge graph. Use when you need to recall past context, answer temporal questions (\"when did X happen?\"), or search memory files. Provides decision framework for when to use memory_searc…",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "code",
+  "order": 1000
+}

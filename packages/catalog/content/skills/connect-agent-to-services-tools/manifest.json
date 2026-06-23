@@ -1,0 +1,10 @@
+{
+  "id": "connect-agent-to-services-tools",
+  "name": "connect-agent-to-services-tools",
+  "description": "Connect your agent to 100+ services and 21 tools across the internet. Search, authenticate, and execute tools from Gmail, Slack, GitHub, Notion, Google Calendar, and more — plus workflows, agent management, and the Agent Web directory — all through a single API key.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "bot",
+  "order": 1000
+}

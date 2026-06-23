@@ -1,0 +1,10 @@
+{
+  "id": "ethics-crisis-triage",
+  "name": "ethics-crisis-triage",
+  "description": "Rapid multi-framework ethical assessment when something has already gone wrong — a data breach, a harmful outcome, a discriminatory incident, a policy failure, or any situation requiring an urgent ethical response. Use when the user is dealing with an active incident or has just discovered something went wrong. TRIGGERS: 'ethics triage', 'something went wrong', 'incident ethics', 'how do we handle this', any post-incident or mid-incident situation where the ethical dimensions of a response need to be worked out fast.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

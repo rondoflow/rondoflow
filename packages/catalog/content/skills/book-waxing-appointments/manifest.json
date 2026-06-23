@@ -1,0 +1,10 @@
+{
+  "id": "book-waxing-appointments",
+  "name": "book-waxing-appointments",
+  "description": "Book waxing services through Lokuli MCP. Use when user needs to find and book waxing. Triggers on requests like \"book a waxing\", \"find waxing near me\", or any waxing service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

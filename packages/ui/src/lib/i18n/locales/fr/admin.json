@@ -1,0 +1,158 @@
+{
+  "users": {
+    "title": "Utilisateurs",
+    "description": "Gérez qui peut accéder à cet espace de travail et ce qu'ils peuvent faire.",
+    "invite": {
+      "heading": "Inviter un utilisateur",
+      "placeholder": {
+        "name": "Nom",
+        "email": "E-mail",
+        "password": "Mot de passe temporaire (8 caractères ou plus)"
+      },
+      "submit": "Créer l'utilisateur",
+      "validation": "Un e-mail, un nom et un mot de passe d'au moins 8 caractères sont requis",
+      "created": "{{email}} créé"
+    },
+    "badge": {
+      "you": "Vous",
+      "deactivated": "Désactivé"
+    },
+    "role": {
+      "changed": "{{email}} est désormais {{role}}",
+      "selfTitle": "Vous ne pouvez pas modifier votre propre rôle",
+      "admin": {
+        "label": "administrateur",
+        "description": "Accès complet — gère les utilisateurs et tout ce qu'un éditeur peut faire"
+      },
+      "editor": {
+        "label": "éditeur",
+        "description": "Créer, modifier, supprimer et exécuter des workflows sur l'espace de travail partagé"
+      },
+      "viewer": {
+        "label": "lecteur",
+        "description": "Lecture seule — peut consulter mais ni modifier ni exécuter"
+      }
+    },
+    "action": {
+      "reactivate": "Réactiver",
+      "deactivate": "Désactiver",
+      "deleteUser": "Supprimer l'utilisateur"
+    },
+    "toast": {
+      "reactivated": "{{email}} réactivé",
+      "deactivated": "{{email}} désactivé",
+      "deleted": "{{email}} supprimé",
+      "requestFailed": "Échec de la requête"
+    },
+    "empty": "Aucun utilisateur pour le moment.",
+    "delete": {
+      "title": "Supprimer l'utilisateur ?",
+      "description": "Supprimer définitivement {{email}}. Son historique d'activité est conservé, mais il ne peut plus se connecter. Cette action est irréversible."
+    }
+  },
+  "mcp": {
+    "title": "Connexions MCP",
+    "description": "Gérez les serveurs externes Model Context Protocol",
+    "add": "Ajouter une connexion",
+    "empty": {
+      "title": "Aucune connexion pour le moment",
+      "description": "Ajoutez un serveur MCP pour étendre les capacités des assistants."
+    },
+    "list": {
+      "ariaLabel": "Connexions au serveur MCP"
+    },
+    "card": {
+      "editAria": "Modifier {{name}}",
+      "deleteAria": "Supprimer {{name}}",
+      "test": "Tester la connexion",
+      "testing": "Test…",
+      "connected": "Connecté",
+      "failed": "Échec"
+    },
+    "dialog": {
+      "addTitle": "Ajouter une connexion MCP",
+      "editTitle": "Modifier la connexion MCP",
+      "save": "Enregistrer la connexion"
+    },
+    "field": {
+      "name": "Nom",
+      "namePlaceholder": "ex. filesystem",
+      "description": "Description",
+      "descriptionPlaceholder": "Que fournit ce serveur ?",
+      "command": "Commande",
+      "commandPlaceholder": "npx, python, /usr/bin/my-server",
+      "args": "Arguments (séparés par des virgules)",
+      "argsPlaceholder": "-y, @modelcontextprotocol/server-filesystem, /tmp",
+      "env": "Variables d'environnement",
+      "envKeyPlaceholder": "CLÉ",
+      "envValuePlaceholder": "valeur",
+      "envAdd": "Ajouter",
+      "envRemoveAria": "Retirer la variable d'environnement",
+      "transport": "Transport",
+      "transportStdio": "Local (stdio)",
+      "transportHttp": "HTTP",
+      "transportSse": "SSE",
+      "url": "URL du serveur",
+      "urlPlaceholder": "https://example.com/mcp",
+      "auth": "Authentification",
+      "authNone": "Aucune",
+      "authBearer": "Jeton Bearer",
+      "authHeader": "En-tête",
+      "authOauth2": "OAuth2",
+      "token": "Jeton Bearer",
+      "tokenPlaceholder": "Collez le jeton ou le jeton d'accès OAuth",
+      "secretKeep": "•••••• (laisser vide pour conserver)",
+      "headerName": "Nom de l'en-tête",
+      "headerNamePlaceholder": "X-API-Key",
+      "headerValue": "Valeur de l'en-tête",
+      "headerValuePlaceholder": "valeur secrète",
+      "tokenUrl": "URL du jeton",
+      "tokenUrlPlaceholder": "https://example.com/oauth/token",
+      "clientId": "ID client",
+      "clientIdPlaceholder": "id client",
+      "clientSecret": "Secret client",
+      "clientSecretPlaceholder": "secret client",
+      "scope": "Portée",
+      "scopePlaceholder": "facultatif, séparés par des espaces",
+      "oauthHint": "Les jetons et secrets OAuth2 sont chiffrés au repos et envoyés à l'assistant au moment de l'exécution. L'authentification OAuth interactive via navigateur n'est pas prise en charge pour les assistants lancés — utilisez un jeton ou des identifiants client OAuth2."
+    }
+  },
+  "approval": {
+    "title": "Action requise",
+    "description": "Un assistant demande l'autorisation d'exécuter une commande. Examinez-la attentivement avant d'approuver.",
+    "waiting": "En attente d'approbation",
+    "intent": "Ce que l'assistant veut faire",
+    "command": "Commande",
+    "commandAria": "Commande à exécuter",
+    "editCommandAria": "Modifier la commande",
+    "edit": "Modifier et approuver",
+    "cancelEdit": "Annuler la modification",
+    "editToggleAria": "Modifier la commande avant d'approuver",
+    "approve": "Approuver",
+    "approveEdit": "Approuver la modification",
+    "approveAria": "Approuver cette commande",
+    "approveEditAria": "Approuver avec la commande modifiée",
+    "reject": "Rejeter",
+    "rejectAria": "Rejeter cette commande",
+    "shortcuts": "Entrée = Approuver · Échap = Rejeter",
+    "countdown": {
+      "label": "Fermeture automatique",
+      "autoDismissAria": "Fermeture automatique dans {{time}}"
+    },
+    "risk": {
+      "levelAria": "Niveau de risque : {{label}}",
+      "high": {
+        "label": "Risque élevé",
+        "reason": "Cette commande peut entraîner des modifications irréversibles."
+      },
+      "medium": {
+        "label": "Risque moyen",
+        "reason": "Cette commande modifie un état externe."
+      },
+      "low": {
+        "label": "Risque faible",
+        "reason": "Aucun motif destructeur évident détecté."
+      }
+    }
+  }
+}

@@ -1,0 +1,159 @@
+---
+title: External Folders
+description: Bind host directories into the RondoFlow container so Assistants can work on your real project files.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+# External Folders
+
+By default, an Assistant (internally an "agent") works inside RondoFlow's own Workspace (internally a "canvas"). **External Folders** let you point it at a real directory on your machine — a Git repo, a docs tree, a data folder — so the Assistant can read, edit, and run commands against your actual files.
+
+Because the RondoFlow server runs inside Docker, host directories are not visible to the container automatically. An External Folder is the bridge: you bind-mount a host path into the container once, then **register** the in-container path so RondoFlow knows about it and can attach it to Assistants.
+
+## How it works
+
+There are two layers, and both must be in place:
+
+| Layer | Where | What it does |
+| --- | --- | --- |
+| Bind mount | `docker-compose.yml` / `.env` | Makes a host directory visible inside the container |
+| Registration | RondoFlow UI (External Folders panel) | Records the in-container path so Assistants can use it |
+
+The server mounts a single host root into the container at a fixed in-container root (default `/external`). Every registered folder **must live under that root** — that confinement is enforced server-side and is what keeps Assistants from reaching arbitrary container paths.
+
+## Each External Folder has
+
+| Field | Notes |
+| --- | --- |
+| **Name** | Friendly display label. Defaults to the folder's last path segment. |
+| **Container path** | The absolute in-container path (e.g. `/external/my-project`). Validated and stored as its canonical (realpath-resolved) form. Must be unique and immutable after creation. |
+| **Description** | Optional free text. |
+| **Read-only** | An advisory UI label only — it does **not** itself prevent writes (see below). |
+| **Priority** | Set per attachment, per Assistant. Lower numbers come first; the first folder becomes the Assistant's working directory. |
+
+<Callout type="info">
+A registered folder is shared across the whole RondoFlow instance. Attaching it to an Assistant is a separate, per-Assistant action with its own **priority** and **enabled** flag — so the same folder can be attached to several Assistants at different priorities.
+</Callout>
+
+## The Docker model
+
+The `server` service in `docker-compose.yml` binds your host root to `/external`:
+
+```yaml
+server:
+  environment:
+    # In-container root that registered external folders must live under.
+    EXTERNAL_FOLDERS_CONTAINER_ROOT: ${EXTERNAL_FOLDERS_CONTAINER_ROOT:-/external}
+  volumes:
+    - ${EXTERNAL_FOLDERS_HOST_PATH:-./external}:/external:rw
+```
+
+Two environment variables control this:
+
+| Variable | Default | Meaning |
+| --- | --- | --- |
+| `EXTERNAL_FOLDERS_HOST_PATH` | `./external` | The host directory bound into the container. Drop project folders under it and they appear in the UI automatically. |
+| `EXTERNAL_FOLDERS_CONTAINER_ROOT` | `/external` | The in-container root every registered folder must resolve under. |
+
+The simplest setup is to set `EXTERNAL_FOLDERS_HOST_PATH` in your `.env` to a directory that holds your projects, then restart the server. Each subdirectory under it becomes a candidate folder in the UI — for example, a host `~/projects/foo` shows up at container path `/external/foo`.
+
+If you'd rather expose specific host paths individually, add more bind mounts under `/external` directly in `docker-compose.yml`:
+
+```yaml
+volumes:
+  - /home/me/projects/foo:/external/foo:rw   # read-write
+  - /mnt/data/bar:/external/bar:ro           # read-only (the real write guardrail)
+```
+
+<Callout type="warning">
+Any path you bind in must land **under** `/external` (the container root). Registration rejects paths that resolve outside the root — including symlinks inside `/external` that point elsewhere — and rejects `..` traversal segments. After editing `docker-compose.yml` or `.env`, restart the `server` container so the new mounts take effect.
+</Callout>
+
+## What registration validates
+
+When you register a folder, the server runs `validateContainerPath` before storing anything. The container path must:
+
+- be an **absolute** path (relative paths are rejected),
+- contain no `..` traversal segments,
+- **exist** in the container (if it doesn't, you'll see *"Path does not exist in the container … Did you add the bind mount and restart the server?"*),
+- be a **directory**, not a file, and
+- resolve — after following symlinks — **under** the external folders root.
+
+The path that gets stored is always the canonical real path (symlinks resolved). Registering the same resolved path twice fails with *"A folder with that path is already registered."*
+
+## Registering a folder in the UI
+
+Open the **External Folders** panel — a left-side sheet — from the workflow toolbar, or from an Assistant's editor to register and attach in one step.
+
+<Steps>
+### Mount the folder
+
+Make sure the host directory is bound into the container (see above) and the server has restarted. Mounted subdirectories of the root are detected automatically.
+
+### Open the panel and refresh
+
+The panel lists folders that are already registered, plus a refresh button that re-scans the mount root. If nothing is mounted yet, you'll see setup instructions and, when the root itself is missing, a notice that the mount root is not present in the container.
+
+### Register a folder
+
+Click **Register a folder**. You can pick a detected mount from the dropdown (this fills in the path and suggests a name) or type a container path such as `/external/my-project`. Set a display name, an optional description, and toggle **Read-only** if you want to mark it read-only. Click **Register**.
+
+### Attach it to an Assistant
+
+If you opened the panel from an Assistant, registering (or clicking **Attach** on an existing folder) adds it to that Assistant automatically, with the next available priority. Otherwise, attach folders from the Assistant's editor.
+</Steps>
+
+<Callout type="info">
+The container path is locked once a folder is registered — you can rename it, change its description, or flip the read-only label later, but not re-point it. Deleting a folder also removes it from every Assistant it was attached to.
+</Callout>
+
+<Callout type="info">
+**Who can manage folders.** Registering, editing, deleting, and attaching External Folders requires the **editor** (or admin) role — these are mutating routes behind RondoFlow's default-deny capability gate, so they need the `write` capability. Viewers have read-only access: they can see the registered folders but cannot create, change, or attach them.
+</Callout>
+
+## How Assistants use attached folders
+
+When RondoFlow starts (internally "spawns") an Assistant, the prompt builder loads its enabled External Folders, ordered by priority. For each attached folder it:
+
+- Adds the folder to the Assistant's accessible directories so it can read, edit, and run Git/Bash commands against those files.
+- Makes the **first** folder (lowest priority) the Assistant's working directory, so `git` and relative-path commands operate inside it. An Assistant's External Folder takes precedence over the Workspace working directory.
+- Silently **drops** any folder whose path no longer exists in the container (for example, a mount removed after registration) rather than failing the run.
+
+This means priority does double duty: it both orders the directories and selects which one is "home" for the Assistant.
+
+## Read-only and untrusted code
+
+<Callout type="warning">
+**The read-only flag is advisory only — it does not stop writes.** It's a UI label and a reminder; the spawner never consults it when building an Assistant's accessible directories. An Assistant attached to a folder marked read-only can still write to it. The **only** real write guardrail is the Docker bind-mount mode: mount the host path with `:ro` (read-only) instead of `:rw`. Use the read-only flag to *signal intent*, but rely on `:ro` to *enforce* it.
+</Callout>
+
+<Callout type="warning">
+A read-write External Folder gives the Assistant real write and command-execution access to those host files. If the folder contains untrusted code or sensitive data, treat the Assistant like any process running with full access to it: mount it `:ro`, scope folders narrowly, and pair them with strict [Safety Rules](/docs/guides/safety-rules) and a conservative permission mode. The `:ro` bind-mount option is your strongest guardrail — apply it to anything you don't want modified, and use the read-only flag as a visible label alongside it.
+</Callout>
+
+## API reference
+
+External Folders are managed through these endpoints (all using the standard `{ success, data?, error? }` envelope). The `GET` endpoints are open to any authenticated user; the mutating endpoints require the `write` capability (editor+):
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/external-folders` | List registered folders |
+| `GET` | `/api/external-folders/available` | Scan the mount root for detectable folders |
+| `POST` | `/api/external-folders` | Register a folder (validates the container path) |
+| `PATCH` | `/api/external-folders/:id` | Update name, description, or read-only |
+| `DELETE` | `/api/external-folders/:id` | Remove a folder and its attachments |
+| `POST` | `/api/agents/:agentId/external-folders/:folderId` | Attach to an Assistant (with `priority`, `enabled`) |
+| `DELETE` | `/api/agents/:agentId/external-folders/:folderId` | Detach from an Assistant |
+
+`GET /api/external-folders/available` never throws — it returns `{ rootExists, root, candidates[] }`. When the mount root is missing in the container it returns `rootExists: false` with an empty `candidates` list, which is what drives the panel's "mount root not present" notice. Each candidate is `{ name, containerPath }`.
+
+See the [API reference](/docs/reference/api) and [data model](/docs/reference/data-model) for full details.
+
+## Related
+
+- [Resources](/docs/guides/resources) — share files and context across a Workspace.
+- [Git](/docs/guides/git) — run Git workflows against an attached folder.
+- [Safety Rules](/docs/guides/safety-rules) — constrain what an Assistant can do.
+- [Configuration](/docs/getting-started/configuration) — set environment variables like `EXTERNAL_FOLDERS_HOST_PATH`.

@@ -1,0 +1,10 @@
+{
+  "id": "robust-java-coding-guidance",
+  "name": "robust-java-coding-guidance",
+  "description": "Write robust Java avoiding null traps, equality bugs, and concurrency pitfalls.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

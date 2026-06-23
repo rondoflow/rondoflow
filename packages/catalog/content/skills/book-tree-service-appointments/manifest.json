@@ -1,0 +1,10 @@
+{
+  "id": "book-tree-service-appointments",
+  "name": "book-tree-service-appointments",
+  "description": "Book tree-service services through Lokuli MCP. Use when user needs to find and book tree-service. Triggers on requests like \"book a tree-service\", \"find tree-service near me\", or any tree-service service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

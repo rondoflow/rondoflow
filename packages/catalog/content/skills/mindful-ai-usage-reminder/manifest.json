@@ -1,0 +1,10 @@
+{
+  "id": "mindful-ai-usage-reminder",
+  "name": "mindful-ai-usage-reminder",
+  "description": "Gentle reminders to stay human while using AI. Reflection, not restriction.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

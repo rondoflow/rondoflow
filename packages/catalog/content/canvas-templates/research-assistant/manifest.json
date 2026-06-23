@@ -1,0 +1,38 @@
+{
+  "id": "research-assistant",
+  "name": "Research Assistant",
+  "description": "Solo research bot equipped with web search and data analysis skills.",
+  "icon": "Search",
+  "order": 2,
+  "nodes": [
+    {
+      "key": "bot",
+      "type": "agent",
+      "position": { "x": 350, "y": 200 },
+      "name": "Research Bot",
+      "description": "Conducts in-depth research across multiple sources",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "web-search",
+      "type": "skill",
+      "position": { "x": 100, "y": 350 },
+      "name": "Web Search",
+      "icon": "search",
+      "category": "information"
+    },
+    {
+      "key": "data-analysis",
+      "type": "skill",
+      "position": { "x": 600, "y": 350 },
+      "name": "Data Analysis",
+      "icon": "bar-chart",
+      "category": "analysis"
+    }
+  ],
+  "edges": [
+    { "source": "web-search", "target": "bot", "edgeType": "association" },
+    { "source": "data-analysis", "target": "bot", "edgeType": "association" }
+  ]
+}

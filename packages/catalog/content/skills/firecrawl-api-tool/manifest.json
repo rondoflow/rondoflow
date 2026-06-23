@@ -1,0 +1,10 @@
+{
+  "id": "firecrawl-api-tool",
+  "name": "firecrawl-api-tool",
+  "description": "Firecrawl API integration with managed authentication. Scrape, crawl, map, and search web content. Use this skill when users want to extract content from websites, crawl entire sites, map URLs, or search the web. For other third party apps, use the api-gateway skill (https://cla…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

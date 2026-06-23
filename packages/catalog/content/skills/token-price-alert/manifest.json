@@ -1,0 +1,10 @@
+{
+  "id": "token-price-alert",
+  "name": "token-price-alert",
+  "description": "🚨 **Monitor session tokens and get alerts at 75%/90%/95%**",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "coins",
+  "order": 1000
+}

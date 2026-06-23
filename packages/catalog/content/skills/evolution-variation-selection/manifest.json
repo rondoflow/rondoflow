@@ -1,0 +1,10 @@
+{
+  "id": "evolution-variation-selection",
+  "name": "evolution-variation-selection",
+  "description": "Applies the variation-selection-retention triad to understand how populations and strategies adapt over time. Triggers: 'how does this evolve', 'what gets selected for', 'why do some strategies persist and others die out', 'population dynamics', 'selection pressure', 'what survives in this environment', 'who wins over time'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

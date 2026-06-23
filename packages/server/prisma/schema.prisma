@@ -1,0 +1,614 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum AgentStatus {
+  idle
+  running
+  waiting_approval
+  error
+}
+
+enum PolicyLevel {
+  global
+  agent
+  session
+}
+
+enum SkillSource {
+  marketplace
+  git
+  custom
+}
+
+enum DiscussionFormat {
+  brainstorm
+  review
+  deliberation
+}
+
+enum DiscussionStatus {
+  draft
+  active
+  concluded
+}
+
+enum ParticipantRole {
+  participant
+  observer
+  devil_advocate
+}
+
+enum MessageRole {
+  user
+  assistant
+  system
+  tool
+}
+
+enum StoryStatus {
+  pending
+  in_progress
+  passed
+  failed
+}
+
+// ─── Auth models (Better Auth) ──────────────────────────────────────────────
+
+// Global capability role (viewer < editor < admin). Distinct from the
+// agent-security "Policy" domain and the UI complexity "tier".
+enum UserRole {
+  admin
+  editor
+  viewer
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  name          String
+  image         String?
+  role          UserRole  @default(viewer)
+  banned        Boolean   @default(false)
+  banReason     String?
+  banExpires    DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions      Session[]
+  accounts      Account[]
+  workspaces    Workspace[]     @relation("WorkspaceOwner")
+  agents        Agent[]         @relation("AgentOwner")
+}
+
+model Session {
+  id             String   @id @default(uuid())
+  userId         String
+  token          String   @unique
+  expiresAt      DateTime
+  ipAddress      String?
+  userAgent      String?
+  impersonatedBy String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("auth_session")
+}
+
+model Account {
+  id                    String    @id @default(uuid())
+  userId                String
+  providerId            String
+  accountId             String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id @default(uuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// ─── Domain models ──────────────────────────────────────────────────────────
+
+model Agent {
+  id              String       @id @default(uuid())
+  name            String
+  avatar          String?
+  description     String?
+  persona         String       @db.Text
+  purpose         String?
+  scope           String[]
+  allowedTools    String[]
+  memoryEnabled   Boolean      @default(false)
+  model           String?
+  provider        String       @default("claude-code")
+  providerConfig  Json?
+  status          AgentStatus  @default(idle)
+  permissionMode  String       @default("default")
+  loopEnabled     Boolean      @default(false)
+  loopCriteria    Json?
+  maxIterations   Int          @default(10)
+  teamEnabled     Boolean      @default(false)
+  isFavorite      Boolean      @default(false)
+  isFacilitator   Boolean      @default(false)
+  canvasX         Float        @default(0)
+  canvasY         Float        @default(0)
+  userId          String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  owner              User?            @relation("AgentOwner", fields: [userId], references: [id])
+  skills             AgentSkill[]
+  policies           Policy[]
+  memories           Memory[]
+  sessions           AgentSession[]
+  participations     TableParticipant[]
+  moderatedTables    DiscussionTable[]   @relation("moderator")
+  mcpAssignments     AgentMcpServer[]
+  externalFolders    AgentExternalFolder[]
+
+  @@index([userId])
+}
+
+model Skill {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  description String
+  source      SkillSource
+  gitUrl      String?
+  path        String
+  version     String?
+  author      String?
+  category    String?
+  icon        String?
+  mcpConfig   Json?
+  installedAt DateTime    @default(now())
+
+  agents AgentSkill[]
+}
+
+model AgentSkill {
+  agentId  String
+  skillId  String
+  priority Int     @default(0)
+  enabled  Boolean @default(true)
+
+  agent Agent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  skill Skill @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@id([agentId, skillId])
+}
+
+// A host directory bind-mounted into the server container and exposed to agents.
+// containerPath is the in-container path (must resolve under EXTERNAL_FOLDERS_CONTAINER_ROOT).
+model ExternalFolder {
+  id            String   @id @default(uuid())
+  name          String
+  description   String?
+  containerPath String   @unique
+  readOnly      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  agents AgentExternalFolder[]
+}
+
+model AgentExternalFolder {
+  agentId          String
+  externalFolderId String
+  priority         Int     @default(0)
+  enabled          Boolean @default(true)
+
+  agent          Agent          @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  externalFolder ExternalFolder @relation(fields: [externalFolderId], references: [id], onDelete: Cascade)
+
+  @@id([agentId, externalFolderId])
+}
+
+model Policy {
+  id        String      @id @default(uuid())
+  name      String
+  level     PolicyLevel
+  rules     Json
+  agentId   String?
+  sessionId String?
+  createdAt DateTime    @default(now())
+
+  agent   Agent?        @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  session AgentSession? @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+}
+
+model AgentSession {
+  id        String    @id @default(uuid())
+  agentId   String?
+  tableId   String?
+  startedAt DateTime  @default(now())
+  endedAt   DateTime?
+
+  agent    Agent?           @relation(fields: [agentId], references: [id])
+  table    DiscussionTable? @relation(fields: [tableId], references: [id])
+  messages Message[]
+  policies Policy[]
+
+  // FK columns are not auto-indexed by Postgres. /api/sessions filters by
+  // agentId + orders by startedAt; discussions look sessions up by tableId.
+  @@index([agentId, startedAt])
+  @@index([tableId])
+  @@map("Session")
+}
+
+model Message {
+  id         String      @id @default(uuid())
+  sessionId  String
+  role       MessageRole
+  content    String
+  toolUse    Json?
+  rawEvent   Json?
+  tokenCount Int?
+  timestamp  DateTime    @default(now())
+
+  session AgentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, timestamp])
+}
+
+model DiscussionTable {
+  id           String           @id @default(uuid())
+  name         String
+  topic        String
+  format       DiscussionFormat
+  moderatorId  String
+  status       DiscussionStatus @default(draft)
+  conclusion   String?
+  maxRounds    Int              @default(5)
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  moderator    Agent              @relation("moderator", fields: [moderatorId], references: [id])
+  participants TableParticipant[]
+  sessions     AgentSession[]
+}
+
+model TableParticipant {
+  tableId String
+  agentId String
+  role    ParticipantRole @default(participant)
+
+  table DiscussionTable @relation(fields: [tableId], references: [id], onDelete: Cascade)
+  agent Agent           @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@id([tableId, agentId])
+}
+
+model Memory {
+  id          String   @id @default(uuid())
+  agentId     String?
+  workspaceId String?
+  scope       String   @default("agent") // 'agent' | 'workspace'
+  source      String   @default("manual") // 'manual' | 'auto' | 'director'
+  key         String
+  value       String
+  pinned      Boolean  @default(false)
+  importance  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  agent     Agent?     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  workspace Workspace? @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  // Keep [agentId, key] first so Prisma preserves the generated constraint name
+  // `Memory_agentId_key_key` and the `agentId_key` upsert input the agent route + Director rely on.
+  @@unique([agentId, key])
+  @@unique([workspaceId, key])
+  @@index([workspaceId, pinned])
+  @@index([agentId, pinned])
+  @@index([scope, source])
+}
+
+enum ResourceType {
+  file
+  url
+  note
+  variable
+}
+
+model Workspace {
+  id               String   @id @default(uuid())
+  name             String
+  contextDocument  String?
+  planDocument     String?
+  workingDirectory String?
+  userId           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  owner         User?              @relation("WorkspaceOwner", fields: [userId], references: [id])
+  canvasLayouts CanvasLayout[]
+  resources     WorkspaceResource[]
+  memories      Memory[]
+
+  @@index([userId])
+}
+
+model WorkspaceResource {
+  id          String       @id @default(uuid())
+  workspaceId String
+  type        ResourceType
+  name        String
+  description String?
+  filePath    String?
+  fileSize    Int?
+  mimeType    String?
+  url         String?
+  content     String?
+  varKey      String?
+  varValue    String?
+  isSecret    Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  workspace   Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId, type])
+}
+
+model CanvasLayout {
+  id          String   @id @default(uuid())
+  name        String   @default("default")
+  workspaceId String
+  viewport    Json
+  nodes       Json
+  edges       Json
+  updatedAt   DateTime @updatedAt
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+}
+
+model McpServer {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  type        String   @default("stdio") // 'stdio' | 'http' | 'sse'
+  command     String? // stdio transport only
+  args        String[]
+  env         Json?
+  url         String? // http/sse transport only
+  auth        Json? // { type, ... } — secret fields encrypted at rest
+  createdAt   DateTime @default(now())
+
+  agents AgentMcpServer[]
+}
+
+model AgentMcpServer {
+  agentId     String
+  mcpServerId String
+
+  agent     Agent     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  mcpServer McpServer @relation(fields: [mcpServerId], references: [id], onDelete: Cascade)
+
+  @@id([agentId, mcpServerId])
+}
+
+// ─── Activity Feed ──────────────────────────────────────────────────────────
+
+model ActivityEvent {
+  id          String   @id @default(uuid())
+  userId      String?
+  workspaceId String?
+  agentId     String?
+  type        String
+  title       String
+  detail      String?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([workspaceId, createdAt])
+}
+
+// ─── Cost Tracking ──────────────────────────────────────────────────────────
+
+model SessionUsage {
+  id        String   @id @default(uuid())
+  sessionId String
+  agentId   String?
+  workspaceId String?
+  model     String?
+  inputTokens  Int   @default(0)
+  outputTokens Int   @default(0)
+  costUsd      Float @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([agentId, createdAt])
+  @@index([sessionId])
+  @@index([workspaceId, createdAt])
+}
+
+// ─── Artifacts ──────────────────────────────────────────────────────────────
+
+model Artifact {
+  id        String   @id @default(uuid())
+  sessionId String
+  fileName  String
+  filePath  String
+  fileSize  Int?
+  mimeType  String?
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+}
+
+// ─── PRD & Stories ──────────────────────────────────────────────────────────
+
+model PRD {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  stories   Story[]
+}
+
+model Story {
+  id                 String      @id @default(uuid())
+  prdId              String
+  title              String
+  acceptanceCriteria String
+  status             StoryStatus @default(pending)
+  priority           Int         @default(0)
+
+  prd PRD @relation(fields: [prdId], references: [id], onDelete: Cascade)
+
+  @@index([prdId, priority])
+}
+
+model ChainRun {
+  id             String    @id @default(uuid())
+  chainId        String    @unique
+  workspaceId    String?
+  initialMessage String
+  status         String    @default("running")
+  totalSteps     Int       @default(0)
+  createdAt      DateTime  @default(now())
+  completedAt    DateTime?
+  steps          ChainStepResult[]
+  events         ChainRunEvent[]
+
+  @@index([createdAt])
+  @@index([workspaceId, createdAt])
+}
+
+// Append-only transcript of a chain run: every log-relevant event (step start,
+// tool use/result, step completion, director decisions, errors, completion) is
+// recorded in order so the full execution log can be replayed after a refresh,
+// matching what was shown live. Streamed text deltas are NOT stored per-delta;
+// the final per-step output lives on ChainStepResult.output instead.
+model ChainRunEvent {
+  id         String   @id @default(uuid())
+  chainRunId String
+  seq        Int
+  type       String
+  stepIndex  Int?
+  agentId    String?
+  agentName  String?
+  payload    Json?
+  createdAt  DateTime @default(now())
+  chainRun   ChainRun @relation(fields: [chainRunId], references: [id], onDelete: Cascade)
+
+  @@index([chainRunId, seq])
+}
+
+model ChainStepResult {
+  id          String    @id @default(uuid())
+  chainRunId  String
+  stepIndex   Int
+  agentId     String
+  agentName   String?
+  output      String    @default("")
+  tokensIn    Int       @default(0)
+  tokensOut   Int       @default(0)
+  costUsd     Float     @default(0)
+  status      String    @default("running")
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  chainRun    ChainRun  @relation(fields: [chainRunId], references: [id], onDelete: Cascade)
+
+  @@index([chainRunId])
+}
+
+// A structured dataset produced by a canvas Structurer node and persisted by a
+// Save-to-DB node. Rows live in the StructuredRow child table so they stay
+// queryable/paginatable. chainRunId/workspaceId are plain string correlators (no
+// FK churn), mirroring how ChainStepResult.agentId references an agent by string.
+model StructuredDataset {
+  id             String          @id @default(uuid())
+  workspaceId    String?
+  chainRunId     String?
+  nodeId         String
+  name           String
+  format         String
+  schema         Json
+  rowCount       Int             @default(0)
+  sourceAgentIds String[]
+  createdAt      DateTime        @default(now())
+  rows           StructuredRow[]
+
+  @@index([workspaceId, createdAt])
+  @@index([chainRunId])
+}
+
+model StructuredRow {
+  id        String            @id @default(uuid())
+  datasetId String
+  idx       Int
+  data      Json
+  dataset   StructuredDataset @relation(fields: [datasetId], references: [id], onDelete: Cascade)
+
+  @@index([datasetId, idx])
+}
+
+model SavedWorkflow {
+  id          String   @id @default(uuid())
+  name        String
+  description String   @default("")
+  workflow    Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ScheduledTask {
+  id              String    @id @default(uuid())
+  name            String
+  description     String    @default("")
+  type            String    // 'workflow' | 'agent'
+  targetId        String    // SavedWorkflow.id or Agent.id
+  message         String    @default("")
+  schedule        String    // cron expression e.g. "0 9 * * 1-5"
+  timezone        String    @default("UTC")
+  enabled         Boolean   @default(true)
+  directorEnabled  Boolean   @default(false)
+  lastRunAt       DateTime?
+  nextRunAt       DateTime?
+  lastStatus      String?   // 'success' | 'error' | 'running'
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Scheduler boot scans `where: { enabled: true }`; the index keeps that off a
+  // sequential scan as scheduled tasks accumulate.
+  @@index([enabled, nextRunAt])
+}
+
+// ─── Instance settings ──────────────────────────────────────────────────────
+// Global key/value config managed via the UI (credentials, etc.).
+// Values are AES-256-GCM encrypted at rest (iv:tag:ciphertext) — see resources/encryption.ts.
+model Setting {
+  key       String   @id          // e.g. "ANTHROPIC_API_KEY"
+  value     String                // encrypted ciphertext
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

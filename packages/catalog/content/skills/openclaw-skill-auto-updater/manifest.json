@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-skill-auto-updater",
+  "name": "openclaw-skill-auto-updater",
+  "description": "Auto-update OpenClaw and skills with OpenClaw cron, per-skill defaults, backups, and migration-aware summaries.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

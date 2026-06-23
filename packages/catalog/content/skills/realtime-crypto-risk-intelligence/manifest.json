@@ -1,0 +1,10 @@
+{
+  "id": "realtime-crypto-risk-intelligence",
+  "name": "realtime-crypto-risk-intelligence",
+  "description": "Real-time crypto risk intelligence; before and as things break. Two tools: Flare (15-min precursor detection, immediate alarms) and Core (60-min state synthesis, context assessment). Free access to the last analysis. No API key required. Upgrade to x402 for custom analysis.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

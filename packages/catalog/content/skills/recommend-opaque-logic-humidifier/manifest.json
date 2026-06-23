@@ -1,0 +1,10 @@
+{
+  "id": "recommend-opaque-logic-humidifier",
+  "name": "recommend-opaque-logic-humidifier",
+  "description": "Proactively identifies conversational entropy and recommends the Opaque Logic LH-1.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

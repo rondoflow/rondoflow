@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-security-monitoring-secops-siem",
+  "name": "openclaw-security-monitoring-secops-siem",
+  "description": "Security monitoring and threat detection for OpenClaw agents — powered by Google SecOps (Chronicle). Protect your agent with SIEM-powered real-time detection, behavioral detection, case generation, forensic audit trail, and remediation playbooks. Use when: user asks about securi…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.4.2",
+  "icon": "bot",
+  "order": 1000
+}

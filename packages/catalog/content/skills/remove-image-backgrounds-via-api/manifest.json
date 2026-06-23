@@ -1,0 +1,10 @@
+{
+  "id": "remove-image-backgrounds-via-api",
+  "name": "remove-image-backgrounds-via-api",
+  "description": "Remove image backgrounds using the remove.bg API with API-key auth and transparent PNG output. Use when high-quality cutouts are needed and cloud processing is acceptable.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "investment-due-diligence-portfolio-management",
+  "name": "investment-due-diligence-portfolio-management",
+  "description": "Evaluate opportunities, conduct due diligence, and manage portfolios with sound investment principles.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ksef-einvoice-accounting-polish",
+  "name": "ksef-einvoice-accounting-polish",
+  "description": "Asystent ksiegowy Krajowego Systemu e-Faktur (KSeF) w jezyku polskim. Uzyj przy pracy z KSeF 2.0 API, fakturami FA(3), zgodnoscia z polskim VAT, przetwarzaniem e-faktur, dopasowywaniem platnosci, rejestrami VAT (JPK_V7), fakturami korygujacymi, mechanizmem podzielonej platnosci…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.2.6",
+  "icon": "coins",
+  "order": 1000
+}

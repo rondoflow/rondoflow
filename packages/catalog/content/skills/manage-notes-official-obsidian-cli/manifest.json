@@ -1,0 +1,10 @@
+{
+  "id": "manage-notes-official-obsidian-cli",
+  "name": "manage-notes-official-obsidian-cli",
+  "description": "Work with Obsidian vaults using the official Obsidian CLI (v1.12+). Open, search, create, move, and manage notes from the terminal. Use when working with Obsidian vaults for note management, file operations, searching content, managing tasks, properties, links, plugins, themes,…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

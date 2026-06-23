@@ -1,0 +1,10 @@
+{
+  "id": "extract-structured-web-data",
+  "name": "extract-structured-web-data",
+  "description": "Extract structured information from websites using web_fetch for simple pages and browser automation for dynamic sites, login-gated flows, pagination, infinite scroll, or pages that require clicking/searching/filtering. Use when the user asks to scrape a site, collect listings,…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

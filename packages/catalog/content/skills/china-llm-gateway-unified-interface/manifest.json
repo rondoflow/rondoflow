@@ -1,0 +1,10 @@
+{
+  "id": "china-llm-gateway-unified-interface",
+  "name": "china-llm-gateway-unified-interface",
+  "description": "China LLM Gateway - Unified interface for Chinese LLMs including Qwen, DeepSeek, GLM, Baichuan. OpenAI compatible, one API Key for all models.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

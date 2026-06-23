@@ -1,0 +1,10 @@
+{
+  "id": "strategy-deception",
+  "name": "strategy-deception",
+  "description": "Manages information asymmetry in legitimate competitive contexts — what to protect, what impressions work in your favor, and what your opponent may be concealing from you. Triggers: 'conceal my position', 'information asymmetry', 'misdirection', 'what should I reveal vs conceal', 'negotiation deception', 'strategic ambiguity', 'manage what they know about me', 'read their signals'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

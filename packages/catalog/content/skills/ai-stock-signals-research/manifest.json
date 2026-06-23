@@ -1,0 +1,10 @@
+{
+  "id": "ai-stock-signals-research",
+  "name": "ai-stock-signals-research",
+  "description": "Check AI signals, read multi-analyst research, and track prediction accuracy for 390+ stocks, ETFs, and crypto. 6 AI analysts with opposing biases debate markets daily. Use for market outlook, stock analysis, buy/sell decisions, or verifying AI prediction track records. Free API…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.8.2",
+  "icon": "coins",
+  "order": 1000
+}

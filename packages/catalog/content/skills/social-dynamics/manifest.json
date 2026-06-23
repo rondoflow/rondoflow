@@ -1,0 +1,10 @@
+{
+  "id": "social-dynamics",
+  "name": "social-dynamics",
+  "description": "Entry point for the social dynamics toolkit. Routes to the right social skill based on your situation. Use when you say 'social', 'people', 'politics', 'who decides', 'group dynamics', 'who do I need to get on board', 'follow the incentives', 'who has power', or want social/organizational reasoning applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

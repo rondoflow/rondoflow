@@ -1,0 +1,10 @@
+{
+  "id": "secure-key-management-for-agents",
+  "name": "secure-key-management-for-agents",
+  "description": "Secure key management for AI agents. Use when handling private keys, API secrets, wallet credentials, or when building systems that need agent-controlled funds. Covers secure storage, session keys, leak prevention, prompt injection defense, and MetaMask Delegation Framework inte…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "coins",
+  "order": 1000
+}

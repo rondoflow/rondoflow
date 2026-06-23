@@ -1,0 +1,10 @@
+{
+  "id": "investigation-claim-decomposition",
+  "name": "investigation-claim-decomposition",
+  "description": "Breaks a complex claim into its smallest independently verifiable parts, classifies each sub-claim, and identifies which parts carry the most logical load. Use when a claim feels too big to verify as a unit — 'what exactly is this claiming', 'break this down', 'what are the hidden assumptions in this statement', 'this seems like multiple claims at once', 'what would I need to verify to believe this'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

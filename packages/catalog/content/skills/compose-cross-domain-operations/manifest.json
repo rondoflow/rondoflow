@@ -1,0 +1,10 @@
+{
+  "id": "compose-cross-domain-operations",
+  "name": "compose-cross-domain-operations",
+  "description": "Navigate problems along lines of flight by composing operations from arbitrary domains. Operations are deterritorialized capacities—they don't belong to their origin domains. Mycorrhizal signaling + ham radio protocols + rare book dealer networks can compose into a single assemb…",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

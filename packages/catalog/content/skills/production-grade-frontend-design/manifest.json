@@ -1,0 +1,10 @@
+{
+  "id": "production-grade-frontend-design",
+  "name": "production-grade-frontend-design",
+  "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or…",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "globe",
+  "order": 1000
+}

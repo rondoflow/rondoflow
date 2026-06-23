@@ -1,0 +1,10 @@
+{
+  "id": "full-react-19-engineering",
+  "name": "full-react-19-engineering",
+  "description": "Full React 19 engineering, architecture, Server Components, hooks, Zustand, TanStack Query, forms, performance, testing, production deploy.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "server",
+  "order": 1000
+}

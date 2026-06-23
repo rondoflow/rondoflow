@@ -1,0 +1,10 @@
+{
+  "id": "book-tutor-sessions",
+  "name": "book-tutor-sessions",
+  "description": "Book tutor services through Lokuli MCP. Use when user needs to find and book tutor. Triggers on requests like \"book a tutor\", \"find tutor near me\", or any tutor service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

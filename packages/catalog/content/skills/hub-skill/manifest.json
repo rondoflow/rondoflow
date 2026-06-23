@@ -1,0 +1,10 @@
+{
+  "id": "hub-skill",
+  "name": "hub-skill",
+  "description": "Xrouter is an open-source inference router that sits between OpenClaw and your LLM providers. It uses a fast, hardware-aware classifier to route each request to the most cost-effective model that can handle the task.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.4",
+  "icon": "bot",
+  "order": 1000
+}

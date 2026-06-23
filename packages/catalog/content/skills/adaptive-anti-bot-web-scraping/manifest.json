@@ -1,0 +1,10 @@
+{
+  "id": "adaptive-anti-bot-web-scraping",
+  "name": "adaptive-anti-bot-web-scraping",
+  "description": "Adaptive web scraping framework with anti-bot bypass and spider crawling.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "code",
+  "order": 1000
+}

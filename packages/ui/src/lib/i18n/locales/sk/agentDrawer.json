@@ -1,0 +1,287 @@
+{
+  "purpose": {
+    "general": "Všeobecné",
+    "writing": "Písanie",
+    "coding": "Programovanie",
+    "analysis": "Analýza",
+    "chat": "Konverzácia",
+    "review": "Kontrola",
+    "research": "Výskum",
+    "creative": "Kreatívne",
+    "data": "Dáta"
+  },
+  "tool": {
+    "read": "Čítať súbory",
+    "write": "Zapisovať súbory",
+    "edit": "Upravovať súbory",
+    "bash": "Spúšťať príkazy (Bash)",
+    "glob": "Hľadať súbory (Glob)",
+    "grep": "Prehľadávať obsah (Grep)",
+    "ls": "Vypísať adresáre (LS)",
+    "webFetch": "Načítať webové stránky (WebFetch)",
+    "webSearch": "Vyhľadávať na webe (WebSearch)",
+    "todoWrite": "Spravovať zoznam úloh (TodoWrite)"
+  },
+  "permissionMode": {
+    "default": {
+      "label": "Predvolené",
+      "description": "Štandardné kontroly oprávnení"
+    },
+    "edit": {
+      "label": "Prijímať úpravy",
+      "description": "Automaticky prijímať úpravy súborov (bez bash/git)"
+    },
+    "full": {
+      "label": "Plný prístup",
+      "description": "Čítať, zapisovať a spúšťať git/bash bez výziev"
+    }
+  },
+  "status": {
+    "idle": "Nečinné",
+    "running": "Beží",
+    "waiting": "Čaká",
+    "error": "Chyba"
+  },
+  "tab": {
+    "configure": "Konfigurovať",
+    "capabilities": "Schopnosti",
+    "safety": "Bezpečnosť",
+    "history": "História"
+  },
+  "field": {
+    "name": "Názov",
+    "description": "Popis",
+    "purpose": "Účel",
+    "model": "Model",
+    "tools": "Nástroje",
+    "customModelId": "Vlastné ID modelu"
+  },
+  "placeholder": {
+    "name": "Názov asistenta",
+    "description": "Čo tento asistent robí?",
+    "persona": "Si nápomocný asistent, ktorý...",
+    "customModel": "claude-opus-4-5",
+    "scopePath": "/cesta/k/adresáru"
+  },
+  "hint": {
+    "personaSystemPrompt": "Toto sa stane systémovým promptom, ktorý určuje, ako sa asistent správa.",
+    "deepResearchModel": "Behy hĺbkového výskumu automaticky používajú vyhradený model pre hĺbkový výskum.",
+    "perplexitySearches": "Modely Perplexity Sonar automaticky vyhľadávajú na webe pri každom behu.",
+    "customModel": "Voliteľné. Zadajte úplné ID modelu, ktoré prepíše úroveň vyššie. Ponechajte prázdne, ak chcete použiť vybranú úroveň."
+  },
+  "toggle": {
+    "webSearch": {
+      "label": "Vyhľadávanie na webe",
+      "description": "Umožnite asistentovi vyhľadávať na webe počas behu."
+    },
+    "deepResearch": {
+      "label": "Hĺbkový výskum",
+      "description": "Používa vyhradený model pre hĺbkový výskum. Pomalší a nákladnejší a automaticky zapína vyhľadávanie na webe."
+    }
+  },
+  "safety": {
+    "level": "Úroveň bezpečnosti",
+    "levelAria": "Úroveň bezpečnosti",
+    "cautious": {
+      "label": "Opatrné",
+      "description": "Vyžaduje schválenie všetkých akcií"
+    },
+    "balanced": {
+      "label": "Vyvážené",
+      "description": "Vyžaduje schválenie iba pri deštruktívnych príkazoch"
+    },
+    "autonomous": {
+      "label": "Autonómne",
+      "description": "Beží bez výziev na schválenie"
+    },
+    "toolsApiNote": "Asistenti <0>{{provider}}</0> spravujú svoje nástroje (vyhľadávanie na webe, hĺbkový výskum) na karte <1>Konfigurovať</1>. Oprávnenia pre jednotlivé nástroje na súbory a príkazy sa na asistentov {{provider}} nevzťahujú.",
+    "toolsAllNote": "Všetky nástroje sú povolené (autonómne). Vyberte vyššie možnosť <1>Vyvážené</1>, ak chcete namiesto toho udeliť konkrétne nástroje."
+  },
+  "action": {
+    "addPath": "Pridať cestu",
+    "removePath": "Odstrániť {{path}}",
+    "addTool": "Pridať nástroj",
+    "removeTool": "Odstrániť {{tool}}"
+  },
+  "advanced": {
+    "teams": {
+      "title": "Tímy agentov",
+      "description": "Umožnite tomuto agentovi koordinovať sa s inými agentmi",
+      "enableAria": "Povoliť tímy agentov",
+      "disableAria": "Zakázať tímy agentov"
+    },
+    "permissionMode": "Režim oprávnení",
+    "permissionModeAria": "Režim oprávnení"
+  },
+  "conversations": {
+    "emptyTitle": "Zatiaľ žiadne konverzácie",
+    "emptyDescription": "Začnite konverzovať a vaša história sa zobrazí tu",
+    "listAria": "Predchádzajúce konverzácie",
+    "sessionTitle": "Konverzácia {{id}}",
+    "messageCount_one": "{{count}} správa",
+    "messageCount_few": "{{count}} správy",
+    "messageCount_other": "{{count}} správ",
+    "statusActive": "aktívna",
+    "statusEnded": "ukončená"
+  },
+  "drawer": {
+    "noAssistant": "Nie je vybraný žiadny asistent",
+    "configureAria": "Konfigurovať {{name}}",
+    "loadError": "Tohto asistenta sa nepodarilo načítať.",
+    "validationNameRequired": "Názov je povinný",
+    "validationPersonaRequired": "Osobnosť je povinná",
+    "saveFailed": "Uloženie zlyhalo — skúste znova",
+    "unsavedChanges": "Neuložené zmeny",
+    "allChangesSaved": "Všetky zmeny uložené",
+    "noChanges": "Žiadne zmeny"
+  },
+  "create": {
+    "simple": {
+      "titleDescribe": "Vytvoriť asistenta",
+      "titlePreview": "Náhľad",
+      "titleConfirm": "Potvrdiť",
+      "descDescribe": "Opíšte jednoduchými slovami, čo má tento asistent robiť.",
+      "descPreview": "Pred vytvorením skontrolujte vygenerovanú konfiguráciu.",
+      "descConfirm": "Váš asistent je pripravený na vytvorenie.",
+      "stepProgressAria": "Priebeh krokov",
+      "describePlaceholder": "Napr. Chcem asistenta, ktorý kontroluje môj kód a navrhuje zlepšenia, zameriava sa na TypeScript a vysvetľuje každú zmenu, ktorú vykoná.",
+      "describeHint": "Opíšte to čo najpodrobnejšie — tón, oblasť zamerania, čomu sa vyhnúť.",
+      "recommendedModel": "Odporúčaný model",
+      "recommendedBadge": "Odporúčané",
+      "costPerMessage": "~${{cost}}/správa",
+      "confirmSummary": "<0>{{name}}</0> sa vytvorí s účelom <1>{{purpose}}</1> pomocou modelu <2>{{model}}</2>.",
+      "confirmHint": "Všetky nastavenia môžete upraviť po vytvorení v paneli asistenta.",
+      "browseTemplates": "Prehľadávať šablóny",
+      "configureManually": "Konfigurovať manuálne",
+      "generating": "Generuje sa...",
+      "continue": "Pokračovať",
+      "looksGood": "Vyzerá dobre",
+      "createAssistant": "Vytvoriť asistenta"
+    },
+    "advanced": {
+      "titleCustomise": "Prispôsobiť šablónu",
+      "titleNew": "Nový asistent — Pokročilé",
+      "descCustomise": "Skontrolujte a upravte predvyplnenú konfiguráciu a potom vytvorte.",
+      "descNew": "Nakonfigurujte každý detail manuálne.",
+      "namePlaceholder": "Môj asistent",
+      "descriptionPlaceholder": "Stručný súhrn toho, čo tento asistent robí",
+      "scopePathPlaceholder": "/cesta/k/adresáru",
+      "toolsPlaceholder": "read_files, run_commands, ...",
+      "browseTemplates": "Prehľadávať šablóny",
+      "simpleMode": "Jednoduchý režim",
+      "createAssistant": "Vytvoriť asistenta"
+    }
+  },
+  "template": {
+    "useTemplateAria": "Použiť šablónu: {{name}}",
+    "title": "Začať zo šablóny",
+    "description": "Vyberte si predkonfigurovaného asistenta, aby ste mohli rýchlo začať. Pred vytvorením môžete všetko upraviť.",
+    "searchPlaceholder": "Hľadať šablóny (napr. SEO, frontend, dáta)",
+    "searchAria": "Hľadať šablóny",
+    "noMatch": "Žiadne šablóny nezodpovedajú výrazu „{{query}}“.",
+    "describeWithAi": "Opísať pomocou AI",
+    "startFromScratch": "Začať od začiatku",
+    "quickPickPlaceholder": "Prejsť na šablónu…",
+    "quickPickSearch": "Hľadať šablóny…",
+    "quickPickEmpty": "Žiadne šablóny sa nenašli"
+  },
+  "model": {
+    "selectionAria": "Výber modelu",
+    "recommended": "Odporúčané",
+    "costPerMessage": "~${{cost}}/správa",
+    "whyRecommended": "Prečo odporúčané"
+  },
+  "chat": {
+    "running": "Beží",
+    "completed": "Dokončené",
+    "toolAria": "Nástroj: {{tool}}. Kliknutím {{action}} podrobnosti.",
+    "toolExpand": "rozbalíte",
+    "toolCollapse": "zbalíte",
+    "toolInput": "Vstup",
+    "toolOutput": "Výstup",
+    "errorTitle": "Niečo sa pokazilo",
+    "tokenTooltip": "Vstup: {{input}} tokenov, Výstup: {{output}} tokenov",
+    "tokenSummary": "{{tokens}} tokenov · ${{cost}}",
+    "emptyTitle": "Začnite konverzáciu",
+    "emptyDescription": "Odošlite správu nižšie a začnite konverzovať s týmto asistentom.",
+    "messagesAria": "Správy konverzácie",
+    "workspaceFilesAria": "Súbory pracovného priestoru",
+    "workspaceFilesTitle": "Súbory pracovného priestoru",
+    "noFiles": "Zatiaľ žiadne súbory v pracovnom priestore.",
+    "fileMention": "[súbor: {{name}}]",
+    "messagePlaceholder": "Napíšte asistentovi… (Ctrl+Enter na odoslanie)",
+    "messageInputAria": "Vstup správy",
+    "attachFileAria": "Pripojiť súbor z pracovného priestoru",
+    "attachFileTitle": "Pripojiť súbor z pracovného priestoru",
+    "stopAria": "Zastaviť generovanie",
+    "stopTitle": "Zastaviť generovanie",
+    "sendAria": "Odoslať správu",
+    "sendTitle": "Odoslať správu (Ctrl+Enter)",
+    "purposeLabel": "Účel: {{purpose}}",
+    "resourcesLabel": "Zdroje:",
+    "resourcesNone": "žiadne",
+    "resourcesMore": "{{names}} +{{remaining}} ďalších",
+    "manageResources": "Spravovať",
+    "manageResourcesAria": "Spravovať zdroje pracovného priestoru",
+    "editAria": "Upraviť nastavenia asistenta",
+    "clearAria": "Vymazať konverzáciu"
+  },
+  "skills": {
+    "emptyTitle": "Žiadne pridané zručnosti",
+    "emptyDescription": "Prehľadávajte trhovisko a pridajte schopnosti.",
+    "browseMarketplace": "Prehľadávať trhovisko",
+    "listAria": "Zručnosti pripojené k tomuto asistentovi",
+    "priorityAria": "Priorita {{priority}}",
+    "enableAria": "Povoliť {{name}}",
+    "disableAria": "Zakázať {{name}}",
+    "removeAria": "Odstrániť {{name}}",
+    "addSkill": "Pridať zručnosť",
+    "addSkillAria": "Otvoriť trhovisko zručností na pridanie zručnosti",
+    "quickAttachPlaceholder": "Pripojiť zručnosť…",
+    "quickAttachSearch": "Hľadať zručnosti…",
+    "quickAttachEmpty": "Žiadne zručnosti sa nenašli",
+    "quickAttachOverflow": "Píšte ďalej pre zúženie výsledkov…"
+  },
+  "folders": {
+    "emptyTitle": "Žiadne pripojené externé priečinky",
+    "emptyDescription": "Pripojte hostiteľský adresár, ktorý môže tento asistent čítať alebo doň zapisovať.",
+    "attachFolder": "Pripojiť priečinok",
+    "listAria": "Externé priečinky pripojené k tomuto asistentovi",
+    "priorityAria": "Priorita {{priority}}",
+    "readOnly": "RO",
+    "enableAria": "Povoliť {{name}}",
+    "disableAria": "Zakázať {{name}}",
+    "removeAria": "Odstrániť {{name}}",
+    "attachFolderAria": "Otvoriť externé priečinky na pripojenie priečinka"
+  },
+  "mcp": {
+    "addRemoveAria": "{{action}} {{name}} {{managed}}",
+    "addAction": "Pridať",
+    "removeAction": "Odstrániť",
+    "managedBySkill": "(spravované zručnosťou)",
+    "emptyTitle": "Žiadne zaregistrované servery MCP",
+    "emptyDescription": "Pridajte pripojenia MCP a rozšírte schopnosti tohto agenta.",
+    "manageConnections": "Spravovať pripojenia",
+    "assignedTitle": "Priradené ({{count}})",
+    "assignedAria": "Priradené servery MCP",
+    "availableTitle": "Dostupné ({{count}})",
+    "availableAria": "Dostupné servery MCP",
+    "skillManagedNote": "<0>Zručnosťou spravované</0> servery sa pridávajú automaticky pri povolení zručnosti. Zakážte zručnosť, ak ich chcete odstrániť."
+  },
+  "memory": {
+    "title": "Pamäť agenta",
+    "rememberAcrossSessions": "Pamätať si naprieč konverzáciami",
+    "disabledNote": "Pamäť je vypnutá — uložené záznamy nižšie sa nevkladajú do behov tohto agenta a nič sa automaticky nezachytáva, kým ju nepovolíte.",
+    "pin": "Pripnúť",
+    "unpin": "Odopnúť",
+    "autoCaptured": "automaticky zachytené · iba na čítanie",
+    "keyPlaceholder": "Kľúč",
+    "valuePlaceholder": "Hodnota",
+    "addMemoryAria": "Pridať pamäť",
+    "source": {
+      "manual": "manuálne",
+      "auto": "automaticky",
+      "director": "režisér"
+    }
+  }
+}

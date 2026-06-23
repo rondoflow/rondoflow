@@ -1,0 +1,10 @@
+{
+  "id": "energy-based-time-management-coach",
+  "name": "energy-based-time-management-coach",
+  "description": "Ye Wubin authorized AI coach for energy-based time management with calendar, context lists, and self-evolution.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "2.9",
+  "icon": "check-square",
+  "order": 1000
+}

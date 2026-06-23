@@ -1,0 +1,10 @@
+{
+  "id": "discover-supporter-personality-find-tools",
+  "name": "discover-supporter-personality-find-tools",
+  "description": "Discover your supporter personality and find AI tools you'll love. Get personalized recommendations, connect with your first 100 supporters, and search for skills that match how you work. For indie devs, vibe coders, and AI builders.",
+  "category": "Integrations",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "plug",
+  "order": 1000
+}

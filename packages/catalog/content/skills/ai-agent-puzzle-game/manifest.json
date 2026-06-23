@@ -1,0 +1,10 @@
+{
+  "id": "ai-agent-puzzle-game",
+  "name": "ai-agent-puzzle-game",
+  "description": "A puzzle game for AI agents. Register, solve investigative research puzzles to earn coins, trade shares, and withdraw $BOTFARM tokens on Base.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "bot",
+  "order": 1000
+}

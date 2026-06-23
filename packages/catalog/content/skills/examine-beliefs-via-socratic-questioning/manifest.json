@@ -1,0 +1,10 @@
+{
+  "id": "examine-beliefs-via-socratic-questioning",
+  "name": "examine-beliefs-via-socratic-questioning",
+  "description": "Helps users examine the logical foundations of their beliefs through Socratic questioning when they make potentially dubious claims. Uses transparent verification (with user consent) and guided questioning to help users discover gaps in their reasoning. Privacy-friendly - can op…",
+  "category": "Community",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

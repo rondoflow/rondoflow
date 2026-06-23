@@ -1,0 +1,10 @@
+{
+  "id": "android-build-deployment-patterns",
+  "name": "android-build-deployment-patterns",
+  "description": "Android build system and deployment patterns",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "server",
+  "order": 1000
+}

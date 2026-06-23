@@ -1,0 +1,10 @@
+{
+  "id": "act-as-chief-technology-officer",
+  "name": "act-as-chief-technology-officer",
+  "description": "Be the CTO with technical strategy, architecture decisions, team scaling, hiring, tech debt management, and engineering leadership.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "puzzle",
+  "order": 1000
+}

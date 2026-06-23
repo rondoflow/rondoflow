@@ -1,0 +1,78 @@
+{
+  "panel": {
+    "title": "Geplante Aufgaben",
+    "newSchedule": "Neuer Zeitplan",
+    "empty": "Noch keine geplanten Aufgaben."
+  },
+  "task": {
+    "active": "Aktiv",
+    "paused": "Pausiert",
+    "last": "Zuletzt: {{value}}",
+    "lastStatus": "({{status}})",
+    "next": "Nächste: {{value}}",
+    "noValue": "—",
+    "action": {
+      "runNow": "Jetzt ausführen",
+      "pause": "Pausieren",
+      "resume": "Fortsetzen",
+      "delete": "Löschen"
+    }
+  },
+  "dialog": {
+    "title": "Neue geplante Aufgabe",
+    "placeholder": {
+      "name": "Name des Zeitplans",
+      "message": "Nachricht / Aufgabenanweisung",
+      "cron": "Cron-Ausdruck (z. B. 0 9 * * 1-5)",
+      "timezone": "Zeitzone"
+    },
+    "type": {
+      "agent": "Assistent",
+      "workflow": "Workflow"
+    },
+    "select": {
+      "agent": "Einen Assistenten auswählen",
+      "workflow": "Einen Arbeitsbereich auswählen",
+      "searchPlaceholder": "Suchen…",
+      "emptyAgent": "Keine Assistenten gefunden",
+      "emptyWorkflow": "Keine Arbeitsbereiche gefunden"
+    },
+    "scheduleLabel": "Zeitplan",
+    "create": "Zeitplan erstellen"
+  },
+  "preset": {
+    "everyHour": "Jede Stunde",
+    "every2Hours": "Alle 2 Stunden",
+    "everyDay9am": "Täglich um 9 Uhr",
+    "weekdays9am": "Werktags um 9 Uhr",
+    "everyMonday9am": "Jeden Montag um 9 Uhr"
+  },
+  "loop": {
+    "title": "Autonome Schleife",
+    "description": "Der Assistent wird automatisch erneut ausgeführt, bis die Kriterien erfüllt sind",
+    "toggle": {
+      "enable": "Autonome Schleife aktivieren",
+      "disable": "Autonome Schleife deaktivieren"
+    },
+    "completionCriteria": "Abschlusskriterien",
+    "criteria": {
+      "regex": "Regex-Übereinstimmung",
+      "testPass": "Test besteht",
+      "manual": "Manuelle Überprüfung",
+      "maxIterations": "Nur maximale Iterationen"
+    },
+    "criteriaPlaceholder": {
+      "regex": "z. B. DONE|COMPLETE|SUCCESS",
+      "testPass": "z. B. npm test"
+    },
+    "field": {
+      "pattern": "Muster",
+      "command": "Befehl"
+    },
+    "maxIterations": "Maximale Iterationen",
+    "maxIterationsAriaLabel": "Maximale Schleifeniterationen",
+    "iterationCap_one": "Die Schleife stoppt nach {{count}} Iteration, auch wenn die Kriterien nicht erfüllt sind.",
+    "iterationCap_other": "Die Schleife stoppt nach {{count}} Iterationen, auch wenn die Kriterien nicht erfüllt sind.",
+    "warning": "Autonome Schleifen verbrauchen kontinuierlich Tokens. Überwachen Sie die Nutzung und legen Sie eine angemessene Iterationsgrenze fest."
+  }
+}

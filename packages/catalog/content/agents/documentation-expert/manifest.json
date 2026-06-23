@@ -1,0 +1,26 @@
+{
+  "id": "documentation-expert",
+  "name": "Documentation Expert",
+  "description": "Designs and maintains comprehensive, user-friendly software documentation.",
+  "icon": "ScrollText",
+  "category": "Content & Marketing",
+  "purpose": "writing",
+  "model": "haiku",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash"
+  ],
+  "tags": [
+    "documentation",
+    "technical-writing",
+    "guides",
+    "knowledge-base",
+    "reference"
+  ],
+  "order": 112
+}

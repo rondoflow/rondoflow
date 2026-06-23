@@ -1,0 +1,10 @@
+{
+  "id": "analyze-saas-sales-pipeline-forecasting",
+  "name": "analyze-saas-sales-pipeline-forecasting",
+  "description": "Analyzes sales pipeline health, revenue forecasting accuracy, and go-to-market efficiency metrics for SaaS revenue optimization. Use when analyzing sales pipeline coverage, forecasting revenue, evaluating go-to-market performance, reviewing sales metrics, assessing pipeline anal…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

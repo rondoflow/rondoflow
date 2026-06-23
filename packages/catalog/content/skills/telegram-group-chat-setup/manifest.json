@@ -1,0 +1,10 @@
+{
+  "id": "telegram-group-chat-setup",
+  "name": "telegram-group-chat-setup",
+  "description": "Configure a MoltBot agent to participate in a Telegram group chat. Automates adding the group to the allowlist, setting mention patterns, and configuring sender permissions — all via a single gateway config patch. Use when the user wants to set up their bot in a Telegram group,…",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

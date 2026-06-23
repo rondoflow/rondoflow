@@ -1,0 +1,10 @@
+{
+  "id": "connect-voice-agents-via-phone",
+  "name": "connect-voice-agents-via-phone",
+  "description": "Connect ElevenLabs Agents to your OpenClaw via phone with Twilio. Includes caller ID auth, voice PIN security, call screening, memory injection, and cost tracking.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "search-prediction-market-events",
+  "name": "search-prediction-market-events",
+  "description": "Search Prediction Bridge prediction-market events by text or X (Twitter) link via the backend API.",
+  "category": "Communication",
+  "author": "community",
+  "version": "0.0.2",
+  "icon": "message-circle",
+  "order": 1000
+}

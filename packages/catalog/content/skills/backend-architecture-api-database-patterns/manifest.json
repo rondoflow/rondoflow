@@ -1,0 +1,10 @@
+{
+  "id": "backend-architecture-api-database-patterns",
+  "name": "backend-architecture-api-database-patterns",
+  "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.2",
+  "icon": "chart-bar",
+  "order": 1000
+}

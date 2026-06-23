@@ -1,0 +1,10 @@
+{
+  "id": "build-nextjs-app-router-expert",
+  "name": "build-nextjs-app-router-expert",
+  "description": "Use when building Next.js 14/15 applications with the App Router. Invoke for routing, layouts, Server Components, Client Components, Server Actions, Route Handlers, authentication, middleware, data fetching, caching, revalidation, streaming, Suspense, loading states, error bound…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

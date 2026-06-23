@@ -1,0 +1,10 @@
+{
+  "id": "create-channel-scoped-reminders-crons",
+  "name": "create-channel-scoped-reminders-crons",
+  "description": "Create, list, and cancel reminders and cron jobs scoped to the channel they were requested from. Use when: user says 'remind me', 'set an alarm', 'schedule a cron', 'alert me when', 'every day at X do Y', 'cancel my reminder', 'list my reminders'. Auto-detects source channel and…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

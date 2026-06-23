@@ -1,0 +1,10 @@
+{
+  "id": "manage-microsoft-todo-tasks",
+  "name": "manage-microsoft-todo-tasks",
+  "description": "Microsoft To Do API integration with managed OAuth. Manage task lists, tasks, checklist items, and linked resources. Use this skill when users want to create, read, update, or delete tasks and task lists in Microsoft To Do. For other third party apps, use the api-gateway skill (…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.2",
+  "icon": "check-square",
+  "order": 1000
+}

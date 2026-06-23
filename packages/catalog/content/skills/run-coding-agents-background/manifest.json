@@ -1,0 +1,10 @@
+{
+  "id": "run-coding-agents-background",
+  "name": "run-coding-agents-background",
+  "description": "Run Codex CLI, Claude Code, OpenCode, or Pi Coding Agent via background process for programmatic control.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

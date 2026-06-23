@@ -1,0 +1,10 @@
+{
+  "id": "full-project-planning-execution-workflow",
+  "name": "full-project-planning-execution-workflow",
+  "description": "Get Shit Done - Full project planning and execution workflow. Handles project initialization with deep context gathering, automated research, roadmap creation, phase planning, and execution with verification.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "puzzle",
+  "order": 1000
+}

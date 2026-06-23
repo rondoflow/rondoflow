@@ -1,0 +1,10 @@
+{
+  "id": "book-driving-lessons",
+  "name": "book-driving-lessons",
+  "description": "Book driving-lessons services through Lokuli MCP. Use when user needs to find and book driving-lessons. Triggers on requests like \"book a driving-lessons\", \"find driving-lessons near me\", or any driving-lessons service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

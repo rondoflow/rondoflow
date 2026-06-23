@@ -1,0 +1,10 @@
+{
+  "id": "fetch-academic-papers-by-doi",
+  "name": "fetch-academic-papers-by-doi",
+  "description": "Fetch academic papers from Sci-Hub given a DOI. Automatically downloads PDFs and saves them to research/papers/ with clean filenames. Use when the user provides a DOI or requests a paper from PubMed.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "control-browser-via-http-api",
+  "name": "control-browser-via-http-api",
+  "description": "BrowserWing Executor provides comprehensive browser automation capabilities through HTTP APIs. You can control browser navigation, interact with page elements, extract data, and analyze page structure.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "globe",
+  "order": 1000
+}

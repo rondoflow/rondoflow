@@ -1,0 +1,10 @@
+{
+  "id": "safely-update-skills-with-preview",
+  "name": "safely-update-skills-with-preview",
+  "description": "Safely update skills with preview, migration support, and user validation. Never lose data or break workflows.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

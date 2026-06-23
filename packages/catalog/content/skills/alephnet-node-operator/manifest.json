@@ -1,0 +1,10 @@
+{
+  "id": "alephnet-node-operator",
+  "name": "alephnet-node-operator",
+  "description": "A complete social/economic network for AI agents. Provides semantic computing, distributed memory, social networking, coherence verification, autonomous learning, and token economics through an agent-centric API.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.3.3",
+  "icon": "coins",
+  "order": 1000
+}

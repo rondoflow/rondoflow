@@ -1,0 +1,10 @@
+{
+  "id": "memos-skill",
+  "name": "memos-skill",
+  "description": "This skill provides a simple interface to the Memos API (https://usememos.com/docs/api). It lets you create, read, delete, and list memos from OpenClaw.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,113 @@
+{
+  "wizard": {
+    "title": "Bienvenue sur rondoflow"
+  },
+  "coaching": {
+    "dismiss": "Ignorer le conseil"
+  },
+  "checklist": {
+    "title": "Pour commencer",
+    "progress": "{{done}}/{{total}}",
+    "addNode": "Ajoutez un assistant à l'espace de travail",
+    "connectNodes": "Connectez deux cartes",
+    "runWorkflow": "Exécutez votre workflow",
+    "done": "Beau travail — vous avez créé et exécuté votre premier workflow ! 🎉",
+    "dismiss": "Ignorer la liste",
+    "collapse": "Réduire",
+    "expand": "Développer"
+  },
+  "action": {
+    "continue": "Continuer",
+    "skip": "Passer",
+    "browse": "Parcourir",
+    "go": "Aller"
+  },
+  "directory": {
+    "heading": "Où se trouve votre code ?",
+    "description": "rondoflow fonctionne avec vos fichiers locaux via Claude Code. Indiquez-lui le dossier de votre projet.",
+    "placeholder": "/home/user/projects/my-app",
+    "hint": "Cela peut être modifié plus tard dans les paramètres de l'espace de travail.",
+    "error": {
+      "required": "Un répertoire de travail est requis pour que rondoflow fonctionne."
+    },
+    "cli": {
+      "checking": "Vérification de la CLI Claude Code...",
+      "detected": "Claude Code détecté",
+      "notDetected": "Claude Code non détecté — installez-le d'abord",
+      "installHint": "Exécutez :",
+      "checkAgain": "Vérifier à nouveau"
+    },
+    "auth": {
+      "missing": "Aucun identifiant Claude configuré pour le moment",
+      "hintSet": "Définissez",
+      "hintOrRun": ", ou exécutez",
+      "hintAndSet": "et définissez",
+      "hintTail": "pour utiliser votre abonnement Claude. Vous pouvez aussi l'ajouter plus tard dans les paramètres."
+    }
+  },
+  "workMode": {
+    "heading": "Comment souhaitez-vous travailler ?",
+    "description": "Choisissez le niveau de contrôle souhaité. Vous pouvez changer de mode à tout moment dans les paramètres.",
+    "quick": {
+      "title": "Démarrage rapide",
+      "description": "Décrivez ce que vous voulez, rondoflow s'occupe du reste. Idéal pour essayer."
+    },
+    "full": {
+      "title": "Contrôle total",
+      "description": "Composez des équipes d'assistants avec des compétences, des règles de sécurité et des workflows personnalisés. Pour les utilisateurs avancés."
+    }
+  },
+  "firstAction": {
+    "heading": "Décrivez votre tâche.",
+    "headingAccent": "L'espace se construit tout seul.",
+    "description": "Écrivez ce qu'il faut faire — vous verrez quels assistants sont créés et comment ils se connectent avant de lancer quoi que ce soit.",
+    "taskPlaceholder": "ex. Résumer la concurrence et envoyer un rapport par e-mail",
+    "taskAriaLabel": "Décrivez ce que vous voulez créer",
+    "generating": "Génération...",
+    "divider": "ou",
+    "suggest": {
+      "research": "Étudier le marché et préparer un rapport",
+      "review": "Relire une pull request et proposer des corrections",
+      "data": "Traiter un CSV, nettoyer les données et les enregistrer"
+    },
+    "gallery": {
+      "heading": "Modèles",
+      "hint": "ou décrivez une tâche à gauche et nous la monterons"
+    },
+    "preview": {
+      "heading": "Aperçu",
+      "live": "assemblage",
+      "idle": "aperçu",
+      "caption": "À peu près ce que nous allons créer — à relire et ajuster après.",
+      "start": "Entrée de la tâche",
+      "output": "Résultat",
+      "email": "Rapport par e-mail"
+    },
+    "template": {
+      "title": "Partir d'un modèle",
+      "subtitle": "Workflows préconçus"
+    },
+    "create": {
+      "title": "Créer un assistant",
+      "subtitle": "Construire à partir de zéro"
+    }
+  },
+  "toast": {
+    "dismiss": "Ignorer"
+  },
+  "folderPicker": {
+    "title": "Sélectionner le dossier du projet",
+    "pathPlaceholder": "Saisissez un chemin...",
+    "home": "Accueil",
+    "up": "Haut",
+    "git": "git",
+    "homeAriaLabel": "Aller au répertoire personnel",
+    "upAriaLabel": "Aller au répertoire parent",
+    "empty": "Aucun sous-répertoire",
+    "footerHint": "Double-cliquez pour entrer dans un dossier. Cliquez sur « Sélectionner » pour utiliser le dossier actuel.",
+    "select": "Sélectionner ce dossier",
+    "error": {
+      "browse": "Échec de la navigation dans le répertoire"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "agent-qa-knowledge-platform",
+  "name": "agent-qa-knowledge-platform",
+  "description": "Connect to ClawpenFlow - the Q&A platform where AI agents share knowledge and build reputation",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

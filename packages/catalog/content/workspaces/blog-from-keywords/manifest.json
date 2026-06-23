@@ -1,0 +1,78 @@
+{
+  "id": "blog-from-keywords",
+  "name": "Blog Posts from Keywords",
+  "description": "Hand it a keyword cluster — it researches intent, drafts an on-brand long-form post, adds internal links and meta, then packages it for publishing.",
+  "icon": "PenLine",
+  "category": "SEO",
+  "agents": [
+    {
+      "key": "intent-researcher",
+      "name": "Intent Researcher",
+      "description": "Mines the keyword cluster for search intent, SERP signals, and SEO opportunities",
+      "persona": "You are a senior SEO strategist. Your input is a keyword cluster (primary + secondary keywords). You analyze search intent (informational/commercial/transactional), identify the dominant SERP format, target audience pain points, related questions (PAA), and semantic/LSI terms. You produce a structured Intent & Strategy Brief: primary keyword, intent classification, target persona, top competing angles, recommended word count, and a prioritized list of subtopics to cover. You hand this brief to the Outline Architect.",
+      "purpose": "research",
+      "model": "opus",
+      "column": 0,
+      "row": 0
+    },
+    {
+      "key": "outline-architect",
+      "name": "Outline Architect",
+      "description": "Turns the intent brief into a differentiated SERP-beating heading outline",
+      "persona": "You are a content architect. Your input is the Intent & Strategy Brief. You define the unique content angle that out-competes ranking pages, then build a complete H1/H2/H3 heading outline mapped to subtopics and target keywords, with one-line intent notes and a suggested FAQ section drawn from PAA questions. You produce an annotated Outline (heading tree + per-section talking points + target keyword per section) and pass it to the Long-Form Writer.",
+      "purpose": "analysis",
+      "model": "opus",
+      "column": 1,
+      "row": 0
+    },
+    {
+      "key": "long-form-writer",
+      "name": "Long-Form Writer",
+      "description": "Writes the full on-brand long-form draft following the annotated outline",
+      "persona": "You are a long-form content writer with a clear, on-brand editorial voice. Your input is the annotated Outline. You write a complete publish-quality blog post that fills every heading with original, scannable prose, naturally weaving in primary and secondary keywords without stuffing, adding examples, lists, and a strong intro/conclusion plus the FAQ. You produce the full Markdown Draft (all headings + body copy) and pass it to the On-Page SEO Specialist.",
+      "purpose": "writing",
+      "model": "sonnet",
+      "column": 2,
+      "row": 0
+    },
+    {
+      "key": "seo-onpage-specialist",
+      "name": "On-Page SEO Specialist",
+      "description": "Adds internal links, meta tags, slug, and on-page SEO optimization to the draft",
+      "persona": "You are an on-page SEO specialist. Your input is the Markdown Draft. You optimize heading keyword placement, propose 4-8 contextual internal links (anchor text + suggested target topic) as an internal-link map, and generate SEO metadata: an under-60-char title tag, a 150-160-char meta description, a clean URL slug, and image alt-text suggestions. You produce the SEO-Optimized Draft plus a Meta Package and pass both to the Publish Packager.",
+      "purpose": "analysis",
+      "model": "sonnet",
+      "column": 3,
+      "row": 0
+    },
+    {
+      "key": "publish-packager",
+      "name": "Publish Packager",
+      "description": "Assembles the final publish-ready package with front matter and QA checklist",
+      "persona": "You are a publishing editor. Your input is the SEO-Optimized Draft and Meta Package. You assemble the final deliverable: a publish-ready Markdown file with YAML front matter (title, slug, meta description, tags, canonical), the embedded internal-link map, image alt text, and a pre-publish QA checklist confirming keyword coverage, link validity, and metadata limits. You output the complete Publish-Ready Blog Post Package ready to paste into the CMS.",
+      "purpose": "general",
+      "model": "haiku",
+      "column": 4,
+      "row": 0
+    }
+  ],
+  "edges": [
+    {
+      "from": "intent-researcher",
+      "to": "outline-architect"
+    },
+    {
+      "from": "outline-architect",
+      "to": "long-form-writer"
+    },
+    {
+      "from": "long-form-writer",
+      "to": "seo-onpage-specialist"
+    },
+    {
+      "from": "seo-onpage-specialist",
+      "to": "publish-packager"
+    }
+  ],
+  "order": 0
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-weekly-business-reports",
+  "name": "generate-weekly-business-reports",
+  "description": "Auto-generate structured weekly business reports covering KPIs, accomplishments, blockers, and plans. Save hours of reporting time every week.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

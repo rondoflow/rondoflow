@@ -1,0 +1,10 @@
+{
+  "id": "execute-email-operations-securely",
+  "name": "execute-email-operations-securely",
+  "description": "Execute email operations with platform-specific optimizations and secure credential handling.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "message-circle",
+  "order": 1000
+}

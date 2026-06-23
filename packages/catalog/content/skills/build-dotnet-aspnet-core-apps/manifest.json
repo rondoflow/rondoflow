@@ -1,0 +1,10 @@
+{
+  "id": "build-dotnet-aspnet-core-apps",
+  "name": "build-dotnet-aspnet-core-apps",
+  "description": "Use when building .NET 8/9 applications, ASP.NET Core APIs, Entity Framework Core, MediatR CQRS, modular monolith architecture, FluentValidation, Result pattern, JWT authentication, or any C# backend development question.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "code",
+  "order": 1000
+}

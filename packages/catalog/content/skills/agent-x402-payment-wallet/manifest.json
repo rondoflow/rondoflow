@@ -1,0 +1,10 @@
+{
+  "id": "agent-x402-payment-wallet",
+  "name": "agent-x402-payment-wallet",
+  "description": "Wallets for AI agents with x402 payment signing, referral rewards, and policy-controlled actions.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.10",
+  "icon": "coins",
+  "order": 1000
+}

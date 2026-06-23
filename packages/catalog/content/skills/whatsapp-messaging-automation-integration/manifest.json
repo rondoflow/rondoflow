@@ -1,0 +1,10 @@
+{
+  "id": "whatsapp-messaging-automation-integration",
+  "name": "whatsapp-messaging-automation-integration",
+  "description": "![P-API Logo](https://papi.api.br/logo-official.png)",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.2.1",
+  "icon": "message-circle",
+  "order": 1000
+}

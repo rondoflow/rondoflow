@@ -1,0 +1,10 @@
+{
+  "id": "fetch-pages-as-markdown",
+  "name": "fetch-pages-as-markdown",
+  "description": "Fetch web pages as reduced markdown via jina.ai. Use when user wants to fetch a URL and get condensed markdown content to save tokens. Triggered by phrases like \"fetch as markdown\", \"reduce tokens\", \"jina.ai fetch\", or when fetching web content that should be condensed.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

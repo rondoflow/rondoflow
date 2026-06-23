@@ -1,0 +1,10 @@
+{
+  "id": "long-term-agent-memory-system",
+  "name": "long-term-agent-memory-system",
+  "description": "Ultimate AI agent memory system. Combines bulletproof WAL protocol, vector search, git-based knowledge graphs, cloud backup, and maintenance hygiene. Never lose context again. For Clawdbot, Moltbot, Claude, GPT agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-obsidian-vaults-via-couchdb-livesync",
+  "name": "manage-obsidian-vaults-via-couchdb-livesync",
+  "description": "Manage Obsidian vaults via LiveSync CouchDB — capture notes, AI-enrich and file them, manage tasks, audit and tidy vault structure. Use when working with Obsidian vaults through CouchDB/LiveSync (not local filesystem). Requires CouchDB with Obsidian LiveSync plugin. AI features…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.1",
+  "icon": "check-square",
+  "order": 1000
+}

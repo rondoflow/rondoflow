@@ -1,0 +1,10 @@
+{
+  "id": "ai-phone-call-assistant",
+  "name": "ai-phone-call-assistant",
+  "description": "Make phone calls via KallyAI API - an AI phone assistant that calls businesses on your behalf. Use when users want to make restaurant reservations, schedule appointments, or inquire at businesses by phone.",
+  "category": "Development",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "code",
+  "order": 1000
+}

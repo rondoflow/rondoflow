@@ -1,0 +1,10 @@
+{
+  "id": "book-tune-up-service",
+  "name": "book-tune-up-service",
+  "description": "Book tune-up services through Lokuli MCP. Use when user needs to find and book tune-up. Triggers on requests like \"book a tune-up\", \"find tune-up near me\", or any tune-up service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-ideas-fast",
+  "name": "generate-ideas-fast",
+  "description": "Generate ideas fast. Adapt depth and structure to what the user actually needs.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

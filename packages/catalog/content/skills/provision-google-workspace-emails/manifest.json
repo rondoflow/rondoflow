@@ -1,0 +1,10 @@
+{
+  "id": "provision-google-workspace-emails",
+  "name": "provision-google-workspace-emails",
+  "description": "Provision and manage @clawemail.com Google Workspace email accounts. Use when the user wants to create an email for their AI agent, check email availability, or manage existing ClawEmail accounts.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

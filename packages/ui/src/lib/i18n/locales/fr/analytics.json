@@ -1,0 +1,168 @@
+{
+  "scope": {
+    "label": "Portée",
+    "workspace": "Cet espace de travail",
+    "global": "Tous les espaces de travail"
+  },
+  "dashboard": {
+    "overview": "Vue d'ensemble",
+    "periodDays": "{{count}} j",
+    "card": {
+      "assistantsRunning": "{{count}} en cours",
+      "assistants": "Assistants",
+      "discussions": "Discussions",
+      "schedulesActive": "{{count}} actives",
+      "schedules": "Planifications",
+      "skills": "Compétences",
+      "totalCost": "Coût total",
+      "sessions": "Sessions",
+      "tokens": "Jetons"
+    },
+    "usage": {
+      "heading": "Utilisation ({{count}} derniers jours)",
+      "empty": {
+        "title": "Aucune donnée d'utilisation pour le moment",
+        "hint": "Exécutez des assistants ou des workflows pour voir les analyses ici."
+      }
+    },
+    "metric": {
+      "cost": "Coût",
+      "tokens": "Jetons"
+    },
+    "chart": {
+      "title": "{{metric}} au fil du temps",
+      "totalCost": "({{amount}} $ au total)",
+      "totalTokens": "({{amount}} k au total)",
+      "noneRecorded": "Aucun {{metric}} enregistré sur cette période",
+      "ariaPerDay": "{{label}} par jour sur {{count}} jours",
+      "barTitle": "{{day}} — {{value}}",
+      "costValue": "{{amount}} $",
+      "tokensValue": "{{amount}} k jetons"
+    },
+    "costByModel": "Coût par modèle",
+    "tokenSplit": "Répartition des jetons",
+    "tokenInput": "entrée",
+    "tokenOutput": "sortie",
+    "costByWorkspace": "Coût par espace de travail"
+  },
+  "audit": {
+    "range": {
+      "last24h": "Dernières 24 heures",
+      "last7d": "7 derniers jours",
+      "last30d": "30 derniers jours",
+      "allTime": "Depuis le début"
+    },
+    "search": {
+      "placeholder": "Rechercher des événements…",
+      "ariaLabel": "Rechercher dans le journal d'audit"
+    },
+    "filter": {
+      "eventType": "Type d'événement",
+      "allTypes": "Tous les types",
+      "typeOption": "{{label}} ({{count}})",
+      "timeRange": "Plage temporelle"
+    },
+    "exportCsv": "Exporter en CSV",
+    "loadError": "Échec du chargement du journal d'audit",
+    "count_one": "{{count}} événement",
+    "count_other": "{{count}} événements",
+    "matchingFilters": " correspondant aux filtres",
+    "emptyFiltered": "Aucun événement d'audit ne correspond à ces filtres.",
+    "column": {
+      "time": "Heure",
+      "type": "Type",
+      "event": "Événement"
+    },
+    "pagination": {
+      "pageOf": "Page {{page}} sur {{total}}",
+      "previous": "Page précédente",
+      "next": "Page suivante"
+    },
+    "detail": {
+      "category": "Catégorie",
+      "eventId": "ID d'événement",
+      "assistantId": "ID d'assistant",
+      "workspaceId": "ID d'espace de travail"
+    }
+  },
+  "activity": {
+    "empty": {
+      "title": "Aucune activité pour le moment",
+      "hint": "Exécutez un assistant pour voir les événements ici."
+    },
+    "group": {
+      "today": "Aujourd'hui",
+      "yesterday": "Hier"
+    }
+  },
+  "run": {
+    "status": {
+      "running": "En cours",
+      "completed": "Terminé",
+      "failed": "Échoué",
+      "stopped": "Arrêté"
+    },
+    "detail": {
+      "fallbackTitle": "Exécution du workflow",
+      "back": "Retour à la liste des exécutions",
+      "open": "Ouvrir",
+      "openTooltip": "Ouvrir cette exécution dans le panneau du workflow",
+      "emptyTitle": "Aucune entrée de journal",
+      "emptyHint": "Cette exécution n'a aucun journal d'exécution enregistré.",
+      "loadError": "Impossible de charger cette exécution"
+    },
+    "list": {
+      "title": "Historique d'exécution",
+      "loadingRun": "Chargement de l'exécution…",
+      "loadError": "Échec du chargement des exécutions",
+      "errorTitle": "Impossible de charger l'historique",
+      "emptyTitle": "Aucune exécution pour le moment",
+      "emptyHint": "Exécutez un workflow et il apparaîtra ici.",
+      "count_one": "{{count}} exécution",
+      "count_other": "{{count}} exécutions",
+      "steps": "{{done}}/{{total}} étapes",
+      "tokens": "{{amount}} jetons",
+      "cost": "{{amount}} $",
+      "loadMore": "Charger plus ({{remaining}})"
+    }
+  },
+  "session": {
+    "status": {
+      "active": "Active",
+      "ended": "Terminée",
+      "error": "Erreur"
+    },
+    "filter": {
+      "fromDate": "Filtrer à partir de la date",
+      "toDate": "Filtrer jusqu'à la date",
+      "to": "à",
+      "clear": "Effacer le filtre de date"
+    },
+    "card": {
+      "ariaLabel": "Session du {{date}}, {{count}} messages",
+      "prefix": "Session",
+      "messages_one": "{{count}} message",
+      "messages_other": "{{count}} messages"
+    },
+    "empty": {
+      "filteredTitle": "Aucune session dans cette plage",
+      "filteredHint": "Essayez d'ajuster le filtre de date.",
+      "title": "Aucune conversation pour le moment",
+      "hint": "Commencez à discuter avec l'assistant pour voir votre historique ici."
+    },
+    "title": "Historique des sessions",
+    "count_one": "{{count}} session",
+    "count_other": "{{count}} sessions",
+    "listAria": "Sessions passées"
+  },
+  "cost": {
+    "empty": {
+      "title": "Aucune donnée d'utilisation pour le moment",
+      "hint": "Exécutez des assistants pour voir le suivi des coûts ici."
+    },
+    "totalCost": "Coût total",
+    "sessions": "Sessions",
+    "tokens": "Jetons",
+    "byModel": "Coût par modèle ({{count}} derniers jours)"
+  }
+}

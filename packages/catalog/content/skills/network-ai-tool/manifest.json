@@ -1,0 +1,10 @@
+{
+  "id": "network-ai-tool",
+  "name": "network-ai-tool",
+  "description": "name: network-ai",
+  "category": "Community",
+  "author": "community",
+  "version": "5.1.4",
+  "icon": "puzzle",
+  "order": 1000
+}

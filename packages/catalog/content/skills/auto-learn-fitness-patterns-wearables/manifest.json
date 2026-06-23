@@ -1,0 +1,10 @@
+{
+  "id": "auto-learn-fitness-patterns-wearables",
+  "name": "auto-learn-fitness-patterns-wearables",
+  "description": "Auto-learns your fitness patterns. Absorbs data from wearables, conversations, and achievements.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "chart-bar",
+  "order": 1000
+}

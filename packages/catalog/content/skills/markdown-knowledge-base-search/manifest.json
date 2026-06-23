@@ -1,0 +1,10 @@
+{
+  "id": "markdown-knowledge-base-search",
+  "name": "markdown-knowledge-base-search",
+  "description": "Search markdown knowledge bases efficiently using qmd. Use this when searching Obsidian vaults or markdown collections to find relevant content with minimal token usage.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

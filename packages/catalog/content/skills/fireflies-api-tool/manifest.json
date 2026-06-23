@@ -1,0 +1,10 @@
+{
+  "id": "fireflies-api-tool",
+  "name": "fireflies-api-tool",
+  "description": "Fireflies.ai GraphQL API integration with managed OAuth. Access meeting transcripts, summaries, users, contacts, and AI-powered meeting analysis. Use this skill when users want to retrieve meeting transcripts, search conversations, analyze meeting content with AskFred, or manage…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

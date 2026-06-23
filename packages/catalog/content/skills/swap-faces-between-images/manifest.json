@@ -1,0 +1,10 @@
+{
+  "id": "swap-faces-between-images",
+  "name": "swap-faces-between-images",
+  "description": "Swap faces between images using EachLabs AI. Use when the user wants to replace or swap faces in photos.",
+  "category": "Media",
+  "author": "community",
+  "version": "0.1.3",
+  "icon": "image",
+  "order": 1000
+}

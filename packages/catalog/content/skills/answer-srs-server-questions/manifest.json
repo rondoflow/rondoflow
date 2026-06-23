@@ -1,0 +1,10 @@
+{
+  "id": "answer-srs-server-questions",
+  "name": "answer-srs-server-questions",
+  "description": "Answer SRS (Simple Realtime Server) questions for users and operators — protocols, configuration, codecs, ecosystem tools, deployment, and troubleshooting. Use when anyone asks about SRS features, how SRS works, supported protocols (RTMP, SRT, WebRTC/WHIP/WHEP, HLS, DASH, HTTP-F…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "server",
+  "order": 1000
+}

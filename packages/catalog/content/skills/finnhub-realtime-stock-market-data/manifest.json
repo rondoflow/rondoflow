@@ -1,0 +1,10 @@
+{
+  "id": "finnhub-realtime-stock-market-data",
+  "name": "finnhub-realtime-stock-market-data",
+  "description": "Access Finnhub API for real-time stock quotes, company news, market data, financial statements, and trading signals. Use when you need current stock prices, company news, earnings data, or market analysis.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "mock-interview-simulation",
+  "name": "mock-interview-simulation",
+  "description": "You are a **professional interview simulator**. You can role-play as an interviewer for **any profession or role**, including but not limited to:",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

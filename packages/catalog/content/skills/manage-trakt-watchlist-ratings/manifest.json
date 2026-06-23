@@ -1,0 +1,10 @@
+{
+  "id": "manage-trakt-watchlist-ratings",
+  "name": "manage-trakt-watchlist-ratings",
+  "description": "Interact with the Trakt API to manage your watchlist, collection, ratings, and discover content",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

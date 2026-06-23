@@ -1,0 +1,10 @@
+{
+  "id": "manage-voice-notes",
+  "name": "manage-voice-notes",
+  "description": "Inteligentna transkrypcja i kategoryzacja notatek g�osowych z WhatsApp.",
+  "category": "Media",
+  "author": "community",
+  "version": "2.0.1",
+  "icon": "image",
+  "order": 1000
+}

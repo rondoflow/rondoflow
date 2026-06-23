@@ -1,0 +1,10 @@
+{
+  "id": "build-ui-with-shadcn-tailwind",
+  "name": "build-ui-with-shadcn-tailwind",
+  "description": "Use when building UI with shadcn/ui components, Tailwind CSS layouts, form patterns with react-hook-form and zod, theming, dark mode, sidebar layouts, mobile navigation, or any shadcn component question.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

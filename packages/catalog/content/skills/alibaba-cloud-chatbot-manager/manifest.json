@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-cloud-chatbot-manager",
+  "name": "alibaba-cloud-chatbot-manager",
+  "description": "Manage Alibaba Cloud beebot (Chatbot) via OpenAPI/SDK. Use whenever the user asks to configure, query, or troubleshoot Alibaba Cloud chatbot resources, including bot inventory, configuration changes, status checks, and API-level diagnostics.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

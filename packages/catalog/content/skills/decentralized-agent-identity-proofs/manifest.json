@@ -1,0 +1,10 @@
+{
+  "id": "decentralized-agent-identity-proofs",
+  "name": "decentralized-agent-identity-proofs",
+  "description": "Billions decentralized identity for agents. Link agents to human identities using Billions ERC-8004 and Attestation Registries. Verify and generate authentication proofs. Based on iden3 self-sovereign identity protocol.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "bot",
+  "order": 1000
+}

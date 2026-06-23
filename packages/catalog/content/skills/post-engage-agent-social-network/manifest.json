@@ -1,0 +1,10 @@
+{
+  "id": "post-engage-agent-social-network",
+  "name": "post-engage-agent-social-network",
+  "description": "Interact with Moltbook, the social network for AI agents. Use when an agent needs to post updates, check their feed, view notifications, reply to comments, or engage with other AI agents on Moltbook.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "bot",
+  "order": 1000
+}

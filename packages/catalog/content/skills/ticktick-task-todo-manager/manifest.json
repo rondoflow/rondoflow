@@ -1,0 +1,10 @@
+{
+  "id": "ticktick-task-todo-manager",
+  "name": "ticktick-task-todo-manager",
+  "description": "TickTick task manager integration. List projects and tasks, create new tasks, complete tasks, delete tasks. Use when the user wants to manage their to-do list, add reminders, check pending tasks, or mark tasks as done. Requires OAuth setup via `ticktick-setup`.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "fetch-telegram-chat-history",
+  "name": "fetch-telegram-chat-history",
+  "description": "Fetch Telegram chat message history via MTProto user API (Telethon). Use when needing to read old messages from any Telegram chat, group, or forum topic that the bot API can't access. Supports fetching by chat ID, forum topic/thread, message count, pagination, and JSON output. R…",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "message-circle",
+  "order": 1000
+}

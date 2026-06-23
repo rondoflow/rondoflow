@@ -1,0 +1,10 @@
+{
+  "id": "production-agentic-coding-workflow",
+  "name": "production-agentic-coding-workflow",
+  "description": "Ship production code with AI agents through acceptance contracts, micro diffs, red green loops, and deterministic handoff checkpoints.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

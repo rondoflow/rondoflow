@@ -1,0 +1,10 @@
+{
+  "id": "log-track-workout-progress",
+  "name": "log-track-workout-progress",
+  "description": "Log workouts, track progress, get exercise suggestions and PR tracking",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

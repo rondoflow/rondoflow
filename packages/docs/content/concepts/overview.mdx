@@ -1,0 +1,168 @@
+---
+title: Concepts Overview
+description: A conceptual map of RondoFlow — the core building blocks you compose to design, run, and orchestrate AI agents.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Concepts Overview
+
+RondoFlow gives you a visual, local-first way to build and run AI agents. You drag building blocks onto a canvas, wire them together, and run them — either one at a time or as a multi-step pipeline.
+
+This page is the conceptual map. Each concept below is defined in a few sentences and links to its full guide. RondoFlow uses friendly names in the UI (with the internal/technical term in parentheses on first mention); the full naming map lives in [Terminology](/docs/concepts/terminology).
+
+<Callout type="info">
+  Want to see these concepts in action first? Jump to [Your First Workflow](/docs/getting-started/first-workflow), then come back here to deepen your mental model.
+</Callout>
+
+## The big picture
+
+A **Workspace** holds your **Assistants**, **Resources**, and layout. Each Assistant draws its behavior from a **Personality**, **Skills**, **Safety Rules**, and optional **Connections**. You run an Assistant on its own, wire several into a **Workflow**, or seat them around a **Discussion** led by a **Facilitator**. Along the way you can branch a workflow with a **Condition** card and capture results with **data and output cards** — write to a file, send an email, or persist a structured dataset. Every execution is a **Run** with steps, tokens, and cost; persistent facts live in **Memory**.
+
+## Core concepts
+
+### Workspace (canvas / project)
+
+A Workspace (internally surfaced from both `canvas` and the `Workspace` model, shown as "Workspace") is your project: the drag-and-drop canvas where you place cards, plus its saved layout, context document, plan document, and optional working directory. The canvas itself (`CanvasLayout` — its React Flow viewport, nodes, and edges) is the drag-and-drop surface, and it is persisted per Workspace. Each Workspace owns its own Assistants, Resources, and Memory, so you can keep separate projects isolated.
+
+See: [Canvas](/docs/guides/canvas)
+
+### Assistant (agent)
+
+An Assistant (internally `Agent`) is the central actor — an AI agent you configure once and run many times. It bundles a **Personality**, a chosen model and **provider** (Claude Code, OpenAI, or Perplexity), allowed tools/capabilities, attached **Skills**, **Safety Rules**, **Connections**, and optional **Memory**. Each Assistant has a status (idle, running, waiting for approval, error) and a permission mode that governs how freely it may act.
+
+See: [Assistants](/docs/guides/assistants)
+
+### Personality (persona)
+
+A Personality (internally `persona`, shown as "Personality") is the Assistant's instructions and character — effectively its system prompt plus stated purpose. It defines tone, expertise, and how the Assistant approaches work, and it is the first thing the prompt builder folds into every run. Reuse a strong Personality across many tasks to keep behavior consistent.
+
+See: [Assistants](/docs/guides/assistants)
+
+### Skill
+
+A Skill is a reusable bundle of instructions an Assistant can draw on, optionally paired with a **Connection** configuration (`mcpConfig`). Skills come from a marketplace, a Git URL, or your own custom definitions, and each is installed to a path on disk. You attach Skills to Assistants and order them by priority, so the most important guidance lands first.
+
+See: [Skills](/docs/guides/skills)
+
+### Safety Rule (policy)
+
+A Safety Rule (internally `Policy`, shown as "Safety Rules") sets limits and permissions — which tools are allowed, spending or iteration caps, and blocked actions. Rules apply at three levels: global, per-Assistant, or per-Conversation. When multiple rules overlap, **the most restrictive wins** (minimum for numeric limits, the union of blocked lists), so adding a rule can only tighten behavior, never loosen it.
+
+See: [Safety Rules](/docs/guides/safety-rules)
+
+### Connection (MCP server)
+
+A Connection (internally `McpServer`, shown as "Connection") is a Model Context Protocol server that extends an Assistant with external tools and data — files, APIs, databases, and more. Each Connection picks a transport: a local **`stdio`** process (a command, arguments, and environment) or a remote **`http`**/**`sse`** server (a URL plus optional authentication). Assign Connections to the Assistants that need them; the spawn process wires the chosen servers in at run time.
+
+See: [Connections](/docs/guides/connections)
+
+### Facilitator (moderator)
+
+A Facilitator (internally a moderator Assistant, `isFacilitator`) is the Assistant that runs a **Discussion**. It opens the topic, routes turns between participants, keeps the conversation on track across rounds, and writes the final conclusion. Any Assistant can be designated the Facilitator for a given Discussion.
+
+See: [Discussions](/docs/guides/discussions)
+
+### Conversation (session)
+
+A Conversation (internally `Session`/`AgentSession`, shown as "Conversation") is a single run's transcript — the ordered messages, tool uses, and raw events captured while an Assistant works. Conversations are tied to an Assistant (or to a Discussion) and are where you replay exactly what happened. Per-Conversation Safety Rules can scope limits to just that run.
+
+See: [Monitoring](/docs/guides/monitoring)
+
+### Workflow / Chain
+
+A Workflow (executed as a Chain) is a directed graph (DAG) of Assistants wired together on the canvas, with support for parallel branches. The ChainExecutor walks the graph, passing output forward from step to step, while a [Director](/docs/guides/orchestration) can re-plan mid-execution. You can also route a workflow at runtime with a **Condition** card and terminate branches in **data and output cards** (see below). Save a Workflow to reuse it, schedule it, or hand it to orchestration.
+
+See: [Workflows](/docs/guides/workflows) and [Orchestration](/docs/guides/orchestration)
+
+### Condition (branching router)
+
+A Condition (internally `ConditionNode`) is a first-class canvas card that **routes** a workflow on an Assistant's verdict — it does no agent work of its own. One Assistant feeds into it, and each labelled branch (`ConditionBranchSpec`) wires to a downstream Assistant. Branches match the upstream output by keyword (`contains`) or `regex` (`ConditionMatchKind`), seeded with **Approved / Rejected / Else** defaults; an Else/fallback branch catches anything unmatched. Before a run, Conditions are compiled away into grouped *conditional* edges, and they are honored in **both** DAG (parallel) and Director (sequential) modes.
+
+See: [Data Nodes](/docs/guides/data-nodes) and [Workflows](/docs/guides/workflows)
+
+### Data and output cards (sinks & dataset steps)
+
+Beyond Assistants, the canvas has cards that **capture or act on** a run's results. Two are pure sinks that fire as run-completion side effects, and two form a real, server-side dataset pipeline:
+
+| Card | Internal | What it does |
+| --- | --- | --- |
+| **Output** | `OutputNode` | Writes the run's combined Assistant output to a file (Formatted Markdown / Formatted HTML / Raw Text / Raw Markdown). Pure sink. |
+| **Email** | `EmailNode` | Sends the combined output as an HTML email via SMTP. **Opt-in** — disabled by default, so building a workflow never sends mail. Pure sink. |
+| **Structure** | `StructurerNode` | Turns Assistant prose into a typed dataset (`StructuredDataset` — a schema plus rows), by parsing or AI extraction. A real non-agent ChainExecutor step. |
+| **Save to DB** | `DbSaveNode` | Persists that dataset to the `StructuredDataset` / `StructuredRow` tables. Viewable and CSV-exportable in the Saved Datasets panel. A real non-agent ChainExecutor step. |
+
+Two more cards — **HTTP Request** (`http-request`) and **DuckDuckGo Search** (`duckduckgo-search`) — are *pass-through transforms*: each fetches external data mid-run (an outbound HTTP call or a live web search) and passes it to the next step, sitting inline between Assistants. They run as server-side steps during interactive runs, but the headless scheduler does not execute them yet.
+
+Output and Email accept only an Assistant input; **Structure** accepts only an Assistant and outputs only to **Save to DB**, which accepts only a Structure. The deeper mechanics — match kinds, dataset caps, SMTP config, the Datasets API, and the exact connection rules — live in the dedicated guide.
+
+See: [Data Nodes](/docs/guides/data-nodes)
+
+### Discussion (multi-agent deliberation)
+
+A Discussion (internally `DiscussionTable`, shown as "Team Discussion") seats several Assistants around a topic to deliberate — brainstorm, review, or reach a decision. It runs in rounds up to a configured maximum, with participants taking roles such as participant, observer, or devil's advocate, all coordinated by a **Facilitator**. The result is a recorded conclusion plus the full transcript.
+
+See: [Discussions](/docs/guides/discussions)
+
+### Memory (agent & workspace facts)
+
+Memory stores durable key/value facts so Assistants don't start from scratch each run. Facts are scoped to a single Assistant (`agent`) or shared across a Workspace (`workspace`), and can be pinned or weighted by importance. Memory is written manually, captured automatically from runs, or set by the Director during orchestration.
+
+See: [Memory](/docs/guides/memory)
+
+### Resource (files / URLs / notes / variables)
+
+A Resource (internally `WorkspaceResource`) is supporting context attached to a Workspace. Four types are supported: uploaded **files**, **URLs**, free-form **notes**, and **variables** (key/value pairs, which can be marked secret). Resources give Assistants the documents, links, and configuration they need without baking that data into a Personality.
+
+See: [Resources](/docs/guides/resources)
+
+### Schedule (cron run)
+
+A Schedule (internally `ScheduledTask`) runs a Workflow or a single Assistant automatically on a cron expression in a chosen timezone. Each Schedule tracks its enabled state, last and next run times, and last status. The Scheduler scans enabled tasks on boot and fires them when due.
+
+<Callout type="warning">
+  A couple of honest caveats about scheduled runs. The `directorEnabled` flag is plumbed through the API, database, and UI, but the Scheduler never reads it — the **Director does not run on scheduled tasks**. And a scheduled single-Assistant task uses a generic helper prompt rather than that Assistant's real Personality, Skills, and model.
+</Callout>
+
+See: [Schedules](/docs/guides/schedules)
+
+### Run (execution with steps & costs)
+
+A Run is one execution. For a Workflow it is a `ChainRun` — an append-only transcript of every step (`ChainStepResult`) and event (`ChainRunEvent`), so the full log replays after a refresh. Each Run records token usage and dollar cost (`SessionUsage`), and any output files it produces are saved as artifacts. A Run can also produce a persisted **structured dataset** (via Structure → Save to DB) — see [Data Nodes](/docs/guides/data-nodes).
+
+See: [Monitoring](/docs/guides/monitoring)
+
+## Related concepts
+
+A few capabilities build on the core blocks above:
+
+| Concept | What it adds |
+| --- | --- |
+| **Loop** | Lets an Assistant repeat until completion criteria are met, up to a max-iterations cap. See [Loops](/docs/guides/loops). |
+| **Orchestration** | The Planner, Director, and Advisor analyze, steer, and review runs. See [Orchestration](/docs/guides/orchestration). |
+| **External Folder** | Binds a host directory into the server so Assistants can read/write real files. See [External Folders](/docs/guides/external-folders). |
+| **Provider** | The engine behind an Assistant — Claude Code, OpenAI, or Perplexity. See [Providers](/docs/providers). |
+| **Roles & access** | The shared workspace is multi-user with global roles (admin / editor / viewer) and invite-only sign-up. See [Users & Roles](/docs/guides/users). |
+
+<Callout type="info">
+  RondoFlow's interface complexity tier is currently pinned to **full**, so the entire palette — including Condition and the data/output cards — is available. The Simple/Standard tiers exist in the codebase but are dormant machinery today, not a user-facing setting.
+</Callout>
+
+## How it fits together
+
+<Callout type="info">
+  Read it top-down: a **Workspace** contains **Assistants**; each Assistant is shaped by a **Personality**, **Skills**, **Safety Rules**, and **Connections**; you run Assistants alone, in a **Workflow** (optionally branched by a **Condition** and ending in **data/output cards**), or in a **Discussion**; every execution becomes a **Run** with a **Conversation** transcript, costs, artifacts, and any new **Memory**.
+</Callout>
+
+## Where to go next
+
+<Cards>
+  <Cards.Card title="Terminology" href="/docs/concepts/terminology" />
+  <Cards.Card title="Your First Workflow" href="/docs/getting-started/first-workflow" />
+  <Cards.Card title="Working with the Canvas" href="/docs/guides/canvas" />
+  <Cards.Card title="Building Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+</Cards>
+
+For the complete map of user-facing names to internal terms, see [Terminology](/docs/concepts/terminology).

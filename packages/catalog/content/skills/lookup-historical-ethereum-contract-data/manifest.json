@@ -1,0 +1,10 @@
+{
+  "id": "lookup-historical-ethereum-contract-data",
+  "name": "lookup-historical-ethereum-contract-data",
+  "description": "Read-only factual data about historical Ethereum mainnet contracts. Use when the user asks about a specific contract address, early Ethereum contracts, deployment era, deployer, bytecode, decompiled code, or documented history (what a contract is and is not). Data is non-opinion…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

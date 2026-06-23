@@ -1,0 +1,10 @@
+{
+  "id": "track-digestive-health-insights",
+  "name": "track-digestive-health-insights",
+  "description": "GutCheck - A digestive health tracking application with personalized insights and data-driven recommendations. Helps users understand food sensitivities and optimize gut wellness.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

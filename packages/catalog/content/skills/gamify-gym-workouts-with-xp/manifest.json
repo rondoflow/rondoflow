@@ -1,0 +1,10 @@
+{
+  "id": "gamify-gym-workouts-with-xp",
+  "name": "gamify-gym-workouts-with-xp",
+  "description": "Gamify your gym sessions with XP, levels, achievements, and workout streaks",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

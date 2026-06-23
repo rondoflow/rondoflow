@@ -1,0 +1,10 @@
+{
+  "id": "track-healthy-eating-habits",
+  "name": "track-healthy-eating-habits",
+  "description": "Build healthy eating habits with meal logging, nutrition tracking, and food choices",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

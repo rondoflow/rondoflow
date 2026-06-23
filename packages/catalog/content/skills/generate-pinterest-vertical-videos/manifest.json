@@ -1,0 +1,10 @@
+{
+  "id": "generate-pinterest-vertical-videos",
+  "name": "generate-pinterest-vertical-videos",
+  "description": "Generate Pinterest-optimized vertical videos using JSON2Video API. Supports AI-generated or URL-based images, AI-generated or provided voiceovers, optional subtitles, and zoom effects. Use when creating video content for Pinterest affiliate marketing, creating vertical social me…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "kubernetes-devops-operations",
+  "name": "kubernetes-devops-operations",
+  "description": "WHAT: Kubernetes manifest generation - Deployments, StatefulSets, CronJobs, Services, Ingresses, ConfigMaps, Secrets, and PVCs with production-grade security and health checks. WHEN: User needs to create K8s manifests, deploy containers, configure Services/Ingress, manage Config…",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

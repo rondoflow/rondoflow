@@ -1,0 +1,10 @@
+{
+  "id": "enrich-data-records",
+  "name": "enrich-data-records",
+  "description": "Enrich leads with email addresses and format data for Notion.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "game-theory-prisoners-dilemma",
+  "name": "game-theory-prisoners-dilemma",
+  "description": "Analyses cooperation problems where individual rationality produces collective irrationality. Triggers: 'cooperation problem', 'prisoner's dilemma', 'everyone defects even though cooperation is better', 'race to the bottom', 'should I cooperate or defect', 'why won't anyone cooperate', 'collective action failure', 'why do we all end up worse off'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

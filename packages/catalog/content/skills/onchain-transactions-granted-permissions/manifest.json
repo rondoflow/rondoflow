@@ -1,0 +1,10 @@
+{
+  "id": "onchain-transactions-granted-permissions",
+  "name": "onchain-transactions-granted-permissions",
+  "description": "Execute on-chain transactions with user-granted permissions. Built on MetaMask ERC-7715. No private keys, full guardrails.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

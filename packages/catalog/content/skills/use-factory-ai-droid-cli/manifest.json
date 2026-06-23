@@ -1,0 +1,10 @@
+{
+  "id": "use-factory-ai-droid-cli",
+  "name": "use-factory-ai-droid-cli",
+  "description": "Use `droid` to build features, debug, refactor, and deploy code.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "server",
+  "order": 1000
+}

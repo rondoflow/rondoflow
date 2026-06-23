@@ -1,0 +1,10 @@
+{
+  "id": "zero-llm-one-shot-reminders",
+  "name": "zero-llm-one-shot-reminders",
+  "description": "Zero-LLM one-shot reminders (<48h) via nohup sleep + openclaw message send, operated via {baseDir}/scripts/nohup-reminder.sh.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.1.4",
+  "icon": "bot",
+  "order": 1000
+}

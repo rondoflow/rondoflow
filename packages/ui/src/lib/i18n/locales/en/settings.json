@@ -1,0 +1,211 @@
+{
+  "language": {
+    "section": "Language",
+    "label": "Display language"
+  },
+  "panel": {
+    "title": "Settings",
+    "ariaLabel": "Settings",
+    "description": "Configure rondoflow preferences. Changes are saved automatically."
+  },
+  "appearance": {
+    "section": "Appearance"
+  },
+  "theme": {
+    "label": "Theme",
+    "ariaLabel": "Theme",
+    "option": {
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "apiKeys": {
+    "section": "API Keys & Integrations"
+  },
+  "connection": {
+    "section": "Connection",
+    "serverUrl": "Server URL",
+    "serverUrlPlaceholder": "http://localhost:3001",
+    "testAriaLabel": "Test connection",
+    "status": {
+      "checking": "Checking…",
+      "connected": "Connected",
+      "unreachable": "Unreachable"
+    }
+  },
+  "safety": {
+    "section": "Safety",
+    "globalLevel": "Global safety level",
+    "level": {
+      "cautious": {
+        "label": "Cautious",
+        "description": "Approve every tool call. Best for sensitive environments."
+      },
+      "balanced": {
+        "label": "Balanced",
+        "description": "Approve risky operations; allow safe ones automatically."
+      },
+      "autonomous": {
+        "label": "Autonomous",
+        "description": "Agents act without approval. Use with trusted workflows only."
+      }
+    }
+  },
+  "models": {
+    "section": "Models",
+    "default": "Default model",
+    "option": {
+      "deepThinker": {
+        "label": "Deep Thinker",
+        "description": "Opus — best reasoning, higher cost."
+      },
+      "allRounder": {
+        "label": "All-Rounder",
+        "description": "Sonnet — balanced speed and capability."
+      },
+      "quickHelper": {
+        "label": "Quick Helper",
+        "description": "Haiku — fast and economical."
+      }
+    }
+  },
+  "advanced": {
+    "section": "Advanced",
+    "agentTeams": {
+      "label": "Agent Teams",
+      "description": "Allow agents to spawn sub-agents and coordinate as a team.",
+      "warning": "Agent teams significantly increase token usage and cost per session."
+    },
+    "maxConcurrent": "Max Concurrent Agents — {{count}}",
+    "maxBudget": {
+      "label": "Max Budget per Session ($)",
+      "placeholder": "No limit",
+      "description": "Global spend cap forwarded to every run. A run stops with a budget error when it exceeds this amount. Leave empty for no limit."
+    },
+    "directorBudget": {
+      "label": "Director Budget per Evaluation ($)",
+      "placeholder": "Default (0.05)",
+      "description": "Spend cap for each Director evaluation between workflow steps. Raise it for long workflows with large step histories that hit a budget error. Leave empty for the default."
+    },
+    "directorTimeout": {
+      "label": "Director Timeout per Evaluation (s)",
+      "placeholder": "Default (90)",
+      "description": "Wall-clock limit for each Director evaluation between workflow steps. On timeout the step's output is passed on unreviewed. Raise it for long workflows that hit a timeout error. Leave empty for the default."
+    }
+  },
+  "mode": {
+    "ariaLabel": "Permission mode",
+    "option": {
+      "plan": "Plan",
+      "default": "Default",
+      "edit": "Edit",
+      "full": "Full"
+    },
+    "editConfirm": {
+      "warning": "Edit mode lets this agent modify files."
+    }
+  },
+  "globalSafety": {
+    "title": "Global Safety Rules",
+    "defaultLevel": {
+      "title": "Default Safety Level",
+      "description": "Applies to all assistants unless overridden.",
+      "cautious": {
+        "label": "Cautious",
+        "description": "Ask before every action"
+      },
+      "balanced": {
+        "label": "Balanced",
+        "description": "Ask before risky actions only"
+      },
+      "autonomous": {
+        "label": "Autonomous",
+        "description": "Work independently"
+      }
+    },
+    "blocked": {
+      "title": "Blocked Commands",
+      "description": "These commands are always blocked, regardless of safety level.",
+      "placeholder": "Add blocked command..."
+    },
+    "approval": {
+      "title": "Require Approval",
+      "description": "These commands require your approval before running.",
+      "placeholder": "Add command pattern..."
+    },
+    "timeout": {
+      "title": "Default Timeout",
+      "hint": "seconds (default: 300)"
+    }
+  },
+  "context": {
+    "title": "Workspace Context",
+    "description": "This document is injected into every agent prompt in this workspace. Use it for shared instructions, project context, or coding standards.",
+    "placeholder": "# Workspace Context\n\nDescribe the project, conventions, or instructions that all agents should follow...",
+    "workingDir": {
+      "title": "Working Directory",
+      "saved": "Saved",
+      "description": "Set the directory where agents and git operations run. Leave empty to use the server's default directory.",
+      "placeholder": "C:\\Users\\me\\my-project or /home/me/my-project",
+      "saveError": "Failed to save"
+    }
+  },
+  "plan": {
+    "title": "Workspace Plan",
+    "description": "Define goals, milestones, and tasks for this workspace. This document is for your reference — it is not injected into agent prompts.",
+    "placeholder": "# Workspace Plan\n\nDefine goals, milestones, and tasks for this workspace..."
+  },
+  "credentials": {
+    "loading": "Loading credentials…",
+    "intro": "Stored encrypted on the server. Secrets are never displayed — only a masked preview.",
+    "state": {
+      "notSet": "Not set",
+      "saved": "Saved",
+      "fromEnv": "From .env",
+      "set": "Set",
+      "withPreview": "{{source}} · {{preview}}",
+      "willClear": "Will be cleared on save"
+    },
+    "input": {
+      "keepCurrent": "Leave blank to keep current value",
+      "notSet": "Not set"
+    },
+    "reveal": {
+      "show": "Show {{label}}",
+      "hide": "Hide {{label}}"
+    },
+    "clear": "Clear",
+    "undo": "Undo",
+    "save": "Save credentials",
+    "savedState": "Saved",
+    "loadError": "Failed to load credentials",
+    "saveError": "Failed to save credentials",
+    "group": {
+      "anthropic": {
+        "title": "Claude access",
+        "hint": "Agents run via the Claude Code CLI. Provide either an API key, or a setup token from `claude setup-token` (uses your Claude subscription). If both are set, the setup token wins. Applies immediately on save."
+      },
+      "openai": {
+        "title": "OpenAI access",
+        "hint": "Used by OpenAI assistants. Create a key at platform.openai.com/api-keys. Applies immediately on save."
+      },
+      "perplexity": {
+        "title": "Perplexity access",
+        "hint": "Used by Perplexity assistants. Create a key at perplexity.ai/settings/api. Applies immediately on save."
+      },
+      "github": {
+        "title": "GitHub OAuth",
+        "hint": "Enables “Sign in with GitHub”. Create an OAuth app in GitHub → Developer settings."
+      },
+      "google": {
+        "title": "Google OAuth",
+        "hint": "Enables “Sign in with Google”. Create OAuth credentials in the Google Cloud console."
+      },
+      "smtp": {
+        "title": "Email (SMTP)",
+        "hint": "Used by the canvas Email node to send workflow output. SMTP secure: \"true\" for port 465 (implicit TLS), \"false\" for 587 (STARTTLS). Applies immediately on save; leave SMTP host empty to disable."
+      }
+    }
+  }
+}

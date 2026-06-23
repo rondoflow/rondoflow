@@ -1,0 +1,10 @@
+{
+  "id": "jarvis-voice-personality-assistant",
+  "name": "jarvis-voice-personality-assistant",
+  "description": "Turn your AI into JARVIS. Voice, wit, and personality — the complete package. Humor cranked to maximum.",
+  "category": "Media",
+  "author": "community",
+  "version": "3.1.0",
+  "icon": "image",
+  "order": 1000
+}

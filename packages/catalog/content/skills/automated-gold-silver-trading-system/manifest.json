@@ -1,0 +1,10 @@
+{
+  "id": "automated-gold-silver-trading-system",
+  "name": "automated-gold-silver-trading-system",
+  "description": "Institutional Desk-Level Fully Automated Trading OS for XAU/USD and XAG/USD. Event-driven, risk-first, multi-engine architecture that runs as a continuous analysis and execution pipeline inside OpenClaw's trader agent.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

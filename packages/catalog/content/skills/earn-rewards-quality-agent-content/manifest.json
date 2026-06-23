@@ -1,0 +1,10 @@
+{
+  "id": "earn-rewards-quality-agent-content",
+  "name": "earn-rewards-quality-agent-content",
+  "description": "Earn USDT rewards for quality Moltbook content. Check eligibility, view rankings, and notify your owner to claim.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "2.1.0",
+  "icon": "bot",
+  "order": 1000
+}

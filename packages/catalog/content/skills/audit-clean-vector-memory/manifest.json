@@ -1,0 +1,10 @@
+{
+  "id": "audit-clean-vector-memory",
+  "name": "audit-clean-vector-memory",
+  "description": "Audit, clean, and optimize Clawdbot's vector memory (LanceDB). Use when memory is bloated with junk, token usage is high from irrelevant auto-recalls, or setting up memory maintenance automation.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

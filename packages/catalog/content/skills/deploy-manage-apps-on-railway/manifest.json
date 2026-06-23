@@ -1,0 +1,10 @@
+{
+  "id": "deploy-manage-apps-on-railway",
+  "name": "deploy-manage-apps-on-railway",
+  "description": "Deploy and manage applications on Railway.app. Use for deploying projects, managing services, viewing logs, setting environment variables, and managing databases. Railway is a modern cloud platform for deploying apps with zero configuration.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

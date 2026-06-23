@@ -1,0 +1,10 @@
+{
+  "id": "deploy-nft-collections-base",
+  "name": "deploy-nft-collections-base",
+  "description": "Deploy NFT collections on Base. AI agents can deploy via API key or x402 USDC payment. Humans mint.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "coding-discipline-cli-tools",
+  "name": "coding-discipline-cli-tools",
+  "description": "Your AI's dojo discipline - Strike First. Strike Hard. No Mercy. Includes CLI tool for quick lookups, katas for practice, and shell tools.",
+  "category": "Development",
+  "author": "community",
+  "version": "2.0.0",
+  "icon": "code",
+  "order": 1000
+}

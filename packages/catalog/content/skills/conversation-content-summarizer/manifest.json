@@ -1,0 +1,10 @@
+{
+  "id": "conversation-content-summarizer",
+  "name": "conversation-content-summarizer",
+  "description": "Generate summaries for conversation content. Helps users quickly get a summary of their chat history with support for incremental updates.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "information",
+  "name": "information",
+  "description": "Entry point for the information theory toolkit. Routes to the right information skill based on your situation. Use when you say 'information', 'signal vs noise', 'what matters here', 'too much data', 'what can be cut', 'redundancy', 'uncertainty', 'surprise', 'how much information does this actually contain', or want information-theoretic thinking applied without knowing which specific tool fits.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

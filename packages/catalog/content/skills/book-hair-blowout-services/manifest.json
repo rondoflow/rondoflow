@@ -1,0 +1,10 @@
+{
+  "id": "book-hair-blowout-services",
+  "name": "book-hair-blowout-services",
+  "description": "Book blowout services through Lokuli MCP. Use when user needs to find and book blowout. Triggers on requests like \"book a blowout\", \"find blowout near me\", or any blowout service request.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

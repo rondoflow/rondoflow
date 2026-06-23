@@ -1,0 +1,10 @@
+{
+  "id": "extract-video-frames-clips",
+  "name": "extract-video-frames-clips",
+  "description": "Extract frames or short clips from videos using ffmpeg.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

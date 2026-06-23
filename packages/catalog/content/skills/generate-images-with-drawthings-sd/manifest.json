@@ -1,0 +1,10 @@
+{
+  "id": "generate-images-with-drawthings-sd",
+  "name": "generate-images-with-drawthings-sd",
+  "description": "Generate images with DrawThings (Stable Diffusion) via API. Use when creating images from text prompts, running image generation workflows, or batch generating images. DrawThings runs locally on Mac with MLX/CoreML acceleration.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

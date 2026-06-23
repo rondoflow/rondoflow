@@ -1,0 +1,10 @@
+{
+  "id": "generate-short-form-videos",
+  "name": "generate-short-form-videos",
+  "description": "Short-form video for AI agents. Generate videos using the latest models, pay with USDC via x402.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

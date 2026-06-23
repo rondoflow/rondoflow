@@ -1,0 +1,10 @@
+{
+  "id": "ai-financial-analysis-stock-research",
+  "name": "ai-financial-analysis-stock-research",
+  "description": "AI financial analysis and stock research powered by CellCog. Stock analysis, valuation models, portfolio optimization, earnings breakdowns, investment research, financial statements, tax planning, and DCF modeling. Wall Street-grade deliverables — interactive dashboards, PDF rep…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "coins",
+  "order": 1000
+}

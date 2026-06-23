@@ -1,0 +1,10 @@
+{
+  "id": "network-contagion",
+  "name": "network-contagion",
+  "description": "Models how things spread through networks — ideas, behaviors, viruses, product adoption, financial contagion, cascading failures. Use when asked 'why did this go viral', 'why isn't this spreading', 'how do we accelerate adoption', 'what's the tipping point', 'could this cascade', or when modeling any spread or diffusion process through a connected system.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

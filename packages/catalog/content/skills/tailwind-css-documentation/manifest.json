@@ -1,0 +1,10 @@
+{
+  "id": "tailwind-css-documentation",
+  "name": "tailwind-css-documentation",
+  "description": "Complete Tailwind CSS documentation. Use when working with Tailwind CSS utility classes, responsive design, dark mode, animations, custom configurations, plugins, or styling questions. Covers all utility classes, modifiers, configuration options, and best practices.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "pencil",
+  "order": 1000
+}

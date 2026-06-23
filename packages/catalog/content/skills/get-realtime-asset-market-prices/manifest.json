@@ -1,0 +1,10 @@
+{
+  "id": "get-realtime-asset-market-prices",
+  "name": "get-realtime-asset-market-prices",
+  "description": "Get real-time prices for crypto, stocks, and commodities. Use when the user asks about asset prices, market data, or needs to check the value of Bitcoin, Ethereum, stocks like NVDA/AAPL, or commodities like gold/silver. Supports natural language queries (\"What's the price of Bit…",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

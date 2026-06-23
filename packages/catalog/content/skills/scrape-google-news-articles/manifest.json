@@ -1,0 +1,10 @@
+{
+  "id": "scrape-google-news-articles",
+  "name": "scrape-google-news-articles",
+  "description": "Scrape structured news data from Google News automatically. Use when the user asks for news on a topic, industry trends, or PR monitoring. Triggers on keywords like \"find news about\", \"track trends\", or \"monitor PR\".",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "research-ecommerce-products-ad-intelligence",
+  "name": "research-ecommerce-products-ad-intelligence",
+  "description": "Research ecommerce products and stores using TikTok and Facebook ads, product data, and store intelligence from PipiAds.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "image",
+  "order": 1000
+}

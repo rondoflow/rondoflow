@@ -1,0 +1,10 @@
+{
+  "id": "fetch-rescuetime-productivity-data",
+  "name": "fetch-rescuetime-productivity-data",
+  "description": "Fetch productivity data from RescueTime. Use when the user asks about their screen time, productivity score, app usage, time tracking, how they spent their day/week, or wants reports on their computer activity. Requires API key in TOOLS.md or passed directly.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "manage-pocketsmith-financial-data",
+  "name": "manage-pocketsmith-financial-data",
+  "description": "Manage PocketSmith transactions, categories, and financial data via the API",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "v1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

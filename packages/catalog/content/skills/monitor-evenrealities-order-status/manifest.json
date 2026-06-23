@@ -1,0 +1,10 @@
+{
+  "id": "monitor-evenrealities-order-status",
+  "name": "monitor-evenrealities-order-status",
+  "description": "Automate Evenrealities order monitoring (daily checks, status history, change-only alerts). Uses fast-browser-use to fill the tracker form, compare statuses, and notify Telegram only when something changes, while logging everything into `memory/evenrealities-status-history.json`.",
+  "category": "Web & Scraping",
+  "author": "community",
+  "version": "1.2.0",
+  "icon": "globe",
+  "order": 1000
+}

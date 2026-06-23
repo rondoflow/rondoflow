@@ -1,0 +1,10 @@
+{
+  "id": "manage-gumroad-store",
+  "name": "manage-gumroad-store",
+  "description": "Gumroad API integration with managed OAuth. Access products, sales, subscribers, licenses, and webhooks for your digital storefront. Use this skill when users want to manage their Gumroad products, verify licenses, view sales data, or set up webhook notifications. For other thir…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.3",
+  "icon": "chart-bar",
+  "order": 1000
+}

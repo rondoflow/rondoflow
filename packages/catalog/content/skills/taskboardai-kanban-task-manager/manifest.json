@@ -1,0 +1,10 @@
+{
+  "id": "taskboardai-kanban-task-manager",
+  "name": "taskboardai-kanban-task-manager",
+  "description": "Manage tasks and projects using the TaskBoardAI Kanban system. Includes MCP server integration.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "bot",
+  "order": 1000
+}

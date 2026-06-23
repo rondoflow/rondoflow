@@ -1,0 +1,10 @@
+{
+  "id": "fetch-latest-polymarket-events",
+  "name": "fetch-latest-polymarket-events",
+  "description": "Fetch the latest events from Polymarket prediction market. Use when user asks about Polymarket events, prediction markets, trending bets, or wants to see what's new on Polymarket.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "coins",
+  "order": 1000
+}

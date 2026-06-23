@@ -1,0 +1,10 @@
+{
+  "id": "tavily-web-search-research",
+  "name": "tavily-web-search-research",
+  "description": "use this when the user asks to search the web, look up recent information, check current events, gather online sources, or research a topic using tavily search.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

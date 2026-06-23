@@ -1,0 +1,10 @@
+{
+  "id": "plan-day-trip-itineraries",
+  "name": "plan-day-trip-itineraries",
+  "description": "Plan complete day trips, walking tours, and multi-stop itineraries with time budgets using Camino AI's journey planning and route optimization.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.2.0",
+  "icon": "puzzle",
+  "order": 1000
+}

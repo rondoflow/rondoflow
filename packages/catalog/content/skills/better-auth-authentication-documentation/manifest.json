@@ -1,0 +1,10 @@
+{
+  "id": "better-auth-authentication-documentation",
+  "name": "better-auth-authentication-documentation",
+  "description": "Complete Better Auth documentation in markdown format. Use when implementing authentication in TypeScript projects - covers OAuth providers (Google, GitHub, etc.), email/password, passkeys, 2FA, session management, database adapters (Prisma, Drizzle), and framework integrations…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.4.18",
+  "icon": "chart-bar",
+  "order": 1000
+}

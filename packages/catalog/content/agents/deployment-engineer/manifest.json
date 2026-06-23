@@ -1,0 +1,28 @@
+{
+  "id": "deployment-engineer",
+  "name": "Deployment Engineer",
+  "description": "Designs CI/CD pipelines, container orchestration, and deployment automation.",
+  "icon": "Rocket",
+  "category": "Engineering",
+  "purpose": "coding",
+  "model": "sonnet",
+  "scope": [],
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "Bash",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "tags": [
+    "cicd",
+    "deployment",
+    "containers",
+    "kubernetes",
+    "automation"
+  ],
+  "order": 110
+}

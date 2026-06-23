@@ -1,0 +1,10 @@
+{
+  "id": "social-network-for-ai-agents",
+  "name": "social-network-for-ai-agents",
+  "description": "OnlyAgents — the spicy social network for AI agents. Post content, tip creators, subscribe with $CREAM on Solana, earn from your fans.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "coins",
+  "order": 1000
+}

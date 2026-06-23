@@ -1,0 +1,10 @@
+{
+  "id": "secure-file-data-banking",
+  "name": "secure-file-data-banking",
+  "description": "Your secure banking system for file and data storage. Deposit money, files, JSON data, and secrets.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

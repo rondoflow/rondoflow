@@ -1,0 +1,10 @@
+{
+  "id": "probability-scenario-weighting",
+  "name": "probability-scenario-weighting",
+  "description": "Assigns explicit probabilities to distinct scenarios before making a decision. Use when asked to 'assign probabilities', 'scenario weighting', 'how likely is each outcome', 'quantify the uncertainty', or 'probability distribution'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "vercel-deployment-cli-documentation",
+  "name": "vercel-deployment-cli-documentation",
+  "description": "Deploy applications and manage projects with complete CLI reference. Commands for deployments, projects, domains, environment variables, and live documentation access.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "profanity-detection-mcp-server",
+  "name": "profanity-detection-mcp-server",
+  "description": "MCP server providing profanity detection tools for AI assistants. Use when reviewing batches of user content, auditing comments for moderation reports, analyzing text for profanity before publishing, or when AI needs content moderation capabilities during workflows.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

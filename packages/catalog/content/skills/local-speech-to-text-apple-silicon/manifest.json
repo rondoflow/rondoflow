@@ -1,0 +1,10 @@
+{
+  "id": "local-speech-to-text-apple-silicon",
+  "name": "local-speech-to-text-apple-silicon",
+  "description": "Local speech-to-text with Parakeet MLX (ASR) for Apple Silicon (no API key).",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

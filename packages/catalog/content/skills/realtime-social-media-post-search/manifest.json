@@ -1,0 +1,10 @@
+{
+  "id": "realtime-social-media-post-search",
+  "name": "realtime-social-media-post-search",
+  "description": "Search Twitter, Instagram, and Reddit posts in real time. Find social media mentions, track hashtags, discover influencers, and analyze engagement — 1.5B+ posts indexed. Social listening, brand monitoring, and competitor research made easy for AI agents.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.5.0",
+  "icon": "bot",
+  "order": 1000
+}

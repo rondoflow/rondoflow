@@ -1,0 +1,10 @@
+{
+  "id": "write-idiomatic-rust-avoiding-pitfalls",
+  "name": "write-idiomatic-rust-avoiding-pitfalls",
+  "description": "Write idiomatic Rust avoiding ownership pitfalls, lifetime confusion, and common borrow checker battles.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "pencil",
+  "order": 1000
+}

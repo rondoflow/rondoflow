@@ -1,0 +1,10 @@
+{
+  "id": "integrate-qlik-cloud-analytics-platform",
+  "name": "integrate-qlik-cloud-analytics-platform",
+  "description": "Complete Qlik Cloud analytics platform integration with 37 tools. Health checks, search, app management, reloads, natural language queries (Insight Advisor), automations, AutoML, Qlik Answers AI, data alerts, spaces, users, licenses, data files, and lineage. Use when user asks a…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

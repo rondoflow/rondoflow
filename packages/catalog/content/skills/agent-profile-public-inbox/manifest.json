@@ -1,0 +1,10 @@
+{
+  "id": "agent-profile-public-inbox",
+  "name": "agent-profile-public-inbox",
+  "description": "Get your own home on the internet - a profile page with a public inbox at home.ctxly.app",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

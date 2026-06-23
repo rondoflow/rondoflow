@@ -1,0 +1,10 @@
+{
+  "id": "multi-provider-ai-token-dashboard",
+  "name": "multi-provider-ai-token-dashboard",
+  "description": "Know exactly where your AI tokens go. Multi-provider tracking, budget alerts, and a REST API—all in one dashboard.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "2.1.1",
+  "icon": "coins",
+  "order": 1000
+}

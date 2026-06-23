@@ -1,0 +1,10 @@
+{
+  "id": "jack-cloud-service-integration",
+  "name": "jack-cloud-service-integration",
+  "description": "Deploy web services to the cloud with Jack. Use when: you need to create APIs, websites, or backends and deploy them live. Teaches: project creation, deployment, databases, logs, and all Jack Cloud services.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "0.3.1",
+  "icon": "server",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "generate-study-materials-and-plans",
+  "name": "generate-study-materials-and-plans",
+  "description": "Generate study materials. Use when creating study plans, quizzes, flashcards, tracking progress, or scheduling review sessions.",
+  "category": "Community",
+  "author": "community",
+  "version": "3.4.0",
+  "icon": "puzzle",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "resource-bottleneck-analysis",
+  "name": "resource-bottleneck-analysis",
+  "description": "Identifies what is actually constraining throughput — using Theory of Constraints logic: the system can only move as fast as its slowest point. Triggers: 'bottleneck analysis', 'what's actually slowing this down', 'where's the constraint', 'theory of constraints', 'find the bottleneck', 'why are we moving slowly'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

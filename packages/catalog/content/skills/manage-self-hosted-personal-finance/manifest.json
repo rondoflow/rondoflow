@@ -1,0 +1,10 @@
+{
+  "id": "manage-self-hosted-personal-finance",
+  "name": "manage-self-hosted-personal-finance",
+  "description": "ezBookkeeping is a lightweight, self-hosted personal finance app with a user-friendly interface and powerful bookkeeping features. This skill allows AI agents to add and query transactions, accounts, categories, and tags in ezBookkeeping via ezBookkeeping API Tools.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

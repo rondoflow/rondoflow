@@ -1,0 +1,293 @@
+{
+  "browser": {
+    "title": "Arbeitsbereich-Ressourcen",
+    "refresh": "Ressourcen aktualisieren",
+    "close": "Ressourcen-Panel schließen",
+    "tabAriaLabel": "Tab {{tab}}",
+    "tablistLabel": "Ressourcen-Tabs",
+    "loadingAria": "Ressourcen werden geladen",
+    "tab": {
+      "files": "Dateien",
+      "links": "Links",
+      "notes": "Notizen",
+      "variables": "Variablen"
+    },
+    "summaryFormat": "{{files}} · {{links}} · {{notes}} · {{variables}}",
+    "summary": {
+      "files_one": "{{count}} Datei",
+      "files_other": "{{count}} Dateien",
+      "links_one": "{{count}} Link",
+      "links_other": "{{count}} Links",
+      "notes_one": "{{count}} Notiz",
+      "notes_other": "{{count}} Notizen",
+      "variables_one": "{{count}} Variable",
+      "variables_other": "{{count}} Variablen"
+    }
+  },
+  "files": {
+    "dropzone": "Dateien hierher ziehen oder zum Durchsuchen klicken",
+    "uploading": "{{name}} wird hochgeladen…",
+    "empty": "Noch keine Dateien hochgeladen.",
+    "listLabel": "Hochgeladene Dateien",
+    "renameAria": "Datei umbenennen",
+    "size.unknown": "—",
+    "preview": "Vorschau",
+    "previewAria": "Vorschau von {{name}}",
+    "download": "Herunterladen",
+    "downloadAria": "{{name}} herunterladen",
+    "rename": "Umbenennen",
+    "renameItemAria": "{{name}} umbenennen",
+    "deleteItemAria": "{{name}} löschen"
+  },
+  "links": {
+    "add": "Link hinzufügen",
+    "empty": "Noch keine Links hinzugefügt.",
+    "listLabel": "Arbeitsbereich-Links",
+    "placeholder": {
+      "url": "URL *",
+      "title": "Titel",
+      "description": "Beschreibung (optional)"
+    },
+    "aria": {
+      "url": "Link-URL",
+      "title": "Link-Titel",
+      "description": "Link-Beschreibung"
+    },
+    "open": "Link öffnen",
+    "openAria": "{{name}} öffnen",
+    "deleteItemAria": "{{name}} löschen"
+  },
+  "notes": {
+    "add": "Notiz hinzufügen",
+    "empty": "Noch keine Notizen hinzugefügt.",
+    "listLabel": "Arbeitsbereich-Notizen",
+    "placeholder": {
+      "title": "Notiztitel *",
+      "content": "Schreiben Sie hier Ihre Notiz…"
+    },
+    "aria": {
+      "title": "Notiztitel",
+      "content": "Notizinhalt",
+      "expand": "Notiz erweitern: {{name}}",
+      "collapse": "Notiz einklappen: {{name}}",
+      "edit": "Notiz {{name}} bearbeiten",
+      "delete": "Notiz {{name}} löschen"
+    },
+    "autoSave": "Automatisches Speichern beim Verlassen · {{date}}"
+  },
+  "variables": {
+    "add": "Variable hinzufügen",
+    "empty": "Noch keine Variablen hinzugefügt.",
+    "listLabel": "Arbeitsbereich-Variablen",
+    "placeholder": {
+      "key": "Schlüssel *",
+      "value": "Wert"
+    },
+    "aria": {
+      "key": "Variablenschlüssel",
+      "value": "Variablenwert",
+      "secret": "Geheime Variable",
+      "editValue": "Wert von {{name}} bearbeiten"
+    },
+    "secretLabel": "Geheim (Wert maskieren)",
+    "showValue": "Wert anzeigen",
+    "hideValue": "Wert ausblenden",
+    "show": "Anzeigen",
+    "hide": "Ausblenden",
+    "editItemAria": "{{name}} bearbeiten",
+    "deleteItemAria": "{{name}} löschen"
+  },
+  "externalFolders": {
+    "title": "Externe Ordner",
+    "ariaLabel": "Externe Ordner",
+    "refresh": "Aktualisieren",
+    "description": "Registrieren Sie in den Container eingebundene Host-Verzeichnisse und hängen Sie sie an Assistenten an",
+    "attachNotice": "Durch Registrieren oder Anhängen eines Ordners wird er dem ausgewählten Assistenten hinzugefügt.",
+    "empty": {
+      "title": "Keine externen Ordner eingebunden",
+      "intro": "Der Server läuft in Docker, daher müssen Host-Ordner per Bind-Mount in den Container eingebunden werden. Binden Sie ein Verzeichnis ein, dann erscheint es hier automatisch.",
+      "step1Prefix": "Setzen Sie",
+      "step1Mid": "in",
+      "step1Suffix": "(oder fügen Sie einen Bind-Mount unter",
+      "step1End": "in",
+      "step1Tail": "hinzu).",
+      "step2": "Starten Sie den Server-Container neu.",
+      "step3": "Klicken Sie auf Aktualisieren – eingebundene Ordner werden unten angezeigt.",
+      "rootMissing": "Das Mount-Root ist noch nicht im Container vorhanden."
+    },
+    "readOnlyBadge": "Schreibgeschützt",
+    "added": "Hinzugefügt",
+    "attach": "Anhängen",
+    "deleteAria": "{{name}} löschen",
+    "delete": "Löschen",
+    "pickPlaceholder": "Einen eingebundenen Ordner auswählen…",
+    "placeholder": {
+      "containerPath": "/external/my-project",
+      "name": "Anzeigename",
+      "description": "Beschreibung (optional)"
+    },
+    "aria": {
+      "containerPath": "Container-Pfad",
+      "name": "Name",
+      "description": "Beschreibung"
+    },
+    "readOnlyLabelPrefix": "Schreibgeschützt (eingebunden mit",
+    "readOnlyLabelSuffix": ")",
+    "register": "Registrieren",
+    "registerFolder": "Einen Ordner registrieren",
+    "error": {
+      "required": "Name und Container-Pfad sind erforderlich",
+      "registerFailed": "Ordner konnte nicht registriert werden"
+    }
+  },
+  "marketplace": {
+    "title": "Fähigkeiten",
+    "ariaLabel": "Fähigkeiten",
+    "description": "Skills für Ihre Assistenten durchsuchen und verwalten",
+    "attachNotice": "Durch Hinzufügen eines Skills wird er an den ausgewählten Assistenten angehängt.",
+    "tab": {
+      "browse": "Durchsuchen",
+      "installed": "Installiert",
+      "installedCount": "Installiert ({{count}})",
+      "create": "Erstellen",
+      "import": "Importieren"
+    },
+    "category": {
+      "all": "Alle",
+      "development": "Entwicklung",
+      "writing": "Schreiben",
+      "analysis": "Analyse",
+      "research": "Recherche"
+    },
+    "browse": {
+      "searchPlaceholder": "Skills suchen...",
+      "searchAria": "Skills suchen",
+      "filterLabel": "Nach Kategorie filtern",
+      "loading": "Skills werden geladen…",
+      "emptyCatalog": "Keine Skills im Katalog verfügbar",
+      "emptyMatch": "Keine Skills passen zu „{{query}}“",
+      "listLabel": "Verfügbare Skills",
+      "chipAria": "{{category}} ({{count}} Skills)"
+    },
+    "card": {
+      "version": "v{{version}}",
+      "viewDetailsAria": "Details für {{name}} anzeigen",
+      "actionAria": "{{action}} {{name}}",
+      "adding": "Wird hinzugefügt",
+      "installing": "Wird installiert",
+      "added": "Hinzugefügt",
+      "installed": "Installiert",
+      "add": "Hinzufügen",
+      "install": "Installieren",
+      "installFailed": "Installation fehlgeschlagen"
+    },
+    "installed": {
+      "empty": "Noch keine Skills installiert",
+      "emptyHint": "Durchsuchen Sie den Marktplatz, um Fähigkeiten hinzuzufügen!",
+      "listLabel": "Installierte Skills",
+      "uninstallAria": "{{name}} deinstallieren"
+    },
+    "create": {
+      "intro": "Schreiben Sie Ihren eigenen Skill. Name und Anweisungen werden zu einer lokalen SKILL.md, die Sie an Assistenten anhängen können.",
+      "nameLabel": "Name",
+      "namePlaceholder": "my-custom-skill",
+      "nameAria": "Skill-Name",
+      "nameInvalid": "Nur Buchstaben, Ziffern, Bindestriche und Unterstriche sind erlaubt.",
+      "descriptionLabel": "Beschreibung",
+      "descriptionPlaceholder": "Wobei dieser Skill dem Assistenten hilft",
+      "descriptionAria": "Skill-Beschreibung",
+      "categoryLabel": "Kategorie",
+      "categoryOptional": "(optional)",
+      "categoryPlaceholder": "Entwicklung, Schreiben, Analyse…",
+      "categoryAria": "Skill-Kategorie",
+      "instructionsLabel": "Anweisungen",
+      "instructionsPlaceholder": "Du bist Experte für…\n\n## Richtlinien\n- …",
+      "instructionsAria": "Skill-Anweisungen",
+      "creating": "Wird erstellt",
+      "submit": "Skill erstellen",
+      "success": "„{{name}}“ erstellt und installiert.",
+      "failed": "Skill konnte nicht erstellt werden"
+    },
+    "edit": {
+      "title": "{{name}} bearbeiten",
+      "intro": "Aktualisieren Sie die Details und Anweisungen dieses Skills. Beim Speichern wird die lokale SKILL.md neu geschrieben.",
+      "nameReadonly": "Der Name kann nach dem Erstellen eines Skills nicht mehr geändert werden.",
+      "submit": "Änderungen speichern",
+      "saving": "Wird gespeichert",
+      "success": "„{{name}}“ aktualisiert.",
+      "failed": "Skill konnte nicht aktualisiert werden",
+      "backAria": "Zurück zu den Skill-Details"
+    },
+    "import": {
+      "label": "Git-Repository-URL",
+      "intro": "Importieren Sie einen benutzerdefinierten Skill aus einem Git-Repository.",
+      "placeholder": "https://github.com/user/skill-repo",
+      "aria": "Git-Repository-URL",
+      "importing": "Wird importiert",
+      "submit": "Importieren",
+      "success": "„{{name}}“ erfolgreich importiert.",
+      "failed": "Import fehlgeschlagen",
+      "requirements": "Anforderungen",
+      "req1Prefix": "Das Repository muss eine",
+      "req1Suffix": "-Datei im Stammverzeichnis enthalten",
+      "req2": "Das Repository muss öffentlich zugänglich sein oder die Anmeldedaten müssen konfiguriert sein",
+      "req3Prefix": "Eine",
+      "req3Mid": "oder",
+      "req3Suffix": "definiert die verfügbaren Tools"
+    }
+  },
+  "detail": {
+    "back": "Zurück",
+    "backAria": "Zurück zum Marktplatz",
+    "version": "v{{version}}",
+    "installedOn_one": "Auf {{count}} Assistenten installiert",
+    "installedOn_other": "Auf {{count}} Assistenten installiert",
+    "descriptionHeading": "Beschreibung",
+    "whatItDoesHeading": "Was dieser Skill tut",
+    "whatItDoesBody": "Dieser Skill erweitert Ihren Assistenten um zusätzliche Fähigkeiten. Nach der Installation kann Ihr Assistent die von diesem Skill bereitgestellten Tools und Workflows nutzen, um relevante Aufgaben zu erledigen.",
+    "sourcePrefix": "Quelle: {{url}}",
+    "sourceHeading": "Quelle",
+    "addToAssistant": "Zu Assistent hinzufügen",
+    "addedToAssistant": "Zu Assistent hinzugefügt",
+    "adding": "Wird hinzugefügt...",
+    "uninstall": "Skill deinstallieren",
+    "uninstalling": "Wird deinstalliert...",
+    "install": "Skill installieren",
+    "installing": "Wird installiert...",
+    "installFailed": "Skill konnte nicht installiert werden",
+    "uninstallFailed": "Skill konnte nicht deinstalliert werden",
+    "edit": "Bearbeiten",
+    "editAria": "{{name}} bearbeiten",
+    "editFailed": "Editor konnte nicht geöffnet werden"
+  },
+  "memory": {
+    "selectWorkspace": "Wählen Sie zuerst einen Arbeitsbereich aus",
+    "empty": "Noch keine Erinnerungen",
+    "emptyHint": "Fakten zum Arbeitsbereich und automatisch erfasste Erkenntnisse erscheinen hier und werden mit jedem Agenten geteilt.",
+    "source": {
+      "manual": "manuell",
+      "auto": "automatisch",
+      "director": "Director"
+    },
+    "placeholder": {
+      "key": "Schlüssel",
+      "value": "Wert"
+    },
+    "addAria": "Erinnerung hinzufügen",
+    "unpin": "Lösen",
+    "pin": "Anheften",
+    "readOnly": "automatisch erfasst · schreibgeschützt"
+  },
+  "errors": {
+    "loadResources": "Ressourcen konnten nicht geladen werden",
+    "uploadFailed": "Upload fehlgeschlagen",
+    "createResource": "Ressource konnte nicht erstellt werden",
+    "updateResource": "Ressource konnte nicht aktualisiert werden",
+    "deleteResource": "Ressource konnte nicht gelöscht werden",
+    "loadFolders": "Externe Ordner konnten nicht geladen werden",
+    "scanFolders": "Eingebundene Ordner konnten nicht gescannt werden",
+    "registerFolder": "Ordner konnte nicht registriert werden",
+    "updateFolder": "Ordner konnte nicht aktualisiert werden",
+    "deleteFolder": "Ordner konnte nicht gelöscht werden"
+  }
+}

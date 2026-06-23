@@ -1,0 +1,10 @@
+{
+  "id": "suggest-quick-meals-track-inventory",
+  "name": "suggest-quick-meals-track-inventory",
+  "description": "Quick dinner companion blending taste profiles, inventory tracking, and learning-based recipe rotation. Use to generate ≤25‑minute meals, log ingredients, and build shopping suggestions that respect both your and your partner’s preferences.",
+  "category": "DevOps & Infra",
+  "author": "community",
+  "version": "1.1.0",
+  "icon": "server",
+  "order": 1000
+}

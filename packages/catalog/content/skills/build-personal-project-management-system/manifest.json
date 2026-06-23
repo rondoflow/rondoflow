@@ -1,0 +1,10 @@
+{
+  "id": "build-personal-project-management-system",
+  "name": "build-personal-project-management-system",
+  "description": "Build a personal project management system that scales from simple lists to structured planning.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

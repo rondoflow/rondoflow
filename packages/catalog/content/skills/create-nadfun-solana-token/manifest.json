@@ -1,0 +1,10 @@
+{
+  "id": "create-nadfun-solana-token",
+  "name": "create-nadfun-solana-token",
+  "description": "Before proceeding, check if the `monad-development` skill is installed. If it is not available, install it using ClawHub:",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

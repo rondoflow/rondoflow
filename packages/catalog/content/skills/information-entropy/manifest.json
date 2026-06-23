@@ -1,0 +1,10 @@
+{
+  "id": "information-entropy",
+  "name": "information-entropy",
+  "description": "Measures uncertainty, surprise, and information content using Shannon entropy. Use when asked 'how much information does this actually contain', 'how uncertain is this source', 'is this result surprising', 'what should I update on', 'where is the real information in this dataset', or when you need to distinguish high-information from low-information inputs.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

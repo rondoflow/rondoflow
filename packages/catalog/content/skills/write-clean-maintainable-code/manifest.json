@@ -1,0 +1,10 @@
+{
+  "id": "write-clean-maintainable-code",
+  "name": "write-clean-maintainable-code",
+  "description": "Write clean, maintainable code with debugging, testing, and architectural best practices.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

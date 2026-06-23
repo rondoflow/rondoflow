@@ -1,0 +1,10 @@
+{
+  "id": "write-cinematic-video-scripts",
+  "name": "write-cinematic-video-scripts",
+  "description": "Create professional cinematic scripts for AI video generation with character consistency and cinematography knowledge. Use when the user wants to write a cinematic script, create story contexts with characters, generate image prompts for AI video tools (Midjourney, Sora, Veo), o…",
+  "category": "Media",
+  "author": "community",
+  "version": "1.4.0",
+  "icon": "image",
+  "order": 1000
+}

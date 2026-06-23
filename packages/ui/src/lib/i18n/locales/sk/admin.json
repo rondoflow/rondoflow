@@ -1,0 +1,158 @@
+{
+  "users": {
+    "title": "Používatelia",
+    "description": "Spravujte, kto má prístup k tomuto pracovnému priestoru a čo môže robiť.",
+    "invite": {
+      "heading": "Pozvať používateľa",
+      "placeholder": {
+        "name": "Meno",
+        "email": "E-mail",
+        "password": "Dočasné heslo (8+ znakov)"
+      },
+      "submit": "Vytvoriť používateľa",
+      "validation": "Vyžaduje sa e-mail, meno a heslo s aspoň 8 znakmi",
+      "created": "Vytvorené {{email}}"
+    },
+    "badge": {
+      "you": "Vy",
+      "deactivated": "Deaktivované"
+    },
+    "role": {
+      "changed": "{{email}} má teraz rolu {{role}}",
+      "selfTitle": "Nemôžete zmeniť svoju vlastnú rolu",
+      "admin": {
+        "label": "správca",
+        "description": "Plný prístup — spravuje používateľov a všetko, čo môže robiť editor"
+      },
+      "editor": {
+        "label": "editor",
+        "description": "Vytváranie, úprava, odstraňovanie a spúšťanie pracovných postupov v zdieľanom pracovnom priestore"
+      },
+      "viewer": {
+        "label": "divák",
+        "description": "Iba na čítanie — môže prezerať, ale nie upravovať ani spúšťať"
+      }
+    },
+    "action": {
+      "reactivate": "Znovu aktivovať",
+      "deactivate": "Deaktivovať",
+      "deleteUser": "Odstrániť používateľa"
+    },
+    "toast": {
+      "reactivated": "{{email}} znovu aktivované",
+      "deactivated": "{{email}} deaktivované",
+      "deleted": "{{email}} odstránené",
+      "requestFailed": "Požiadavka zlyhala"
+    },
+    "empty": "Zatiaľ žiadni používatelia.",
+    "delete": {
+      "title": "Odstrániť používateľa?",
+      "description": "Natrvalo odstrániť {{email}}. História jeho aktivity sa zachová, ale už sa nebude môcť prihlásiť. Túto akciu nie je možné vrátiť späť."
+    }
+  },
+  "mcp": {
+    "title": "Pripojenia MCP",
+    "description": "Spravujte externé servery Model Context Protocol",
+    "add": "Pridať pripojenie",
+    "empty": {
+      "title": "Zatiaľ žiadne pripojenia",
+      "description": "Pridajte server MCP na rozšírenie schopností asistenta."
+    },
+    "list": {
+      "ariaLabel": "Pripojenia serverov MCP"
+    },
+    "card": {
+      "editAria": "Upraviť {{name}}",
+      "deleteAria": "Odstrániť {{name}}",
+      "test": "Otestovať pripojenie",
+      "testing": "Testuje sa…",
+      "connected": "Pripojené",
+      "failed": "Zlyhalo"
+    },
+    "dialog": {
+      "addTitle": "Pridať pripojenie MCP",
+      "editTitle": "Upraviť pripojenie MCP",
+      "save": "Uložiť pripojenie"
+    },
+    "field": {
+      "name": "Názov",
+      "namePlaceholder": "napr. filesystem",
+      "description": "Popis",
+      "descriptionPlaceholder": "Čo tento server poskytuje?",
+      "command": "Príkaz",
+      "commandPlaceholder": "npx, python, /usr/bin/my-server",
+      "args": "Argumenty (oddelené čiarkou)",
+      "argsPlaceholder": "-y, @modelcontextprotocol/server-filesystem, /tmp",
+      "env": "Premenné prostredia",
+      "envKeyPlaceholder": "KĽÚČ",
+      "envValuePlaceholder": "hodnota",
+      "envAdd": "Pridať",
+      "envRemoveAria": "Odstrániť premennú prostredia",
+      "transport": "Transport",
+      "transportStdio": "Lokálne (stdio)",
+      "transportHttp": "HTTP",
+      "transportSse": "SSE",
+      "url": "URL servera",
+      "urlPlaceholder": "https://example.com/mcp",
+      "auth": "Overenie",
+      "authNone": "Žiadne",
+      "authBearer": "Token Bearer",
+      "authHeader": "Hlavička",
+      "authOauth2": "OAuth2",
+      "token": "Token Bearer",
+      "tokenPlaceholder": "Vložte token alebo prístupový token OAuth",
+      "secretKeep": "•••••• (ponechajte prázdne pre zachovanie)",
+      "headerName": "Názov hlavičky",
+      "headerNamePlaceholder": "X-API-Key",
+      "headerValue": "Hodnota hlavičky",
+      "headerValuePlaceholder": "tajná hodnota",
+      "tokenUrl": "URL tokenu",
+      "tokenUrlPlaceholder": "https://example.com/oauth/token",
+      "clientId": "ID klienta",
+      "clientIdPlaceholder": "id klienta",
+      "clientSecret": "Tajný kľúč klienta",
+      "clientSecretPlaceholder": "tajný kľúč klienta",
+      "scope": "Rozsah",
+      "scopePlaceholder": "voliteľné, oddelené medzerou",
+      "oauthHint": "Tokeny a tajné kľúče OAuth2 sú uložené šifrovane a odosielajú sa asistentovi pri spustení. Interaktívne overenie OAuth v prehliadači nie je pre spustených asistentov podporované — použite token alebo prihlasovacie údaje klienta OAuth2."
+    }
+  },
+  "approval": {
+    "title": "Vyžaduje sa akcia",
+    "description": "Asistent žiada o povolenie spustiť príkaz. Pred schválením ho dôkladne skontrolujte.",
+    "waiting": "Čaká sa na schválenie",
+    "intent": "Čo chce asistent urobiť",
+    "command": "Príkaz",
+    "commandAria": "Príkaz, ktorý sa má spustiť",
+    "editCommandAria": "Upraviť príkaz",
+    "edit": "Upraviť a schváliť",
+    "cancelEdit": "Zrušiť úpravu",
+    "editToggleAria": "Upraviť príkaz pred schválením",
+    "approve": "Schváliť",
+    "approveEdit": "Schváliť úpravu",
+    "approveAria": "Schváliť tento príkaz",
+    "approveEditAria": "Schváliť s upraveným príkazom",
+    "reject": "Zamietnuť",
+    "rejectAria": "Zamietnuť tento príkaz",
+    "shortcuts": "Enter = Schváliť · Esc = Zamietnuť",
+    "countdown": {
+      "label": "Automatické zatvorenie",
+      "autoDismissAria": "Automatické zatvorenie o {{time}}"
+    },
+    "risk": {
+      "levelAria": "Úroveň rizika: {{label}}",
+      "high": {
+        "label": "Vysoké riziko",
+        "reason": "Tento príkaz môže spôsobiť nezvratné zmeny."
+      },
+      "medium": {
+        "label": "Stredné riziko",
+        "reason": "Tento príkaz mení externý stav."
+      },
+      "low": {
+        "label": "Nízke riziko",
+        "reason": "Neboli zistené žiadne zjavné deštruktívne vzory."
+      }
+    }
+  }
+}

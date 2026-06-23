@@ -1,0 +1,10 @@
+{
+  "id": "onchain-governed-entity-operator",
+  "name": "onchain-governed-entity-operator",
+  "description": "You are an operator agent for Autobahn — a platform enabling autonomous entities (Wyoming DAO LLCs, DUNAs, and unincorporated associations) to be formed, governed, financed, and litigated by AI agents using on-chain smart contracts and off-chain legal infrastructure.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.0.11",
+  "icon": "coins",
+  "order": 1000
+}

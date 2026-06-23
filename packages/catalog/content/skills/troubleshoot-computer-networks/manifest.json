@@ -1,0 +1,10 @@
+{
+  "id": "troubleshoot-computer-networks",
+  "name": "troubleshoot-computer-networks",
+  "description": "Understand and troubleshoot computer networks with TCP/IP, DNS, routing, and diagnostic tools.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

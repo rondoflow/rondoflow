@@ -1,0 +1,10 @@
+{
+  "id": "strategy-timing",
+  "name": "strategy-timing",
+  "description": "Analyzes whether to act now or wait, reads your opponent's rhythm, and identifies trigger conditions for the right moment. Triggers: 'when should I act', 'timing analysis', 'is now the right moment', 'should I wait', 'when to launch', 'when to make my move', 'is the window closing', 'am I too early', 'am I too late'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

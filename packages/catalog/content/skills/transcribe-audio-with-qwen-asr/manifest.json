@@ -1,0 +1,10 @@
+{
+  "id": "transcribe-audio-with-qwen-asr",
+  "name": "transcribe-audio-with-qwen-asr",
+  "description": "Transcribe audio files using Qwen ASR (千问STT). Use when the user sends voice messages and wants them converted to text.",
+  "category": "Media",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "image",
+  "order": 1000
+}

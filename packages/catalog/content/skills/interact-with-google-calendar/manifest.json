@@ -1,0 +1,10 @@
+{
+  "id": "interact-with-google-calendar",
+  "name": "interact-with-google-calendar",
+  "description": "Interact with Google Calendar via gcalcli",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

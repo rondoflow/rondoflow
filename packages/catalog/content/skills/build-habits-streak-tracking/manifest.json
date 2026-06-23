@@ -1,0 +1,10 @@
+{
+  "id": "build-habits-streak-tracking",
+  "name": "build-habits-streak-tracking",
+  "description": "Build unbreakable discipline with habit stacking, streak tracking, and accountability",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

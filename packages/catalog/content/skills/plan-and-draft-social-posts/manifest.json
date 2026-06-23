@@ -1,0 +1,10 @@
+{
+  "id": "plan-and-draft-social-posts",
+  "name": "plan-and-draft-social-posts",
+  "description": "Plan, draft, and organize social media content across platforms. Create content calendars, write platform-optimized posts, and maintain consistent posting schedules.",
+  "category": "Communication",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "message-circle",
+  "order": 1000
+}

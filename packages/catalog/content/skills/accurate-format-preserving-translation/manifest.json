@@ -1,0 +1,10 @@
+{
+  "id": "accurate-format-preserving-translation",
+  "name": "accurate-format-preserving-translation",
+  "description": "Translate text accurately — preserve formatting, handle plurals, and adapt tone per locale.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

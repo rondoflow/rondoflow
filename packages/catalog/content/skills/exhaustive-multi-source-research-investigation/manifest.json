@@ -1,0 +1,10 @@
+{
+  "id": "exhaustive-multi-source-research-investigation",
+  "name": "exhaustive-multi-source-research-investigation",
+  "description": "Conduct exhaustive multi-source investigation with methodology tracking, source evaluation, and iterative depth.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

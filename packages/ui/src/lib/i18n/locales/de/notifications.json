@@ -1,0 +1,46 @@
+{
+  "panel": {
+    "title": "Benachrichtigungen",
+    "regionLabel": "Benachrichtigungen",
+    "listLabel": "Benachrichtigungselemente"
+  },
+  "unread": {
+    "suffix": ", ungelesen",
+    "count": "{{count}} ungelesen"
+  },
+  "action": {
+    "markAllRead": "Alle als gelesen markieren",
+    "markAllReadLabel": "Alle Benachrichtigungen als gelesen markieren",
+    "review": "Überprüfen",
+    "reviewLabel": "Genehmigungsanfrage überprüfen",
+    "dismissLabel": "Benachrichtigung ausblenden: {{title}}"
+  },
+  "empty": {
+    "title": "Keine Benachrichtigungen"
+  },
+  "time": {
+    "justNow": "gerade eben",
+    "minutesAgo_one": "vor {{count}} Min.",
+    "minutesAgo_other": "vor {{count}} Min.",
+    "hoursAgo_one": "vor {{count}} Std.",
+    "hoursAgo_other": "vor {{count}} Std.",
+    "daysAgo_one": "vor {{count}} T.",
+    "daysAgo_other": "vor {{count}} T."
+  },
+  "event": {
+    "approvalRequired": {
+      "title": "Genehmigung des Assistenten erforderlich"
+    },
+    "agentError": {
+      "title": "Beim Assistenten ist ein Fehler aufgetreten"
+    },
+    "agentDone": {
+      "title": "Assistent abgeschlossen",
+      "description": "Assistent {{id}} hat seine Aufgabe abgeschlossen."
+    }
+  },
+  "approval": {
+    "approve": "Genehmigen",
+    "reject": "Ablehnen"
+  }
+}

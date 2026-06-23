@@ -1,0 +1,10 @@
+{
+  "id": "amazon-search-results-product-extractor",
+  "name": "amazon-search-results-product-extractor",
+  "description": "This skill provides a one-stop product data collection service through BrowserAct's Amazon Product Search API template. It directly extracts structured product results from Amazon search lists. Simply input search keywords, brand filters, and quantity limits to get clean, usable…",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

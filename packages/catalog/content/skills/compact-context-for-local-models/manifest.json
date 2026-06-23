@@ -1,0 +1,10 @@
+{
+  "id": "compact-context-for-local-models",
+  "name": "compact-context-for-local-models",
+  "description": "Token-based context compaction for local models (MLX, llama.cpp, Ollama) that don't report context limits.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "0.3.8",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "persistent-cross-session-task-tracker",
+  "name": "persistent-cross-session-task-tracker",
+  "description": "Manage tasks and projects across sessions with persistent tracking.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

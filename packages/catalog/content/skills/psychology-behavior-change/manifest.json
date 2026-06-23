@@ -1,0 +1,10 @@
+{
+  "id": "psychology-behavior-change",
+  "name": "psychology-behavior-change",
+  "description": "Diagnose what's maintaining an entrenched behavior and design the right intervention to shift it. Covers habits, routines, and behavioral defaults. Triggers: 'how do I change this behavior', 'why does this habit persist', 'how do I make this stick', 'behavior change', 'breaking a habit', 'building a habit', 'why can't I stop doing X', 'how do I get people to consistently do Y', 'implementation intentions', 'habit loop'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

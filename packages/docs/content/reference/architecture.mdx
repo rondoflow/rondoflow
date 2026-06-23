@@ -1,0 +1,291 @@
+---
+title: Architecture
+description: How RondoFlow is structured — the monorepo, request and execution flow, and the server-side engine components.
+---
+
+import { Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
+import { FileTree } from 'nextra/components'
+
+# Architecture
+
+RondoFlow is a local-first, visual orchestration platform for Claude Code agents. You design a Workspace (Canvas) of Assistants (agents), Skills, Safety Rules (policies), and Connections (MCP servers) — plus data-pipeline cards like Output, Email, Condition (router), Structure (Structurer), and Save to DB — then run them as workflows. Under the hood, a Fastify backend starts (spawns) the Claude Code CLI as subprocesses — and can also drive OpenAI and Perplexity through API runners.
+
+This page is for developers and self-hosters who want to understand how the pieces fit together.
+
+## The monorepo
+
+RondoFlow is an npm-workspaces monorepo orchestrated by Turborepo. Five packages under `packages/` make up the platform — three services that each run independently in development, plus two libraries.
+
+| Package | Name | Role | Dev port |
+|---------|------|------|----------|
+| `ui` | `@rondoflow/ui` | Next.js 15 App Router frontend — the visual Workspace, panels, and onboarding | 3000 |
+| `server` | `@rondoflow/server` | Fastify + Socket.IO backend, the agent engine, and the spawned CLI | 3001 |
+| `shared` | `@rondoflow/shared` | TypeScript types and event contracts shared by both ends | — |
+| `catalog` | `@rondoflow/catalog` | Shipped content — agent templates, workspace/canvas presets, the skill catalog, and facilitator presets (validated JSON + Markdown) | — |
+| `docs` | `@rondoflow/docs` | This Nextra 4 documentation site, proxied under `/docs` | 3002 |
+
+Run them together with `npm run dev` (Turborepo), or individually:
+
+```bash
+npm run dev:ui       # Next.js frontend on :3000
+npm run dev:server   # Fastify backend on :3001
+npm run dev:docs     # Nextra docs on :3002
+```
+
+<Callout type="info">
+`@rondoflow/shared` is the single source of truth for the typed Socket.IO event contract (`ClientToServerEvents` / `ServerToClientEvents`) and the `{ success, data?, error?, meta? }` API response envelope. Both the UI and server import from it, so the wire protocol stays in sync. The friendly UI terms (Assistant for agent, Personality for persona, Safety Rule for policy, and so on) are **not** in `shared` — they live in the UI's react-i18next locale catalogs (`packages/ui/src/lib/i18n`, with English, Slovak, Spanish, French, and German), and only the audit-event label table in `shared/src/activity.ts` carries a handful of those labels.
+</Callout>
+
+## Tech stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 15 (App Router, Turbopack), React 18, TypeScript, Tailwind CSS, shadcn/ui, React Flow (`@xyflow/react` v12) |
+| Realtime client | `socket.io-client` |
+| Backend | Fastify 5, Socket.IO 4, `child_process.spawn` (Claude Code CLI) |
+| API providers | OpenAI SDK (`openai`) for the OpenAI and Perplexity runners |
+| Database | PostgreSQL 16 + Prisma ORM |
+| Auth | Better Auth (email/password + optional GitHub/Google OAuth) |
+| Scheduling | `croner` (cron expressions) |
+| Docs | Nextra 4 + `nextra-theme-docs`, Pagefind search |
+| Monorepo | npm workspaces + Turborepo |
+| Infra | Docker Compose (PostgreSQL; full-container mode also available) |
+
+Node.js 20+ is required.
+
+## Repository layout
+
+<FileTree>
+  <FileTree.Folder name="rondoflow" defaultOpen>
+    <FileTree.Folder name="packages" defaultOpen>
+      <FileTree.Folder name="ui">
+        <FileTree.Folder name="src">
+          <FileTree.Folder name="app" />
+          <FileTree.Folder name="components">
+            <FileTree.Folder name="canvas" />
+            <FileTree.Folder name="panels" />
+            <FileTree.Folder name="shell" />
+            <FileTree.Folder name="onboarding" />
+          </FileTree.Folder>
+          <FileTree.Folder name="hooks" />
+          <FileTree.Folder name="lib" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+      <FileTree.Folder name="server" defaultOpen>
+        <FileTree.Folder name="prisma" />
+        <FileTree.Folder name="src" defaultOpen>
+          <FileTree.File name="index.ts" />
+          <FileTree.Folder name="routes" />
+          <FileTree.Folder name="engine" defaultOpen>
+            <FileTree.File name="spawner.ts" />
+            <FileTree.File name="process-manager.ts" />
+            <FileTree.File name="agent-runner.ts" />
+            <FileTree.File name="chain-executor.ts" />
+            <FileTree.File name="run-registry.ts" />
+            <FileTree.File name="workflow-generator.ts" />
+          </FileTree.Folder>
+          <FileTree.Folder name="discussion" />
+          <FileTree.Folder name="socket" />
+          <FileTree.Folder name="auth" />
+          <FileTree.Folder name="services" />
+          <FileTree.Folder name="skills" />
+          <FileTree.Folder name="lib" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+      <FileTree.Folder name="shared" />
+      <FileTree.Folder name="catalog">
+        <FileTree.Folder name="content" />
+        <FileTree.Folder name="src" />
+      </FileTree.Folder>
+      <FileTree.Folder name="docs" />
+    </FileTree.Folder>
+    <FileTree.File name="docker-compose.yml" />
+    <FileTree.File name="turbo.json" />
+    <FileTree.File name="package.json" />
+  </FileTree.Folder>
+</FileTree>
+
+## Content catalog
+
+All of RondoFlow's *shipped, extensible content* lives in the `@rondoflow/catalog` package rather than being hardcoded in the UI or server. It is the seam a future community marketplace would plug into.
+
+- **What it ships.** Agent templates, workspace presets, canvas templates, the built-in skill catalog, and facilitator presets — exported as `AGENT_TEMPLATES`, `WORKSPACE_PRESETS`, `CANVAS_TEMPLATES`, `SKILL_CATALOG`, and `FACILITATOR_PRESETS`.
+- **Source of truth.** One folder per item under `content/<group>/<id>/` — a `manifest.json` plus its Markdown sidecar (`persona.md` for agents and facilitators, `SKILL.md` for skills). Adding or editing content is a files-only change; no TypeScript edits.
+- **Validation + codegen.** `npm run catalog:build` reads and validates every item against the Zod schemas in `src/schema.ts`, then regenerates the committed `src/generated/catalog.data.ts`. A `generated-in-sync` test fails if the generated data drifts from `content/`.
+- **Browser-safe entry point.** Consumers import values and types from `@rondoflow/catalog` (`src/index.ts`), which pulls in neither Zod nor `fs`, so it is safe to import in the browser. The Node-only `loader.ts` — which does the filesystem reads and validation — must never be imported by `index.ts`; it is used by the codegen script and tests only.
+
+Both ends consume it: the server seeds facilitators and resolves the skill catalog (Planner, WorkflowGenerator, skill routes), and the UI renders the template/preset galleries and materializes canvas templates.
+
+<Callout type="info">
+Canvas templates are declarative node/edge specs. The UI turns a template into live React Flow nodes via `materializeCanvasTemplate` (`packages/ui/src/lib/canvas-templates.ts`).
+</Callout>
+
+## Request and execution flow
+
+There are two channels between the browser and the server:
+
+- **REST** for CRUD and queries — creating Assistants, editing Safety Rules, reading runs, Git operations, settings.
+- **Socket.IO** for everything live — running an Assistant or workflow, streaming output, tool-use cards, and approval requests.
+
+Both channels share the same Better Auth session. The Socket.IO middleware validates the session cookie on connection and joins each client to a per-user room (`user:<id>`), so server-to-client events are scoped to their owner rather than broadcast.
+
+A run looks like this:
+
+1. The UI emits a Socket.IO event ("run this Assistant / workflow").
+2. The server resolves the effective Safety Rule, builds the prompt and MCP config, and asks the `ProcessManager` to start the agent.
+3. The `ProcessManager` picks a runner (Claude Code CLI by default; OpenAI or Perplexity for API-backed agents) and starts it.
+4. The Claude Code CLI is spawned with `--output-format stream-json`; the spawner parses each stdout line into typed events.
+5. Text, tool-use, and tool-result events stream back to the UI in real time. When a tool hits a Safety Rule that requires approval, the run pauses and an approval request is emitted.
+6. You approve or reject; on completion the server emits the final result plus token usage and an estimated cost.
+
+```text
+Browser (UI :3000)            Server (Fastify + Socket.IO :3001)        Runner
+   |                                |                                      |
+   |-- REST: CRUD / queries ------->|                                      |
+   |                                |                                      |
+   |== Socket.IO: run workflow ====>|                                      |
+   |                                |-- resolve policy + build prompt      |
+   |                                |-- ProcessManager.startAgent -------->|
+   |                                |   spawn claude (no shell!)           |
+   |                                |   --output-format stream-json        |
+   |<== streaming text =============|<-- stdout JSON events ---------------|
+   |<== tool-use / tool-result =====|                                      |
+   |<== approval request ===========|   (Safety Rule intercepted)          |
+   |== approve / reject ===========>|-- respond ------------------------->|
+   |<== done + token usage =========|<-- exit -----------------------------|
+```
+
+<Callout type="warning">
+Agents run as real subprocesses or live API calls. RondoFlow never uses `shell: true` — every command is an argument array — and server secrets such as `DATABASE_URL` and `BETTER_AUTH_SECRET` are stripped from the child environment. See [Security](/docs/reference/security) for the full model.
+</Callout>
+
+## Server entry point
+
+`packages/server/src/index.ts` wires the whole backend together. On startup it:
+
+- Ensures the skills directory exists and runs prerequisite checks (a missing CLI is a warning, not a hard stop, unless a check is marked critical).
+- Creates a raw HTTP server so Socket.IO can attach before Fastify starts, then registers CORS (scoped to `UI_ORIGIN`), multipart uploads (50 MB cap), and IP-keyed rate limiting.
+- Installs global error and not-found handlers so every response uses the `{ success, data?, error?, meta? }` envelope.
+- Loads DB-stored credentials into `process.env`, initializes Better Auth, then registers the auth routes and the auth middleware that guards all non-public routes.
+- Registers every REST route plugin, exposes `/api/health` (which reports running agents, queued agents, and pending approvals), and attaches the Socket.IO server with its session-validating middleware.
+- Starts the `Scheduler`, registers the engine socket handlers, and runs a watchdog that auto-rejects approvals that time out.
+
+On `SIGINT`/`SIGTERM` it shuts down gracefully: it stops the scheduler and the `ProcessManager`, then calls `teardownRuns(allRuns(), 'shutdown', …)` over the unified **run-registry** — finalizing *every* registered in-flight run (agents, loops, chains, discussions, and pipelines) and writing their terminal DB status, bounded by a 5-second finalize timeout so a slow database can't block `process.exit`. (The per-kind loops/chains/pipelines sweep that follows is only a belt-and-braces fallback for any HTTP-started run not in the registry.)
+
+## Engine components
+
+The engine lives in `packages/server/src/engine/`. Each component has a focused role.
+
+### Execution core
+
+| Component | File | Role |
+|-----------|------|------|
+| **Spawner** | `spawner.ts` | `ClaudeCodeSpawner` — starts the Claude Code CLI subprocess with `--output-format stream-json`, parses stdout into typed events, forwards exactly one Claude credential, and blocks server secrets from the child env. Enforces a per-call idle timeout and an optional wall-clock cap (see below). |
+| **ProcessManager** | `process-manager.ts` | Tracks running agents, enforces a concurrency limit (`MAX_CONCURRENT_AGENTS`, default 5) with a bounded queue, and runs a liveness watchdog. |
+| **AgentRunner** | `agent-runner.ts` | The runner abstraction. `createAgentRunner(provider)` returns the right backend behind one event contract: Claude Code CLI by default, or the OpenAI / Perplexity runner. |
+| **StreamingApiRunner** | `streaming-runner.ts` | Shared base for API-backed runners — resolves the API key from the forwarded env, streams one request, maps it onto the spawner event contract, and aborts cleanly on `kill()`. |
+| **OpenAIRunner** | `openai-runner.ts` | Drives the OpenAI provider (key env var `OPENAI_API_KEY`). |
+| **PerplexityRunner** | `perplexity-runner.ts` | Drives the Perplexity provider via the OpenAI-compatible client (key env var `PERPLEXITY_API_KEY`). |
+| **PromptBuilder** | `prompt-builder.ts` | `buildSpawnConfig` assembles the system prompt, tool allowlist, model ID, MCP config, and workspace context for a run. |
+| **RunRegistry** | `run-registry.ts` | A single owner-scoped index of every in-flight run (`RunKind`: `agent` / `loop` / `chain` / `discussion` / `pipeline`), regardless of transport. Each run registers a `stop()` + optional `finalize()` so disconnect and shutdown teardown have one place to look. |
+
+### Configuration and safety
+
+| Component | File | Role |
+|-----------|------|------|
+| **Policy resolver** | `policy-resolver.ts` | Merges global, per-agent, and per-session Safety Rules into one effective policy — most-restrictive-wins (minimum for numeric limits, union for blocked lists). |
+| **Policy checker** | `policy-checker.ts` | Pure function that checks a tool-use event against the resolved policy and decides allow / require-approval / block. |
+| **ApprovalManager** | `approval-manager.ts` | Tracks pending human-approval requests in memory; they expire when unanswered within the timeout window. |
+| **MCP config builder** | `mcp-config-builder.ts` | Merges enabled Skills' and Connections' MCP server definitions for an agent, detecting duplicate definitions across sources. |
+
+### Orchestration and intelligence
+
+| Component | File | Role |
+|-----------|------|------|
+| **WorkflowGenerator** | `workflow-generator.ts` | Turns a natural-language task into a complete multi-agent workflow — agents, edges, skills, and DAG layout. |
+| **ChainExecutor** | `chain-executor.ts` | Executes a DAG whose steps are agents **or** non-agent data steps (Structurer / Save-to-DB). See [Workflow execution](#workflow-execution-chainexecutor) below. |
+| **Planner** | `planner.ts` | Pre-execution analysis that suggests changes to agents, skills, models, and step order before a run. |
+| **Director** | `director.ts` | Mid-execution orchestrator that contextualizes messages between steps, evaluates output quality, and can redirect or conclude. |
+| **Advisor** | `advisor.ts` | Post-run analysis that suggests improvements to agents, skills, step order, and output quality. |
+| **Scheduler** | `scheduler.ts` | Cron-based recurring execution of workflows and agents (built on `croner`). |
+
+### Data pipeline
+
+| Component | File | Role |
+|-----------|------|------|
+| **StructuredExtractor** | `structured-extractor.ts` | The AI path of a Structure (Structurer) card. A bounded, JSON-only, `bypassPermissions` one-shot Claude pass that coerces upstream agent prose into rows matching a declared schema; never throws (falls back to an empty dataset). The Structurer's other path is a deterministic parse with no model call. |
+
+### Iterative and memory
+
+| Component | File | Role |
+|-----------|------|------|
+| **LoopEngine** | `loop-engine.ts` | Runs an agent iteratively until a loop criterion is met; each iteration is a fresh process to avoid context-window degradation. |
+| **PrdPipelineEngine** | `prd-pipeline.ts` | Processes the stories in a PRD in priority order, verifying acceptance criteria and retrying once on failure. **Backend/experimental:** the API routes and DB models exist, but the UI trigger is currently a no-op stub, so this is not a ready-to-use feature today. |
+| **MemoryStore** | `memory-store.ts` | The single shared write path for all memory upserts (Director learnings, auto-extraction), keeping scope/source tagging and value caps consistent. |
+| **MemoryExtractor** | `memory-extractor.ts` | After a completed run, distills a small set of durable, deduplicated facts via one lightweight pass and persists them as auto memories — best-effort, off the critical path. |
+
+<Callout type="info">
+Multi-agent discussions live alongside the engine in `packages/server/src/discussion/` — a Facilitator (Moderator) engine with a `turn-router`, prompt templates, and a registry. See [Discussions](/docs/guides/discussions).
+</Callout>
+
+## Workflow execution (ChainExecutor)
+
+`ChainExecutor` is more than a parallel agent fan-out. A workflow's steps each carry a `nodeType` (`agent`, `structurer`, `db-save`, `http-request`, or `duckduckgo-search`), and the executor handles several modes:
+
+- **DAG execution.** It validates the graph for cycles, runs independent branches in parallel, and passes each step's output to its successors.
+- **Non-agent data steps.** A `structurer` step turns upstream prose into a typed `StructuredDataset` (deterministic parse or AI extraction via `StructuredExtractor`); a `db-save` step persists that dataset to the `StructuredDataset` / `StructuredRow` Prisma tables, capped at `MAX_DATASET_ROWS = 5000` and `MAX_DATASET_BYTES = 2,000,000`. These run server-side with **no** Claude agent.
+- **Transform steps.** `http-request` and `duckduckgo-search` steps fetch external data inline — an outbound HTTP call or a DuckDuckGo web search, each interpolating the upstream output via `{{input}}` — and pass the result to the next step. They run server-side during interactive runs, but the headless scheduler's chain builder (`canvas-chain.ts`) does not yet emit them, so **scheduled runs skip them**.
+- **Conditional branching.** Condition (router) cards compile into grouped conditional edges; within an edge group, the first matching branch wins and routes the run onward (honored in both the parallel DAG path and the sequential Director path).
+- **Director-gated mode.** With `director: true`, the chain runs as a single sequential cursor with the Director quality-gating each step — no parallelism — and can redirect or conclude mid-run.
+- **Per-step approval.** With `approvalMode: 'perStep'`, the run pauses for human approval before each agent step.
+
+For the user-facing canvas cards behind these mechanics — Output, Email, Condition, Structure, and Save to DB — see the [Data Nodes guide](/docs/guides/data-nodes).
+
+## Canvas card types
+
+A Workspace is built from cards (nodes). Beyond the orchestration cards — Start (Spawn), Assistant, Skill, Safety Rule, Connection, Resource, and Note — the canvas adds seven data-pipeline and transform cards:
+
+| Card | Kind | What it does |
+|------|------|--------------|
+| **Output** | Sink | Writes the run's combined agent output to a file (Markdown / HTML / raw). A run-completion side-effect, not a server execution step. |
+| **Email** | Sink | Sends the combined output via SMTP. **Opt-in** — disabled by default, so building a workflow never sends mail. Configured via `SMTP_*` env vars or Settings → Credentials. |
+| **Condition** | Router | A pure router with labelled branches (`contains` / `regex` matching, plus an Else fallback). No agent work; compiled into grouped conditional edges before a run. |
+| **HTTP Request** | Transform | An outbound HTTP call mid-run, `{{input}}`-interpolated. A server-side step in interactive runs; **not** executed by the scheduler. |
+| **DuckDuckGo Search** | Transform | A live web search mid-run; results pass downstream as text or JSON. A server-side step in interactive runs; **not** executed by the scheduler. |
+| **Structure** | Step | Turns agent prose into a typed dataset (deterministic parse or AI extraction). A real server-side ChainExecutor step; its single output only connects to a Save to DB card. |
+| **Save to DB** | Sink | Persists the dataset to the `StructuredDataset` / `StructuredRow` tables. Accepts only a Structurer; datasets are viewable and CSV-exportable in the Saved Datasets panel. |
+
+<Callout type="info">
+Edges come in three kinds (`association` / `flow` / `conditional`): a skill, policy, or Connection source makes an association; a Condition source makes a conditional (amber dotted) edge; everything else is a flow edge. Connection rules are enforced as you wire cards (for example, nothing connects *into* Start, sinks accept only an Assistant in, and Save to DB accepts only a Structurer). The full card catalog, drawers, and wiring rules are in the [Data Nodes guide](/docs/guides/data-nodes).
+</Callout>
+
+## Operator knobs
+
+A handful of environment variables tune how the engine reaps stalled runs and tears them down — useful for self-hosters.
+
+| Variable | Default | Effect |
+|----------|---------|--------|
+| `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` | `300000` (5 min) | Per-call idle timeout for a spawned CLI. Set `0` to disable globally. |
+| `RONDOFLOW_SPAWN_MAX_MS` | `0` (off) | Optional wall-clock cap per spawn. |
+| `RONDOFLOW_DEBUG_SPAWN` | off | Set `1`/`true` for a full per-event spawn trace. |
+| `RONDOFLOW_TEARDOWN_ON_DISCONNECT` | on | Tear a user's in-flight runs down once their last socket disconnects. Set `0` to disable. |
+| `RONDOFLOW_TEARDOWN_GRACE_MS` | `60000` (1 min) | Grace window before disconnect teardown — so a refresh, a new tab, or a transient reconnect never kills an expensive run. |
+
+When the server runs as root with `bypassPermissions`, it auto-sets `IS_SANDBOX=1` so the Claude Code CLI accepts the root invocation. See [Configuration](/docs/reference/configuration) for the complete environment reference.
+
+## Persistence
+
+All durable state — Workspaces and their cards, Assistants, Skills, Safety Rules, Connections, Conversations (sessions), runs, schedules, structured datasets, memories, and settings — lives in PostgreSQL via Prisma. The schema and migrations are in `packages/server/prisma/`. Canvas edits auto-save with a short debounce, so the visual Workspace stays in sync with the database without an explicit save step.
+
+Approvals are an intentional exception: they are ephemeral and kept in process memory, expiring if unanswered.
+
+## Where to go next
+
+<Cards>
+  <Cards.Card title="Data Model" href="/docs/reference/data-model" />
+  <Cards.Card title="API Reference" href="/docs/reference/api" />
+  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="Self-Hosting" href="/docs/reference/self-hosting" />
+</Cards>

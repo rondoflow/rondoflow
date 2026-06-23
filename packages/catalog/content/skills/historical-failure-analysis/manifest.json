@@ -1,0 +1,10 @@
+{
+  "id": "historical-failure-analysis",
+  "name": "historical-failure-analysis",
+  "description": "Extracts recurring failure modes from similar past situations — most failures have happened before in recognisable patterns. TRIGGERS: 'what usually goes wrong', 'failure pattern analysis', 'how do these typically fail', 'what went wrong last time', 'avoid past mistakes'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

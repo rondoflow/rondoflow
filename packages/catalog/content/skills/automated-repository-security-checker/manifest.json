@@ -1,0 +1,10 @@
+{
+  "id": "automated-repository-security-checker",
+  "name": "automated-repository-security-checker",
+  "description": "Official repo for clawaudit, coming soon as an automated security checker for repositories.",
+  "category": "Community",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "puzzle",
+  "order": 1000
+}

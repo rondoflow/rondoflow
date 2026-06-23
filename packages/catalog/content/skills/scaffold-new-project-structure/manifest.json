@@ -1,0 +1,10 @@
+{
+  "id": "scaffold-new-project-structure",
+  "name": "scaffold-new-project-structure",
+  "description": "Scaffold new projects with best-practice structure, tooling, and configuration.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

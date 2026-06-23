@@ -1,0 +1,10 @@
+{
+  "id": "orchestrate-coordinate-agent-skills",
+  "name": "orchestrate-coordinate-agent-skills",
+  "description": "The orchestration tool for OpenClaw, managing and coordinating all your skills seamlessly.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

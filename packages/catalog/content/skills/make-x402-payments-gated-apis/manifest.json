@@ -1,0 +1,10 @@
+{
+  "id": "make-x402-payments-gated-apis",
+  "name": "make-x402-payments-gated-apis",
+  "description": "Make x402 payments to access paid APIs and gated content. Use when a skill needs to fetch data from x402-gated endpoints (like Kaito mindshare API, Simmer premium endpoints, or any x402 provider). Handles 402 Payment Required responses automatically using USDC on Base.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.8",
+  "icon": "coins",
+  "order": 1000
+}

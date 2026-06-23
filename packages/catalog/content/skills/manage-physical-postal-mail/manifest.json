@@ -1,0 +1,10 @@
+{
+  "id": "manage-physical-postal-mail",
+  "name": "manage-physical-postal-mail",
+  "description": "Real mailing address for your AI agent. Receive, scan, and forward postal mail — or send letters and documents. CMRA postal mail infrastructure your agent manages via API.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "4.0.0",
+  "icon": "bot",
+  "order": 1000
+}

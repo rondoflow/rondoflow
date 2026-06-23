@@ -1,0 +1,10 @@
+{
+  "id": "okx-dex-swap-quotes-tokens",
+  "name": "okx-dex-swap-quotes-tokens",
+  "description": "OKX DEX aggregator (v6). Get swap quotes, swap/approve tx data, tokens, and chains.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

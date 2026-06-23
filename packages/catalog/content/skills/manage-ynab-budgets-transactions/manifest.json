@@ -1,0 +1,10 @@
+{
+  "id": "manage-ynab-budgets-transactions",
+  "name": "manage-ynab-budgets-transactions",
+  "description": "Manage YNAB budgets, accounts, categories, and transactions via CLI.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

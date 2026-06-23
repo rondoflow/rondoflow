@@ -1,0 +1,10 @@
+{
+  "id": "rtfm-testing-utility",
+  "name": "rtfm-testing-utility",
+  "description": "A documentation quality methodology that spawns fresh agents to validate whether docs are actually usable.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

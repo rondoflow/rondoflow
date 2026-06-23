@@ -1,0 +1,329 @@
+---
+title: Self-Hosting
+description: Deploy RondoFlow in production with Docker Compose — services, the docs proxy, external folders, the first admin, and which env actually reaches the container.
+---
+
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Self-Hosting
+
+RondoFlow ships with a single `docker-compose.yml` that builds and runs the whole stack — database, backend, frontend, and documentation — in containers. This page covers what each service does, how to bring them up, how to create the first admin, and — importantly — which `.env` variables actually reach the running containers (it is a smaller set than you might expect).
+
+If you only want to develop locally, see [Installation](/docs/getting-started/installation) instead. Running the stack needs only Docker Desktop. The one exception is bootstrapping the first admin, which currently runs the database seed — see [Create the first admin](#create-the-first-admin) for both a Docker-only command and a host-Node option.
+
+## Services
+
+Compose defines five services. The `migrate` service runs once and exits; the other four are long-running.
+
+| Service | Container | Port | Role |
+|---------|-----------|------|------|
+| `postgres` | `rondoflow-postgres` | 5432 | PostgreSQL 16 database (`postgres:16-alpine`) |
+| `server` | `rondoflow-server` | 3001 | Fastify backend + Socket.IO + the Claude Code CLI |
+| `ui` | `rondoflow-ui` | 3000 | Next.js frontend (standalone build) |
+| `docs` | `rondoflow-docs` | 3002 | Nextra documentation site (standalone build) |
+| `migrate` | `rondoflow-migrate` | — | One-shot Prisma `migrate deploy`, then stops |
+
+Startup order is enforced through health checks and `depends_on`:
+
+- `postgres` must be healthy (`pg_isready`) before `server` and `migrate` start.
+- `migrate` runs `npx prisma migrate deploy --schema=prisma/schema.prisma` against the database and exits with `restart: "no"`.
+- `server` is healthy once `GET /api/health` responds.
+- `docs` is healthy once `GET /docs` responds.
+- `ui` waits for both `server` and `docs` to report healthy before it starts.
+
+<Callout type="info">
+The `server` image installs the Claude Code CLI globally (`npm install -g @anthropic-ai/claude-code`) and adds `git`, so Assistants (agents) can start the CLI and the [Git panel](/docs/guides/git) works inside the container.
+</Callout>
+
+## Bring it up
+
+<Tabs items={['docker compose', 'npm scripts']}>
+<Tabs.Tab>
+```bash
+git clone https://github.com/arzzen/rondoflow.git
+cd rondoflow
+cp .env.example .env   # edit before continuing — see "Required configuration"
+docker compose up --build
+```
+</Tabs.Tab>
+<Tabs.Tab>
+```bash
+npm run docker:all          # docker compose up --build (foreground)
+npm run docker:all:detach   # same, detached (-d)
+npm run docker:down         # stop everything
+```
+</Tabs.Tab>
+</Tabs>
+
+The first build compiles three images and may take several minutes. The `migrate` container applies the schema, but it does **not** seed — and RondoFlow is invite-only, so there is no self-registration. Create the first admin account before signing in (see [Create the first admin](#create-the-first-admin) below), then open `http://localhost:3000` and log in with those credentials.
+
+```bash
+# Watch logs for a single service
+docker compose logs -f server
+
+# Re-run migrations after pulling new code
+docker compose up migrate
+```
+
+## What env actually reaches the containers
+
+This is the single most surprising thing about the Docker setup, so it gets its own section. The compose `server` service only forwards the variables listed in its `environment:` block — **not** your whole `.env`. Anything else you set in `.env` is read by the host npm scripts but never makes it into the container.
+
+The `server` service forwards exactly these:
+
+```yaml
+server:
+  environment:
+    PORT: "3001"
+    DATABASE_URL: postgresql://rondoflow:rondoflow_dev@postgres:5432/rondoflow
+    BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-change-me-generate-a-real-secret}
+    BETTER_AUTH_URL: http://localhost:3001
+    UI_ORIGIN: http://localhost:3000
+    ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
+    GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-}
+    GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET:-}
+    GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+    EXTERNAL_FOLDERS_CONTAINER_ROOT: ${EXTERNAL_FOLDERS_CONTAINER_ROOT:-/external}
+```
+
+Everything else documented in `.env.example` is **not** forwarded by default. To make these take effect in Docker, add them to the `server` service's `environment:` block (or, for the credential ones, set them at runtime in **Settings → Credentials** — see [Settings-managed credentials](#settings-managed-credentials)):
+
+| Variable(s) | What it controls | How to enable in Docker |
+|-------------|------------------|--------------------------|
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS` / `SMTP_FROM` | The canvas Email Card (node) — sends a workflow's output as HTML email | Add to `environment:`, or set in **Settings → Credentials** (`smtp` group; `SMTP_PASS` encrypted) |
+| `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` (default `300000`, `0` disables) | Kills a run that streams no event for this long; resets on every event | Add to `environment:` |
+| `RONDOFLOW_SPAWN_MAX_MS` (default `0` / off) | Absolute wall-clock cap on every spawn | Add to `environment:` |
+| `RONDOFLOW_TEARDOWN_ON_DISCONNECT` (default `1`, `0` disables) | Tears down a user's in-flight runs after their last socket disconnects | Add to `environment:` |
+| `RONDOFLOW_TEARDOWN_GRACE_MS` (default `60000`) | Grace window before disconnect teardown fires (a refresh/reconnect cancels it) | Add to `environment:` |
+| `CLAUDE_CODE_MAX_OUTPUT_TOKENS` (default `128000`) | Max output tokens per agent response (the CLI clamps to each model's true max) | Add to `environment:` |
+| `RONDOFLOW_DEBUG_SPAWN` | Verbose spawn logging | Add to `environment:` |
+| `IS_SANDBOX` | Marks the environment sandboxed for the CLI root check (see [below](#running-as-root)) | Usually auto-handled; add only to force it |
+| `OPENAI_API_KEY` / `PERPLEXITY_API_KEY` | Keys for the OpenAI / Perplexity agent [providers](/docs/reference/configuration) | **Not in `.env.example`** — set in **Settings → Credentials** (encrypted) |
+
+<Callout type="info">
+`OPENAI_API_KEY` and `PERPLEXITY_API_KEY` are intentionally absent from `.env.example`. RondoFlow runs Assistants on three providers (`claude-code` is the default, plus `openai` and `perplexity`); the non-Claude keys are meant to be stored as encrypted credentials in **Settings → Credentials**, not in plaintext env. See [Configuration](/docs/reference/configuration) for the provider model.
+</Callout>
+
+## Settings-managed credentials
+
+RondoFlow can store credentials in the database, encrypted, and load them into the process environment at boot. The encrypted `Setting` rows **override** the `.env`/container values when the server starts (`loadSettingsIntoEnv()` runs before the auth layer is built and before any Assistant is spawned).
+
+This means a value you set in **Settings → Credentials** beats the same variable in the container env. The credentials managed this way are: the Claude keys, the OpenAI / Perplexity provider keys, the GitHub / Google OAuth pairs, and the SMTP set. Secret fields (`SMTP_PASS`, OAuth secrets, the provider keys) are encrypted at rest with AES-256-GCM.
+
+<Callout type="warning">
+**The encryption key is derived from `BETTER_AUTH_SECRET`.** Stored secret credentials are encrypted with a key derived (via scrypt, static salt) from `RONDOFLOW_SECRET` if set, otherwise `BETTER_AUTH_SECRET`. **Rotating or changing that secret in an existing deployment makes every previously stored credential undecryptable** — the server logs a decrypt error and falls back to the `.env`/container value for that key. Treat the secret as long-lived; if you must rotate it, re-enter all Settings-managed credentials afterward, and never lose it.
+</Callout>
+
+## The docs proxy in production
+
+The documentation site runs as its own container with Next.js `basePath` set to `/docs`. Rather than exposing port 3002 to users, the UI reverse-proxies it so the docs live at `<host>/docs` on the same origin as the app.
+
+The proxy origin is the `DOCS_ORIGIN` variable — but **for the production (standalone) build it is a build arg, baked at build time, not a runtime env var.** External (absolute-URL) rewrites like the `/docs` proxy are frozen into `routes-manifest.json` by `next build`, so a runtime env var cannot change them. In compose, `DOCS_ORIGIN` is therefore set under `ui.build.args`:
+
+```yaml
+ui:
+  build:
+    args:
+      DOCS_ORIGIN: http://docs:3002   # baked into the build — this is the one that matters
+  environment:
+    DOCS_ORIGIN: http://docs:3002     # kept for `npm run dev` parity; IGNORED by the prod image
+```
+
+The UI's `next.config.mjs` reads `DOCS_ORIGIN` (defaulting to `http://localhost:3002` for local dev) and rewrites both the page route and all sub-paths to it:
+
+```ts
+const DOCS_ORIGIN = process.env.DOCS_ORIGIN ?? 'http://localhost:3002';
+
+async rewrites() {
+  return [
+    { source: '/docs', destination: `${DOCS_ORIGIN}/docs` },
+    { source: '/docs/:path*', destination: `${DOCS_ORIGIN}/docs/:path*` },
+  ];
+}
+```
+
+In dev mode (`npm run dev`) Next reads the value at runtime, which is why the `environment.DOCS_ORIGIN` entry is kept for parity. In the Docker prod image only the **build arg** has any effect — the runtime `environment.DOCS_ORIGIN` is inert. To point the proxy somewhere else for a production build, change the build arg and rebuild the `ui` image.
+
+Because the docs app already sets `basePath: '/docs'`, the destination keeps the `/docs` prefix — it is not stripped. This single pair of rules proxies HTML, the `_next/*` assets, and the Pagefind search index in one hop.
+
+<Callout type="important">
+The docs runtime image must copy `packages/docs/public` explicitly. Next.js standalone output does not bundle `public/`, and that folder holds the Pagefind search index at `public/_pagefind`. The docs Dockerfile generates it via a `postbuild` (pagefind) step and copies it into the runtime image. Without it, search returns 404s in production.
+</Callout>
+
+## External folders
+
+Assistants work against real directories on disk. In Docker, every registered folder must live under one in-container root, and you bind-mount your host project directories into it.
+
+Two variables control this on the `server` service:
+
+| Variable | Default | What it does |
+|----------|---------|-------------|
+| `EXTERNAL_FOLDERS_HOST_PATH` | `./external` | Host path bind-mounted into the server container |
+| `EXTERNAL_FOLDERS_CONTAINER_ROOT` | `/external` | In-container root all registered folders must resolve under |
+
+The default mount in `docker-compose.yml` maps the host path to `/external`:
+
+```yaml
+server:
+  volumes:
+    - ${EXTERNAL_FOLDERS_HOST_PATH:-./external}:/external:rw
+```
+
+Drop project folders under `EXTERNAL_FOLDERS_HOST_PATH` and they appear in the UI automatically. To expose specific host paths, add more bind mounts — they **must** land under `/external`:
+
+```yaml
+server:
+  volumes:
+    - /home/me/projects/foo:/external/foo:rw   # read-write
+    - /mnt/data/bar:/external/bar:ro           # read-only
+```
+
+Use the `:ro` suffix for directories an Assistant should read but never modify. Only change `EXTERNAL_FOLDERS_CONTAINER_ROOT` if you also change the mount target in compose. See [External Folders](/docs/guides/external-folders) for how folders surface in the workspace.
+
+## Required configuration
+
+Edit `.env` at the repo root before bringing the stack up. Remember from [What env actually reaches the containers](#what-env-actually-reaches-the-containers) that compose only interpolates the variables listed in each service's `environment:` block.
+
+| Variable | Required | Notes |
+|----------|----------|-------|
+| `BETTER_AUTH_SECRET` | Yes | Session encryption key, and the fallback key for encrypting stored credentials. The compose fallback (`change-me-...`) is **not** safe for production. Generate one with `openssl rand -hex 32` and treat it as long-lived (see the [encryption-key warning](#settings-managed-credentials)). |
+| `ANTHROPIC_API_KEY` *or* `CLAUDE_CODE_OAUTH_TOKEN` | Yes (one) | Claude credential for agent execution. If both are set, the setup token wins. |
+| `RONDOFLOW_ADMIN_EMAIL` / `RONDOFLOW_ADMIN_PASSWORD` | Yes (first run) | Used by the **seed** to bootstrap the first admin — RondoFlow is invite-only. Optional `RONDOFLOW_ADMIN_NAME` (default `Administrator`). These are **not** wired into any compose service; see [Create the first admin](#create-the-first-admin). |
+| `DATABASE_URL` | Set in compose | Points at the `postgres` service inside the network (`postgres:5432`, not `localhost`). |
+| `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | No | Enable GitHub login. |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | No | Enable Google login. |
+
+```bash
+# Generate a strong secret
+openssl rand -hex 32
+
+# Obtain a setup token to use your Claude subscription instead of an API key
+claude setup-token
+```
+
+<Callout type="info">
+The `server` container's `DATABASE_URL` and `migrate`'s `DATABASE_URL` both point at `postgres:5432` (the in-network hostname), not `localhost`. You do not normally need to override them. See [Configuration](/docs/reference/configuration) for the full variable reference.
+</Callout>
+
+## Create the first admin
+
+A fresh stack has **no accounts**: RondoFlow is invite-only and the `migrate` container only runs `prisma migrate deploy` — it does not seed. The first admin is created by the **seed**, which reads `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` (optional `RONDOFLOW_ADMIN_NAME`, default `Administrator`). The seed is idempotent: it skips if either var is blank, and re-running ensures the account exists and carries the `admin` role.
+
+Important: those admin variables are **not** part of any compose service, so the migrate/server containers never see them. Run the seed yourself, with the variables present, against a reachable Postgres. Two ways:
+
+<Tabs items={['Docker only', 'Host Node']}>
+<Tabs.Tab>
+Run a one-shot container from the **server** image (Postgres must be up). Pass the admin vars inline so they reach the seed, and reuse the in-network `DATABASE_URL`:
+
+```bash
+# Bring up the database (and the rest of the stack) first
+docker compose up -d postgres migrate
+
+# Seed the first admin inside a throwaway server container
+docker compose run --rm \
+  -e RONDOFLOW_ADMIN_EMAIL=admin@example.com \
+  -e RONDOFLOW_ADMIN_PASSWORD='a-strong-password' \
+  -e DATABASE_URL=postgresql://rondoflow:rondoflow_dev@postgres:5432/rondoflow \
+  server npx prisma db seed --schema=prisma/schema.prisma
+```
+
+The seed runs in the `migrate`-style image (same `server` Dockerfile), so it has Prisma, `tsx`, and the auth layer available. The command's working directory is `/app/packages/server`, which is why the schema path is relative (`prisma/schema.prisma`).
+</Tabs.Tab>
+<Tabs.Tab>
+If you have the repo and Node on the host and Postgres is reachable (the compose `postgres` service publishes `5432`), set the admin vars in `.env` and run the seed script:
+
+```bash
+# Postgres up and reachable on localhost:5432
+docker compose up -d postgres migrate
+
+# RONDOFLOW_ADMIN_EMAIL / RONDOFLOW_ADMIN_PASSWORD set in .env
+npm run db:seed
+```
+
+`npm run db:seed` runs `prisma db seed`, which executes `tsx --env-file=.env packages/server/prisma/seed.ts`. It needs the host's `.env` to point `DATABASE_URL` at a reachable database.
+</Tabs.Tab>
+</Tabs>
+
+Sign in with that account, then invite everyone else from the **Users** panel. See [Users & Roles](/docs/guides/users) for the role model and invite flow.
+
+<Callout type="warning">
+Beyond bootstrapping the first admin, the seed also inserts sample data (a default Workspace, demo Assistants/Skills, Facilitator presets, and the canonical global Safety Rule). For a clean production instance, either seed once with only the admin vars set, or remove the sample rows afterward — they are upserts on fixed IDs, so re-running the seed will recreate them.
+</Callout>
+
+## Running as root
+
+The `server` image runs as **root** (there is no `USER` directive in the Dockerfile). The Claude Code CLI refuses `--dangerously-skip-permissions` (what `bypassPermissions` mode forwards) when running as root, *unless* the environment is marked sandboxed. To keep `bypassPermissions` working in the container, the spawner auto-sets `IS_SANDBOX=1` when it detects it is running as root with a bypass request — you do not normally need to set it yourself.
+
+<Callout type="warning">
+`IS_SANDBOX=1` tells the CLI to skip its root safety check, so a `bypassPermissions` Assistant can run unattended commands as root inside the container. Combined with mounted external folders this is powerful — scope your bind mounts (prefer `:ro`), keep the app behind authentication, and lean on [Safety Rules](/docs/guides/safety-rules) to gate risky commands. See [Security](/docs/reference/security) for the layered controls.
+</Callout>
+
+## Production checklist
+
+<Steps>
+### Set a real `BETTER_AUTH_SECRET`
+
+Replace the compose fallback with a random value (`openssl rand -hex 32`). Never commit it. Remember it is also the fallback key for stored credentials — changing it later breaks them ([details](#settings-managed-credentials)).
+
+### Provide a Claude credential
+
+Set `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN`. Without one, Assistants produce empty output. Non-Claude provider keys (OpenAI / Perplexity) go in **Settings → Credentials**, not `.env`.
+
+### Point `BETTER_AUTH_URL` and `UI_ORIGIN` at your real host
+
+The compose defaults assume `http://localhost`. For a public deployment, set these to your external URLs (for example `https://rondoflow.example.com`) so cookies and CORS resolve correctly.
+
+### Bake `DOCS_ORIGIN` into the UI build
+
+Keep `ui.build.args.DOCS_ORIGIN` at `http://docs:3002` so the standalone image proxies the docs at `<host>/docs`. This is a **build arg** — changing the runtime `environment.DOCS_ORIGIN` has no effect on the prod image ([why](#the-docs-proxy-in-production)).
+
+### Forward the env you actually need
+
+Add `SMTP_*`, the spawn/teardown timeouts, `CLAUDE_CODE_MAX_OUTPUT_TOKENS`, and any debug flags to the `server` service's `environment:` block — `.env` alone does not reach the container ([details](#what-env-actually-reaches-the-containers)).
+
+### Mount your external folders
+
+Add bind mounts under `/external` for the project directories Assistants should access; use `:ro` where writes are not wanted.
+
+### Run migrations
+
+`docker compose up migrate` applies the schema. Re-run it after pulling new releases.
+
+### Create the first admin
+
+The `migrate` container does not seed, and the admin vars are wired into no container. Run the seed once with `RONDOFLOW_ADMIN_EMAIL` / `RONDOFLOW_ADMIN_PASSWORD` set — via `docker compose run --rm server npx prisma db seed --schema=prisma/schema.prisma` or `npm run db:seed` on the host ([commands](#create-the-first-admin)). Then invite everyone else from the **Users** panel.
+
+### Put a reverse proxy and TLS in front
+
+Terminate HTTPS at a proxy (nginx, Caddy, Traefik) and forward to the `ui` service. Only the UI origin needs to be public — the docs proxy rides along with it.
+</Steps>
+
+<Callout type="warning">
+Expose RondoFlow carefully. Assistants run the Claude Code CLI (as root, see [Running as root](#running-as-root)) with access to your mounted folders, so anyone who can reach the app can drive real filesystem and git operations. Before opening it beyond localhost: set a strong `BETTER_AUTH_SECRET`, require authentication, restrict mounted folders to what is needed (prefer `:ro`), keep PostgreSQL off the public network (do not publish port 5432 externally), terminate TLS at a reverse proxy, and never commit secrets to the repo. Review [Security](/docs/reference/security) and [Safety Rules](/docs/guides/safety-rules) for the layered policy controls that gate risky commands.
+</Callout>
+
+## Image notes
+
+Both the UI and docs images use Next.js **standalone** output, enabled by `DOCKER_BUILD=1` at build time. The runtime images copy three things out of the build stage:
+
+- `.next/standalone` — the self-contained server bundle
+- `.next/static` — hashed static assets
+- `public` — copied explicitly, since standalone output does not include it
+
+The UI runs `node packages/ui/server.js`; the docs site runs `node packages/docs/server.js` on port 3002. The `server` image's working directory is `/app/packages/server`, and its `CMD` runs the Fastify entry with `npx tsx src/index.ts` (so the schema path inside the container is relative, e.g. `prisma/schema.prisma`).
+
+## Related
+
+<Cards>
+  <Cards.Card title="Configuration & Env Vars" href="/docs/reference/configuration" />
+  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="External Folders" href="/docs/guides/external-folders" />
+  <Cards.Card title="Users & Roles" href="/docs/guides/users" />
+  <Cards.Card title="Data Nodes (Email, Save to DB…)" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
+</Cards>

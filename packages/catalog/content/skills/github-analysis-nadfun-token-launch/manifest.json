@@ -1,0 +1,10 @@
+{
+  "id": "github-analysis-nadfun-token-launch",
+  "name": "github-analysis-nadfun-token-launch",
+  "description": "AI Agent Skill for GitHub project analysis and nad.fun token launch. Analyzes repos, generates token identity/promo, and launches on nad.fun.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.01",
+  "icon": "coins",
+  "order": 1000
+}

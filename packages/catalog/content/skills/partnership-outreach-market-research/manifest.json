@@ -1,0 +1,10 @@
+{
+  "id": "partnership-outreach-market-research",
+  "name": "partnership-outreach-market-research",
+  "description": "Partnership outreach, market research, competitor analysis, and proposal generation. Transform your AI agent into a strategic business development partner that identifies and cultivates growth opportunities.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

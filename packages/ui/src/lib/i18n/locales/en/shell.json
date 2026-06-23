@@ -1,0 +1,298 @@
+{
+  "tabs": {
+    "ariaLabel": "Workspaces",
+    "renameInput": "Rename workspace",
+    "rename": "Rename {{name}}",
+    "delete": "Delete {{name}}",
+    "deleteLastDisabled": "Cannot delete the last workspace",
+    "new": "New workspace",
+    "create": "Create new workspace",
+    "export": "Export canvas",
+    "exportTooltip": "Export canvas (share setup)",
+    "import": "Import canvas",
+    "importTooltip": "Import canvas from file",
+    "info": "Workspace info for {{name}}"
+  },
+  "info": {
+    "title": "Workspace info",
+    "description": "Read-only configuration and run statistics for this workspace.",
+    "loading": "Loading workspace info…",
+    "section": {
+      "runs": "Runs",
+      "usage": "Token usage",
+      "config": "Configuration",
+      "content": "Canvas & content"
+    },
+    "stat": {
+      "totalRuns": "Total runs",
+      "completed": "Completed",
+      "failed": "Failed",
+      "running": "Running",
+      "avgDuration": "Avg duration",
+      "maxDuration": "Longest run",
+      "totalDuration": "Total runtime",
+      "totalSteps": "Total steps",
+      "cost": "Total cost",
+      "sessions": "Sessions",
+      "inputTokens": "Input tokens",
+      "outputTokens": "Output tokens",
+      "nodes": "Nodes",
+      "edges": "Connections",
+      "resources": "Resources",
+      "memories": "Memories"
+    },
+    "field": {
+      "workingDirectory": "Working directory",
+      "notSet": "Not set",
+      "created": "Created",
+      "updated": "Last updated",
+      "documents": "Documents",
+      "contextDoc": "Context",
+      "planDoc": "Plan",
+      "none": "None",
+      "workspaceId": "Workspace ID",
+      "lastRun": "Last run",
+      "firstRun": "First run",
+      "stopped": "Stopped runs",
+      "canvasLayouts": "Canvas layouts",
+      "canvasUpdated": "Canvas updated",
+      "activityEvents": "Activity events",
+      "lastActivity": "Last activity"
+    }
+  },
+  "search": {
+    "label": "Search",
+    "tooltip": "Search (Ctrl+K)"
+  },
+  "createDialog": {
+    "title": "New workspace",
+    "description": "Start blank or pick a predefined flow, then name it and choose the project folder it works in.",
+    "startFrom": "Start from",
+    "templateGroup": "Workspace template",
+    "blankTitle": "Blank workspace",
+    "blankDescription": "Start with an empty canvas.",
+    "agentCount_one": "{{count}} agent",
+    "agentCount_other": "{{count}} agents",
+    "namePlaceholder": "Workspace name…",
+    "nameLabel": "New workspace name",
+    "selectFolder": "Select project folder",
+    "selectFolderPlaceholder": "Select project folder…",
+    "submitFromFlow": "Create from flow",
+    "submit": "Create workspace"
+  },
+  "deleteDialog": {
+    "title": "Delete workspace",
+    "description": "Delete “{{name}}”? This will remove all canvas layouts and resources associated with this workspace. This action cannot be undone."
+  },
+  "palette": {
+    "ariaLabel": "Command palette",
+    "placeholder": "Type a command or search...",
+    "listLabel": "Commands",
+    "empty": "No commands found for “{{query}}”",
+    "navigate": "navigate",
+    "select": "select",
+    "results_one": "{{count}} result",
+    "results_other": "{{count}} results"
+  },
+  "category": {
+    "assistants": "Assistants",
+    "canvas": "Canvas",
+    "navigation": "Navigation",
+    "actions": "Actions",
+    "templates": "Templates"
+  },
+  "command": {
+    "assistantCreate": {
+      "label": "Create New Assistant",
+      "description": "Add a new AI assistant to your workspace"
+    },
+    "assistantList": {
+      "label": "List All Assistants",
+      "description": "Browse and manage existing assistants"
+    },
+    "canvasFit": {
+      "label": "Fit to View",
+      "description": "Zoom and pan to show all nodes"
+    },
+    "canvasClear": {
+      "label": "Clear Canvas",
+      "description": "Remove all nodes and edges from the canvas"
+    },
+    "canvasZoomIn": {
+      "label": "Zoom In",
+      "description": "Increase zoom level"
+    },
+    "canvasZoomOut": {
+      "label": "Zoom Out",
+      "description": "Decrease zoom level"
+    },
+    "navAssistants": {
+      "label": "Open Assistants",
+      "description": "Browse and manage assistants"
+    },
+    "navFacilitators": {
+      "label": "Open Facilitators",
+      "description": "Manage discussion facilitators"
+    },
+    "navDiscussions": {
+      "label": "Open Discussions",
+      "description": "Browse multi-agent discussions"
+    },
+    "navActivity": {
+      "label": "Open Activity",
+      "description": "Real-time agent execution feed"
+    },
+    "navAudit": {
+      "label": "Open Audit Log",
+      "description": "Full audit trail of system actions"
+    },
+    "navHistory": {
+      "label": "Open History",
+      "description": "Past workflow runs and executions"
+    },
+    "navAnalytics": {
+      "label": "Open Analytics",
+      "description": "Token usage, cost and performance"
+    },
+    "navSkills": {
+      "label": "Open Skills Marketplace",
+      "description": "Browse and install skills"
+    },
+    "navMemory": {
+      "label": "Open Memory",
+      "description": "Manage persistent agent memory"
+    },
+    "navSchedules": {
+      "label": "Open Schedules",
+      "description": "Manage recurring workflow runs"
+    },
+    "navSafety": {
+      "label": "Open Safety Rules",
+      "description": "Manage safety policies and guardrails"
+    },
+    "actionUndo": {
+      "label": "Undo",
+      "description": "Undo the last action"
+    },
+    "actionRedo": {
+      "label": "Redo",
+      "description": "Redo the previously undone action"
+    },
+    "actionShortcuts": {
+      "label": "Keyboard Shortcuts",
+      "description": "View all keyboard shortcuts"
+    },
+    "templateCodeReview": {
+      "label": "Load: Code Review Pipeline",
+      "description": "Writer → Reviewer → Security Reviewer"
+    },
+    "templateContentWriting": {
+      "label": "Load: Content Writing Team",
+      "description": "Researcher → Writer → Editor"
+    },
+    "templateResearch": {
+      "label": "Load: Research Assistant",
+      "description": "Solo research bot with web search and data analysis skills"
+    },
+    "templateBrainstorm": {
+      "label": "Load: Brainstorm Team",
+      "description": "Creative, Analyst, Devil's Advocate, and Moderator"
+    }
+  },
+  "bottomBar": {
+    "ready": "Ready",
+    "running": "{{count}} running",
+    "tokens": "{{tokens}} tokens ({{cost}})",
+    "documentation": "Documentation",
+    "notifications": "Notifications",
+    "notificationsUnread": "Notifications, {{count}} unread",
+    "undo": "Undo",
+    "undoTooltip": "Undo (Ctrl+Z)",
+    "redo": "Redo",
+    "redoTooltip": "Redo (Ctrl+Shift+Z)",
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "fitView": "Fit to view"
+  },
+  "userMenu": {
+    "trigger": "User menu",
+    "item": {
+      "activity": "Activity",
+      "audit": "Audit Log",
+      "analytics": "Analytics",
+      "users": "Users",
+      "restartOnboarding": "Restart tour",
+      "settings": "Settings",
+      "signOut": "Sign out"
+    }
+  },
+  "quickRun": {
+    "deselect": "Deselect agent",
+    "taskPlaceholder": "Enter task and press Enter...",
+    "searchPlaceholder": "Search agents...",
+    "hintRun": "Enter to run",
+    "hintSelectFirst": "Select an agent first",
+    "hintClose": "Esc to close"
+  },
+  "shortcuts": {
+    "title": "Keyboard Shortcuts",
+    "footer": "Press <0></0> or <1></1> to close",
+    "category": {
+      "canvas": "Canvas",
+      "nodes": "Nodes",
+      "navigation": "Navigation",
+      "editing": "Editing"
+    },
+    "panCanvas": "Pan canvas",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fitView": "Fit view",
+    "selectAll": "Select all",
+    "newAgent": "New agent",
+    "deleteSelected": "Delete selected",
+    "commandPalette": "Command palette",
+    "toggleSkills": "Toggle skills sidebar",
+    "shortcutHelp": "Shortcut help",
+    "replayTips": "Replay onboarding tips",
+    "duplicate": "Duplicate selection",
+    "findNode": "Find node",
+    "closeDeselect": "Close / deselect",
+    "undo": "Undo",
+    "redo": "Redo",
+    "redoAlt": "Redo (alt)"
+  },
+  "favorites": {
+    "label": "Favorites",
+    "moreCount": "{{count}} more favorites"
+  },
+  "browse": {
+    "trigger": "Browse panels",
+    "searchPlaceholder": "Search panels…",
+    "empty": "No matching panels",
+    "group": {
+      "people": "People",
+      "runData": "Run data",
+      "system": "System"
+    },
+    "item": {
+      "history": "History",
+      "skills": "Skills",
+      "externalFolders": "External Folders",
+      "memory": "Memory",
+      "schedules": "Schedules",
+      "discussions": "Discussions"
+    }
+  },
+  "cliBanner": {
+    "title": "Claude Code CLI not found",
+    "description": "rondoflow requires Claude Code to run agents. Install it with:",
+    "checkAgain": "Check Again",
+    "installGuide": "Install Guide"
+  },
+  "tier": {
+    "simpleMode_one": "Simple mode — {{count}} more feature available",
+    "simpleMode_other": "Simple mode — {{count}} more features available",
+    "standardMode_one": "Standard mode — {{count}} more feature available",
+    "standardMode_other": "Standard mode — {{count}} more features available"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "plan-draft-version-written-content",
+  "name": "plan-draft-version-written-content",
+  "description": "Plan, draft, version, and refine written content with enforced versioning and quality audits.",
+  "category": "Content & Writing",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "pencil",
+  "order": 1000
+}

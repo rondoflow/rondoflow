@@ -1,0 +1,10 @@
+{
+  "id": "manage-evm-wallets-cast",
+  "name": "manage-evm-wallets-cast",
+  "description": "Skill for managing EVM wallets, transactions, and network helpers via cast; covers onboarding, checks, and operating procedures.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

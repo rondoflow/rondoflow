@@ -1,0 +1,10 @@
+{
+  "id": "frontend-ui-design-guidelines",
+  "name": "frontend-ui-design-guidelines",
+  "description": "Expert frontend design guidelines for creating beautiful, modern UIs. Use when building landing pages, dashboards, or any user interface.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

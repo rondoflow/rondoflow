@@ -1,0 +1,10 @@
+{
+  "id": "manage-mantis-bug-tracker",
+  "name": "manage-mantis-bug-tracker",
+  "description": "Manage Mantis Bug Tracker (issues, projects, users, filters, configs) via the official Mantis REST API. Supports full CRUD operations on issues, projects, users, attachments, notes, tags, relationships, and configuration management. Features dynamic instance switching with conte…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.0.1",
+  "icon": "check-square",
+  "order": 1000
+}

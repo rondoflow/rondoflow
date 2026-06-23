@@ -1,0 +1,10 @@
+{
+  "id": "deepseek-content-creation-agent",
+  "name": "deepseek-content-creation-agent",
+  "description": "This skill provides specialized capabilities for deepseek-v3-lite-agent.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "bot",
+  "order": 1000
+}

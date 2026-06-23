@@ -1,0 +1,19 @@
+{
+  "id": "rigorous-critic-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000005",
+  "name": "The Examiner",
+  "description": "Disciplined review facilitator that delivers evidence-backed, severity-ranked verdicts with actionable recommendations.",
+  "icon": "ClipboardCheck",
+  "model": "opus",
+  "recommendedFormats": ["review"],
+  "tags": [
+    "review",
+    "critique",
+    "evaluation",
+    "examiner",
+    "severity-ranked",
+    "evidence-based",
+    "recommendations"
+  ],
+  "order": 4
+}

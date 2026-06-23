@@ -1,0 +1,10 @@
+{
+  "id": "search-coches-car-listings",
+  "name": "search-coches-car-listings",
+  "description": "Use the cochesnet CLI to search coches.net listings and fetch listing details. Apply when a user asks for coches.net marketplace data or when you need the exact CLI commands and flags for cochesnet-cli.",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "chart-bar",
+  "order": 1000
+}

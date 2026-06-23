@@ -1,0 +1,10 @@
+{
+  "id": "avoid-common-powershell-mistakes",
+  "name": "avoid-common-powershell-mistakes",
+  "description": "Avoid common PowerShell mistakes — output behavior, array traps, and comparison operator gotchas.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

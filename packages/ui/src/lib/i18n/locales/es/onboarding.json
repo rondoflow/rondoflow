@@ -1,0 +1,113 @@
+{
+  "wizard": {
+    "title": "Bienvenido a rondoflow"
+  },
+  "coaching": {
+    "dismiss": "Descartar consejo"
+  },
+  "checklist": {
+    "title": "Primeros pasos",
+    "progress": "{{done}}/{{total}}",
+    "addNode": "Añade un asistente al lienzo",
+    "connectNodes": "Conecta dos nodos",
+    "runWorkflow": "Ejecuta tu flujo de trabajo",
+    "done": "¡Buen trabajo! Creaste y ejecutaste tu primer flujo de trabajo. 🎉",
+    "dismiss": "Descartar lista",
+    "collapse": "Contraer",
+    "expand": "Expandir"
+  },
+  "action": {
+    "continue": "Continuar",
+    "skip": "Omitir",
+    "browse": "Explorar",
+    "go": "Ir"
+  },
+  "directory": {
+    "heading": "¿Dónde reside su código?",
+    "description": "rondoflow trabaja con sus archivos locales a través de Claude Code. Indíquele la carpeta de su proyecto.",
+    "placeholder": "/home/user/projects/my-app",
+    "hint": "Esto se puede cambiar más adelante en la configuración del espacio de trabajo.",
+    "error": {
+      "required": "Se requiere una carpeta de trabajo para que rondoflow funcione."
+    },
+    "cli": {
+      "checking": "Comprobando Claude Code CLI...",
+      "detected": "Claude Code detectado",
+      "notDetected": "Claude Code no detectado: instálelo primero",
+      "installHint": "Ejecute:",
+      "checkAgain": "Comprobar de nuevo"
+    },
+    "auth": {
+      "missing": "Aún no se ha configurado ninguna credencial de Claude",
+      "hintSet": "Establezca",
+      "hintOrRun": ", o ejecute",
+      "hintAndSet": "y establezca",
+      "hintTail": "para usar su suscripción de Claude. También puede añadirla más tarde en la configuración."
+    }
+  },
+  "workMode": {
+    "heading": "¿Cómo desea trabajar?",
+    "description": "Elija cuánto control desea tener. Puede cambiar de modo en cualquier momento en la configuración.",
+    "quick": {
+      "title": "Inicio rápido",
+      "description": "Describa lo que desea y rondoflow se encarga del resto. Ideal para hacer pruebas."
+    },
+    "full": {
+      "title": "Control total",
+      "description": "Cree equipos de asistentes con habilidades, reglas de seguridad y flujos de trabajo personalizados. Para usuarios avanzados."
+    }
+  },
+  "firstAction": {
+    "heading": "Describe tu tarea.",
+    "headingAccent": "El espacio se construye solo.",
+    "description": "Escribe lo que hay que hacer: verás qué asistentes se crean y cómo se conectan antes de ejecutar nada.",
+    "taskPlaceholder": "p. ej. Resume la competencia y envía un informe por correo",
+    "taskAriaLabel": "Describa lo que desea crear",
+    "generating": "Generando...",
+    "divider": "o",
+    "suggest": {
+      "research": "Investiga el mercado y prepara un informe",
+      "review": "Revisa un pull request y sugiere correcciones",
+      "data": "Procesa un CSV, limpia los datos y guárdalos"
+    },
+    "gallery": {
+      "heading": "Plantillas",
+      "hint": "o describe una tarea a la izquierda y la montaremos"
+    },
+    "preview": {
+      "heading": "Vista previa",
+      "live": "montando",
+      "idle": "vista previa",
+      "caption": "Aproximadamente lo que crearemos: revisa y ajusta después.",
+      "start": "Entrada de la tarea",
+      "output": "Resultado",
+      "email": "Informe por correo"
+    },
+    "template": {
+      "title": "Empezar desde una plantilla",
+      "subtitle": "Flujos de trabajo predefinidos"
+    },
+    "create": {
+      "title": "Crear un asistente",
+      "subtitle": "Crear desde cero"
+    }
+  },
+  "toast": {
+    "dismiss": "Descartar"
+  },
+  "folderPicker": {
+    "title": "Seleccionar carpeta del proyecto",
+    "pathPlaceholder": "Escriba una ruta...",
+    "home": "Inicio",
+    "up": "Arriba",
+    "git": "git",
+    "homeAriaLabel": "Ir a la carpeta de inicio",
+    "upAriaLabel": "Ir a la carpeta superior",
+    "empty": "No hay subcarpetas",
+    "footerHint": "Haga doble clic para entrar en una carpeta. Haga clic en «Seleccionar» para usar la carpeta actual.",
+    "select": "Seleccionar esta carpeta",
+    "error": {
+      "browse": "No se pudo explorar la carpeta"
+    }
+  }
+}

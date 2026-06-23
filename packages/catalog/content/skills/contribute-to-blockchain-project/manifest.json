@@ -1,0 +1,10 @@
+{
+  "id": "contribute-to-blockchain-project",
+  "name": "contribute-to-blockchain-project",
+  "description": "Help agents contribute to ClawChain - the Layer 1 blockchain for autonomous agents. Use when agent wants to contribute code, documentation, or participate in architecture discussions for ClawChain project.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "coins",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "location-aware-valentines-gift-finder",
+  "name": "location-aware-valentines-gift-finder",
+  "description": "Location-aware Valentine's Day gift finder. Routes US users to premium flowers (UrbanStems), Singapore users to wellness supplements (Avea Life). Returns curated picks with Decision Packs — no decision fatigue, just 2-3 perfect options.",
+  "category": "Community",
+  "author": "community",
+  "version": "4.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

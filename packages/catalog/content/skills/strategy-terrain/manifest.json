@@ -1,0 +1,10 @@
+{
+  "id": "strategy-terrain",
+  "name": "strategy-terrain",
+  "description": "Maps the competitive landscape to identify where you have advantage, where contests are evenly matched, and where engagement is costly. Triggers: 'map the landscape', 'terrain analysis', 'where should I compete', 'what's the ground like', 'competitive landscape', 'where do I have advantage', 'which markets should I enter', 'is this fight worth having'.",
+  "category": "Reasoning & Thinking",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "brain",
+  "order": 1000
+}

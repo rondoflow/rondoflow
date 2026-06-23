@@ -1,0 +1,10 @@
+{
+  "id": "agent-evm-crypto-wallet",
+  "name": "agent-evm-crypto-wallet",
+  "description": "The agent's wallet. Use this skill to safely create a wallet the agent can use for transfers, swaps, and any EVM chain transaction.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.7",
+  "icon": "coins",
+  "order": 1000
+}

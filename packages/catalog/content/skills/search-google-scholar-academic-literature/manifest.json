@@ -1,0 +1,10 @@
+{
+  "id": "search-google-scholar-academic-literature",
+  "name": "search-google-scholar-academic-literature",
+  "description": "Search academic literature with Google Scholar using effective queries, citations, and filters.",
+  "category": "Community",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "puzzle",
+  "order": 1000
+}

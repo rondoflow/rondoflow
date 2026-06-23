@@ -1,0 +1,10 @@
+{
+  "id": "manage-obsidian-tasks-via-tasknotes",
+  "name": "manage-obsidian-tasks-via-tasknotes",
+  "description": "Manage tasks in Obsidian via TaskNotes plugin API. Use when user wants to create tasks, list tasks, query by status or project, update task status, delete tasks, or check what they need to do.",
+  "category": "Productivity",
+  "author": "community",
+  "version": "0.1.0",
+  "icon": "check-square",
+  "order": 1000
+}

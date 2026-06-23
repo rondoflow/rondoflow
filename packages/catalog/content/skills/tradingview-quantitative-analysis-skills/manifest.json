@@ -1,0 +1,10 @@
+{
+  "id": "tradingview-quantitative-analysis-skills",
+  "name": "tradingview-quantitative-analysis-skills",
+  "description": "Professional quantitative investment analysis system based on TradingView data. Provides intelligent stock screening, technical pattern recognition, market review, risk management, and event-driven analysis with multi-factor scoring and trading strategies.",
+  "category": "Finance & Crypto",
+  "author": "community",
+  "version": "1.0.4",
+  "icon": "coins",
+  "order": 1000
+}

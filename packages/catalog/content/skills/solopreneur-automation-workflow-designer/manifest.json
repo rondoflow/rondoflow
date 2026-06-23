@@ -1,0 +1,10 @@
+{
+  "id": "solopreneur-automation-workflow-designer",
+  "name": "solopreneur-automation-workflow-designer",
+  "description": "Design and implement automation workflows to save time and scale operations as a solopreneur. Use when identifying repetitive tasks to automate, building workflows across tools, setting up triggers and actions, or optimizing existing automations. Covers automation opportunity id…",
+  "category": "Productivity",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "check-square",
+  "order": 1000
+}

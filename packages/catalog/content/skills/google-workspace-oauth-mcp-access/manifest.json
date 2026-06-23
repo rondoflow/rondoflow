@@ -1,0 +1,10 @@
+{
+  "id": "google-workspace-oauth-mcp-access",
+  "name": "google-workspace-oauth-mcp-access",
+  "description": "Gmail, Calendar, Drive, Docs, Sheets — NO Google Cloud Console required. Just OAuth sign-in. Zero setup complexity vs traditional Google API integrations.",
+  "category": "AI & Agents",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "bot",
+  "order": 1000
+}

@@ -1,0 +1,10 @@
+{
+  "id": "access-fireflies-meeting-transcripts-analytics",
+  "name": "access-fireflies-meeting-transcripts-analytics",
+  "description": "Access Fireflies.ai meeting transcripts, summaries, action items, and analytics via GraphQL API",
+  "category": "Data & Analytics",
+  "author": "community",
+  "version": "1.0.0",
+  "icon": "chart-bar",
+  "order": 1000
+}
