@@ -14,7 +14,8 @@ machine, with your files.
 ![Status](https://img.shields.io/badge/status-pre--1.0-orange.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-![alt text](image.png)
+<img width="1022" height="716" alt="obrázok" src="https://github.com/user-attachments/assets/47b99c9b-a107-403f-894d-087190222b05" />
+
 
 </div>
 
