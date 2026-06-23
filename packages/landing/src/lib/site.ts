@@ -1,14 +1,14 @@
-// Single source for outbound links and a few page-level constants. Swap `docs`
-// to the real documentation subdomain once its DNS is set up - today the docs
-// app is served at <app-host>/docs (proxied), with no public subdomain yet.
+// Single source for outbound links and a few page-level constants. `docs` points
+// at the public documentation subdomain (docs.rondoflow.app); the docs app is also
+// served at <app-host>/docs (proxied) for the bundled in-app deployment.
 export const SITE = {
   name: 'RondoFlow',
   tagline: 'Visual orchestration for Claude Code agents',
   repo: 'rondoflow/rondoflow',
-  url: 'https://rondoflow.dev',
+  url: 'https://rondoflow.app',
   github: 'https://github.com/rondoflow/rondoflow',
   license: 'https://github.com/rondoflow/rondoflow/blob/master/LICENSE',
-  docs: 'https://docs.rondoflow.dev',
+  docs: 'https://docs.rondoflow.app',
 
   // Community + project links. All point into the single GitHub repo for now;
   // swap to a dedicated blog/roadmap host if one is ever stood up.

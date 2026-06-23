@@ -12,9 +12,9 @@ Advisor reviews the result afterward. Use this file to find the canonical pages.
 
 ## Pages
 
-- [RondoFlow home](https://rondoflow.dev/): what it is, capabilities, install, catalog, FAQ
-- [Compare](https://rondoflow.dev/compare/): RondoFlow vs Langflow, Flowise, Hiveflow.ai, Relay.app
-- [Documentation](https://docs.rondoflow.dev): setup, canvas, workflows, policies, API reference
+- [RondoFlow home](https://rondoflow.app/): what it is, capabilities, install, catalog, FAQ
+- [Compare](https://rondoflow.app/compare/): RondoFlow vs Langflow, Flowise, Hiveflow.ai, Relay.app
+- [Documentation](https://docs.rondoflow.app): setup, canvas, workflows, policies, API reference
 - [Source on GitHub](https://github.com/rondoflow/rondoflow): MIT-licensed repository
 
 ## Optional
