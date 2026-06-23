@@ -65,3 +65,24 @@ html:not(.dark) body {
   background: hsl(0 0% 98%);
   color: hsl(0 0% 9%);
 }
+
+/* Navbar link back to the main marketing site (rondoflow.app). */
+.rf-home-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: hsl(0 0% 45%);
+  transition: color 0.15s ease;
+}
+
+.rf-home-link:hover {
+  color: hsl(0 0% 9%);
+}
+
+.dark .rf-home-link {
+  color: hsl(0 0% 63%);
+}
+
+.dark .rf-home-link:hover {
+  color: hsl(0 0% 98%);
+}

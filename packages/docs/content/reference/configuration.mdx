@@ -59,7 +59,7 @@ Unlike the Claude credentials above, these two keys are **not** in `.env.example
 | `OPENAI_API_KEY` | No | No — Settings → Credentials | API key for OpenAI-backed Assistants. |
 | `PERPLEXITY_API_KEY` | No | No — Settings → Credentials | API key for Perplexity-backed Assistants. |
 
-See [Providers](/docs/providers) for how each provider maps to an Assistant.
+See [Providers](/providers) for how each provider maps to an Assistant.
 
 ### OAuth sign-in (optional)
 
@@ -74,7 +74,7 @@ Leave these empty to disable the corresponding social login. All four are in `.e
 
 ### Email (SMTP)
 
-These power the canvas **Email node (Card)**, which sends a workflow's combined Assistant output as an HTML email. The Email node is **opt-in** — its `enabled` toggle defaults **off**, so building or running a workflow never sends mail until you explicitly enable the node. Leave `SMTP_HOST` blank to disable email entirely. See the [Data Nodes guide](/docs/guides/data-nodes) for the node's UX and the [Email node behavior](#email-node-behavior) below.
+These power the canvas **Email node (Card)**, which sends a workflow's combined Assistant output as an HTML email. The Email node is **opt-in** — its `enabled` toggle defaults **off**, so building or running a workflow never sends mail until you explicitly enable the node. Leave `SMTP_HOST` blank to disable email entirely. See the [Data Nodes guide](/guides/data-nodes) for the node's UX and the [Email node behavior](#email-node-behavior) below.
 
 | Variable | Required | Default | Purpose |
 | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ A send requires **both `SMTP_HOST` and `SMTP_FROM`** — if either is blank, `re
 - Recipients are **connection-driven** (read from the edges into the node) and **de-duplicated per chain run**, so each address receives one message even if multiple Assistants feed the node.
 - The HTML body is rendered from the run's combined output via `formatRunOutput`.
 - The **headless scheduler honors** Email nodes, so a scheduled workflow can email its result without anyone watching.
-- The backend exposes `POST /api/email/send` (run-capability gated, rate-limited to 10/min, with recipient/subject/HTML validation and CR/LF header-injection defense — failures return `502 EMAIL_SEND_FAILED`) and `GET /api/email/status`. See the [API reference](/docs/reference/api).
+- The backend exposes `POST /api/email/send` (run-capability gated, rate-limited to 10/min, with recipient/subject/HTML validation and CR/LF header-injection defense — failures return `502 EMAIL_SEND_FAILED`) and `GET /api/email/status`. See the [API reference](/reference/api).
 
 ### First-admin bootstrap
 
@@ -110,7 +110,7 @@ RondoFlow is **invite-only** — open self-registration is disabled, so the very
 The bootstrap runs **only at seed time** (`npm run db:seed`, which `npm run setup` also invokes) — it is **not** a server-startup hook. It is **skipped if either** the email or password is blank, and is **idempotent**: if the user already exists it just ensures their role is `admin`. Because the Docker Compose `migrate` container only runs `prisma migrate deploy` (no seed), **Docker users must run the seed step themselves** — e.g. `npm run db:seed` with these vars set and PostgreSQL reachable — or they will be locked out, since self-registration is disabled.
 </Callout>
 
-See [Security](/docs/reference/security) for the roles and invite-only model.
+See [Security](/reference/security) for the roles and invite-only model.
 
 ### Execution & runtime
 
@@ -128,7 +128,7 @@ These tune how the process manager and the Claude Code spawner run Assistants. T
 | `IS_SANDBOX` | No | unset | Set to `1` to tell the Claude Code CLI it is running in a sandbox. Required when running **as root** with `bypassPermissions`; the server **auto-sets it** for exactly that case. In `.env.example` (set to `1`). |
 
 <Callout type="info">
-The teardown knobs are enforced by the unified **run registry**, which reaps in-flight runs (Agent, loop, chain, discussion, and PRD-pipeline) when a user's last socket drops and on server shutdown. The spawn timeouts also matter for the **scheduler**: a stalled headless run (for example a plan-mode prompt that never streams) is reaped by `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`. See [Self-Hosting](/docs/reference/self-hosting) and [Schedules](/docs/guides/schedules).
+The teardown knobs are enforced by the unified **run registry**, which reaps in-flight runs (Agent, loop, chain, discussion, and PRD-pipeline) when a user's last socket drops and on server shutdown. The spawn timeouts also matter for the **scheduler**: a stalled headless run (for example a plan-mode prompt that never streams) is reaped by `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`. See [Self-Hosting](/reference/self-hosting) and [Schedules](/guides/schedules).
 </Callout>
 
 <Callout type="warning">
@@ -149,7 +149,7 @@ Runtime credentials stored in the database (Settings → Credentials) are encryp
 
 ### External folders
 
-These control the host directory bind-mounted into the server so Assistants can read, write, and run git over real project folders. See [External Folders](/docs/guides/external-folders).
+These control the host directory bind-mounted into the server so Assistants can read, write, and run git over real project folders. See [External Folders](/guides/external-folders).
 
 | Variable | Required | Default | Read by | Purpose |
 | --- | --- | --- | --- | --- |
@@ -181,7 +181,7 @@ The UI's `next.config.mjs` rewrites both `/docs` and `/docs/:path*` to `DOCS_ORI
 
 A couple of operator-facing settings deliberately do **not** live in `.env`:
 
-- **Global per-run budget cap.** The UI's "Max Budget" → `--max-budget-usd` is stored in the canonical global **Policy** row (id `d0000000-0000-0000-0000-000000000001`), managed via `GET`/`PUT /api/settings/budget` and capped at **1000 USD** (`null` = no cap). There is no budget env var — don't go looking for one. See [Security](/docs/reference/security).
+- **Global per-run budget cap.** The UI's "Max Budget" → `--max-budget-usd` is stored in the canonical global **Policy** row (id `d0000000-0000-0000-0000-000000000001`), managed via `GET`/`PUT /api/settings/budget` and capped at **1000 USD** (`null` = no cap). There is no budget env var — don't go looking for one. See [Security](/reference/security).
 - **Most credentials at runtime.** Beyond `.env`, Claude/OpenAI/Perplexity keys, OAuth apps, and SMTP can all be set in Settings → Credentials and stored (encrypted where secret) in the database.
 
 ### Runtime credentials override `.env`
@@ -229,10 +229,10 @@ The `ui` service separately sets `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SOCKET_URL`
 import { Cards } from 'nextra/components'
 
 <Cards>
-  <Cards.Card title="Configuration (Getting Started)" href="/docs/getting-started/configuration" />
-  <Cards.Card title="Self-Hosting" href="/docs/reference/self-hosting" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="Providers" href="/docs/providers" />
-  <Cards.Card title="Data Nodes (Output, Email, Condition, Structure, Save to DB)" href="/docs/guides/data-nodes" />
-  <Cards.Card title="API Reference" href="/docs/reference/api" />
+  <Cards.Card title="Configuration (Getting Started)" href="/getting-started/configuration" />
+  <Cards.Card title="Self-Hosting" href="/reference/self-hosting" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="Providers" href="/providers" />
+  <Cards.Card title="Data Nodes (Output, Email, Condition, Structure, Save to DB)" href="/guides/data-nodes" />
+  <Cards.Card title="API Reference" href="/reference/api" />
 </Cards>

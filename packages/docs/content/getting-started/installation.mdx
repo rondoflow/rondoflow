@@ -18,14 +18,14 @@ RondoFlow is local-first: everything runs on your machine. You can install it tw
 |-------------|-----------------|-------|
 | **Node.js 20+** | Runs the dev servers and tooling | Only required for Local dev; the repo pins Node 20 (`.nvmrc`) and the workspace declares `engines.node: ">=20"`. Not needed for the full Docker path. |
 | **Docker** | Hosts PostgreSQL (and all services in Docker mode) | Docker Desktop or a compatible engine with `docker compose`. |
-| **Claude Code CLI** | Assistants (agents) are Claude Code subprocesses | Install it and authenticate so your assistants can run. See [Claude Code provider](/docs/providers/claude-code). |
+| **Claude Code CLI** | Assistants (agents) are Claude Code subprocesses | Install it and authenticate so your assistants can run. See [Claude Code provider](/providers/claude-code). |
 
 <Callout type="warning">
 If the Claude Code CLI is missing, RondoFlow still starts, but it shows a banner and assistants cannot run until the CLI is detected. The startup prerequisites check treats a missing CLI as a warning, not a hard blocker.
 </Callout>
 
 <Callout type="info">
-RondoFlow can also use OpenAI and Perplexity for assistants. Those need API keys but no CLI. See [Providers](/docs/providers).
+RondoFlow can also use OpenAI and Perplexity for assistants. Those need API keys but no CLI. See [Providers](/providers).
 </Callout>
 
 ## Install
@@ -58,7 +58,7 @@ npm run setup
 5. `npm run db:seed` — loads sample data and, if the admin env vars are set, bootstraps the first admin.
 
 <Callout type="info">
-Setup generates a working `.env`, but the Claude credential is left blank. To run assistants on Claude, add an `ANTHROPIC_API_KEY` **or** a `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`). If both are set, the setup token wins. See [Configuration](/docs/getting-started/configuration).
+Setup generates a working `.env`, but the Claude credential is left blank. To run assistants on Claude, add an `ANTHROPIC_API_KEY` **or** a `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`). If both are set, the setup token wins. See [Configuration](/getting-started/configuration).
 </Callout>
 
 <Callout type="warning">
@@ -186,7 +186,7 @@ On Docker, if you skip the seed step, no admin is created and — because self-r
 
 Sign in as that admin with email and password (GitHub/Google sign-in also work for accounts an admin has already created). A guided onboarding wizard then walks you through choosing a working directory, a work mode, and a first action. If the Claude Code CLI isn't detected, the wizard surfaces install instructions until it is.
 
-To add more people, create their accounts from the [Users panel](/docs/guides/users) — only an admin can do this. New users default to the read-only `viewer` role.
+To add more people, create their accounts from the [Users panel](/guides/users) — only an admin can do this. New users default to the read-only `viewer` role.
 
 ## Database & Docker scripts
 
@@ -207,7 +207,7 @@ The default database connection is `postgresql://rondoflow:rondoflow_dev@localho
 ## Next steps
 
 <Cards>
-  <Cards.Card title="Configuration" href="/docs/getting-started/configuration" />
-  <Cards.Card title="Build your first workflow" href="/docs/getting-started/first-workflow" />
-  <Cards.Card title="Claude Code provider" href="/docs/providers/claude-code" />
+  <Cards.Card title="Configuration" href="/getting-started/configuration" />
+  <Cards.Card title="Build your first workflow" href="/getting-started/first-workflow" />
+  <Cards.Card title="Claude Code provider" href="/providers/claude-code" />
 </Cards>

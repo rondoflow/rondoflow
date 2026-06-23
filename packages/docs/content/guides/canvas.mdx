@@ -15,7 +15,7 @@ The **Workspace** (internally a *canvas*) is where you build everything in Rondo
 Each Workspace is its own canvas with its own Cards, layout, and saved state. Switch between them using the tabs in the top bar.
 
 <Callout type="info">
-New here? Walk through [your first workflow](/docs/getting-started/first-workflow) for a guided end-to-end example, then come back to this page as a reference.
+New here? Walk through [your first workflow](/getting-started/first-workflow) for a guided end-to-end example, then come back to this page as a reference.
 </Callout>
 
 ## The drag-to-canvas palette
@@ -27,12 +27,12 @@ The palette holds 15 items, in this order:
 | Palette item | Card created | What it does |
 | --- | --- | --- |
 | **Assistant** | Assistant card | A Claude Code agent — the core worker in a workflow. |
-| **OpenAI Assistant** | Assistant card (OpenAI) | An Assistant backed by [OpenAI](/docs/providers/openai). |
-| **Perplexity Assistant** | Assistant card (Perplexity) | An Assistant backed by [Perplexity](/docs/providers/perplexity). |
-| **Skill** | Skill card | A reusable [Skill](/docs/guides/skills) you attach to an Assistant. |
-| **Safety Rule** | Safety Rule card | A [Safety Rule](/docs/guides/safety-rules) (policy) attached to an Assistant. |
-| **Resource** | Resource card | Shared files, links, notes, and variables — see [Resources](/docs/guides/resources). |
-| **Connection** | Connection card | An MCP server ([Connection](/docs/guides/connections)) that exposes tools. |
+| **OpenAI Assistant** | Assistant card (OpenAI) | An Assistant backed by [OpenAI](/providers/openai). |
+| **Perplexity Assistant** | Assistant card (Perplexity) | An Assistant backed by [Perplexity](/providers/perplexity). |
+| **Skill** | Skill card | A reusable [Skill](/guides/skills) you attach to an Assistant. |
+| **Safety Rule** | Safety Rule card | A [Safety Rule](/guides/safety-rules) (policy) attached to an Assistant. |
+| **Resource** | Resource card | Shared files, links, notes, and variables — see [Resources](/guides/resources). |
+| **Connection** | Connection card | An MCP server ([Connection](/guides/connections)) that exposes tools. |
 | **Condition** | Condition card | A pure **router** — sends an Assistant's output down a labelled branch. |
 | **Output** | Output card | Writes the run's combined output to a file. |
 | **HTTP Request** | HTTP Request card | Calls an external HTTP API mid-run, interpolating the upstream output into the request. |
@@ -78,14 +78,14 @@ Nothing connects *into* Start, and Start can only feed an Assistant — it's the
 
 **Assistant** (internally *agent*) cards are the workers. Each shows its name, instructions, and badges for its model and — for Claude Code Assistants — its permission mode. OpenAI and Perplexity Assistants show a **provider badge** instead of the permission-mode badge, plus a *Deep Research* marker when that mode is enabled.
 
-Double-click an Assistant to open its editor. From the card you can also toggle **Skip** to exclude that step from a run. A small clock badge appears in the corner when the Assistant has a [scheduled task](/docs/guides/schedules).
+Double-click an Assistant to open its editor. From the card you can also toggle **Skip** to exclude that step from a run. A small clock badge appears in the corner when the Assistant has a [scheduled task](/guides/schedules).
 
-See [Assistants](/docs/guides/assistants) for the full editor.
+See [Assistants](/guides/assistants) for the full editor.
 
 </Tabs.Tab>
 <Tabs.Tab>
 
-**Skill** cards represent a reusable [Skill](/docs/guides/skills). Use the dropdown on the card to assign one of your installed skills; assigning it renames the card and remembers the skill id. Attach the Skill to an Assistant with an edge.
+**Skill** cards represent a reusable [Skill](/guides/skills). Use the dropdown on the card to assign one of your installed skills; assigning it renames the card and remembers the skill id. Attach the Skill to an Assistant with an edge.
 
 Double-click an unassigned Skill card to open the marketplace and install one.
 
@@ -94,21 +94,21 @@ Double-click an unassigned Skill card to open the marketplace and install one.
 
 **Safety Rule** (internally *policy*) cards define permission limits. Each has a **level** — `global`, `agent`, or `session` — shown on the card. Attach a Safety Rule to an Assistant with an edge to apply it.
 
-When rules combine, the most restrictive wins. See [Safety Rules](/docs/guides/safety-rules).
+When rules combine, the most restrictive wins. See [Safety Rules](/guides/safety-rules).
 
 </Tabs.Tab>
 <Tabs.Tab>
 
 **Connection** (internally *MCP server*) cards expose external tools to an Assistant over the Model Context Protocol. The card shows the transport type (`stdio`, `http`, or `sse`) and a short description. Attach it to an Assistant with an edge.
 
-See [Connections](/docs/guides/connections).
+See [Connections](/guides/connections).
 
 </Tabs.Tab>
 <Tabs.Tab>
 
 **Resource** cards bundle shared **files, links, notes, and variables** for the Workspace. The card summarizes how many of each it holds. Variables are referenced in Assistant instructions with `{{variable}}` tokens.
 
-See [Resources](/docs/guides/resources).
+See [Resources](/guides/resources).
 
 </Tabs.Tab>
 <Tabs.Tab>
@@ -122,7 +122,7 @@ See [Resources](/docs/guides/resources).
 
 Each branch (a `ConditionBranchSpec`) has a label, a match **kind** (`contains` or `regex`), and a pattern. A new Condition card seeds three branches — **Approved**, **Rejected**, and an **Else** fallback that runs when nothing else matched. Double-click to open the branch editor and add, rename, or re-match branches.
 
-Before a run, branches are compiled into grouped **conditional edges**, and the upstream Assistant's output (its last non-empty line) is matched against each branch in order; the first match wins, otherwise the Else branch runs. Condition routing is honored in **both** execution modes — DAG (parallel) and [Director](/docs/guides/orchestration) (sequential). The accent color is amber.
+Before a run, branches are compiled into grouped **conditional edges**, and the upstream Assistant's output (its last non-empty line) is matched against each branch in order; the first match wins, otherwise the Else branch runs. Condition routing is honored in **both** execution modes — DAG (parallel) and [Director](/guides/orchestration) (sequential). The accent color is amber.
 
 </Tabs.Tab>
 <Tabs.Tab>
@@ -173,7 +173,7 @@ Saved datasets are capped (max 5,000 rows / ~2 MB per dataset). They're viewable
 
 Email is **opt-in** — the card's **enabled** toggle defaults **OFF**, so building or saving a workflow never sends mail. Recipients are typed in the drawer; the captured Assistants are **connection-driven** (read-only). When a run finishes, the combined output is rendered to an HTML body, recipients are **de-duplicated per run**, and the message is sent. The card shows the last send status.
 
-SMTP is configured via `.env` (`SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS` / `SMTP_FROM`) **or** in Settings → Credentials (group `smtp`; a DB-stored value overrides `.env`). With no SMTP host configured the feature is disabled. The headless [Scheduler](/docs/guides/schedules) honors enabled Email nodes too.
+SMTP is configured via `.env` (`SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS` / `SMTP_FROM`) **or** in Settings → Credentials (group `smtp`; a DB-stored value overrides `.env`). With no SMTP host configured the feature is disabled. The headless [Scheduler](/guides/schedules) honors enabled Email nodes too.
 
 </Tabs.Tab>
 </Tabs>
@@ -185,7 +185,7 @@ The workflow cards fall into a few roles: a **router** (Condition) picks which A
 </Callout>
 
 <Callout type="warning">
-**HTTP Request** and **DuckDuckGo Search** execute during interactive (canvas) runs, but the headless [Scheduler](/docs/guides/schedules) does not yet run them — a scheduled workflow skips these two cards. Keep that in mind before relying on them in a cron task.
+**HTTP Request** and **DuckDuckGo Search** execute during interactive (canvas) runs, but the headless [Scheduler](/guides/schedules) does not yet run them — a scheduled workflow skips these two cards. Keep that in mind before relying on them in a cron task.
 </Callout>
 
 ## Edges: flow, association, and conditional
@@ -231,19 +231,19 @@ A unified toolbar floats at the **top-center** of the canvas. It only appears on
 These show once your canvas has a runnable chain:
 
 - **Run** — opens the Execution Log panel where you describe the task and start the run. Each Assistant then runs in order, passing output forward. While running, this becomes **Stop**, which terminates the run and every active agent immediately. A step indicator (`2/5` plus the agent name) shows live progress.
-- **Director** — toggles the [Director](/docs/guides/orchestration), which steers the workflow *while it runs*: after each step it decides whether to **continue**, **redirect** (re-run with new guidance), or **conclude** early. Its latest decision shows inline.
-- **Planner** — toggles the [Planner](/docs/guides/orchestration), which analyzes your workflow *before* it runs and suggests improvements up front.
+- **Director** — toggles the [Director](/guides/orchestration), which steers the workflow *while it runs*: after each step it decides whether to **continue**, **redirect** (re-run with new guidance), or **conclude** early. Its latest decision shows inline.
+- **Planner** — toggles the [Planner](/guides/orchestration), which analyzes your workflow *before* it runs and suggests improvements up front.
 - **Advisor** — appears after a run; analyzes what happened and suggests improvements to personalities, prompts, or structure.
-- **Chat** — opens the [workflow chat & execution log](/docs/guides/monitoring): watch agents run live, read raw output, and send follow-up messages.
+- **Chat** — opens the [workflow chat & execution log](/guides/monitoring): watch agents run live, read raw output, and send follow-up messages.
 
 ### Workspace shortcuts and save (right)
 
 Visible whenever a canvas is open:
 
 - **Assistants** — open the full list of Assistants in this Workspace.
-- **Plan** — open the [plan](/docs/guides/orchestration) panel.
-- **Resources** — open the [Resources](/docs/guides/resources) browser.
-- **External Folders** — open the [external folders](/docs/guides/external-folders) panel.
+- **Plan** — open the [plan](/guides/orchestration) panel.
+- **Resources** — open the [Resources](/guides/resources) browser.
+- **External Folders** — open the [external folders](/guides/external-folders) panel.
 - **Save** — manually save the canvas. The button highlights with a pulsing dot when you have unsaved changes, shows a spinner while saving, and flashes a checkmark when done.
 
 ## Exporting and importing a Workspace
@@ -330,8 +330,8 @@ These run-only states (`chainState` and live `status`) are intentionally **not**
 ## Next steps
 
 <Cards>
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
-  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
-  <Cards.Card title="Monitoring a run" href="/docs/guides/monitoring" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Workflows" href="/guides/workflows" />
+  <Cards.Card title="Orchestration" href="/guides/orchestration" />
+  <Cards.Card title="Monitoring a run" href="/guides/monitoring" />
 </Cards>

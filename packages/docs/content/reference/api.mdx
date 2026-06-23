@@ -69,7 +69,7 @@ Request bodies and query strings are validated with [Zod](https://zod.dev) at th
 The API uses cookie/session authentication powered by [Better Auth](https://www.better-auth.com). Sign-in and OAuth callbacks are handled under `/api/auth/*`. A `preHandler` hook validates the session cookie on every non-public route; if there is no valid session it returns `401` with `{ success: false, error: "Authentication required" }`. A second `preHandler` then applies a default-deny **role gate** to the authenticated request (see [Role-based authorization](#role-based-authorization)).
 
 <Callout type="warning">
-Sign-**up** is **invite-only**. Open self-registration is disabled — accounts are created by an administrator (email/password or an admin-provisioned OAuth identity), and OAuth never self-provisions a new user. Sign-**in** is unchanged: email/password plus optional GitHub/Google. See [Security Model](/docs/reference/security) for the bootstrap flow.
+Sign-**up** is **invite-only**. Open self-registration is disabled — accounts are created by an administrator (email/password or an admin-provisioned OAuth identity), and OAuth never self-provisions a new user. Sign-**in** is unchanged: email/password plus optional GitHub/Google. See [Security Model](/reference/security) for the bootstrap flow.
 </Callout>
 
 Public (no-auth) paths:
@@ -122,7 +122,7 @@ New accounts default to `viewer` (fail-closed). Enforcement is a default-deny `p
 - Mutating run actions — paths matching `start`/`stop`/`pause`/`resume`/`run-now`/`execute` — require **editor** (`run`).
 - Any other `POST`/`PUT`/`PATCH`/`DELETE` requires **editor** (`write`).
 
-Because the gate is default-deny, a newly added mutating route is protected automatically. A request whose role lacks the required capability returns `403`. Socket.IO mirrors this — viewers are read-only there too. See [Security Model](/docs/reference/security).
+Because the gate is default-deny, a newly added mutating route is protected automatically. A request whose role lacks the required capability returns `403`. Socket.IO mirrors this — viewers are read-only there too. See [Security Model](/reference/security).
 
 <Callout type="info">
 The admin-only gate on `/api/settings/credentials` comes from the `ADMIN_PREFIXES` rule (the `manageUsers` capability), not from `manageGlobalSettings` — both require admin, so the effective access is identical. Other `/api/settings/*` writes that fall outside that prefix (for example `PUT /api/settings/budget`) are only `write`-gated, so an editor can change the global budget.
@@ -157,7 +157,7 @@ The sections below list every resource and its endpoints. Path params are writte
 
 ### Auth
 
-Handled by Better Auth. The catch-all route below proxies all auth traffic (sign-in, sign-up, OAuth providers, session lookup). See [Configuration](/docs/getting-started/configuration) for enabling GitHub/Google OAuth.
+Handled by Better Auth. The catch-all route below proxies all auth traffic (sign-in, sign-up, OAuth providers, session lookup). See [Configuration](/getting-started/configuration) for enabling GitHub/Google OAuth.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -165,7 +165,7 @@ Handled by Better Auth. The catch-all route below proxies all auth traffic (sign
 
 ### Assistants (agents)
 
-Assistants are the core executable unit. See [Assistants](/docs/guides/assistants).
+Assistants are the core executable unit. See [Assistants](/guides/assistants).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -175,7 +175,7 @@ Assistants are the core executable unit. See [Assistants](/docs/guides/assistant
 | `PATCH` | `/api/agents/:id` | Update an Assistant (also accepts canvas position, loop, and team fields) |
 | `DELETE` | `/api/agents/:id` | Delete an Assistant |
 
-On create, `provider` is one of `claude-code`, `openai`, or `perplexity`; `openai`/`perplexity` Assistants must include a `providerConfig`. See [Providers](/docs/providers).
+On create, `provider` is one of `claude-code`, `openai`, or `perplexity`; `openai`/`perplexity` Assistants must include a `providerConfig`. See [Providers](/providers).
 
 #### Assistant skills (subresource)
 
@@ -187,7 +187,7 @@ On create, `provider` is one of `claude-code`, `openai`, or `perplexity`; `opena
 
 #### Assistant memories (subresource)
 
-See [Memory](/docs/guides/memory).
+See [Memory](/guides/memory).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -199,7 +199,7 @@ See [Memory](/docs/guides/memory).
 
 #### Assistant connections (MCP subresource)
 
-See [Connections](/docs/guides/connections).
+See [Connections](/guides/connections).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -209,7 +209,7 @@ See [Connections](/docs/guides/connections).
 
 #### Assistant external folders (subresource)
 
-See [External Folders](/docs/guides/external-folders).
+See [External Folders](/guides/external-folders).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -218,7 +218,7 @@ See [External Folders](/docs/guides/external-folders).
 
 #### Assistant loops (subresource)
 
-See [Loops](/docs/guides/loops).
+See [Loops](/guides/loops).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -229,7 +229,7 @@ See [Loops](/docs/guides/loops).
 
 ### Workspaces & Canvas
 
-A Workspace (Canvas) holds the visual layout of Cards and edges. See [Canvas](/docs/guides/canvas).
+A Workspace (Canvas) holds the visual layout of Cards and edges. See [Canvas](/guides/canvas).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -245,7 +245,7 @@ A Workspace (Canvas) holds the visual layout of Cards and edges. See [Canvas](/d
 
 #### Canvas transfer (export / import)
 
-Share a whole Workspace as a self-contained bundle. See [Connections](/docs/guides/connections) and [Canvas](/docs/guides/canvas).
+Share a whole Workspace as a self-contained bundle. See [Connections](/guides/connections) and [Canvas](/guides/canvas).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -254,7 +254,7 @@ Share a whole Workspace as a self-contained bundle. See [Connections](/docs/guid
 
 #### Workspace resources (subresource)
 
-See [Resources](/docs/guides/resources).
+See [Resources](/guides/resources).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -268,7 +268,7 @@ See [Resources](/docs/guides/resources).
 
 #### Workspace memories (subresource)
 
-See [Memory](/docs/guides/memory).
+See [Memory](/guides/memory).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -280,7 +280,7 @@ See [Memory](/docs/guides/memory).
 
 ### Runs
 
-Historical workflow/chain executions, with token and cost rollups. See [Monitoring](/docs/guides/monitoring).
+Historical workflow/chain executions, with token and cost rollups. See [Monitoring](/guides/monitoring).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -289,7 +289,7 @@ Historical workflow/chain executions, with token and cost rollups. See [Monitori
 
 ### Datasets
 
-Structured datasets produced by the **Structure** (Structurer) → **Save to DB** Card pipeline on the Canvas. A Save-to-DB step persists a typed dataset (schema + rows) to the `StructuredDataset`/`StructuredRow` tables; these read-only endpoints back the **Saved Datasets** panel and its CSV export. See [Data Nodes](/docs/guides/data-nodes).
+Structured datasets produced by the **Structure** (Structurer) → **Save to DB** Card pipeline on the Canvas. A Save-to-DB step persists a typed dataset (schema + rows) to the `StructuredDataset`/`StructuredRow` tables; these read-only endpoints back the **Saved Datasets** panel and its CSV export. See [Data Nodes](/guides/data-nodes).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -297,12 +297,12 @@ Structured datasets produced by the **Structure** (Structurer) → **Save to DB*
 | `GET` | `/api/datasets/:id` | Get one dataset with its schema and a paginated slice of rows (`?page=`, `?limit=` up to 500 default 100; `meta.total` is the dataset's `rowCount`) |
 
 <Callout type="info">
-The Save-to-DB step caps each dataset at 5000 rows and ~2 MB of serialized data; oversized datasets are rejected at write time. Datasets are part of the shared team pool — an optional `workspaceId` narrows the list view. See [Data Nodes](/docs/guides/data-nodes) for the full pipeline.
+The Save-to-DB step caps each dataset at 5000 rows and ~2 MB of serialized data; oversized datasets are rejected at write time. Datasets are part of the shared team pool — an optional `workspaceId` narrows the list view. See [Data Nodes](/guides/data-nodes) for the full pipeline.
 </Callout>
 
 ### Skills
 
-Built-in catalog, git installs, and custom Skills. See [Skills](/docs/guides/skills).
+Built-in catalog, git installs, and custom Skills. See [Skills](/guides/skills).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -318,7 +318,7 @@ Built-in catalog, git installs, and custom Skills. See [Skills](/docs/guides/ski
 
 ### Safety Rules (policies)
 
-Policies that constrain what an Assistant may do. Resolution is most-restrictive-wins. See [Safety Rules](/docs/guides/safety-rules).
+Policies that constrain what an Assistant may do. Resolution is most-restrictive-wins. See [Safety Rules](/guides/safety-rules).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -330,7 +330,7 @@ Policies that constrain what an Assistant may do. Resolution is most-restrictive
 
 ### Discussions
 
-Multi-Assistant discussions run by a Facilitator (Moderator). See [Discussions](/docs/guides/discussions).
+Multi-Assistant discussions run by a Facilitator (Moderator). See [Discussions](/guides/discussions).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -354,7 +354,7 @@ Multi-Assistant discussions run by a Facilitator (Moderator). See [Discussions](
 
 ### Schedules
 
-Cron-based recurring runs of a workflow or Assistant. See [Schedules](/docs/guides/schedules).
+Cron-based recurring runs of a workflow or Assistant. See [Schedules](/guides/schedules).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -365,12 +365,12 @@ Cron-based recurring runs of a workflow or Assistant. See [Schedules](/docs/guid
 | `POST` | `/api/schedules/:id/run-now` | Execute a schedule immediately (async) |
 
 <Callout type="warning">
-A schedule's `directorEnabled` flag is accepted by the API and stored on the row, but the Scheduler engine never reads it — the Director does **not** run on scheduled tasks. Scheduled `agent` tasks also run with a generic helper prompt rather than the Assistant's real persona, skills, or model. See [Schedules](/docs/guides/schedules).
+A schedule's `directorEnabled` flag is accepted by the API and stored on the row, but the Scheduler engine never reads it — the Director does **not** run on scheduled tasks. Scheduled `agent` tasks also run with a generic helper prompt rather than the Assistant's real persona, skills, or model. See [Schedules](/guides/schedules).
 </Callout>
 
 ### Conversations (sessions)
 
-Records of Assistant/discussion runs and their messages. See [Monitoring](/docs/guides/monitoring).
+Records of Assistant/discussion runs and their messages. See [Monitoring](/guides/monitoring).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -379,7 +379,7 @@ Records of Assistant/discussion runs and their messages. See [Monitoring](/docs/
 
 ### Connections (MCP servers)
 
-Registry of external MCP servers. See [Connections](/docs/guides/connections). Per-Assistant assignment lives under the [Assistant connections](#assistant-connections-mcp-subresource) subresource above.
+Registry of external MCP servers. See [Connections](/guides/connections). Per-Assistant assignment lives under the [Assistant connections](#assistant-connections-mcp-subresource) subresource above.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -391,7 +391,7 @@ Registry of external MCP servers. See [Connections](/docs/guides/connections). P
 
 ### External folders
 
-Mounted host directories an Assistant may access. See [External Folders](/docs/guides/external-folders). Per-Assistant attachment lives under the [Assistant external folders](#assistant-external-folders-subresource) subresource above.
+Mounted host directories an Assistant may access. See [External Folders](/guides/external-folders). Per-Assistant attachment lives under the [Assistant external folders](#assistant-external-folders-subresource) subresource above.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -403,7 +403,7 @@ Mounted host directories an Assistant may access. See [External Folders](/docs/g
 
 ### Activity
 
-Filterable audit log. See [Monitoring](/docs/guides/monitoring).
+Filterable audit log. See [Monitoring](/guides/monitoring).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -413,7 +413,7 @@ Filterable audit log. See [Monitoring](/docs/guides/monitoring).
 
 ### Analytics
 
-Token and cost aggregation. See [Monitoring](/docs/guides/monitoring).
+Token and cost aggregation. See [Monitoring](/guides/monitoring).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -421,7 +421,7 @@ Token and cost aggregation. See [Monitoring](/docs/guides/monitoring).
 
 ### Git
 
-Run git operations against a Workspace's working directory. See [Git](/docs/guides/git). Reads are open to any authenticated user; write operations (stage, commit, push, branch, checkout) require the `run`/`write` capability (editor+) and act on the Workspace's configured working directory.
+Run git operations against a Workspace's working directory. See [Git](/guides/git). Reads are open to any authenticated user; write operations (stage, commit, push, branch, checkout) require the `run`/`write` capability (editor+) and act on the Workspace's configured working directory.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -439,7 +439,7 @@ Run git operations against a Workspace's working directory. See [Git](/docs/guid
 
 ### Approvals
 
-Pending tool-permission requests raised mid-run. See [Safety Rules](/docs/guides/safety-rules). Approvals also stream over Socket.IO and auto-reject on timeout.
+Pending tool-permission requests raised mid-run. See [Safety Rules](/guides/safety-rules). Approvals also stream over Socket.IO and auto-reject on timeout.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -450,7 +450,7 @@ Pending tool-permission requests raised mid-run. See [Safety Rules](/docs/guides
 
 ### Users (admin)
 
-Admin-only user management for the shared Workspace. **Every route requires the admin role** (the `manageUsers` capability); the entire `/api/users` prefix is one of the default-deny `ADMIN_PREFIXES`. These routes wrap the Better Auth admin plugin and record each action to the audit log. See [Security Model](/docs/reference/security).
+Admin-only user management for the shared Workspace. **Every route requires the admin role** (the `manageUsers` capability); the entire `/api/users` prefix is one of the default-deny `ADMIN_PREFIXES`. These routes wrap the Better Auth admin plugin and record each action to the audit log. See [Security Model](/reference/security).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -465,7 +465,7 @@ Audit events emitted: `user_invited`, `user_role_changed`, `user_deactivated`, `
 
 ### Settings & credentials
 
-Provider/OAuth/SMTP credentials and the global budget cap. See [Settings](/docs/guides/settings) and [Configuration](/docs/reference/configuration).
+Provider/OAuth/SMTP credentials and the global budget cap. See [Settings](/guides/settings) and [Configuration](/reference/configuration).
 
 The `/api/settings/credentials` prefix is **admin-only** — it is one of the default-deny `ADMIN_PREFIXES` (the `manageUsers` capability), so every method, including `GET`, requires admin. The budget endpoints sit outside that prefix and follow the generic gate: `GET` is open to any authenticated user, and `PUT` needs the `write` capability (editor+). The public `GET /api/auth-providers` lives in this route file too.
 
@@ -480,12 +480,12 @@ The `/api/settings/credentials` prefix is **admin-only** — it is one of the de
 For each credential field: omit to leave unchanged, send `""` to clear (restoring the `.env` fallback), or send a value to set it. Managed keys include `anthropicApiKey`, `claudeCodeOauthToken`, `openaiApiKey`, `perplexityApiKey`, the GitHub/Google OAuth client ID/secret pairs, and the SMTP fields (`smtpHost`, `smtpPort`, `smtpSecure`, `smtpUser`, `smtpPass`, `smtpFrom`) that power the Email Card.
 
 <Callout type="info">
-The global budget (`maxBudgetUsd`) is **not** an env var — it is stored on the canonical global Safety Rule (Policy) and forwarded to spawned Assistants as `--max-budget-usd`. `null` removes the cap. See [Security Model](/docs/reference/security).
+The global budget (`maxBudgetUsd`) is **not** an env var — it is stored on the canonical global Safety Rule (Policy) and forwarded to spawned Assistants as `--max-budget-usd`. `null` removes the cap. See [Security Model](/reference/security).
 </Callout>
 
 ### Email
 
-Send a workflow's combined Assistant output as an HTML email via SMTP — the REST surface behind the **Email** Card on the Canvas. See [Data Nodes](/docs/guides/data-nodes).
+Send a workflow's combined Assistant output as an HTML email via SMTP — the REST surface behind the **Email** Card on the Canvas. See [Data Nodes](/guides/data-nodes).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -495,12 +495,12 @@ Send a workflow's combined Assistant output as an HTML email via SMTP — the RE
 `POST /api/email/send` collapses CR/LF in the subject (header-injection defense) and validates every recipient address server-side. When SMTP is not configured it returns `400` with `"Email is not configured. Set SMTP_HOST and SMTP_FROM."`; when the SMTP server refuses delivery it returns `502` with code `EMAIL_SEND_FAILED`.
 
 <Callout type="warning">
-SMTP is read from the `SMTP_*` environment variables **or** the admin credential surface (group `smtp`; a DB-stored value overrides `.env`). At minimum `SMTP_HOST` and `SMTP_FROM` must be set, or the feature stays disabled. The Email Card itself is **opt-in** — its "enabled" toggle defaults to **off**, so building a workflow never sends mail. See [Data Nodes](/docs/guides/data-nodes) and [Configuration](/docs/reference/configuration).
+SMTP is read from the `SMTP_*` environment variables **or** the admin credential surface (group `smtp`; a DB-stored value overrides `.env`). At minimum `SMTP_HOST` and `SMTP_FROM` must be set, or the feature stays disabled. The Email Card itself is **opt-in** — its "enabled" toggle defaults to **off**, so building a workflow never sends mail. See [Data Nodes](/guides/data-nodes) and [Configuration](/reference/configuration).
 </Callout>
 
 ### Workflow generation
 
-AI-generated multi-Assistant workflows from a task description. See [Workflows](/docs/guides/workflows).
+AI-generated multi-Assistant workflows from a task description. See [Workflows](/guides/workflows).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -512,7 +512,7 @@ This route is rate-limited to **10 requests per minute** because each call spawn
 
 ### Saved workflows
 
-Reusable, named workflow definitions. See [Workflows](/docs/guides/workflows).
+Reusable, named workflow definitions. See [Workflows](/guides/workflows).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -522,7 +522,7 @@ Reusable, named workflow definitions. See [Workflows](/docs/guides/workflows).
 
 ### Chains & PRDs
 
-DAG execution and the PRD-to-stories pipeline. See [Orchestration](/docs/guides/orchestration).
+DAG execution and the PRD-to-stories pipeline. See [Orchestration](/guides/orchestration).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -542,7 +542,7 @@ The PRD pipeline is a **backend/experimental** capability. The engine, the `/api
 
 ### Claude CLI status
 
-Probe Claude API connectivity and auth — drives the Start (Spawn) Card's Test button and the pre-run gate. See [Claude Code provider](/docs/providers/claude-code).
+Probe Claude API connectivity and auth — drives the Start (Spawn) Card's Test button and the pre-run gate. See [Claude Code provider](/providers/claude-code).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -550,7 +550,7 @@ Probe Claude API connectivity and auth — drives the Start (Spawn) Card's Test 
 
 ### Filesystem
 
-Browse the host filesystem and read/write workflow output files (path-traversal guarded). These back the **Output** Card's destination-directory picker and "Open saved file" affordance. See [Data Nodes](/docs/guides/data-nodes).
+Browse the host filesystem and read/write workflow output files (path-traversal guarded). These back the **Output** Card's destination-directory picker and "Open saved file" affordance. See [Data Nodes](/guides/data-nodes).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
@@ -564,9 +564,9 @@ Browse the host filesystem and read/write workflow output files (path-traversal 
 ## Related
 
 <Cards>
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
-  <Cards.Card title="Data Model" href="/docs/reference/data-model" />
-  <Cards.Card title="Configuration & Env Vars" href="/docs/reference/configuration" />
-  <Cards.Card title="Security Model" href="/docs/reference/security" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="Architecture" href="/reference/architecture" />
+  <Cards.Card title="Data Model" href="/reference/data-model" />
+  <Cards.Card title="Configuration & Env Vars" href="/reference/configuration" />
+  <Cards.Card title="Security Model" href="/reference/security" />
 </Cards>

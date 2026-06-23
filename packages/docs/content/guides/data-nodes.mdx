@@ -32,14 +32,14 @@ They split into four kinds:
 - **A pipeline** — **Structurer → Save to DB**. The Structurer extracts a structured dataset (schema + rows) from upstream output; Save to DB writes it to the database, where the [Saved Datasets panel](#the-saved-datasets-panel) can view and export it.
 
 <Callout type="info">
-The full list of card types on a Workspace is fourteen: Start (Spawn), Assistant (Agent), Skill, Safety Rule (Policy), Connection (MCP Server), Resource, Note, plus the seven data and transform nodes documented here. For general card and edge mechanics — adding, selecting, wiring, running — see [The Canvas](/docs/guides/canvas). For how a wired graph executes, see [Workflows](/docs/guides/workflows).
+The full list of card types on a Workspace is fourteen: Start (Spawn), Assistant (Agent), Skill, Safety Rule (Policy), Connection (MCP Server), Resource, Note, plus the seven data and transform nodes documented here. For general card and edge mechanics — adding, selecting, wiring, running — see [The Canvas](/guides/canvas). For how a wired graph executes, see [Workflows](/guides/workflows).
 </Callout>
 
 ## Adding a data node
 
 Drag the card from the floating palette at the bottom-center of the canvas. After the Connection card the palette runs **Condition → Output → HTTP Request → DuckDuckGo Search → Structure → Save to DB → Email**, then the Note card. Each card opens its own settings panel (drawer) when you select it.
 
-The palette items carry tier hints (the data nodes are tagged Standard), but interface complexity is currently pinned to the full tier and isn't a user-facing setting, so every card is always available — the tier hints are inert. See [Settings](/docs/guides/settings).
+The palette items carry tier hints (the data nodes are tagged Standard), but interface complexity is currently pinned to the full tier and isn't a user-facing setting, so every card is always available — the tier hints are inert. See [Settings](/guides/settings).
 
 ## Output
 
@@ -69,7 +69,7 @@ The optional **Document title** field is used in the Formatted Markdown / HTML h
 The drawer has a **destination directory** picker. Leave it unset to fall back to the Workspace working directory (or the current directory when there is none). After a run, the card remembers the file it wrote and shows an **Open saved file** button so you can re-open it from the canvas.
 
 <Callout type="info">
-Output is a run-completion side-effect, not a server execution step — it is driven by the browser. The headless [scheduler](/docs/guides/schedules) honors Output specs on cron runs too (resolved from the saved workflow, mapping Assistant ids to names), so a scheduled workflow still writes its file.
+Output is a run-completion side-effect, not a server execution step — it is driven by the browser. The headless [scheduler](/guides/schedules) honors Output specs on cron runs too (resolved from the saved workflow, mapping Assistant ids to names), so a scheduled workflow still writes its file.
 </Callout>
 
 ## Email
@@ -100,7 +100,7 @@ Email needs an SMTP transport, configured either in `.env` or in **Settings → 
 | `SMTP_SECURE` | `true` for 465 (implicit TLS), `false` for 587 (STARTTLS). When unset, defaults to `true` only when the port is 465. |
 | `SMTP_USER` / `SMTP_PASS` | Auth is attached only when **both** are present, so unauthenticated relays / local catchers (e.g. MailHog) work without them. |
 
-See [Configuration → Email node (SMTP)](/docs/getting-started/configuration#email-node-smtp) for the full env reference.
+See [Configuration → Email node (SMTP)](/getting-started/configuration#email-node-smtp) for the full env reference.
 
 ### How sending is gated
 
@@ -111,7 +111,7 @@ The browser POSTs the rendered email to the server, which is the authority on wh
 | `POST /api/email/send` | Requires the **run** capability (editor+), rate-limited to **10/min**. Validates recipients (1–50 valid addresses), subject (1–255 chars), and an HTML body; collapses CR/LF in the subject as a header-injection defense. Returns `EMAIL_SEND_FAILED` (502) on a transport/auth/send error. |
 | `GET /api/email/status` | Non-secret view so the UI can show whether email is configured (host, port, secure, from). |
 
-If SMTP isn't configured, the send is rejected with a clear "Email is not configured" validation error rather than a cryptic transport failure. The headless scheduler honors enabled Email cards on cron runs as well. See the [API reference](/docs/reference/api).
+If SMTP isn't configured, the send is rejected with a clear "Email is not configured" validation error rather than a cryptic transport failure. The headless scheduler honors enabled Email cards on cron runs as well. See the [API reference](/reference/api).
 
 ## Condition
 
@@ -137,7 +137,7 @@ In the drawer you can rename branches, add or remove them, and choose each branc
 Matching is **case-insensitive** and runs against the upstream output's **last non-empty line** (its "verdict"). Mark any one branch as the **default** (the Else/fallback) — doing so clears the flag on every other branch. Branches route exclusively: within a Condition group, the lowest-order branch whose pattern matches wins, falling back to the Else branch when nothing matches. If nothing matches and there is no Else branch, that path simply stops.
 
 <Callout type="info">
-Condition routing is honored in **both** execution modes: the DAG path runs matched branches in parallel, and Director mode walks them sequentially. See [Workflows](/docs/guides/workflows) and [Orchestration](/docs/guides/orchestration).
+Condition routing is honored in **both** execution modes: the DAG path runs matched branches in parallel, and Director mode walks them sequentially. See [Workflows](/guides/workflows) and [Orchestration](/guides/orchestration).
 </Callout>
 
 ### Lint warnings
@@ -155,7 +155,7 @@ Two cards fetch external data **in the middle** of a run and pass it to the next
 Both interpolate the upstream step's output through an `{{input}}` token, and both **fail the card** (and skip its dependents) on a network error, a timeout, or a non-2xx / unparseable response — an errored transform never silently passes empty data downstream.
 
 <Callout type="warning">
-HTTP Request and DuckDuckGo Search run during **interactive** (canvas) runs only. The headless [scheduler](/docs/guides/schedules) does not yet execute them, so a **scheduled** workflow silently skips both — design cron workflows without them for now.
+HTTP Request and DuckDuckGo Search run during **interactive** (canvas) runs only. The headless [scheduler](/guides/schedules) does not yet execute them, so a **scheduled** workflow silently skips both — design cron workflows without them for now.
 </Callout>
 
 ### HTTP Request
@@ -231,7 +231,7 @@ When it runs, it parses the upstream dataset and writes it as a `StructuredDatas
 **Caps protect the database.** A save is bounded to **5,000 rows** and **~2 MB** of serialized row data — the executor truncates the row set to fit. If nothing structured feeds in, the step is a no-op with the message *"Nothing to save — no structured dataset feeds into this node."* rather than an error.
 </Callout>
 
-On the canvas Save to DB uses an indigo accent (and an indigo ring while active). Every save records an audit activity entry, so saves show up in the [activity log](/docs/guides/monitoring). The underlying `StructuredDataset` / `StructuredRow` tables and the `StructuredFormat` enum are documented in the [data model reference](/docs/reference/data-model).
+On the canvas Save to DB uses an indigo accent (and an indigo ring while active). Every save records an audit activity entry, so saves show up in the [activity log](/guides/monitoring). The underlying `StructuredDataset` / `StructuredRow` tables and the `StructuredFormat` enum are documented in the [data model reference](/reference/data-model).
 
 ## The Saved Datasets panel
 
@@ -250,7 +250,7 @@ The panel is backed by two read endpoints (standard `{ success, data?, error?, m
 | `GET` | `/api/datasets` | List dataset summaries, most recent first. Optional `?workspaceId=` narrows the view; paginated (`page`, `limit`, default 30, max 100). |
 | `GET` | `/api/datasets/:id` | Fetch one dataset's schema plus a **paginated slice of rows** (`page`, `limit`, default 100, max 500). |
 
-See the [API reference](/docs/reference/api).
+See the [API reference](/reference/api).
 
 ## Connection rules
 
@@ -294,17 +294,17 @@ The Output and Email cards run as browser side-effects: Output writes its file(s
 </Steps>
 
 <Callout type="important">
-On a headless [scheduled](/docs/guides/schedules) run there is no browser, so the **scheduler** reproduces the Output and Email side-effects from the saved workflow spec (Output always; Email only for enabled cards). Structurer and Save-to-DB run as normal server steps either way — but the HTTP Request and DuckDuckGo Search transforms are **not** executed on scheduled runs; they run only in interactive runs.
+On a headless [scheduled](/guides/schedules) run there is no browser, so the **scheduler** reproduces the Output and Email side-effects from the saved workflow spec (Output always; Email only for enabled cards). Structurer and Save-to-DB run as normal server steps either way — but the HTTP Request and DuckDuckGo Search transforms are **not** executed on scheduled runs; they run only in interactive runs.
 </Callout>
 
 ## Related
 
 <Cards>
-  <Cards.Card title="The Canvas" href="/docs/guides/canvas" />
-  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
-  <Cards.Card title="Resources" href="/docs/guides/resources" />
-  <Cards.Card title="Schedules" href="/docs/guides/schedules" />
-  <Cards.Card title="Configuration (SMTP)" href="/docs/getting-started/configuration#email-node-smtp" />
-  <Cards.Card title="Data model" href="/docs/reference/data-model" />
-  <Cards.Card title="API reference" href="/docs/reference/api" />
+  <Cards.Card title="The Canvas" href="/guides/canvas" />
+  <Cards.Card title="Workflows" href="/guides/workflows" />
+  <Cards.Card title="Resources" href="/guides/resources" />
+  <Cards.Card title="Schedules" href="/guides/schedules" />
+  <Cards.Card title="Configuration (SMTP)" href="/getting-started/configuration#email-node-smtp" />
+  <Cards.Card title="Data model" href="/reference/data-model" />
+  <Cards.Card title="API reference" href="/reference/api" />
 </Cards>

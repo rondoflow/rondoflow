@@ -14,7 +14,7 @@ Claude Code is RondoFlow's **default provider**. When an Assistant (internally a
 The provider id is `claude-code`. It is the value of `DEFAULT_AGENT_PROVIDER`, so any Assistant created without an explicit provider runs here.
 
 <Callout type="info">
-Looking for the API-backed providers instead? See [OpenAI](/docs/providers/openai) and [Perplexity](/docs/providers/perplexity). Those talk to an HTTP API rather than the CLI and have a different config shape.
+Looking for the API-backed providers instead? See [OpenAI](/providers/openai) and [Perplexity](/providers/perplexity). Those talk to an HTTP API rather than the CLI and have a different config shape.
 </Callout>
 
 ## How it runs
@@ -95,12 +95,12 @@ Model resolution order:
 3. Otherwise it falls back to **Sonnet**.
 
 <Callout type="info">
-RondoFlow also raises the per-response output ceiling for the child by setting `CLAUDE_CODE_MAX_OUTPUT_TOKENS` (default `128000`) so long results aren't truncated. The CLI clamps this to each model's true maximum, so a high value is safe across tiers. Override it in the root `.env` or via a workspace variable resource — see [Configuration](/docs/reference/configuration).
+RondoFlow also raises the per-response output ceiling for the child by setting `CLAUDE_CODE_MAX_OUTPUT_TOKENS` (default `128000`) so long results aren't truncated. The CLI clamps this to each model's true maximum, so a high value is safe across tiers. Override it in the root `.env` or via a workspace variable resource — see [Configuration](/reference/configuration).
 </Callout>
 
 ## Tools and permission modes
 
-Claude Code Assistants get **full tool access**, scoped by the allowed-tools list you grant and the [Safety Rules](/docs/guides/safety-rules) attached to the Assistant or set globally.
+Claude Code Assistants get **full tool access**, scoped by the allowed-tools list you grant and the [Safety Rules](/guides/safety-rules) attached to the Assistant or set globally.
 
 ### Allowed tools
 
@@ -119,10 +119,10 @@ The Assistant's mode (and any Safety Rules) resolve to a CLI permission mode. Th
 | `edit` | `acceptEdits` | Auto-accepts file edits |
 | `full` | `bypassPermissions` | Writes files and runs commands without approval prompts |
 
-Safety Rules can tighten this: an Assistant-level rule overrides a global one, and the most restrictive mode wins. See [Safety Rules](/docs/guides/safety-rules) for resolution details.
+Safety Rules can tighten this: an Assistant-level rule overrides a global one, and the most restrictive mode wins. See [Safety Rules](/guides/safety-rules) for resolution details.
 
 <Callout type="warning">
-`full` maps the CLI to `bypassPermissions` (`--dangerously-skip-permissions`), which the CLI refuses when running as root unless the environment is marked sandboxed. Server deployments often run as root in a container, so RondoFlow sets `IS_SANDBOX=1` automatically for exactly that case (root + bypass). See [Agents produce empty output](/docs/faq#agents-produce-empty-output) if a headless run produces nothing.
+`full` maps the CLI to `bypassPermissions` (`--dangerously-skip-permissions`), which the CLI refuses when running as root unless the environment is marked sandboxed. Server deployments often run as root in a container, so RondoFlow sets `IS_SANDBOX=1` automatically for exactly that case (root + bypass). See [Agents produce empty output](/faq#agents-produce-empty-output) if a headless run produces nothing.
 </Callout>
 
 ### Budget caps
@@ -131,7 +131,7 @@ When a per-run budget is in effect, RondoFlow passes `--max-budget-usd <n>` so t
 
 ### Connections (MCP servers)
 
-Claude Code Assistants support [Connections](/docs/guides/connections) (internally _MCP servers_). RondoFlow merges the Assistant's Connection configs (plus any from enabled skills) into a single `--mcp-config` JSON payload passed to the CLI. The serialized config can embed credentials, so it is redacted in debug logs.
+Claude Code Assistants support [Connections](/guides/connections) (internally _MCP servers_). RondoFlow merges the Assistant's Connection configs (plus any from enabled skills) into a single `--mcp-config` JSON payload passed to the CLI. The serialized config can embed credentials, so it is redacted in debug logs.
 
 ## Spawn timeouts
 
@@ -142,7 +142,7 @@ Every run is reaped if it stalls, so a hung process never holds a run open forev
 | Inactivity (idle) | 5 min (`300000` ms) | `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` | Resets on every stream event. Fires only after a true silence. Set to `0` to disable globally. |
 | Wall-clock cap | off (`0`) | `RONDOFLOW_SPAWN_MAX_MS` | Absolute cap from spawn, regardless of activity. Off by default; one-shot generators (Director, Planner, Advisor, Scheduler) set their own. |
 
-When either timer fires, RondoFlow kills the process tree and surfaces a "timed out" error (a `TIMEOUT_ERROR`). The idle timer is the one that reaps stalled headless runs — for example a scheduled plan-mode prompt that never resolves. See [Configuration](/docs/reference/configuration) for these and other operator env vars.
+When either timer fires, RondoFlow kills the process tree and surfaces a "timed out" error (a `TIMEOUT_ERROR`). The idle timer is the one that reaps stalled headless runs — for example a scheduled plan-mode prompt that never resolves. See [Configuration](/reference/configuration) for these and other operator env vars.
 
 ## Authentication
 
@@ -155,7 +155,7 @@ Claude Code needs a credential. RondoFlow supports two, in precedence order:
 
 You can configure either credential two ways:
 
-- **Settings → Credentials** (recommended) — paste the value under the **Claude** (`anthropic`) group. It is stored AES-encrypted in the database, applies on save, and **overrides the `.env` value at boot** (loaded into the process environment at startup). See [Settings](/docs/guides/settings).
+- **Settings → Credentials** (recommended) — paste the value under the **Claude** (`anthropic`) group. It is stored AES-encrypted in the database, applies on save, and **overrides the `.env` value at boot** (loaded into the process environment at startup). See [Settings](/guides/settings).
 - **Root `.env`** — set `CLAUDE_CODE_OAUTH_TOKEN` or `ANTHROPIC_API_KEY` directly. The setup-token still wins if both are present.
 
 <Callout type="important">
@@ -166,7 +166,7 @@ RondoFlow forwards **exactly one** credential to the child — the winning one. 
 
 The spawned CLI does **not** inherit your full environment. RondoFlow forwards only a safe allowlist — `PATH`, `HOME`, `LANG`, `TERM`, plus a few OS-specific paths node/npm need (`USERPROFILE`, `APPDATA`, `LOCALAPPDATA`, `TEMP`, `TMP`, `SystemRoot`, `ComSpec`) — alongside the resolved Claude credential and `CLAUDE_CODE_MAX_OUTPUT_TOKENS`.
 
-Server secrets are explicitly stripped from anything a caller passes in — `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `RONDOFLOW_SECRET` are never forwarded to a child, even via a workspace variable resource. See [Security](/docs/reference/security).
+Server secrets are explicitly stripped from anything a caller passes in — `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `RONDOFLOW_SECRET` are never forwarded to a child, even via a workspace variable resource. See [Security](/reference/security).
 
 ```env
 # Set ONE in the root .env — setup-token wins if both are present.
@@ -200,15 +200,15 @@ Common empty-output causes:
 - **Root + `full` mode** without sandbox — handled automatically, but visible in the trace if something blocks it.
 - **Timed out** — the run stalled past the idle (or wall-clock) timeout and the process tree was killed. See [Spawn timeouts](#spawn-timeouts).
 
-See [Agents produce empty output](/docs/faq#agents-produce-empty-output) for the full triage checklist.
+See [Agents produce empty output](/faq#agents-produce-empty-output) for the full triage checklist.
 
 ## Related
 
 <Cards>
-  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
-  <Cards.Card title="Connections (MCP)" href="/docs/guides/connections" />
-  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
-  <Cards.Card title="Providers overview" href="/docs/providers" />
-  <Cards.Card title="Configuration" href="/docs/reference/configuration" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="Safety Rules" href="/guides/safety-rules" />
+  <Cards.Card title="Connections (MCP)" href="/guides/connections" />
+  <Cards.Card title="Settings & Credentials" href="/guides/settings" />
+  <Cards.Card title="Providers overview" href="/providers" />
+  <Cards.Card title="Configuration" href="/reference/configuration" />
+  <Cards.Card title="Security" href="/reference/security" />
 </Cards>

@@ -38,7 +38,11 @@ const navbar = (
       </span>
     }
     projectLink="https://github.com/rondoflow/rondoflow"
-  />
+  >
+    <a href="https://rondoflow.app" className="rf-home-link">
+      ← rondoflow.app
+    </a>
+  </Navbar>
 )
 
 const footer = <Footer>MIT © RondoFlow — local-first orchestration for Claude Code agents.</Footer>

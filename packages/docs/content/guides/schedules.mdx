@@ -10,7 +10,7 @@ import { Cards } from 'nextra/components'
 
 # Schedules
 
-Schedules let RondoFlow run work for you on a recurring basis — no clicking required. You point a schedule at either a saved [Workflow](/docs/guides/workflows) or a single Assistant (internally an *agent*), give it a message and a cron expression, and the scheduler starts it at the times you define.
+Schedules let RondoFlow run work for you on a recurring basis — no clicking required. You point a schedule at either a saved [Workflow](/guides/workflows) or a single Assistant (internally an *agent*), give it a message and a cron expression, and the scheduler starts it at the times you define.
 
 Each schedule is timezone-aware, tracks its next run time and the status of its last run, and can be paused or resumed at any time.
 
@@ -34,7 +34,7 @@ The two target types behave quite differently under the hood — this is the mos
 | Target type | What actually runs |
 | --- | --- |
 | `agent` | A **generic helper assistant**, not your configured Assistant. The scheduler spawns Claude Code with a fixed system prompt (`"You are a helpful assistant executing a scheduled task…"`) and your `message` as the task. It does **not** load the target Assistant's persona (Persona), skills, allowed tools, or model — only the target id-prefix and your message are used. |
-| `workflow` | A saved Workflow run as a **simplified sequential chain**. Each agent in the saved workflow runs in turn with its real persona and model, and each one's output is passed forward as the input to the next. There are no DAG edges, no [Condition](/docs/guides/data-nodes) branches, and no [Director](/docs/guides/orchestration) — just a straight line through the agents. |
+| `workflow` | A saved Workflow run as a **simplified sequential chain**. Each agent in the saved workflow runs in turn with its real persona and model, and each one's output is passed forward as the input to the next. There are no DAG edges, no [Condition](/guides/data-nodes) branches, and no [Director](/guides/orchestration) — just a straight line through the agents. |
 
 <Callout type="warning">
 A `type: "agent"` schedule does **not** run the Assistant you configured on the canvas. It runs a stripped-down generic helper that only sees your message. If you need an Assistant's real persona, skills, and model, save it inside a one-agent Workflow and schedule the **workflow** instead.
@@ -53,10 +53,10 @@ Scheduled runs are hard-capped on spend and rely on an idle timeout to clean up 
 
 ### Headless Output and Email side effects (workflows only)
 
-When a scheduled **workflow** finishes its agents, the scheduler also honors any saved [Output and Email cards](/docs/guides/data-nodes) (Cards = Nodes) baked into the workflow. This happens headlessly — there is no canvas — so the behavior differs slightly from an interactive run:
+When a scheduled **workflow** finishes its agents, the scheduler also honors any saved [Output and Email cards](/guides/data-nodes) (Cards = Nodes) baked into the workflow. This happens headlessly — there is no canvas — so the behavior differs slightly from an interactive run:
 
 - **Output cards** write the combined agent output to disk. The file goes to the card's configured destination directory, or — when none is set — falls back to a stable per-user folder at `~/.rondoflow/scheduled-outputs/` on the **server host**. Filenames look like `workflow-output-<ISO-timestamp>-<uuid8>.<ext>`, where the extension matches the chosen format.
-- **Email cards** send the combined output via SMTP. The body is always HTML (markdown→HTML via the shared `formatRunOutput`); the subject defaults to `Workflow output` if none is set. Email is **skipped (and logged) when SMTP is not configured** — i.e. `SMTP_HOST`/`SMTP_FROM` are unset and `readSmtpConfig()` returns nothing. See [Settings](/docs/guides/settings) and the [Data Nodes](/docs/guides/data-nodes) guide for SMTP configuration.
+- **Email cards** send the combined output via SMTP. The body is always HTML (markdown→HTML via the shared `formatRunOutput`); the subject defaults to `Workflow output` if none is set. Email is **skipped (and logged) when SMTP is not configured** — i.e. `SMTP_HOST`/`SMTP_FROM` are unset and `readSmtpConfig()` returns nothing. See [Settings](/guides/settings) and the [Data Nodes](/guides/data-nodes) guide for SMTP configuration.
 - **Agents are matched by name.** Headless runs have no canvas node ids, so an Output or Email card that targets specific agents matches them by their **name**, not their canvas id. Keep agent names unique and stable inside a workflow you intend to schedule.
 
 <Callout type="info">
@@ -172,7 +172,7 @@ Schedules are managed through a standard REST surface under `/api/schedules`. Al
 A `PATCH` accepts the same editable fields plus `enabled` to pause or resume a schedule. Sending `enabled: false` unregisters the cron job; `enabled: true` re-registers it.
 
 <Callout type="warning">
-**`directorEnabled` has no runtime effect today.** The field is validated by the API, stored on the `ScheduledTask` model, and present in the UI type, but the scheduler engine never reads it — scheduled runs **never** invoke the [Director](/docs/guides/orchestration). The create dialog in the Scheduled Tasks panel doesn't send the field at all, so it always defaults to `false`. Treat it as reserved for forward-compatibility, not a working toggle.
+**`directorEnabled` has no runtime effect today.** The field is validated by the API, stored on the `ScheduledTask` model, and present in the UI type, but the scheduler engine never reads it — scheduled runs **never** invoke the [Director](/guides/orchestration). The create dialog in the Scheduled Tasks panel doesn't send the field at all, so it always defaults to `false`. Treat it as reserved for forward-compatibility, not a working toggle.
 </Callout>
 
 ### Tracked run state
@@ -193,8 +193,8 @@ Cron expressions are evaluated in the schedule's timezone, not the server's. Dou
 ## Related
 
 <Cards>
-<Cards.Card title="Workflows" href="/docs/guides/workflows" />
-<Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-<Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
-<Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+<Cards.Card title="Workflows" href="/guides/workflows" />
+<Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+<Cards.Card title="Orchestration" href="/guides/orchestration" />
+<Cards.Card title="Monitoring" href="/guides/monitoring" />
 </Cards>

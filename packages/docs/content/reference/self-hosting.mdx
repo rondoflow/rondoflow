@@ -12,7 +12,7 @@ import { Cards } from 'nextra/components'
 
 RondoFlow ships with a single `docker-compose.yml` that builds and runs the whole stack — database, backend, frontend, and documentation — in containers. This page covers what each service does, how to bring them up, how to create the first admin, and — importantly — which `.env` variables actually reach the running containers (it is a smaller set than you might expect).
 
-If you only want to develop locally, see [Installation](/docs/getting-started/installation) instead. Running the stack needs only Docker Desktop. The one exception is bootstrapping the first admin, which currently runs the database seed — see [Create the first admin](#create-the-first-admin) for both a Docker-only command and a host-Node option.
+If you only want to develop locally, see [Installation](/getting-started/installation) instead. Running the stack needs only Docker Desktop. The one exception is bootstrapping the first admin, which currently runs the database seed — see [Create the first admin](#create-the-first-admin) for both a Docker-only command and a host-Node option.
 
 ## Services
 
@@ -35,7 +35,7 @@ Startup order is enforced through health checks and `depends_on`:
 - `ui` waits for both `server` and `docs` to report healthy before it starts.
 
 <Callout type="info">
-The `server` image installs the Claude Code CLI globally (`npm install -g @anthropic-ai/claude-code`) and adds `git`, so Assistants (agents) can start the CLI and the [Git panel](/docs/guides/git) works inside the container.
+The `server` image installs the Claude Code CLI globally (`npm install -g @anthropic-ai/claude-code`) and adds `git`, so Assistants (agents) can start the CLI and the [Git panel](/guides/git) works inside the container.
 </Callout>
 
 ## Bring it up
@@ -103,10 +103,10 @@ Everything else documented in `.env.example` is **not** forwarded by default. To
 | `CLAUDE_CODE_MAX_OUTPUT_TOKENS` (default `128000`) | Max output tokens per agent response (the CLI clamps to each model's true max) | Add to `environment:` |
 | `RONDOFLOW_DEBUG_SPAWN` | Verbose spawn logging | Add to `environment:` |
 | `IS_SANDBOX` | Marks the environment sandboxed for the CLI root check (see [below](#running-as-root)) | Usually auto-handled; add only to force it |
-| `OPENAI_API_KEY` / `PERPLEXITY_API_KEY` | Keys for the OpenAI / Perplexity agent [providers](/docs/reference/configuration) | **Not in `.env.example`** — set in **Settings → Credentials** (encrypted) |
+| `OPENAI_API_KEY` / `PERPLEXITY_API_KEY` | Keys for the OpenAI / Perplexity agent [providers](/reference/configuration) | **Not in `.env.example`** — set in **Settings → Credentials** (encrypted) |
 
 <Callout type="info">
-`OPENAI_API_KEY` and `PERPLEXITY_API_KEY` are intentionally absent from `.env.example`. RondoFlow runs Assistants on three providers (`claude-code` is the default, plus `openai` and `perplexity`); the non-Claude keys are meant to be stored as encrypted credentials in **Settings → Credentials**, not in plaintext env. See [Configuration](/docs/reference/configuration) for the provider model.
+`OPENAI_API_KEY` and `PERPLEXITY_API_KEY` are intentionally absent from `.env.example`. RondoFlow runs Assistants on three providers (`claude-code` is the default, plus `openai` and `perplexity`); the non-Claude keys are meant to be stored as encrypted credentials in **Settings → Credentials**, not in plaintext env. See [Configuration](/reference/configuration) for the provider model.
 </Callout>
 
 ## Settings-managed credentials
@@ -183,7 +183,7 @@ server:
     - /mnt/data/bar:/external/bar:ro           # read-only
 ```
 
-Use the `:ro` suffix for directories an Assistant should read but never modify. Only change `EXTERNAL_FOLDERS_CONTAINER_ROOT` if you also change the mount target in compose. See [External Folders](/docs/guides/external-folders) for how folders surface in the workspace.
+Use the `:ro` suffix for directories an Assistant should read but never modify. Only change `EXTERNAL_FOLDERS_CONTAINER_ROOT` if you also change the mount target in compose. See [External Folders](/guides/external-folders) for how folders surface in the workspace.
 
 ## Required configuration
 
@@ -207,7 +207,7 @@ claude setup-token
 ```
 
 <Callout type="info">
-The `server` container's `DATABASE_URL` and `migrate`'s `DATABASE_URL` both point at `postgres:5432` (the in-network hostname), not `localhost`. You do not normally need to override them. See [Configuration](/docs/reference/configuration) for the full variable reference.
+The `server` container's `DATABASE_URL` and `migrate`'s `DATABASE_URL` both point at `postgres:5432` (the in-network hostname), not `localhost`. You do not normally need to override them. See [Configuration](/reference/configuration) for the full variable reference.
 </Callout>
 
 ## Create the first admin
@@ -249,7 +249,7 @@ npm run db:seed
 </Tabs.Tab>
 </Tabs>
 
-Sign in with that account, then invite everyone else from the **Users** panel. See [Users & Roles](/docs/guides/users) for the role model and invite flow.
+Sign in with that account, then invite everyone else from the **Users** panel. See [Users & Roles](/guides/users) for the role model and invite flow.
 
 <Callout type="warning">
 Beyond bootstrapping the first admin, the seed also inserts sample data (a default Workspace, demo Assistants/Skills, Facilitator presets, and the canonical global Safety Rule). For a clean production instance, either seed once with only the admin vars set, or remove the sample rows afterward — they are upserts on fixed IDs, so re-running the seed will recreate them.
@@ -260,7 +260,7 @@ Beyond bootstrapping the first admin, the seed also inserts sample data (a defau
 The `server` image runs as **root** (there is no `USER` directive in the Dockerfile). The Claude Code CLI refuses `--dangerously-skip-permissions` (what `bypassPermissions` mode forwards) when running as root, *unless* the environment is marked sandboxed. To keep `bypassPermissions` working in the container, the spawner auto-sets `IS_SANDBOX=1` when it detects it is running as root with a bypass request — you do not normally need to set it yourself.
 
 <Callout type="warning">
-`IS_SANDBOX=1` tells the CLI to skip its root safety check, so a `bypassPermissions` Assistant can run unattended commands as root inside the container. Combined with mounted external folders this is powerful — scope your bind mounts (prefer `:ro`), keep the app behind authentication, and lean on [Safety Rules](/docs/guides/safety-rules) to gate risky commands. See [Security](/docs/reference/security) for the layered controls.
+`IS_SANDBOX=1` tells the CLI to skip its root safety check, so a `bypassPermissions` Assistant can run unattended commands as root inside the container. Combined with mounted external folders this is powerful — scope your bind mounts (prefer `:ro`), keep the app behind authentication, and lean on [Safety Rules](/guides/safety-rules) to gate risky commands. See [Security](/reference/security) for the layered controls.
 </Callout>
 
 ## Production checklist
@@ -304,7 +304,7 @@ Terminate HTTPS at a proxy (nginx, Caddy, Traefik) and forward to the `ui` servi
 </Steps>
 
 <Callout type="warning">
-Expose RondoFlow carefully. Assistants run the Claude Code CLI (as root, see [Running as root](#running-as-root)) with access to your mounted folders, so anyone who can reach the app can drive real filesystem and git operations. Before opening it beyond localhost: set a strong `BETTER_AUTH_SECRET`, require authentication, restrict mounted folders to what is needed (prefer `:ro`), keep PostgreSQL off the public network (do not publish port 5432 externally), terminate TLS at a reverse proxy, and never commit secrets to the repo. Review [Security](/docs/reference/security) and [Safety Rules](/docs/guides/safety-rules) for the layered policy controls that gate risky commands.
+Expose RondoFlow carefully. Assistants run the Claude Code CLI (as root, see [Running as root](#running-as-root)) with access to your mounted folders, so anyone who can reach the app can drive real filesystem and git operations. Before opening it beyond localhost: set a strong `BETTER_AUTH_SECRET`, require authentication, restrict mounted folders to what is needed (prefer `:ro`), keep PostgreSQL off the public network (do not publish port 5432 externally), terminate TLS at a reverse proxy, and never commit secrets to the repo. Review [Security](/reference/security) and [Safety Rules](/guides/safety-rules) for the layered policy controls that gate risky commands.
 </Callout>
 
 ## Image notes
@@ -320,10 +320,10 @@ The UI runs `node packages/ui/server.js`; the docs site runs `node packages/docs
 ## Related
 
 <Cards>
-  <Cards.Card title="Configuration & Env Vars" href="/docs/reference/configuration" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="External Folders" href="/docs/guides/external-folders" />
-  <Cards.Card title="Users & Roles" href="/docs/guides/users" />
-  <Cards.Card title="Data Nodes (Email, Save to DB…)" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
+  <Cards.Card title="Configuration & Env Vars" href="/reference/configuration" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="External Folders" href="/guides/external-folders" />
+  <Cards.Card title="Users & Roles" href="/guides/users" />
+  <Cards.Card title="Data Nodes (Email, Save to DB…)" href="/guides/data-nodes" />
+  <Cards.Card title="Architecture" href="/reference/architecture" />
 </Cards>

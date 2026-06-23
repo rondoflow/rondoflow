@@ -157,7 +157,7 @@ Browser (UI :3000)            Server (Fastify + Socket.IO :3001)        Runner
 ```
 
 <Callout type="warning">
-Agents run as real subprocesses or live API calls. RondoFlow never uses `shell: true` — every command is an argument array — and server secrets such as `DATABASE_URL` and `BETTER_AUTH_SECRET` are stripped from the child environment. See [Security](/docs/reference/security) for the full model.
+Agents run as real subprocesses or live API calls. RondoFlow never uses `shell: true` — every command is an argument array — and server secrets such as `DATABASE_URL` and `BETTER_AUTH_SECRET` are stripped from the child environment. See [Security](/reference/security) for the full model.
 </Callout>
 
 ## Server entry point
@@ -226,7 +226,7 @@ The engine lives in `packages/server/src/engine/`. Each component has a focused 
 | **MemoryExtractor** | `memory-extractor.ts` | After a completed run, distills a small set of durable, deduplicated facts via one lightweight pass and persists them as auto memories — best-effort, off the critical path. |
 
 <Callout type="info">
-Multi-agent discussions live alongside the engine in `packages/server/src/discussion/` — a Facilitator (Moderator) engine with a `turn-router`, prompt templates, and a registry. See [Discussions](/docs/guides/discussions).
+Multi-agent discussions live alongside the engine in `packages/server/src/discussion/` — a Facilitator (Moderator) engine with a `turn-router`, prompt templates, and a registry. See [Discussions](/guides/discussions).
 </Callout>
 
 ## Workflow execution (ChainExecutor)
@@ -240,7 +240,7 @@ Multi-agent discussions live alongside the engine in `packages/server/src/discus
 - **Director-gated mode.** With `director: true`, the chain runs as a single sequential cursor with the Director quality-gating each step — no parallelism — and can redirect or conclude mid-run.
 - **Per-step approval.** With `approvalMode: 'perStep'`, the run pauses for human approval before each agent step.
 
-For the user-facing canvas cards behind these mechanics — Output, Email, Condition, Structure, and Save to DB — see the [Data Nodes guide](/docs/guides/data-nodes).
+For the user-facing canvas cards behind these mechanics — Output, Email, Condition, Structure, and Save to DB — see the [Data Nodes guide](/guides/data-nodes).
 
 ## Canvas card types
 
@@ -257,7 +257,7 @@ A Workspace is built from cards (nodes). Beyond the orchestration cards — Star
 | **Save to DB** | Sink | Persists the dataset to the `StructuredDataset` / `StructuredRow` tables. Accepts only a Structurer; datasets are viewable and CSV-exportable in the Saved Datasets panel. |
 
 <Callout type="info">
-Edges come in three kinds (`association` / `flow` / `conditional`): a skill, policy, or Connection source makes an association; a Condition source makes a conditional (amber dotted) edge; everything else is a flow edge. Connection rules are enforced as you wire cards (for example, nothing connects *into* Start, sinks accept only an Assistant in, and Save to DB accepts only a Structurer). The full card catalog, drawers, and wiring rules are in the [Data Nodes guide](/docs/guides/data-nodes).
+Edges come in three kinds (`association` / `flow` / `conditional`): a skill, policy, or Connection source makes an association; a Condition source makes a conditional (amber dotted) edge; everything else is a flow edge. Connection rules are enforced as you wire cards (for example, nothing connects *into* Start, sinks accept only an Assistant in, and Save to DB accepts only a Structurer). The full card catalog, drawers, and wiring rules are in the [Data Nodes guide](/guides/data-nodes).
 </Callout>
 
 ## Operator knobs
@@ -272,7 +272,7 @@ A handful of environment variables tune how the engine reaps stalled runs and te
 | `RONDOFLOW_TEARDOWN_ON_DISCONNECT` | on | Tear a user's in-flight runs down once their last socket disconnects. Set `0` to disable. |
 | `RONDOFLOW_TEARDOWN_GRACE_MS` | `60000` (1 min) | Grace window before disconnect teardown — so a refresh, a new tab, or a transient reconnect never kills an expensive run. |
 
-When the server runs as root with `bypassPermissions`, it auto-sets `IS_SANDBOX=1` so the Claude Code CLI accepts the root invocation. See [Configuration](/docs/reference/configuration) for the complete environment reference.
+When the server runs as root with `bypassPermissions`, it auto-sets `IS_SANDBOX=1` so the Claude Code CLI accepts the root invocation. See [Configuration](/reference/configuration) for the complete environment reference.
 
 ## Persistence
 
@@ -283,9 +283,9 @@ Approvals are an intentional exception: they are ephemeral and kept in process m
 ## Where to go next
 
 <Cards>
-  <Cards.Card title="Data Model" href="/docs/reference/data-model" />
-  <Cards.Card title="API Reference" href="/docs/reference/api" />
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="Self-Hosting" href="/docs/reference/self-hosting" />
+  <Cards.Card title="Data Model" href="/reference/data-model" />
+  <Cards.Card title="API Reference" href="/reference/api" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="Self-Hosting" href="/reference/self-hosting" />
 </Cards>

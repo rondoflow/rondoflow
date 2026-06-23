@@ -53,7 +53,7 @@ A variable Resource is a `varKey` plus a `varValue`. At run time the key becomes
 A few rules govern what actually reaches the spawned process:
 
 - **Agent-level env wins.** When an Assistant already defines an environment variable with the same key, that value takes precedence — a workspace variable Resource is only applied when its key is **not** already present in the Assistant's own env.
-- **Reserved server secrets are stripped.** Variables named `DATABASE_URL`, `BETTER_AUTH_SECRET`, or `rondoflow_SECRET` are silently dropped before the child process launches (the blocklist is compared case-insensitively). A variable Resource cannot inject these — they belong to the server, not to a run. See [Security](/docs/reference/security).
+- **Reserved server secrets are stripped.** Variables named `DATABASE_URL`, `BETTER_AUTH_SECRET`, or `rondoflow_SECRET` are silently dropped before the child process launches (the blocklist is compared case-insensitively). A variable Resource cannot inject these — they belong to the server, not to a run. See [Security](/reference/security).
 - **Tuning Claude's output ceiling.** A variable named `CLAUDE_CODE_MAX_OUTPUT_TOKENS` overrides the spawned CLI's per-response output-token limit (default `128000`, which Claude Code clamps to each model's true maximum). This is a handy way to raise the ceiling for a single Workspace without editing the root `.env`.
 
 ### Marking a variable secret
@@ -68,7 +68,7 @@ The plaintext value is decrypted only when an Assistant starts, so it can be pla
 <Callout type="warning">
 **Which secret derives the encryption key.** The encryption module reads `rondoflow_SECRET` (note the lowercase prefix — this matches the code today), and falls back to `BETTER_AUTH_SECRET` when it isn't set. On a case-sensitive OS (Linux/macOS), an uppercase `RONDOFLOW_SECRET` will **not** be picked up by the encryption module and it will silently use `BETTER_AUTH_SECRET` instead.
 
-The safest, always-working guidance is to rely on `BETTER_AUTH_SECRET` (which `npm run setup` generates and which auth refuses to start without). If you set a dedicated encryption secret, use the exact casing `rondoflow_SECRET`. Either way, keep the value stable and back it up alongside your database — if it changes, existing secret variables can no longer be decrypted and are skipped at run time. See [Configuration](/docs/getting-started/configuration) and [Security](/docs/reference/security).
+The safest, always-working guidance is to rely on `BETTER_AUTH_SECRET` (which `npm run setup` generates and which auth refuses to start without). If you set a dedicated encryption secret, use the exact casing `rondoflow_SECRET`. Either way, keep the value stable and back it up alongside your database — if it changes, existing secret variables can no longer be decrypted and are skipped at run time. See [Configuration](/getting-started/configuration) and [Security](/reference/security).
 </Callout>
 
 ## The Resource card on the canvas
@@ -81,7 +81,7 @@ The Resource card is **decorative**. It has both an input and an output handle, 
 
 The palette item is tagged for the Standard tier, but interface complexity is currently pinned to the full tier and isn't a user-facing setting, so tier gating is inert — the Resource card (like every other palette card) is always available.
 
-See [The Canvas](/docs/guides/canvas) for general canvas and card mechanics.
+See [The Canvas](/guides/canvas) for general canvas and card mechanics.
 
 ## Managing Resources
 
@@ -97,7 +97,7 @@ All endpoints are nested under a Workspace: `/api/workspaces/:workspaceId/resour
 | `DELETE` | `/api/workspaces/:workspaceId/resources/:id` | Delete a Resource (removes the file from disk too) |
 | `GET` | `/api/workspaces/:workspaceId/resources/:id/download` | Download a file Resource |
 
-All responses use the standard envelope: `{ success, data?, error?, meta? }`. See the [API reference](/docs/reference/api).
+All responses use the standard envelope: `{ success, data?, error?, meta? }`. See the [API reference](/reference/api).
 
 ### Creating a URL, note, or variable
 
@@ -195,10 +195,10 @@ Deleting a file Resource removes the underlying file from disk on a best-effort 
 ## Related
 
 <Cards>
-  <Cards.Card title="The Canvas" href="/docs/guides/canvas" />
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Memory" href="/docs/guides/memory" />
-  <Cards.Card title="External Folders" href="/docs/guides/external-folders" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="API reference" href="/docs/reference/api" />
+  <Cards.Card title="The Canvas" href="/guides/canvas" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Memory" href="/guides/memory" />
+  <Cards.Card title="External Folders" href="/guides/external-folders" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="API reference" href="/reference/api" />
 </Cards>

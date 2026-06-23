@@ -23,11 +23,11 @@ When an Assistant starts (internally "spawns"), RondoFlow loads every Skill that
 Only **enabled** Skills are loaded, and they are applied in **priority** order (lowest number first). Reordering Skills in the Assistant changes the order their instructions appear in the prompt.
 </Callout>
 
-The append-prompt mechanism is also used for Assistants running on API providers (OpenAI, Perplexity). Those providers run over an HTTP API rather than the Claude Code CLI, so the Persona and the enabled Skills are combined into the request's system prompt — Skills still apply — while the Claude-CLI-only concerns (model mapping, allowed-tool lists, MCP registration, external folders) are skipped. See [Connections](/docs/guides/connections) for the provider differences in detail.
+The append-prompt mechanism is also used for Assistants running on API providers (OpenAI, Perplexity). Those providers run over an HTTP API rather than the Claude Code CLI, so the Persona and the enabled Skills are combined into the request's system prompt — Skills still apply — while the Claude-CLI-only concerns (model mapping, allowed-tool lists, MCP registration, external folders) are skipped. See [Connections](/guides/connections) for the provider differences in detail.
 
 ## Built-in catalog
 
-RondoFlow ships a large built-in catalog of ready-to-install Skills — **2,300+** entries spanning categories like *AI & Agents*, *Finance & Crypto*, *Development*, *Data & Analytics*, *Media*, *Productivity*, *DevOps & Infra*, *Content & Writing*, and more. A handful are first-party (authored by `rondoflow`); the vast majority are contributed by the **`community`**. The catalog ships in the [`@rondoflow/catalog`](/docs/reference/architecture#content-catalog) package.
+RondoFlow ships a large built-in catalog of ready-to-install Skills — **2,300+** entries spanning categories like *AI & Agents*, *Finance & Crypto*, *Development*, *Data & Analytics*, *Media*, *Productivity*, *DevOps & Infra*, *Content & Writing*, and more. A handful are first-party (authored by `rondoflow`); the vast majority are contributed by the **`community`**. The catalog ships in the [`@rondoflow/catalog`](/reference/architecture#content-catalog) package.
 
 Browse it in the **Skill Marketplace** panel (open it from an Assistant to install and attach in one step, or stand-alone to just install). The Marketplace derives its **category chips from the loaded catalog** — each chip shows the category and its count — and a search box matches a Skill's name, description, or category.
 
@@ -142,7 +142,7 @@ You can also declare **multiple** servers by storing `mcpConfig` as a map of ser
 }
 ```
 
-When a Skill carries an MCP config, its servers are registered for any Assistant that has the Skill enabled, namespaced to avoid collisions: a single-object config registers as `<skillName>/default`, and each entry in a map registers as `<skillName>/<serverName>`. See [Connections](/docs/guides/connections) for how MCP servers are wired into a run.
+When a Skill carries an MCP config, its servers are registered for any Assistant that has the Skill enabled, namespaced to avoid collisions: a single-object config registers as `<skillName>/default`, and each entry in a map registers as `<skillName>/<serverName>`. See [Connections](/guides/connections) for how MCP servers are wired into a run.
 
 ### On-disk layout
 
@@ -247,8 +247,8 @@ Skills are managed over the REST API. Responses use the standard `{ success, dat
 ## Related
 
 <Cards>
-<Cards.Card title="Assistants" href="/docs/guides/assistants" />
-<Cards.Card title="Connections" href="/docs/guides/connections" />
-<Cards.Card title="Terminology (glossary)" href="/docs/concepts/terminology" />
-<Cards.Card title="Skills API reference" href="/docs/reference/api" />
+<Cards.Card title="Assistants" href="/guides/assistants" />
+<Cards.Card title="Connections" href="/guides/connections" />
+<Cards.Card title="Terminology (glossary)" href="/concepts/terminology" />
+<Cards.Card title="Skills API reference" href="/reference/api" />
 </Cards>

@@ -113,7 +113,7 @@ If nothing matched, the tool runs.
 </Steps>
 
 <Callout type="info">
-This is a **detect-and-hold** model, not a kernel sandbox. Gating runs in the `onToolUse` callback *after* the CLI has already emitted the `tool_use` event — RondoFlow stops the Assistant and closes the session at that point. Native pre-execution blocking is on the roadmap (see [Security](/docs/reference/security)) but is not implemented today, so a blocked pattern prevents the Assistant from *continuing*, not from a tool having been requested.
+This is a **detect-and-hold** model, not a kernel sandbox. Gating runs in the `onToolUse` callback *after* the CLI has already emitted the `tool_use` event — RondoFlow stops the Assistant and closes the session at that point. Native pre-execution blocking is on the roadmap (see [Security](/reference/security)) but is not implemented today, so a blocked pattern prevents the Assistant from *continuing*, not from a tool having been requested.
 </Callout>
 
 ## What enforces what
@@ -128,7 +128,7 @@ This is the most important thing to internalize about Safety Rules: **command bl
 | Scheduled runs | **Not** enforced (`bypassPermissions`) | Enforced | Enforced |
 | Director / Planner / Advisor / Structurer passes | **Not** enforced (`bypassPermissions`) | Enforced | Enforced |
 
-The headless run paths spawn the CLI with `permissionMode: 'bypassPermissions'` and never call the policy checker, so a `blockedCommands` or `requireApproval` pattern has **no effect** on a [Workflow](/docs/guides/workflows) run, a [Loop](/docs/guides/loops), a [Discussion](/docs/guides/discussions), or a [scheduled task](/docs/guides/schedules). Their enforced guardrails are the budget cap and the spawn idle / wall-clock timeouts.
+The headless run paths spawn the CLI with `permissionMode: 'bypassPermissions'` and never call the policy checker, so a `blockedCommands` or `requireApproval` pattern has **no effect** on a [Workflow](/guides/workflows) run, a [Loop](/guides/loops), a [Discussion](/guides/discussions), or a [scheduled task](/guides/schedules). Their enforced guardrails are the budget cap and the spawn idle / wall-clock timeouts.
 
 <Callout type="warning">
 Workflows have their own, separate gate: an "approve before each step" mode (`perStep`) that pauses before every agent step in a chain. That is a coarse whole-step pause, **not** the per-command `requireApproval` pattern gate. If you need a specific destructive command to be blocked or held, that protection exists only on interactive single-Assistant runs today.
@@ -146,7 +146,7 @@ The **global** per-run budget (the "Max Budget" control) does not live in the Sa
 | `PUT` | `/api/settings/budget` | Set or clear the cap (`maxBudgetUsd`: positive, max `1000`, or `null`) |
 
 <Callout type="info">
-Setting the budget is gated by the generic **write** capability (editor+), not by admin — so any editor can change the workspace spend cap. Compare with credential editing, which is admin-only. See [Users & roles](/docs/guides/users).
+Setting the budget is gated by the generic **write** capability (editor+), not by admin — so any editor can change the workspace spend cap. Compare with credential editing, which is admin-only. See [Users & roles](/guides/users).
 </Callout>
 
 ## Human approvals
@@ -296,10 +296,10 @@ To scope a rule to one Assistant, set `level: "agent"` and pass its `agentId`. L
 ## Related
 
 <Cards>
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
-  <Cards.Card title="Users & roles" href="/docs/guides/users" />
-  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="Settings" href="/docs/guides/settings" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Workflows" href="/guides/workflows" />
+  <Cards.Card title="Users & roles" href="/guides/users" />
+  <Cards.Card title="Monitoring" href="/guides/monitoring" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="Settings" href="/guides/settings" />
 </Cards>

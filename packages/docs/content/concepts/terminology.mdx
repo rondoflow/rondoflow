@@ -17,14 +17,14 @@ This means the same concept can have two valid names:
 - A **Connection** in the UI is an `mcpServer` (MCP server) in the spawn configuration.
 
 <Callout type="info">
-Throughout these docs we lead with the **user-facing name** and give the internal term in parentheses on first mention where it helps — for example, "Assistant (agent)". When you read source files or call the [API](/docs/reference/api), expect the internal term.
+Throughout these docs we lead with the **user-facing name** and give the internal term in parentheses on first mention where it helps — for example, "Assistant (agent)". When you read source files or call the [API](/reference/api), expect the internal term.
 </Callout>
 
 ## Why two sets of names
 
 The friendly names lower the barrier for everyday use: you drag a **Card** (node) onto the **Workspace** (canvas), wire up an **Assistant**, and **Start** (spawn) it. You do not need to know that "spawn" refers to launching a Claude Code CLI subprocess.
 
-The technical names stay accurate where accuracy matters. A **Safety Rule** is genuinely a `policy` object whose fields drive [Safety Rules](/docs/guides/safety-rules) resolution (most restrictive wins). Keeping the code honest about what each thing *is* keeps the engine predictable.
+The technical names stay accurate where accuracy matters. A **Safety Rule** is genuinely a `policy` object whose fields drive [Safety Rules](/guides/safety-rules) resolution (most restrictive wins). Keeping the code honest about what each thing *is* keeps the engine predictable.
 
 ## How the mapping is implemented
 
@@ -113,25 +113,25 @@ The table below is the full set of domain terms defined in the `terms` object of
 | `memory` | Memory | Pamäť | Memoria | Mémoire | Speicher |
 
 <Callout type="warning">
-Two distinct internal terms — `mcpServer` and `edge` — both surface as **Connection** in English. They are not the same thing: `mcpServer` is an external [Connection](/docs/guides/connections) (an MCP server an Assistant can call), while `edge` is the wire linking two Cards on the Workspace. Among the other locales, only Slovak distinguishes the two with different words (`Pripojenie` for the MCP server vs `Prepojenie` for the wire); Spanish (`Conexión`), French (`Connexion`), and German (`Verbindung`) each reuse a single word for both. Context in the UI makes the difference clear; in code, use the precise key.
+Two distinct internal terms — `mcpServer` and `edge` — both surface as **Connection** in English. They are not the same thing: `mcpServer` is an external [Connection](/guides/connections) (an MCP server an Assistant can call), while `edge` is the wire linking two Cards on the Workspace. Among the other locales, only Slovak distinguishes the two with different words (`Pripojenie` for the MCP server vs `Prepojenie` for the wire); Spanish (`Conexión`), French (`Connexion`), and German (`Verbindung`) each reuse a single word for both. Context in the UI makes the difference clear; in code, use the precise key.
 </Callout>
 
 ## Terms worth knowing
 
 A few mappings come up constantly across the docs and the canvas:
 
-- **Assistant** (`agent`) — a configured Claude Code agent you place on the Workspace. The palette also offers two provider variants — **OpenAI Assistant** and **Perplexity Assistant** — which are still Assistants (`agent`) carrying a different `provider`, not separate Card types. See [Assistants](/docs/guides/assistants), [OpenAI](/docs/providers/openai), and [Perplexity](/docs/providers/perplexity).
+- **Assistant** (`agent`) — a configured Claude Code agent you place on the Workspace. The palette also offers two provider variants — **OpenAI Assistant** and **Perplexity Assistant** — which are still Assistants (`agent`) carrying a different `provider`, not separate Card types. See [Assistants](/guides/assistants), [OpenAI](/providers/openai), and [Perplexity](/providers/perplexity).
 - **Personality** (`persona`) — the character and behavior profile applied to an Assistant.
 - **Instructions** (`systemPrompt`) — the system prompt that steers an Assistant.
 - **Access** / **Access Paths** (`scope` / `scopePaths`) — where an Assistant is allowed to read and write.
-- **Capabilities** (`allowedTools`) — the tools an Assistant is permitted to use, governed by [Safety Rules](/docs/guides/safety-rules).
+- **Capabilities** (`allowedTools`) — the tools an Assistant is permitted to use, governed by [Safety Rules](/guides/safety-rules).
 - **Safety Rule** (`policy`) — the constraints that bound what an Assistant may do.
-- **Connection** (`mcpServer`) — an MCP server an Assistant can reach. See [Connections](/docs/guides/connections).
-- **Facilitator** (`moderator`) — the orchestrator that runs a [Team Discussion](/docs/guides/discussions) (`discussionTable`).
+- **Connection** (`mcpServer`) — an MCP server an Assistant can reach. See [Connections](/guides/connections).
+- **Facilitator** (`moderator`) — the orchestrator that runs a [Team Discussion](/guides/discussions) (`discussionTable`).
 - **Conversation** (`session`) — one run/thread with an Assistant.
-- **Workspace** (`canvas` / `workspace`) — the drag-and-drop [Canvas](/docs/guides/canvas).
+- **Workspace** (`canvas` / `workspace`) — the drag-and-drop [Canvas](/guides/canvas).
 - **Card** (`node`) — any element you drop on the Workspace; **Start** (`spawn`) launches a run.
-- **Role** (`role`) — a user's global access level across the one shared workspace: **admin**, **editor**, or **viewer** (ranked viewer < editor < admin). A viewer is read-only, an editor can also create/edit/delete and run things, and an admin can additionally manage users and global settings. See [Users & Roles](/docs/guides/users).
+- **Role** (`role`) — a user's global access level across the one shared workspace: **admin**, **editor**, or **viewer** (ranked viewer < editor < admin). A viewer is read-only, an editor can also create/edit/delete and run things, and an admin can additionally manage users and global settings. See [Users & Roles](/guides/users).
 
 <Callout type="warning">
 A **Role** is not a **Safety Rule**. A Role is *authorization* — it governs which **users** may read, write, or run within the shared workspace. A Safety Rule (`policy`) is *agent safety* — it bounds what an Assistant's tools may do (along with the per-Assistant permission mode). Do not conflate the two: roles gate people; Safety Rules gate agents.
@@ -152,15 +152,15 @@ The canvas palette includes several newer Card types beyond Assistant/Skill/Safe
 | Email | `email` | A sink that emails the combined output via SMTP (opt-in; off by default). |
 
 <Callout type="info">
-These cards — what they do, how they wire together, and the connection rules between them — are covered in depth in the [Data Nodes guide](/docs/guides/data-nodes).
+These cards — what they do, how they wire together, and the connection rules between them — are covered in depth in the [Data Nodes guide](/guides/data-nodes).
 </Callout>
 
 ## Where to go next
 
 <Cards>
-  <Cards.Card title="Concepts overview" href="/docs/concepts/overview" />
-  <Cards.Card title="The Workspace canvas" href="/docs/guides/canvas" />
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+  <Cards.Card title="Concepts overview" href="/concepts/overview" />
+  <Cards.Card title="The Workspace canvas" href="/guides/canvas" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Safety Rules" href="/guides/safety-rules" />
 </Cards>

@@ -130,7 +130,7 @@ This means priority does double duty: it both orders the directories and selects
 </Callout>
 
 <Callout type="warning">
-A read-write External Folder gives the Assistant real write and command-execution access to those host files. If the folder contains untrusted code or sensitive data, treat the Assistant like any process running with full access to it: mount it `:ro`, scope folders narrowly, and pair them with strict [Safety Rules](/docs/guides/safety-rules) and a conservative permission mode. The `:ro` bind-mount option is your strongest guardrail — apply it to anything you don't want modified, and use the read-only flag as a visible label alongside it.
+A read-write External Folder gives the Assistant real write and command-execution access to those host files. If the folder contains untrusted code or sensitive data, treat the Assistant like any process running with full access to it: mount it `:ro`, scope folders narrowly, and pair them with strict [Safety Rules](/guides/safety-rules) and a conservative permission mode. The `:ro` bind-mount option is your strongest guardrail — apply it to anything you don't want modified, and use the read-only flag as a visible label alongside it.
 </Callout>
 
 ## API reference
@@ -149,11 +149,11 @@ External Folders are managed through these endpoints (all using the standard `{ 
 
 `GET /api/external-folders/available` never throws — it returns `{ rootExists, root, candidates[] }`. When the mount root is missing in the container it returns `rootExists: false` with an empty `candidates` list, which is what drives the panel's "mount root not present" notice. Each candidate is `{ name, containerPath }`.
 
-See the [API reference](/docs/reference/api) and [data model](/docs/reference/data-model) for full details.
+See the [API reference](/reference/api) and [data model](/reference/data-model) for full details.
 
 ## Related
 
-- [Resources](/docs/guides/resources) — share files and context across a Workspace.
-- [Git](/docs/guides/git) — run Git workflows against an attached folder.
-- [Safety Rules](/docs/guides/safety-rules) — constrain what an Assistant can do.
-- [Configuration](/docs/getting-started/configuration) — set environment variables like `EXTERNAL_FOLDERS_HOST_PATH`.
+- [Resources](/guides/resources) — share files and context across a Workspace.
+- [Git](/guides/git) — run Git workflows against an attached folder.
+- [Safety Rules](/guides/safety-rules) — constrain what an Assistant can do.
+- [Configuration](/getting-started/configuration) — set environment variables like `EXTERNAL_FOLDERS_HOST_PATH`.

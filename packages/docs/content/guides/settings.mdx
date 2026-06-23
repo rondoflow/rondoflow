@@ -23,7 +23,7 @@ Most preferences in Settings are saved automatically the moment you change them 
 The **API Keys & Integrations** tab lets you manage every secret RondoFlow needs without touching the `.env` file. Each credential is encrypted and stored on the server, then loaded into the environment so the Claude Code CLI, the OpenAI/Perplexity runners, and the SMTP sender can use it.
 
 <Callout type="warning">
-Credential management is **admin-only**. Both reading and writing credentials (`GET`/`PUT /api/settings/credentials`) require the `manageUsers` capability — non-admins cannot view or change them. See [Users & Roles](/docs/guides/users) for the role model.
+Credential management is **admin-only**. Both reading and writing credentials (`GET`/`PUT /api/settings/credentials`) require the `manageUsers` capability — non-admins cannot view or change them. See [Users & Roles](/guides/users) for the role model.
 </Callout>
 
 ### What you can set
@@ -55,7 +55,7 @@ The Email (SMTP) group configures the SMTP relay used by the canvas Email Card (
 | `SMTP_FROM` | The `From` address, e.g. `RondoFlow <noreply@example.com>`. **Required.** Non-secret. |
 
 <Callout type="info">
-For how the Email Card behaves on the canvas — it is opt-in (disabled by default), recipients are driven by what you connect to it, and the body reuses the run's formatted output — see [Data Nodes](/docs/guides/data-nodes).
+For how the Email Card behaves on the canvas — it is opt-in (disabled by default), recipients are driven by what you connect to it, and the body reuses the run's formatted output — see [Data Nodes](/guides/data-nodes).
 </Callout>
 
 ### How credentials are stored and shown
@@ -103,7 +103,7 @@ The update semantics map directly to the API: an absent field is left unchanged,
 When you change a GitHub or Google credential, RondoFlow rebuilds its authentication layer in place so that "Sign in with GitHub/Google" starts working without restarting the server. Claude, OpenAI, Perplexity, and SMTP credentials don't require this — they're picked up on the next Assistant run (or the next email send).
 
 <Callout type="info">
-The underlying endpoints are `GET /api/settings/credentials` (masked status) and `PUT /api/settings/credentials` (upsert/clear), both admin-gated. See the [API reference](/docs/reference/api) for the full envelope.
+The underlying endpoints are `GET /api/settings/credentials` (masked status) and `PUT /api/settings/credentials` (upsert/clear), both admin-gated. See the [API reference](/reference/api) for the full envelope.
 </Callout>
 
 ## Language
@@ -128,14 +128,14 @@ The **Advanced** tab includes a **Max Budget** field. Despite the UI label readi
 
 - It is saved to the server when you leave the field (`PUT /api/settings/budget`), and loaded back when the dialog opens (`GET /api/settings/budget`).
 - The value must be a positive number and is capped at **1000 USD** by the API's validation schema.
-- Because it lives on the global Policy, it interacts with per-Assistant and per-Conversation (Session) rules using the usual "most restrictive wins" resolution — a stricter rule at a lower level still takes precedence. See [Safety Rules](/docs/guides/safety-rules) for layered budgets.
+- Because it lives on the global Policy, it interacts with per-Assistant and per-Conversation (Session) rules using the usual "most restrictive wins" resolution — a stricter rule at a lower level still takes precedence. See [Safety Rules](/guides/safety-rules) for layered budgets.
 
 ## Other Settings tabs
 
 The remaining tabs expose client-side preferences stored locally in your browser. It's worth knowing which controls actually affect the server and which are cosmetic:
 
 - **Connection** — a server URL field (defaults to `http://localhost:3001`) with a **Test** button. The field is display-only and does **not** reconfigure the API endpoint (the real base is the build-time `NEXT_PUBLIC_API_URL`), and the **Test** button is a placeholder — it does not make a network request. It simply reports "connected" if the URL string contains `localhost` and "disconnected" otherwise.
-- **Safety** — a global safety posture preference (Cautious / Balanced / Autonomous), stored in the browser. For the real enforced rules, see [Safety Rules](/docs/guides/safety-rules).
+- **Safety** — a global safety posture preference (Cautious / Balanced / Autonomous), stored in the browser. For the real enforced rules, see [Safety Rules](/guides/safety-rules).
 - **Models** — a default model preference (Deep Thinker / All-Rounder / Quick Helper, mapping to Opus / Sonnet / Haiku), stored in the browser.
 - **Advanced** — beyond the global budget above, the **Agent Teams** toggle and the **Max Concurrent Assistants** slider are stored only in the browser and have **no server effect** today. The real concurrency limit is set by the `MAX_CONCURRENT_AGENTS` environment variable (default `5`); the slider does not change it.
 
@@ -159,7 +159,7 @@ Your account lives in the same user menu that opens Settings:
 
 RondoFlow reads configuration from three places, in increasing precedence:
 
-1. The root `.env` file (the baseline, see [Configuration](/docs/getting-started/configuration)).
+1. The root `.env` file (the baseline, see [Configuration](/getting-started/configuration)).
 2. Credentials stored in the database via this panel — these override the `.env` file at boot.
 3. Live edits in Settings — applied immediately to the running server.
 
@@ -168,10 +168,10 @@ This is why clearing a credential in the UI "falls back to `.env`": removing the
 ## Next steps
 
 <Cards>
-  <Cards.Card title="Configuration" href="/docs/getting-started/configuration" />
-  <Cards.Card title="AI Providers" href="/docs/providers" />
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="API Reference" href="/docs/reference/api" />
+  <Cards.Card title="Configuration" href="/getting-started/configuration" />
+  <Cards.Card title="AI Providers" href="/providers" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="Safety Rules" href="/guides/safety-rules" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="API Reference" href="/reference/api" />
 </Cards>

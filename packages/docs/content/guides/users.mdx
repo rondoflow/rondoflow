@@ -27,7 +27,7 @@ Roles are **ranked and additive** — `viewer < editor < admin`. Each role inher
 The capability matrix is the single source of truth for what each role unlocks: `read` requires viewer, `write` and `run` require editor, and `manageUsers` and `manageGlobalSettings` require admin.
 
 <Callout type="warning">
-RondoFlow is **RBAC over one shared workspace** — there is **no per-user data isolation** and it is **not multi-tenant**. Roles gate *actions*, not *ownership*; `userId` columns exist only for attribution and audit. Because every authenticated user can see all of the shared workspace, RondoFlow is **not safe to expose publicly**. Run it behind your own boundary — see [Self-Hosting](/docs/reference/self-hosting) and [Security](/docs/reference/security).
+RondoFlow is **RBAC over one shared workspace** — there is **no per-user data isolation** and it is **not multi-tenant**. Roles gate *actions*, not *ownership*; `userId` columns exist only for attribution and audit. Because every authenticated user can see all of the shared workspace, RondoFlow is **not safe to expose publicly**. Run it behind your own boundary — see [Self-Hosting](/reference/self-hosting) and [Security](/reference/security).
 </Callout>
 
 New accounts default to **viewer** (`DEFAULT_USER_ROLE`), a fail-closed choice: an unrecognized or missing role collapses to viewer rather than to something more permissive.
@@ -47,11 +47,11 @@ Set these environment variables before seeding:
 <Steps>
 ### Set the admin variables
 
-Add `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` (and optionally `RONDOFLOW_ADMIN_NAME`) to your environment or `.env`. See [Configuration](/docs/getting-started/configuration).
+Add `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` (and optionally `RONDOFLOW_ADMIN_NAME`) to your environment or `.env`. See [Configuration](/getting-started/configuration).
 
 ### Run the seed
 
-The bootstrap runs **only at seed time** — `npm run db:seed`, or `npm run setup` (which seeds as part of installation). It is **not** a server-startup hook. See [Installation](/docs/getting-started/installation).
+The bootstrap runs **only at seed time** — `npm run db:seed`, or `npm run setup` (which seeds as part of installation). It is **not** a server-startup hook. See [Installation](/getting-started/installation).
 
 ### Sign in
 
@@ -68,7 +68,7 @@ The bootstrap is **idempotent and fail-safe**: it is **skipped** if either the e
 
 Email/password and GitHub/Google OAuth all remain valid ways to **sign in** — only **sign-up** is disabled. OAuth providers are configured to never self-provision: they can only sign in a user an admin has already created. They will never create a new account on the fly.
 
-A social provider button only appears on the login page when that provider is actually configured. Each provider is `enabled` only when its OAuth client ID is set (`GITHUB_CLIENT_ID` / `GOOGLE_CLIENT_ID`), and the login page reads a booleans-only endpoint (`/api/auth-providers`) to decide which buttons to render — a provider with no client ID is hidden, and no credential values are ever exposed. See [OAuth sign-in](/docs/getting-started/configuration#oauth-sign-in-optional).
+A social provider button only appears on the login page when that provider is actually configured. Each provider is `enabled` only when its OAuth client ID is set (`GITHUB_CLIENT_ID` / `GOOGLE_CLIENT_ID`), and the login page reads a booleans-only endpoint (`/api/auth-providers`) to decide which buttons to render — a provider with no client ID is hidden, and no credential values are ever exposed. See [OAuth sign-in](/getting-started/configuration#oauth-sign-in-optional).
 
 ## Managing users (admins)
 
@@ -89,7 +89,7 @@ A user row has the shape `{ id, email, name, image, role, banned, createdAt }`.
 **Self-protection.** You cannot act against your own account through these routes: you cannot change your own admin role, deactivate yourself, or delete yourself. This keeps a workspace from being accidentally left without an admin.
 </Callout>
 
-Each admin action writes an entry to the audit log — `user_invited`, `user_role_changed`, `user_deactivated`, `user_reactivated`, and `user_deleted` — so user-management changes are reviewable later. See [Monitoring & Audit](/docs/guides/monitoring).
+Each admin action writes an entry to the audit log — `user_invited`, `user_role_changed`, `user_deactivated`, `user_reactivated`, and `user_deleted` — so user-management changes are reviewable later. See [Monitoring & Audit](/guides/monitoring).
 
 ### Examples
 
@@ -157,8 +157,8 @@ Because the fallthrough rule covers all other mutations, a newly added mutating 
 ## Related
 
 <Cards>
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
-  <Cards.Card title="Monitoring & Audit" href="/docs/guides/monitoring" />
-  <Cards.Card title="Self-Hosting" href="/docs/reference/self-hosting" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="Settings & Credentials" href="/guides/settings" />
+  <Cards.Card title="Monitoring & Audit" href="/guides/monitoring" />
+  <Cards.Card title="Self-Hosting" href="/reference/self-hosting" />
 </Cards>

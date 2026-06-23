@@ -11,10 +11,10 @@ import { Cards } from 'nextra/components'
 
 RondoFlow can back an Assistant (internally an *Agent*) with OpenAI instead of the Claude Code CLI. An OpenAI Assistant talks directly to the **OpenAI Responses API** — streaming the reply, optionally letting the model search the web, and continuing the same conversation across turns.
 
-OpenAI Assistants run on the same execution wiring as every other Assistant, so they slot into [Workflows](/docs/guides/workflows), [Orchestration](/docs/guides/orchestration), and [Discussions](/docs/guides/discussions) without any special handling. They differ only in what runs behind the scenes: an HTTP API call rather than a started (*spawned*) local process.
+OpenAI Assistants run on the same execution wiring as every other Assistant, so they slot into [Workflows](/guides/workflows), [Orchestration](/guides/orchestration), and [Discussions](/guides/discussions) without any special handling. They differ only in what runs behind the scenes: an HTTP API call rather than a started (*spawned*) local process.
 
 <Callout type="info">
-OpenAI is one of three providers. See the [AI Providers](/docs/providers) overview for how providers compare, and [Claude Code](/docs/providers/claude-code) / [Perplexity](/docs/providers/perplexity) for the others.
+OpenAI is one of three providers. See the [AI Providers](/providers) overview for how providers compare, and [Claude Code](/providers/claude-code) / [Perplexity](/providers/perplexity) for the others.
 </Callout>
 
 ## Supported models
@@ -48,7 +48,7 @@ The fast model (`o4-mini-deep-research-2025-06-26`) is selected by default. Deep
 
 RondoFlow reads the key from the `OPENAI_API_KEY` environment variable. You can set it two ways:
 
-- **Settings → Credentials** (recommended) — paste your key under the **OpenAI** group. It applies immediately on save. See [Settings](/docs/guides/settings).
+- **Settings → Credentials** (recommended) — paste your key under the **OpenAI** group. It applies immediately on save. See [Settings](/guides/settings).
 - **Environment** — set `OPENAI_API_KEY` in your root `.env` before starting the server.
 
 ```env
@@ -59,7 +59,7 @@ Create a key at `platform.openai.com/api-keys`.
 
 ### Add an OpenAI Assistant to the Workspace
 
-Drag the **OpenAI Assistant** card (the Sparkles icon) from the palette onto the Workspace (*Canvas*). The provider is set to OpenAI at creation and is fixed for the life of that Assistant — there is no provider dropdown to convert an existing Claude Assistant to OpenAI. (Perplexity has its own palette card too.) See [Working with Assistants](/docs/guides/assistants).
+Drag the **OpenAI Assistant** card (the Sparkles icon) from the palette onto the Workspace (*Canvas*). The provider is set to OpenAI at creation and is fixed for the life of that Assistant — there is no provider dropdown to convert an existing Claude Assistant to OpenAI. (Perplexity has its own palette card too.) See [Working with Assistants](/guides/assistants).
 
 ### Pick a model and tools
 
@@ -76,7 +76,7 @@ Each OpenAI Assistant stores a small `providerConfig`: a `model` id plus two tog
 
 ### Web search
 
-Turn on **Web search** to add OpenAI's `web_search` tool to the run. When the model searches, RondoFlow surfaces the activity in the run feed as tool-use / tool-result events, so you can see when it reaches out to the web. (These are mapped from OpenAI's `response.web_search_call.in_progress` / `…searching` events to a `tool_use` and from `…completed` to a `tool_result`; no search query payload is captured.) See [Monitoring](/docs/guides/monitoring).
+Turn on **Web search** to add OpenAI's `web_search` tool to the run. When the model searches, RondoFlow surfaces the activity in the run feed as tool-use / tool-result events, so you can see when it reaches out to the web. (These are mapped from OpenAI's `response.web_search_call.in_progress` / `…searching` events to a `tool_use` and from `…completed` to a `tool_result`; no search query payload is captured.) See [Monitoring](/guides/monitoring).
 
 ### Deep research
 
@@ -99,7 +99,7 @@ An OpenAI Assistant shares the Assistant data model, but only the parts that map
 - **Personality (*Persona*) and Skills** — both reach the model. The request `instructions` is the persona **plus** the markdown of any enabled Skills (each Skill's `SKILL.md` is appended), not the persona alone. The incoming message becomes the request `input`.
 - **Workspace and agent memory** — folded into the same prompt the way they are for any Assistant.
 
-Claude-CLI-only concerns are skipped for API providers: the allowed-tools list, [Connections (*MCP Servers*)](/docs/guides/connections), [external folders](/docs/guides/external-folders), and permission modes do not apply to an OpenAI Assistant. Its only tools are the `web_search` / deep-research capabilities driven by `providerConfig`.
+Claude-CLI-only concerns are skipped for API providers: the allowed-tools list, [Connections (*MCP Servers*)](/guides/connections), [external folders](/guides/external-folders), and permission modes do not apply to an OpenAI Assistant. Its only tools are the `web_search` / deep-research capabilities driven by `providerConfig`.
 
 <Callout type="info">
 OpenAI runs inherit the same spawn timeouts as Claude runs, on top of the OpenAI client request timeout. The idle (inactivity) timeout — `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`, 5 minutes by default — resets on every streamed event, and the optional wall-clock cap (`RONDOFLOW_SPAWN_MAX_MS`, off by default) bounds the whole run. If either fires, the request is aborted with a timeout error. These layer on top of the 10-minute (chat) / 30-minute (deep research) Responses API client timeouts above.
@@ -139,8 +139,8 @@ Any model not in this table falls back to an estimate of $2 input / $8 output pe
 ## Next steps
 
 <Cards>
-  <Cards.Card title="AI Providers overview" href="/docs/providers" />
-  <Cards.Card title="Perplexity provider" href="/docs/providers/perplexity" />
-  <Cards.Card title="Settings & Credentials" href="/docs/guides/settings" />
-  <Cards.Card title="Working with Assistants" href="/docs/guides/assistants" />
+  <Cards.Card title="AI Providers overview" href="/providers" />
+  <Cards.Card title="Perplexity provider" href="/providers/perplexity" />
+  <Cards.Card title="Settings & Credentials" href="/guides/settings" />
+  <Cards.Card title="Working with Assistants" href="/guides/assistants" />
 </Cards>

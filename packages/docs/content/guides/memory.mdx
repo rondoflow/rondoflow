@@ -37,7 +37,7 @@ A memory's `source` records who wrote it. There are three sources:
 | --- | --- | --- | --- |
 | `manual` | You, by hand | Yes | Either |
 | `auto` | Automatic extraction after a completed run | No (read-only) | Either |
-| `director` | The [Director](/docs/guides/orchestration) storing a learning mid-run | No (read-only) | Agent |
+| `director` | The [Director](/guides/orchestration) storing a learning mid-run | No (read-only) | Agent |
 
 ### Manual
 
@@ -52,7 +52,7 @@ The extraction is strictly **best-effort and off the critical path** — it neve
 - Transcripts shorter than 200 characters are skipped; longer ones are capped at 12,000 characters.
 - At most **5 facts** are extracted per run.
 - Each extracted fact carries a confidence score; anything below `0.6` is dropped.
-- The pass runs under a small budget cap (about `$0.03`) and its token cost is recorded separately so it shows up in [monitoring](/docs/guides/monitoring).
+- The pass runs under a small budget cap (about `$0.03`) and its token cost is recorded separately so it shows up in [monitoring](/guides/monitoring).
 
 The model classifies each fact's scope itself: `workspace` for project-level facts useful to any Assistant (only when a Workspace exists for the run), or `agent` for a behavioral learning about that specific Assistant. With no Workspace target, every extracted fact is forced to `agent` scope. Agent-scoped facts are only written when that Assistant's `memoryEnabled` flag is on.
 
@@ -64,11 +64,11 @@ The extractor is told to capture stable facts only — tech stack, file location
 
 #### Finding the cost line item
 
-The extractor's token usage is recorded under its own synthetic session id so you can pick it out in [monitoring](/docs/guides/monitoring): a single-Assistant run records under `memory-extract:<sessionId>`, and a chain run under `memory-extract:chain:<id>` (an 8-character suffix). Look for those prefixes to see exactly what each extraction pass cost.
+The extractor's token usage is recorded under its own synthetic session id so you can pick it out in [monitoring](/guides/monitoring): a single-Assistant run records under `memory-extract:<sessionId>`, and a chain run under `memory-extract:chain:<id>` (an 8-character suffix). Look for those prefixes to see exactly what each extraction pass cost.
 
 ### Director learnings
 
-When the [Director](/docs/guides/orchestration) is running, it can store an insight it gained mid-execution as a `director`-source, agent-scoped memory. Each learning gets a timestamped key (`director:learning:<timestamp>`) so successive learnings stay distinct rather than overwriting one another.
+When the [Director](/guides/orchestration) is running, it can store an insight it gained mid-execution as a `director`-source, agent-scoped memory. Each learning gets a timestamped key (`director:learning:<timestamp>`) so successive learnings stay distinct rather than overwriting one another.
 
 In a multi-Assistant chain, a Director learning is attached to the **first Assistant** in the chain. On its next run, the Director reads back the most recent `director:learning:*` rows (up to 20, newest first) across **all** Assistants in the chain, so prior context still carries forward even though new learnings land on the lead Assistant.
 
@@ -199,7 +199,7 @@ If the run has a Workspace, the most relevant workspace-scoped rows (up to **30*
 
 ### Skills and resources
 
-The persona-plus-memory system prompt is then combined with enabled [Skills](/docs/guides/skills) and [Workspace resources](/docs/guides/resources) to form the full context the Assistant runs with.
+The persona-plus-memory system prompt is then combined with enabled [Skills](/guides/skills) and [Workspace resources](/guides/resources) to form the full context the Assistant runs with.
 </Steps>
 
 This injection is best-effort: if reading workspace memory fails for any reason, the section is simply omitted and the run proceeds without it.
@@ -209,14 +209,14 @@ This injection is best-effort: if reading workspace memory fails for any reason,
 - **Pin the essentials — but know where it counts.** Pinning floats a fact to the top of the list endpoints and decides which 30 **workspace** rows reach the prompt. For **agent** memory, pinning does not reorder the injected section, so keep that section short instead.
 - **Keep values short and stable.** Aim well under the 2000-character cap. Memory is for facts, not paragraphs.
 - **Let auto-extraction do the routine work** and reserve manual entries for things you know the model would otherwise miss.
-- **Never store secrets in `value`.** Point at where a credential lives instead — see [Security](/docs/reference/security).
+- **Never store secrets in `value`.** Point at where a credential lives instead — see [Security](/reference/security).
 - **Turn on agent memory per Assistant** when you want it to accumulate its own behavioral learnings; workspace memory is shared automatically.
 
 ## See also
 
 <Cards>
-  <Cards.Card title="Orchestration & the Director" href="/docs/guides/orchestration" />
-  <Cards.Card title="Resources" href="/docs/guides/resources" />
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Data model" href="/docs/reference/data-model" />
+  <Cards.Card title="Orchestration & the Director" href="/guides/orchestration" />
+  <Cards.Card title="Resources" href="/guides/resources" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Data model" href="/reference/data-model" />
 </Cards>

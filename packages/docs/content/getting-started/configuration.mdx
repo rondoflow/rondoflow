@@ -101,7 +101,7 @@ RondoFlow can also run assistants on OpenAI and Perplexity, and run Sakana AI tr
 `SAKANA_API_KEY` **is** present in `.env.example` and is read directly from the server environment when a Sakana AI node runs.
 </Callout>
 
-If an assistant is configured for a provider whose key is missing, the run fails with a clear message — for example *"OPENAI_API_KEY is not configured. Add it in Settings → Credentials (OpenAI access)."* See [Providers](/docs/providers) for per-provider details.
+If an assistant is configured for a provider whose key is missing, the run fails with a clear message — for example *"OPENAI_API_KEY is not configured. Add it in Settings → Credentials (OpenAI access)."* See [Providers](/providers) for per-provider details.
 
 ## OAuth sign-in (optional)
 
@@ -149,11 +149,11 @@ SMTP_FROM=
 Email is considered configured only when **both** `SMTP_HOST` and `SMTP_FROM` are set. If either is missing the Email card stays inert and surfaces a clear *"Email is not configured. Set SMTP_HOST and SMTP_FROM."* message rather than a cryptic transport error.
 </Callout>
 
-SMTP can also be managed at runtime in **Settings → Credentials** (group *SMTP*); a DB-stored value overrides `.env` at boot, just like the other credentials. The Email node and its API are covered in the [Data nodes guide](/docs/guides/data-nodes) and the [Workflows guide](/docs/guides/workflows).
+SMTP can also be managed at runtime in **Settings → Credentials** (group *SMTP*); a DB-stored value overrides `.env` at boot, just like the other credentials. The Email node and its API are covered in the [Data nodes guide](/guides/data-nodes) and the [Workflows guide](/guides/workflows).
 
 ## First-admin bootstrap
 
-RondoFlow is **invite-only** — self-registration is disabled, so an administrator creates every account. These variables seed the very first admin so you are not locked out of a fresh install. See [Users & Roles](/docs/guides/users) for the role model and inviting people.
+RondoFlow is **invite-only** — self-registration is disabled, so an administrator creates every account. These variables seed the very first admin so you are not locked out of a fresh install. See [Users & Roles](/guides/users) for the role model and inviting people.
 
 | Variable | Default | What it does |
 | --- | --- | --- |
@@ -185,7 +185,7 @@ These adjust runtime behavior. All are optional and have sensible defaults.
 | `IS_SANDBOX` | unset | Set to `1` to mark the environment as sandboxed. Required when running as root with bypass-permissions; the server also sets this automatically for that exact case. |
 
 <Callout type="info">
-Seeing empty assistant output? Set `RONDOFLOW_DEBUG_SPAWN=1` and check the trace. A common cause is running as root with bypass permissions without `IS_SANDBOX=1`. See [Monitoring](/docs/guides/monitoring) for more.
+Seeing empty assistant output? Set `RONDOFLOW_DEBUG_SPAWN=1` and check the trace. A common cause is running as root with bypass permissions without `IS_SANDBOX=1`. See [Monitoring](/guides/monitoring) for more.
 </Callout>
 
 ### Spawn timeouts & teardown
@@ -200,16 +200,16 @@ These protect against a hung Claude CLI process (a stalled network, an unanswera
 | `RONDOFLOW_TEARDOWN_GRACE_MS` | `60000` | Grace window before disconnect teardown fires. A refresh, new tab, or reconnect within this window cancels it. |
 
 <Callout type="info">
-The idle timeout is what reaps stalled headless runs — for example a scheduled plan-mode prompt that never produces output. See [Schedules](/docs/guides/schedules) for how scheduled runs behave.
+The idle timeout is what reaps stalled headless runs — for example a scheduled plan-mode prompt that never produces output. See [Schedules](/guides/schedules) for how scheduled runs behave.
 </Callout>
 
 ### External folders
 
-There are also optional variables for [External Folders](/docs/guides/external-folders) — `EXTERNAL_FOLDERS_HOST_PATH` (default `./external`) and `EXTERNAL_FOLDERS_CONTAINER_ROOT` (default `/external`) — covered in that guide.
+There are also optional variables for [External Folders](/guides/external-folders) — `EXTERNAL_FOLDERS_HOST_PATH` (default `./external`) and `EXTERNAL_FOLDERS_CONTAINER_ROOT` (default `/external`) — covered in that guide.
 
 ### Spend cap (not an env var)
 
-Looking for a budget variable? The global **per-run spend cap** (forwarded to the CLI as `--max-budget-usd`) is **not** an environment variable. It is the "Max Budget" setting in the app, stored on the canonical global Safety Rule (policy) row and managed via the budget endpoint. `null` means no cap; the maximum is 1000 USD. See [Security](/docs/reference/security) for how budgets resolve.
+Looking for a budget variable? The global **per-run spend cap** (forwarded to the CLI as `--max-budget-usd`) is **not** an environment variable. It is the "Max Budget" setting in the app, stored on the canonical global Safety Rule (policy) row and managed via the budget endpoint. `null` means no cap; the maximum is 1000 USD. See [Security](/reference/security) for how budgets resolve.
 
 ## In-app credentials manager
 
@@ -240,9 +240,9 @@ Stored secrets are encrypted with `BETTER_AUTH_SECRET`. An override key is suppo
 ## Next steps
 
 <Cards>
-  <Cards.Card title="Full environment reference" href="/docs/reference/configuration" />
-  <Cards.Card title="Run your first workflow" href="/docs/getting-started/first-workflow" />
-  <Cards.Card title="Data nodes (Output, Email, Condition, Structure, Save to DB)" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Providers" href="/docs/providers" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
+  <Cards.Card title="Full environment reference" href="/reference/configuration" />
+  <Cards.Card title="Run your first workflow" href="/getting-started/first-workflow" />
+  <Cards.Card title="Data nodes (Output, Email, Condition, Structure, Save to DB)" href="/guides/data-nodes" />
+  <Cards.Card title="Providers" href="/providers" />
+  <Cards.Card title="Security" href="/reference/security" />
 </Cards>

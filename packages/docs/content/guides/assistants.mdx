@@ -10,13 +10,13 @@ import { Cards } from 'nextra/components'
 
 # Assistants (Agents)
 
-An **Assistant** (internally an *agent*) is the unit of work in RondoFlow. Each Assistant has a personality, a model, a set of tools it may use, and optional [Skills](/docs/guides/skills), [Connections](/docs/guides/connections), and [Memory](/docs/guides/memory). You wire Assistants together on the [Workspace](/docs/guides/canvas) to build [Workflows](/docs/guides/workflows).
+An **Assistant** (internally an *agent*) is the unit of work in RondoFlow. Each Assistant has a personality, a model, a set of tools it may use, and optional [Skills](/guides/skills), [Connections](/guides/connections), and [Memory](/guides/memory). You wire Assistants together on the [Workspace](/guides/canvas) to build [Workflows](/guides/workflows).
 
 You configure an Assistant through its **agent drawer** — the panel that slides in from the right when you open an Assistant card on the Workspace.
 
 ## Creating an Assistant
 
-The palette ships **three** Assistant cards, one per [provider](/docs/providers). The card you drag fixes the Assistant's provider for its lifetime (provider is read-only in the drawer):
+The palette ships **three** Assistant cards, one per [provider](/providers). The card you drag fixes the Assistant's provider for its lifetime (provider is read-only in the drawer):
 
 | Palette card | Provider | Runs via |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ Edit fields across the drawer's tabs, then click the single **Save** button in t
 </Steps>
 
 <Callout type="info">
-The drawer has four tabs — **Configure**, **Capabilities**, **Safety**, and **History** — and in the current build **all four are always visible**. The tabs carry dormant tier gating (Safety and History are flagged for the Standard tier and above), but interface complexity is pinned to the **Full** tier and is not user-configurable, so nothing is ever hidden. See [Settings](/docs/guides/settings) for the tier story.
+The drawer has four tabs — **Configure**, **Capabilities**, **Safety**, and **History** — and in the current build **all four are always visible**. The tabs carry dormant tier gating (Safety and History are flagged for the Standard tier and above), but interface complexity is pinned to the **Full** tier and is not user-configurable, so nothing is ever hidden. See [Settings](/guides/settings) for the tier story.
 </Callout>
 
 ## Saving changes
@@ -73,7 +73,7 @@ The Personality is the heart of the Assistant. It becomes the base system prompt
 
 ### Model & provider
 
-Every Assistant runs on a **provider**, chosen by which palette card you dropped (it cannot be changed in the drawer). See [AI Providers](/docs/providers) for the full comparison.
+Every Assistant runs on a **provider**, chosen by which palette card you dropped (it cannot be changed in the drawer). See [AI Providers](/providers) for the full comparison.
 
 <Tabs items={['Claude Code', 'OpenAI / Perplexity']}>
 <Tabs.Tab>
@@ -88,7 +88,7 @@ The default provider (`claude-code`) spawns the Claude Code CLI. You pick a **mo
 
 If you leave the model unset, RondoFlow picks a tier from the Purpose; if there's no purpose either, it defaults to Sonnet. (Every purpose except Analysis and Review also resolves to Sonnet, so Sonnet is the practical default.) The Configure tab shows a **recommended** tier with a reason.
 
-There is also a **Custom model id** field below the tier picker. Enter any model identifier here and it **overrides the tier**, forwarded verbatim to the CLI's `--model` flag. Picking a tier clears the custom id, and vice versa. See [Claude Code](/docs/providers/claude-code).
+There is also a **Custom model id** field below the tier picker. Enter any model identifier here and it **overrides the tier**, forwarded verbatim to the CLI's `--model` flag. Picking a tier clears the custom id, and vice versa. See [Claude Code](/providers/claude-code).
 
 </Tabs.Tab>
 <Tabs.Tab>
@@ -98,7 +98,7 @@ API providers (`openai`, `perplexity`) talk to an HTTP API instead of the CLI. Y
 - **Web search** — lets the Assistant search the web during a run. OpenAI only; Perplexity Sonar models always search, so there's no toggle.
 - **Deep research** — switches to a dedicated deep-research model (slower, costlier), forces web search on, and **locks the model dropdown** while it's enabled. OpenAI uses `o4-mini-deep-research-2025-06-26`; Perplexity uses `sonar-deep-research`.
 
-OpenAI defaults to `gpt-4.1-mini`; Perplexity defaults to `sonar`. See [OpenAI](/docs/providers/openai) and [Perplexity](/docs/providers/perplexity).
+OpenAI defaults to `gpt-4.1-mini`; Perplexity defaults to `sonar`. See [OpenAI](/providers/openai) and [Perplexity](/providers/perplexity).
 
 <Callout type="warning">
 API-provider Assistants **require** a `providerConfig` (a model plus tool toggles). The create endpoint rejects an OpenAI or Perplexity Assistant that's missing it. Per-tool file and command permissions in the Safety tab don't apply to these Assistants — they manage their tools here in Configure.
@@ -111,7 +111,7 @@ API-provider Assistants **require** a `providerConfig` (a model plus tool toggle
 
 Below the model section, the same Configure tab exposes:
 
-- **Loop** — repeat the Assistant until a stop criterion is met (see [Loops](/docs/guides/loops)).
+- **Loop** — repeat the Assistant until a stop criterion is met (see [Loops](/guides/loops)).
 - **Agent Teams** — allow this Assistant to coordinate with others during a run.
 - **Permission Mode** — controls how much the Assistant can do without asking. The drawer's radio group offers three of the four modes:
 
@@ -125,7 +125,7 @@ Below the model section, the same Configure tab exposes:
 A fourth mode, **Plan** (`plan`), exists at the data and API level (`AgentMode` is `plan | default | edit | full`) but the drawer deliberately doesn't offer it. When the drawer doesn't touch it, an Assistant set to `plan` elsewhere keeps that mode — the unified Save only sends the fields you actually changed.
 </Callout>
 
-All Advanced controls are part of the Configure/Safety draft, so they persist when you click Save (not on change). [Safety Rules](/docs/guides/safety-rules) can override the permission mode at run time — the most restrictive setting wins.
+All Advanced controls are part of the Configure/Safety draft, so they persist when you click Save (not on change). [Safety Rules](/guides/safety-rules) can override the permission mode at run time — the most restrictive setting wins.
 
 ## The Safety tab
 
@@ -145,7 +145,7 @@ In Balanced mode you check individual Claude Code tools: Read, Write, Edit, Bash
 Read, WebSearch, and WebFetch are an always-on baseline: the engine merges them into the resolved allowlist even when an Assistant narrows itself to a smaller set. If an Assistant has no configured tools at all, it falls back to a broader default allowlist — the ten tools above plus TodoRead (eleven in total) — rather than running with none.
 </Callout>
 
-**Scope paths** restrict the directories the Assistant should work within. Add absolute paths; they're stored on the Assistant and used alongside [External Folders](/docs/guides/external-folders).
+**Scope paths** restrict the directories the Assistant should work within. Add absolute paths; they're stored on the Assistant and used alongside [External Folders](/guides/external-folders).
 
 ## The Capabilities tab
 
@@ -153,7 +153,7 @@ This tab attaches Skills, Connections, and External Folders. Everything here sav
 
 ### Skills
 
-[Skills](/docs/guides/skills) are reusable instruction packs (a `SKILL.md` and optional MCP config). Each attached Skill carries two properties:
+[Skills](/guides/skills) are reusable instruction packs (a `SKILL.md` and optional MCP config). Each attached Skill carries two properties:
 
 - **Priority** — drag to reorder. Lower numbers load first.
 - **Enabled** — a per-Skill on/off toggle.
@@ -162,17 +162,17 @@ At run time, the engine appends each **enabled** Skill's content to the system p
 
 ### Connections (MCP)
 
-[Connections](/docs/guides/connections) are MCP servers that add external tools and data sources. Toggle a server on for the Assistant in this tab; the engine merges Connection configs (plus any Skill-provided MCP servers) when it starts the run.
+[Connections](/guides/connections) are MCP servers that add external tools and data sources. Toggle a server on for the Assistant in this tab; the engine merges Connection configs (plus any Skill-provided MCP servers) when it starts the run.
 
 ### External Folders
 
-Attach host directories the Assistant may read and write. They share the same priority/enabled model as Skills; the highest-priority folder becomes the Assistant's working directory. See [External Folders](/docs/guides/external-folders).
+Attach host directories the Assistant may read and write. They share the same priority/enabled model as Skills; the highest-priority folder becomes the Assistant's working directory. See [External Folders](/guides/external-folders).
 
 ## The History tab
 
 The History tab hosts:
 
-- **Memory** — a per-Assistant key/value store, gated by the Assistant's memory toggle. When enabled, saved memories are injected into the system prompt under an "Agent Memory" heading. See [Memory](/docs/guides/memory). Memory edits save immediately.
+- **Memory** — a per-Assistant key/value store, gated by the Assistant's memory toggle. When enabled, saved memories are injected into the system prompt under an "Agent Memory" heading. See [Memory](/guides/memory). Memory edits save immediately.
 - **Conversations** (sessions) — past Conversations with this Assistant.
 
 <Callout type="info">
@@ -182,7 +182,7 @@ The memory toggle gates only the Assistant's **own** memories. Workspace-shared 
 ## Other flags
 
 - **Favorite** — pin the Assistant for quick access from the top bar. Toggle it via `isFavorite`.
-- **Facilitator** (moderator) — mark the Assistant as a Facilitator so it can moderate [Discussions](/docs/guides/discussions). Toggle it via `isFacilitator`; the agents list can be filtered to Facilitators only.
+- **Facilitator** (moderator) — mark the Assistant as a Facilitator so it can moderate [Discussions](/guides/discussions). Toggle it via `isFacilitator`; the agents list can be filtered to Facilitators only.
 
 ## How the system prompt is composed
 
@@ -191,14 +191,14 @@ When an Assistant starts (the engine's *spawn*), the prompt builder assembles it
 1. **Personality** — the persona text, as the base system prompt.
 2. **Memory** — the Assistant's own memories (only when its memory toggle is on) plus any **workspace-shared memory**, appended under their own headings. Workspace memory is injected whenever workspace-scoped rows exist, independent of the per-Assistant toggle.
 3. **Skills** — each enabled Skill's `SKILL.md` content, in priority order, appended as a separate system-prompt section.
-4. **Workspace context** — resources, environment, and directories from the [Workspace](/docs/guides/canvas) and [External Folders](/docs/guides/external-folders).
-5. **Model & tools** — the resolved model ID, allowed tools, permission mode, and any [Safety Rule](/docs/guides/safety-rules) overrides.
+4. **Workspace context** — resources, environment, and directories from the [Workspace](/guides/canvas) and [External Folders](/guides/external-folders).
+5. **Model & tools** — the resolved model ID, allowed tools, permission mode, and any [Safety Rule](/guides/safety-rules) overrides.
 
 API-provider Assistants reuse the same Personality + Skills system prompt but skip the Claude-CLI-specific layers (tool allowlist, MCP, external folders, Claude credentials).
 
 ## Assistants in data workflows
 
-Assistants are the only nodes that do model work, but a Workspace also has **data-pipeline cards** that wrap around them — Output, Email, Condition, Structure, and Save to DB. They consume an Assistant's output to write files, send mail, route between branches, or persist structured data. See [Data Nodes](/docs/guides/data-nodes) for how to connect them.
+Assistants are the only nodes that do model work, but a Workspace also has **data-pipeline cards** that wrap around them — Output, Email, Condition, Structure, and Save to DB. They consume an Assistant's output to write files, send mail, route between branches, or persist structured data. See [Data Nodes](/guides/data-nodes) for how to connect them.
 
 ## The Assistants API
 
@@ -221,16 +221,16 @@ The skills attach endpoint upserts the full `(priority, enabled)` pair. When you
 </Callout>
 
 <Callout type="info">
-`provider` defaults to `claude-code`. For `openai` and `perplexity`, `providerConfig` is required on create — see the [API reference](/docs/reference/api) for the full request schemas.
+`provider` defaults to `claude-code`. For `openai` and `perplexity`, `providerConfig` is required on create — see the [API reference](/reference/api) for the full request schemas.
 </Callout>
 
 ## Related
 
 <Cards>
-  <Cards.Card title="Skills" href="/docs/guides/skills" />
-  <Cards.Card title="Connections (MCP)" href="/docs/guides/connections" />
-  <Cards.Card title="Memory" href="/docs/guides/memory" />
-  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="AI Providers" href="/docs/providers" />
+  <Cards.Card title="Skills" href="/guides/skills" />
+  <Cards.Card title="Connections (MCP)" href="/guides/connections" />
+  <Cards.Card title="Memory" href="/guides/memory" />
+  <Cards.Card title="Safety Rules" href="/guides/safety-rules" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="AI Providers" href="/providers" />
 </Cards>

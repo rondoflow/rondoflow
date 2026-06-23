@@ -32,7 +32,7 @@ Under the hood, the server's prerequisites probe runs `claude --version` and rep
   The CLI must be on the **server's** `PATH` (the process that spawns it), not just your shell. In Docker, that means it has to be installed in the server container.
 </Callout>
 
-See [Installation](/docs/getting-started/installation) and the [Claude Code provider](/docs/providers/claude-code) for details.
+See [Installation](/getting-started/installation) and the [Claude Code provider](/providers/claude-code) for details.
 
 ## Agents produce empty output
 
@@ -46,7 +46,7 @@ When an Assistant finishes but returns nothing, it is almost always one of these
 | **Silent idle-timeout kill** | A run that streams no event for `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` (default 5 minutes; set `0` to disable) is killed and surfaced as a `TIMEOUT_ERROR`. This is the mechanism that reaps stalled headless runs — for example a scheduled `plan`-mode prompt that never emits a turn. | Give long-running Assistants more headroom by raising the timeout, or simplify the task so the CLI streams output sooner. |
 
 <Callout type="info">
-  **DAG vs. Director matters here.** In parallel (DAG) chains, an Assistant step that completes with empty output is **rejected** as an error rather than passed along — an empty string would silently poison every downstream step. Director (sequential) mode deliberately allows empty output so it can redirect or retry. So "a step failed because it produced nothing" is expected DAG behavior, not a bug. See [Workflows](/docs/guides/workflows) and [Data Nodes](/docs/guides/data-nodes).
+  **DAG vs. Director matters here.** In parallel (DAG) chains, an Assistant step that completes with empty output is **rejected** as an error rather than passed along — an empty string would silently poison every downstream step. Director (sequential) mode deliberately allows empty output so it can redirect or retry. So "a step failed because it produced nothing" is expected DAG behavior, not a bug. See [Workflows](/guides/workflows) and [Data Nodes](/guides/data-nodes).
 </Callout>
 
 To trace exactly what happened, set the spawn debug flag and re-run:
@@ -57,7 +57,7 @@ RONDOFLOW_DEBUG_SPAWN=1
 
 This logs the full CLI lifecycle to the server log — the resolved command and arguments, which credential was forwarded (masked), every stdout line and parsed stream event, stderr, and the exit code. Even without the flag, RondoFlow logs a compact diagnostic line on every failed or empty run (exit code, model, permission mode, prompt length, and the stream events it saw).
 
-See [Monitoring](/docs/guides/monitoring) and [Safety Rules](/docs/guides/safety-rules).
+See [Monitoring](/guides/monitoring) and [Safety Rules](/guides/safety-rules).
 
 ## Which Claude credential is used?
 
@@ -69,7 +69,7 @@ RondoFlow accepts either an Anthropic API key or a Claude Code setup token, but 
 
 This precedence is applied identically everywhere RondoFlow invokes Claude. Set credentials in the root `.env` or in Settings → Credentials.
 
-See [Configuration](/docs/getting-started/configuration).
+See [Configuration](/getting-started/configuration).
 
 ## Can I use OpenAI or Perplexity instead of Claude?
 
@@ -93,13 +93,13 @@ Yes. Provider is chosen **per Assistant**, so you can mix Claude, OpenAI, and Pe
   The `OPENAI_API_KEY` and `PERPLEXITY_API_KEY` variables are **not** in `.env.example` — they are runtime credentials. Add them in **Settings → Credentials**; copying `.env.example` alone won't enable these providers.
 </Callout>
 
-See [Providers](/docs/providers), [OpenAI](/docs/providers/openai), and [Perplexity](/docs/providers/perplexity).
+See [Providers](/providers), [OpenAI](/providers/openai), and [Perplexity](/providers/perplexity).
 
 ## How do I make agents work on my real code?
 
 Point RondoFlow at your project folder using **External Folders**. Each Workspace is tied to a working directory, and the folder is passed to the CLI so Assistants can read and edit your real files.
 
-See [External Folders](/docs/guides/external-folders) and [Git](/docs/guides/git) for branch and commit workflows.
+See [External Folders](/guides/external-folders) and [Git](/guides/git) for branch and commit workflows.
 
 ## How do I capture a workflow's output — to a file, an email, or a database?
 
@@ -113,7 +113,7 @@ Drop a data-pipeline Card at the end of your chain. RondoFlow has five of them:
 | **Structure** (Structurer) | Turns Assistant prose into a typed dataset (parse or AI extraction). |
 | **Save to DB** | Persists that dataset; view and export it as CSV from the Saved Datasets panel. |
 
-These sit alongside the agent Cards in the palette. See the dedicated [Data Nodes](/docs/guides/data-nodes) guide for connection rules, formats, and configuration.
+These sit alongside the agent Cards in the palette. See the dedicated [Data Nodes](/guides/data-nodes) guide for connection rules, formats, and configuration.
 
 ## Where are runs, costs, and the audit log?
 
@@ -123,7 +123,7 @@ Everything an Assistant does is recorded. Look in the run-data panels (under the
 - **Analytics** — token usage and estimated cost per run (RondoFlow prices usage from the model when the CLI doesn't report it).
 - **Audit Log** — security-relevant events, including approvals and rejections.
 
-See [Monitoring](/docs/guides/monitoring).
+See [Monitoring](/guides/monitoring).
 
 ## How is /docs served?
 
@@ -136,10 +136,10 @@ The proxy target is the `DOCS_ORIGIN` environment variable, which defaults to `h
 DOCS_ORIGIN=http://localhost:3002
 ```
 
-See [Self-Hosting](/docs/reference/self-hosting) and [Configuration](/docs/reference/configuration).
+See [Self-Hosting](/reference/self-hosting) and [Configuration](/reference/configuration).
 
 ## Still stuck?
 
-- Re-read [Configuration](/docs/getting-started/configuration) — most issues are a missing or wrong environment variable.
+- Re-read [Configuration](/getting-started/configuration) — most issues are a missing or wrong environment variable.
 - Turn on `RONDOFLOW_DEBUG_SPAWN=1` and check the server log for the exact failure.
-- Review the [Architecture](/docs/reference/architecture) and [Security](/docs/reference/security) references to understand how RondoFlow spawns and sandboxes Assistants.
+- Review the [Architecture](/reference/architecture) and [Security](/reference/security) references to understand how RondoFlow spawns and sandboxes Assistants.

@@ -23,7 +23,7 @@ A workflow is a **directed acyclic graph (DAG)**. Every executable Card on the W
 - **Output flows downstream.** Each step receives its predecessor's output as its input message. A root step (no predecessors) receives the task you typed when you started the run.
 
 <Callout type="info">
-Need to repeat work or build a feedback loop? A DAG can't contain cycles by design. For iterative behavior, use [Director mode](#director-mode-continuous-orchestration) (which can re-run a step) or see [Loops](/docs/guides/loops).
+Need to repeat work or build a feedback loop? A DAG can't contain cycles by design. For iterative behavior, use [Director mode](#director-mode-continuous-orchestration) (which can re-run a step) or see [Loops](/guides/loops).
 </Callout>
 
 ### Not just Assistants: non-agent steps
@@ -35,11 +35,11 @@ Most steps are Assistants, but two **data-pipeline Cards** also execute as real,
 | **Structure** (Structurer) | Turns the upstream Assistant's prose into a typed dataset (parse or AI extraction). | No |
 | **Save to DB** (DbSaveNode) | Persists that dataset to the database. | No |
 
-These run no Claude agent and skip the approval gate, but they still appear as ordered steps with `step_start` / `step_complete` events, count toward the step total, and (for Save to DB) persist a dataset you can review later. Two other data Cards — **Output** (writes the combined run output to a file) and **Email** (sends it via SMTP) — are not DAG steps at all; they fire once after the whole run completes. See [Data Nodes](/docs/guides/data-nodes) for the full pipeline, connection rules, and saved-dataset viewing.
+These run no Claude agent and skip the approval gate, but they still appear as ordered steps with `step_start` / `step_complete` events, count toward the step total, and (for Save to DB) persist a dataset you can review later. Two other data Cards — **Output** (writes the combined run output to a file) and **Email** (sends it via SMTP) — are not DAG steps at all; they fire once after the whole run completes. See [Data Nodes](/guides/data-nodes) for the full pipeline, connection rules, and saved-dataset viewing.
 
 ### Assistants can use different providers
 
-A step's Assistant runs on whichever provider its configuration names — RondoFlow picks the runner per step (`createAgentRunner(config.provider)`), so a single workflow can mix Claude Code, OpenAI, and Perplexity Assistants. Output still flows between them as plain text. See [Assistants](/docs/guides/assistants) for provider setup.
+A step's Assistant runs on whichever provider its configuration names — RondoFlow picks the runner per step (`createAgentRunner(config.provider)`), so a single workflow can mix Claude Code, OpenAI, and Perplexity Assistants. Output still flows between them as plain text. See [Assistants](/guides/assistants) for provider setup.
 
 ### Parallel branches
 
@@ -62,7 +62,7 @@ A step runs if at least one unconditional edge enables it, or if a conditional e
 If a step fails or finishes with no usable output, the executor records an error, skips that step and its dependents, and **keeps running independent branches** — one broken branch doesn't take down the whole workflow.
 
 <Callout type="warning">
-A step that completes but produces empty text is treated as a failure in normal (DAG) runs. An empty string would silently poison every downstream step, so the executor rejects it instead. Empty output usually means a tool failure (e.g. a blocked WebFetch), a credential problem, or a hit budget/turn limit. See [Monitoring](/docs/guides/monitoring) to inspect what happened. (In Director mode the rule is relaxed — empty output lets the Director redirect or retry instead of failing outright.)
+A step that completes but produces empty text is treated as a failure in normal (DAG) runs. An empty string would silently poison every downstream step, so the executor rejects it instead. Empty output usually means a tool failure (e.g. a blocked WebFetch), a credential problem, or a hit budget/turn limit. See [Monitoring](/guides/monitoring) to inspect what happened. (In Director mode the rule is relaxed — empty output lets the Director redirect or retry instead of failing outright.)
 </Callout>
 
 ### Branching with a Condition card
@@ -79,7 +79,7 @@ Each branch routes only to an Assistant, and an **Else / fallback** branch catch
 Condition cards are honored in **both** run modes — parallel DAG and sequential Director. RondoFlow also lints your branching workflow before a run and surfaces warnings (e.g. unreachable or contradictory branches).
 
 <Callout type="info">
-On the canvas, a Condition card renders one source handle per branch (no single output), and its outgoing connections draw as amber dotted edges with a branch-label chip. For the complete Condition reference — match kinds, the else branch, and connection rules — see [Data Nodes](/docs/guides/data-nodes#condition).
+On the canvas, a Condition card renders one source handle per branch (no single output), and its outgoing connections draw as amber dotted edges with a branch-label chip. For the complete Condition reference — match kinds, the else branch, and connection rules — see [Data Nodes](/guides/data-nodes#condition).
 </Callout>
 
 ## Running a workflow
@@ -124,7 +124,7 @@ How per-step approval behaves:
 - **Approval timeout.** If you never respond, the request auto-declines after **15 minutes** so an abandoned run doesn't leave a process — and the promise behind it — dangling forever.
 
 <Callout type="info">
-Per-step approval is the human gate. To control what an Assistant is *allowed* to do once it runs, use a [Safety Rule](/docs/guides/safety-rules) (policy). The two are independent: approval decides *whether* a step runs; a Safety Rule decides *what tools it can use*.
+Per-step approval is the human gate. To control what an Assistant is *allowed* to do once it runs, use a [Safety Rule](/guides/safety-rules) (policy). The two are independent: approval decides *whether* a step runs; a Safety Rule decides *what tools it can use*.
 </Callout>
 
 ## Director mode: continuous orchestration
@@ -149,10 +149,10 @@ Redirect handling has guardrails so a run can't loop forever:
 The graph still owns forward routing, not the Director. The Director walks one node at a time (it can't parallelise), but it picks the next node with the **same** conditional/branch enablement logic as the DAG path — so Condition cards and conditional edges work in Director mode too. When the Director suggests jumping to a divergent step on a redirect, that target is intentionally ignored in branching workflows; branches the conditions didn't select are skipped and cascade exactly as in DAG mode.
 </Callout>
 
-The Director can also save a short **learning** to [Memory](/docs/guides/memory) after a step, so future runs benefit from what it observed. If the Director's own evaluation fails, the run falls back to plain linear behavior rather than stalling.
+The Director can also save a short **learning** to [Memory](/guides/memory) after a step, so future runs benefit from what it observed. If the Director's own evaluation fails, the run falls back to plain linear behavior rather than stalling.
 
 <Callout type="info">
-Toggle Director from the toolbar; the badge shows its status (idle / evaluating / decided) and the last action it took. You can also tune its rigor and add custom instructions. For the full breakdown of Director, Planner, and Advisor, see [Orchestration](/docs/guides/orchestration).
+Toggle Director from the toolbar; the badge shows its status (idle / evaluating / decided) and the last action it took. You can also tune its rigor and add custom instructions. For the full breakdown of Director, Planner, and Advisor, see [Orchestration](/guides/orchestration).
 </Callout>
 
 ## Runs: history, tokens, and cost
@@ -235,12 +235,12 @@ Query parameters:
 </Tabs>
 
 <Callout type="important">
-Run history is a **shared team pool** — there is no per-owner scoping. Without a `workspaceId` filter, `GET /api/runs` returns all runs across the team; pass an optional `workspaceId` to narrow the view to one Workspace. For the full envelope and other endpoints, see the [API reference](/docs/reference/api).
+Run history is a **shared team pool** — there is no per-owner scoping. Without a `workspaceId` filter, `GET /api/runs` returns all runs across the team; pass an optional `workspaceId` to narrow the view to one Workspace. For the full envelope and other endpoints, see the [API reference](/reference/api).
 </Callout>
 
 ### Triggering a run over HTTP
 
-Beyond the toolbar (which uses the Socket.IO path with Director, Planner, and approval-mode support), there's a plain HTTP trigger used by automated callers like [Loops](/docs/guides/loops) and the [Scheduler](/docs/guides/schedules):
+Beyond the toolbar (which uses the Socket.IO path with Director, Planner, and approval-mode support), there's a plain HTTP trigger used by automated callers like [Loops](/guides/loops) and the [Scheduler](/guides/schedules):
 
 ```text
 POST /api/chains/execute
@@ -251,9 +251,9 @@ This path always runs in **auto** approval mode with `bypassPermissions` — the
 ## Next steps
 
 <Cards>
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
-  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
-  <Cards.Card title="Loops" href="/docs/guides/loops" />
-  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="Orchestration" href="/guides/orchestration" />
+  <Cards.Card title="Monitoring" href="/guides/monitoring" />
+  <Cards.Card title="Loops" href="/guides/loops" />
+  <Cards.Card title="Safety Rules" href="/guides/safety-rules" />
 </Cards>

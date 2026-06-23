@@ -12,7 +12,7 @@ import { Cards } from 'nextra/components'
 
 A **Discussion** brings several Assistants (internally "agents") together around a single topic. A dedicated **Facilitator** (the moderator Assistant) opens the conversation, picks who speaks next, evaluates progress after each turn, and finally writes a synthesis that wraps everything up.
 
-Unlike a [Workflow](/docs/guides/workflows) — a fixed graph of steps — a Discussion is steered live by the Facilitator. It decides how the conversation unfolds and when it is done.
+Unlike a [Workflow](/guides/workflows) — a fixed graph of steps — a Discussion is steered live by the Facilitator. It decides how the conversation unfolds and when it is done.
 
 Each turn is a fresh, headless Claude Code process. There are no long-lived sessions: the running transcript is fed back in as context on every turn, and state is checkpointed to the database each round so a discussion can survive a server restart.
 
@@ -26,7 +26,7 @@ RondoFlow shows friendly names in the UI. This page leads with those — Assista
 - **Review** a plan, design, or piece of writing from multiple perspectives.
 - **Deliberate** toward a well-reasoned position when there are trade-offs.
 
-If you instead need a deterministic, repeatable pipeline, reach for a [Workflow](/docs/guides/workflows) or [Orchestration](/docs/guides/orchestration).
+If you instead need a deterministic, repeatable pipeline, reach for a [Workflow](/guides/workflows) or [Orchestration](/guides/orchestration).
 
 ## Formats
 
@@ -141,7 +141,7 @@ The creation wizard offers two ways to set rounds. **Auto** omits a fixed cap, s
 </Callout>
 
 <Callout type="warning">
-Discussion turns run headlessly with no human in the loop, so they start the Claude Code CLI in `bypassPermissions` mode — there is nobody to answer a tool-permission prompt. Spend stays bounded by each Assistant's budget cap and [Safety Rules](/docs/guides/safety-rules). Review your [Safety Rules](/docs/guides/safety-rules) before letting tool-using Assistants debate.
+Discussion turns run headlessly with no human in the loop, so they start the Claude Code CLI in `bypassPermissions` mode — there is nobody to answer a tool-permission prompt. Spend stays bounded by each Assistant's budget cap and [Safety Rules](/guides/safety-rules). Review your [Safety Rules](/guides/safety-rules) before letting tool-using Assistants debate.
 </Callout>
 
 ## Pause, resume, and crash recovery
@@ -273,14 +273,14 @@ The transcript response includes the topic, status, conclusion, and the ordered 
 </Tabs.Tab>
 </Tabs>
 
-See the full [API reference](/docs/reference/api) for the shared response envelope and error codes.
+See the full [API reference](/reference/api) for the shared response envelope and error codes.
 
 ## Related
 
 <Cards>
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
-  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
-  <Cards.Card title="Safety Rules" href="/docs/guides/safety-rules" />
-  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Workflows" href="/guides/workflows" />
+  <Cards.Card title="Orchestration" href="/guides/orchestration" />
+  <Cards.Card title="Safety Rules" href="/guides/safety-rules" />
+  <Cards.Card title="Monitoring" href="/guides/monitoring" />
 </Cards>

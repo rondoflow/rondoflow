@@ -137,7 +137,7 @@ The Git API is gated by RondoFlow's default-deny role middleware. None of the Gi
 | Read (any authenticated user) | `viewer`+ | `GET` status, log, branches, diff, remote |
 | Write | `editor`+ | `POST` stage, unstage, commit, checkout, branch, push |
 
-In other words, **viewers can read the Git panel** — Status, Log, Branches, and Diffs — **but cannot stage, unstage, commit, create or switch branches, or push.** Those mutating actions require the editor (write) role. See [Users & Roles](/docs/guides/users) for the full capability matrix.
+In other words, **viewers can read the Git panel** — Status, Log, Branches, and Diffs — **but cannot stage, unstage, commit, create or switch branches, or push.** Those mutating actions require the editor (write) role. See [Users & Roles](/guides/users) for the full capability matrix.
 
 ## API endpoints
 
@@ -184,9 +184,9 @@ These mutating endpoints require an authenticated session with the `editor` (or 
 ## Related
 
 <Cards>
-  <Cards.Card title="Workspaces & Canvas" href="/docs/guides/canvas" />
-  <Cards.Card title="External Folders" href="/docs/guides/external-folders" />
-  <Cards.Card title="Users & Roles" href="/docs/guides/users" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="API Reference" href="/docs/reference/api" />
+  <Cards.Card title="Workspaces & Canvas" href="/guides/canvas" />
+  <Cards.Card title="External Folders" href="/guides/external-folders" />
+  <Cards.Card title="Users & Roles" href="/guides/users" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="API Reference" href="/reference/api" />
 </Cards>

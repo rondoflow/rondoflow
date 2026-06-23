@@ -44,7 +44,7 @@ A loop stops early when its criterion is met. RondoFlow supports four criteria t
 | Manual review (`manual`) | none | Pauses after each iteration and waits for a human to approve or reject. |
 
 <Callout type="warning">
-The `test_pass` command is split on whitespace and run directly (never through a shell), so shell features like pipes, `&&`, globbing, or environment-variable expansion will not work. Use a single executable plus its arguments, for example `npm test`. See [Security](/docs/reference/security) for why RondoFlow never spawns a shell.
+The `test_pass` command is split on whitespace and run directly (never through a shell), so shell features like pipes, `&&`, globbing, or environment-variable expansion will not work. Use a single executable plus its arguments, for example `npm test`. See [Security](/reference/security) for why RondoFlow never spawns a shell.
 </Callout>
 
 ### Manual review
@@ -88,7 +88,7 @@ The ring subscribes to the server's `agent:loop_iteration` events for that Assis
 
 ## Lifecycle and events
 
-While a loop runs, the engine emits events. The in-app client subscribes to them over Socket.IO and you can also watch the broader run in [Monitoring](/docs/guides/monitoring):
+While a loop runs, the engine emits events. The in-app client subscribes to them over Socket.IO and you can also watch the broader run in [Monitoring](/guides/monitoring):
 
 | Event | When it fires | Payload |
 | --- | --- | --- |
@@ -118,7 +118,7 @@ The primary in-app way to run and observe a loop is over Socket.IO. The client e
 The socket layer keeps its own active-loop registry per Assistant, surfaces each `progress` event as an `info` notification, and emits `manual_approval_required` as an `action_required` notification with **Approve** / **Reject** actions. Loop completion and failure arrive as notifications plus an `agent:status` update (`idle` or `error`).
 
 <Callout type="warning">
-**Only editor and admin roles may start, stop, or approve a loop.** Viewers are read-only: the socket path checks the caller's role and, on denial, returns an `agent:error` of type `POLICY_ERROR` ("Your role does not permit running or modifying workflows"). The HTTP routes below are likewise gated on the `run` capability. See [Users & roles](/docs/guides/users).
+**Only editor and admin roles may start, stop, or approve a loop.** Viewers are read-only: the socket path checks the caller's role and, on denial, returns an `agent:error` of type `POLICY_ERROR` ("Your role does not permit running or modifying workflows"). The HTTP routes below are likewise gated on the `run` capability. See [Users & roles](/guides/users).
 </Callout>
 
 ## Starting and stopping a loop over HTTP
@@ -146,7 +146,7 @@ The returned `LoopState` also carries a `sessionId` field, but it is always an e
 </Callout>
 
 <Callout type="info">
-Loop iterations run headless with permissions bypassed so tools execute without an in-run prompt. The only human gate is the optional per-iteration approval of the `manual` criterion. Scope each Assistant's allowed tools and budget carefully — see [Safety Rules](/docs/guides/safety-rules).
+Loop iterations run headless with permissions bypassed so tools execute without an in-run prompt. The only human gate is the optional per-iteration approval of the `manual` criterion. Scope each Assistant's allowed tools and budget carefully — see [Safety Rules](/guides/safety-rules).
 </Callout>
 
 ## Long-running loops and disconnect teardown
@@ -167,8 +167,8 @@ A reconnect during the grace window cancels the pending teardown. All in-flight 
 A loop is for **one Assistant refining a single task**. If you need several Assistants working in sequence or in parallel, reach for a multi-step workflow instead.
 
 <Cards>
-  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
-  <Cards.Card title="Orchestration" href="/docs/guides/orchestration" />
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+  <Cards.Card title="Workflows" href="/guides/workflows" />
+  <Cards.Card title="Orchestration" href="/guides/orchestration" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Monitoring" href="/guides/monitoring" />
 </Cards>

@@ -8,7 +8,7 @@ import { Cards } from 'nextra/components'
 
 # Data Model
 
-RondoFlow stores all state in PostgreSQL via [Prisma](/docs/reference/architecture). This page documents the schema entity by entity: what each model is for, its key fields, and how it relates to the rest. Field names below match the database exactly — the UI wraps many of them in friendlier terms (see [Terminology](/docs/concepts/terminology)).
+RondoFlow stores all state in PostgreSQL via [Prisma](/reference/architecture). This page documents the schema entity by entity: what each model is for, its key fields, and how it relates to the rest. Field names below match the database exactly — the UI wraps many of them in friendlier terms (see [Terminology](/concepts/terminology)).
 
 <Callout type="info">
 The source of truth is `packages/server/prisma/schema.prisma`. If you change the schema, generate a migration (`npm run db:migrate`) and update this page to match.
@@ -37,7 +37,7 @@ These shared Prisma enums constrain field values across the model.
 
 ## Authentication
 
-RondoFlow uses [Better Auth](/docs/reference/security). Three tables back it: `User`, `Session`, and `Account`, plus a transient `Verification` table.
+RondoFlow uses [Better Auth](/reference/security). Three tables back it: `User`, `Session`, and `Account`, plus a transient `Verification` table.
 
 ### User
 
@@ -59,7 +59,7 @@ The account owner. Owns Workspaces and Assistants (Agents).
 Relations: `sessions`, `accounts`, `workspaces` (as owner), `agents` (as owner).
 
 <Callout type="info">
-`role` gates a single shared team workspace — access is by role, not per-user ownership (`userId` columns are kept for attribution/audit only). The role migration backfills existing users to `editor` and promotes the oldest account to `admin`. See [Security](/docs/reference/security).
+`role` gates a single shared team workspace — access is by role, not per-user ownership (`userId` columns are kept for attribution/audit only). The role migration backfills existing users to `editor` and promotes the oldest account to `admin`. See [Security](/reference/security).
 </Callout>
 
 ### Session
@@ -141,7 +141,7 @@ An Assistant (Agent) — the core actor. Defines a personality (persona), provid
 
 Relations: `skills` (via `AgentSkill`), `policies`, `memories`, `sessions`, `participations` and `moderatedTables` (discussions), `mcpAssignments` (via `AgentMcpServer`), `externalFolders` (via `AgentExternalFolder`).
 
-See [Assistants](/docs/guides/assistants), [Loops](/docs/guides/loops), and [Providers](/docs/providers).
+See [Assistants](/guides/assistants), [Loops](/guides/loops), and [Providers](/providers).
 
 ## Skills
 
@@ -172,7 +172,7 @@ Join table assigning a Skill to an Assistant, with ordering and an on/off switch
 | `priority` | `Int` | Ordering, defaults `0` |
 | `enabled` | `Boolean` | Defaults to `true` |
 
-Composite primary key `[agentId, skillId]`. See [Skills](/docs/guides/skills).
+Composite primary key `[agentId, skillId]`. See [Skills](/guides/skills).
 
 ## Policy (Safety Rule)
 
@@ -187,10 +187,10 @@ A Safety Rule (Policy) constrains what an Assistant may do. Rules can apply glob
 | `agentId` | `String?` | FK → `Agent` (when agent-scoped), cascades |
 | `sessionId` | `String?` | FK → `AgentSession` (when session-scoped), cascades |
 
-When multiple rules apply, the most restrictive wins. See [Safety Rules](/docs/guides/safety-rules) and [Security](/docs/reference/security).
+When multiple rules apply, the most restrictive wins. See [Safety Rules](/guides/safety-rules) and [Security](/reference/security).
 
 <Callout type="info">
-The global per-run budget cap is stored on a single canonical global `Policy` row (id `d0000000-0000-0000-0000-000000000001`), not in an env var. See [Security](/docs/reference/security).
+The global per-run budget cap is stored on a single canonical global `Policy` row (id `d0000000-0000-0000-0000-000000000001`), not in an env var. See [Security](/reference/security).
 </Callout>
 
 ## Sessions & Messages
@@ -253,7 +253,7 @@ Join table placing an Assistant at a discussion with a role.
 | `agentId` | `String` | FK → `Agent`, cascades |
 | `role` | `ParticipantRole` | `participant` (default), `observer`, `devil_advocate` |
 
-Composite primary key `[tableId, agentId]`. See [Discussions](/docs/guides/discussions).
+Composite primary key `[tableId, agentId]`. See [Discussions](/guides/discussions).
 
 ## Memory
 
@@ -271,13 +271,13 @@ A Memory entry persists facts across runs. Scoped to a single Assistant or to a 
 | `pinned` | `Boolean` | Always-include when set |
 | `importance` | `Int` | Ranking weight, defaults `0` |
 
-Unique on `[agentId, key]` and `[workspaceId, key]` (upserts rely on these). Indexed on `[workspaceId, pinned]`, `[agentId, pinned]`, and `[scope, source]`. See [Memory](/docs/guides/memory).
+Unique on `[agentId, key]` and `[workspaceId, key]` (upserts rely on these). Indexed on `[workspaceId, pinned]`, `[agentId, pinned]`, and `[scope, source]`. See [Memory](/guides/memory).
 
 ## Resources
 
 ### WorkspaceResource
 
-A Resource attached to a Workspace — a file, URL, note, or variable. See [Resources](/docs/guides/resources).
+A Resource attached to a Workspace — a file, URL, note, or variable. See [Resources](/guides/resources).
 
 | Field | Type | Notes |
 | --- | --- | --- |
@@ -307,7 +307,7 @@ A saved layout of the workspace canvas (cards, edges, viewport).
 | `nodes` | `Json` | Card positions and data |
 | `edges` | `Json` | Connections between cards |
 
-See [Canvas](/docs/guides/canvas).
+See [Canvas](/guides/canvas).
 
 ## Connections (MCP Servers)
 
@@ -327,13 +327,13 @@ A Connection (MCP Server) the Assistants can use.
 
 ### AgentMcpServer
 
-Join table assigning a Connection to an Assistant. Composite primary key `[agentId, mcpServerId]`; both FKs cascade on delete. See [Connections](/docs/guides/connections).
+Join table assigning a Connection to an Assistant. Composite primary key `[agentId, mcpServerId]`; both FKs cascade on delete. See [Connections](/guides/connections).
 
 ## External Folders
 
 ### ExternalFolder
 
-A host directory bind-mounted into the server and exposed to Assistants. See [External Folders](/docs/guides/external-folders).
+A host directory bind-mounted into the server and exposed to Assistants. See [External Folders](/guides/external-folders).
 
 | Field | Type | Notes |
 | --- | --- | --- |
@@ -349,7 +349,7 @@ Join table mounting a folder for an Assistant, with `priority` (default `0`) and
 
 ## Chain Runs
 
-A ChainRun records a workflow execution (a DAG of steps). It owns an append-only event log and per-step results. See [Workflows](/docs/guides/workflows) and [Orchestration](/docs/guides/orchestration).
+A ChainRun records a workflow execution (a DAG of steps). It owns an append-only event log and per-step results. See [Workflows](/guides/workflows) and [Orchestration](/guides/orchestration).
 
 ### ChainRun
 
@@ -383,7 +383,7 @@ One step in a chain run, including its output and cost.
 | `startedAt` / `completedAt` | `DateTime` / `DateTime?` | Timestamps |
 
 <Callout type="info">
-A chain step isn't always an Assistant turn. The Structurer (Structure) and Save to DB cards run as real non-agent steps inside the [ChainExecutor](/docs/guides/workflows); the Output and Email cards are run-completion sinks rather than execution steps. See [Data Nodes](/docs/guides/data-nodes) for the canvas-side picture and [Structured datasets](#structured-datasets) below for the tables they write.
+A chain step isn't always an Assistant turn. The Structurer (Structure) and Save to DB cards run as real non-agent steps inside the [ChainExecutor](/guides/workflows); the Output and Email cards are run-completion sinks rather than execution steps. See [Data Nodes](/guides/data-nodes) for the canvas-side picture and [Structured datasets](#structured-datasets) below for the tables they write.
 </Callout>
 
 ### ChainRunEvent
@@ -404,7 +404,7 @@ Indexed on `[chainRunId, seq]`.
 
 ## Structured datasets
 
-These two tables back the canvas data pipeline: a Structurer (Structure) card turns an Assistant's prose into a typed dataset, and a Save to DB card persists it here. Datasets are then viewable and CSV-exportable in the Saved Datasets panel, and served by `GET /api/datasets` and `GET /api/datasets/:id` (paginated rows). See [Data Nodes](/docs/guides/data-nodes) for the canvas workflow and [API](/docs/reference/api) for the endpoints.
+These two tables back the canvas data pipeline: a Structurer (Structure) card turns an Assistant's prose into a typed dataset, and a Save to DB card persists it here. Datasets are then viewable and CSV-exportable in the Saved Datasets panel, and served by `GET /api/datasets` and `GET /api/datasets/:id` (paginated rows). See [Data Nodes](/guides/data-nodes) for the canvas workflow and [API](/reference/api) for the endpoints.
 
 ### StructuredDataset
 
@@ -443,7 +443,7 @@ A single row of a dataset, stored separately so rows stay queryable and paginata
 Indexed on `[datasetId, idx]`.
 
 <Callout type="warning">
-The Save to DB step enforces write-time caps before persisting: at most **5,000 rows** (`MAX_DATASET_ROWS`) and **2,000,000 bytes** (`MAX_DATASET_BYTES`) of serialized row data. Rows beyond those limits are dropped at write time — these are engine guards in the [ChainExecutor](/docs/guides/workflows), not schema constraints. See [Data Nodes](/docs/guides/data-nodes).
+The Save to DB step enforces write-time caps before persisting: at most **5,000 rows** (`MAX_DATASET_ROWS`) and **2,000,000 bytes** (`MAX_DATASET_BYTES`) of serialized row data. Rows beyond those limits are dropped at write time — these are engine guards in the [ChainExecutor](/guides/workflows), not schema constraints. See [Data Nodes](/guides/data-nodes).
 </Callout>
 
 ## Cost, Activity & Artifacts
@@ -465,7 +465,7 @@ The activity feed. A lightweight, denormalized event log.
 | `detail` | `String?` | Longer text |
 | `metadata` | `Json?` | Arbitrary extra data |
 
-Indexed on `[userId, createdAt]` and `[workspaceId, createdAt]`. See [Monitoring](/docs/guides/monitoring).
+Indexed on `[userId, createdAt]` and `[workspaceId, createdAt]`. See [Monitoring](/guides/monitoring).
 
 ### Artifact
 
@@ -475,7 +475,7 @@ A file produced by a session. Fields: `sessionId`, `fileName`, `filePath`, `file
 
 ### ScheduledTask
 
-A cron-scheduled run of a saved workflow or an assistant. See [Schedules](/docs/guides/schedules).
+A cron-scheduled run of a saved workflow or an assistant. See [Schedules](/guides/schedules).
 
 | Field | Type | Notes |
 | --- | --- | --- |
@@ -495,7 +495,7 @@ A cron-scheduled run of a saved workflow or an assistant. See [Schedules](/docs/
 Indexed on `[enabled, nextRunAt]`. `SavedWorkflow` stores reusable workflow definitions: `name`, `description`, and a `workflow` JSON blob.
 
 <Callout type="warning">
-`directorEnabled` is plumbed through the API, the database, and the UI type, but the Scheduler engine never reads it — scheduled execution never invokes the Director. Likewise, scheduled **agent** tasks run with a generic helper prompt rather than the Assistant's real persona, skills, and model. See [Schedules](/docs/guides/schedules).
+`directorEnabled` is plumbed through the API, the database, and the UI type, but the Scheduler engine never reads it — scheduled execution never invokes the Director. Likewise, scheduled **agent** tasks run with a generic helper prompt rather than the Assistant's real persona, skills, and model. See [Schedules](/guides/schedules).
 </Callout>
 
 ## PRD & Stories
@@ -519,15 +519,15 @@ Global key/value config managed in the UI (credentials, etc.). Values are AES-25
 | `createdAt` / `updatedAt` | `DateTime` | Timestamps |
 
 <Callout type="warning">
-Secrets in `Setting` and any `WorkspaceResource` with `isSecret = true` are sensitive. Review [Security](/docs/reference/security) before exposing the database or backups.
+Secrets in `Setting` and any `WorkspaceResource` with `isSecret = true` are sensitive. Review [Security](/reference/security) before exposing the database or backups.
 </Callout>
 
 ## Related reference
 
 <Cards>
-  <Cards.Card title="Architecture" href="/docs/reference/architecture" />
-  <Cards.Card title="Configuration" href="/docs/reference/configuration" />
-  <Cards.Card title="Security" href="/docs/reference/security" />
-  <Cards.Card title="API" href="/docs/reference/api" />
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
+  <Cards.Card title="Architecture" href="/reference/architecture" />
+  <Cards.Card title="Configuration" href="/reference/configuration" />
+  <Cards.Card title="Security" href="/reference/security" />
+  <Cards.Card title="API" href="/reference/api" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
 </Cards>

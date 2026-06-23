@@ -21,7 +21,7 @@ All three live on the unified workflow toolbar at the top of the Workspace (Canv
 | **Advisor** | After the run completes | Analyzes the whole run against the objective | Categorized, applyable improvement suggestions |
 
 <Callout type="info">
-All three are **editor+** features, gated behind the `run` capability. Viewers don't see the Run, Stop, Director, Planner, or Advisor controls at all, and the server rejects an analysis request from a viewer with *"Your role does not permit running analysis."* See [Users & roles](/docs/guides/users) for the capability model.
+All three are **editor+** features, gated behind the `run` capability. Viewers don't see the Run, Stop, Director, Planner, or Advisor controls at all, and the server rejects an analysis request from a viewer with *"Your role does not permit running analysis."* See [Users & roles](/guides/users) for the capability model.
 </Callout>
 
 ### Default state
@@ -51,7 +51,7 @@ It evaluates five things:
 - Whether each Assistant's Personality (Persona) suits its role
 - Whether the model tier (opus / sonnet / haiku) fits the work
 - Whether the execution order makes sense
-- Whether any Assistant should gain or lose [Skills](/docs/guides/skills)
+- Whether any Assistant should gain or lose [Skills](/guides/skills)
 - Whether the workflow needs more Assistants or can be simplified
 
 ### What it can suggest
@@ -113,13 +113,13 @@ Because the next Assistant sees *only* the message the Director writes, the Dire
 
 ### Director in branching workflows
 
-In a workflow with [Condition](/docs/guides/data-nodes#condition) Cards, the **branch conditions own forward routing — not the Director**. RondoFlow computes which successor each step's output enables, and the Director's prompt is told which Assistant(s) come next. In that mode the Director is purely a **quality gate**:
+In a workflow with [Condition](/guides/data-nodes#condition) Cards, the **branch conditions own forward routing — not the Director**. RondoFlow computes which successor each step's output enables, and the Director's prompt is told which Assistant(s) come next. In that mode the Director is purely a **quality gate**:
 
 - `continue` proceeds along whichever branch the conditions selected — the Director cannot pick the path.
 - `redirect` can only retry the **current** step. If the Director ever proposes a divergent `targetStepIndex` (jumping to a different step), it is intentionally ignored — the graph, never the Director, decides what runs next.
 - `conclude` still stops the whole workflow early.
 
-The Director is honored in **both** run modes: parallel DAG runs and sequential Director walks. See [Workflows](/docs/guides/workflows) for how the DAG and conditional routing work.
+The Director is honored in **both** run modes: parallel DAG runs and sequential Director walks. See [Workflows](/guides/workflows) for how the DAG and conditional routing work.
 
 ### Criticism level (rigor)
 
@@ -160,7 +160,7 @@ The Director is advisory, so a failed evaluation **never aborts the run**. If it
 The Director does more than route steps:
 
 - **Mid-run suggestions** — it can emit optional `agentSuggestions` (a Personality tweak or a model change for an Assistant) when it spots a concrete improvement for future steps. These surface live during execution through the same UI channel as the Planner's result (`chain:planner_result`) — think of it as a "continuous planner."
-- **Learnings** — when it notices a recurring pattern (for example, an Assistant that keeps forgetting something), it records a *learning* into agent [Memory](/docs/guides/memory). On later runs the Director loads recent learnings back in, so the workflow improves over time.
+- **Learnings** — when it notices a recurring pattern (for example, an Assistant that keeps forgetting something), it records a *learning* into agent [Memory](/guides/memory). On later runs the Director loads recent learnings back in, so the workflow improves over time.
 
 <Callout type="info">
 A Director learning is saved against the **first Assistant in the chain** (`agentIds[0]`), not necessarily the one that exhibited the pattern — so all of a chain's learnings accumulate on its lead Assistant. Each is tagged with the `director` source, and on the next run the Director loads up to **20** of these `director:learning:` memories across the chain's Assistants (newest first) back into its context. You can view and manage them alongside other memories.
@@ -253,16 +253,16 @@ The helpers compose naturally across one execution:
 A common rhythm: enable the Planner (Director is already on) for the run, then click the Advisor when it finishes. Apply the Advisor's changes, and the next run starts from a stronger baseline — which the Planner then refines again.
 
 <Callout type="warning">
-These helpers steer **canvas runs**. Scheduled tasks are different: even though a schedule exposes a *Director* toggle, the scheduler engine never reads it, so the Director does **not** run on scheduled workflows. See [Schedules](/docs/guides/schedules) for what headless runs do and don't do.
+These helpers steer **canvas runs**. Scheduled tasks are different: even though a schedule exposes a *Director* toggle, the scheduler engine never reads it, so the Director does **not** run on scheduled workflows. See [Schedules](/guides/schedules) for what headless runs do and don't do.
 </Callout>
 
 ## Related
 
 <Cards>
-  <Cards.Card title="Workflows" href="/docs/guides/workflows" />
-  <Cards.Card title="Data Nodes" href="/docs/guides/data-nodes" />
-  <Cards.Card title="Assistants" href="/docs/guides/assistants" />
-  <Cards.Card title="Skills" href="/docs/guides/skills" />
-  <Cards.Card title="Memory" href="/docs/guides/memory" />
-  <Cards.Card title="Monitoring" href="/docs/guides/monitoring" />
+  <Cards.Card title="Workflows" href="/guides/workflows" />
+  <Cards.Card title="Data Nodes" href="/guides/data-nodes" />
+  <Cards.Card title="Assistants" href="/guides/assistants" />
+  <Cards.Card title="Skills" href="/guides/skills" />
+  <Cards.Card title="Memory" href="/guides/memory" />
+  <Cards.Card title="Monitoring" href="/guides/monitoring" />
 </Cards>

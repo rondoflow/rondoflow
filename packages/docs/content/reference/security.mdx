@@ -10,7 +10,7 @@ import { Callout } from 'nextra/components'
 RondoFlow runs locally and starts (spawns) real Claude Code CLI processes that can read files, run shell commands, and call tools. That power demands a layered defense. This page describes how RondoFlow keeps your machine, your credentials, and your data safe across every boundary: process startup, the environment passed to child processes, credential storage, input validation, authorization, and Safety Rule enforcement.
 
 <Callout type="important">
-RondoFlow is local-first and supports multiple users with role-based access (admin / editor / viewer) over a **single shared workspace** — there is no per-user or per-tenant data isolation, so every authenticated user sees the same pool of resources and access is gated by role, not ownership. The protections below harden the boundary between RondoFlow and the processes/tools it starts, and between the HTTP/WebSocket surface and unauthenticated or under-privileged callers. They do not make it safe to expose a RondoFlow instance directly to the public internet. See [Self-Hosting](/docs/reference/self-hosting).
+RondoFlow is local-first and supports multiple users with role-based access (admin / editor / viewer) over a **single shared workspace** — there is no per-user or per-tenant data isolation, so every authenticated user sees the same pool of resources and access is gated by role, not ownership. The protections below harden the boundary between RondoFlow and the processes/tools it starts, and between the HTTP/WebSocket surface and unauthenticated or under-privileged callers. They do not make it safe to expose a RondoFlow instance directly to the public internet. See [Self-Hosting](/reference/self-hosting).
 </Callout>
 
 ## Process safety
@@ -123,11 +123,11 @@ The default role is **viewer** and role resolution fails closed — any unknown 
 - **Matching WebSocket gate.** Socket.IO enforces the same boundary: viewers are read-only, and run-class events (chain execute/stop, agent start/stop/message, discussion start, Director and approval responses, loops, the Advisor) require editor or above, denying viewers with a `POLICY_ERROR`.
 - **UI mirror is advisory only.** The frontend mirrors the same capability matrix and defaults to viewer until the session resolves (hiding the palette, disabling drag/connect/delete on the Workspace (Canvas) for viewers), but this is purely cosmetic — the server hooks are the real boundary.
 
-See the [Users guide](/docs/guides/users) for how roles map to day-to-day actions and how admins manage accounts.
+See the [Users guide](/guides/users) for how roles map to day-to-day actions and how admins manage accounts.
 
 ## Safety Rule enforcement
 
-[Safety Rules](/docs/guides/safety-rules) (Policies) constrain what an Assistant may do, and they resolve with **most-restrictive-wins** semantics across three layers — global, agent, and session.
+[Safety Rules](/guides/safety-rules) (Policies) constrain what an Assistant may do, and they resolve with **most-restrictive-wins** semantics across three layers — global, agent, and session.
 
 | Field | Merge rule |
 | --- | --- |
@@ -164,7 +164,7 @@ RondoFlow guards against abuse and runaway resource use:
 
 - **Global rate limit.** A generous IP-keyed ceiling (5000 requests/minute) protects every route, including `/api/auth/*`, and returns a `429` rather than a masked `500` when exceeded.
 - **Tighter per-route limits.** Sign-in is limited to 30 requests/minute to deter credential brute-forcing, AI workflow generation is limited to 10 requests/minute because it is expensive, and the Email card's send endpoint (`POST /api/email/send`) is limited to 10 requests/minute.
-- **Email send is a gated execution surface.** `POST /api/email/send` requires the `run` capability (editor+, not just `write`), validates recipients/subject/body with Zod (up to 50 valid addresses, a 255-char subject, a 5 MB HTML body cap), and collapses any CR/LF in the subject to defeat header injection. A delivery failure returns `502` rather than a generic error. See the [Data Nodes guide](/docs/guides/data-nodes) for how the Email card uses this.
+- **Email send is a gated execution surface.** `POST /api/email/send` requires the `run` capability (editor+, not just `write`), validates recipients/subject/body with Zod (up to 50 valid addresses, a 255-char subject, a 5 MB HTML body cap), and collapses any CR/LF in the subject to defeat header injection. A delivery failure returns `502` rather than a generic error. See the [Data Nodes guide](/guides/data-nodes) for how the Email card uses this.
 - **Upload size cap.** File uploads are limited to 50 MB at both the multipart parser and the storage layer.
 - **Saved-dataset caps.** The Save-to-DB card caps each persisted dataset at 5000 rows and ~2 MB of row JSON, so a runaway Structurer extraction can't write unbounded data.
 - **Export row cap.** Audit-log CSV export is capped at the 5000 most recent matching events; the file is annotated when results are truncated.
