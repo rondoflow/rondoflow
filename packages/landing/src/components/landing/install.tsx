@@ -9,7 +9,7 @@ const STEPS: readonly Step[] = [
     n: '01',
     title: 'Clone the repo',
     note: 'Grab the source and step inside.',
-    lines: ['git clone https://github.com/arzzen/rondoflow.git', 'cd rondoflow'],
+    lines: ['git clone https://github.com/rondoflow/rondoflow.git', 'cd rondoflow'],
   },
   {
     n: '02',

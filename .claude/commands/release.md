@@ -89,9 +89,9 @@ Format: **[Keep a Changelog](https://keepachangelog.com)** + **SemVer**. Date in
     is clearly user-facing, classify it sensibly; if it's trivial ("u", "wip"), drop it.
 - Add/refresh the compare link at the bottom of the file:
   ```
-  [NEW]: https://github.com/arzzen/rondoflow/compare/PREV...vNEW
+  [NEW]: https://github.com/rondoflow/rondoflow/compare/PREV...vNEW
   ```
-  First release (no `PREV`) → `https://github.com/arzzen/rondoflow/releases/tag/vNEW`.
+  First release (no `PREV`) → `https://github.com/rondoflow/rondoflow/releases/tag/vNEW`.
 
 On `dry-run`: print the computed version and the changelog entry you *would* write, then stop.
 

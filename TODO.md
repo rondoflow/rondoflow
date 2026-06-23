@@ -3,7 +3,7 @@
 A living list of what's planned and what has recently shipped. For the high-level
 status (stable / experimental / planned), see the **Project Status & Roadmap**
 section in the [README](README.md). Discussion and tracking happen in
-[GitHub issues](https://github.com/arzzen/rondoflow/issues).
+[GitHub issues](https://github.com/rondoflow/rondoflow/issues).
 
 ## Planned
 

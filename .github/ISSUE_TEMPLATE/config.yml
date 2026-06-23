@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Questions & ideas (GitHub Discussions)
-    url: https://github.com/arzzen/rondoflow/discussions
+    url: https://github.com/rondoflow/rondoflow/discussions
     about: Ask a question, share an idea, or discuss usage with the community.
   - name: Report a security vulnerability
-    url: https://github.com/arzzen/rondoflow/security/policy
+    url: https://github.com/rondoflow/rondoflow/security/policy
     about: Please report security vulnerabilities privately via our Security policy (SECURITY.md), not as a public issue.

@@ -4,19 +4,19 @@
 export const SITE = {
   name: 'RondoFlow',
   tagline: 'Visual orchestration for Claude Code agents',
-  repo: 'arzzen/rondoflow',
+  repo: 'rondoflow/rondoflow',
   url: 'https://rondoflow.dev',
-  github: 'https://github.com/arzzen/rondoflow',
-  license: 'https://github.com/arzzen/rondoflow/blob/master/LICENSE',
+  github: 'https://github.com/rondoflow/rondoflow',
+  license: 'https://github.com/rondoflow/rondoflow/blob/master/LICENSE',
   docs: 'https://docs.rondoflow.dev',
 
   // Community + project links. All point into the single GitHub repo for now;
   // swap to a dedicated blog/roadmap host if one is ever stood up.
-  discussions: 'https://github.com/arzzen/rondoflow/discussions',
-  issues: 'https://github.com/arzzen/rondoflow/issues/new/choose',
-  changelog: 'https://github.com/arzzen/rondoflow/releases',
-  roadmap: 'https://github.com/arzzen/rondoflow/milestones',
-  contributing: 'https://github.com/arzzen/rondoflow/blob/master/CONTRIBUTING.md',
+  discussions: 'https://github.com/rondoflow/rondoflow/discussions',
+  issues: 'https://github.com/rondoflow/rondoflow/issues/new/choose',
+  changelog: 'https://github.com/rondoflow/rondoflow/releases',
+  roadmap: 'https://github.com/rondoflow/rondoflow/milestones',
+  contributing: 'https://github.com/rondoflow/rondoflow/blob/master/CONTRIBUTING.md',
 
   // Product demo video. Drop the recording into `public/` (e.g. public/demo.mp4)
   // and point `demoVideo` at it to light up the "Watch the demo" button in the

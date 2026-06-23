@@ -26,7 +26,7 @@ support branches for earlier 0.x releases.
 Please report security vulnerabilities **privately** through GitHub's private vulnerability
 reporting, not through public channels.
 
-1. Go to the repository on GitHub: <https://github.com/arzzen/rondoflow>
+1. Go to the repository on GitHub: <https://github.com/rondoflow/rondoflow>
 2. Open the **Security** tab.
 3. Click **Report a vulnerability** to open a private advisory.
 4. Include a clear description, the affected version/commit, reproduction steps, and the

@@ -65,7 +65,7 @@ const DATA = {
           '@type': 'HowToStep',
           position: 1,
           name: 'Clone the repo',
-          text: 'git clone https://github.com/arzzen/rondoflow.git && cd rondoflow',
+          text: 'git clone https://github.com/rondoflow/rondoflow.git && cd rondoflow',
         },
         {
           '@type': 'HowToStep',

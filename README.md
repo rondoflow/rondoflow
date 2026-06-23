@@ -65,7 +65,7 @@ team execute in real time.
 ### Local development
 
 ```bash
-git clone https://github.com/arzzen/rondoflow.git
+git clone https://github.com/rondoflow/rondoflow.git
 cd rondoflow
 npm run setup    # installs deps, generates .env, starts Postgres, migrates + seeds
 npm run dev      # opens at http://localhost:3000
@@ -74,7 +74,7 @@ npm run dev      # opens at http://localhost:3000
 ### Full Docker (everything in containers)
 
 ```bash
-git clone https://github.com/arzzen/rondoflow.git
+git clone https://github.com/rondoflow/rondoflow.git
 cd rondoflow
 cp .env.example .env   # edit .env (see Configuration below)
 docker compose up      # builds and starts all services
@@ -390,7 +390,7 @@ contributing, you agree your work is licensed under the project's MIT license.
 RondoFlow runs AI agents that can execute code on your machine, so please review the threat model
 and deployment guidance in **[SECURITY.md](SECURITY.md)** before exposing it beyond localhost.
 Found a vulnerability? Report it privately via GitHub's
-[security advisories](https://github.com/arzzen/rondoflow/security/advisories/new) - please don't
+[security advisories](https://github.com/rondoflow/rondoflow/security/advisories/new) - please don't
 open a public issue.
 
 ## License

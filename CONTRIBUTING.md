@@ -16,7 +16,7 @@ You'll need:
 
 ## Getting Started
 
-1. **Fork** the repository on GitHub (https://github.com/arzzen/rondoflow).
+1. **Fork** the repository on GitHub (https://github.com/rondoflow/rondoflow).
 2. **Clone** your fork:
 
    ```bash

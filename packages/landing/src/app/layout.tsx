@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
   applicationName: SITE.name,
-  authors: [{ name: 'arzzen', url: SITE.github }],
-  creator: 'arzzen',
+  authors: [{ name: 'RondoFlow Contributors', url: SITE.github }],
+  creator: 'RondoFlow',
   publisher: SITE.name,
   category: 'technology',
   alternates: { canonical: '/' },
@@ -98,6 +98,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Privacy-friendly analytics beacon (loaded on every page). */}
+        <script
+          defer
+          data-domain="rondoflow.app"
+          src="https://beacon.static-data.com/js/script.js"
+        />
+      </head>
       <body className="font-sans antialiased">
         <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
         {children}

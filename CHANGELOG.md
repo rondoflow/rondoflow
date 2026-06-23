@@ -20,4 +20,4 @@ First public release of RondoFlow — a local-first visual orchestration platfor
 - Internationalized UI (English, Slovak, Spanish, French, German) with enforced locale key parity.
 - Local-first stack: Next.js 14 frontend, Fastify + Socket.IO backend, PostgreSQL 16 + Prisma, orchestrated as an npm + Turborepo monorepo with Docker Compose for the database.
 
-[1.0.0]: https://github.com/arzzen/rondoflow/releases/tag/v1.0.0
+[1.0.0]: https://github.com/rondoflow/rondoflow/releases/tag/v1.0.0

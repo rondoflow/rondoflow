@@ -37,7 +37,7 @@ const navbar = (
         <span className="rf-logo-text">RondoFlow</span>
       </span>
     }
-    projectLink="https://github.com/arzzen/rondoflow"
+    projectLink="https://github.com/rondoflow/rondoflow"
   />
 )
 
@@ -59,7 +59,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           navbar={navbar}
           footer={footer}
           pageMap={pageMap}
-          docsRepositoryBase="https://github.com/arzzen/rondoflow/tree/master/packages/docs"
+          docsRepositoryBase="https://github.com/rondoflow/rondoflow/tree/master/packages/docs"
           editLink="Edit this page on GitHub"
           sidebar={{ defaultMenuCollapseLevel: 1, toggleButton: true }}
           nextThemes={{ defaultTheme: 'dark' }}
