@@ -11,7 +11,7 @@ machine, with your files.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node.js](https://img.shields.io/badge/node-20%2B-green.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)
-![Status](https://img.shields.io/badge/status-pre--1.0-orange.svg)
+![Status](https://img.shields.io/badge/status-1.0.0-orange.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 <img width="1022" height="716" alt="obrázok" src="https://github.com/user-attachments/assets/47b99c9b-a107-403f-894d-087190222b05" />
