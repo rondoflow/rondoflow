@@ -53,6 +53,7 @@ team execute in real time.
 - [Contributing](#contributing)
 - [Security](#security)
 - [License](#license)
+- [Community & Support](#community--support)
 
 
 ### Local development
@@ -204,8 +205,9 @@ flowchart TD
 
 ## Documentation
 
-RondoFlow ships a full documentation site (built with [Nextra](https://nextra.site)) in
-[`packages/docs`](packages/docs). Run it locally with:
+Full documentation lives at **[docs.rondoflow.app](https://docs.rondoflow.app)**. It's built
+with [Nextra](https://nextra.site) and the source ships in [`packages/docs`](packages/docs) - run
+it locally with:
 
 ```bash
 npm run dev:docs   # http://localhost:3002/docs
@@ -388,5 +390,17 @@ open a public issue.
 
 ## License
 
-[MIT](LICENSE) © RondoFlow contributors. Third-party dependency licenses are summarized in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+[MIT](LICENSE) © RondoFlow contributors. RondoFlow began as a fork of
+[Orchestra](https://github.com/gbrein/Orchestra) (also MIT) and has diverged substantially since,
+with the original copyright retained in [LICENSE](LICENSE). Third-party dependency licenses are
+summarized in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Community & Support
+
+Questions, ideas, and show-and-tell go in
+[GitHub Discussions](https://github.com/orgs/rondoflow/discussions). Found a bug or have a
+feature request? Open one through the
+[issue templates](https://github.com/rondoflow/rondoflow/issues/new/choose). For security issues,
+please use private [security advisories](https://github.com/rondoflow/rondoflow/security/advisories/new)
+rather than a public issue.
+
