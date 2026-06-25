@@ -35,7 +35,7 @@ afterEach(() => {
 
 describe('performApifyActorRun', () => {
   it('interpolates input, calls the run-sync endpoint with ~ actor path, returns items', async () => {
-    const fetchMock = vi.fn(async () => mockResponse([{ title: 'a' }, { title: 'b' }]))
+    const fetchMock = vi.fn(async (_url: string | URL, _init: RequestInit) => mockResponse([{ title: 'a' }, { title: 'b' }]))
     globalThis.fetch = fetchMock as unknown as typeof fetch
     const res = await performApifyActorRun(baseCfg, 'hello')
     expect(res.count).toBe(2)

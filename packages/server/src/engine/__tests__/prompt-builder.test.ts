@@ -233,7 +233,7 @@ describe('buildSpawnConfig — model resolution', () => {
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toBe('claude-opus-4-5')
+    expect(result.model).toBe('claude-opus-4-8')
   })
 
   it('uses purpose-based recommendation when model is null', async () => {
@@ -242,7 +242,7 @@ describe('buildSpawnConfig — model resolution', () => {
 
     const result = await buildSpawnConfig('agent-1')
     // analysis → opus
-    expect(result.model).toBe('claude-opus-4-5')
+    expect(result.model).toBe('claude-opus-4-8')
   })
 
   it('defaults to sonnet when both model and purpose are null', async () => {
@@ -250,7 +250,7 @@ describe('buildSpawnConfig — model resolution', () => {
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toBe('claude-sonnet-4-5')
+    expect(result.model).toBe('claude-sonnet-4-6')
   })
 
   it('uses haiku model when purpose=chat', async () => {

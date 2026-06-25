@@ -39,7 +39,7 @@ afterEach(() => {
 
 describe('performSakanaAiCompletion', () => {
   it('interpolates input and returns completion text', async () => {
-    const fetchMock = vi.fn(async () => mockResponse({ choices: [{ message: { content: 'done' } }] }))
+    const fetchMock = vi.fn(async (_url: string | URL, _init: RequestInit) => mockResponse({ choices: [{ message: { content: 'done' } }] }))
     globalThis.fetch = fetchMock as unknown as typeof fetch
     const res = await performSakanaAiCompletion(baseCfg, 'this text')
     expect(res.output).toBe('done')

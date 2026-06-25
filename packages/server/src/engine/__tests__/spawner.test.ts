@@ -8,14 +8,14 @@ import { existsSync, readFileSync } from 'fs'
 // and assert how it was killed. (ClaudeCodeSpawner imports `spawn` directly.)
 // ---------------------------------------------------------------------------
 const h = vi.hoisted(() => ({
-  child: null as null | {
+  child: null as null | (EventEmitter & {
     pid: number
     stdout: EventEmitter & { setEncoding: (e: string) => void }
     stderr: EventEmitter & { setEncoding: (e: string) => void }
     stdin: { write: (s: string) => void }
     kill: (signal?: string) => boolean
     killCalls: string[]
-  },
+  }),
   spawnCommands: [] as string[],
   spawnOptions: [] as unknown[],
   spawnArgs: [] as string[][],
