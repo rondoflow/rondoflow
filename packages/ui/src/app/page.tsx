@@ -36,6 +36,7 @@ import { DbSaveNodeDrawer } from '@/components/panels/db-save-node-drawer'
 import { HttpRequestNodeDrawer } from '@/components/panels/http-request-node-drawer'
 import { DuckDuckGoSearchNodeDrawer } from '@/components/panels/duckduckgo-search-node-drawer'
 import { SakanaAiNodeDrawer } from '@/components/panels/sakana-ai-node-drawer'
+import { ApifyActorNodeDrawer } from '@/components/panels/apify-actor-node-drawer'
 import { SavedDatasetsPanel } from '@/components/panels/saved-datasets-panel'
 import { WorkflowChat, type WorkflowLogEntry } from '@/components/panels/workflow-chat'
 import { hasAgentChain, buildChain, buildChainDefinition, buildWorkflowOutputs, buildWorkflowEmails, lintConditionWorkflow } from '@/lib/chain-utils'
@@ -85,7 +86,7 @@ import { runToLogEntries, runToSteps, type RunDetail, type RunSummary } from '@/
 import { useApprovals } from '@/hooks/use-approvals'
 import { usePanel } from '@/hooks/use-panel'
 import { useRole } from '@/hooks/use-role'
-import type { AgentNodeData, OutputNodeData, EmailNodeData, ConditionNodeData, StructurerNodeData, DbSaveNodeData, HttpRequestNodeData, DuckDuckGoSearchNodeData, SakanaAiNodeData } from '@/lib/canvas-utils'
+import type { AgentNodeData, OutputNodeData, EmailNodeData, ConditionNodeData, StructurerNodeData, DbSaveNodeData, HttpRequestNodeData, DuckDuckGoSearchNodeData, SakanaAiNodeData, ApifyActorNodeData } from '@/lib/canvas-utils'
 import type { Agent, AgentStatus, DiscussionTable, CreateDiscussionInput } from '@rondoflow/shared'
 import type { rondoflowNotification } from '@/hooks/use-notifications'
 
@@ -1284,7 +1285,7 @@ export default function Home() {
     // re-run before the post-completion cleanup fired) so skipped/completed
     // dimming doesn't carry over.
     setNodes((prev) => prev.map((n) => {
-      if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai') return n
+      if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai' && n.type !== 'apify-actor') return n
       const nd = n.data as AgentNodeData
       return nd.chainState ? { ...n, data: { ...nd, chainState: undefined } } : n
     }))
@@ -1981,7 +1982,7 @@ export default function Home() {
 
       // Set chain visual state: active for current, pending for future
       setNodes((prev) => prev.map((n) => {
-        if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai') return n
+        if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai' && n.type !== 'apify-actor') return n
         const nd = n.data as import('@/lib/canvas-utils').AgentNodeData
         if (n.id === data.agentId) {
           return { ...n, data: { ...nd, chainState: 'active' } }
@@ -2158,6 +2159,15 @@ export default function Home() {
         if (n.type === 'sakana-ai') {
           return { ...n, data: { ...(n.data as SakanaAiNodeData), chainState: 'completed', lastError: undefined, lastRequestAt: new Date().toISOString() } }
         }
+        if (n.type === 'apify-actor') {
+          // Count dataset items when the runner emitted a JSON array downstream.
+          const out = data.output.trim()
+          let lastItemCount: number | undefined
+          if (out.startsWith('[')) {
+            try { const arr = JSON.parse(out); lastItemCount = Array.isArray(arr) ? arr.length : undefined } catch { lastItemCount = undefined }
+          }
+          return { ...n, data: { ...(n.data as ApifyActorNodeData), chainState: 'completed', lastError: undefined, lastItemCount, lastRunAt: new Date().toISOString() } }
+        }
         if (n.type === 'agent') {
           return { ...n, data: { ...(n.data as import('@/lib/canvas-utils').AgentNodeData), chainState: 'completed' } }
         }
@@ -2219,7 +2229,7 @@ export default function Home() {
       // Dim the skipped node on the canvas (agent or structurer/db-save).
       setNodes((prev) => prev.map((n) => {
         if (n.id !== data.agentId) return n
-        if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai') return n
+        if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai' && n.type !== 'apify-actor') return n
         const nd = n.data as import('@/lib/canvas-utils').AgentNodeData
         return { ...n, data: { ...nd, chainState: 'skipped', status: 'idle' } }
       }))
@@ -2250,7 +2260,7 @@ export default function Home() {
       // Clear chain visual states after a delay (keep completed checkmarks visible briefly)
       setTimeout(() => {
         setNodes((prev) => prev.map((n) => {
-          if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai') return n
+          if (n.type !== 'agent' && n.type !== 'structurer' && n.type !== 'db-save' && n.type !== 'http-request' && n.type !== 'duckduckgo-search' && n.type !== 'sakana-ai' && n.type !== 'apify-actor') return n
           const nd = n.data as import('@/lib/canvas-utils').AgentNodeData
           if (nd.chainState) {
             return { ...n, data: { ...nd, chainState: undefined } }
@@ -2610,6 +2620,10 @@ export default function Home() {
       }
       if (nodeType === 'sakana-ai') {
         openPanel({ type: 'sakana-ai-node', nodeId })
+        return
+      }
+      if (nodeType === 'apify-actor') {
+        openPanel({ type: 'apify-actor-node', nodeId })
         return
       }
 
@@ -3717,6 +3731,32 @@ export default function Home() {
             return (
               <SakanaAiNodeDrawer
                 data={node.data as SakanaAiNodeData}
+                onChange={(patch) =>
+                  setNodes((prev) =>
+                    prev.map((n) =>
+                      n.id === panel.nodeId ? { ...n, data: { ...n.data, ...patch } } : n,
+                    ),
+                  )
+                }
+              />
+            )
+          })()}
+        </SheetContent>
+      </Sheet>
+
+      {/* Apify Actor Node config drawer */}
+      <Sheet open={panel.type === 'apify-actor-node'} onOpenChange={(open) => { if (!open) closePanel() }}>
+        <SheetContent
+          side="right"
+          className="flex flex-col gap-0 p-0 [&>button.absolute]:hidden"
+        >
+          <SheetTitle className="sr-only">{t('sheet.apifyActorSettings')}</SheetTitle>
+          {panel.type === 'apify-actor-node' && (() => {
+            const node = nodes.find((n) => n.id === panel.nodeId)
+            if (!node) return null
+            return (
+              <ApifyActorNodeDrawer
+                data={node.data as ApifyActorNodeData}
                 onChange={(patch) =>
                   setNodes((prev) =>
                     prev.map((n) =>

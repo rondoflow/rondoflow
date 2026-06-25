@@ -167,7 +167,8 @@
     "dbSaveSettings": "Nastavenia ukladania do databázy",
     "httpRequestSettings": "Nastavenia HTTP požiadavky",
     "duckduckgoSearchSettings": "Nastavenia vyhľadávania DuckDuckGo",
-    "sakanaAiSettings": "Nastavenia Sakana AI"
+    "sakanaAiSettings": "Nastavenia Sakana AI",
+    "apifyActorSettings": "Nastavenia Apify Actor"
   },
   "empty": {
     "selectWorkspace": "Najprv vyberte pracovný priestor"

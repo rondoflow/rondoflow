@@ -1,13 +1,13 @@
 import type { Node, Edge } from '@xyflow/react'
 import type { WorkflowOutputSpec, WorkflowEmailSpec, ConditionBranchSpec } from '@rondoflow/shared'
-import type { AgentNodeData, OutputNodeData, EmailNodeData, ConditionNodeData, StructurerNodeData, DbSaveNodeData, HttpRequestNodeData, DuckDuckGoSearchNodeData, SakanaAiNodeData } from '@/lib/canvas-utils'
+import type { AgentNodeData, OutputNodeData, EmailNodeData, ConditionNodeData, StructurerNodeData, DbSaveNodeData, HttpRequestNodeData, DuckDuckGoSearchNodeData, SakanaAiNodeData, ApifyActorNodeData } from '@/lib/canvas-utils'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 /** Step kinds that execute server-side as ChainSteps. Agent steps run a Claude
  *  agent; structurer/db-save/http-request/duckduckgo-search are non-agent steps
  *  dispatched in the executor. */
-export type StepNodeType = 'agent' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai'
+export type StepNodeType = 'agent' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai' | 'apify-actor'
 
 export interface ChainStep {
   readonly nodeId: string
@@ -122,7 +122,8 @@ function executableNodeIds(nodes: readonly Node[]): Set<string> {
           n.type === 'db-save' ||
           n.type === 'http-request' ||
           n.type === 'duckduckgo-search' ||
-          n.type === 'sakana-ai',
+          n.type === 'sakana-ai' ||
+          n.type === 'apify-actor',
       )
       .map((n) => n.id),
   )
@@ -255,6 +256,18 @@ function sakanaAiConfig(d: SakanaAiNodeData): Record<string, unknown> {
   }
 }
 
+/** Settings carried to the server for an Apify Actor step. */
+function apifyActorConfig(d: ApifyActorNodeData): Record<string, unknown> {
+  return {
+    name: d.name,
+    actorId: d.actorId,
+    input: d.input ?? '',
+    timeoutSec: d.timeoutSec,
+    maxItems: d.maxItems,
+    outputFormat: d.outputFormat,
+  }
+}
+
 /** Builds an ordered chain of executable steps (agents + structurer/db-save). */
 export function buildChain(nodes: readonly Node[], edges: readonly Edge[]): ChainStep[] {
   const { execNodes, graphNodes } = agentGraph(nodes, edges)
@@ -281,6 +294,10 @@ export function buildChain(nodes: readonly Node[], edges: readonly Edge[]): Chai
     if (node.type === 'sakana-ai') {
       const d = node.data as SakanaAiNodeData
       return { nodeId: id, agentName: d.name, nodeType: 'sakana-ai', nodeConfig: sakanaAiConfig(d) }
+    }
+    if (node.type === 'apify-actor') {
+      const d = node.data as ApifyActorNodeData
+      return { nodeId: id, agentName: d.name, nodeType: 'apify-actor', nodeConfig: apifyActorConfig(d) }
     }
     const data = node.data as AgentNodeData
     return { nodeId: id, agentName: data.name, model: data.model, nodeType: 'agent' }

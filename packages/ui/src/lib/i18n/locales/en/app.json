@@ -163,7 +163,8 @@
     "dbSaveSettings": "Save to Database Settings",
     "httpRequestSettings": "HTTP Request Settings",
     "duckduckgoSearchSettings": "DuckDuckGo Search Settings",
-    "sakanaAiSettings": "Sakana AI Settings"
+    "sakanaAiSettings": "Sakana AI Settings",
+    "apifyActorSettings": "Apify Actor Settings"
   },
   "empty": {
     "selectWorkspace": "Select a workspace first"

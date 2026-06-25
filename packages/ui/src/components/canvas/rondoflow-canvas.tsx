@@ -39,6 +39,7 @@ import { DbSaveNode } from './nodes/db-save-node'
 import { HttpRequestNode } from './nodes/http-request-node'
 import { DuckDuckGoSearchNode } from './nodes/duckduckgo-search-node'
 import { SakanaAiNode } from './nodes/sakana-ai-node'
+import { ApifyActorNode } from './nodes/apify-actor-node'
 import { StartNode } from './nodes/start-node'
 import { rondoflowEdge, type rondoflowEdgeData } from './edges/rondoflow-edge'
 import { CanvasActionsProvider, type CanvasActions } from './canvas-actions'
@@ -53,6 +54,7 @@ import {
   defaultHttpRequestData,
   defaultDuckDuckGoSearchData,
   defaultSakanaAiData,
+  defaultApifyActorData,
   DRAG_TYPES,
   START_NODE_ID,
   type AgentNodeData,
@@ -67,6 +69,7 @@ import {
   type HttpRequestNodeData,
   type DuckDuckGoSearchNodeData,
   type SakanaAiNodeData,
+  type ApifyActorNodeData,
 } from '@/lib/canvas-utils'
 import { useUndoRedo } from '@/hooks/use-undo-redo'
 import { useTheme } from '@/hooks/use-theme'
@@ -90,6 +93,7 @@ const NODE_TYPES: NodeTypes = {
   'http-request': HttpRequestNode,
   'duckduckgo-search': DuckDuckGoSearchNode,
   'sakana-ai': SakanaAiNode,
+  'apify-actor': ApifyActorNode,
 }
 
 const EDGE_TYPES: EdgeTypes = {
@@ -245,6 +249,12 @@ function buildNodeFromPalette(
       (parsedData['name'] as string | undefined) ?? t('default.sakanaAiName'),
     )
     return { id: crypto.randomUUID(), type: 'sakana-ai', position, data: sakanaAiData }
+  }
+  if (dragType === DRAG_TYPES.APIFY_ACTOR) {
+    const apifyActorData: ApifyActorNodeData = defaultApifyActorData(
+      (parsedData['name'] as string | undefined) ?? t('default.apifyActorName'),
+    )
+    return { id: crypto.randomUUID(), type: 'apify-actor', position, data: apifyActorData }
   }
   return null
 }

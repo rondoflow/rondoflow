@@ -130,7 +130,8 @@
       "dbSave": "Uložiť do DB",
       "httpRequest": "HTTP požiadavka",
       "duckduckgoSearch": "Vyhľadávanie DuckDuckGo",
-      "sakanaAi": "Sakana AI"
+      "sakanaAi": "Sakana AI",
+      "apifyActor": "Apify Actor"
     }
   },
   "loop": {
@@ -168,7 +169,8 @@
     "dbSaveName": "Uložiť do DB",
     "httpRequestName": "HTTP požiadavka",
     "duckduckgoSearchName": "Vyhľadávanie DuckDuckGo",
-    "sakanaAiName": "Sakana AI"
+    "sakanaAiName": "Sakana AI",
+    "apifyActorName": "Apify Actor"
   },
   "node": {
     "shell": {
@@ -354,6 +356,15 @@
       "promptLabel": "Prompt",
       "noModel": "Model nie je nastavený",
       "noPrompt": "Prompt nie je nastavený"
+    },
+    "apifyActor": {
+      "aria": "Apify Actor: {{name}}",
+      "description": "Spustí ľubovoľného Apify actora",
+      "outputLabel": "Dataset",
+      "actorLabel": "Actor",
+      "noActor": "Actor nie je nastavený",
+      "lastRunLabel": "Posledný beh",
+      "items": "{{n}} položiek"
     }
   },
   "edge": {

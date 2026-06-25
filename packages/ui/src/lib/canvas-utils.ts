@@ -282,6 +282,43 @@ export interface SakanaAiNodeData extends Record<string, unknown> {
 /** Curated Sakana AI model presets shown in the node drawer. */
 export const SAKANA_AI_MODEL_PRESETS: readonly string[] = ['sakana-chat', 'sakana-mini']
 
+/**
+ * An Apify Actor node runs ANY Apify actor mid-workflow. It is a non-agent
+ * execution step: it interpolates `{{input}}`/`{{output}}` into the actor input
+ * JSON, runs the actor synchronously with the server-side `APIFY_TOKEN` (via the
+ * run-sync-get-dataset-items endpoint), then emits the actor's dataset items
+ * downstream as readable text or raw JSON.
+ */
+export interface ApifyActorNodeData extends Record<string, unknown> {
+  name: string
+  /** Actor id or `username/actorName`, e.g. "apify/web-scraper". */
+  actorId: string
+  /** Actor input as a JSON object string; supports `{{input}}` tokens. */
+  input: string
+  /** Run timeout in seconds (clamped server-side to Apify's 300s ceiling). */
+  timeoutSec: number
+  /** Cap on dataset items returned (0 ⇒ no explicit cap). */
+  maxItems: number
+  /** Downstream shape: a readable list, or the raw JSON dataset. */
+  outputFormat: 'text' | 'json'
+  /** Visual state during chain execution (mirrors agent nodes). */
+  chainState?: ChainNodeState
+  /** Error from the most recent run, if any. */
+  lastError?: string
+  /** Item count from the most recent run. */
+  lastItemCount?: number
+  /** ISO timestamp of the most recent run. */
+  lastRunAt?: string
+}
+
+/** Curated Apify actor presets shown in the node drawer's actor-id field. */
+export const APIFY_ACTOR_PRESETS: readonly string[] = [
+  'apify/web-scraper',
+  'apify/website-content-crawler',
+  'apify/google-search-scraper',
+  'apify/instagram-scraper',
+]
+
 // ─── Typed node aliases ────────────────────────────────────────────────────
 
 export type AgentFlowNode = Node<AgentNodeData, 'agent'>
@@ -297,6 +334,7 @@ export type DbSaveFlowNode = Node<DbSaveNodeData, 'db-save'>
 export type HttpRequestFlowNode = Node<HttpRequestNodeData, 'http-request'>
 export type DuckDuckGoSearchFlowNode = Node<DuckDuckGoSearchNodeData, 'duckduckgo-search'>
 export type SakanaAiFlowNode = Node<SakanaAiNodeData, 'sakana-ai'>
+export type ApifyActorFlowNode = Node<ApifyActorNodeData, 'apify-actor'>
 export type StartFlowNode = Node<StartNodeData, 'start'>
 
 /** Default branch set seeded when a Condition node is dropped onto the canvas. */
@@ -424,6 +462,15 @@ export function createSakanaAiNode(position: XYPosition, data: SakanaAiNodeData)
   }
 }
 
+export function createApifyActorNode(position: XYPosition, data: ApifyActorNodeData): ApifyActorFlowNode {
+  return {
+    id: crypto.randomUUID(),
+    type: 'apify-actor',
+    position,
+    data,
+  }
+}
+
 /** Default data seeded when a Structurer node is dropped onto the canvas. */
 export function defaultStructurerData(name: string): StructurerNodeData {
   return { name, agentSelection: [], format: 'table', schema: [], extractionMode: 'parse' }
@@ -470,6 +517,20 @@ export function defaultSakanaAiData(name: string): SakanaAiNodeData {
     temperature: 0.7,
     maxTokens: 1024,
     outputFormat: 'text',
+  }
+}
+
+/** Default data seeded when an Apify Actor node is dropped onto the canvas.
+ *  `input` defaults to an empty JSON object so a fresh node is valid; wire an
+ *  upstream output in and reference it with `{{input}}` inside the JSON. */
+export function defaultApifyActorData(name: string): ApifyActorNodeData {
+  return {
+    name,
+    actorId: APIFY_ACTOR_PRESETS[0] ?? 'apify/web-scraper',
+    input: '{}',
+    timeoutSec: 120,
+    maxItems: 10,
+    outputFormat: 'json',
   }
 }
 
@@ -572,11 +633,11 @@ export interface ConnectionLike {
 }
 
 /**
- * Pass-through transform node types (HTTP Request, DuckDuckGo Search, Sakana AI). They share
- * one wiring rule: an assistant — or another transform — feeds them, and their
- * output feeds an assistant or another transform.
+ * Pass-through transform node types (HTTP Request, DuckDuckGo Search, Sakana AI,
+ * Apify Actor). They share one wiring rule: an assistant — or another transform —
+ * feeds them, and their output feeds an assistant or another transform.
  */
-const TRANSFORM_NODE_TYPES: ReadonlySet<string> = new Set(['http-request', 'duckduckgo-search', 'sakana-ai'])
+const TRANSFORM_NODE_TYPES: ReadonlySet<string> = new Set(['http-request', 'duckduckgo-search', 'sakana-ai', 'apify-actor'])
 
 function isTransformNode(type?: string): boolean {
   return type !== undefined && TRANSFORM_NODE_TYPES.has(type)
@@ -656,23 +717,23 @@ export function connectionError(
   if (targetNode?.type === 'db-save' && sourceNode?.type !== 'structurer') {
     return 'Only a Structurer’s output can feed into a Save-to-DB node.'
   }
-  // Transform nodes (HTTP Request, DuckDuckGo Search, Sakana AI) are pass-through steps: an
-  // assistant (or another transform) feeds them, and their output feeds an
-  // assistant (or another transform). They don't wire to/from skills, sinks,
-  // conditions, etc.
+  // Transform nodes (HTTP Request, DuckDuckGo Search, Sakana AI, Apify Actor) are
+  // pass-through steps: an assistant (or another transform) feeds them, and their
+  // output feeds an assistant (or another transform). They don't wire to/from
+  // skills, sinks, conditions, etc.
   if (
     isTransformNode(targetNode?.type) &&
     sourceNode?.type !== 'agent' &&
     !isTransformNode(sourceNode?.type)
   ) {
-    return 'Only an assistant (or another HTTP Request / DuckDuckGo Search / Sakana AI node) can feed into this node.'
+    return 'Only an assistant (or another HTTP Request / DuckDuckGo Search / Sakana AI / Apify Actor node) can feed into this node.'
   }
   if (
     isTransformNode(sourceNode?.type) &&
     targetNode?.type !== 'agent' &&
     !isTransformNode(targetNode?.type)
   ) {
-    return 'This node can only connect to an assistant (or another HTTP Request / DuckDuckGo Search / Sakana AI node).'
+    return 'This node can only connect to an assistant (or another HTTP Request / DuckDuckGo Search / Sakana AI / Apify Actor node).'
   }
   // Skill / policy / MCP nodes attach to agents only.
   if (
@@ -853,6 +914,7 @@ export const DRAG_TYPES = {
   HTTP_REQUEST: 'application/rondoflow-http-request',
   DUCKDUCKGO_SEARCH: 'application/rondoflow-duckduckgo-search',
   SAKANA_AI: 'application/rondoflow-sakana-ai',
+  APIFY_ACTOR: 'application/rondoflow-apify-actor',
 } as const
 
 export type DragType = (typeof DRAG_TYPES)[keyof typeof DRAG_TYPES]

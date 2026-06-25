@@ -128,7 +128,8 @@
       "dbSave": "Guardar en BD",
       "httpRequest": "Solicitud HTTP",
       "duckduckgoSearch": "Búsqueda DuckDuckGo",
-      "sakanaAi": "Sakana AI"
+      "sakanaAi": "Sakana AI",
+      "apifyActor": "Apify Actor"
     }
   },
   "loop": {
@@ -166,7 +167,8 @@
     "dbSaveName": "Guardar en BD",
     "httpRequestName": "Solicitud HTTP",
     "duckduckgoSearchName": "Búsqueda DuckDuckGo",
-    "sakanaAiName": "Sakana AI"
+    "sakanaAiName": "Sakana AI",
+    "apifyActorName": "Apify Actor"
   },
   "node": {
     "shell": {
@@ -345,6 +347,15 @@
       "promptLabel": "Prompt",
       "noModel": "No hay modelo configurado",
       "noPrompt": "No hay prompt configurado"
+    },
+    "apifyActor": {
+      "aria": "Apify Actor: {{name}}",
+      "description": "Ejecuta cualquier actor de Apify",
+      "outputLabel": "Dataset",
+      "actorLabel": "Actor",
+      "noActor": "No hay actor configurado",
+      "lastRunLabel": "Última ejecución",
+      "items": "{{n}} elemento(s)"
     }
   },
   "edge": {

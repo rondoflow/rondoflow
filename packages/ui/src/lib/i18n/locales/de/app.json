@@ -163,7 +163,8 @@
     "dbSaveSettings": "Einstellungen zum Speichern in Datenbank",
     "httpRequestSettings": "HTTP-Anfrage-Einstellungen",
     "duckduckgoSearchSettings": "DuckDuckGo-Suche-Einstellungen",
-    "sakanaAiSettings": "Sakana-AI-Einstellungen"
+    "sakanaAiSettings": "Sakana-AI-Einstellungen",
+    "apifyActorSettings": "Apify-Actor-Einstellungen"
   },
   "empty": {
     "selectWorkspace": "Wählen Sie zuerst einen Arbeitsbereich aus"

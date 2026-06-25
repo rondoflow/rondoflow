@@ -497,5 +497,35 @@
       "json": "JSON",
       "hint": "Elige qué reciben los nodos siguientes: texto de completación o la respuesta JSON completa."
     }
+  },
+  "apifyActorNode": {
+    "title": "Apify Actor",
+    "subtitle": "Ejecuta cualquier actor de Apify durante el flujo.",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Apify Actor"
+    },
+    "actorId": {
+      "label": "ID del actor",
+      "placeholder": "apify/web-scraper",
+      "hint": "Usa el id del actor o usuario/nombre (p. ej. apify/web-scraper)."
+    },
+    "input": {
+      "label": "Entrada del actor (JSON)",
+      "placeholder": "{ \"startUrls\": [{ \"url\": \"{{input}}\" }] }",
+      "hint": "JSON enviado al actor. Usa el marcador {{token}} para insertar la salida anterior."
+    },
+    "timeout": {
+      "label": "Tiempo límite (s)"
+    },
+    "maxItems": {
+      "label": "Máx. elementos"
+    },
+    "output": {
+      "label": "Salida enviada al siguiente",
+      "text": "Texto",
+      "json": "JSON",
+      "hint": "Elige qué reciben los nodos siguientes: una lista legible o el dataset JSON sin procesar."
+    }
   }
 }

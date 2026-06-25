@@ -44,7 +44,6 @@ team execute in real time.
 
 ## Table of Contents
 
-- [Quick Start](#quick-start)
 - [Features](#features)
 - [How It Works](#how-it-works)
 - [Documentation](#documentation)
@@ -55,11 +54,6 @@ team execute in real time.
 - [Security](#security)
 - [License](#license)
 
-
-## Quick Start
-
-> **Requirements:** [Node.js 20+](https://nodejs.org), [Docker Desktop](https://www.docker.com/products/docker-desktop/), and the
-> [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated.
 
 ### Local development
 

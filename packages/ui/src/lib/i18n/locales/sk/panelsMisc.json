@@ -500,5 +500,35 @@
       "json": "JSON",
       "hint": "Vyberte, čo dostanú ďalšie uzly: text dokončenia alebo celú JSON odpoveď."
     }
+  },
+  "apifyActorNode": {
+    "title": "Apify Actor",
+    "subtitle": "Spustite ľubovoľného Apify actora počas workflowu.",
+    "name": {
+      "label": "Názov",
+      "placeholder": "Apify Actor"
+    },
+    "actorId": {
+      "label": "ID actora",
+      "placeholder": "apify/web-scraper",
+      "hint": "Použite id actora alebo username/name (napr. apify/web-scraper)."
+    },
+    "input": {
+      "label": "Vstup actora (JSON)",
+      "placeholder": "{ \"startUrls\": [{ \"url\": \"{{input}}\" }] }",
+      "hint": "JSON odoslaný actorovi. Použite zástupný symbol {{token}} na vloženie predchádzajúceho výstupu."
+    },
+    "timeout": {
+      "label": "Časový limit (s)"
+    },
+    "maxItems": {
+      "label": "Max položiek"
+    },
+    "output": {
+      "label": "Výstup posielaný ďalej",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Vyberte, čo dostanú ďalšie uzly: čitateľný zoznam alebo surový JSON dataset."
+    }
   }
 }

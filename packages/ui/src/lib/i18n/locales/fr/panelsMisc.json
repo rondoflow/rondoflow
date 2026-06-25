@@ -497,5 +497,35 @@
       "json": "JSON",
       "hint": "Choisissez ce que reçoivent les nœuds suivants : texte de complétion ou réponse JSON complète."
     }
+  },
+  "apifyActorNode": {
+    "title": "Apify Actor",
+    "subtitle": "Exécutez n'importe quel actor Apify pendant le workflow.",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Apify Actor"
+    },
+    "actorId": {
+      "label": "ID de l'actor",
+      "placeholder": "apify/web-scraper",
+      "hint": "Utilisez l'id de l'actor ou nom-utilisateur/nom (p. ex. apify/web-scraper)."
+    },
+    "input": {
+      "label": "Entrée de l'actor (JSON)",
+      "placeholder": "{ \"startUrls\": [{ \"url\": \"{{input}}\" }] }",
+      "hint": "JSON envoyé à l'actor. Utilisez le marqueur {{token}} pour injecter la sortie amont."
+    },
+    "timeout": {
+      "label": "Délai (s)"
+    },
+    "maxItems": {
+      "label": "Éléments max"
+    },
+    "output": {
+      "label": "Sortie transmise en aval",
+      "text": "Texte",
+      "json": "JSON",
+      "hint": "Choisissez ce que reçoivent les nœuds suivants : une liste lisible ou le dataset JSON brut."
+    }
   }
 }

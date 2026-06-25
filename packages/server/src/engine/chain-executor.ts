@@ -18,6 +18,8 @@ import { performDuckDuckGoSearch } from './duckduckgo-search-runner'
 import type { DuckDuckGoSearchStepConfig } from './duckduckgo-search-runner'
 import { performSakanaAiCompletion } from './sakana-ai-runner'
 import type { SakanaAiStepConfig } from './sakana-ai-runner'
+import { performApifyActorRun } from './apify-actor-runner'
+import type { ApifyActorStepConfig } from './apify-actor-runner'
 import { Director } from './director'
 import type { DirectorDecision, DirectorAgent, DirectorExecutionEntry } from './director'
 
@@ -28,14 +30,14 @@ const MAX_DATASET_BYTES = 2_000_000
 
 export interface ChainStep {
   readonly agentId: string
-  /** Step kind. Absent ⇒ 'agent'. Non-agent steps (structurer/db-save/http-request/duckduckgo-search/sakana-ai)
+  /** Step kind. Absent ⇒ 'agent'. Non-agent steps (structurer/db-save/http-request/duckduckgo-search/sakana-ai/apify-actor)
    *  carry a canvas node id in `agentId` and are not backed by an Agent row. */
-  readonly nodeType?: 'agent' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai'
+  readonly nodeType?: 'agent' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai' | 'apify-actor'
   /** Display name for non-agent steps (no Agent lookup possible). */
   readonly name?: string
   /** Spawn overrides for agent steps. */
   readonly config?: Partial<SpawnOptions>
-  /** Settings for non-agent steps (structurer/db-save/http-request/duckduckgo-search/sakana-ai node config). */
+  /** Settings for non-agent steps (structurer/db-save/http-request/duckduckgo-search/sakana-ai/apify-actor node config). */
   readonly nodeConfig?: Record<string, unknown>
   readonly conditions?: ReadonlyArray<{ pattern: string; targetStepIndex: number }>
 }
@@ -734,7 +736,7 @@ export class ChainExecutor extends EventEmitter {
     outputs: Map<number, string>,
     initialMessage: string,
   ): Promise<string> {
-    // Non-agent steps (structurer/db-save/http-request/duckduckgo-search/sakana-ai) run no
+    // Non-agent steps (structurer/db-save/http-request/duckduckgo-search/sakana-ai/apify-actor) run no
     // Claude agent, take no per-step approval, and are dispatched before any spawn
     // config is resolved.
     if (
@@ -742,7 +744,8 @@ export class ChainExecutor extends EventEmitter {
       step.nodeType === 'db-save' ||
       step.nodeType === 'http-request' ||
       step.nodeType === 'duckduckgo-search' ||
-      step.nodeType === 'sakana-ai'
+      step.nodeType === 'sakana-ai' ||
+      step.nodeType === 'apify-actor'
     ) {
       return this.runNonAgentStep(chain, step, stepIndex, predecessors, outputs)
     }
@@ -895,6 +898,8 @@ export class ChainExecutor extends EventEmitter {
             ? await this.runDuckDuckGoSearchStep(chain, step, stepIndex, predecessors, outputs)
             : step.nodeType === 'sakana-ai'
               ? await this.runSakanaAiStep(chain, step, stepIndex, predecessors, outputs)
+            : step.nodeType === 'apify-actor'
+              ? await this.runApifyActorStep(chain, step, stepIndex, predecessors, outputs)
             : await this.runDbSaveStep(chain, step, stepIndex, predecessors, outputs)
     this.emit('step_complete', { stepIndex, agentId: step.agentId, output })
     return output
@@ -1024,6 +1029,29 @@ export class ChainExecutor extends EventEmitter {
       stepIndex,
       agentId: step.agentId,
       content: `Sakana AI completion (${cfg.model})`,
+      partial: false,
+    })
+    return output
+  }
+
+  /** Run the node's Apify actor and return its dataset as downstream output. */
+  private async runApifyActorStep(
+    chain: ChainDefinition,
+    step: ChainStep,
+    stepIndex: number,
+    predecessors: Map<number, number[]>,
+    outputs: Map<number, string>,
+  ): Promise<string> {
+    const cfg = (step.nodeConfig ?? {}) as unknown as ApifyActorStepConfig
+    const { steps } = this.predecessorSteps(chain, stepIndex, predecessors, outputs)
+    const input = steps.map((s) => s.output).join('\n\n')
+
+    const { count, output } = await performApifyActorRun(cfg, input)
+
+    this.emit('step_text', {
+      stepIndex,
+      agentId: step.agentId,
+      content: `Apify actor ${cfg.actorId} returned ${count} item(s)`,
       partial: false,
     })
     return output

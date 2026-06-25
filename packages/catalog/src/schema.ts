@@ -163,10 +163,20 @@ export type WorkspacePreset = z.infer<typeof workspacePresetSchema>
 // Replaces the old imperative `load()` functions. The UI materializes these
 // into React Flow nodes via `materializeCanvasTemplate`.
 
+/** Config for an `apify-actor` template node — mirrors ApifyActorNodeData in the
+ *  UI. Only `actorId` is required; the rest fall back to the node's defaults. */
+const apifyActorSpecSchema = z.object({
+  actorId: z.string().min(1),
+  input: z.string().optional(),
+  timeoutSec: z.number().optional(),
+  maxItems: z.number().optional(),
+  outputFormat: z.enum(['text', 'json']).optional(),
+})
+
 const canvasNodeSpecSchema = z.object({
   /** Local id, unique within the template; referenced by edges. */
   key: z.string().min(1),
-  type: z.enum(['agent', 'skill']),
+  type: z.enum(['agent', 'skill', 'apify-actor']),
   position: z.object({ x: z.number(), y: z.number() }),
   name: z.string().min(1),
   description: z.string().optional(),
@@ -174,6 +184,8 @@ const canvasNodeSpecSchema = z.object({
   purpose: purposeSchema.optional(),
   icon: z.string().optional(),
   category: z.string().optional(),
+  /** Present only on `apify-actor` nodes. */
+  apifyActor: apifyActorSpecSchema.optional(),
 })
 export type CanvasNodeSpec = z.infer<typeof canvasNodeSpecSchema>
 

@@ -5,8 +5,8 @@ import type { AgentMode } from './agent'
 export interface ChainStepPayload {
   readonly agentId: string
   /** Step kind. Absent ⇒ 'agent' (legacy/agent step). Non-agent steps (structurer,
-   *  db-save, http-request, duckduckgo-search, sakana-ai) carry a canvas node id in `agentId` and are NOT backed by an Agent row. */
-  readonly nodeType?: 'agent' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai'
+   *  db-save, http-request, duckduckgo-search, sakana-ai, apify-actor) carry a canvas node id in `agentId` and are NOT backed by an Agent row. */
+  readonly nodeType?: 'agent' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai' | 'apify-actor'
   /** Display name for non-agent steps (History/labels — no Agent lookup possible). */
   readonly name?: string
   /** Settings for a non-agent step (structurer/db-save node config). */

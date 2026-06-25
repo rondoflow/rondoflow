@@ -27,6 +27,7 @@ export interface CanvasNodeData {
     | 'http-request'
     | 'duckduckgo-search'
     | 'sakana-ai'
+    | 'apify-actor'
   readonly position: { readonly x: number; readonly y: number }
   readonly data: Record<string, unknown>
 }

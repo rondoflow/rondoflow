@@ -163,7 +163,8 @@
     "dbSaveSettings": "Paramètres d'enregistrement dans la base de données",
     "httpRequestSettings": "Paramètres de requête HTTP",
     "duckduckgoSearchSettings": "Paramètres de recherche DuckDuckGo",
-    "sakanaAiSettings": "Paramètres Sakana AI"
+    "sakanaAiSettings": "Paramètres Sakana AI",
+    "apifyActorSettings": "Paramètres Apify Actor"
   },
   "empty": {
     "selectWorkspace": "Sélectionnez d'abord un espace de travail"

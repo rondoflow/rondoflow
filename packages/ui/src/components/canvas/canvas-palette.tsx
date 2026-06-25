@@ -1,6 +1,6 @@
 'use client'
 
-import { Bot, Puzzle, Shield, FolderOpen, Plug, StickyNote, Sparkles, Globe, FileOutput, Split, Mail, Table2, Database, Webhook, Search, Waves } from 'lucide-react'
+import { Bot, Puzzle, Shield, FolderOpen, Plug, StickyNote, Sparkles, Globe, FileOutput, Split, Mail, Table2, Database, Webhook, Search, Waves, Boxes } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { DRAG_TYPES } from '@/lib/canvas-utils'
 import {
@@ -15,7 +15,7 @@ import { useCanvasReadOnly } from '@/components/canvas/canvas-read-only'
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 export type PaletteNodeType =
-  | 'agent' | 'skill' | 'safety' | 'connection' | 'resource' | 'note' | 'output' | 'email' | 'condition' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai'
+  | 'agent' | 'skill' | 'safety' | 'connection' | 'resource' | 'note' | 'output' | 'email' | 'condition' | 'structurer' | 'db-save' | 'http-request' | 'duckduckgo-search' | 'sakana-ai' | 'apify-actor'
 
 interface DragItem {
   readonly icon: React.ElementType
@@ -40,6 +40,7 @@ const DRAG_ITEMS: readonly DragItem[] = [
   { icon: Webhook, labelKey: 'palette.item.httpRequest', nodeType: 'http-request', mimeType: DRAG_TYPES.HTTP_REQUEST, minTier: 'standard' },
   { icon: Search, labelKey: 'palette.item.duckduckgoSearch', nodeType: 'duckduckgo-search', mimeType: DRAG_TYPES.DUCKDUCKGO_SEARCH, minTier: 'standard' },
   { icon: Waves, labelKey: 'palette.item.sakanaAi', nodeType: 'sakana-ai', mimeType: DRAG_TYPES.SAKANA_AI, minTier: 'standard' },
+  { icon: Boxes, labelKey: 'palette.item.apifyActor', nodeType: 'apify-actor', mimeType: DRAG_TYPES.APIFY_ACTOR, minTier: 'standard' },
   { icon: Table2, labelKey: 'palette.item.structurer', nodeType: 'structurer', mimeType: DRAG_TYPES.STRUCTURER, minTier: 'standard' },
   { icon: Database, labelKey: 'palette.item.dbSave', nodeType: 'db-save', mimeType: DRAG_TYPES.DB_SAVE, minTier: 'standard' },
   { icon: Mail, labelKey: 'palette.item.email', nodeType: 'email', mimeType: DRAG_TYPES.EMAIL, minTier: 'standard' },

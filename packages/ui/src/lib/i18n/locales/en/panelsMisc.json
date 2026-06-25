@@ -497,5 +497,35 @@
       "json": "JSON",
       "hint": "Choose what downstream nodes receive: completion text, or the full JSON response."
     }
+  },
+  "apifyActorNode": {
+    "title": "Apify Actor",
+    "subtitle": "Run any Apify actor mid-workflow.",
+    "name": {
+      "label": "Name",
+      "placeholder": "Apify Actor"
+    },
+    "actorId": {
+      "label": "Actor ID",
+      "placeholder": "apify/web-scraper",
+      "hint": "Use the actor's id or its username/name (e.g. apify/web-scraper)."
+    },
+    "input": {
+      "label": "Actor input (JSON)",
+      "placeholder": "{ \"startUrls\": [{ \"url\": \"{{input}}\" }] }",
+      "hint": "JSON passed to the actor. Use the {{token}} placeholder to inject the upstream output."
+    },
+    "timeout": {
+      "label": "Timeout (s)"
+    },
+    "maxItems": {
+      "label": "Max items"
+    },
+    "output": {
+      "label": "Output passed downstream",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Choose what downstream nodes receive: a readable list, or the raw JSON dataset."
+    }
   }
 }

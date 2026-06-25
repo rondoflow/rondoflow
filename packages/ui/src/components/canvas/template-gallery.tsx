@@ -8,6 +8,7 @@ import {
   FileText,
   Search,
   Lightbulb,
+  Boxes,
   Trash2,
   Wand2,
   type LucideIcon,
@@ -43,6 +44,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   FileText,
   Search,
   Lightbulb,
+  Boxes,
 }
 
 function resolveIcon(name: string): LucideIcon {

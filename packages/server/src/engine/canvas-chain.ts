@@ -122,7 +122,8 @@ function executableNodeIds(nodes: readonly CanvasNode[]): Set<string> {
           n.type === 'db-save' ||
           n.type === 'http-request' ||
           n.type === 'duckduckgo-search' ||
-          n.type === 'sakana-ai',
+          n.type === 'sakana-ai' ||
+          n.type === 'apify-actor',
       )
       .map((n) => n.id),
   )
@@ -239,6 +240,17 @@ function sakanaAiConfig(d: Record<string, unknown>): Record<string, unknown> {
   }
 }
 
+function apifyActorConfig(d: Record<string, unknown>): Record<string, unknown> {
+  return {
+    name: d.name,
+    actorId: d.actorId,
+    input: d.input ?? '',
+    timeoutSec: d.timeoutSec,
+    maxItems: d.maxItems,
+    outputFormat: d.outputFormat,
+  }
+}
+
 interface BuiltStep {
   readonly nodeId: string
   readonly name: string
@@ -274,6 +286,9 @@ function buildSteps(
     }
     if (node.type === 'sakana-ai') {
       return { nodeId: id, name, step: { agentId: id, nodeType: 'sakana-ai', name, nodeConfig: sakanaAiConfig(d) } }
+    }
+    if (node.type === 'apify-actor') {
+      return { nodeId: id, name, step: { agentId: id, nodeType: 'apify-actor', name, nodeConfig: apifyActorConfig(d) } }
     }
     return { nodeId: id, name, step: { agentId: id } }
   })

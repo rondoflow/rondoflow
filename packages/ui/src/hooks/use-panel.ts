@@ -42,6 +42,7 @@ export type ActivePanel =
   | { readonly type: 'http-request-node'; readonly nodeId: string }
   | { readonly type: 'duckduckgo-search-node'; readonly nodeId: string }
   | { readonly type: 'sakana-ai-node'; readonly nodeId: string }
+  | { readonly type: 'apify-actor-node'; readonly nodeId: string }
   | { readonly type: 'saved-datasets' }
   | { readonly type: 'memory' }
   | { readonly type: 'users' }

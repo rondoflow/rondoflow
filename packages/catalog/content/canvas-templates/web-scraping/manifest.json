@@ -1,0 +1,43 @@
+{
+  "id": "web-scraping",
+  "name": "Web Scraping",
+  "description": "Plan a search, scrape live results with an Apify actor, then turn them into a briefing.",
+  "icon": "Boxes",
+  "order": 4,
+  "nodes": [
+    {
+      "key": "planner",
+      "type": "agent",
+      "position": { "x": 150, "y": 200 },
+      "name": "Search Planner",
+      "description": "Turns the task into one focused web search query — output only the query text.",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "scraper",
+      "type": "apify-actor",
+      "position": { "x": 470, "y": 200 },
+      "name": "Web Scraper",
+      "apifyActor": {
+        "actorId": "apify/google-search-scraper",
+        "input": "{ \"queries\": \"{{input}}\", \"maxPagesPerQuery\": 1, \"resultsPerPage\": 10 }",
+        "maxItems": 10,
+        "outputFormat": "json"
+      }
+    },
+    {
+      "key": "writer",
+      "type": "agent",
+      "position": { "x": 790, "y": 200 },
+      "name": "Briefing Writer",
+      "description": "Reads the scraped search results and writes a concise, sourced briefing.",
+      "model": "sonnet",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "planner", "target": "scraper", "edgeType": "flow" },
+    { "source": "scraper", "target": "writer", "edgeType": "flow" }
+  ]
+}

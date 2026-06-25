@@ -497,5 +497,35 @@
       "json": "JSON",
       "hint": "Wählen Sie, was nachgelagerte Knoten erhalten: Vervollständigungstext oder die vollständige JSON-Antwort."
     }
+  },
+  "apifyActorNode": {
+    "title": "Apify Actor",
+    "subtitle": "Führen Sie einen beliebigen Apify-Actor im Workflow aus.",
+    "name": {
+      "label": "Name",
+      "placeholder": "Apify Actor"
+    },
+    "actorId": {
+      "label": "Actor-ID",
+      "placeholder": "apify/web-scraper",
+      "hint": "Verwenden Sie die Actor-ID oder Benutzername/Name (z. B. apify/web-scraper)."
+    },
+    "input": {
+      "label": "Actor-Eingabe (JSON)",
+      "placeholder": "{ \"startUrls\": [{ \"url\": \"{{input}}\" }] }",
+      "hint": "JSON, das an den Actor gesendet wird. Verwenden Sie den Platzhalter {{token}}, um die Upstream-Ausgabe einzufügen."
+    },
+    "timeout": {
+      "label": "Timeout (s)"
+    },
+    "maxItems": {
+      "label": "Max. Elemente"
+    },
+    "output": {
+      "label": "Weitergegebene Ausgabe",
+      "text": "Text",
+      "json": "JSON",
+      "hint": "Wählen Sie, was nachgelagerte Knoten erhalten: eine lesbare Liste oder das rohe JSON-Dataset."
+    }
   }
 }

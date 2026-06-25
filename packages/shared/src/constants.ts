@@ -115,6 +115,11 @@ export const TIMEOUTS = {
   PERPLEXITY_DEEP_RESEARCH_MS: 30 * 60_000,
   /** Sakana AI request default, in SECONDS (server: engine/sakana-ai-runner.ts). */
   SAKANA_DEFAULT_SEC: 30,
+  /** Apify actor run-sync default timeout, in SECONDS (server: engine/apify-actor-runner.ts). */
+  APIFY_ACTOR_DEFAULT_SEC: 120,
+  /** Apify actor hard cap on the user-configured timeout, in SECONDS — Apify's
+   *  run-sync endpoint itself rejects waits longer than 300s. */
+  APIFY_ACTOR_MAX_SEC: 300,
   /** HTTP-request node default timeout, in SECONDS (server: engine/http-request-runner.ts). */
   HTTP_REQUEST_DEFAULT_SEC: 30,
   /** HTTP-request node hard cap on the user-configured timeout, in SECONDS. */

@@ -6,7 +6,7 @@
 
 import type { Node, Edge } from '@xyflow/react'
 import { CANVAS_TEMPLATES, type CanvasTemplate, type CanvasNodeSpec } from '@rondoflow/catalog'
-import { createAgentNode, createSkillNode } from './canvas-utils'
+import { createAgentNode, createSkillNode, createApifyActorNode, defaultApifyActorData } from './canvas-utils'
 import type { rondoflowEdgeData } from '@/components/canvas/edges/rondoflow-edge'
 
 export { CANVAS_TEMPLATES }
@@ -18,6 +18,22 @@ function materializeNode(spec: CanvasNodeSpec): Node {
       name: spec.name,
       icon: spec.icon,
       category: spec.category,
+    })
+  }
+  if (spec.type === 'apify-actor') {
+    const base = defaultApifyActorData(spec.name)
+    const cfg = spec.apifyActor
+    return createApifyActorNode(spec.position, {
+      ...base,
+      ...(cfg
+        ? {
+            actorId: cfg.actorId,
+            ...(cfg.input !== undefined ? { input: cfg.input } : {}),
+            ...(cfg.timeoutSec !== undefined ? { timeoutSec: cfg.timeoutSec } : {}),
+            ...(cfg.maxItems !== undefined ? { maxItems: cfg.maxItems } : {}),
+            ...(cfg.outputFormat !== undefined ? { outputFormat: cfg.outputFormat } : {}),
+          }
+        : {}),
     })
   }
   return createAgentNode(spec.position, {
