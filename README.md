@@ -49,12 +49,11 @@ team execute in real time.
 - [How It Works](#how-it-works)
 - [Documentation](#documentation)
 - [Configuration](#configuration)
-- [Development](#development)
+- [Development](#development) 
 - [Architecture](#architecture)
 - [Contributing](#contributing)
 - [Security](#security)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 
 ## Quick Start

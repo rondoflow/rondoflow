@@ -11,6 +11,7 @@ import { buildCanvasChain } from './canvas-chain'
 import { randomUUID } from 'crypto'
 import { formatRunOutput, OUTPUT_FORMAT_EXT, parseRecipients, CLAUDE_MODELS, type WorkflowOutputSpec, type WorkflowEmailSpec } from '@rondoflow/shared'
 import { readSmtpConfig, sendEmail } from '../services/email-sender'
+import { SCHEDULED_TASK_SYSTEM_PROMPT, defaultScheduledAgentPersona } from '../prompts/scheduler'
 import type { Server as SocketIOServer } from 'socket.io'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -140,7 +141,7 @@ export class Scheduler {
           agentId: `sched-${agentId.slice(0, 8)}`,
           sessionId: randomUUID(),
           message: message || 'Execute your assigned task.',
-          systemPrompt: 'You are a helpful assistant executing a scheduled task. Complete the task thoroughly.',
+          systemPrompt: SCHEDULED_TASK_SYSTEM_PROMPT,
           permissionMode: 'plan',
           maxBudgetUsd: 0.20,
           // No headless approver exists, so a 'plan'-mode permission prompt would
@@ -355,7 +356,7 @@ export class Scheduler {
           agentId: `sched-${randomUUID().slice(0, 8)}`,
           sessionId: randomUUID(),
           message,
-          systemPrompt: systemPrompt || `You are ${name}. Complete the task given to you.`,
+          systemPrompt: systemPrompt || defaultScheduledAgentPersona(name),
           model: MODEL_IDS[model] ?? MODEL_IDS.sonnet,
           permissionMode: 'plan',
           maxBudgetUsd: 0.15,
