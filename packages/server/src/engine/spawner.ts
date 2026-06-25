@@ -3,7 +3,7 @@ import { writeFileSync, unlinkSync } from 'fs'
 import { tmpdir } from 'os'
 import { join } from 'path'
 import { EventEmitter } from 'events'
-import type { TokenUsage, AgentProviderId, OpenAIProviderConfig } from '@rondoflow/shared'
+import { TIMEOUTS, type TokenUsage, type AgentProviderId, type OpenAIProviderConfig } from '@rondoflow/shared'
 import type { MergedMcpConfig } from './mcp-config-builder'
 import { estimateCostUsd } from './pricing'
 
@@ -111,11 +111,11 @@ function readMsEnv(name: string, fallback: number): number {
 // tool that emits nothing meanwhile isn't false-killed, while a genuinely stuck
 // process (a never-resolving permission prompt, a hung network call) is reaped.
 // Set RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS=0 to disable globally.
-export const DEFAULT_IDLE_TIMEOUT_MS = readMsEnv('RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS', 300_000)
+export const DEFAULT_IDLE_TIMEOUT_MS = readMsEnv('RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS', TIMEOUTS.SPAWN_IDLE_DEFAULT_MS)
 
 // Default absolute wall-clock cap. Off (0) by default because interactive agents
 // are long-lived; one-shot generators pass their own maxWallClockMs.
-export const DEFAULT_MAX_WALLCLOCK_MS = readMsEnv('RONDOFLOW_SPAWN_MAX_MS', 0)
+export const DEFAULT_MAX_WALLCLOCK_MS = readMsEnv('RONDOFLOW_SPAWN_MAX_MS', TIMEOUTS.SPAWN_WALLCLOCK_DEFAULT_MS)
 
 // A prompt value longer than this (chars) is passed to the CLI via a temp file
 // (`--system-prompt-file` / `--append-system-prompt-file`) instead of inline on

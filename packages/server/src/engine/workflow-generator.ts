@@ -14,6 +14,7 @@ import type {
   AgentPurpose,
   ModelTier,
 } from '@rondoflow/shared'
+import { TIMEOUTS } from '@rondoflow/shared'
 
 // ─── Valid values for validation ────────────────────────────────────────────
 
@@ -28,7 +29,7 @@ const VALID_SKILL_IDS = new Set(SKILL_CATALOG.map((s) => s.id))
 
 // ─── WorkflowGenerator Class ────────────────────────────────────────────────
 
-const GENERATION_TIMEOUT_MS = 90_000
+const GENERATION_TIMEOUT_MS = TIMEOUTS.WORKFLOW_GENERATION_MS
 
 export class WorkflowGenerator {
   async generate(description: string): Promise<GeneratedWorkflowWithLayout> {

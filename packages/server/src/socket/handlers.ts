@@ -1,6 +1,6 @@
 import type { Server, Socket } from 'socket.io'
 import type { ClientToServerEvents, ServerToClientEvents, TokenUsage, ResolvedPolicy, AgentMode, ChainApprovalMode, UserRole } from '@rondoflow/shared'
-import { hasMinRole, normalizeRole, ANTHROPIC } from '@rondoflow/shared'
+import { hasMinRole, normalizeRole, ANTHROPIC, TIMEOUTS } from '@rondoflow/shared'
 import { prisma } from '../lib/prisma'
 import { ProcessManager } from '../engine/process-manager'
 import { buildSpawnConfig } from '../engine/prompt-builder'
@@ -174,7 +174,7 @@ export function emitToAgentOwner<E extends keyof ServerToClientEvents>(
 const TEARDOWN_ON_DISCONNECT = process.env['RONDOFLOW_TEARDOWN_ON_DISCONNECT'] !== '0'
 const TEARDOWN_GRACE_MS = (() => {
   const n = parseInt(process.env['RONDOFLOW_TEARDOWN_GRACE_MS'] ?? '', 10)
-  return Number.isNaN(n) || n < 0 ? 60_000 : n
+  return Number.isNaN(n) || n < 0 ? TIMEOUTS.TEARDOWN_GRACE_DEFAULT_MS : n
 })()
 
 // Pending per-user teardown timers, keyed by userId.
@@ -348,7 +348,7 @@ export function registerSocketHandlers(
             description: `Tool "${payload.toolName}" requires approval: ${result.reason ?? ''}`,
             toolName: payload.toolName,
             toolInput: payload.input,
-            timeoutMs: 5 * 60 * 1_000,
+            timeoutMs: TIMEOUTS.APPROVAL_DEFAULT_MS,
           })
 
           agentApprovalMap.set(agentId, approvalId)

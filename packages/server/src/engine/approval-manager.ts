@@ -3,6 +3,7 @@
 // are ephemeral — they expire when unanswered within the timeout window.
 
 import { randomUUID } from 'crypto'
+import { TIMEOUTS } from '@rondoflow/shared'
 
 export interface PendingApproval {
   readonly id: string
@@ -16,7 +17,7 @@ export interface PendingApproval {
   readonly timeoutMs: number
 }
 
-const DEFAULT_TIMEOUT_MS = 5 * 60 * 1_000  // 5 minutes
+const DEFAULT_TIMEOUT_MS = TIMEOUTS.APPROVAL_DEFAULT_MS  // 5 minutes
 
 export class ApprovalManager {
   private readonly pending = new Map<string, PendingApproval>()

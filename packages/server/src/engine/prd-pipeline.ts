@@ -5,6 +5,7 @@
 import { EventEmitter } from 'events'
 import { randomUUID } from 'crypto'
 import { spawnSync } from 'child_process'
+import { TIMEOUTS } from '@rondoflow/shared'
 import { prisma } from '../lib/prisma'
 import { buildSpawnConfig } from './prompt-builder'
 import { ClaudeCodeSpawner } from './spawner'
@@ -308,7 +309,7 @@ function runCommand(command: string): boolean {
     const parts = command.trim().split(/\s+/)
     const [cmd, ...args] = parts
     if (!cmd) return false
-    const result = spawnSync(cmd, args, { stdio: 'ignore', timeout: 60_000 })
+    const result = spawnSync(cmd, args, { stdio: 'ignore', timeout: TIMEOUTS.PRD_COMMAND_MS })
     return result.status === 0
   } catch {
     return false

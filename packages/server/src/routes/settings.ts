@@ -1,5 +1,6 @@
 import type { FastifyInstance } from 'fastify'
 import { z } from 'zod'
+import { TIMEOUTS } from '@rondoflow/shared'
 import { sendSuccess, sendError } from '../lib/errors'
 import { rebuildAuth } from '../auth/auth'
 import {
@@ -48,7 +49,7 @@ const UpdateDirectorBudgetSchema = z.object({
 // Director per-evaluation wall-clock timeout, in seconds. null → reset to default.
 // Capped at 600s (10 min) so a misconfiguration can't wedge the chain indefinitely.
 const UpdateDirectorTimeoutSchema = z.object({
-  timeoutSec: z.number().positive().max(600).nullable(),
+  timeoutSec: z.number().positive().max(TIMEOUTS.DIRECTOR_EVAL_MAX_SEC).nullable(),
 })
 
 export async function settingsRoutes(app: FastifyInstance): Promise<void> {

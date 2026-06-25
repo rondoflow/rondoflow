@@ -12,6 +12,8 @@
 // (writes the terminal DB status so a torn-down run isn't stuck at 'running').
 // Handlers deregister at every terminal point they already clean up their own map.
 
+import { TIMEOUTS } from '@rondoflow/shared'
+
 export type RunKind = 'agent' | 'loop' | 'chain' | 'discussion' | 'pipeline'
 
 export interface RunHandle {
@@ -72,7 +74,7 @@ export async function teardownRuns(
   opts: { finalizeTimeoutMs?: number } = {},
 ): Promise<void> {
   if (handles.length === 0) return
-  const finalizeTimeoutMs = opts.finalizeTimeoutMs ?? 5_000
+  const finalizeTimeoutMs = opts.finalizeTimeoutMs ?? TIMEOUTS.RUN_FINALIZE_MS
 
   console.warn(`[run-registry] tearing down ${handles.length} run(s) — reason: ${reason}`)
 

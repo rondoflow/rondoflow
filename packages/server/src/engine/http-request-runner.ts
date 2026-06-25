@@ -5,6 +5,8 @@
 // chain executor errors the node and skips its dependents (the node's
 // "fail the step" contract). Mirrors structured-extractor.ts in shape.
 
+import { TIMEOUTS } from '@rondoflow/shared'
+
 /** One header / query-param row carried from the canvas node. */
 export interface HttpKeyValue {
   readonly key: string
@@ -33,8 +35,8 @@ export interface HttpRequestResult {
 // Never buffer an unbounded response into memory / downstream context. Mirrors
 // the 2 MB philosophy of MAX_DATASET_BYTES in chain-executor.
 const MAX_RESPONSE_BYTES = 2_000_000
-const DEFAULT_TIMEOUT_SEC = 30
-const MAX_TIMEOUT_SEC = 300
+const DEFAULT_TIMEOUT_SEC = TIMEOUTS.HTTP_REQUEST_DEFAULT_SEC
+const MAX_TIMEOUT_SEC = TIMEOUTS.HTTP_REQUEST_MAX_SEC
 
 /** Replace `{{input}}` / `{{output}}` tokens with the upstream output text. */
 export function interpolate(template: string, input: string): string {

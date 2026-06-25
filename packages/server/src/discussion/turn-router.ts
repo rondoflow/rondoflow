@@ -8,11 +8,11 @@ import { ClaudeCodeSpawner } from '../engine/spawner'
 import { buildSpawnConfig } from '../engine/prompt-builder'
 import { resolvePolicy } from '../engine/policy-resolver'
 import type { AgentRecord } from './moderator'
-import type { TokenUsage } from '@rondoflow/shared'
+import { TIMEOUTS, type TokenUsage } from '@rondoflow/shared'
 import type { ModeratorDecision } from './moderator'
 
-const DEFAULT_TURN_TIMEOUT_MS = 2 * 60 * 1_000   // 2 minutes per turn
-const MODERATOR_TURN_TIMEOUT_MS = 90 * 1_000      // 1.5 minutes for moderation decisions
+const DEFAULT_TURN_TIMEOUT_MS = TIMEOUTS.DISCUSSION_TURN_MS         // 2 minutes per turn
+const MODERATOR_TURN_TIMEOUT_MS = TIMEOUTS.DISCUSSION_MODERATOR_TURN_MS  // 1.5 minutes for moderation decisions
 
 // ---------------------------------------------------------------------------
 // Public types

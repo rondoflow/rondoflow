@@ -14,13 +14,14 @@ import {
   PERPLEXITY_DEEP_RESEARCH_MODEL,
   PERPLEXITY_DEFAULT_MODEL,
   PERPLEXITY_BASE_URL,
+  TIMEOUTS,
 } from '@rondoflow/shared'
 import type { SpawnOptions } from './spawner'
 import { StreamingApiRunner } from './streaming-runner'
 
 // Deep-research runs can take minutes; give them a wide client timeout.
-const DEEP_RESEARCH_TIMEOUT_MS = 30 * 60_000
-const DEFAULT_TIMEOUT_MS = 10 * 60_000
+const DEEP_RESEARCH_TIMEOUT_MS = TIMEOUTS.PERPLEXITY_DEEP_RESEARCH_MS
+const DEFAULT_TIMEOUT_MS = TIMEOUTS.PERPLEXITY_DEFAULT_MS
 
 // Coarse per-model pricing (USD per 1M tokens) for the `usage` estimate.
 const PERPLEXITY_PRICING_PER_MTOK: Record<string, { input: number; output: number }> = {

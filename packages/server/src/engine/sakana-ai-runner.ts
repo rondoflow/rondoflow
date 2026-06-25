@@ -1,3 +1,4 @@
+import { TIMEOUTS } from '@rondoflow/shared'
 import { interpolate } from './http-request-runner'
 
 export interface SakanaAiStepConfig {
@@ -17,7 +18,7 @@ export interface SakanaAiResult {
 
 const DEFAULT_API_URL = 'https://api.sakana.ai/v1/chat/completions'
 const DEFAULT_MODEL = 'sakana-chat'
-const DEFAULT_TIMEOUT_SEC = 30
+const DEFAULT_TIMEOUT_SEC = TIMEOUTS.SAKANA_DEFAULT_SEC
 const MAX_RESPONSE_BYTES = 2_000_000
 
 function extractText(response: unknown): string {

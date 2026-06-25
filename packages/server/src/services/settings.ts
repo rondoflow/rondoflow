@@ -1,4 +1,4 @@
-import type { SocialAuthProviders } from '@rondoflow/shared'
+import { TIMEOUTS, type SocialAuthProviders } from '@rondoflow/shared'
 import { prisma } from '../lib/prisma'
 import { encrypt, decrypt } from '../resources/encryption'
 
@@ -255,7 +255,7 @@ export async function setDirectorBudget(value: number | null): Promise<number> {
 // Setting row (not a secret, not env-backed); the Director converts to ms.
 
 const DIRECTOR_TIMEOUT_KEY = 'DIRECTOR_MAX_WALL_CLOCK_SEC'
-export const DEFAULT_DIRECTOR_TIMEOUT_SEC = 90
+export const DEFAULT_DIRECTOR_TIMEOUT_SEC = TIMEOUTS.DIRECTOR_EVAL_DEFAULT_SEC
 
 /**
  * The configured per-evaluation wall-clock timeout for the Director, in SECONDS.

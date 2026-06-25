@@ -23,7 +23,7 @@ import { useTranslation } from 'react-i18next'
 import type { ParseKeys } from 'i18next'
 import { CredentialsSection } from './credentials-section'
 import { apiGet, apiPut } from '@/lib/api'
-import { NETWORK } from '@rondoflow/shared'
+import { NETWORK, CONCURRENCY } from '@rondoflow/shared'
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -308,7 +308,7 @@ export function SettingsPanel({ open, onOpenChange }: SettingsPanelProps) {
   // ── Advanced ──────────────────────────────────────────────────────────
   const [agentTeams, setAgentTeams] = useState(() => storageGet<boolean>('agentTeams', false))
   const [maxConcurrent, setMaxConcurrent] = useState(() =>
-    storageGet<number>('maxConcurrent', 5),
+    storageGet<number>('maxConcurrent', CONCURRENCY.DEFAULT_MAX_CONCURRENT_AGENTS),
   )
   // Global per-run spend cap, backed by the server (canonical global policy).
   // '' = no cap. Loaded when the panel opens, saved on blur.

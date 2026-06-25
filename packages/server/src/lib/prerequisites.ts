@@ -1,5 +1,6 @@
 import { execFile } from 'child_process'
 import { promisify } from 'util'
+import { TIMEOUTS } from '@rondoflow/shared'
 
 const execFileAsync = promisify(execFile)
 
@@ -20,7 +21,9 @@ export interface PrerequisitesReport {
 
 async function checkClaudeCode(): Promise<PrereqResult> {
   try {
-    const { stdout } = await execFileAsync('claude', ['--version'], { timeout: 5000 })
+    const { stdout } = await execFileAsync('claude', ['--version'], {
+      timeout: TIMEOUTS.CLI_VERSION_CHECK_MS,
+    })
     return {
       name: 'Claude Code CLI',
       passed: true,
@@ -64,7 +67,9 @@ function checkClaudeAuth(): PrereqResult {
 
 async function checkDocker(): Promise<PrereqResult> {
   try {
-    const { stdout } = await execFileAsync('docker', ['--version'], { timeout: 5000 })
+    const { stdout } = await execFileAsync('docker', ['--version'], {
+      timeout: TIMEOUTS.CLI_VERSION_CHECK_MS,
+    })
     return {
       name: 'Docker',
       passed: true,

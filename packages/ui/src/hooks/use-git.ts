@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { apiGet, apiPost } from '@/lib/api'
 import type { GitStatusResult, GitLogEntry, GitBranchEntry, GitPushResult } from '@rondoflow/shared'
+import { INTERVALS } from '@rondoflow/shared'
 
 export interface UseGitReturn {
   status: GitStatusResult | null
@@ -87,7 +88,7 @@ export function useGit(active: boolean, workspaceId?: string | null): UseGitRetu
 
     intervalRef.current = setInterval(() => {
       void refreshStatus()
-    }, 10_000)
+    }, INTERVALS.GIT_STATUS_POLL_MS)
 
     return () => {
       if (intervalRef.current) {

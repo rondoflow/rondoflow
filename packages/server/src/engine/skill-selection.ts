@@ -5,18 +5,14 @@
 // every plan/generate call. We instead inject only the most relevant subset.
 
 import { SKILL_CATALOG, type CatalogSkill } from '@rondoflow/catalog'
+import { SKILL_SELECTION } from '@rondoflow/shared'
 
 // Cap on skills rendered into a prompt. Below this the whole catalog is shown
 // (no point filtering); above it we keep the top-N by relevance to the task.
-export const MAX_SKILLS_IN_PROMPT = 60
+export const MAX_SKILLS_IN_PROMPT = SKILL_SELECTION.MAX_SKILLS_IN_PROMPT
 
 // Common words that carry no signal for matching a task to a skill.
-const STOP_WORDS = new Set([
-  'the', 'and', 'for', 'with', 'that', 'this', 'from', 'into', 'your', 'you',
-  'are', 'was', 'will', 'have', 'has', 'all', 'any', 'use', 'using', 'used',
-  'can', 'should', 'when', 'then', 'them', 'they', 'its', 'our', 'out', 'who',
-  'what', 'which', 'how', 'why', 'task', 'agent', 'agents', 'workflow',
-])
+const STOP_WORDS = new Set<string>(SKILL_SELECTION.STOP_WORDS)
 
 function tokenize(text: string): string[] {
   return (text.toLowerCase().match(/[a-z0-9]+/g) ?? [])

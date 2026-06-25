@@ -3,11 +3,14 @@ import { prisma } from '../lib/prisma'
 import { createAgentRunner } from './agent-runner'
 import type { AgentRunner } from './agent-runner'
 import type { SpawnOptions } from './spawner'
-import type { TokenUsage } from '@rondoflow/shared'
+import { CONCURRENCY, INTERVALS, type TokenUsage } from '@rondoflow/shared'
 
-const MAX_CONCURRENT = parseInt(process.env['MAX_CONCURRENT_AGENTS'] ?? '5', 10)
-const MAX_QUEUE = 20
-const WATCHDOG_INTERVAL_MS = 10_000
+const MAX_CONCURRENT = parseInt(
+  process.env['MAX_CONCURRENT_AGENTS'] ?? String(CONCURRENCY.DEFAULT_MAX_CONCURRENT_AGENTS),
+  10,
+)
+const MAX_QUEUE = CONCURRENCY.MAX_QUEUE
+const WATCHDOG_INTERVAL_MS = INTERVALS.PROCESS_WATCHDOG_MS
 
 export interface RunningProcess {
   readonly spawner: AgentRunner

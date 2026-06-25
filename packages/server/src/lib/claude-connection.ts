@@ -1,4 +1,4 @@
-import { ANTHROPIC, type ClaudeConnectionResult } from '@rondoflow/shared'
+import { ANTHROPIC, TIMEOUTS, type ClaudeConnectionResult } from '@rondoflow/shared'
 import { resolveClaudeAuth } from '../engine/spawner'
 
 // Live connectivity + auth probe against the Claude API. Uses the GET
@@ -12,7 +12,7 @@ import { resolveClaudeAuth } from '../engine/spawner'
 //   • setup-token (OAuth) → `authorization: Bearer <token>` + `anthropic-beta: oauth-2025-04-20`
 // Both also send `anthropic-version`.
 
-const TIMEOUT_MS = 10_000
+const TIMEOUT_MS = TIMEOUTS.CLAUDE_CONNECTION_PROBE_MS
 
 export async function testClaudeConnection(): Promise<ClaudeConnectionResult> {
   const auth = resolveClaudeAuth()

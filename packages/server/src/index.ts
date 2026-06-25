@@ -5,7 +5,7 @@ import rateLimit from '@fastify/rate-limit'
 import { Server } from 'socket.io'
 import { createServer } from 'http'
 import type { ClientToServerEvents, ServerToClientEvents } from '@rondoflow/shared'
-import { NETWORK, LIMITS } from '@rondoflow/shared'
+import { NETWORK, LIMITS, INTERVALS } from '@rondoflow/shared'
 import { checkPrerequisites } from './lib/prerequisites'
 import { agentRoutes } from './routes/agents'
 import { skillRoutes } from './routes/skills'
@@ -242,7 +242,7 @@ async function main() {
   // Register Claude Code engine socket handlers
   registerSocketHandlers(io, processManager, approvalManager)
 
-  // Watchdog: auto-reject expired approvals every 10 s
+  // Watchdog: auto-reject expired approvals on a fixed cadence
   const approvalWatchdog = setInterval(() => {
     const expired = approvalManager.cleanupExpired()
     for (const approval of expired) {
@@ -258,7 +258,7 @@ async function main() {
       })
       emitToAgentOwner(io, approval.agentId, 'agent:status', { agentId: approval.agentId, status: 'idle' })
     }
-  }, 10_000)
+  }, INTERVALS.APPROVAL_WATCHDOG_MS)
   approvalWatchdog.unref?.()
 
   // Graceful shutdown [G6]

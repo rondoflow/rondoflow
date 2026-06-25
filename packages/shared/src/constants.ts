@@ -73,3 +73,139 @@ export const LIMITS = {
   /** Max uploaded file size — multipart upload cap + resource storage cap. */
   MAX_FILE_SIZE_BYTES: 50 * 1024 * 1024,
 } as const
+
+// ── Timeouts ─────────────────────────────────────────────────────────────────
+
+/**
+ * Operation timeouts — centralized for a single-glance overview of every wait
+ * bound in the app. Units are explicit in each key (`_MS` / `_SEC`). Values are
+ * the literal defaults; for the env-overridable ones the `process.env` read
+ * stays at the call site (as with `NETWORK` above) and only the fallback lives
+ * here. (Socket.IO's own connect timeout lives in `SOCKET` above.)
+ */
+export const TIMEOUTS = {
+  // Direct Claude / Anthropic API
+  /** Connectivity + auth probe against GET /v1/models (server: lib/claude-connection.ts). */
+  CLAUDE_CONNECTION_PROBE_MS: 10_000,
+
+  // Spawned Claude Code runs (server: engine/spawner.ts) — env-overridable defaults
+  /** Default inactivity (idle) timeout for every spawned run; 0 disables. Env: `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS`. */
+  SPAWN_IDLE_DEFAULT_MS: 300_000,
+  /** Default absolute wall-clock cap for a spawned run; 0 = off. Env: `RONDOFLOW_SPAWN_MAX_MS`. */
+  SPAWN_WALLCLOCK_DEFAULT_MS: 0,
+
+  // Discussion turns (server: discussion/turn-router.ts)
+  /** Per participant turn. */
+  DISCUSSION_TURN_MS: 2 * 60 * 1_000,
+  /** Per moderator decision turn. */
+  DISCUSSION_MODERATOR_TURN_MS: 90 * 1_000,
+
+  // One-shot generators / evaluators
+  /** Workflow generation one-shot (server: engine/workflow-generator.ts). */
+  WORKFLOW_GENERATION_MS: 90_000,
+  /** Director per-evaluation wall-clock default, in SECONDS — UI-configurable (server: services/settings.ts). */
+  DIRECTOR_EVAL_DEFAULT_SEC: 90,
+  /** Upper bound accepted for the configurable Director timeout, in SECONDS (server: routes/settings.ts). */
+  DIRECTOR_EVAL_MAX_SEC: 600,
+
+  // External provider runners
+  /** Perplexity Sonar default client timeout (server: engine/perplexity-runner.ts). */
+  PERPLEXITY_DEFAULT_MS: 10 * 60_000,
+  /** Perplexity deep-research client timeout. */
+  PERPLEXITY_DEEP_RESEARCH_MS: 30 * 60_000,
+  /** Sakana AI request default, in SECONDS (server: engine/sakana-ai-runner.ts). */
+  SAKANA_DEFAULT_SEC: 30,
+  /** HTTP-request node default timeout, in SECONDS (server: engine/http-request-runner.ts). */
+  HTTP_REQUEST_DEFAULT_SEC: 30,
+  /** HTTP-request node hard cap on the user-configured timeout, in SECONDS. */
+  HTTP_REQUEST_MAX_SEC: 300,
+
+  // Approvals (server: engine/approval-manager.ts, socket/handlers.ts)
+  /** Auto-reject an unanswered tool-approval request after this long. */
+  APPROVAL_DEFAULT_MS: 5 * 60 * 1_000,
+
+  // Lifecycle / housekeeping (server)
+  /** Grace window before tearing down a disconnected user's runs. Env: `RONDOFLOW_TEARDOWN_GRACE_MS` (socket/handlers.ts). */
+  TEARDOWN_GRACE_DEFAULT_MS: 60_000,
+  /** Bound on awaiting finalize() writes during run teardown (engine/run-registry.ts). */
+  RUN_FINALIZE_MS: 5_000,
+  /** CLI version-check probes — `claude` / `docker --version` (lib/prerequisites.ts). */
+  CLI_VERSION_CHECK_MS: 5_000,
+  /** PRD-pipeline shell-out command cap (engine/prd-pipeline.ts). */
+  PRD_COMMAND_MS: 60_000,
+} as const
+
+// ── Intervals ──────────────────────────────────────────────────────────────
+
+/**
+ * Recurring poll / watchdog cadences. (Socket.IO reconnection delays live in
+ * `SOCKET` above; short-lived UI animation/countdown ticks stay inline at their
+ * call site.)
+ */
+export const INTERVALS = {
+  /** ProcessManager watchdog sweep — reap dead child processes (server: engine/process-manager.ts). */
+  PROCESS_WATCHDOG_MS: 10_000,
+  /** Approval watchdog sweep — auto-reject expired approvals (server: index.ts). */
+  APPROVAL_WATCHDOG_MS: 10_000,
+  /** Git-status auto-refresh poll while the Git panel is open (ui: hooks/use-git.ts). */
+  GIT_STATUS_POLL_MS: 10_000,
+} as const
+
+// ── Concurrency / queue ──────────────────────────────────────────────────────
+
+/** Agent execution concurrency + queue bounds (server: engine/process-manager.ts). */
+export const CONCURRENCY = {
+  /** Default max concurrently-running agent processes. Env: `MAX_CONCURRENT_AGENTS`; also the UI default. */
+  DEFAULT_MAX_CONCURRENT_AGENTS: 5,
+  /** Max requests queued once the concurrency cap is reached, before rejecting. */
+  MAX_QUEUE: 20,
+} as const
+
+// ── Skill selection ──────────────────────────────────────────────────────────
+
+/** Tuning for relevance-filtering the skill catalog into a prompt (server: engine/skill-selection.ts). */
+export const SKILL_SELECTION = {
+  /** Cap on skills rendered into a plan/generate prompt; above it, keep the top-N by relevance. */
+  MAX_SKILLS_IN_PROMPT: 60,
+  /** Common words stripped before term-overlap scoring (they carry no matching signal). */
+  STOP_WORDS: [
+    'the',
+    'and',
+    'for',
+    'with',
+    'that',
+    'this',
+    'from',
+    'into',
+    'your',
+    'you',
+    'are',
+    'was',
+    'will',
+    'have',
+    'has',
+    'all',
+    'any',
+    'use',
+    'using',
+    'used',
+    'can',
+    'should',
+    'when',
+    'then',
+    'them',
+    'they',
+    'its',
+    'our',
+    'out',
+    'who',
+    'what',
+    'which',
+    'how',
+    'why',
+    'task',
+    'agent',
+    'agents',
+    'workflow',
+  ],
+} as const
