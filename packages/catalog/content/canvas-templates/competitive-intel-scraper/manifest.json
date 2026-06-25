@@ -1,0 +1,53 @@
+{
+  "id": "competitive-intel-scraper",
+  "name": "Competitive Intel Scraper",
+  "description": "Plan queries, scrape live competitor results with an Apify actor, profile them, then write a competitive brief.",
+  "icon": "Swords",
+  "order": 12,
+  "nodes": [
+    {
+      "key": "planner",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Query Planner",
+      "description": "Turns the target into focused search queries — output only the query text.",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "scraper",
+      "type": "apify-actor",
+      "position": { "x": 400, "y": 220 },
+      "name": "Competitor Scraper",
+      "apifyActor": {
+        "actorId": "apify/google-search-scraper",
+        "input": "{ \"queries\": \"{{input}}\", \"maxPagesPerQuery\": 1, \"resultsPerPage\": 10 }",
+        "maxItems": 10,
+        "outputFormat": "json"
+      }
+    },
+    {
+      "key": "analyst",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Intel Analyst",
+      "description": "Profiles competitors from the scraped results",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "brief-writer",
+      "type": "agent",
+      "position": { "x": 1000, "y": 220 },
+      "name": "Brief Writer",
+      "description": "Writes a competitive intelligence brief",
+      "model": "sonnet",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "planner", "target": "scraper", "edgeType": "flow" },
+    { "source": "scraper", "target": "analyst", "edgeType": "flow" },
+    { "source": "analyst", "target": "brief-writer", "edgeType": "flow" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "first-principles-facilitator",
+  "seedId": "f0000000-0000-0000-0000-00000000000f",
+  "name": "The Reductionist",
+  "description": "First-principles facilitator that strips inherited assumptions down to fundamentals and rebuilds the reasoning from the base.",
+  "icon": "Atom",
+  "model": "sonnet",
+  "recommendedFormats": ["brainstorm", "deliberation"],
+  "tags": [
+    "first-principles",
+    "fundamentals",
+    "assumptions",
+    "deconstruction",
+    "reasoning",
+    "clarity",
+    "brainstorm",
+    "deliberation"
+  ],
+  "order": 14
+}

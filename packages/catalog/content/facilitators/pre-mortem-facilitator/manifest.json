@@ -1,0 +1,20 @@
+{
+  "id": "pre-mortem-facilitator",
+  "seedId": "f0000000-0000-0000-0000-00000000000d",
+  "name": "The Saboteur",
+  "description": "Pre-mortem facilitator that assumes the plan already failed and works backward to find the failure modes before they happen.",
+  "icon": "Bomb",
+  "model": "opus",
+  "recommendedFormats": ["deliberation", "review"],
+  "tags": [
+    "pre-mortem",
+    "failure-modes",
+    "risk",
+    "red-team",
+    "resilience",
+    "mitigation",
+    "deliberation",
+    "review"
+  ],
+  "order": 12
+}

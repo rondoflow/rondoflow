@@ -1,0 +1,40 @@
+{
+  "id": "meeting-notes-team",
+  "name": "Meeting Notes & Actions",
+  "description": "Summarize a transcript, then split into an action-item extractor and a recap-email writer in parallel.",
+  "icon": "ClipboardList",
+  "order": 15,
+  "nodes": [
+    {
+      "key": "summarizer",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Summarizer",
+      "description": "Summarizes the meeting transcript",
+      "model": "haiku",
+      "purpose": "analysis"
+    },
+    {
+      "key": "action-extractor",
+      "type": "agent",
+      "position": { "x": 400, "y": 90 },
+      "name": "Action Extractor",
+      "description": "Extracts decisions and action items with owners",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "recap-writer",
+      "type": "agent",
+      "position": { "x": 400, "y": 350 },
+      "name": "Recap Writer",
+      "description": "Drafts a recap email to attendees",
+      "model": "sonnet",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "summarizer", "target": "action-extractor", "edgeType": "flow" },
+    { "source": "summarizer", "target": "recap-writer", "edgeType": "flow" }
+  ]
+}

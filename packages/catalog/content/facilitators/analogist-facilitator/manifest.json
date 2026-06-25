@@ -1,0 +1,20 @@
+{
+  "id": "analogist-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000012",
+  "name": "The Analogist",
+  "description": "Lateral-thinking facilitator that imports analogies from other domains to reframe the problem and unlock non-obvious ideas.",
+  "icon": "Shuffle",
+  "model": "sonnet",
+  "recommendedFormats": ["brainstorm"],
+  "tags": [
+    "analogy",
+    "lateral-thinking",
+    "cross-domain",
+    "reframing",
+    "creativity",
+    "ideation",
+    "pattern",
+    "brainstorm"
+  ],
+  "order": 17
+}

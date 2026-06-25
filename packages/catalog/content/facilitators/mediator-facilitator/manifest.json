@@ -1,0 +1,20 @@
+{
+  "id": "mediator-facilitator",
+  "seedId": "f0000000-0000-0000-0000-000000000010",
+  "name": "The Mediator",
+  "description": "Conflict-resolution facilitator that separates positions from underlying interests, de-escalates, and finds the option that serves the most of them.",
+  "icon": "Handshake",
+  "model": "sonnet",
+  "recommendedFormats": ["deliberation"],
+  "tags": [
+    "mediation",
+    "conflict-resolution",
+    "interests",
+    "de-escalation",
+    "negotiation",
+    "alignment",
+    "empathy",
+    "deliberation"
+  ],
+  "order": 15
+}

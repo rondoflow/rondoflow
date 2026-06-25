@@ -1,0 +1,50 @@
+{
+  "id": "course-lesson-planner",
+  "name": "Course & Lesson Planner",
+  "description": "Set learning objectives, structure modules, draft lesson content, then build exercises and a quiz.",
+  "icon": "GraduationCap",
+  "order": 18,
+  "nodes": [
+    {
+      "key": "objectives",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Objectives Designer",
+      "description": "Sets learning objectives and prerequisites",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "curriculum",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Curriculum Architect",
+      "description": "Structures modules and lessons",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "lesson-writer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Lesson Writer",
+      "description": "Drafts lesson content with examples",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "quiz-builder",
+      "type": "agent",
+      "position": { "x": 1000, "y": 220 },
+      "name": "Quiz Builder",
+      "description": "Creates exercises and a quiz",
+      "model": "haiku",
+      "purpose": "creative"
+    }
+  ],
+  "edges": [
+    { "source": "objectives", "target": "curriculum", "edgeType": "flow" },
+    { "source": "curriculum", "target": "lesson-writer", "edgeType": "flow" },
+    { "source": "lesson-writer", "target": "quiz-builder", "edgeType": "flow" }
+  ]
+}

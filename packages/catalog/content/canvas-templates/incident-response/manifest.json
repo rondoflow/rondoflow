@@ -1,0 +1,51 @@
+{
+  "id": "incident-response",
+  "name": "Incident Response",
+  "description": "Triage an alert, then diagnose the root cause and draft stakeholder updates in parallel, before writing a blameless postmortem.",
+  "icon": "ShieldAlert",
+  "order": 21,
+  "nodes": [
+    {
+      "key": "detector",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Triage",
+      "description": "Triages the alert and assesses severity",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "diagnoser",
+      "type": "agent",
+      "position": { "x": 400, "y": 90 },
+      "name": "Diagnoser",
+      "description": "Diagnoses the root cause",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "communicator",
+      "type": "agent",
+      "position": { "x": 400, "y": 350 },
+      "name": "Communicator",
+      "description": "Drafts status updates for stakeholders",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "postmortem",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Postmortem Writer",
+      "description": "Writes the blameless postmortem with action items",
+      "model": "sonnet",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "detector", "target": "diagnoser", "edgeType": "flow" },
+    { "source": "detector", "target": "communicator", "edgeType": "flow" },
+    { "source": "diagnoser", "target": "postmortem", "edgeType": "flow" },
+    { "source": "communicator", "target": "postmortem", "edgeType": "flow" }
+  ]
+}

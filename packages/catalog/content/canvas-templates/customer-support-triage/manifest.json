@@ -1,0 +1,51 @@
+{
+  "id": "customer-support-triage",
+  "name": "Customer Support Triage",
+  "description": "Classify an incoming ticket, route it to a billing or technical resolver in parallel, then write one empathetic reply.",
+  "icon": "LifeBuoy",
+  "order": 6,
+  "nodes": [
+    {
+      "key": "classifier",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Ticket Classifier",
+      "description": "Classifies the ticket by type and urgency",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "billing",
+      "type": "agent",
+      "position": { "x": 400, "y": 90 },
+      "name": "Billing Resolver",
+      "description": "Resolves billing and account questions",
+      "model": "sonnet",
+      "purpose": "general"
+    },
+    {
+      "key": "technical",
+      "type": "agent",
+      "position": { "x": 400, "y": 350 },
+      "name": "Technical Resolver",
+      "description": "Diagnoses and resolves technical issues",
+      "model": "sonnet",
+      "purpose": "coding"
+    },
+    {
+      "key": "responder",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Responder",
+      "description": "Writes the final empathetic customer reply",
+      "model": "sonnet",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "classifier", "target": "billing", "edgeType": "flow" },
+    { "source": "classifier", "target": "technical", "edgeType": "flow" },
+    { "source": "billing", "target": "responder", "edgeType": "flow" },
+    { "source": "technical", "target": "responder", "edgeType": "flow" }
+  ]
+}

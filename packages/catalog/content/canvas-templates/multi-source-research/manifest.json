@@ -1,0 +1,57 @@
+{
+  "id": "multi-source-research",
+  "name": "Multi-Source Research",
+  "description": "Plan queries, scrape web and news sources in parallel with two Apify actors, then synthesize a cited brief.",
+  "icon": "Telescope",
+  "order": 23,
+  "nodes": [
+    {
+      "key": "planner",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Query Planner",
+      "description": "Plans queries for web and news sources — output only the query text.",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "web-scraper",
+      "type": "apify-actor",
+      "position": { "x": 400, "y": 90 },
+      "name": "Web Scraper",
+      "apifyActor": {
+        "actorId": "apify/google-search-scraper",
+        "input": "{ \"queries\": \"{{input}}\", \"maxPagesPerQuery\": 1, \"resultsPerPage\": 10 }",
+        "maxItems": 10,
+        "outputFormat": "json"
+      }
+    },
+    {
+      "key": "news-scraper",
+      "type": "apify-actor",
+      "position": { "x": 400, "y": 350 },
+      "name": "News Scraper",
+      "apifyActor": {
+        "actorId": "apify/google-search-scraper",
+        "input": "{ \"queries\": \"{{input}} news\", \"maxPagesPerQuery\": 1, \"resultsPerPage\": 10 }",
+        "maxItems": 10,
+        "outputFormat": "json"
+      }
+    },
+    {
+      "key": "synthesizer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Synthesizer",
+      "description": "Synthesizes both sources into a cited brief",
+      "model": "opus",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "planner", "target": "web-scraper", "edgeType": "flow" },
+    { "source": "planner", "target": "news-scraper", "edgeType": "flow" },
+    { "source": "web-scraper", "target": "synthesizer", "edgeType": "flow" },
+    { "source": "news-scraper", "target": "synthesizer", "edgeType": "flow" }
+  ]
+}

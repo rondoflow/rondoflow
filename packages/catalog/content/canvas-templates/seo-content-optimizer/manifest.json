@@ -1,0 +1,49 @@
+{
+  "id": "seo-content-optimizer",
+  "name": "SEO Content Optimizer",
+  "description": "Audit a page for SEO gaps, rewrite it for keywords and structure, then generate meta tags — with Web Search attached.",
+  "icon": "TrendingUp",
+  "order": 8,
+  "nodes": [
+    {
+      "key": "auditor",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "SEO Auditor",
+      "description": "Audits the page for SEO gaps and keyword coverage",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "optimizer",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Content Optimizer",
+      "description": "Rewrites content for keywords, structure, and readability",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "meta-writer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Meta Writer",
+      "description": "Produces title tag, meta description, and slug",
+      "model": "haiku",
+      "purpose": "writing"
+    },
+    {
+      "key": "search-skill",
+      "type": "skill",
+      "position": { "x": 100, "y": 400 },
+      "name": "Web Search",
+      "icon": "search",
+      "category": "information"
+    }
+  ],
+  "edges": [
+    { "source": "auditor", "target": "optimizer", "edgeType": "flow" },
+    { "source": "optimizer", "target": "meta-writer", "edgeType": "flow" },
+    { "source": "search-skill", "target": "auditor", "edgeType": "association" }
+  ]
+}

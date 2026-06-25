@@ -1,0 +1,49 @@
+{
+  "id": "financial-analysis",
+  "name": "Financial Analysis",
+  "description": "Collect the figures, compute ratios and trends, then write an executive summary — with a Data Analysis skill attached.",
+  "icon": "Wallet",
+  "order": 19,
+  "nodes": [
+    {
+      "key": "collector",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Data Collector",
+      "description": "Collects and organizes the financial figures",
+      "model": "sonnet",
+      "purpose": "data"
+    },
+    {
+      "key": "analyst",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Financial Analyst",
+      "description": "Computes ratios, trends, and red flags",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "advisor",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Advisor",
+      "description": "Writes an executive financial summary",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "data-skill",
+      "type": "skill",
+      "position": { "x": 400, "y": 400 },
+      "name": "Data Analysis",
+      "icon": "bar-chart",
+      "category": "analysis"
+    }
+  ],
+  "edges": [
+    { "source": "collector", "target": "analyst", "edgeType": "flow" },
+    { "source": "analyst", "target": "advisor", "edgeType": "flow" },
+    { "source": "data-skill", "target": "analyst", "edgeType": "association" }
+  ]
+}

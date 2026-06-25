@@ -1,0 +1,43 @@
+{
+  "id": "market-research-scraper",
+  "name": "Market Research Scraper",
+  "description": "Plan market queries, scrape live results with an Apify actor, then synthesize demand signals into a brief.",
+  "icon": "LineChart",
+  "order": 16,
+  "nodes": [
+    {
+      "key": "planner",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Query Planner",
+      "description": "Turns the category into focused market queries — output only the query text.",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "scraper",
+      "type": "apify-actor",
+      "position": { "x": 400, "y": 220 },
+      "name": "Market Scraper",
+      "apifyActor": {
+        "actorId": "apify/google-search-scraper",
+        "input": "{ \"queries\": \"{{input}}\", \"maxPagesPerQuery\": 1, \"resultsPerPage\": 10 }",
+        "maxItems": 10,
+        "outputFormat": "json"
+      }
+    },
+    {
+      "key": "synthesizer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Market Synthesizer",
+      "description": "Synthesizes demand signals and trends into a market brief",
+      "model": "opus",
+      "purpose": "analysis"
+    }
+  ],
+  "edges": [
+    { "source": "planner", "target": "scraper", "edgeType": "flow" },
+    { "source": "scraper", "target": "synthesizer", "edgeType": "flow" }
+  ]
+}

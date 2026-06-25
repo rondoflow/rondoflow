@@ -1,0 +1,20 @@
+{
+  "id": "user-advocate-facilitator",
+  "seedId": "f0000000-0000-0000-0000-00000000000c",
+  "name": "The Advocate",
+  "description": "User-first facilitator that keeps every idea tethered to a real person's need and asks whether they would actually want it.",
+  "icon": "HeartHandshake",
+  "model": "sonnet",
+  "recommendedFormats": ["brainstorm", "deliberation", "review"],
+  "tags": [
+    "user-advocate",
+    "customer",
+    "value",
+    "empathy",
+    "jobs-to-be-done",
+    "brainstorm",
+    "deliberation",
+    "review"
+  ],
+  "order": 11
+}

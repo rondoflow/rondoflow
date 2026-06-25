@@ -1,0 +1,40 @@
+{
+  "id": "translation-localization",
+  "name": "Translation & Localization",
+  "description": "Translate source text, adapt it for the local audience, then review for accuracy and fluency.",
+  "icon": "Languages",
+  "order": 7,
+  "nodes": [
+    {
+      "key": "translator",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Translator",
+      "description": "Translates the source text faithfully",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "localizer",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Localizer",
+      "description": "Adapts tone, idioms, units, and cultural references",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "reviewer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Linguistic Reviewer",
+      "description": "Checks accuracy, fluency, and consistency",
+      "model": "opus",
+      "purpose": "review"
+    }
+  ],
+  "edges": [
+    { "source": "translator", "target": "localizer", "edgeType": "flow" },
+    { "source": "localizer", "target": "reviewer", "edgeType": "flow" }
+  ]
+}

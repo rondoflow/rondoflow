@@ -1,0 +1,40 @@
+{
+  "id": "social-media-pipeline",
+  "name": "Social Media Pipeline",
+  "description": "Generate post ideas, write platform-native captions, then lay them out on a publishing calendar.",
+  "icon": "Share2",
+  "order": 11,
+  "nodes": [
+    {
+      "key": "ideator",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Idea Generator",
+      "description": "Generates post ideas across platforms",
+      "model": "sonnet",
+      "purpose": "creative"
+    },
+    {
+      "key": "writer",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Caption Writer",
+      "description": "Writes platform-native captions and hooks",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "scheduler",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Scheduler",
+      "description": "Lays posts into a publishing calendar",
+      "model": "haiku",
+      "purpose": "general"
+    }
+  ],
+  "edges": [
+    { "source": "ideator", "target": "writer", "edgeType": "flow" },
+    { "source": "writer", "target": "scheduler", "edgeType": "flow" }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "orchestrated-team",
+  "name": "Orchestrated Team",
+  "description": "An orchestrator delegates to research, build, and write workers in parallel, then a synthesizer integrates their output.",
+  "icon": "Network",
+  "order": 22,
+  "nodes": [
+    {
+      "key": "orchestrator",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Orchestrator",
+      "description": "Breaks the task into subtasks and delegates",
+      "model": "opus",
+      "purpose": "general"
+    },
+    {
+      "key": "worker-research",
+      "type": "agent",
+      "position": { "x": 400, "y": 60 },
+      "name": "Research Worker",
+      "description": "Handles the research subtask",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "worker-build",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Build Worker",
+      "description": "Handles the implementation subtask",
+      "model": "sonnet",
+      "purpose": "coding"
+    },
+    {
+      "key": "worker-write",
+      "type": "agent",
+      "position": { "x": 400, "y": 380 },
+      "name": "Writing Worker",
+      "description": "Handles the writing subtask",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "synthesizer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Synthesizer",
+      "description": "Integrates the workers' outputs into one result",
+      "model": "opus",
+      "purpose": "analysis"
+    }
+  ],
+  "edges": [
+    { "source": "orchestrator", "target": "worker-research", "edgeType": "flow" },
+    { "source": "orchestrator", "target": "worker-build", "edgeType": "flow" },
+    { "source": "orchestrator", "target": "worker-write", "edgeType": "flow" },
+    { "source": "worker-research", "target": "synthesizer", "edgeType": "flow" },
+    { "source": "worker-build", "target": "synthesizer", "edgeType": "flow" },
+    { "source": "worker-write", "target": "synthesizer", "edgeType": "flow" }
+  ]
+}

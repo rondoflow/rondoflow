@@ -1,0 +1,40 @@
+{
+  "id": "documentation-generator",
+  "name": "Documentation Generator",
+  "description": "Read the code, write reference and usage docs, then edit for clarity and completeness.",
+  "icon": "BookOpen",
+  "order": 14,
+  "nodes": [
+    {
+      "key": "code-reader",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Code Reader",
+      "description": "Reads the code and extracts its structure and behavior",
+      "model": "sonnet",
+      "purpose": "coding"
+    },
+    {
+      "key": "doc-writer",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Doc Writer",
+      "description": "Writes clear reference and usage documentation",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "editor",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Docs Editor",
+      "description": "Polishes for clarity, consistency, and completeness",
+      "model": "sonnet",
+      "purpose": "review"
+    }
+  ],
+  "edges": [
+    { "source": "code-reader", "target": "doc-writer", "edgeType": "flow" },
+    { "source": "doc-writer", "target": "editor", "edgeType": "flow" }
+  ]
+}

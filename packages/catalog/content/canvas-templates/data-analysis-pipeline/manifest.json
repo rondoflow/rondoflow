@@ -1,0 +1,49 @@
+{
+  "id": "data-analysis-pipeline",
+  "name": "Data Analysis Pipeline",
+  "description": "Load and clean data, run exploratory analysis, then write an insights report — with a Data Analysis skill attached.",
+  "icon": "BarChart3",
+  "order": 5,
+  "nodes": [
+    {
+      "key": "loader",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Data Loader",
+      "description": "Loads, cleans, and profiles the raw dataset",
+      "model": "sonnet",
+      "purpose": "data"
+    },
+    {
+      "key": "analyst",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Analyst",
+      "description": "Runs exploratory analysis and surfaces patterns",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "report-writer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Report Writer",
+      "description": "Writes a clear insights report from the findings",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "data-skill",
+      "type": "skill",
+      "position": { "x": 400, "y": 400 },
+      "name": "Data Analysis",
+      "icon": "bar-chart",
+      "category": "analysis"
+    }
+  ],
+  "edges": [
+    { "source": "loader", "target": "analyst", "edgeType": "flow" },
+    { "source": "analyst", "target": "report-writer", "edgeType": "flow" },
+    { "source": "data-skill", "target": "analyst", "edgeType": "association" }
+  ]
+}

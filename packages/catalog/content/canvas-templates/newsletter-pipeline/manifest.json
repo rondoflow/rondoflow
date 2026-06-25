@@ -1,0 +1,49 @@
+{
+  "id": "newsletter-pipeline",
+  "name": "Newsletter Pipeline",
+  "description": "Curate the top stories, write the newsletter, then edit for voice and flow — with Web Search attached.",
+  "icon": "Newspaper",
+  "order": 24,
+  "nodes": [
+    {
+      "key": "curator",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Curator",
+      "description": "Curates and ranks the most relevant stories",
+      "model": "sonnet",
+      "purpose": "research"
+    },
+    {
+      "key": "writer",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Newsletter Writer",
+      "description": "Writes the newsletter with summaries and commentary",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "editor",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Editor",
+      "description": "Edits for voice, length, and flow",
+      "model": "sonnet",
+      "purpose": "review"
+    },
+    {
+      "key": "search-skill",
+      "type": "skill",
+      "position": { "x": 100, "y": 400 },
+      "name": "Web Search",
+      "icon": "search",
+      "category": "information"
+    }
+  ],
+  "edges": [
+    { "source": "curator", "target": "writer", "edgeType": "flow" },
+    { "source": "writer", "target": "editor", "edgeType": "flow" },
+    { "source": "search-skill", "target": "curator", "edgeType": "association" }
+  ]
+}

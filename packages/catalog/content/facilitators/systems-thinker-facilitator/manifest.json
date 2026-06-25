@@ -1,0 +1,20 @@
+{
+  "id": "systems-thinker-facilitator",
+  "seedId": "f0000000-0000-0000-0000-00000000000e",
+  "name": "The Cartographer",
+  "description": "Systems-thinking facilitator that maps interdependencies and feedback loops and finds the leverage point where a small change moves the whole.",
+  "icon": "Network",
+  "model": "opus",
+  "recommendedFormats": ["deliberation", "review"],
+  "tags": [
+    "systems-thinking",
+    "interdependencies",
+    "feedback-loops",
+    "leverage-points",
+    "second-order",
+    "mapping",
+    "deliberation",
+    "review"
+  ],
+  "order": 13
+}

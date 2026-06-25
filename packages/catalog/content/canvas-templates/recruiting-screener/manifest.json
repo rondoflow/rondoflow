@@ -1,0 +1,40 @@
+{
+  "id": "recruiting-screener",
+  "name": "Recruiting Screener",
+  "description": "Turn a job description into an ideal profile, screen candidates against it, then produce screening questions and a scorecard.",
+  "icon": "UserSearch",
+  "order": 20,
+  "nodes": [
+    {
+      "key": "jd-analyzer",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "JD Analyzer",
+      "description": "Analyzes the job description into an ideal profile",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "screener",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Candidate Screener",
+      "description": "Screens candidates against the profile and scores them",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "interview-kit",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Interview Kit Builder",
+      "description": "Produces screening questions and a scorecard",
+      "model": "haiku",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "jd-analyzer", "target": "screener", "edgeType": "flow" },
+    { "source": "screener", "target": "interview-kit", "edgeType": "flow" }
+  ]
+}

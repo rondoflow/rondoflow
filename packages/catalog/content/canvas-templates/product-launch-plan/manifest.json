@@ -1,0 +1,51 @@
+{
+  "id": "product-launch-plan",
+  "name": "Product Launch Plan",
+  "description": "A strategist sets positioning, then a copywriter and channel planner work in parallel before a coordinator assembles the plan.",
+  "icon": "Rocket",
+  "order": 9,
+  "nodes": [
+    {
+      "key": "strategist",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Launch Strategist",
+      "description": "Defines positioning, audience, and launch goals",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "copywriter",
+      "type": "agent",
+      "position": { "x": 400, "y": 90 },
+      "name": "Copywriter",
+      "description": "Writes launch messaging and announcement copy",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "channel-planner",
+      "type": "agent",
+      "position": { "x": 400, "y": 350 },
+      "name": "Channel Planner",
+      "description": "Plans channels, timeline, and tactics",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "coordinator",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Launch Coordinator",
+      "description": "Assembles the go-to-market launch plan",
+      "model": "sonnet",
+      "purpose": "general"
+    }
+  ],
+  "edges": [
+    { "source": "strategist", "target": "copywriter", "edgeType": "flow" },
+    { "source": "strategist", "target": "channel-planner", "edgeType": "flow" },
+    { "source": "copywriter", "target": "coordinator", "edgeType": "flow" },
+    { "source": "channel-planner", "target": "coordinator", "edgeType": "flow" }
+  ]
+}

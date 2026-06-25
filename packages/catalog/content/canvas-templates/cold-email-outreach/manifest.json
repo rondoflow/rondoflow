@@ -1,0 +1,49 @@
+{
+  "id": "cold-email-outreach",
+  "name": "Cold Email Outreach",
+  "description": "Research a prospect, write a personalized multi-touch sequence, then QA tone and deliverability — with Web Search attached.",
+  "icon": "Mail",
+  "order": 13,
+  "nodes": [
+    {
+      "key": "researcher",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Prospect Researcher",
+      "description": "Researches the prospect and finds a hook",
+      "model": "opus",
+      "purpose": "research"
+    },
+    {
+      "key": "writer",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Sequence Writer",
+      "description": "Writes a personalized multi-touch email sequence",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "qa",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Deliverability QA",
+      "description": "Checks tone, length, and deliverability",
+      "model": "haiku",
+      "purpose": "review"
+    },
+    {
+      "key": "search-skill",
+      "type": "skill",
+      "position": { "x": 100, "y": 400 },
+      "name": "Web Search",
+      "icon": "search",
+      "category": "information"
+    }
+  ],
+  "edges": [
+    { "source": "researcher", "target": "writer", "edgeType": "flow" },
+    { "source": "writer", "target": "qa", "edgeType": "flow" },
+    { "source": "search-skill", "target": "researcher", "edgeType": "association" }
+  ]
+}

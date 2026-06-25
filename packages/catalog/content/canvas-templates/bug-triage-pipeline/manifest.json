@@ -1,0 +1,40 @@
+{
+  "id": "bug-triage-pipeline",
+  "name": "Bug Triage Pipeline",
+  "description": "Reproduce the bug, trace it to a root cause, then propose a minimal fix and a regression test.",
+  "icon": "Bug",
+  "order": 10,
+  "nodes": [
+    {
+      "key": "reproducer",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Reproducer",
+      "description": "Reproduces the bug and records exact steps",
+      "model": "haiku",
+      "purpose": "analysis"
+    },
+    {
+      "key": "investigator",
+      "type": "agent",
+      "position": { "x": 400, "y": 220 },
+      "name": "Root-Cause Investigator",
+      "description": "Traces the failure to its root cause",
+      "model": "opus",
+      "purpose": "analysis"
+    },
+    {
+      "key": "fixer",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Fixer",
+      "description": "Proposes a minimal fix and a regression test",
+      "model": "opus",
+      "purpose": "coding"
+    }
+  ],
+  "edges": [
+    { "source": "reproducer", "target": "investigator", "edgeType": "flow" },
+    { "source": "investigator", "target": "fixer", "edgeType": "flow" }
+  ]
+}

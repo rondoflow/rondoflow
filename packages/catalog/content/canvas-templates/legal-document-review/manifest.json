@@ -1,0 +1,51 @@
+{
+  "id": "legal-document-review",
+  "name": "Legal Document Review",
+  "description": "Extract clauses, then flag risks and explain in plain English in parallel, before drafting redline suggestions.",
+  "icon": "Scale",
+  "order": 17,
+  "nodes": [
+    {
+      "key": "extractor",
+      "type": "agent",
+      "position": { "x": 100, "y": 220 },
+      "name": "Clause Extractor",
+      "description": "Extracts key clauses and terms",
+      "model": "sonnet",
+      "purpose": "analysis"
+    },
+    {
+      "key": "risk-flagger",
+      "type": "agent",
+      "position": { "x": 400, "y": 90 },
+      "name": "Risk Flagger",
+      "description": "Flags risky or one-sided terms",
+      "model": "opus",
+      "purpose": "review"
+    },
+    {
+      "key": "explainer",
+      "type": "agent",
+      "position": { "x": 400, "y": 350 },
+      "name": "Plain-English Explainer",
+      "description": "Explains clauses in plain English",
+      "model": "sonnet",
+      "purpose": "writing"
+    },
+    {
+      "key": "redliner",
+      "type": "agent",
+      "position": { "x": 700, "y": 220 },
+      "name": "Redline Drafter",
+      "description": "Drafts redline suggestions and questions",
+      "model": "sonnet",
+      "purpose": "writing"
+    }
+  ],
+  "edges": [
+    { "source": "extractor", "target": "risk-flagger", "edgeType": "flow" },
+    { "source": "extractor", "target": "explainer", "edgeType": "flow" },
+    { "source": "risk-flagger", "target": "redliner", "edgeType": "flow" },
+    { "source": "explainer", "target": "redliner", "edgeType": "flow" }
+  ]
+}
