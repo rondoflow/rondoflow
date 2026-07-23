@@ -700,7 +700,10 @@ export class ClaudeCodeSpawner extends EventEmitter {
       // to the inline arg. It may still E2BIG on a huge value, but that matches
       // the pre-existing behavior rather than introducing a new failure mode.
       console.warn(
-        `${this.logLabel()} could not write ${label} temp file (${file}) — passing inline:`,
+        '%s could not write %s temp file (%s) — passing inline:',
+        this.logLabel(),
+        label,
+        file,
         err instanceof Error ? err.message : err,
       )
       return null
