@@ -1,6 +1,7 @@
 import type { Server, Socket } from 'socket.io'
 import type { ClientToServerEvents, ServerToClientEvents, TokenUsage, ResolvedPolicy, AgentMode, ChainApprovalMode, UserRole } from '@rondoflow/shared'
 import { hasMinRole, normalizeRole, ANTHROPIC, TIMEOUTS } from '@rondoflow/shared'
+import { randomBytes } from 'crypto'
 import { prisma } from '../lib/prisma'
 import { ProcessManager } from '../engine/process-manager'
 import { buildSpawnConfig } from '../engine/prompt-builder'
@@ -1332,7 +1333,7 @@ async function handleChainExecute(
   io: Server<ClientToServerEvents, ServerToClientEvents>,
   data: { chainId?: string; definition: ChainDefinitionPayload; initialMessage: string; workspaceId?: string; director?: boolean; directorRigor?: number; directorCustomInstructions?: string; planner?: boolean; plannerCustomInstructions?: string; approvalMode?: ChainApprovalMode },
 ): Promise<void> {
-  const chainId = data.chainId ?? `chain-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
+  const chainId = data.chainId ?? `chain-${Date.now()}-${randomBytes(4).toString('hex')}`
   const room = socketRoom(socket)
 
   // Viewers are read-only — reject before any state lookup/emit.
