@@ -44,7 +44,7 @@
     "eslint": "^8",
     "eslint-config-next": "^15.5.14",
     "eslint-plugin-i18next": "^6.1.4",
-    "postcss": "^8",
+    "postcss": "^8.5.18",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "vitest": "^4.1.0"
