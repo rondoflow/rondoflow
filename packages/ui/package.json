@@ -23,7 +23,7 @@
     "@rondoflow/catalog": "*",
     "@rondoflow/shared": "*",
     "@xyflow/react": "^12.10.1",
-    "better-auth": "^1.5.5",
+    "better-auth": "^1.6.25",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^26.3.1",
