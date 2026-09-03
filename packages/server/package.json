@@ -20,7 +20,7 @@
     "@rondoflow/shared": "*",
     "better-auth": "^1.6.25",
     "croner": "^10.0.1",
-    "fastify": "^5.2.0",
+    "fastify": "^5.12.1",
     "nodemailer": "^9.0.1",
     "openai": "^6.42.0",
     "socket.io": "^4.8.0",
