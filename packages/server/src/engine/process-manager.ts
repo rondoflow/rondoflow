@@ -4,6 +4,7 @@ import { createAgentRunner } from './agent-runner'
 import type { AgentRunner } from './agent-runner'
 import type { SpawnOptions } from './spawner'
 import { CONCURRENCY, INTERVALS, type TokenUsage } from '@rondoflow/shared'
+import { v4 as uuidv4 } from "uuid"
 
 const MAX_CONCURRENT = parseInt(
   process.env['MAX_CONCURRENT_AGENTS'] ?? String(CONCURRENCY.DEFAULT_MAX_CONCURRENT_AGENTS),
@@ -11,6 +12,9 @@ const MAX_CONCURRENT = parseInt(
 )
 const MAX_QUEUE = CONCURRENCY.MAX_QUEUE
 const WATCHDOG_INTERVAL_MS = INTERVALS.PROCESS_WATCHDOG_MS
+
+// Max time a queued run can stay in queue before being processed (5min)
+const MAX_QUEUE_AGE_MS = 5 * 60 * 1000
 
 export interface RunningProcess {
   readonly spawner: AgentRunner
@@ -59,14 +63,30 @@ export class ProcessManager {
     }
 
     if (this.processes.size >= this.maxConcurrent) {
-      if (this.queue.length >= MAX_QUEUE) {
+      const queuedCount = await prisma.queuedRun.count({
+        where: { status: { in: ['pending', 'processing'] } },
+      })
+      if (queuedCount >= MAX_QUEUE) {
         throw new Error(
           `RESOURCE_ERROR: queue full — max concurrent (${this.maxConcurrent}) and queue (${MAX_QUEUE}) reached`,
         )
       }
 
+      // Persist to database (F1: fila durável)
+      const queuedRun = await prisma.queuedRun.create({
+        data: {
+          agentId: options.agentId,
+          chainId: options.chainId,
+          cwd: options.cwd || `/tmp/rondoflow/${options.chainId ?? uuidv4()}`,
+          options: JSON.stringify(options),
+          queuedAt: new Date(),
+          status: 'pending',
+          metadata: { priority: 0 },
+        },
+      })
+
       return new Promise<string>((resolve, reject) => {
-        this.queue.push({ options, resolve, reject })
+        resolve(queuedRun.id)
       })
     }
 

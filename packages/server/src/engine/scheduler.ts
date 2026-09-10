@@ -97,8 +97,15 @@ export class Scheduler {
 
     this.io.emit('schedule:run_start' as any, { taskId, name: task.name })
 
-    try {
-      if (task.type === 'agent') {
+try {
+    // ── Distributed lock: only one instance executes the task ───────────────
+    const hasLock = await prisma.$executeRaw`SELECT pg_try_advisory_xact_lock(hashtext(${taskId}))`
+    if (!hasLock) {
+      console.log(`Executor skipped (lock held): ${taskId}`)
+      return
+    }
+
+    if (task.type === 'agent') {
         await this.executeAgentTask(task.targetId, task.message)
       } else {
         await this.executeWorkflowTask(task.targetId, task.message, task.directorEnabled)
