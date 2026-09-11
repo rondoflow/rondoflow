@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
-import { useQuery } from '@tanstack/react-query'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -33,61 +32,15 @@ export function FleetPanel({ open, onOpenChange, workspaceId }: FleetPanelProps)
   const [activeTab, setActiveTab] = useState<FleetTabId>('worktrees')
   const [refreshKey, setRefreshKey] = useState(0)
 
-  // Fetch worktrees via API endpoint (we'll create this)
-  const { data: worktrees = [], isLoading: loadingWorktrees, refetch: refetchWorktrees } = useQuery({
-    queryKey: ['worktrees', workspaceId],
-    queryFn: async () => {
-      if (!workspaceId) return []
-      try {
-        // Call API to get worktree info
-        const res = await fetch(`/api/fleet/worktrees?workspaceId=${workspaceId}`, {
-          credentials: 'include',
-        })
-        if (!res.ok) return []
-        return res.json()
-      } catch {
-        return []
-      }
-    },
-    enabled: !!workspaceId,
-    refetchInterval: 3000,
-  })
-
-  // Fetch running runs via API endpoint
-  const { data: runningRuns = [], isLoading: loadingRuns, refetch: refetchRuns } = useQuery({
-    queryKey: ['fleet-runs', workspaceId],
-    queryFn: async () => {
-      if (!workspaceId) return []
-      try {
-        const res = await fetch(`/api/fleet/runs?workspaceId=${workspaceId}`, {
-          credentials: 'include',
-        })
-        if (!res.ok) return []
-        return res.json()
-      } catch {
-        return []
-      }
-    },
-    refetchInterval: 3000,
-  })
-
-  // Fetch scheduled tasks
-  const { data: schedules = [], isLoading: loadingSchedules, refetch: refetchSchedules } = useQuery({
-    queryKey: ['fleet-schedules', workspaceId],
-    queryFn: async () => {
-      if (!workspaceId) return []
-      try {
-        const res = await fetch(`/api/fleet/schedules?workspaceId=${workspaceId}`, {
-          credentials: 'include',
-        })
-        if (!res.ok) return []
-        return res.json()
-      } catch {
-        return []
-      }
-    },
-    refetchInterval: 3000,
-  })
+  // Stub data — fleet endpoints not yet wired (F3)
+  type FleetWorktree = { id: string; name?: string; cwd?: string; agentId?: string; chainId?: string; status?: string }
+  type FleetRun = { id: string; agentId?: string; chainId?: string; cwd?: string; pid?: number; status?: string }
+  type FleetSchedule = { id: string; name?: string; schedule: string }
+  const worktrees: FleetWorktree[] = []
+  const loadingWorktrees = false
+  const runningRuns: FleetRun[] = []
+  const loadingRuns = false
+  const schedules: FleetSchedule[] = []
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -111,10 +64,7 @@ export function FleetPanel({ open, onOpenChange, workspaceId }: FleetPanelProps)
               onClick={() => setRefreshKey(prev => prev + 1)}
               aria-label={t('action.refresh')}
             >
-              <Loader2
-                className={cn('h-3.5 w-3.5', prev => `animate-spin-${prev}`, { ensureUnique: true })}
-                aria-hidden
-              />
+              <Loader2 className="h-3.5 w-3.5" aria-hidden />
             </Button>
             <Button
               size="sm"
@@ -230,7 +180,7 @@ export function FleetPanel({ open, onOpenChange, workspaceId }: FleetPanelProps)
                         {/* Status badge */}
                         <div className="ml-auto flex items-center gap-1">
                           {wt.status === 'running' && (
-                            <Badge variant="primary" className="text-[8px]">
+                            <Badge variant="default" className="text-[8px]">
                               {t('running')}
                             </Badge>
                           )}
@@ -323,7 +273,7 @@ export function FleetPanel({ open, onOpenChange, workspaceId }: FleetPanelProps)
                         {/* Status badge */}
                         <div className="ml-auto flex items-center gap-1">
                           {run.status === 'running' && (
-                            <Badge variant="primary" className="text-[8px]">
+                            <Badge variant="default" className="text-[8px]">
                               {t('running')}
                             </Badge>
                           )}
@@ -333,7 +283,7 @@ export function FleetPanel({ open, onOpenChange, workspaceId }: FleetPanelProps)
                             </Badge>
                           )}
                           {run.status === 'completed' && (
-                            <Badge variant="success" className="text-[8px]">
+                            <Badge variant="secondary" className="text-[8px]">
                               {t('completed')}
                             </Badge>
                           )}
@@ -387,3 +337,17 @@ export function FleetPanel({ open, onOpenChange, workspaceId }: FleetPanelProps)
                           <p className="font-medium truncate">{schedule.name || schedule.id}</p>
                           <p className="text-xs text-muted-foreground truncate">
                             {t('cron', { cron: schedule.schedule })}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </SheetContent>
+    </Sheet>
+  )
+}
