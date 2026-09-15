@@ -21,6 +21,7 @@ export interface SpawnOptions {
   readonly mcpConfig?: MergedMcpConfig
   readonly addDirs?: string[]
   readonly cwd?: string
+  readonly chainId?: string
   readonly verbose?: boolean
   // Inactivity (idle) timeout in ms: if the run streams NO event for this long,
   // it is killed and an `error` (containing "timed out") is emitted. Safe for

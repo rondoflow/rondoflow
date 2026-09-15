@@ -1,0 +1,6 @@
+#!/bin/bash
+# commit-msg hook — validates commit message format
+
+export PATH="/usr/local/bin:${PATH}"
+
+npx --no -- commitlint --edit ${1:-$COMMIT_EDITMSG}
