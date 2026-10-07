@@ -1,14 +1,15 @@
 services:
   # PostgreSQL 
   postgres:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     container_name: rondoflow-postgres
+    restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "127.0.0.1:15432:5432"
     environment:
       POSTGRES_DB: rondoflow
       POSTGRES_USER: rondoflow
-      POSTGRES_PASSWORD: rondoflow_dev
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rondoflow_dev} # parametrizável — defina POSTGRES_PASSWORD no .env; fallback mantém compat
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -24,13 +25,14 @@ services:
       dockerfile: packages/server/Dockerfile
     container_name: rondoflow-server
     ports:
-      - "3001:3001"
+      - "127.0.0.1:3101:3001"
     environment:
       PORT: "3001"
-      DATABASE_URL: postgresql://rondoflow:rondoflow_dev@postgres:5432/rondoflow
+      RONDOFLOW_HOST: "0.0.0.0"
+      DATABASE_URL: postgresql://rondoflow:${POSTGRES_PASSWORD:-rondoflow_dev}@postgres:5432/rondoflow
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-change-me-generate-a-real-secret}
-      BETTER_AUTH_URL: http://localhost:3001
-      UI_ORIGIN: http://localhost:3000
+      BETTER_AUTH_URL: http://localhost:3101
+      UI_ORIGIN: http://localhost:3100
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
       GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-}
@@ -38,7 +40,14 @@ services:
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
       # In-container root that registered external folders must live under.
+      EXTERNAL_FOLDERS_ROOT: ${EXTERNAL_FOLDERS_ROOT:-/external}
       EXTERNAL_FOLDERS_CONTAINER_ROOT: ${EXTERNAL_FOLDERS_CONTAINER_ROOT:-/external}
+      RONDOFLOW_INTEGRATIONS_ROOT: /app/spark-integrations
+      OLLAMA_BASE_URL: ${RONDOFLOW_DOCKER_OLLAMA_URL:-http://host.docker.internal:11434}
+      RONDOFLOW_EMBEDDING_MODEL: ${RONDOFLOW_EMBEDDING_MODEL:-nomic-embed-text}
+      RONDOFLOW_REVIEW_ARTIFACTS_DIR: /review-artifacts
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       # Host directory bound to the in-container external folders root. Drop
       # project folders under EXTERNAL_FOLDERS_HOST_PATH and they appear in the
@@ -47,9 +56,12 @@ services:
       #   - /home/me/projects/foo:/external/foo:rw   (read-write)
       #   - /mnt/data/bar:/external/bar:ro           (read-only)
       - ${EXTERNAL_FOLDERS_HOST_PATH:-./external}:/external:rw
+      - review-artifacts:/review-artifacts:rw
     depends_on:
       postgres:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3001/api/health || exit 1"]
       interval: 10s
@@ -67,12 +79,15 @@ services:
         # runtime DOCS_ORIGIN below does NOT affect them — it must be set here.
         # Must point at the docs service, not localhost.
         DOCS_ORIGIN: http://docs:3002
+        # NEXT_PUBLIC values are baked into the standalone UI bundle at build time.
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3101}
+        NEXT_PUBLIC_SOCKET_URL: ${NEXT_PUBLIC_SOCKET_URL:-http://localhost:3101}
     container_name: rondoflow-ui
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3100:3000"
     environment:
-      NEXT_PUBLIC_API_URL: http://localhost:3001
-      NEXT_PUBLIC_SOCKET_URL: http://localhost:3001
+      NEXT_PUBLIC_API_URL: http://localhost:3101
+      NEXT_PUBLIC_SOCKET_URL: http://localhost:3101
       # Upstream for the /docs reverse-proxy rewrite (see packages/ui/next.config.mjs).
       # NOTE: kept for dev-mode parity, but for the standalone prod build the
       # rewrite origin is baked from the build arg above, not this runtime value.
@@ -90,7 +105,7 @@ services:
       dockerfile: packages/docs/Dockerfile
     container_name: rondoflow-docs
     ports:
-      - "3002:3002"
+      - "127.0.0.1:3102:3002"
     environment:
       PORT: "3002"
       HOSTNAME: "0.0.0.0"
@@ -107,7 +122,7 @@ services:
       dockerfile: packages/server/Dockerfile
     container_name: rondoflow-migrate
     environment:
-      DATABASE_URL: postgresql://rondoflow:rondoflow_dev@postgres:5432/rondoflow
+      DATABASE_URL: postgresql://rondoflow:${POSTGRES_PASSWORD:-rondoflow_dev}@postgres:5432/rondoflow
     depends_on:
       postgres:
         condition: service_healthy
@@ -116,3 +131,4 @@ services:
 
 volumes:
   pgdata:
+  review-artifacts:
