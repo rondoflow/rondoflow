@@ -1,0 +1,103 @@
+# RondoFlow CI/CD — CircleCI
+
+version: 2.1
+
+orbs:
+  node: circleci/node@6.1.0
+
+references:
+  node-version: "20.15.0"
+  cache-key: "node-v20-{{ checksum \"package-lock.json\" }}-{{ checksum \"packages/*/package.json\" }}"
+
+jobs:
+  install:
+    docker:
+      - image: cimg/node:${node-version}
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${cache-key}
+      - run: npm ci
+      - save_cache:
+          key: ${cache-key}
+          paths:
+            - node_modules
+            - packages/*/node_modules
+
+  lint:
+    docker:
+      - image: cimg/node:${node-version}
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${cache-key}
+      - run: npm run lint
+
+  build:
+    docker:
+      - image: cimg/node:${node-version}
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${cache-key}
+      - run: npm run build
+
+  test:
+    docker:
+      - image: cimg/node:${node-version}
+      - image: circleci/postgres:16-alpine
+        environment:
+          POSTGRES_USER: rondoflow
+          POSTGRES_PASSWORD: rondoflow_dev
+          POSTGRES_DB: rondoflow_test
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${cache-key}
+      - run: npx prisma generate --schema=packages/server/prisma/schema.prisma
+      - run: DATABASE_URL=postgresql://rondoflow:rondoflow_dev@localhost:5432/rondoflow_test npm run test:coverage
+
+  deploy:
+    docker:
+      - image: cimg/node:${node-version}
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ${cache-key}
+      - run: |
+          if [ "${CIRCLE_BRANCH}" == "master" ] && [ "${CIRCLE_PROJECT_REPONAME}" == "rondoflow" ]; then
+            echo "Deploying to production..."
+            # Add your deployment logic here
+          fi
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - install
+      - lint:
+          requires:
+            - install
+      - build:
+          requires:
+            - install
+      - test:
+          requires:
+            - build
+
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master
+    triggers:
+      - approve:
+          filters:
+            branches:
+              only: master
