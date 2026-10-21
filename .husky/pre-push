@@ -1,0 +1,20 @@
+#!/bin/bash
+# pre-push hook — runs build/lint/test before push
+
+export PATH="/usr/local/bin:${PATH}"
+
+echo "Running pre-push checks..."
+
+# Disable hooks for self-check
+HUSKY=0 npm run lint 2>/dev/null || { echo "❌ Lint failed"; exit 1; }
+HUSKY=0 npm run test 2>/dev/null || { echo "❌ Tests failed"; exit 1; }
+HUSKY=0 npm run build 2>/dev/null || { echo "❌ Build failed"; exit 1; }
+
+# Verify no uncommitted changes (except generated)
+if [ -n "$(git status --porcelain | grep -v 'packages/catalog/src/generated/')" ]; then
+  echo "❌ Uncommitted changes detected (except generated)"
+  git status --porcelain | grep -v 'packages/catalog/src/generated/'
+  exit 1
+fi
+
+echo "✅ Pre-push checks passed"
