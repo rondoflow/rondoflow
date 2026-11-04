@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@rondoflow/shared": "*",
-    "zod": "4.3.6"
+    "zod": "4.6.6"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^4.1.0",
