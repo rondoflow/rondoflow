@@ -603,6 +603,24 @@ model ScheduledTask {
   @@index([enabled, nextRunAt])
 }
 
+// ─── Anti-conflict Queue — queued runs (F1: fila durável) ───────────────────
+// Quando agent já está rodando ou MAX_CONCURRENT atingido, nova requisição vai para queue
+// Queue sobrevive restart do server; ProcessManager lê e reinicia quando espaço disponível
+model QueuedRun {
+  id          String   @id @default(uuid())
+  agentId     String?  // null = workflow (chainId referenciado em metadata)
+  chainId     String?  // null = single agent
+  cwd         String?  // isolado por chainId: /tmp/rondoflow/{chainId}
+  options     Json     // SpawnOptions serializado
+  queuedAt    DateTime @default(now())
+  status      String   @default("pending") // pending | enqueued | processing | completed | failed
+  metadata    Json?    // { priority?: number, reason?: string }
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@index([status, queuedAt]) // scheduler lê em ordem
+  @@index([chainId])         //查重
+}
+
 // ─── Instance settings ──────────────────────────────────────────────────────
 // Global key/value config managed via the UI (credentials, etc.).
 // Values are AES-256-GCM encrypted at rest (iv:tag:ciphertext) — see resources/encryption.ts.

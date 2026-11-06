@@ -1,0 +1,6 @@
+#!/bin/bash
+# pre-commit hook — runs lint-staged
+
+export PATH="/usr/local/bin:${PATH}"
+
+npx --no -- lint-staged

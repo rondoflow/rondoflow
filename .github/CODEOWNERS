@@ -1,0 +1,28 @@
+# Code Owners — rondoflow
+
+## Core maintainers
+
+/packages/server/src/engine/ @ Voltolini-SPACE/backend
+/packages/server/src/routes/ @ Voltolini-SPACE/backend
+/packages/server/src/auth/ @ Voltolini-SPACE/backend
+/packages/server/src/services/ @ Voltolini-SPACE/backend
+/packages/server/prisma/ @ Voltolini-SPACE/backend
+
+/packages/ui/src/app/ @ Voltolini-SPACE/frontend
+/packages/ui/src/components/ @ Voltolini-SPACE/frontend
+/packages/ui/src/hooks/ @ Voltolini-SPACE/frontend
+/packages/ui/src/lib/ @ Voltolini-SPACE/frontend
+
+/packages/catalog/ @ Voltolini-SPACE/catalog
+/packages/catalog/content/ @ Voltolini-SPACE/catalog
+
+/packages/shared/ @ Voltolini-SPACE/backend
+
+# Cross-cutting concerns
+
+/spark-llm-orchestration/ @ Voltolini-SPACE/platform
+/CONSTRAINTS.md @ Voltolini-SPACE/release-lead
+
+# Documentation
+
+/*.md /packages/*/README.md /packages/*/docs/ @ Voltolini-SPACE/docs

@@ -3,7 +3,13 @@
   "tasks": {
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "env": ["DOCS_ORIGIN", "NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOCKET_URL"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true,
+      "env": ["DOCS_ORIGIN", "NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOCKET_URL", "NODE_ENV"]
     },
     "build": {
       "dependsOn": ["^build"],
