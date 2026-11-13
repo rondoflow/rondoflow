@@ -480,3 +480,75 @@ describe('buildSpawnConfig — Perplexity provider', () => {
     expect(result.providerConfig?.deepResearch).toBe(true)
   })
 })
+
+describe('buildSpawnConfig — Codex provider', () => {
+  const ORIGINAL = {
+    openai: process.env['OPENAI_API_KEY'],
+    anthropic: process.env['ANTHROPIC_API_KEY'],
+  }
+
+  beforeEach(() => {
+    mockPolicyFindMany.mockResolvedValue([] as never)
+    mockReadFile.mockRejectedValue(new Error('ENOENT'))
+    process.env['OPENAI_API_KEY'] = 'sk-codex-123'
+    process.env['ANTHROPIC_API_KEY'] = 'sk-ant-123'
+  })
+
+  afterEach(() => {
+    if (ORIGINAL.openai === undefined) delete process.env['OPENAI_API_KEY']
+    else process.env['OPENAI_API_KEY'] = ORIGINAL.openai
+    if (ORIGINAL.anthropic === undefined) delete process.env['ANTHROPIC_API_KEY']
+    else process.env['ANTHROPIC_API_KEY'] = ORIGINAL.anthropic
+  })
+
+  it('returns provider "codex" with its model, no Claude tool allowlist, and the OpenAI key only', async () => {
+    const agent = makeAgent({
+      provider: 'codex',
+      persona: 'You are a refactoring expert.',
+      providerConfig: { model: 'gpt-6-astra', webSearch: true, deepResearch: false },
+    })
+    mockFindUnique.mockResolvedValueOnce(agent as never)
+
+    const result = await buildSpawnConfig('agent-1')
+    expect(result.provider).toBe('codex')
+    expect(result.systemPrompt).toBe('You are a refactoring expert.')
+    expect(result.model).toBe('gpt-6-astra')
+    expect(result.allowedTools).toEqual([])
+    expect(result.env['OPENAI_API_KEY']).toBe('sk-codex-123')
+    expect(result.env['ANTHROPIC_API_KEY']).toBeUndefined()
+    expect(result.providerConfig).toMatchObject({ model: 'gpt-6-astra', webSearch: true, deepResearch: false })
+  })
+
+  it('derives the sandbox from the agent permission mode', async () => {
+    mockFindUnique.mockResolvedValueOnce(makeAgent({ provider: 'codex', permissionMode: 'default' }) as never)
+    expect((await buildSpawnConfig('agent-1')).providerConfig?.sandbox).toBe('workspace-write')
+
+    mockFindUnique.mockResolvedValueOnce(makeAgent({ provider: 'codex', permissionMode: 'full' }) as never)
+    expect((await buildSpawnConfig('agent-1')).providerConfig?.sandbox).toBe('danger-full-access')
+
+    mockFindUnique.mockResolvedValueOnce(makeAgent({ provider: 'codex', permissionMode: 'plan' }) as never)
+    expect((await buildSpawnConfig('agent-1')).providerConfig?.sandbox).toBe('read-only')
+  })
+
+  it('falls back to the default Codex model when providerConfig is missing', async () => {
+    mockFindUnique.mockResolvedValueOnce(makeAgent({ provider: 'codex', providerConfig: null }) as never)
+    const result = await buildSpawnConfig('agent-1')
+    expect(result.model).toBe('gpt-6.1-sol')
+    expect(result.providerConfig?.webSearch).toBe(false)
+  })
+
+  it('keeps the CLI wiring (external folders → cwd/addDirs) that API providers skip', async () => {
+    const { existsSync } = await import('fs')
+    const folder = process.cwd() // any existing path
+    expect(existsSync(folder)).toBe(true)
+    mockFindUnique.mockResolvedValueOnce(
+      makeAgent({
+        provider: 'codex',
+        externalFolders: [{ externalFolder: { containerPath: folder } }],
+      }) as never,
+    )
+    const result = await buildSpawnConfig('agent-1')
+    expect(result.cwd).toBe(folder)
+    expect(result.addDirs).toEqual([folder])
+  })
+})

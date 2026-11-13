@@ -67,6 +67,7 @@
     "personaSystemPrompt": "Toto sa stane systémovým promptom, ktorý určuje, ako sa asistent správa.",
     "deepResearchModel": "Behy hĺbkového výskumu automaticky používajú vyhradený model pre hĺbkový výskum.",
     "perplexitySearches": "Modely Perplexity Sonar automaticky vyhľadávajú na webe pri každom behu.",
+    "codexCli": "Beží na Codex CLI nainštalovanom na tomto počítači. Používa OpenAI API kľúč z Nastavení, alebo vaše prihlásenie cez `codex login`, ak kľúč nie je nastavený.",
     "customModel": "Voliteľné. Zadajte úplné ID modelu, ktoré prepíše úroveň vyššie. Ponechajte prázdne, ak chcete použiť vybranú úroveň."
   },
   "toggle": {
@@ -95,6 +96,7 @@
       "description": "Beží bez výziev na schválenie"
     },
     "toolsApiNote": "Asistenti <0>{{provider}}</0> spravujú svoje nástroje (vyhľadávanie na webe, hĺbkový výskum) na karte <1>Konfigurovať</1>. Oprávnenia pre jednotlivé nástroje na súbory a príkazy sa na asistentov {{provider}} nevzťahujú.",
+    "toolsCodexNote": "Asistenti <0>Codex</0> nepoužívajú oprávnenia pre jednotlivé nástroje. Prístup k súborom a príkazom určuje sandbox, ktorý sa riadi režimom oprávnení na karte Konfigurovať.",
     "toolsAllNote": "Všetky nástroje sú povolené (autonómne). Vyberte vyššie možnosť <1>Vyvážené</1>, ak chcete namiesto toho udeliť konkrétne nástroje."
   },
   "action": {
@@ -111,7 +113,8 @@
       "disableAria": "Zakázať tímy agentov"
     },
     "permissionMode": "Režim oprávnení",
-    "permissionModeAria": "Režim oprávnení"
+    "permissionModeAria": "Režim oprávnení",
+    "codexSandboxHint": "Pre Codex toto nastavuje sandbox: Predvolené a Prijímať úpravy povoľujú zmeny iba v pracovnom priečinku, Plný prístup sandbox vypne. Behy workflowov ho nikdy nerozšíria."
   },
   "conversations": {
     "emptyTitle": "Zatiaľ žiadne konverzácie",

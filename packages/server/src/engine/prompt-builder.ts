@@ -10,6 +10,7 @@ import {
   DEFAULT_PERPLEXITY_PROVIDER_CONFIG,
   PERPLEXITY_DEEP_RESEARCH_MODEL,
   CLAUDE_MODELS,
+  codexSandboxForPermissionMode,
   isApiProvider,
 } from '@rondoflow/shared'
 import type {
@@ -21,6 +22,7 @@ import type {
 import { buildMcpConfig } from './mcp-config-builder'
 import type { MergedMcpConfig } from './mcp-config-builder'
 import { buildWorkspaceContext } from '../resources/resource-injector'
+import { resolveCodexConfig } from './codex-protocol'
 
 // Map ModelTier to the actual Claude model identifier used by the CLI
 const MODEL_IDS: Record<ModelTier, string> = CLAUDE_MODELS
@@ -169,23 +171,35 @@ export async function buildSpawnConfig(agentId: string, workspaceId?: string): P
   }
 
   // ------------------------------------------------------------------
-  // 3. Allowed tools
+  // CLI providers (Claude Code, Codex) share everything below: policies, MCP,
+  // workspace context and external folders. Codex differs only in its model
+  // config (providerConfig), the tool allowlist (none — its sandbox, derived
+  // from the permission mode, governs access) and the forwarded credential.
+  // ------------------------------------------------------------------
+  const codexConfig =
+    provider === 'codex'
+      ? resolveCodexConfig((agent as { providerConfig?: unknown }).providerConfig as Partial<ProviderConfig> | undefined)
+      : undefined
+
+  // ------------------------------------------------------------------
+  // 3. Allowed tools (Claude only)
   // ------------------------------------------------------------------
   // Resolve the agent's configured allowlist (or the default set when it has
   // none), then guarantee the always-on baseline is present — appended so the
   // agent's own tools keep their order and no tool is duplicated.
   const configuredTools =
     agent.allowedTools.length > 0 ? [...agent.allowedTools] : [...DEFAULT_TOOLS]
-  const allowedTools: string[] = [
-    ...configuredTools,
-    ...ALWAYS_ALLOWED_TOOLS.filter((tool) => !configuredTools.includes(tool)),
-  ]
+  const allowedTools: string[] = codexConfig
+    ? []
+    : [...configuredTools, ...ALWAYS_ALLOWED_TOOLS.filter((tool) => !configuredTools.includes(tool))]
 
   // ------------------------------------------------------------------
   // 4. Model resolution
   // ------------------------------------------------------------------
   let modelId: string
-  if (agent.model) {
+  if (codexConfig) {
+    modelId = codexConfig.model
+  } else if (agent.model) {
     modelId = MODEL_IDS[agent.model as ModelTier] ?? agent.model
   } else if (agent.purpose) {
     const rec = recommendModel(agent.purpose as AgentPurpose)
@@ -240,19 +254,12 @@ export async function buildSpawnConfig(agentId: string, workspaceId?: string): P
   }
 
   // ------------------------------------------------------------------
-  // 6. Isolated env vars — forward whichever Claude credential is configured.
-  // The spawner resolves precedence (setup-token over API key) so only one
-  // credential ultimately reaches the CLI.
+  // 6. Isolated env vars — forward the provider's credential. For Claude the
+  // spawner resolves precedence (setup-token over API key) so only one
+  // credential ultimately reaches the CLI. Codex gets the OpenAI key (or, with
+  // none set, falls back to its own `codex login`).
   // ------------------------------------------------------------------
-  const env: Record<string, string> = {}
-  const oauthToken = process.env['CLAUDE_CODE_OAUTH_TOKEN']
-  if (oauthToken) {
-    env['CLAUDE_CODE_OAUTH_TOKEN'] = oauthToken
-  }
-  const anthropicKey = process.env['ANTHROPIC_API_KEY']
-  if (anthropicKey) {
-    env['ANTHROPIC_API_KEY'] = anthropicKey
-  }
+  const env: Record<string, string> = codexConfig ? codexCredentialEnv() : claudeCredentialEnv()
 
   // ------------------------------------------------------------------
   // 7. MCP config — merge skill + external server configs
@@ -331,6 +338,11 @@ export async function buildSpawnConfig(agentId: string, workspaceId?: string): P
 
   return {
     provider,
+    // Codex's sandbox is resolved here from the agent's own permission mode +
+    // policies, so a headless run's bypassPermissions can't widen it later.
+    ...(codexConfig
+      ? { providerConfig: { ...codexConfig, sandbox: codexSandboxForPermissionMode(permissionMode) } }
+      : {}),
     systemPrompt,
     appendSystemPrompt: mergedAppendPrompt,
     allowedTools,
@@ -347,6 +359,20 @@ export async function buildSpawnConfig(agentId: string, workspaceId?: string): P
 // ------------------------------------------------------------------
 // Helpers
 // ------------------------------------------------------------------
+
+function claudeCredentialEnv(): Record<string, string> {
+  const oauthToken = process.env['CLAUDE_CODE_OAUTH_TOKEN']
+  const anthropicKey = process.env['ANTHROPIC_API_KEY']
+  return {
+    ...(oauthToken ? { CLAUDE_CODE_OAUTH_TOKEN: oauthToken } : {}),
+    ...(anthropicKey ? { ANTHROPIC_API_KEY: anthropicKey } : {}),
+  }
+}
+
+function codexCredentialEnv(): Record<string, string> {
+  const openaiKey = process.env['OPENAI_API_KEY']
+  return openaiKey ? { OPENAI_API_KEY: openaiKey } : {}
+}
 
 /**
  * Renders the "## Workspace Memory" system-prompt section from workspace-scoped

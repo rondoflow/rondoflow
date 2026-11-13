@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { prisma } from '../lib/prisma'
 import { sendSuccess, sendError, NotFoundError } from '../lib/errors'
 import { recordActivity } from '../services/activity'
+import { AGENT_PROVIDER_IDS, hasProviderConfig } from '@rondoflow/shared'
 
 const OpenAIProviderConfigSchema = z.object({
   model: z.string().min(1),
@@ -22,19 +23,19 @@ const AgentBaseSchema = z.object({
   allowedTools: z.array(z.string()).default([]),
   memoryEnabled: z.boolean().default(false),
   model: z.string().optional(),
-  provider: z.enum(['claude-code', 'openai', 'perplexity']).default('claude-code'),
+  provider: z.enum(AGENT_PROVIDER_IDS).default('claude-code'),
   providerConfig: OpenAIProviderConfigSchema.optional(),
   permissionMode: z.enum(['plan', 'default', 'edit', 'full']).default('default'),
   isFacilitator: z.boolean().default(false),
 })
 
-// API-backed agents (OpenAI, Perplexity) must carry their provider config
-// (chat model + tool toggles).
+// Configurable providers (OpenAI, Perplexity, Codex) must carry their provider
+// config (model + tool toggles).
 const requireProviderConfig = (
   val: { provider?: string; providerConfig?: unknown },
   ctx: z.RefinementCtx,
 ): void => {
-  if ((val.provider === 'openai' || val.provider === 'perplexity') && !val.providerConfig) {
+  if (hasProviderConfig(val.provider) && !val.providerConfig) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       path: ['providerConfig'],

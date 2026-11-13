@@ -41,6 +41,7 @@ const AGENT_PROVIDERS = [
   'claude-code',
   'openai',
   'perplexity',
+  'codex',
 ] as const satisfies readonly AgentProviderId[]
 
 const purposeSchema = z.enum(AGENT_PURPOSES)

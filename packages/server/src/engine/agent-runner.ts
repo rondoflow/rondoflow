@@ -4,13 +4,15 @@
 // that it exposes the spawner's event contract (text/tool_use/tool_result/
 // usage/completion/error) plus spawn/sendMessage/kill and the pid/isRunning
 // liveness signals the watchdog reads. `ClaudeCodeSpawner` already satisfies
-// this surface structurally, so the abstraction adds the OpenAI path without
-// changing any existing wiring — `createAgentRunner` is the single swap-in.
+// this surface structurally, so the abstraction adds the OpenAI/Perplexity API
+// paths and the Codex CLI path without changing any existing wiring —
+// `createAgentRunner` is the single swap-in.
 
 import type { SpawnOptions, SpawnerEvents } from './spawner'
 import { ClaudeCodeSpawner } from './spawner'
 import { OpenAIRunner } from './openai-runner'
 import { PerplexityRunner } from './perplexity-runner'
+import { CodexSpawner } from './codex-spawner'
 import type { AgentProviderId } from '@rondoflow/shared'
 
 export interface AgentRunner {
@@ -32,6 +34,8 @@ export function createAgentRunner(provider: AgentProviderId | undefined): AgentR
       return new OpenAIRunner()
     case 'perplexity':
       return new PerplexityRunner()
+    case 'codex':
+      return new CodexSpawner()
     case 'claude-code':
     default:
       return new ClaudeCodeSpawner()

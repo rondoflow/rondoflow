@@ -73,7 +73,7 @@ import {
 } from '@/lib/canvas-utils'
 import { useUndoRedo } from '@/hooks/use-undo-redo'
 import { useTheme } from '@/hooks/use-theme'
-import { defaultProviderConfig, type AgentProviderId } from '@rondoflow/shared'
+import { defaultProviderConfig, toAgentProviderId, type AgentProviderId } from '@rondoflow/shared'
 
 // ─── Node and edge type registries ────────────────────────────────────────
 
@@ -132,15 +132,15 @@ function buildNodeFromPalette(
   t: TFunction<'canvas'>,
 ): Node | null {
   if (dragType === DRAG_TYPES.AGENT) {
-    const rawProvider = parsedData['provider']
-    const provider: AgentProviderId =
-      rawProvider === 'openai' || rawProvider === 'perplexity' ? rawProvider : 'claude-code'
+    const provider: AgentProviderId = toAgentProviderId(parsedData['provider'] as string | undefined)
     const defaultName =
       provider === 'openai'
         ? t('palette.item.openaiAssistant')
         : provider === 'perplexity'
           ? t('palette.item.perplexityAssistant')
-          : t('default.agentName')
+          : provider === 'codex'
+            ? t('palette.item.codexAssistant')
+            : t('default.agentName')
     const agentData: AgentNodeData = {
       name: (parsedData['name'] as string | undefined) ?? defaultName,
       description: parsedData['description'] as string | undefined,

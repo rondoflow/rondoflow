@@ -67,6 +67,7 @@
     "personaSystemPrompt": "Ceci devient le prompt système qui guide le comportement de l'assistant.",
     "deepResearchModel": "Les exécutions de recherche approfondie utilisent automatiquement un modèle dédié à la recherche approfondie.",
     "perplexitySearches": "Les modèles Perplexity Sonar recherchent automatiquement sur le web à chaque exécution.",
+    "codexCli": "S'exécute sur le Codex CLI installé sur cette machine. Utilise la clé API OpenAI des Paramètres, ou votre session `codex login` si aucune clé n'est définie.",
     "customModel": "Facultatif. Saisissez un ID de modèle complet pour remplacer le niveau ci-dessus. Laissez vide pour utiliser le niveau sélectionné."
   },
   "toggle": {
@@ -95,6 +96,7 @@
       "description": "S'exécute sans demande d'approbation"
     },
     "toolsApiNote": "Les assistants <0>{{provider}}</0> gèrent leurs outils (recherche web, recherche approfondie) dans l'onglet <1>Configurer</1>. Les permissions de fichiers et de commandes par outil ne s'appliquent pas aux assistants {{provider}}.",
+    "toolsCodexNote": "Les assistants <0>Codex</0> n'utilisent pas de permissions par outil. Leur accès aux fichiers et aux commandes dépend du sandbox, qui suit le mode de permission de l'onglet Configurer.",
     "toolsAllNote": "Tous les outils sont activés (autonome). Choisissez <1>Équilibré</1> ci-dessus pour accorder des outils spécifiques à la place."
   },
   "action": {
@@ -111,7 +113,8 @@
       "disableAria": "Désactiver les équipes d'agents"
     },
     "permissionMode": "Mode de permission",
-    "permissionModeAria": "Mode de permission"
+    "permissionModeAria": "Mode de permission",
+    "codexSandboxHint": "Pour Codex, ce réglage définit le sandbox : Par défaut et Accepter les modifications n'autorisent les changements que dans le dossier de travail, Accès complet désactive le sandbox. Les exécutions de workflow ne l'élargissent jamais."
   },
   "conversations": {
     "emptyTitle": "Aucune conversation pour l'instant",

@@ -6,6 +6,14 @@ import { EventEmitter } from 'events'
 import { TIMEOUTS, type TokenUsage, type AgentProviderId, type OpenAIProviderConfig } from '@rondoflow/shared'
 import type { MergedMcpConfig } from './mcp-config-builder'
 import { estimateCostUsd } from './pricing'
+import {
+  SPAWN_DEBUG,
+  baseChildEnv,
+  filterChildExtras,
+  killProcessTree,
+  maskSecret,
+  truncateForLog,
+} from './cli-process'
 
 export interface SpawnOptions {
   readonly agentId: string
@@ -35,6 +43,8 @@ export interface SpawnOptions {
   // Which backend runs this agent. Omitted/`'claude-code'` → ClaudeCodeSpawner
   // (this class), which ignores the two fields below. `'openai'` → OpenAIRunner,
   // which reads providerConfig and ignores the Claude-CLI-specific fields above.
+  // `'codex'` → CodexSpawner (Codex CLI), which reads providerConfig and honors
+  // cwd/addDirs/mcpConfig/timeouts but not allowedTools/maxBudgetUsd.
   readonly provider?: AgentProviderId
   readonly providerConfig?: OpenAIProviderConfig
 }
@@ -77,25 +87,6 @@ const CLAUDE_TELEMETRY_KEYS = [
   'OTEL_LOGS_EXPORT_INTERVAL',
 ] as const
 
-// Server secrets that must never reach a spawned child, even if a caller (e.g. a
-// workspace "variable" resource) supplies them via the env extras. Compared
-// case-insensitively. The two Claude auth keys are handled separately by
-// resolveClaudeAuth, so they are intentionally not listed here.
-const BLOCKED_CHILD_ENV_KEYS = new Set<string>([
-  'DATABASE_URL',
-  'BETTER_AUTH_SECRET',
-  'RONDOFLOW_SECRET', // see resources/encryption.ts — derives the credential-encryption key
-])
-
-// Spawn-time debug tracing. Off by default; set RONDOFLOW_DEBUG_SPAWN=1 (or
-// =true) to log the full CLI lifecycle — resolved command + args, which Claude
-// credential was forwarded (masked), every stdout line and parsed stream-json
-// event, stderr, and the exit code. This is the switch to flip when an agent
-// "produces empty output": it makes the otherwise-silent failure path visible.
-const SPAWN_DEBUG =
-  process.env['RONDOFLOW_DEBUG_SPAWN'] === '1' ||
-  process.env['RONDOFLOW_DEBUG_SPAWN'] === 'true'
-
 // Read a non-negative millisecond env var, falling back to `fallback` on an
 // unset/empty/NaN/negative value. Used for the spawn-timeout defaults below.
 function readMsEnv(name: string, fallback: number): number {
@@ -129,17 +120,6 @@ const PROMPT_ARG_FILE_THRESHOLD = 32 * 1024
 // Monotonic suffix so concurrent spawns never collide on a temp-file name. The
 // pid+counter pair is unique within this server process without needing Date.now.
 let promptFileCounter = 0
-
-function truncateForLog(value: string, max = 200): string {
-  return value.length > max ? `${value.slice(0, max)}…(${value.length} chars)` : value
-}
-
-// Mask a credential for logs: keep a short identifying prefix (so an API key vs
-// an OAuth setup-token is distinguishable) and hide the rest.
-function maskSecret(value: string): string {
-  if (value.length <= 10) return `***(${value.length} chars)`
-  return `${value.slice(0, 10)}…***(${value.length} chars)`
-}
 
 function readFirstNonEmpty(...values: Array<string | undefined>): string | undefined {
   return values.find((value) => value !== undefined && value.trim().length > 0)
@@ -216,54 +196,24 @@ export function resolveClaudeAuth(
 // Build the allowed-env object passed to the child process.
 // Only forward a safe, minimal set of variables [G20].
 function buildChildEnv(extra: Record<string, string> = {}): NodeJS.ProcessEnv {
-  const allowed: Array<keyof NodeJS.ProcessEnv> = [
-    'PATH',
-    'HOME',
-    'USERPROFILE',
-    'LANG',
-    'TERM',
-    'APPDATA',        // needed by npm/node on Windows
-    'LOCALAPPDATA',   // needed by npm/node on Windows
-    'TEMP',
-    'TMP',
-    'SystemRoot',     // needed on Windows for system tools
-    'ComSpec',        // cmd.exe path on Windows
-  ]
-
-  const env: NodeJS.ProcessEnv = {}
-  for (const key of allowed) {
-    const val = process.env[key as string]
-    if (val !== undefined) {
-      env[key as string] = val
-    }
+  return {
+    ...baseChildEnv(),
+    // Raise the per-response output-token ceiling so long agent results aren't
+    // cut off with "Although the output was truncated due to token limits".
+    // Claude Code clamps this to each model's true maximum (e.g. Opus 128k,
+    // Sonnet/Haiku 64k), so a high default is safe across models. Operators can
+    // override it via the root .env or a workspace "variable" resource (extras,
+    // merged next).
+    CLAUDE_CODE_MAX_OUTPUT_TOKENS: process.env['CLAUDE_CODE_MAX_OUTPUT_TOKENS'] ?? '128000',
+    // Caller-supplied extras. Server secrets are never forwarded, and the Claude
+    // auth keys are resolved separately below so their precedence can't be
+    // bypassed by an extra value.
+    ...filterChildExtras(extra, CLAUDE_AUTH_KEYS),
+    // Forward exactly the winning Claude credential (setup-token over API key).
+    ...resolveClaudeAuth(extra),
+    // Forward Claude Code telemetry settings from the root .env.
+    ...resolveClaudeTelemetry(extra),
   }
-
-  // Raise the per-response output-token ceiling so long agent results aren't cut
-  // off with "Although the output was truncated due to token limits". Claude Code
-  // clamps this to each model's true maximum (e.g. Opus 128k, Sonnet/Haiku 64k),
-  // so a high default is safe across models. Operators can override it via the
-  // root .env (CLAUDE_CODE_MAX_OUTPUT_TOKENS) or a workspace "variable" resource;
-  // both are applied below — process.env here, extras in the loop that follows.
-  env['CLAUDE_CODE_MAX_OUTPUT_TOKENS'] =
-    process.env['CLAUDE_CODE_MAX_OUTPUT_TOKENS'] ?? '128000'
-
-  // Merge caller-supplied extras. Server secrets are never forwarded, and the
-  // Claude auth keys are resolved separately below so their precedence can't be
-  // bypassed by an extra value.
-  for (const [k, v] of Object.entries(extra)) {
-    const upper = k.toUpperCase()
-    if (BLOCKED_CHILD_ENV_KEYS.has(upper)) continue
-    if ((CLAUDE_AUTH_KEYS as readonly string[]).includes(upper)) continue
-    env[k] = v
-  }
-
-  // Forward exactly the winning Claude credential (setup-token over API key).
-  Object.assign(env, resolveClaudeAuth(extra))
-
-  // Forward Claude Code telemetry settings from the root .env.
-  Object.assign(env, resolveClaudeTelemetry(extra))
-
-  return env
 }
 
 export class ClaudeCodeSpawner extends EventEmitter {
@@ -531,27 +481,8 @@ export class ClaudeCodeSpawner extends EventEmitter {
     this.clearTimers()
     this.removePromptFiles()
     if (!this._process) return
-    const pid = this._process.pid
-
-    if (pid === undefined) {
-      this._process.kill('SIGKILL')
-      this._process = null
-      return
-    }
-
-    // [G13] Platform-specific process tree kill
-    if (process.platform === 'win32') {
-      // taskkill /T kills the entire process tree; /F forces it
-      spawn('taskkill', ['/T', '/F', '/PID', String(pid)], { stdio: 'ignore' })
-    } else {
-      // Use negative PID to kill the entire process group (requires detached: true)
-      try {
-        process.kill(-pid, 'SIGKILL')
-      } catch {
-        // Fall back to killing the direct process if group kill fails
-        this._process.kill('SIGKILL')
-      }
-    }
+    // [G13] Platform-specific process tree kill (requires detached: true on Unix)
+    killProcessTree(this._process)
     this._process = null
   }
 

@@ -67,6 +67,7 @@
     "personaSystemPrompt": "Dies wird zum System-Prompt, der das Verhalten des Assistenten steuert.",
     "deepResearchModel": "Deep-Research-Läufe verwenden automatisch ein dediziertes Deep-Research-Modell.",
     "perplexitySearches": "Perplexity-Sonar-Modelle durchsuchen bei jedem Lauf automatisch das Web.",
+    "codexCli": "Läuft auf der auf diesem Rechner installierten Codex CLI. Verwendet den OpenAI-API-Schlüssel aus den Einstellungen oder Ihre `codex login`-Sitzung, wenn kein Schlüssel gesetzt ist.",
     "customModel": "Optional. Geben Sie eine vollständige Modell-ID ein, um die obige Stufe zu überschreiben. Leer lassen, um die ausgewählte Stufe zu verwenden."
   },
   "toggle": {
@@ -95,6 +96,7 @@
       "description": "Läuft ohne Genehmigungsaufforderungen"
     },
     "toolsApiNote": "<0>{{provider}}</0>-Assistenten verwalten ihre Tools (Websuche, Deep Research) im Tab <1>Konfigurieren</1>. Datei- und Befehlsberechtigungen pro Tool gelten nicht für {{provider}}-Assistenten.",
+    "toolsCodexNote": "<0>Codex</0>-Assistenten verwenden keine Berechtigungen pro Tool. Ihr Datei- und Befehlszugriff ergibt sich aus der Sandbox, die dem Berechtigungsmodus im Tab Konfigurieren folgt.",
     "toolsAllNote": "Alle Tools sind aktiviert (autonom). Wählen Sie oben <1>Ausgewogen</1>, um stattdessen bestimmte Tools zu gewähren."
   },
   "action": {
@@ -111,7 +113,8 @@
       "disableAria": "Agententeams deaktivieren"
     },
     "permissionMode": "Berechtigungsmodus",
-    "permissionModeAria": "Berechtigungsmodus"
+    "permissionModeAria": "Berechtigungsmodus",
+    "codexSandboxHint": "Für Codex legt dies die Sandbox fest: Standard und Bearbeitungen akzeptieren erlauben Änderungen nur im Arbeitsordner, Vollzugriff schaltet die Sandbox ab. Workflow-Läufe erweitern sie nie."
   },
   "conversations": {
     "emptyTitle": "Noch keine Konversationen",

@@ -116,6 +116,7 @@
       "assistant": "Assistant",
       "openaiAssistant": "OpenAI Assistant",
       "perplexityAssistant": "Perplexity Assistant",
+      "codexAssistant": "Codex Assistant",
       "skill": "Skill",
       "safetyRule": "Safety Rule",
       "resource": "Resource",
