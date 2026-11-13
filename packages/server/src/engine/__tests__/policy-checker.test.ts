@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { checkToolUse } from '../policy-checker'
+import { checkToolUse, extractCommand } from '../policy-checker'
 import type { ResolvedPolicy } from '@rondoflow/shared'
 
 // ---------------------------------------------------------------------------
@@ -148,5 +148,55 @@ describe('checkToolUse — pattern matching edge cases', () => {
     const policy = makePolicy({ blockedCommands: ['/etc/passwd'] })
     const result = checkToolUse('Bash', { command: 'cat /etc/passwd' }, policy)
     expect(result.allowed).toBe(false)
+  })
+})
+
+describe('checkToolUse — Codex CLI tool names', () => {
+  it('matches command patterns against a Codex shell command, not the tool name', () => {
+    const policy = makePolicy({ blockedCommands: ['rm -rf /'] })
+    const result = checkToolUse('shell', { command: 'rm -rf / --no-preserve-root' }, policy)
+    expect(result.allowed).toBe(false)
+    expect(result.matchedRule).toBe('rm -rf /')
+  })
+
+  it('passes an unblocked Codex shell command through', () => {
+    const policy = makePolicy({ blockedCommands: ['rm -rf /'], requireApproval: ['git push'] })
+    const result = checkToolUse('shell', { command: 'ls -la' }, policy)
+    expect(result.allowed).toBe(true)
+    expect(result.requiresApproval).toBe(false)
+  })
+
+  it('flags a Codex shell command matching a requireApproval pattern', () => {
+    const policy = makePolicy({ requireApproval: ['git push'] })
+    const result = checkToolUse('shell', { command: 'git push --force origin main' }, policy)
+    expect(result.allowed).toBe(true)
+    expect(result.requiresApproval).toBe(true)
+    expect(result.matchedRule).toBe('git push')
+  })
+
+  it('treats a "Bash" tool-level pattern as covering the Codex shell tool', () => {
+    const policy = makePolicy({ blockedCommands: ['Bash'] })
+    expect(checkToolUse('shell', { command: 'echo hi' }, policy).allowed).toBe(false)
+  })
+
+  it('treats "Write" and "Edit" tool-level patterns as covering Codex apply_patch', () => {
+    const changes = { changes: [{ path: 'src/a.ts', kind: 'update' }] }
+    expect(checkToolUse('apply_patch', changes, makePolicy({ blockedCommands: ['Write'] })).allowed).toBe(false)
+    expect(checkToolUse('apply_patch', changes, makePolicy({ requireApproval: ['Edit'] })).requiresApproval).toBe(true)
+  })
+
+  it('does not let Claude Code tool names pick up Codex aliases', () => {
+    const policy = makePolicy({ blockedCommands: ['apply_patch', 'shell'] })
+    expect(checkToolUse('Write', {}, policy).allowed).toBe(true)
+    expect(checkToolUse('Bash', { command: 'ls' }, policy).allowed).toBe(true)
+  })
+})
+
+describe('extractCommand', () => {
+  it('returns the command for Claude Bash and Codex shell, the tool name otherwise', () => {
+    expect(extractCommand('Bash', { command: 'ls' })).toBe('ls')
+    expect(extractCommand('shell', { command: 'ls' })).toBe('ls')
+    expect(extractCommand('shell', { command: 42 })).toBe('shell')
+    expect(extractCommand('apply_patch', { changes: [] })).toBe('apply_patch')
   })
 })

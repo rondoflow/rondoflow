@@ -2,6 +2,18 @@
 // This module is pure (no I/O) and fully testable in isolation.
 
 import type { ResolvedPolicy } from '@rondoflow/shared'
+import { CODEX_PATCH_TOOL, CODEX_SHELL_TOOL } from './codex-protocol'
+
+// Tools whose `command` input is the shell command they run: Claude Code's
+// `Bash` and the Codex CLI's `shell`.
+const SHELL_TOOLS: ReadonlySet<string> = new Set(['Bash', CODEX_SHELL_TOOL])
+
+// Other providers' tool names also answer to Claude Code's names in tool-level
+// patterns, so a policy written as "Bash", "Write" or "Edit" covers Codex too.
+const TOOL_NAME_ALIASES: Readonly<Record<string, readonly string[]>> = {
+  [CODEX_SHELL_TOOL]: ['Bash'],
+  [CODEX_PATCH_TOOL]: ['Write', 'Edit'],
+}
 
 export interface CheckResult {
   readonly allowed: boolean
@@ -14,7 +26,7 @@ export interface CheckResult {
  * Evaluate a tool invocation against a resolved policy.
  *
  * Evaluation order:
- *   1. Extract the effective command string (Bash → `command` arg; others → toolName)
+ *   1. Extract the effective command string (shell tools → `command` arg; others → toolName)
  *   2. Check blockedCommands — if matched, block immediately
  *   3. Check requireApproval — if matched, allow but flag for human review
  */
@@ -24,9 +36,10 @@ export function checkToolUse(
   resolvedPolicy: ResolvedPolicy,
 ): CheckResult {
   const commandStr = extractCommand(toolName, toolInput)
+  const toolNames = [toolName, ...(TOOL_NAME_ALIASES[toolName] ?? [])]
 
   // --- Blocked commands check ---
-  const blockedMatch = findMatch(commandStr, toolName, resolvedPolicy.blockedCommands)
+  const blockedMatch = findMatch(commandStr, toolNames, resolvedPolicy.blockedCommands)
   if (blockedMatch !== null) {
     return {
       allowed: false,
@@ -37,7 +50,7 @@ export function checkToolUse(
   }
 
   // --- Require-approval check ---
-  const approvalRequired = checkApprovalRequired(commandStr, toolName, resolvedPolicy.requireApproval)
+  const approvalRequired = checkApprovalRequired(commandStr, toolNames, resolvedPolicy.requireApproval)
   if (approvalRequired !== null) {
     return {
       allowed: true,
@@ -56,13 +69,14 @@ export function checkToolUse(
 
 /**
  * Extract a representative command string from the tool invocation.
- * For the Bash tool the meaningful string is the `command` input field.
- * For all other tools we fall back to the tool name itself so that
- * patterns like "Write" or "WebFetch" can be matched.
+ * For shell tools (Claude's Bash, Codex's shell) the meaningful string is the
+ * `command` input field. For all other tools we fall back to the tool name
+ * itself so that patterns like "Write" or "WebFetch" can be matched. Also used
+ * to describe the command in approval requests.
  */
-function extractCommand(toolName: string, toolInput: unknown): string {
+export function extractCommand(toolName: string, toolInput: unknown): string {
   if (
-    toolName === 'Bash' &&
+    SHELL_TOOLS.has(toolName) &&
     toolInput !== null &&
     typeof toolInput === 'object' &&
     'command' in toolInput &&
@@ -84,11 +98,11 @@ function extractCommand(toolName: string, toolInput: unknown): string {
  */
 function findMatch(
   commandStr: string,
-  toolName: string,
+  toolNames: readonly string[],
   patterns: readonly string[],
 ): string | null {
   for (const pattern of patterns) {
-    if (matchesPattern(commandStr, pattern) || matchesPattern(toolName, pattern)) {
+    if (matchesPattern(commandStr, pattern) || toolNames.some((name) => matchesPattern(name, pattern))) {
       return pattern
     }
   }
@@ -109,7 +123,7 @@ function matchesPattern(subject: string, pattern: string): boolean {
  */
 function checkApprovalRequired(
   commandStr: string,
-  toolName: string,
+  toolNames: readonly string[],
   requireApproval: readonly string[] | boolean,
 ): string | null {
   if (requireApproval === true) {
@@ -120,5 +134,5 @@ function checkApprovalRequired(
     return null
   }
 
-  return findMatch(commandStr, toolName, requireApproval)
+  return findMatch(commandStr, toolNames, requireApproval)
 }

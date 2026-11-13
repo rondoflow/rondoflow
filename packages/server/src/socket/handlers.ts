@@ -7,7 +7,7 @@ import { ProcessManager } from '../engine/process-manager'
 import { buildSpawnConfig } from '../engine/prompt-builder'
 import { classifyError } from '../engine/error-types'
 import { resolvePolicy } from '../engine/policy-resolver'
-import { checkToolUse } from '../engine/policy-checker'
+import { checkToolUse, extractCommand } from '../engine/policy-checker'
 import { ApprovalManager } from '../engine/approval-manager'
 import { ModeratorEngine } from '../discussion/moderator'
 import type { AgentRecord } from '../discussion/moderator'
@@ -340,7 +340,7 @@ export function registerSocketHandlers(
 
         if (result.requiresApproval) {
           // Pause the agent and request human approval
-          const commandStr = extractCommandDisplay(payload.toolName, payload.input)
+          const commandStr = extractCommand(payload.toolName, payload.input)
 
           const approvalId = approvalManager.requestApproval({
             agentId,
@@ -1992,23 +1992,6 @@ async function saveMessage(
 // ------------------------------------------------------------------
 // Utility helpers
 // ------------------------------------------------------------------
-
-/**
- * Return the command portion of a tool invocation as a human-readable string.
- * Used for approval descriptions.
- */
-function extractCommandDisplay(toolName: string, toolInput: unknown): string {
-  if (
-    toolName === 'Bash' &&
-    toolInput !== null &&
-    typeof toolInput === 'object' &&
-    'command' in toolInput &&
-    typeof (toolInput as Record<string, unknown>)['command'] === 'string'
-  ) {
-    return (toolInput as Record<string, string>)['command']
-  }
-  return toolName
-}
 
 /**
  * Merge two permission-mode strings, returning the more restrictive one.
