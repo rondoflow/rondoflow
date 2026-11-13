@@ -4,6 +4,16 @@ All notable changes to RondoFlow are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2026-11-13
+
+### Fixed
+
+- Check Codex shell commands against command policies, so `blockedCommands` / `requireApproval` patterns and `Bash` / `Write` / `Edit` rules also apply to Codex assistants (policy) (`1667f16`)
+
+### Documentation
+
+- Document the Codex provider and previously undocumented environment variables in the README and `.env.example` (`ec795ac`)
+
 ## [1.1.0] - 2026-06-25
 
 ### Added
@@ -42,5 +52,6 @@ First public release of RondoFlow — a local-first visual orchestration platfor
 - Internationalized UI (English, Slovak, Spanish, French, German) with enforced locale key parity.
 - Local-first stack: Next.js 14 frontend, Fastify + Socket.IO backend, PostgreSQL 16 + Prisma, orchestrated as an npm + Turborepo monorepo with Docker Compose for the database.
 
+[1.3.1]: https://github.com/rondoflow/rondoflow/compare/v1.3.0...v1.3.1
 [1.1.0]: https://github.com/rondoflow/rondoflow/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/rondoflow/rondoflow/releases/tag/v1.0.0
