@@ -209,13 +209,18 @@ export interface CodexToolCall {
   readonly input: unknown
 }
 
+// Tool names Codex items surface as. The policy checker maps these onto
+// Claude Code's equivalents (Bash / Write / Edit) so one policy covers both.
+export const CODEX_SHELL_TOOL = 'shell'
+export const CODEX_PATCH_TOOL = 'apply_patch'
+
 /** The tool call an item represents, or null for non-tool items. */
 export function codexToolCall(item: CodexItem): CodexToolCall | null {
   switch (item.type) {
     case 'command_execution':
-      return { toolName: 'shell', input: { command: item['command'] } }
+      return { toolName: CODEX_SHELL_TOOL, input: { command: item['command'] } }
     case 'file_change':
-      return { toolName: 'apply_patch', input: { changes: item['changes'] ?? [] } }
+      return { toolName: CODEX_PATCH_TOOL, input: { changes: item['changes'] ?? [] } }
     case 'mcp_tool_call':
       return {
         toolName: `mcp__${String(item['server'] ?? 'unknown')}__${String(item['tool'] ?? 'unknown')}`,
