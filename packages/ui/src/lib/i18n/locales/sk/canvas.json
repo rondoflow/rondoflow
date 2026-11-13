@@ -118,6 +118,7 @@
       "assistant": "Asistent",
       "openaiAssistant": "OpenAI Assistant",
       "perplexityAssistant": "Perplexity Assistant",
+      "codexAssistant": "Codex Assistant",
       "skill": "Zručnosť",
       "safetyRule": "Bezpečnostné pravidlo",
       "resource": "Zdroj",

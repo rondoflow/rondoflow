@@ -4,12 +4,12 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { type NodeProps } from '@xyflow/react'
 import Image from 'next/image'
-import { CheckCircle2, Timer, Sparkles, Globe } from 'lucide-react'
+import { CheckCircle2, Timer, Sparkles, Globe, Terminal } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { getStatusHex, getStatusLabel, type AgentNodeData } from '@/lib/canvas-utils'
 import { ModeBadge } from '@/components/panels/mode-toggle'
 import type { AgentMode } from '@rondoflow/shared'
-import { MODEL_TIERS } from '@rondoflow/shared'
+import { MODEL_TIERS, hasProviderConfig } from '@rondoflow/shared'
 import { NodeShell, NodeField, nodeBoxClass } from './node-shell'
 import { NodeActions } from './node-actions'
 import { TemplateText } from './template-text'
@@ -69,13 +69,14 @@ function ModelBadge({ model }: { model?: string }) {
   )
 }
 
-// ─── Provider badge (API-backed agents) ──────────────────────────────────────
+// ─── Provider badge (non-Claude agents) ──────────────────────────────────────
 
 const PROVIDER_BADGE: Partial<
   Record<NonNullable<AgentNodeData['provider']>, { label: string; icon: typeof Sparkles }>
 > = {
   openai: { label: 'OpenAI', icon: Sparkles },
   perplexity: { label: 'Perplexity', icon: Globe },
+  codex: { label: 'Codex', icon: Terminal },
 }
 
 function ProviderBadge({ provider }: { provider?: AgentNodeData['provider'] }) {
@@ -100,14 +101,16 @@ function AgentNodeComponent(props: NodeProps) {
   const { name, description, message, avatar, status, model, permissionMode, provider, providerConfig, chainState, hasSchedule, branches, skipped } = data
   const statusLabel = getStatusLabel(status)
   const isApiProvider = provider === 'openai' || provider === 'perplexity'
-  // API agents display their own model (or a "Deep Research" marker) and have no
-  // Claude permission mode, so the badge row is driven differently.
-  const displayModel = isApiProvider
+  // Non-Claude agents display their own model (or a "Deep Research" marker).
+  // API agents have no permission mode; Codex does (it picks the sandbox).
+  const displayModel = hasProviderConfig(provider)
     ? providerConfig?.deepResearch
       ? t('node.agent.deepResearch')
       : providerConfig?.model
     : model
-  const hasBadges = Boolean(isApiProvider || displayModel || (permissionMode && permissionMode !== 'default'))
+  const hasBadges = Boolean(
+    hasProviderConfig(provider) || displayModel || (permissionMode && permissionMode !== 'default'),
+  )
 
   const isActive = chainState === 'active'
   const isCompleted = chainState === 'completed'

@@ -67,6 +67,7 @@
     "personaSystemPrompt": "This becomes the system prompt guiding how the assistant behaves.",
     "deepResearchModel": "Deep research runs use a dedicated deep-research model automatically.",
     "perplexitySearches": "Perplexity Sonar models search the web automatically on every run.",
+    "codexCli": "Runs on the Codex CLI installed on this machine. It uses the OpenAI API key from Settings, or your `codex login` session when no key is set.",
     "customModel": "Optional. Enter a full model ID to override the tier above. Leave empty to use the selected tier."
   },
   "toggle": {
@@ -95,6 +96,7 @@
       "description": "Runs without approval prompts"
     },
     "toolsApiNote": "<0>{{provider}}</0> assistants manage their tools (web search, deep research) in the <1>Configure</1> tab. Per-tool file and command permissions don't apply to {{provider}} assistants.",
+    "toolsCodexNote": "<0>Codex</0> assistants don't use per-tool permissions. Their file and command access comes from the sandbox, which follows the permission mode in the Configure tab.",
     "toolsAllNote": "All tools are enabled (autonomous). Choose <1>Balanced</1> above to grant specific tools instead."
   },
   "action": {
@@ -111,7 +113,8 @@
       "disableAria": "Disable agent teams"
     },
     "permissionMode": "Permission Mode",
-    "permissionModeAria": "Permission mode"
+    "permissionModeAria": "Permission mode",
+    "codexSandboxHint": "For Codex this sets the sandbox: Default and Accept Edits allow changes only in the working folder, Full Access turns the sandbox off. Workflow runs never widen it."
   },
   "conversations": {
     "emptyTitle": "No conversations yet",

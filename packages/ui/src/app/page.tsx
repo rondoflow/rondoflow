@@ -658,7 +658,7 @@ export default function Home() {
             scope: [],
             allowedTools: [],
             provider: agent.provider ?? 'claude-code',
-            // API providers (openai/perplexity) require providerConfig server-side.
+            // Configurable providers (openai/perplexity/codex) require providerConfig server-side.
             ...(agent.providerConfig ? { providerConfig: agent.providerConfig } : {}),
           })
           return { ...agent, persistedId: saved.id }

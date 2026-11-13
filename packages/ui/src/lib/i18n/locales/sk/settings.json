@@ -188,7 +188,7 @@
       },
       "openai": {
         "title": "Prístup k OpenAI",
-        "hint": "Používané asistentmi OpenAI. Vytvorte kľúč na platform.openai.com/api-keys. Platí okamžite po uložení."
+        "hint": "Používané asistentmi OpenAI a Codex. Vytvorte kľúč na platform.openai.com/api-keys. Platí okamžite po uložení."
       },
       "perplexity": {
         "title": "Prístup k Perplexity",

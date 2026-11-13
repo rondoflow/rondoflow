@@ -42,7 +42,7 @@ export interface AgentNodeData extends Record<string, unknown> {
   permissionMode?: AgentMode
   /** Which backend runs this agent. Undefined ⇒ treated as 'claude-code'. */
   provider?: AgentProviderId
-  /** OpenAI-specific config (model + tool toggles); only set when provider is 'openai'. */
+  /** Provider config (model + tool toggles); set for openai, perplexity and codex agents. */
   providerConfig?: OpenAIProviderConfig | null
   /** Visual state during chain execution */
   chainState?: ChainNodeState

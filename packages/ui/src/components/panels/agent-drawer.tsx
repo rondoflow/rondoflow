@@ -48,10 +48,10 @@ import {
   type ProviderConfig,
   recommendModel,
   OPENAI_DEFAULT_MODEL,
-  PERPLEXITY_DEFAULT_MODEL,
   providerModels,
   defaultProviderConfig,
-  isApiProvider,
+  hasProviderConfig,
+  toAgentProviderId,
 } from '@rondoflow/shared'
 
 // ---------------------------------------------------------------------------
@@ -199,7 +199,7 @@ function clampPermissionMode(mode: string | null | undefined): PermissionMode {
 }
 
 function defaultApiModel(provider: AgentProviderId): string {
-  return provider === 'perplexity' ? PERPLEXITY_DEFAULT_MODEL : OPENAI_DEFAULT_MODEL
+  return defaultProviderConfig(provider)?.model ?? OPENAI_DEFAULT_MODEL
 }
 
 // Order-insensitive comparison — tool allowlists are sets, not ordered lists.
@@ -268,17 +268,13 @@ function toAgent(r: AgentApiRecord): Agent {
     allowedTools: r.allowedTools ?? [],
     memoryEnabled: r.memoryEnabled ?? false,
     model: r.model ?? null,
-    provider:
-      r.provider === 'openai' || r.provider === 'perplexity'
-        ? (r.provider as AgentProviderId)
-        : 'claude-code',
-    providerConfig:
-      r.provider === 'openai' || r.provider === 'perplexity'
-        ? {
-            ...defaultProviderConfig(r.provider as AgentProviderId)!,
-            ...(r.providerConfig ?? {}),
-          }
-        : null,
+    provider: toAgentProviderId(r.provider),
+    providerConfig: hasProviderConfig(r.provider)
+      ? {
+          ...defaultProviderConfig(toAgentProviderId(r.provider))!,
+          ...(r.providerConfig ?? {}),
+        }
+      : null,
     status: r.status ?? 'idle',
     permissionMode:
       r.permissionMode && AGENT_MODES.has(r.permissionMode as AgentMode)
@@ -371,7 +367,7 @@ function computeUpdates(draft: AgentDraft, agent: Agent): Partial<Agent> {
   if (draft.persona !== agent.persona) updates.persona = draft.persona
   if (draft.purpose !== (agent.purpose ?? 'general')) updates.purpose = draft.purpose
 
-  if (isApiProvider(agent.provider)) {
+  if (hasProviderConfig(agent.provider)) {
     const isPerplexity = agent.provider === 'perplexity'
     const cur = agent.providerConfig
     const providerConfig: ProviderConfig = {
@@ -433,10 +429,10 @@ function SettingsSection({
   readonly onChange: (patch: Partial<AgentDraft>) => void
 }) {
   const { t } = useTranslation('agentDrawer')
-  const apiProvider = isApiProvider(provider)
-  const isPerplexity = provider === 'perplexity'
+  const configurable = hasProviderConfig(provider)
+  const isCodex = provider === 'codex'
   // Perplexity's Sonar models always search, so there is no web-search toggle.
-  const showWebSearchToggle = provider === 'openai'
+  const showWebSearchToggle = provider === 'openai' || isCodex
   const apiModelOptions = providerModels(provider)
 
   const recommendation = recommendModel(draft.purpose)
@@ -519,7 +515,7 @@ function SettingsSection({
 
       <Separator />
 
-      {apiProvider ? (
+      {configurable ? (
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
@@ -549,6 +545,9 @@ function SettingsSection({
                 {t('hint.deepResearchModel')}
               </p>
             )}
+            {isCodex && (
+              <p className="text-[11px] text-muted-foreground">{t('hint.codexCli')}</p>
+            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -568,12 +567,15 @@ function SettingsSection({
                 {t('hint.perplexitySearches')}
               </p>
             )}
-            <ToggleRow
-              label={t('toggle.deepResearch.label')}
-              description={t('toggle.deepResearch.description')}
-              checked={draft.deepResearch}
-              onToggle={toggleDeepResearch}
-            />
+            {/* Deep research is an API-provider feature, not a Codex one. */}
+            {!isCodex && (
+              <ToggleRow
+                label={t('toggle.deepResearch.label')}
+                description={t('toggle.deepResearch.description')}
+                checked={draft.deepResearch}
+                onToggle={toggleDeepResearch}
+              />
+            )}
           </div>
         </div>
       ) : (
@@ -986,7 +988,7 @@ function SafetySection({
   const { t } = useTranslation('agentDrawer')
   const [newScopePath, setNewScopePath] = useState('')
 
-  const apiProvider = isApiProvider(provider)
+  const apiProvider = provider === 'openai' || provider === 'perplexity'
   const providerLabel = provider === 'perplexity' ? 'Perplexity' : 'OpenAI'
   const tools = draft.allowedTools
   const safetyLevel = getSafetyLevel(tools)
@@ -1136,7 +1138,15 @@ function SafetySection({
         <label className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
           {t('common:terms.allowedTools')}
         </label>
-        {apiProvider ? (
+        {provider === 'codex' ? (
+          <p className="text-xs text-muted-foreground">
+            <Trans
+              t={t}
+              i18nKey="safety.toolsCodexNote"
+              components={[<span key="0" className="font-medium text-foreground" />]}
+            />
+          </p>
+        ) : apiProvider ? (
           <p className="text-xs text-muted-foreground">
             <Trans
               t={t}
@@ -1289,9 +1299,11 @@ function McpTab({
 
 function AdvancedSection({
   draft,
+  provider,
   onChange,
 }: {
   readonly draft: AgentDraft
+  readonly provider: AgentProviderId
   readonly onChange: (patch: Partial<AgentDraft>) => void
 }) {
   const { t } = useTranslation('agentDrawer')
@@ -1385,6 +1397,9 @@ function AdvancedSection({
             </button>
           ))}
         </div>
+        {provider === 'codex' && (
+          <p className="text-[11px] text-muted-foreground">{t('advanced.codexSandboxHint')}</p>
+        )}
       </div>
     </div>
   )
@@ -1665,7 +1680,7 @@ export function AgentDrawer({
                         onChange={updateDraft}
                       />
                       <Separator className="my-4" />
-                      <AdvancedSection draft={draft} onChange={updateDraft} />
+                      <AdvancedSection draft={draft} provider={fullAgent.provider} onChange={updateDraft} />
                     </TabsContent>
 
                     {/* Capabilities = Skills + MCP merged */}

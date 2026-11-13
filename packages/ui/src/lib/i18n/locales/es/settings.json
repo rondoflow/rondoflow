@@ -188,7 +188,7 @@
       },
       "openai": {
         "title": "Acceso a OpenAI",
-        "hint": "Utilizado por los asistentes de OpenAI. Cree una clave en platform.openai.com/api-keys. Se aplica de inmediato al guardar."
+        "hint": "Utilizado por los asistentes de OpenAI y Codex. Cree una clave en platform.openai.com/api-keys. Se aplica de inmediato al guardar."
       },
       "perplexity": {
         "title": "Acceso a Perplexity",

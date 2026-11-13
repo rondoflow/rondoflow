@@ -188,7 +188,7 @@
       },
       "openai": {
         "title": "OpenAI-Zugang",
-        "hint": "Wird von OpenAI-Assistenten verwendet. Erstellen Sie einen Schlüssel unter platform.openai.com/api-keys. Wird beim Speichern sofort angewendet."
+        "hint": "Wird von OpenAI- und Codex-Assistenten verwendet. Erstellen Sie einen Schlüssel unter platform.openai.com/api-keys. Wird beim Speichern sofort angewendet."
       },
       "perplexity": {
         "title": "Perplexity-Zugang",

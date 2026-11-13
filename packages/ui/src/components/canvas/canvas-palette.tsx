@@ -1,6 +1,6 @@
 'use client'
 
-import { Bot, Puzzle, Shield, FolderOpen, Plug, StickyNote, Sparkles, Globe, FileOutput, Split, Mail, Table2, Database, Webhook, Search, Waves, Boxes } from 'lucide-react'
+import { Bot, Puzzle, Shield, FolderOpen, Plug, StickyNote, Sparkles, Globe, Terminal, FileOutput, Split, Mail, Table2, Database, Webhook, Search, Waves, Boxes } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { DRAG_TYPES } from '@/lib/canvas-utils'
 import {
@@ -31,6 +31,7 @@ const DRAG_ITEMS: readonly DragItem[] = [
   { icon: Bot, labelKey: 'palette.item.assistant', nodeType: 'agent', mimeType: DRAG_TYPES.AGENT, minTier: 'simple' },
   { icon: Sparkles, labelKey: 'palette.item.openaiAssistant', nodeType: 'agent', mimeType: DRAG_TYPES.AGENT, minTier: 'simple', payload: { provider: 'openai' } },
   { icon: Globe, labelKey: 'palette.item.perplexityAssistant', nodeType: 'agent', mimeType: DRAG_TYPES.AGENT, minTier: 'simple', payload: { provider: 'perplexity' } },
+  { icon: Terminal, labelKey: 'palette.item.codexAssistant', nodeType: 'agent', mimeType: DRAG_TYPES.AGENT, minTier: 'simple', payload: { provider: 'codex' } },
   { icon: Puzzle, labelKey: 'palette.item.skill', nodeType: 'skill', mimeType: DRAG_TYPES.SKILL, minTier: 'simple' },
   { icon: Shield, labelKey: 'palette.item.safetyRule', nodeType: 'safety', mimeType: DRAG_TYPES.POLICY, minTier: 'standard' },
   { icon: FolderOpen, labelKey: 'palette.item.resource', nodeType: 'resource', mimeType: DRAG_TYPES.RESOURCE, minTier: 'standard' },

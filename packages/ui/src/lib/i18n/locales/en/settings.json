@@ -188,7 +188,7 @@
       },
       "openai": {
         "title": "OpenAI access",
-        "hint": "Used by OpenAI assistants. Create a key at platform.openai.com/api-keys. Applies immediately on save."
+        "hint": "Used by OpenAI and Codex assistants. Create a key at platform.openai.com/api-keys. Applies immediately on save."
       },
       "perplexity": {
         "title": "Perplexity access",

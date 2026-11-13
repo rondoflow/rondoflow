@@ -3,12 +3,14 @@
 // Every agent has a `provider`. The default 'claude-code' provider spawns the
 // Claude Code CLI (the original behavior). The 'openai' provider talks to the
 // OpenAI Responses API directly and carries its own per-agent `providerConfig`
-// (chat model + tool toggles). New providers slot in here + a runner factory on
-// the server, without touching the chain/process execution wiring.
+// (chat model + tool toggles). The 'codex' provider spawns OpenAI's Codex CLI —
+// a full coding agent (files, shell, MCP) like Claude Code, configured through
+// the same `providerConfig` shape. New providers slot in here + a runner factory
+// on the server, without touching the chain/process execution wiring.
 
-export type AgentProviderId = 'claude-code' | 'openai' | 'perplexity'
+export type AgentProviderId = 'claude-code' | 'openai' | 'perplexity' | 'codex'
 
-export const AGENT_PROVIDER_IDS = ['claude-code', 'openai', 'perplexity'] as const
+export const AGENT_PROVIDER_IDS = ['claude-code', 'openai', 'perplexity', 'codex'] as const
 
 export const DEFAULT_AGENT_PROVIDER: AgentProviderId = 'claude-code'
 
@@ -18,6 +20,21 @@ export const API_PROVIDERS: readonly AgentProviderId[] = ['openai', 'perplexity'
 
 export function isApiProvider(provider: AgentProviderId | undefined): boolean {
   return provider === 'openai' || provider === 'perplexity'
+}
+
+// Providers whose agents carry a per-agent `providerConfig` (model + tool
+// toggles) instead of a Claude model tier: the API providers plus Codex.
+export const CONFIGURABLE_PROVIDERS: readonly AgentProviderId[] = ['openai', 'perplexity', 'codex']
+
+export function hasProviderConfig(provider: AgentProviderId | string | null | undefined): boolean {
+  return provider === 'openai' || provider === 'perplexity' || provider === 'codex'
+}
+
+// Narrow an untrusted stored/serialized provider string; unknown → Claude Code.
+export function toAgentProviderId(raw: string | null | undefined): AgentProviderId {
+  return (AGENT_PROVIDER_IDS as readonly string[]).includes(raw ?? '')
+    ? (raw as AgentProviderId)
+    : DEFAULT_AGENT_PROVIDER
 }
 
 // ── OpenAI ───────────────────────────────────────────────────────────────────
@@ -59,6 +76,9 @@ export interface ProviderConfig {
   readonly webSearch: boolean
   readonly deepResearch: boolean
   readonly deepResearchModel?: string // optional explicit deep-research override
+  // Codex only, resolved by the server at spawn time from the agent's permission
+  // mode + policies (see codexSandboxForPermissionMode). Never persisted.
+  readonly sandbox?: CodexSandboxMode
 }
 
 /** @deprecated Use the provider-neutral {@link ProviderConfig}. */
@@ -95,14 +115,68 @@ export const DEFAULT_PERPLEXITY_PROVIDER_CONFIG: ProviderConfig = {
   deepResearch: false,
 }
 
-// Resolve the default provider config for any API provider.
+// ── Codex CLI ────────────────────────────────────────────────────────────────
+// OpenAI's Codex CLI (`codex exec --json`) is an agentic coding CLI, the
+// counterpart of Claude Code: it reads/edits files, runs shell commands inside
+// an OS sandbox, and speaks MCP. Per-tool allowlists don't exist — access is
+// governed by the sandbox mode, which the server derives from the agent's
+// permission mode. `webSearch` toggles Codex's built-in web search tool;
+// `deepResearch` does not apply and is always false.
+
+export type CodexSandboxMode = 'read-only' | 'workspace-write' | 'danger-full-access'
+
+// Model slugs from the Codex CLI's bundled model catalog (codex-cli 0.166).
+export const CODEX_MODELS: readonly OpenAIModelOption[] = [
+  { id: 'gpt-6.1-sol', label: 'GPT-6.1 Sol', description: 'Latest workhorse model for coding' },
+  { id: 'gpt-6-astra', label: 'GPT-6 Astra', description: 'Frontier intelligence for demanding work' },
+  { id: 'gpt-6.1-terra', label: 'GPT-6.1 Terra', description: 'Balanced Codex model' },
+  { id: 'gpt-6-sol', label: 'GPT-6 Sol', description: 'Previous generation workhorse' },
+  { id: 'gpt-6-luna', label: 'GPT-6 Luna', description: 'Fast and affordable' },
+  { id: 'gpt-5.6-sol', label: 'GPT-5.6 Sol', description: 'Older generation workhorse' },
+] as const
+
+export const CODEX_DEFAULT_MODEL = 'gpt-6.1-sol'
+
+export const DEFAULT_CODEX_PROVIDER_CONFIG: ProviderConfig = {
+  model: CODEX_DEFAULT_MODEL,
+  webSearch: false,
+  deepResearch: false,
+}
+
+const SANDBOX_STRICTNESS: Record<CodexSandboxMode, number> = {
+  'read-only': 0,
+  'workspace-write': 1,
+  'danger-full-access': 2,
+}
+
+/**
+ * Map a Claude-style permission mode onto a Codex sandbox. Codex never prompts
+ * (approval policy is always "never" headless), so the sandbox is the only
+ * guard: plan → read-only, full access (bypassPermissions) → no sandbox, and
+ * everything else → workspace-write (edit files in the working folder).
+ */
+export function codexSandboxForPermissionMode(mode: string | null | undefined): CodexSandboxMode {
+  if (mode === 'plan') return 'read-only'
+  if (mode === 'bypassPermissions' || mode === 'full') return 'danger-full-access'
+  return 'workspace-write'
+}
+
+/** The more restrictive of two sandbox modes (policy: most restrictive wins). */
+export function stricterCodexSandbox(a: CodexSandboxMode, b: CodexSandboxMode): CodexSandboxMode {
+  return SANDBOX_STRICTNESS[a] <= SANDBOX_STRICTNESS[b] ? a : b
+}
+
+// Resolve the default provider config for any configurable provider.
 export function defaultProviderConfig(provider: AgentProviderId): ProviderConfig | null {
   if (provider === 'openai') return DEFAULT_OPENAI_PROVIDER_CONFIG
   if (provider === 'perplexity') return DEFAULT_PERPLEXITY_PROVIDER_CONFIG
+  if (provider === 'codex') return DEFAULT_CODEX_PROVIDER_CONFIG
   return null
 }
 
-// Model catalog + deep-research model for an API provider (UI dropdowns + runtime).
+// Model catalog for a configurable provider (UI dropdowns + runtime).
 export function providerModels(provider: AgentProviderId): readonly OpenAIModelOption[] {
-  return provider === 'perplexity' ? PERPLEXITY_MODELS : OPENAI_MODELS
+  if (provider === 'perplexity') return PERPLEXITY_MODELS
+  if (provider === 'codex') return CODEX_MODELS
+  return OPENAI_MODELS
 }
