@@ -52,6 +52,7 @@ import {
   defaultProviderConfig,
   hasProviderConfig,
   toAgentProviderId,
+  perplexityEffort,
 } from '@rondoflow/shared'
 
 // ---------------------------------------------------------------------------
@@ -198,6 +199,14 @@ function clampPermissionMode(mode: string | null | undefined): PermissionMode {
   return mode === 'edit' || mode === 'full' ? mode : 'default'
 }
 
+// Stored provider config over the provider defaults. A Perplexity agent saved
+// with a legacy Sonar model id shows (and on save, stores) its effort level.
+function toProviderConfig(r: AgentApiRecord): ProviderConfig {
+  const provider = toAgentProviderId(r.provider)
+  const merged: ProviderConfig = { ...defaultProviderConfig(provider)!, ...(r.providerConfig ?? {}) }
+  return provider === 'perplexity' ? { ...merged, model: perplexityEffort(merged.model) } : merged
+}
+
 function defaultApiModel(provider: AgentProviderId): string {
   return defaultProviderConfig(provider)?.model ?? OPENAI_DEFAULT_MODEL
 }
@@ -269,12 +278,7 @@ function toAgent(r: AgentApiRecord): Agent {
     memoryEnabled: r.memoryEnabled ?? false,
     model: r.model ?? null,
     provider: toAgentProviderId(r.provider),
-    providerConfig: hasProviderConfig(r.provider)
-      ? {
-          ...defaultProviderConfig(toAgentProviderId(r.provider))!,
-          ...(r.providerConfig ?? {}),
-        }
-      : null,
+    providerConfig: hasProviderConfig(r.provider) ? toProviderConfig(r) : null,
     status: r.status ?? 'idle',
     permissionMode:
       r.permissionMode && AGENT_MODES.has(r.permissionMode as AgentMode)
@@ -431,7 +435,7 @@ function SettingsSection({
   const { t } = useTranslation('agentDrawer')
   const configurable = hasProviderConfig(provider)
   const isCodex = provider === 'codex'
-  // Perplexity's Sonar models always search, so there is no web-search toggle.
+  // Perplexity searches at every effort level, so there is no web-search toggle.
   const showWebSearchToggle = provider === 'openai' || isCodex
   const apiModelOptions = providerModels(provider)
 
@@ -532,6 +536,11 @@ function SettingsSection({
                   draft.deepResearch && 'opacity-60',
                 )}
               >
+                {/* A stored model no longer in the catalog (e.g. a retired one)
+                    stays selectable so the select never shows blank. */}
+                {draft.apiModel && !apiModelOptions.some((m) => m.id === draft.apiModel) && (
+                  <option value={draft.apiModel}>{draft.apiModel}</option>
+                )}
                 {apiModelOptions.map((m) => (
                   <option key={m.id} value={m.id}>
                     {m.label}

@@ -233,7 +233,7 @@ describe('buildSpawnConfig — model resolution', () => {
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toBe('claude-opus-4-8')
+    expect(result.model).toBe('claude-opus-5-5')
   })
 
   it('uses purpose-based recommendation when model is null', async () => {
@@ -242,7 +242,7 @@ describe('buildSpawnConfig — model resolution', () => {
 
     const result = await buildSpawnConfig('agent-1')
     // analysis → opus
-    expect(result.model).toBe('claude-opus-4-8')
+    expect(result.model).toBe('claude-opus-5-5')
   })
 
   it('defaults to sonnet when both model and purpose are null', async () => {
@@ -250,7 +250,7 @@ describe('buildSpawnConfig — model resolution', () => {
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toBe('claude-sonnet-4-6')
+    expect(result.model).toBe('claude-sonnet-5-5')
   })
 
   it('uses haiku model when purpose=chat', async () => {
@@ -258,7 +258,7 @@ describe('buildSpawnConfig — model resolution', () => {
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toBe('claude-haiku-4-5')
+    expect(result.model).toBe('claude-haiku-5-5')
   })
 })
 
@@ -391,7 +391,7 @@ describe('buildSpawnConfig — OpenAI provider', () => {
     expect(result.env['CLAUDE_CODE_OAUTH_TOKEN']).toBeUndefined()
   })
 
-  it('deep research auto-switches the resolved model to a deep-research model', async () => {
+  it('deep research auto-switches the resolved model to the deep-research model', async () => {
     const agent = makeAgent({
       provider: 'openai',
       providerConfig: { model: 'gpt-4o', webSearch: false, deepResearch: true },
@@ -399,8 +399,25 @@ describe('buildSpawnConfig — OpenAI provider', () => {
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toContain('deep-research')
+    expect(result.model).toBe('gpt-6.1-sol')
     expect(result.providerConfig?.deepResearch).toBe(true)
+  })
+
+  it('drops a stored override naming a retired OpenAI deep-research model', async () => {
+    const agent = makeAgent({
+      provider: 'openai',
+      providerConfig: {
+        model: 'gpt-6-luna',
+        webSearch: false,
+        deepResearch: true,
+        deepResearchModel: 'o4-mini-deep-research-2025-06-26',
+      },
+    })
+    mockFindUnique.mockResolvedValueOnce(agent as never)
+
+    const result = await buildSpawnConfig('agent-1')
+    expect(result.model).toBe('gpt-6.1-sol')
+    expect(result.providerConfig?.deepResearchModel).toBeUndefined()
   })
 
   it('falls back to defaults when providerConfig is missing', async () => {
@@ -440,19 +457,31 @@ describe('buildSpawnConfig — Perplexity provider', () => {
     else process.env['PERPLEXITY_API_KEY'] = ORIGINAL_KEY
   })
 
-  it('returns provider "perplexity" with the selected sonar model and no Claude tools', async () => {
+  it('returns provider "perplexity" with the selected effort level and no Claude tools', async () => {
     const agent = makeAgent({
       provider: 'perplexity',
       persona: 'You research things.',
-      providerConfig: { model: 'sonar-pro', webSearch: true, deepResearch: false },
+      providerConfig: { model: 'medium', webSearch: true, deepResearch: false },
     })
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
     expect(result.provider).toBe('perplexity')
     expect(result.systemPrompt).toBe('You research things.')
-    expect(result.model).toBe('sonar-pro')
+    expect(result.model).toBe('medium')
     expect(result.allowedTools).toEqual([])
+  })
+
+  it('maps a legacy Sonar model id to its Agent API effort level', async () => {
+    const agent = makeAgent({
+      provider: 'perplexity',
+      providerConfig: { model: 'sonar-pro', webSearch: true, deepResearch: false },
+    })
+    mockFindUnique.mockResolvedValueOnce(agent as never)
+
+    const result = await buildSpawnConfig('agent-1')
+    expect(result.model).toBe('fast')
+    expect(result.providerConfig?.model).toBe('fast')
   })
 
   it('forwards PERPLEXITY_API_KEY in env (and not Claude/OpenAI credentials)', async () => {
@@ -468,15 +497,15 @@ describe('buildSpawnConfig — Perplexity provider', () => {
     expect(result.env['ANTHROPIC_API_KEY']).toBeUndefined()
   })
 
-  it('deep research auto-switches to the sonar-deep-research model', async () => {
+  it('deep research auto-switches to the high effort level', async () => {
     const agent = makeAgent({
       provider: 'perplexity',
-      providerConfig: { model: 'sonar', webSearch: true, deepResearch: true },
+      providerConfig: { model: 'fast', webSearch: true, deepResearch: true },
     })
     mockFindUnique.mockResolvedValueOnce(agent as never)
 
     const result = await buildSpawnConfig('agent-1')
-    expect(result.model).toBe('sonar-deep-research')
+    expect(result.model).toBe('high')
     expect(result.providerConfig?.deepResearch).toBe(true)
   })
 })

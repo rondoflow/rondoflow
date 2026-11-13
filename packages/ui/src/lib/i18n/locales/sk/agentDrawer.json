@@ -60,13 +60,13 @@
     "name": "Názov asistenta",
     "description": "Čo tento asistent robí?",
     "persona": "Si nápomocný asistent, ktorý...",
-    "customModel": "claude-opus-4-5",
+    "customModel": "claude-opus-5-5",
     "scopePath": "/cesta/k/adresáru"
   },
   "hint": {
     "personaSystemPrompt": "Toto sa stane systémovým promptom, ktorý určuje, ako sa asistent správa.",
-    "deepResearchModel": "Behy hĺbkového výskumu automaticky používajú vyhradený model pre hĺbkový výskum.",
-    "perplexitySearches": "Modely Perplexity Sonar automaticky vyhľadávajú na webe pri každom behu.",
+    "deepResearchModel": "Hĺbkový výskum sa automaticky prepne na silnejšie nastavenie pre výskum.",
+    "perplexitySearches": "Perplexity vyhľadáva na webe automaticky pri každej úrovni effort. Vyššie úrovne robia viac krokov a čerpajú z viac zdrojov.",
     "codexCli": "Beží na Codex CLI nainštalovanom na tomto počítači. Používa OpenAI API kľúč z Nastavení, alebo vaše prihlásenie cez `codex login`, ak kľúč nie je nastavený.",
     "customModel": "Voliteľné. Zadajte úplné ID modelu, ktoré prepíše úroveň vyššie. Ponechajte prázdne, ak chcete použiť vybranú úroveň."
   },
@@ -77,7 +77,7 @@
     },
     "deepResearch": {
       "label": "Hĺbkový výskum",
-      "description": "Používa vyhradený model pre hĺbkový výskum. Pomalší a nákladnejší a automaticky zapína vyhľadávanie na webe."
+      "description": "Prepne na silnejšie nastavenie pre výskum s viacerými krokmi. Pomalší a nákladnejší a automaticky zapína vyhľadávanie na webe."
     }
   },
   "safety": {

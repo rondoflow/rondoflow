@@ -3,7 +3,9 @@
 // Maps the Responses streaming events onto the spawner event contract so the
 // chain executor and process manager drive it identically. Tools are driven by
 // the agent's providerConfig: `webSearch` adds the web_search tool;
-// `deepResearch` auto-switches to a deep-research model with web search forced.
+// `deepResearch` switches to a deep-research model (a frontier GPT-6 model —
+// OpenAI retired its dedicated deep-research models) with web search forced on
+// and high reasoning effort.
 // Lifecycle (key resolution, abort, completion) lives in StreamingApiRunner.
 
 import OpenAI from 'openai'
@@ -11,26 +13,17 @@ import type { TokenUsage, ProviderConfig } from '@rondoflow/shared'
 import {
   DEFAULT_OPENAI_PROVIDER_CONFIG,
   DEFAULT_OPENAI_DEEP_RESEARCH_MODEL,
+  RETIRED_OPENAI_DEEP_RESEARCH_MODELS,
 } from '@rondoflow/shared'
 import type { SpawnOptions } from './spawner'
 import { StreamingApiRunner } from './streaming-runner'
+import { OPENAI_FALLBACK_RATE, OPENAI_PRICING_PER_MTOK } from './pricing'
 
 // Deep-research runs are agentic and can take many minutes; give them a wide
 // client timeout. Regular chat completes far sooner but we keep a generous cap.
 const DEEP_RESEARCH_TIMEOUT_MS = 30 * 60_000
 const DEFAULT_TIMEOUT_MS = 10 * 60_000
 
-// Coarse per-model pricing (USD per 1M tokens) used only to estimate cost for
-// the `usage` event — the Responses API does not return a dollar figure.
-const OPENAI_PRICING_PER_MTOK: Record<string, { input: number; output: number }> = {
-  'gpt-4.1': { input: 2, output: 8 },
-  'gpt-4.1-mini': { input: 0.4, output: 1.6 },
-  'gpt-4o': { input: 2.5, output: 10 },
-  'o4-mini': { input: 1.1, output: 4.4 },
-  'o4-mini-deep-research-2025-06-26': { input: 2, output: 8 },
-  'o3-deep-research-2025-06-26': { input: 10, output: 40 },
-}
-const FALLBACK_PRICING = { input: 2, output: 8 }
 
 export class OpenAIRunner extends StreamingApiRunner {
   protected readonly apiKeyEnvVar = 'OPENAI_API_KEY'
@@ -45,10 +38,14 @@ export class OpenAIRunner extends StreamingApiRunner {
     tools: Array<{ type: string }>
   } {
     if (cfg.deepResearch) {
-      // Deep-research models require the web_search_preview tool + a data source.
+      // A stored override naming a retired deep-research model would 404.
+      const override =
+        cfg.deepResearchModel && !RETIRED_OPENAI_DEEP_RESEARCH_MODELS.includes(cfg.deepResearchModel)
+          ? cfg.deepResearchModel
+          : undefined
       return {
-        model: cfg.deepResearchModel ?? DEFAULT_OPENAI_DEEP_RESEARCH_MODEL,
-        tools: [{ type: 'web_search_preview' }],
+        model: override ?? DEFAULT_OPENAI_DEEP_RESEARCH_MODEL,
+        tools: [{ type: 'web_search' }],
       }
     }
     const tools: Array<{ type: string }> = []
@@ -79,8 +76,8 @@ export class OpenAIRunner extends StreamingApiRunner {
       instructions,
       input: message,
       ...(tools.length > 0 ? { tools } : {}),
-      // Deep-research models surface their progress through reasoning summaries.
-      ...(cfg.deepResearch ? { reasoning: { summary: 'auto' } } : {}),
+      // Deep research reasons harder and surfaces progress via reasoning summaries.
+      ...(cfg.deepResearch ? { reasoning: { effort: 'high', summary: 'auto' } } : {}),
       ...(this.lastResponseId ? { previous_response_id: this.lastResponseId } : {}),
     }
 
@@ -122,7 +119,7 @@ export class OpenAIRunner extends StreamingApiRunner {
               outputTokens,
               estimatedCostUsd: StreamingApiRunner.estimateCost(
                 OPENAI_PRICING_PER_MTOK,
-                FALLBACK_PRICING,
+                OPENAI_FALLBACK_RATE,
                 model,
                 inputTokens,
                 outputTokens,

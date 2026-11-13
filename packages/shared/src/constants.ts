@@ -45,9 +45,9 @@ export const SOCKET = {
  * suffix). An alias always resolves to the latest snapshot of its tier.
  */
 export const CLAUDE_MODELS = {
-  opus: 'claude-opus-4-8',
-  sonnet: 'claude-sonnet-4-6',
-  haiku: 'claude-haiku-4-5',
+  opus: 'claude-opus-5-5',
+  sonnet: 'claude-sonnet-5-5',
+  haiku: 'claude-haiku-5-5',
 } as const
 
 /** Anthropic / Claude API constants used for direct (non-CLI) API calls. */
@@ -109,7 +109,7 @@ export const TIMEOUTS = {
   DIRECTOR_EVAL_MAX_SEC: 600,
 
   // External provider runners
-  /** Perplexity Sonar default client timeout (server: engine/perplexity-runner.ts). */
+  /** Perplexity Agent API default client timeout (server: engine/perplexity-runner.ts). */
   PERPLEXITY_DEFAULT_MS: 10 * 60_000,
   /** Perplexity deep-research client timeout. */
   PERPLEXITY_DEEP_RESEARCH_MS: 30 * 60_000,

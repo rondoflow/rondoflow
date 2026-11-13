@@ -234,4 +234,11 @@ describe('estimateCodexCostUsd', () => {
     expect(cached).toBeLessThan(full)
     expect(estimateCodexCostUsd({})).toBe(0)
   })
+
+  it('prices by the run model', () => {
+    const usage = { input_tokens: 1_000_000, cached_input_tokens: 0, output_tokens: 1_000_000 }
+    expect(estimateCodexCostUsd(usage, 'gpt-6-astra')).toBe(60) // 10 + 50
+    expect(estimateCodexCostUsd(usage, 'gpt-6-luna')).toBeCloseTo(0.6, 10) // 0.1 + 0.5
+    expect(estimateCodexCostUsd(usage)).toBe(12) // default GPT-6.1 Sol: 2 + 10
+  })
 })

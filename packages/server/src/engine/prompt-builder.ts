@@ -7,6 +7,8 @@ import { SKILL_CATALOG } from '@rondoflow/catalog'
 import {
   DEFAULT_OPENAI_PROVIDER_CONFIG,
   DEFAULT_OPENAI_DEEP_RESEARCH_MODEL,
+  RETIRED_OPENAI_DEEP_RESEARCH_MODELS,
+  perplexityEffort,
   DEFAULT_PERPLEXITY_PROVIDER_CONFIG,
   PERPLEXITY_DEEP_RESEARCH_MODEL,
   CLAUDE_MODELS,
@@ -144,10 +146,14 @@ export async function buildSpawnConfig(agentId: string, workspaceId?: string): P
     const stored = ((agent as { providerConfig?: unknown }).providerConfig ??
       {}) as Partial<ProviderConfig>
     const providerConfig: ProviderConfig = {
-      model: stored.model ?? defaults.model,
+      // Perplexity agents store an Agent API effort level (legacy Sonar ids map).
+      model:
+        provider === 'perplexity'
+          ? perplexityEffort(stored.model ?? defaults.model)
+          : stored.model ?? defaults.model,
       webSearch: stored.webSearch ?? defaults.webSearch,
       deepResearch: stored.deepResearch ?? defaults.deepResearch,
-      ...(stored.deepResearchModel ? { deepResearchModel: stored.deepResearchModel } : {}),
+      ...apiDeepResearchOverride(provider, stored.deepResearchModel),
     }
     // Resolved model is for usage labelling — the runner re-resolves it too.
     const modelId = providerConfig.deepResearch
@@ -359,6 +365,17 @@ export async function buildSpawnConfig(agentId: string, workspaceId?: string): P
 // ------------------------------------------------------------------
 // Helpers
 // ------------------------------------------------------------------
+
+// A stored deep-research override, normalized: Perplexity's maps to an effort
+// level, and OpenAI's is dropped when it names a retired deep-research model.
+function apiDeepResearchOverride(
+  provider: AgentProviderId,
+  stored: string | undefined,
+): { deepResearchModel?: string } {
+  if (!stored) return {}
+  if (provider === 'perplexity') return { deepResearchModel: perplexityEffort(stored) }
+  return RETIRED_OPENAI_DEEP_RESEARCH_MODELS.includes(stored) ? {} : { deepResearchModel: stored }
+}
 
 function claudeCredentialEnv(): Record<string, string> {
   const oauthToken = process.env['CLAUDE_CODE_OAUTH_TOKEN']

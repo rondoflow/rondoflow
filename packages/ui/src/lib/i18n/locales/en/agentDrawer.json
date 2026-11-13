@@ -60,13 +60,13 @@
     "name": "Assistant name",
     "description": "What does this assistant do?",
     "persona": "You are a helpful assistant that...",
-    "customModel": "claude-opus-4-5",
+    "customModel": "claude-opus-5-5",
     "scopePath": "/path/to/directory"
   },
   "hint": {
     "personaSystemPrompt": "This becomes the system prompt guiding how the assistant behaves.",
-    "deepResearchModel": "Deep research runs use a dedicated deep-research model automatically.",
-    "perplexitySearches": "Perplexity Sonar models search the web automatically on every run.",
+    "deepResearchModel": "Deep research automatically switches to a stronger research setup.",
+    "perplexitySearches": "Perplexity searches the web automatically at every effort level. Higher levels take more steps and sources.",
     "codexCli": "Runs on the Codex CLI installed on this machine. It uses the OpenAI API key from Settings, or your `codex login` session when no key is set.",
     "customModel": "Optional. Enter a full model ID to override the tier above. Leave empty to use the selected tier."
   },
@@ -77,7 +77,7 @@
     },
     "deepResearch": {
       "label": "Deep research",
-      "description": "Uses a dedicated deep-research model. Slower and costlier, and turns on web search automatically."
+      "description": "Switches to a stronger research setup with more steps. Slower and costlier, and turns on web search automatically."
     }
   },
   "safety": {

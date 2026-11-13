@@ -145,16 +145,35 @@ describe('OpenAIRunner', () => {
     expect(mockState.lastBody?.['tools']).toEqual([{ type: 'web_search' }])
   })
 
-  it('deep research forces a deep-research model and web_search_preview', async () => {
+  it('deep research switches to the deep-research model with web search and high effort', async () => {
     mockState.events = [{ type: 'response.completed', response: { id: 'resp-1' } }]
 
     await runAndWait(
       new OpenAIRunner(),
-      baseOptions({ providerConfig: { model: 'gpt-4o', webSearch: false, deepResearch: true } }),
+      baseOptions({ providerConfig: { model: 'gpt-6-luna', webSearch: false, deepResearch: true } }),
     )
 
-    expect(String(mockState.lastBody?.['model'])).toContain('deep-research')
-    expect(mockState.lastBody?.['tools']).toEqual([{ type: 'web_search_preview' }])
+    expect(mockState.lastBody?.['model']).toBe('gpt-6.1-sol')
+    expect(mockState.lastBody?.['tools']).toEqual([{ type: 'web_search' }])
+    expect(mockState.lastBody?.['reasoning']).toEqual({ effort: 'high', summary: 'auto' })
+  })
+
+  it('ignores a stored override naming a retired deep-research model', async () => {
+    mockState.events = [{ type: 'response.completed', response: { id: 'resp-1' } }]
+
+    await runAndWait(
+      new OpenAIRunner(),
+      baseOptions({
+        providerConfig: {
+          model: 'gpt-6-luna',
+          webSearch: false,
+          deepResearch: true,
+          deepResearchModel: 'o3-deep-research-2025-06-26',
+        },
+      }),
+    )
+
+    expect(mockState.lastBody?.['model']).toBe('gpt-6.1-sol')
   })
 
   it('emits an error when OPENAI_API_KEY is missing', async () => {

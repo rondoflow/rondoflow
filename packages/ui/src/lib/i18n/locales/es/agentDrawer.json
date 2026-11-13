@@ -60,13 +60,13 @@
     "name": "Nombre del asistente",
     "description": "¿Qué hace este asistente?",
     "persona": "Eres un asistente útil que...",
-    "customModel": "claude-opus-4-5",
+    "customModel": "claude-opus-5-5",
     "scopePath": "/ruta/al/directorio"
   },
   "hint": {
     "personaSystemPrompt": "Esto se convierte en la instrucción del sistema que guía el comportamiento del asistente.",
-    "deepResearchModel": "Las ejecuciones de investigación profunda usan automáticamente un modelo de investigación profunda dedicado.",
-    "perplexitySearches": "Los modelos Perplexity Sonar buscan en la web automáticamente en cada ejecución.",
+    "deepResearchModel": "La investigación profunda cambia automáticamente a una configuración de investigación más potente.",
+    "perplexitySearches": "Perplexity busca en la web automáticamente en todos los niveles de esfuerzo. Los niveles más altos dan más pasos y consultan más fuentes.",
     "codexCli": "Se ejecuta en el Codex CLI instalado en este equipo. Usa la clave de API de OpenAI de Ajustes, o su sesión de `codex login` si no hay ninguna clave configurada.",
     "customModel": "Opcional. Introduzca un ID de modelo completo para anular el nivel anterior. Déjelo vacío para usar el nivel seleccionado."
   },
@@ -77,7 +77,7 @@
     },
     "deepResearch": {
       "label": "Investigación profunda",
-      "description": "Usa un modelo de investigación profunda dedicado. Más lento y costoso, y activa la búsqueda web automáticamente."
+      "description": "Cambia a una configuración de investigación más potente con más pasos. Más lento y costoso, y activa la búsqueda web automáticamente."
     }
   },
   "safety": {

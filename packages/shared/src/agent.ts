@@ -18,7 +18,7 @@ export interface Agent {
   readonly allowedTools: readonly string[]
   readonly memoryEnabled: boolean
   // The Claude model the agent runs on. Usually a {@link ModelTier} preset
-  // ('opus' | 'sonnet' | 'haiku'), but a full model id (e.g. 'claude-opus-4-8')
+  // ('opus' | 'sonnet' | 'haiku'), but a full model id (e.g. 'claude-opus-5-5')
   // is also allowed and forwarded verbatim to the CLI's --model flag.
   readonly model: ModelTier | string | null
   readonly provider: AgentProviderId

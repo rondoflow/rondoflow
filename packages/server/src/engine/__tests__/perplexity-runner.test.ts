@@ -1,12 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 // ---------------------------------------------------------------------------
-// Mock the openai SDK. PerplexityRunner uses the OpenAI client pointed at the
-// Perplexity base URL via chat.completions.create({ stream: true }).
+// Mock the openai SDK. PerplexityRunner posts to Perplexity's Agent API through
+// the OpenAI client's generic post('/agent', { body, stream: true }).
 // ---------------------------------------------------------------------------
 const mockState = vi.hoisted(() => ({
-  chunks: [] as Array<Record<string, unknown>>,
+  events: [] as Array<Record<string, unknown>>,
   throwError: null as Error | null,
+  lastPath: null as string | null,
   lastBody: null as Record<string, unknown> | null,
   lastClientOpts: null as Record<string, unknown> | null,
 }))
@@ -20,18 +21,15 @@ vi.mock('openai', () => {
   }
   class MockOpenAI {
     static APIUserAbortError = APIUserAbortError
-    chat = {
-      completions: {
-        create: (body: Record<string, unknown>) => {
-          mockState.lastBody = body
-          return Promise.resolve({
-            async *[Symbol.asyncIterator]() {
-              if (mockState.throwError) throw mockState.throwError
-              for (const chunk of mockState.chunks) yield chunk
-            },
-          })
+    post(path: string, opts: { body: Record<string, unknown> }) {
+      mockState.lastPath = path
+      mockState.lastBody = opts.body
+      return Promise.resolve({
+        async *[Symbol.asyncIterator]() {
+          if (mockState.throwError) throw mockState.throwError
+          for (const event of mockState.events) yield event
         },
-      },
+      })
     }
     constructor(opts: Record<string, unknown>) {
       mockState.lastClientOpts = opts
@@ -60,14 +58,18 @@ function baseOptions(overrides: Partial<SpawnOptions> = {}): SpawnOptions {
     message: 'What happened today?',
     systemPrompt: 'You are a researcher.',
     provider: 'perplexity',
-    providerConfig: { model: 'sonar', webSearch: true, deepResearch: false },
+    providerConfig: { model: 'fast', webSearch: true, deepResearch: false },
     env: { PERPLEXITY_API_KEY: 'pplx-test-123' },
     ...overrides,
   }
 }
 
-function chunk(content?: string, extra: Record<string, unknown> = {}): Record<string, unknown> {
-  return { choices: [{ delta: content !== undefined ? { content } : {} }], ...extra }
+function delta(text: string): Record<string, unknown> {
+  return { type: 'response.output_text.delta', delta: text }
+}
+
+function completed(usage: Record<string, unknown>): Record<string, unknown> {
+  return { type: 'response.completed', response: { id: 'resp-1', usage } }
 }
 
 function runAndWait(runner: PerplexityRunner, opts: SpawnOptions): Promise<Settled> {
@@ -105,64 +107,94 @@ function runAndWait(runner: PerplexityRunner, opts: SpawnOptions): Promise<Settl
 }
 
 beforeEach(() => {
-  mockState.chunks = []
+  mockState.events = []
   mockState.throwError = null
+  mockState.lastPath = null
   mockState.lastBody = null
   mockState.lastClientOpts = null
 })
 
 describe('PerplexityRunner', () => {
-  it('streams text deltas and emits usage + completion + search tool activity', async () => {
-    mockState.chunks = [
-      chunk('The '),
-      chunk('answer.'),
-      chunk(undefined, { usage: { prompt_tokens: 80, completion_tokens: 20 } }),
+  it('streams text deltas and emits search tool activity, usage and completion', async () => {
+    mockState.events = [
+      { type: 'response.reasoning.search_queries', queries: ['news today'] },
+      {
+        type: 'response.reasoning.search_results',
+        results: [{ id: 1, title: 'A', url: 'https://example.com/a', snippet: 'long text' }],
+      },
+      delta('The '),
+      delta('answer.'),
+      completed({ input_tokens: 80, output_tokens: 20, cost: { total_cost: 0.0042 } }),
     ]
 
     const result = await runAndWait(new PerplexityRunner(), baseOptions())
 
     expect(result.texts).toEqual(['The ', 'answer.'])
-    expect(result.usage).toMatchObject({ inputTokens: 80, outputTokens: 20 })
-    expect(result.usage!.estimatedCostUsd).toBeGreaterThan(0)
-    expect(result.toolUses).toBeGreaterThanOrEqual(1)
-    expect(result.toolResults).toBeGreaterThanOrEqual(1)
+    expect(result.toolUses).toBe(1)
+    expect(result.toolResults).toBe(1)
+    expect(result.lastToolResult).toEqual({ results: [{ title: 'A', url: 'https://example.com/a' }] })
+    // The API's own cost (includes tool calls) wins over the token estimate.
+    expect(result.usage).toEqual({ inputTokens: 80, outputTokens: 20, estimatedCostUsd: 0.0042 })
     expect(result.completed).toBe(true)
     expect(result.error).toBeUndefined()
   })
 
-  it('targets the Perplexity base URL with the selected sonar model', async () => {
-    mockState.chunks = [chunk('hi')]
-
-    await runAndWait(
-      new PerplexityRunner(),
-      baseOptions({ providerConfig: { model: 'sonar-pro', webSearch: true, deepResearch: false } }),
-    )
-
-    expect(mockState.lastClientOpts?.['baseURL']).toBe('https://api.perplexity.ai')
-    expect(mockState.lastBody?.['model']).toBe('sonar-pro')
-  })
-
-  it('deep research uses the sonar-deep-research model', async () => {
-    mockState.chunks = [chunk('report')]
-
-    await runAndWait(
-      new PerplexityRunner(),
-      baseOptions({ providerConfig: { model: 'sonar', webSearch: true, deepResearch: true } }),
-    )
-
-    expect(mockState.lastBody?.['model']).toBe('sonar-deep-research')
-  })
-
-  it('surfaces citations in the search tool_result', async () => {
-    mockState.chunks = [
-      chunk('answer', { citations: ['https://example.com/a', 'https://example.com/b'] }),
-    ]
+  it('estimates cost from tokens when the response has no cost block', async () => {
+    mockState.events = [delta('hi'), completed({ input_tokens: 1_000_000, output_tokens: 1_000_000 })]
 
     const result = await runAndWait(new PerplexityRunner(), baseOptions())
 
-    expect(result.lastToolResult).toMatchObject({
-      citations: ['https://example.com/a', 'https://example.com/b'],
+    expect(result.usage!.estimatedCostUsd).toBeCloseTo(0.6, 10) // fast → gpt-6-luna: 0.1 + 0.5
+  })
+
+  it('posts to the Agent API with the effort level, instructions and transcript', async () => {
+    mockState.events = [delta('hi')]
+
+    await runAndWait(
+      new PerplexityRunner(),
+      baseOptions({ providerConfig: { model: 'medium', webSearch: true, deepResearch: false } }),
+    )
+
+    expect(mockState.lastClientOpts?.['baseURL']).toBe('https://api.perplexity.ai/v1')
+    expect(mockState.lastPath).toBe('/agent')
+    expect(mockState.lastBody).toMatchObject({
+      effort: 'medium',
+      instructions: 'You are a researcher.',
+      input: [{ type: 'message', role: 'user', content: 'What happened today?' }],
+      stream: true,
     })
+    expect(mockState.lastBody).not.toHaveProperty('model')
+  })
+
+  it('maps a legacy Sonar model id to its effort level', async () => {
+    mockState.events = [delta('hi')]
+
+    await runAndWait(
+      new PerplexityRunner(),
+      baseOptions({ providerConfig: { model: 'sonar-reasoning-pro', webSearch: true, deepResearch: false } }),
+    )
+
+    expect(mockState.lastBody?.['effort']).toBe('low')
+  })
+
+  it('deep research uses the high effort level', async () => {
+    mockState.events = [delta('report')]
+
+    await runAndWait(
+      new PerplexityRunner(),
+      baseOptions({ providerConfig: { model: 'fast', webSearch: true, deepResearch: true } }),
+    )
+
+    expect(mockState.lastBody?.['effort']).toBe('high')
+  })
+
+  it('reports a failed response as an error', async () => {
+    mockState.events = [delta('par'), { type: 'response.failed', error: { message: 'quota exceeded' } }]
+
+    const result = await runAndWait(new PerplexityRunner(), baseOptions())
+
+    expect(result.error?.message).toContain('quota exceeded')
+    expect(result.completed).toBe(false)
   })
 
   it('emits an error when PERPLEXITY_API_KEY is missing', async () => {

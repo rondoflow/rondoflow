@@ -18,6 +18,7 @@ import {
 import type { SpawnOptions } from './spawner'
 import type { MergedMcpConfig } from './mcp-config-builder'
 import { baseChildEnv, filterChildExtras } from './cli-process'
+import { openaiRate } from './pricing'
 
 // Instructions (persona + skills + workspace context) up to this size are sent
 // as `-c developer_instructions=…`. Larger ones are prepended to the stdin
@@ -270,19 +271,13 @@ export interface CodexUsage {
   readonly output_tokens?: number
 }
 
-// Rough list-price estimate (USD per 1M tokens) for cost tracking only. Codex
+// List-price estimate for cost tracking only, at the run's model rate. Codex
 // reports tokens, not dollars, and a ChatGPT-plan login isn't billed per token.
 // OpenAI counts cached tokens inside input_tokens, billed at a discount.
-const CODEX_RATE_PER_MTOK = { input: 1.25, cachedInput: 0.125, output: 10 }
-
-export function estimateCodexCostUsd(usage: CodexUsage): number {
+export function estimateCodexCostUsd(usage: CodexUsage, model?: string): number {
+  const rate = openaiRate(model)
   const input = usage.input_tokens ?? 0
   const cached = Math.min(usage.cached_input_tokens ?? 0, input)
   const output = usage.output_tokens ?? 0
-  return (
-    ((input - cached) * CODEX_RATE_PER_MTOK.input +
-      cached * CODEX_RATE_PER_MTOK.cachedInput +
-      output * CODEX_RATE_PER_MTOK.output) /
-    1_000_000
-  )
+  return ((input - cached) * rate.input + cached * rate.cachedInput + output * rate.output) / 1_000_000
 }

@@ -129,9 +129,9 @@ configurable from the side panel.
 
 | Provider | Models | Notes |
 |----------|--------|-------|
-| **Claude Code** *(default)* | Opus / Sonnet / Haiku tiers | Runs the local CLI; full tool, MCP, and skill access |
-| **OpenAI** | GPT / o-series | API-based; optional web search |
-| **Perplexity** | Sonar family | API-based; web-grounded research |
+| **Claude Code** *(default)* | Opus / Sonnet / Haiku 5.5 tiers | Runs the local CLI; full tool, MCP, and skill access |
+| **OpenAI** | GPT-6 / GPT-6.1 family | API-based; optional web search and deep research |
+| **Perplexity** | Agent API effort levels (fast / low / medium; high for deep research) | API-based; web-grounded research |
 | **Codex** | GPT-6 / GPT-6.1 family | Runs OpenAI's local Codex CLI; files, shell, MCP, optional web search. Needs `npm install -g @openai/codex` |
 
 The Workflow Generator picks a sensible model per agent automatically - you can always change it.

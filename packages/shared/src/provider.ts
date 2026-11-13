@@ -48,28 +48,41 @@ export interface OpenAIModelOption {
 // Curated chat models offered in the agent editor. The stored value is the raw
 // model id sent to the Responses API, so the list can grow without code changes
 // elsewhere.
+// GPT-6 family as of Nov 2026 (developers.openai.com pricing + deprecations).
+// gpt-5 / gpt-5-mini / gpt-5-nano shut down on Dec 11, 2026; the drawer still
+// shows an agent's stored id when it isn't in this list.
 export const OPENAI_MODELS: readonly OpenAIModelOption[] = [
-  { id: 'gpt-5.1', label: 'GPT-5.1', description: 'Most capable general model' },
-  { id: 'gpt-5', label: 'GPT-5', description: 'Flagship reasoning model' },
-  { id: 'gpt-5-mini', label: 'GPT-5 mini', description: 'Balanced speed and quality' },
-  { id: 'gpt-5-nano', label: 'GPT-5 nano', description: 'Fastest, most cost-efficient' },
+  { id: 'gpt-6-astra', label: 'GPT-6 Astra', description: 'Most capable, for complex reasoning and research' },
+  { id: 'gpt-6.1-sol', label: 'GPT-6.1 Sol', description: 'Near-Astra quality at lower cost' },
+  { id: 'gpt-6.1-terra', label: 'GPT-6.1 Terra', description: 'Balanced speed and quality' },
+  { id: 'gpt-6-luna', label: 'GPT-6 Luna', description: 'Fastest, most cost-efficient' },
 ] as const
 
-export const OPENAI_DEFAULT_MODEL = 'gpt-5-mini'
+export const OPENAI_DEFAULT_MODEL = 'gpt-6.1-terra'
 
-// Deep-research models. When `deepResearch` is toggled on, the request is
-// auto-switched to one of these and web search is forced on. Default = faster.
+// Deep-research models. OpenAI shut down its dedicated deep-research models
+// (o3/o4-mini-deep-research) on Jul 23, 2026, so deep research now runs a
+// frontier model with web search forced on and high reasoning effort.
+// Default = faster.
 export const OPENAI_DEEP_RESEARCH_MODELS: readonly OpenAIModelOption[] = [
-  { id: 'o4-mini-deep-research-2025-06-26', label: 'Deep Research (fast)' },
-  { id: 'o3-deep-research-2025-06-26', label: 'Deep Research (thorough)' },
+  { id: 'gpt-6.1-sol', label: 'Deep Research (fast)' },
+  { id: 'gpt-6-astra', label: 'Deep Research (thorough)' },
 ] as const
 
-export const DEFAULT_OPENAI_DEEP_RESEARCH_MODEL = 'o4-mini-deep-research-2025-06-26'
+export const DEFAULT_OPENAI_DEEP_RESEARCH_MODEL = 'gpt-6.1-sol'
+
+// Retired deep-research model ids, ignored if still stored as an override.
+export const RETIRED_OPENAI_DEEP_RESEARCH_MODELS: readonly string[] = [
+  'o3-deep-research',
+  'o3-deep-research-2025-06-26',
+  'o4-mini-deep-research',
+  'o4-mini-deep-research-2025-06-26',
+]
 
 // Per-agent config for an API-backed provider, stored in Agent.providerConfig
 // (Json column). Shared by every API provider (OpenAI, Perplexity, …): a model
 // id plus tool toggles. `webSearch` is ignored by providers whose model always
-// searches (e.g. Perplexity Sonar). `deepResearch` auto-switches the request to
+// searches (e.g. Perplexity). `deepResearch` auto-switches the request to
 // the provider's deep-research model.
 export interface ProviderConfig {
   readonly model: string // chat model id (ignored when deepResearch is on)
@@ -91,27 +104,57 @@ export const DEFAULT_OPENAI_PROVIDER_CONFIG: ProviderConfig = {
 }
 
 // ── Perplexity ───────────────────────────────────────────────────────────────
-// Perplexity's Sonar API is OpenAI-compatible (chat completions) at
-// https://api.perplexity.ai. Every Sonar model searches the web natively, so
-// there is no separate web-search toggle — `deepResearch` switches to the
-// dedicated deep-research model.
+// Perplexity's Agent API (POST https://api.perplexity.ai/v1/agent) replaced
+// Sonar Chat Completions, whose support ended on Sep 27, 2026. A request names
+// an `effort` level instead of a Sonar model; the level picks the underlying
+// model, step budget and tools, and every level searches the web, so there is
+// no web-search toggle. For Perplexity agents `providerConfig.model` holds the
+// effort level, and `deepResearch` switches to the `high` level.
 
 export const PERPLEXITY_MODELS: readonly OpenAIModelOption[] = [
-  { id: 'sonar', label: 'Sonar', description: 'Fast, cost-effective search' },
-  { id: 'sonar-pro', label: 'Sonar Pro', description: 'Production-quality multi-source synthesis' },
-  { id: 'sonar-reasoning', label: 'Sonar Reasoning', description: 'Chain-of-thought reasoning' },
-  { id: 'sonar-reasoning-pro', label: 'Sonar Reasoning Pro', description: 'Advanced analytical reasoning' },
+  { id: 'fast', label: 'Fast', description: 'One quick search: facts, definitions, short summaries' },
+  { id: 'low', label: 'Low', description: 'Everyday research with light multi-step lookups' },
+  { id: 'medium', label: 'Medium', description: 'Multi-hop research across many sources' },
 ] as const
 
-export const PERPLEXITY_DEFAULT_MODEL = 'sonar'
+export const PERPLEXITY_DEFAULT_MODEL = 'fast'
 
-export const PERPLEXITY_DEEP_RESEARCH_MODEL = 'sonar-deep-research'
+export const PERPLEXITY_DEEP_RESEARCH_MODEL = 'high'
 
 export const PERPLEXITY_BASE_URL = 'https://api.perplexity.ai'
 
+// Every effort level the Agent API accepts (a level may be pinned as
+// `name@latest` or `name@<version>`).
+const PERPLEXITY_EFFORT_LEVELS: ReadonlySet<string> = new Set([
+  'fast',
+  'low',
+  'medium',
+  'high',
+  'xhigh',
+  'ultra',
+])
+
+// Sonar model ids stored on agents created before the Agent API, mapped as in
+// Perplexity's migration guide. sonar-reasoning (retired earlier) follows its
+// Pro sibling.
+const SONAR_MODEL_EFFORT: Readonly<Record<string, string>> = {
+  sonar: 'fast',
+  'sonar-pro': 'fast',
+  'sonar-reasoning': 'low',
+  'sonar-reasoning-pro': 'low',
+  'sonar-deep-research': 'high',
+}
+
+/** The Agent API effort level for a stored Perplexity model value. */
+export function perplexityEffort(value: string | null | undefined): string {
+  if (!value) return PERPLEXITY_DEFAULT_MODEL
+  if (PERPLEXITY_EFFORT_LEVELS.has(value.split('@')[0] ?? '')) return value
+  return SONAR_MODEL_EFFORT[value] ?? PERPLEXITY_DEFAULT_MODEL
+}
+
 export const DEFAULT_PERPLEXITY_PROVIDER_CONFIG: ProviderConfig = {
   model: PERPLEXITY_DEFAULT_MODEL,
-  webSearch: true, // Sonar models always search; kept true for shape consistency
+  webSearch: true, // every effort level searches; kept true for shape consistency
   deepResearch: false,
 }
 
@@ -125,14 +168,16 @@ export const DEFAULT_PERPLEXITY_PROVIDER_CONFIG: ProviderConfig = {
 
 export type CodexSandboxMode = 'read-only' | 'workspace-write' | 'danger-full-access'
 
-// Model slugs from the Codex CLI's bundled model catalog (codex-cli 0.166).
+// Current Codex models (OpenAI Codex models page, Nov 2026), default first.
+// The last two are previous generations the CLI still serves. GPT-6.1 Terra
+// needs codex-cli 0.159.0 or later.
 export const CODEX_MODELS: readonly OpenAIModelOption[] = [
-  { id: 'gpt-6.1-sol', label: 'GPT-6.1 Sol', description: 'Latest workhorse model for coding' },
-  { id: 'gpt-6-astra', label: 'GPT-6 Astra', description: 'Frontier intelligence for demanding work' },
-  { id: 'gpt-6.1-terra', label: 'GPT-6.1 Terra', description: 'Balanced Codex model' },
-  { id: 'gpt-6-sol', label: 'GPT-6 Sol', description: 'Previous generation workhorse' },
-  { id: 'gpt-6-luna', label: 'GPT-6 Luna', description: 'Fast and affordable' },
-  { id: 'gpt-5.6-sol', label: 'GPT-5.6 Sol', description: 'Older generation workhorse' },
+  { id: 'gpt-6.1-sol', label: 'GPT-6.1 Sol', description: 'Near-Astra performance at lower cost, for long-running tasks' },
+  { id: 'gpt-6-astra', label: 'GPT-6 Astra', description: 'Most capable, for complex work across code, apps and research' },
+  { id: 'gpt-6.1-terra', label: 'GPT-6.1 Terra', description: 'Fast and efficient: writing, visual understanding, computer use' },
+  { id: 'gpt-6-luna', label: 'GPT-6 Luna', description: 'Most efficient, for focused high-volume tasks' },
+  { id: 'gpt-6-sol', label: 'GPT-6 Sol', description: 'Previous generation' },
+  { id: 'gpt-5.6-sol', label: 'GPT-5.6 Sol', description: 'Older generation' },
 ] as const
 
 export const CODEX_DEFAULT_MODEL = 'gpt-6.1-sol'

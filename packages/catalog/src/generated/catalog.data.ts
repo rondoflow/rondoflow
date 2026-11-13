@@ -28038,7 +28038,7 @@ export const WORKSPACE_PRESETS: readonly WorkspacePreset[] = [
         "model": "sonnet",
         "provider": "perplexity",
         "providerConfig": {
-          "model": "sonar-pro",
+          "model": "fast",
           "webSearch": true,
           "deepResearch": false
         },
@@ -28054,7 +28054,7 @@ export const WORKSPACE_PRESETS: readonly WorkspacePreset[] = [
         "model": "sonnet",
         "provider": "openai",
         "providerConfig": {
-          "model": "gpt-4.1",
+          "model": "gpt-6.1-terra",
           "webSearch": true,
           "deepResearch": false
         },

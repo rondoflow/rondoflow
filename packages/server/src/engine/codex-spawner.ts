@@ -25,6 +25,7 @@ import {
   codexToolOutput,
   estimateCodexCostUsd,
   mcpConfigArgs,
+  resolveCodexConfig,
   resolveCodexSandbox,
   type CodexItem,
   type CodexUsage,
@@ -381,7 +382,7 @@ export class CodexSpawner extends EventEmitter implements AgentRunner {
     this.emit('usage', {
       inputTokens: usage.input_tokens ?? 0,
       outputTokens: usage.output_tokens ?? 0,
-      estimatedCostUsd: estimateCodexCostUsd(usage),
+      estimatedCostUsd: estimateCodexCostUsd(usage, resolveCodexConfig(this._options?.providerConfig).model),
     })
   }
 
