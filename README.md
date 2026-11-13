@@ -30,13 +30,13 @@ team execute in real time.
 
 - 🧩 **Visual multi-agent canvas** - drag agents, skills, safety rules, resources, and MCP
   connections onto a [React Flow](https://reactflow.dev) board and connect them into a workflow.
-- 🤖 **Real agents that *do* things** - agents are Claude Code CLI subprocesses, not just chat
-  completions. They edit code, run tools, and stream their work back live.
+- 🤖 **Real agents that *do* things** - agents are Claude Code or Codex CLI subprocesses, not just
+  chat completions. They edit code, run tools, and stream their work back live.
 - 🎯 **AI that steers the run** - a **Director** evaluates each step mid-run and decides whether
   to continue, retry, or conclude; a **Planner** tunes the team before it starts; an **Advisor**
   reviews the result afterward.
-- 🔌 **Multi-provider** - mix **Claude Code** (local CLI), **OpenAI**, and **Perplexity** agents
-  in the same workflow.
+- 🔌 **Multi-provider** - mix **Claude Code** and **Codex** (local CLIs), **OpenAI**, and
+  **Perplexity** agents in the same workflow.
 - 🔒 **Local-first & policy-governed** - runs on your machine, talks to your files, and gates
   risky actions behind a three-layer safety model. Nothing leaves your box except the model API
   calls you configure.
@@ -87,6 +87,10 @@ This starts five containers:
 Then open **[http://localhost:3000](http://localhost:3000)**.
 
 > Docker mode needs **Docker Desktop only** - Node.js is not required on the host.
+>
+> The server image ships the Claude Code CLI only. To run **Codex** assistants, use local
+> development mode with the Codex CLI installed, or add `npm install -g @openai/codex` to
+> `packages/server/Dockerfile`.
 
 ### First run
 
@@ -128,6 +132,7 @@ configurable from the side panel.
 | **Claude Code** *(default)* | Opus / Sonnet / Haiku tiers | Runs the local CLI; full tool, MCP, and skill access |
 | **OpenAI** | GPT / o-series | API-based; optional web search |
 | **Perplexity** | Sonar family | API-based; web-grounded research |
+| **Codex** | GPT-6 / GPT-6.1 family | Runs OpenAI's local Codex CLI; files, shell, MCP, optional web search. Needs `npm install -g @openai/codex` |
 
 The Workflow Generator picks a sensible model per agent automatically - you can always change it.
 
@@ -161,7 +166,9 @@ you can install more from any Git repository.
 
 Three layers of policies - **global**, **per-agent**, and **per-session** - control what agents
 may do. The most restrictive policy always wins, risky commands require your approval, and budget
-limits prevent runaway costs. See [SECURITY.md](SECURITY.md) for the full model.
+limits prevent runaway costs. Codex assistants additionally run inside the Codex CLI's OS
+sandbox, derived from the agent's permission mode (read-only, workspace-write, or full access).
+See [SECURITY.md](SECURITY.md) for the full model.
 
 ### Users & roles
 
@@ -238,6 +245,8 @@ npm run dev:docs   # http://localhost:3002/docs
 | `RONDOFLOW_ADMIN_PASSWORD` | With email | Password for the bootstrap admin - set alongside the email, then rotate after first login |
 | `RONDOFLOW_ADMIN_NAME` | No | Display name for the bootstrap admin (default `Administrator`) |
 | `ANTHROPIC_API_KEY` *or* `CLAUDE_CODE_OAUTH_TOKEN` | For agents | Claude credential (setup token wins if both set) |
+| `OPENAI_API_KEY` | For OpenAI / Codex | OpenAI assistants; also forwarded to Codex assistants (also settable in Settings) |
+| `PERPLEXITY_API_KEY` | For Perplexity | Perplexity assistants (also settable in Settings) |
 | `CLAUDE_CODE_ENABLE_TELEMETRY` / `OTEL_METRICS_EXPORTER` / `OTEL_LOGS_EXPORTER` / `OTEL_EXPORTER_OTLP_PROTOCOL` | No | Enable Claude Code telemetry export when spawning agents |
 | `OTEL_ENDPOINT` / `AUTH_TOKEN` / `USER_EMAIL` | No | Convenience source vars used to derive `OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_EXPORTER_OTLP_HEADERS`, and `OTEL_RESOURCE_ATTRIBUTES` |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` / `OTEL_EXPORTER_OTLP_HEADERS` / `OTEL_RESOURCE_ATTRIBUTES` | No | Direct telemetry overrides forwarded to Claude Code if you prefer to set OTEL values explicitly |
@@ -248,8 +257,13 @@ npm run dev:docs   # http://localhost:3002/docs
 > `RONDOFLOW_ADMIN_EMAIL` and `RONDOFLOW_ADMIN_PASSWORD` are both set, the seed step (`npm run
 > db:seed`, run for you by `npm run setup`) creates the first admin; leave both blank to skip.
 
-OpenAI and Perplexity API keys are configured in the app's Settings (instance-wide, shared by all
-agents of that provider).
+OpenAI and Perplexity API keys can be set in `.env` or in the app's **Settings → Credentials**
+(instance-wide, shared by all agents of that provider; a DB-stored value overrides `.env`).
+
+**Codex** assistants run OpenAI's Codex CLI, which must be on the server's `PATH`
+(`npm install -g @openai/codex`). They use `OPENAI_API_KEY` (or `CODEX_API_KEY`, which takes
+precedence); with neither set, they fall back to the CLI's own `codex login` session, e.g. a
+ChatGPT plan. Set `CODEX_HOME` if that login lives somewhere other than `~/.codex`.
 
 ### Email (SMTP)
 
@@ -276,6 +290,10 @@ encrypted). Leave `SMTP_HOST` blank to disable.
 | `EXTERNAL_FOLDERS_HOST_PATH` / `EXTERNAL_FOLDERS_CONTAINER_ROOT` | `./external` / `/external` | Host directory bind-mounted into the server container, and the in-container root mounted folders resolve under (backs external-folder mounts) |
 | `RONDOFLOW_SPAWN_IDLE_TIMEOUT_MS` / `RONDOFLOW_SPAWN_MAX_MS` | `300000` / `0` | Kill a run after this many ms with no stream events / absolute wall-clock cap per spawn (`0` disables) |
 | `RONDOFLOW_TEARDOWN_ON_DISCONNECT` / `RONDOFLOW_TEARDOWN_GRACE_MS` | `1` / `60000` | Tear down a user's in-flight runs after their last tab disconnects, following a grace window |
+| `MAX_CONCURRENT_AGENTS` | `5` | Directly started agents that run at once (further starts queue); workflow runs aren't limited by it |
+| `RONDOFLOW_DEBUG_SPAWN` | - | `1` logs the full agent CLI lifecycle (Claude Code and Codex): args, masked credential, stream events, stderr, exit code |
+| `CODEX_HOME` | `~/.codex` | Where the Codex CLI's `codex login` credentials live |
+| `SAKANA_API_KEY` / `APIFY_TOKEN` | - | Credentials for the Sakana AI and Apify Actor canvas nodes |
 
 
 ## Development
@@ -329,13 +347,16 @@ flowchart LR
         CC["Claude Code CLI<br/>subprocess"]
         OAI["OpenAI API"]
         PPX["Perplexity API"]
+        CDX["Codex CLI<br/>subprocess"]
     end
 
     Chain --> CC
     Chain --> OAI
     Chain --> PPX
+    Chain --> CDX
     Engine <-->|Prisma| DB[("PostgreSQL")]
     CC -.->|tools, files, MCP| Host[("Your machine")]
+    CDX -.->|tools, files, MCP| Host
 ```
 
 A run streams back live - here's the flow for a single Claude Code agent step:
