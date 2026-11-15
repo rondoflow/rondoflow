@@ -1,6 +1,6 @@
 import { appendFile, mkdir, readFile, rm, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
-import { join } from 'path'
+import { join, resolve, relative } from 'path'
 import { homedir } from 'os'
 import { randomUUID } from 'crypto'
 import { LIMITS } from '@rondoflow/shared'
@@ -84,7 +84,13 @@ export async function deleteFile(workspaceId: string, storedName: string, workin
   validateWorkspaceId(workspaceId)
   validateFileName(storedName)
 
-  const filePath = join(getWorkspaceFilesDir(workspaceId, workingDirectory), storedName)
+  const baseDir = resolve(getWorkspaceFilesDir(workspaceId, workingDirectory))
+  const filePath = resolve(baseDir, storedName)
+  const relativePath = relative(baseDir, filePath)
+  if (relativePath.startsWith('..') || relativePath === '' || relativePath.startsWith('/') || relativePath.startsWith('\\')) {
+    throw new Error(`Resolved path escapes workspace directory: "${storedName}"`)
+  }
+
   await rm(filePath, { force: true })
 }
 
